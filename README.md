@@ -1,14 +1,14 @@
-# Video Summaries
+# Daily Summaries
 
 A daily-built archive of summaries and narrated podcast episodes.
 
 ## Live site
 
-https://az9713.github.io/video-summaries/
+https://az9713.github.io/daily-summaries/
 
 ## Layout
 
-- `index.html` — the master index (this file list, newest day first)
+- `index.html` — the master index (newest day first)
 - `YYYY-MM-DD.html` — one page per day, each holding that day's summaries as tabs (e.g. `2026-09-17.html`, `2026-09-18.html`, `2026-09-19.html`)
 - `podcasts/` — the narrated MP3 episodes
 
