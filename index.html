@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>Summaries &mdash; September 19, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(10, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div>
+        <p class="date">Saturday &middot; September 19, 2026</p>
+        <h1>Two videos, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+
+    <div class="tabs-wrap">
+      <nav class="tabs" role="tablist" aria-label="Summaries">
+        <button class="tab" id="tab-treasury" role="tab" aria-selected="true" aria-controls="panel-treasury" tabindex="0" data-target="treasury"><span class="num">01</span>Treasury moves</button>
+        <button class="tab" id="tab-aijobs" role="tab" aria-selected="false" aria-controls="panel-aijobs" tabindex="-1" data-target="aijobs"><span class="num">02</span>AI and jobs</button>
+      </nav>
+    </div>
+
+    <section class="panel active" id="panel-treasury" role="tabpanel" aria-labelledby="tab-treasury" data-panel="treasury">
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Hoover Institution</dd></div>
+        <div><dt>Duration</dt><dd>21:32</dd></div>
+        <div><dt>Published</dt><dd>September 18, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=R449Km1s6j4" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Markets &middot; Treasury &middot; fiscal policy</p>
+        <h2>Recent US Treasury Interventions in Bond and FX Markets</h2>
+        <p class="dek">A Chicago Booth economist argues the Treasury&rsquo;s unusual yen and bond-market interventions are really about one thing&mdash;borrowing costs&mdash;and that tough talk without action won&rsquo;t move markets that trade on fundamentals.</p>
+        <div class="body-copy">
+          <p>In &ldquo;Recent US Treasury Interventions in Bond and FX Markets,&rdquo; a Hoover Institution interviewer sits down with Chicago Booth economist Anil Kashyap to unpack two unusual moves by Treasury Secretary Scott Bessent. First, the Treasury intervened in foreign-exchange markets to prop up the Japanese yen&mdash;spending dollars, some of it parked at the European Central Bank, to buy yen, the first time the United States has supported another country&rsquo;s currency this way since the Plaza Accord era. The stated reason was to keep Japan from having to sell Treasuries to fund its own yen purchases. The deeper reason, Kashyap argues, is the connective tissue between both interventions: the Secretary is worried about American borrowing costs. Second, a little over a week ago, the Treasury bought back long-maturity Treasury bonds&mdash;unremarkable in itself, but done off the regular pre-announced schedule, breaking the long-standing mantra of &ldquo;regular and predictable&rdquo; auctions. On top of that, Bessent has pointed to a large Treasury cash account at the Fed and hinted it could be deployed if long yields misbehave&mdash;markets have started calling it the &ldquo;shadow Treasury rate.&rdquo;</p>
+          <p>Kashyap&rsquo;s verdict on effectiveness is blunt: the yen is back where it was when they intervened. Tough talk not backed by action doesn&rsquo;t last&mdash;markets adjust and revert to fundamentals. For the yen to durably strengthen, Japan would need to tighten monetary policy; for bond yields to durably fall, the United States would need a credible fiscal package. Instead the fundamentals point the other way. The 30-year Treasury sits at a 19-year high, the economy is at full employment, deficits are still large, and the One Big Beautiful Bill, he says, &ldquo;surely did not pay for itself.&rdquo; Japan&rsquo;s new prime minister campaigned on spending&mdash;a supposedly temporary consumption-tax cut on food plus rearmament&mdash;with vague plans to pay for it, which pressures the yen downward. Both countries&rsquo; debt-service costs are rate-sensitive: Japan&rsquo;s net debt is around 160% of GDP versus roughly 100% for the United States, so each percentage point of higher yields costs Japan an extra 1.6% of GDP. Japan at least has an escape valve America lacks&mdash;room to raise its consumption tax toward European levels&mdash;though raising it has historically ended prime ministers&rsquo; careers.</p>
+          <p>The conversation closes on politics and the Fed. Kashyap is gloomy about self-correction: Ken Rogoff&rsquo;s line from the symposium&mdash;fiscal repair &ldquo;won&rsquo;t happen without a crisis&rdquo;&mdash;gets a nod, though Social Security&rsquo;s cash-flow trigger in about six years could force a grand bargain. On Fed Chair Kevin Warsh&rsquo;s much-anticipated Jackson Hole speech, Kashyap gives a grade of &ldquo;incomplete&rdquo;: Warsh filled in his framework&mdash;policy not currently restrictive, the inflation trend &ldquo;unacceptable&rdquo;&mdash;but committed to &ldquo;a discipline, not a decision,&rdquo; offering no forward guidance. If the next FOMC meeting brings no action, Warsh will have to explain clearly what changed, with dissents likely either way.</p>
+          <p>If interventions only work when fundamentals move, was the yen operation ever more than a signal&mdash;and to whom? Does floating a &ldquo;shadow Treasury rate&rdquo; strengthen the Treasury&rsquo;s hand, or erode the regular-and-predictable commitment the bond market depends on? And if fiscal repair really requires a crisis, what does the bond market&rsquo;s forcing mechanism look like&mdash;a failed auction, a ratings shock, or something slower?</p>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full transcript of the episode, copied from YouTube&rsquo;s &ldquo;Show transcript&rdquo; panel via a real browser session (the caption endpoints were bot-walled)&mdash;not in a viewing of the video itself. The captions are the auto-dubbed track, so machine-transcription errors in names and terms are the transcript&rsquo;s, preserved where the meaning was unclear.</p>
+      </article>
+    </section>
+
+    <section class="panel" id="panel-aijobs" role="tabpanel" aria-labelledby="tab-aijobs" data-panel="aijobs">
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Perfology Clips</dd></div>
+        <div><dt>Duration</dt><dd>1:01:11</dd></div>
+        <div><dt>Published</dt><dd>September 19, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=50TeOTaQ_h8" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; economics &middot; growth</p>
+        <h2>Stanford Professor&rsquo;s Deep Dive | The Future of Jobs in an AI World</h2>
+        <p class="dek">A Stanford growth economist runs the models on AI and jobs: growth probably explodes, but weak links make the explosion slower than Silicon Valley thinks&mdash;and the same weak links make the downside arrive faster.</p>
+        <div class="body-copy">
+          <p>In &ldquo;Stanford Professor&rsquo;s Deep Dive | The Future of Jobs in an AI World,&rdquo; posted by Perfology Clips, Stanford economist Chad Jones&mdash;fifteen years into studying economic growth&mdash;lays out two caricatures of the AI future and the research that sits between them. Scenario one is Silicon Valley&rsquo;s: AI automates software engineering (he notes Claude Opus 4.5 already beat every human ever on Anthropic&rsquo;s own hiring exam), then AI research itself, then everything a remote worker does over Zoom&mdash;scaled across millions of GPUs into &ldquo;a country of geniuses in a data center,&rdquo; as Dario Amodei put it&mdash;designing chips, robots, and drugs until robots run by superintelligence automate physical work too, and growth explodes. Scenario two is business as usual: AI as the latest in a line&mdash;electricity, transistors, semiconductors, the internet. The puzzle he keeps returning to: 150 years of wildly transformative technologies, and American living standards rose 2% a year the entire time, never straying far from the line. Each technology didn&rsquo;t bend the curve up; it kept the curve from bending down. Maybe AI just buys another fifty years of 2%. And history warns that transformations take decades&mdash;reorganizing the factory for electric motors, inventing the spreadsheet and the database for IT.</p>
+          <p>The concept that reconciles the two scenarios is <strong>weak links</strong>. A chain is only as strong as its weakest link, and every business is a chain of tasks&mdash;design the iPhone, source the parts, manufacture to micron tolerances, deliver a hundred million units; one failure and the value is lost, like the Challenger&rsquo;s O-ring or a single ASML defect. His favorite illustration: you carry a hundred million times the transistors of the 1970s in your pocket, yet you&rsquo;re not a hundred million times more productive at research&mdash;you&rsquo;re bottlenecked by deciding what data to use and what questions to ask. Weak links are also the source of scarcity, and scarcity is what earns high returns. The data point: the share of GDP paid as a return to computers peaked just under 4.5% in 2000 and has since fallen by a third to 3%&mdash;computers got plentiful, humans stayed scarce.</p>
+          <p>His model&mdash;ideas driving growth &agrave; la Paul Romer, production functions with weak links, automation arriving endogenously, calibrated to US data back to the 1950s&mdash;delivers an elegant rule: automating one task raises GDP by that task&rsquo;s share of GDP. Infinite software? Software is about 2% of GDP, so we&rsquo;d be 2% richer. The simulations: in the baseline, growth accelerates but stunningly slowly&mdash;2.3% by 2050, 4% richer by mid-century. Full automation sends growth to infinity; reserving 3% of tasks for humans (chess for Carlsen, soccer for Messi) flips the labor share to 100%&mdash;humans become the weak link. Even an aggressive &ldquo;Moore&rsquo;s law everywhere&rdquo; scenario needs roughly thirty years for the explosion to complete. So growth explodes in every scenario, but slower than &ldquo;explosion&rdquo; sounds&mdash;and for the next 75 years you couldn&rsquo;t tell which world you&rsquo;re in.</p>
+          <p>On jobs: a job is a bundle of tasks, and automating 75 of 100 can raise wages, because the remaining tasks become the scarce weak link. Exhibit A: in 2016 Geoffrey Hinton said stop training radiologists; today there are more radiologists, better paid&mdash;AI made them more productive. (Uber drivers, he concedes, are probably gone in a decade&mdash;though Waymo shows even &ldquo;simple&rdquo; physical automation takes twenty-plus years.) On inequality he is cautiously optimistic: a world of explosive growth is a world of abundance with plenty to redistribute&mdash;and since AI is automating cognitive elites first, it may even compress inequality in the short term. But he is &ldquo;very nervous&rdquo; about catastrophic risk, and weak links cut both ways: slow to improve, fragile on the downside. One jailbroken model in a bad actor&rsquo;s hands&mdash;a virus deadlier than Ebola, a hacked grid or banking system&mdash;and one broken link destroys the value. His closing advice for the young: management endures, because some human has to make the final call&mdash;and own shares of the S&amp;P 500.</p>
+          <p>If weak links delay the upside but hasten the downside, is &ldquo;we have thirty years to prepare&rdquo; the wrong lesson? Which tasks are truly reserved for humans&mdash;is the 3% stable, or does the frontier keep eating it? And if the lasting human edge is judgment and management, what does the economy look like for everyone who isn&rsquo;t a manager?</p>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full transcript of the episode, copied from YouTube&rsquo;s &ldquo;Show transcript&rdquo; panel via a real browser session (the caption endpoints were bot-walled)&mdash;not in a viewing of the video itself. The captions are the auto-dubbed track, so machine-transcription errors in names and terms are the transcript&rsquo;s, preserved where the meaning was unclear.</p>
+      </article>
+    </section>
+
+    <footer>
+      <span>Summaries dated September 19, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+
+<script>
+    (() => {
+      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+      const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+
+      function activate(name, moveFocus = false) {
+        tabs.forEach((tab) => {
+          const selected = tab.dataset.target === name;
+          tab.setAttribute('aria-selected', String(selected));
+          tab.tabIndex = selected ? 0 : -1;
+          if (selected && moveFocus) tab.focus();
+        });
+        panels.forEach((panel) => {
+          const selected = panel.dataset.panel === name;
+          panel.classList.toggle('active', selected);
+          panel.hidden = !selected;
+        });
+        if (history.replaceState) history.replaceState(null, '', `#${name}`);
+      }
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activate(tab.dataset.target));
+        tab.addEventListener('keydown', (event) => {
+          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+          event.preventDefault();
+          let next = index;
+          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+          if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+          if (event.key === 'Home') next = 0;
+          if (event.key === 'End') next = tabs.length - 1;
+          activate(tabs[next].dataset.target, true);
+        });
+      });
+
+      const fromHash = location.hash.slice(1);
+      if (tabs.some((tab) => tab.dataset.target === fromHash)) activate(fromHash);
+    })();
+  </script>
+</body>
+</html>
