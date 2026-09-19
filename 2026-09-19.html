@@ -114,7 +114,7 @@
 
     .tabs {
       display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-template-columns: repeat(7, minmax(0, 1fr));
       gap: 6px;
     }
 
@@ -338,7 +338,7 @@
     <header class="masthead">
       <div>
         <p class="date">Saturday &middot; September 19, 2026</p>
-        <h1>Six videos, distilled.</h1>
+        <h1>Seven summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -351,6 +351,7 @@
         <button class="tab" id="tab-ghodsi" role="tab" aria-selected="false" aria-controls="panel-ghodsi" tabindex="-1" data-target="ghodsi"><span class="num">04</span>CEO playbook</button>
         <button class="tab" id="tab-gurley" role="tab" aria-selected="false" aria-controls="panel-gurley" tabindex="-1" data-target="gurley"><span class="num">05</span>Searching for Feynman</button>
         <button class="tab" id="tab-prog" role="tab" aria-selected="false" aria-controls="panel-prog" tabindex="-1" data-target="prog"><span class="num">06</span>Programming feels different</button>
+        <button class="tab" id="tab-rsi" role="tab" aria-selected="false" aria-controls="panel-rsi" tabindex="-1" data-target="rsi"><span class="num">07</span>RSI</button>
       </nav>
     </div>
 
@@ -491,10 +492,36 @@
       </article>
     </section>
 
+    <section class="panel" id="panel-rsi" role="tabpanel" aria-labelledby="tab-rsi" data-panel="rsi">
+      <dl class="meta">
+        <div><dt>Publication</dt><dd>Interconnects</dd></div>
+        <div><dt>Author</dt><dd>Nathan Lambert</dd></div>
+        <div><dt>Published</dt><dd>September 19, 2026</dd></div>
+        <a class="watch" href="https://www.interconnects.ai/p/where-i-stand-on-rsi" target="_blank" rel="noopener noreferrer">Read the piece</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; AI safety &middot; recursive self-improvement</p>
+        <h2>Why I still haven&rsquo;t bought into true RSI</h2>
+        <p class="dek">Lambert&rsquo;s &ldquo;AI moderate&rdquo; take on recursive self-improvement: don&rsquo;t confuse the shock of thousands of agents at work with an intelligence explosion&mdash;lossy self-improvement is the baseline, and the extinction-risk discourse is misplaced.</p>
+        <div class="body-copy">
+          <p>Interconnects&rsquo; Nathan Lambert, in &ldquo;Why I still haven&rsquo;t bought into true RSI,&rdquo; argues that the AI world is confusing the shock of scale for an intelligence explosion&mdash;and that the distinction matters for how seriously we take the current wave of extinction-risk anxiety. He writes from the vantage of someone watching the frontier labs, OpenAI and Anthropic in particular, put thousands of concurrent agents to work improving their own processes and output. In the last few weeks, he has been pondering what it means for so many employees across these organizations to rapidly update their expectations for the pace of AI progress and the risks attached to it. His core perspective is that the frontier labs and the broader frenetic, competitive culture of the San Francisco AI scene set up an environment that amplifies any AI concern. That amplification has some benefit&mdash;fear sells, and more general awareness of AI is a good thing&mdash;but exaggerating risk timelines or severity carries negative second-order effects. He remembers the loud AI safety debates of 2023 and 2024, and the clouds they cast over the viability of open-source AI: the primary risks forecasted then did not arrive in the forecasted timelines.</p>
+          <p>The cultural precondition, he argues, is that the general populace of the two key labs was already very anxious about AI risks and the rate of progress a year ago, and especially as agents got strong product-market fit at the start of 2026. Expose that precondition to the reality of thousands of agents working fairly productively inside your business, and the anxiety only rises. The step from that anxiety&mdash;plus incidents like the OpenAI-HuggingFace episode&mdash;to extinction risk, he writes, feels very religious. He borrows an apt summary of the situation from Richard Ngo: a large proportion of the AI safety community is now implicitly or explicitly orienting to futures where an intelligence explosion occurs within a few years. Ngo&rsquo;s default expectation is that they will turn out to be directionally correct relative to almost anyone outside the community, but factually wrong&mdash;no superintelligence within the next eight years, but things moving so fast it will feel like the short-timeliners were right. Ngo wrote, Lambert notes, because the bandwagoning toward &ldquo;singularity soon&rdquo; is getting pretty wild.</p>
+          <p>Lambert&rsquo;s own answer is his alternate scenario to true recursive self-improvement, which he calls lossy self-improvement. It rests on three claims. First, automatable research is too narrow to achieve a massive net acceleration in progress, in the face of scaling laws&rsquo; exponential costs. Second, diminishing returns from more AI agents in parallel are real. Third, resource bottlenecks and politics are a major factor in building strong LLMs, and AI can do much less to accelerate this. He is left balancing the latent increase in cultural temperature against the possibility that the labs have seen genuinely scary, specific breakthroughs that are not yet public. His expectation is that more of the current AI safety concern sits on the former&mdash;scaled agents working&mdash;but he holds high levels of uncertainty. The thing that would make him update, he says, is foundational, imagination-based AI breakthroughs: the sort of thing that would move his RSI timelines from &ldquo;a tool to sustain progress in the face of exponential costs&rdquo; to something more unpredictable and unstable.</p>
+          <p>He develops the case through two recent Dwarkesh podcasts: one with Noam Brown, and one debating the state of the art with John Schulman, Beren Millidge, and Charlie O&rsquo;Neill. The Brown conversation made him internalize how big a short-term acceleration mass inference capacity represents&mdash;the labs will throw thousands of agents at important, measurable problems, and their compute capacity will keep scaling. But he doubts the labs can afford to spend a constant portion of this growing compute on internal R&amp;D, especially with IPO plans and increased scrutiny on basic economics. The key warning: do not confuse massive steps in inference-time scaling, which should be fairly predictable, with the outputs of RSI, which are highly uncertain.</p>
+          <p>Through the first hour of the trio podcast, he found himself strongly agreeing with the distribution of claims about reinforcement learning, distillation, scaling, and inference-time compute: our current techniques work and let us solve problems we know how to state, but they do not produce a magical level of generalization to unknown, harder problems in most partially verifiable domains&mdash;progress in math is the exception, not the rule. The surprise came at the end, when Dwarkesh asked for timelines. Lambert had GPT-6-Astra summarize the three guests&rsquo; answers to three questions. On a drop-in remote worker for broad white-collar work over a month: O&rsquo;Neill said about a year with programmatic access to workplace tools, two years if it must operate through a browser, for ordinary white-collar work rather than highly creative research; Millidge said about three years for full generality with eighty to ninety percent coverage sooner; Schulman said about a year for an okay version with uneven capabilities that improve over time. On a tenfold productivity uplift for AI researchers: O&rsquo;Neill said five to ten years, with absorbing information and deciding which experiment to run next as the bottleneck; Millidge found Schulman&rsquo;s two-year estimate plausible; Schulman said about two years. On AI surpassing top human experts across all computer-based work including multiyear projects&mdash;ASI: O&rsquo;Neill said five to ten years, citing memory and context-length limitations; Millidge said about five years for areas the labs focus on, potentially longer for literally every domain; Schulman said three to four years, with spatial and physical fields taking longer.</p>
+          <p>From these Lambert draws a structural point: a recurring problem in RSI discussion is the lack of specification of intelligence. Intelligence is jagged, so thresholds must be discussed in specific, measurable tasks. The nature of LLM intelligence is shaped very differently than humans, and the roles we forecast are human-shaped&mdash;AIs therefore do not cross thresholds like remote worker or AI researcher discretely. It is a slow diffusion, and a long tail will always exist. Take researcher productivity: many people under-index how much of science is communication and standard-setting with colleagues. He buys the cycle of experiment design and testing going ten times faster in the near future, but not hypothesis generation and intuition building. Accelerating understanding will be the key bottleneck&mdash;and despite all the AI tools getting massively improved, humans will only improve marginally in their capability. The big improvement in the nature of science will be enabling humans to invest more time there, not them becoming exponentially better at it.</p>
+          <p>This links back to the Noam Brown podcast. Agent swarms will be effective at solving clear, open problems with verifiable answers, so when it comes to improving AI models, RSI is much more helpful at efficiency than at expanding peak intelligence&mdash;LLM serving has clear, measurable, malleable metrics to improve, enabling better inference-time scaling and more efficient multi-agent systems. Still, he cannot get past the fact that scaling laws demand exponential compute and resources for linear improvements in intelligence. RSI is poised to make modern LLMs vastly cheaper&mdash;trends showing LLMs getting exponentially cheaper at a given intelligence level are likely to accelerate&mdash;and the crucial factor for the labs will be increasing margins even as competition puts negative pressure on prices at a fixed intelligence level. Jevons paradox will likely prevail, resulting in strong businesses.</p>
+          <p>The pieces of the LLM puzzle that RSI will have a much harder time improving include managing complex post-training recipes. He strongly agrees with two quotes from John Schulman: that automating a whole post-training team is very hard because someone has to think about how the model should behave in each area, and that it is really easy to screw up post-training in ways that do not show up in benchmarks. These tasks are uniquely hard for current LLMs. And while the industry is rapidly scaling reinforcement-learning environments in these domains, the paradigm does not last forever: it could become exponentially harder to conceive, build, and test new environments that meaningfully challenge the leading LLMs&mdash;and these hard environments are the crucial learning signal in RL.</p>
+          <p>OpenAI and Anthropic have shared a good amount of internal measurements related to RSI, and his current read is that the biggest takeoff in automation within the labs is in tasks like software engineering, monitoring logs, managing planned experiments, and other fairly routine&mdash;though not always easy&mdash;tasks. He was struck by language in the recent Claude Fable 5.1 and Mythos 5.1 system card: internal usage of recent AI models has been a key factor in maintaining the current rate of progress, but the labs do not yet see clear signs of dramatic acceleration beyond that rate. Altogether, the hardest exponential we are fighting, he concludes, is on peak intelligence&mdash;the hardest one to budge or even accelerate. His mental model for the very early innings of RSI is more about massively scaling and diffusing inference-time compute into AI research and related activities, which has a large amount of low-hanging fruit available. That alone is poised to be economically transformative, and it may unlock more resources to push on AI diffusion, which he calls the crucial bottleneck in unlocking much of the potential benefits of AI. For now and until more evidence emerges, lossy self-improvement remains his baseline on the trajectory of progress, and the increased discussion of extinction risk seems very misplaced. As always, he adds, things can change fast in AI.</p>
+          <p>If the labs&rsquo; real internal takeoff is in routine software engineering and monitoring rather than in peak capability, what specific evidence&mdash;short of disclosed breakthroughs&mdash;would distinguish a genuine acceleration from cultural temperature? If RSI&rsquo;s main payoff is cheaper inference rather than smarter models, does the &ldquo;intelligence explosion&rdquo; framing mislead even its own supporters? Who builds the exponentially harder reinforcement-learning environments needed to keep the training signal alive, and what happens to progress when that well runs dry? And if diffusion, not peak capability, is the crucial bottleneck, is the policy conversation focused on the wrong thing?</p>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full text of the article, fetched from the publication&rsquo;s own page and its public Substack API on September 19, 2026 (published September 19, 2026). The summary is a transformed condensation with attribution and a link to the original; it does not reproduce the article verbatim.</p>
+      </article>
+    </section>
 
     <section class="podcasts" aria-label="Podcast episodes">
       <h3>Podcasts</h3>
-      <p class="lede">Three narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
+      <p class="lede">Four narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
       <div class="episode">
         <p class="episode-title">Three Summaries &mdash; September 19, 2026 <span class="dur">&middot; ~8.5 min</span></p>
         <audio controls preload="none" src="podcasts/three-summaries-2026-09-19.mp3">
@@ -514,6 +541,13 @@
         <audio controls preload="none" src="podcasts/programming-feels-very-different-2026-09-19.mp3">
           Your browser does not support the audio element.
           <a href="podcasts/programming-feels-very-different-2026-09-19.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <div class="episode">
+        <p class="episode-title">Why I Still Haven&rsquo;t Bought Into True RSI &mdash; September 19, 2026 <span class="dur">&middot; ~7.6 min</span></p>
+        <audio controls preload="none" src="podcasts/why-i-still-havent-bought-into-true-rsi-september-19-2026-2026-09-19.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/why-i-still-havent-bought-into-true-rsi-september-19-2026-2026-09-19.mp3">Download the episode</a>.
         </audio>
       </div>
       <p class="podcast-credit">Podcasts created by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a>, a Muse agent &mdash; https://muse.ai</p>
