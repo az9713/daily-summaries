@@ -114,7 +114,7 @@
 
     .tabs {
       display: grid;
-      grid-template-columns: repeat(10, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 6px;
     }
 
@@ -296,7 +296,7 @@
     <header class="masthead">
       <div>
         <p class="date">Saturday &middot; September 19, 2026</p>
-        <h1>Two videos, distilled.</h1>
+        <h1>Three videos, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -305,6 +305,7 @@
       <nav class="tabs" role="tablist" aria-label="Summaries">
         <button class="tab" id="tab-treasury" role="tab" aria-selected="true" aria-controls="panel-treasury" tabindex="0" data-target="treasury"><span class="num">01</span>Treasury moves</button>
         <button class="tab" id="tab-aijobs" role="tab" aria-selected="false" aria-controls="panel-aijobs" tabindex="-1" data-target="aijobs"><span class="num">02</span>AI and jobs</button>
+        <button class="tab" id="tab-aicloud" role="tab" aria-selected="false" aria-controls="panel-aicloud" tabindex="-1" data-target="aicloud"><span class="num">03</span>AI cloud talent</button>
       </nav>
     </div>
 
@@ -348,6 +349,30 @@
           <p>If weak links delay the upside but hasten the downside, is &ldquo;we have thirty years to prepare&rdquo; the wrong lesson? Which tasks are truly reserved for humans&mdash;is the 3% stable, or does the frontier keep eating it? And if the lasting human edge is judgment and management, what does the economy look like for everyone who isn&rsquo;t a manager?</p>
         </div>
         <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full transcript of the episode, copied from YouTube&rsquo;s &ldquo;Show transcript&rdquo; panel via a real browser session (the caption endpoints were bot-walled)&mdash;not in a viewing of the video itself. The captions are the auto-dubbed track, so machine-transcription errors in names and terms are the transcript&rsquo;s, preserved where the meaning was unclear.</p>
+      </article>
+    </section>
+
+    <section class="panel" id="panel-aicloud" role="tabpanel" aria-labelledby="tab-aicloud" data-panel="aicloud">
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>vCluster</dd></div>
+        <div><dt>Duration</dt><dd>17:18</dd></div>
+        <div><dt>Published</dt><dd>September 18, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=q71VCkv5tcs" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; infrastructure &middot; talent</p>
+        <h2>Dylan Patel &mdash; The talent to build your own AI cloud stack does not exist</h2>
+        <p class="dek">SemiAnalysis founder Dylan Patel on the AI cloud boom: GPUs keep getting more valuable even as intelligence gets cheaper, no two clouds are alike&mdash;and the talent to build a full AI cloud stack from scratch simply does not exist.</p>
+        <div class="body-copy">
+          <p>In &ldquo;Dylan Patel - The talent to build your own AI cloud stack does not exist,&rdquo; posted by vCluster, co-founder Lucas sits down with Dylan Patel, the founder of SemiAnalysis, at the AI Infra Summit. Patel is one of the sharpest independent analysts of the AI hardware supply chain, and the conversation is a tour of the economics and engineering reality behind the AI cloud boom.</p>
+          <p>The opening puzzle is one every investor has noticed: an H100 is worth more than it was three years ago, while the price of tokens keeps collapsing. Patel resolves it cleanly. Getting the same level of intelligence costs far less than it used to, because smaller and smaller models can now deliver it, and smaller models serve far more tokens per H100. But the cost per token falls more slowly than token volumes grow, so the total business keeps expanding&mdash;which is exactly why GPUs keep getting more valuable even as intelligence gets cheaper.</p>
+          <p>Then comes the part most buyers get wrong. An H100 is not an H100, and a Blackwell is not a Blackwell. What sits on top of the silicon&mdash;the lifecycle reliability, the networking software and security, the cooling, what network was even deployed, whether you get spare nodes when one dies&mdash;matters enormously. A bare-metal server is a very different product from a full managed cloud with Slurm or Kubernetes handled for you, and Patel says the reliability gap between tier-one neo clouds and the silver-and-bronze tier is huge, with prices to match. SemiAnalysis tracks more than two hundred neo clouds, sovereign clouds, and telco deployments, and the dispersion in quality is one of the industry&rsquo;s least appreciated facts.</p>
+          <p>The interview then turns to the giants. Patel describes the new generation of off-take and bare-metal deals&mdash;the SpaceX data center in Memphis, Anthropic reportedly paying on the order of a billion dollars a month for GPU rental&mdash;and argues the economics are almost cost-prohibitive for anyone else to replicate. Only a handful of players can play at that table.</p>
+          <p>That sets up the headline claim of the video. With hundreds of neo clouds chasing the same dream, Lucas asks how realistic it is for each one to build its own software stack. Patel&rsquo;s answer is blunt: the talent does not exist. The hyperscalers and the biggest neo clouds have already hired the people who have done this before, and building a real cloud takes far more of them than newcomers imagine. Aspire to do as much internally as you can, he advises, but accept that the full stack is beyond reach.</p>
+          <p>He closes with a prediction about where the market goes next. In Patel&rsquo;s view, the spot market for GPUs will cease to exist, while a spot market for tokens will emerge&mdash;and the clouds that flourish will be the ones that figure out inference, because selling tokens is how you extract the highest revenue per GPU. He flags the unresolved security question for anyone buying tokens from open marketplaces, where the actual provider&rsquo;s security posture can be invisible.</p>
+          <p>If GPU spot markets vanish and tokens become the commodity, who sets the price&mdash;the biggest inference providers, or a genuine open market? As the tier-one neo clouds consolidate talent and reliability, is there any path left for a new entrant, or is the AI cloud market already decided? And if selling tokens is the only winning business model, what happens to the hundreds of smaller clouds that can&rsquo;t build the inference stack to do it?</p>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full transcript of the episode, retrieved via yt-dlp&rsquo;s English auto-caption download on September 19, 2026 (no browser workaround was needed). The captions were converted to clean text and the summary was written directly from that transcript.</p>
       </article>
     </section>
 
