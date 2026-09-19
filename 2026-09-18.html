@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>Video Summaries — September 18, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(10, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div>
+        <p class="date">Friday · September 18, 2026</p>
+        <h1>One day, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summary · remotely from a phone</p>
+    </header>
+
+    <div class="tabs-wrap">
+      <nav class="tabs" role="tablist" aria-label="Summaries">
+        <button class="tab" id="tab-nasa" role="tab" aria-selected="true" aria-controls="panel-nasa" tabindex="0" data-target="nasa"><span class="num">01</span>Isaacman on NASA</button>
+        <button class="tab" id="tab-overhang" role="tab" aria-selected="false" aria-controls="panel-overhang" tabindex="-1" data-target="overhang"><span class="num">02</span>The Overhang</button>
+      </nav>
+    </div>
+
+    <section class="panel active" id="panel-nasa" role="tabpanel" aria-labelledby="tab-nasa" data-panel="nasa">
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>All-In Podcast</dd></div>
+        <div><dt>Duration</dt><dd>38:33</dd></div>
+        <div><dt>Uploaded</dt><dd>September 18, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=VTF6p0U98ek" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Space · NASA · Artemis</p>
+        <h2>Jared Isaacman: A New Era for NASA and American Space Exploration</h2>
+        <p class="dek">NASA&rsquo;s new administrator says the agency lost its way trying to make everyone happy&mdash;and argues that only extreme focus, nuclear propulsion, and beating China to the lunar south pole can win the second space race.</p>
+        <div class="body-copy">
+          <p>This episode of the All-In Podcast is a keynote by Jared Isaacman, the new NASA administrator, an aviator and astronaut who opens with a sweep of history: it took just 65 years from the Wright brothers&rsquo; first flight to Apollo 11, and then 57 years of uninspiring pace. But artificial intelligence, quantum technologies, robotics, additive manufacturing, fusion energy, biotech, and autonomous transportation are all converging at once, and space sits at the center of a great-power competition where, as he puts it, the possibilities, the competition, and the consequences of getting it wrong are most apparent in &ldquo;the ultimate high ground above us.&rdquo; His diagnosis of NASA is unsparing. For decades the agency tried to make everyone happy, spreading resources across congressional districts and partnering for the sake of partnerships until the Orion spacecraft could not inject into lunar orbit the way Apollo&rsquo;s hardware did, Mars Sample Return was canceled on track to cost more than an aircraft carrier, and a moon rocket designed when China ran coal-fired locomotives became operational as China operates 25,000 miles of high-speed rail. He calls the old habit &ldquo;dream state as a service&rdquo;&mdash;inventing the end state and shifting the impossible burden of executing it onto others.</p>
+          <p>Since becoming administrator, he says, NASA has made a different choice: extreme focus. Artemis 2 sent four astronauts farther into space than any humans in history on 8.8 million pounds of thrust, and Artemis 3 is already being assembled&mdash;a tanking test at Launch Complex 39B before year&rsquo;s end, a summer-2027 launch on SLS rendezvousing with Blue Origin and SpaceX lander test vehicles as a rehearsal for multi-launch campaigns, uncrewed test landings, and then Artemis 4 in 2028, when American astronauts return to the lunar surface, &ldquo;this time to stay.&rdquo; In parallel, a near-monthly cadence of missions will build humanity&rsquo;s first outpost on another world at the lunar south pole, where the water ice sits&mdash;the science of survival, from in-situ resource utilization and autonomous mobility to power, habitability, and logistics, mastered the way Apollo mastered its own playbook rather than jumping straight to the dream.</p>
+          <p>The signature bet is nuclear. In 2028, he intends to launch SR1 Freedom, a 100-kilowatt fission reactor that transits Mars and releases Skyfall, carrying three Ingenuity-class helicopters with ground-penetrating radar to scout subsurface ice and future landing sites&mdash;the start of what he calls the &ldquo;nuclear NASA,&rdquo; with SR2, SR3, and SR4 to follow, pushing high-temperature materials, power conversion, and electric propulsion toward chemically augmented nuclear transfer vehicles that could reach Enceladus, Europa, and Titan, worlds with oceans and complex chemistry where some of history&rsquo;s greatest discoveries may be waiting &ldquo;in our own backyard.&rdquo; Around that spine: commercially printed satellites for Earth observation freeing resources for flagships only NASA can attempt&mdash;the nuclear-powered Dragonfly octocopter to Titan in 2028, Europa Clipper arriving at Jupiter in 2030, the Roman telescope&rsquo;s 300-megapixel survey of dark energy&mdash;plus a rebuilt X-plane fleet beginning with the X-59&rsquo;s quiet supersonic research and a new U.S. Space Academy commission he half-jokes as Starfleet Academy.</p>
+          <p>The argument&rsquo;s urgency comes from China. Beijing intends to land astronauts on the moon by 2030, its robotic missions are targeting the Shackleton crater, the handful of good landing spots near eternal sunlight are scarce, and it is working with Russia on its own nuclear-powered moon base. Isaacman paints the stakes in a single image: an astronaut climbing down the ladder, streamed in high-definition color to billions of people, and &ldquo;the flag on the spacesuit is not American&rdquo;&mdash;and no one will care how many studies were completed, how many meetings were held, or which districts benefited. In the Q&amp;A he is equally blunt: the moon may never sustain an economy, but NASA&rsquo;s demand signal&mdash;dozens of landers and rovers&mdash;can help ignite one; NASA&rsquo;s $25 billion is plenty, &ldquo;we are bad capital allocators&rdquo;; robots will do the dangerous work, but humans go because &ldquo;this is our destiny&rdquo;; and without SpaceX, America&rsquo;s most important launch partner, the United States would be &ldquo;seriously challenged&rdquo; in the high ground of space.</p>
+          <p>Can focus alone compress a decade of schedule slip into a 2027&ndash;2028 timeline, when so many milestones still depend on partners and unproven landers? If the south pole&rsquo;s usable sites are as scarce as he says, what does &ldquo;return, and never give up the moon again&rdquo; mean for the Artemis Accords if China parks at Shackleton first? And if NASA truly becomes the &ldquo;nuclear NASA&rdquo;&mdash;doing only what no company or nation can&mdash;will that retain the talent, or will the best engineers keep choosing the companies that already build it faster?</p>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full transcript of the episode (YouTube&rsquo;s English auto-captions, retrieved via yt-dlp)&mdash;not in a viewing of the video itself.</p>
+      </article>
+    </section>
+
+    <section class="panel" id="panel-overhang" role="tabpanel" aria-labelledby="tab-overhang" data-panel="overhang">
+      <dl class="meta">
+        <div><dt>Author</dt><dd>Ethan Mollick</dd></div>
+        <div><dt>Publication</dt><dd>One Useful Thing</dd></div>
+        <a class="watch" href="https://www.oneusefulthing.org/p/the-overhang" target="_blank" rel="noopener noreferrer">Read the piece</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; work &middot; human advantage</p>
+        <h2>The Overhang</h2>
+        <p class="dek">Ethan Mollick argues the AI debate is fixated on future models while today&rsquo;s models sit barely used&mdash;and lays out the four human advantages that decide who benefits: deep knowledge, wide knowledge, taste, and agency.</p>
+        <div class="body-copy">
+          <p>In &ldquo;The Overhang,&rdquo; Ethan Mollick opens with a pacing problem of his own: he tries to publish every couple of weeks, yet the news keeps outrunning him&mdash;an AI apparently cracking open a famous math problem, fresh rounds of debate over AI risk and what to do about it. All of it, he thinks, comes down to the same thing: human systems and processes move far too slowly to keep up with the pace of AI development. He does not think the worriers are wrong. But he thinks a sole focus on future models misses the more immediate fact: the models we already have are enough for transformative impact across large sections of the economy, and they can reliably do weeks of human work when properly guided and harnessed. The gap between what they can do and what almost anyone is doing with them is the overhang of the title&mdash;and it is enormous.</p>
+          <p>His evidence is a run of his own experiments. He had GPT-6 Astra turn Zork, the 1977 text adventure with no graphics at all, into a full 3D action-adventure game&mdash;the AI deciding what the white house looks like, what a grue looks like (the original only warns you are likely to be eaten by one in the dark), and how &ldquo;fight the troll&rdquo; becomes an action sequence. He had Fable 5.1 reconstruct Umberto Eco&rsquo;s Milan library in 3D: no floor plan existed, so it worked from a dozen videos, the foundation&rsquo;s bookcase photographs, and two library catalogues, reading spines frame by frame and placing the roughly 5,000 books it could identify among 27,000 shelf slots&mdash;each marked certain, guess, or unknown, the bookcases no camera ever reached drawn in fog. Then the book trailer: he handed GPT-6 Astra his upcoming book, <em>Co-Existence</em>, and asked for a trailer from the AI&rsquo;s perspective. Without clear instructions it operated Blender, built an entire animated 3D scene, wrote a script (he rejected the first joke, kept the second), generated voices, music, and sound effects, and delivered a film 45 minutes later. Asked for a 30-second action-movie version, it used the Blender animation as a storyboard, operated a video generator through his browser, and edited the shots into the final cut&mdash;he gave minor creative feedback and never touched a production decision. Each of these, he notes, would have taken weeks of human work from researchers, coders, and designers, and each ran on a fraction of the token budget of the ChatGPT account he pays for.</p>
+          <p>None of it happened on its own, and that is the point. He chose the projects, knew enough about Zork and Eco and his own book to see where the AI went wrong, and asked for second versions. Competing with AI on producing outputs is a losing game; the move is to bring human advantages that let you do things with AI that neither of you could do alone. In the book he names four. <strong>Deep knowledge</strong> is the expertise that builds intuition&mdash;the accountant who glances at a spreadsheet and knows something is wrong&mdash;and the only way to map the Jagged Frontier, since only experts can see the patterns of where AI succeeds or fails in their field; recent Anthropic work suggests experts not only get better work out of AI but more of it. <strong>Wide knowledge</strong> matters because LLMs have absorbed design thinking, Bayesian reasoning, the Toyota Production System, Rogerian therapy, Marxist literary criticism, and will not volunteer any of it unless you know to ask&mdash;as with AI&rsquo;s annoying habit of putting little headlines on top of your headlines (&ldquo;eyebrows&rdquo;), which you only think to forbid if you know design. <strong>Taste</strong> is the scarce resource now that making is fast and cheap: he rejected the first trailer joke and kept the second, asked for a more cinematic version, and those few selections were the whole of his creative direction; generative AI mostly produces slop, and slop is defeated by knowing what to keep, what to discard, and what to use as raw material. <strong>Agency</strong>&mdash;the hardest to define&mdash;is the willingness to probe the unmapped frontier yourself instead of waiting to be told what AI can now do, the habit behind his many strange experiments.</p>
+          <p>He closes by returning to the anxiety that opened the piece. It is reasonable for governments and labs to argue about pacing the frontier, but a slowdown does not undo what already exists: even if training stopped tomorrow, GPT-6 Astra and Fable 5.1 are already enough to change how large parts of the economy work. Change is coming no matter how the frontier is paced&mdash;uneven, not all at once, but inevitable. What is not inevitable is the <em>type</em> of change, which is why he insists we need shared models of AI-human work that enhance rather than only replace human labor, and individual habits that enhance rather than only replace our own efforts. He offers no bright lines AI will never cross&mdash;the demos above are the argument against bright lines&mdash;but the four advantages are, he says, a place to start today. (<em>Co-Existence</em> is out October 20; preorders get a free AI voice interview that reports back on your own deep knowledge, wide knowledge, taste, and agency.)</p>
+          <p>If the overhang is as large as he says, what is the actual binding constraint&mdash;awareness, skill, or something structural about how organizations adopt new tools? Does taste scale, or does it concentrate the gains among people who already hold deep and wide knowledge? And if agency means exploring the unmapped frontier yourself, how do you do that responsibly when the experiments that teach you the most are the ones nobody has tried yet?</p>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full text of the piece, read directly from the published page&mdash;not in anything beyond what the author wrote.</p>
+      </article>
+    </section>
+
+    <footer>
+      <span>Summaries dated September 18, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+
+  <script>
+    (() => {
+      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+      const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+
+      function activate(name, moveFocus = false) {
+        tabs.forEach((tab) => {
+          const selected = tab.dataset.target === name;
+          tab.setAttribute('aria-selected', String(selected));
+          tab.tabIndex = selected ? 0 : -1;
+          if (selected && moveFocus) tab.focus();
+        });
+        panels.forEach((panel) => {
+          const selected = panel.dataset.panel === name;
+          panel.classList.toggle('active', selected);
+          panel.hidden = !selected;
+        });
+        if (history.replaceState) history.replaceState(null, '', `#${name}`);
+      }
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activate(tab.dataset.target));
+        tab.addEventListener('keydown', (event) => {
+          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+          event.preventDefault();
+          let next = index;
+          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+          if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+          if (event.key === 'Home') next = 0;
+          if (event.key === 'End') next = tabs.length - 1;
+          activate(tabs[next].dataset.target, true);
+        });
+      });
+
+      const fromHash = location.hash.slice(1);
+      if (tabs.some((tab) => tab.dataset.target === fromHash)) activate(fromHash);
+    })();
+  </script>
+</body>
+</html>
