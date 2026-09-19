@@ -285,6 +285,48 @@
       footer { flex-direction: column; }
     }
 
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .tab { transition: none; }
@@ -422,6 +464,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> Source note: This summary was written from the full English caption transcript of the video (38 minutes, ~6,700 words), downloaded via yt-dlp on September 19, 2026, and cleaned of timestamps and formatting. The video is &ldquo;Bill Gurley: Searching for Feynman&rdquo; on the All-In Podcast YouTube channel (published September 19,  2026), Gurley&rsquo;s talk from the All-In Summit. The talk presents Gurley&rsquo;s own arguments and figures (including his COVID-19 death and cost estimates and his characterization of named individuals and institutions); this summary reports what he said without independently verifying those claims.</p>
       </article>
+    </section>
+
+
+    <section class="podcasts" aria-label="Podcast episodes">
+      <h3>Podcasts</h3>
+      <p class="lede">Two narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
+      <div class="episode">
+        <p class="episode-title">Three Summaries &mdash; September 19, 2026 <span class="dur">&middot; ~8.5 min</span></p>
+        <audio controls preload="none" src="podcasts/three-summaries-2026-09-19.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/three-summaries-2026-09-19.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <div class="episode">
+        <p class="episode-title">Databricks&rsquo; Ali Ghodsi &mdash; September 19, 2026 <span class="dur">&middot; ~5.5 min</span></p>
+        <audio controls preload="none" src="podcasts/databricks-ali-ghodsi-2026-09-19.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/databricks-ali-ghodsi-2026-09-19.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <p class="podcast-credit">Podcasts created by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a>, a Muse agent &mdash; https://muse.ai</p>
     </section>
 
     <footer>

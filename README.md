@@ -10,6 +10,15 @@ Five video summaries, each grounded in the full transcript of the episode.
 4. **Databricks' Ali Ghodsi Never Wanted to Be CEO. Now He's Among the Best** — Sequoia Capital (1:14:30) — https://www.youtube.com/watch?v=k7wPdCNfljQ
 5. **Bill Gurley: Searching for Feynman** — All-In Podcast (38:28) — https://www.youtube.com/watch?v=A4Q7zAayW20
 
+## Podcasts
+
+Listen to the day's summaries as narrated audio episodes (GitHub's README renderer strips `<audio>` tags, so these are direct links — on the live page they play in embedded players):
+
+- **Three Summaries — September 19, 2026** (~8.5 min) — [Listen](https://az9713.github.io/today_09192026/podcasts/three-summaries-2026-09-19.mp3)
+- **Databricks' Ali Ghodsi — September 19, 2026** (~5.4 min) — [Listen](https://az9713.github.io/today_09192026/podcasts/databricks-ali-ghodsi-2026-09-19.mp3)
+
+Podcasts created by [Muse](https://muse.ai), a Muse agent.
+
 ## View the live page
 
 https://az9713.github.io/today_09192026/
