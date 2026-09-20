@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>Summaries &mdash; September 20, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div>
+        <p class="date">Sunday &middot; September 20, 2026</p>
+        <h1>Two summaries, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+
+    <div class="tabs-wrap">
+      <nav class="tabs" role="tablist" aria-label="Summaries">
+        <button class="tab" id="tab-open-jev" role="tab" aria-selected="true" aria-controls="panel-open-jev" tabindex="0" data-target="open-jev-models"><span class="num">01</span>Open Jev models</button>
+        <button class="tab" id="tab-jev-rerank" role="tab" aria-selected="false" aria-controls="panel-jev-rerank" tabindex="-1" data-target="jev-rerank"><span class="num">02</span>JEV reranking</button>
+      </nav>
+    </div>
+
+    <section class="panel active" id="panel-open-jev" role="tabpanel" aria-labelledby="tab-open-jev" data-panel="open-jev-models">
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Sam Witteveen</dd></div>
+        <div><dt>Duration</dt><dd>21:31</dd></div>
+        <div><dt>Published</dt><dd>September 20, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=53wDOI_7x8I" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; open models &middot; classification</p>
+        <h2>Open Jev Models Are Here!!</h2>
+        <p class="dek">Sam Witteveen benchmarks six open Jev reimplementations &mdash; SemIf, Nimble, Decider, Ortega&rsquo;s OpenJev, DiffusionGemma, NanoJev, plus Layla &mdash; and finds them closer than expected on the easy stuff, with a real gap on the hard stuff.</p>
+        <div class="body-copy">
+          <p>Sam Witteveen&rsquo;s &ldquo;Open Jev Models Are Here!!&rdquo; opens with a small spectacle: a flood of open-source projects that sprang up within days of the Jev announcement, all trying to replicate what Jev does with weights you can run yourself. Where a day earlier there were two or three attempts, by recording time there were twenty or thirty, and several are already scoring close to Jev itself. That explosion is the frame for everything that follows: what makes Jev special, how close the open versions get, and which one you should actually try.</p>
+          <p>Jev, in Witteveen&rsquo;s telling, is a universal classifier with perhaps a little regression thrown in. Classification itself is old — but every classic classifier needs training or fine-tuning on your specific use case; change the labels and you train again. There have been zero-training attempts before: back in 2019, researchers reframed classification as entailment, something BERT-era models handled well. The idea never took off because those models lacked enough world knowledge in their weights to generalize. Whatever model Jev runs on evidently has it — and that, Witteveen argues, is the real story: Jev has people thinking hard about how much work can be offloaded from a reasoning LLM to fast, cheap classification.</p>
+          <p>To measure closeness, someone has already built JevBench, scoring systems on intelligence, calibration, speed, and cost. Jev itself sits at 75.3 overall, with SemIf right behind, then a diffusion model called DJev at 74.3, then Layla. GPT-5.6 Luna scores far higher on pure intelligence, but at roughly six times Jev&rsquo;s cost and far slower — System 2 still wins the hard tasks, but you pay for it. Witteveen flags with open disbelief that Jev&rsquo;s terms of service reportedly forbid benchmarking it against other models.</p>
+          <p>The bulk of the video is a live demo bench of six open implementations, all running on an NVIDIA RTX PRO 6000 Blackwell in a Dell T2 Pro Max workstation — sponsored compute, courtesy of Dell. First is SemIf, originally called OpenJev: a frozen Qwen 3.5 4B with no training at all. The trick is the prefill readout — put the question and options in the prompt, don&rsquo;t let the model generate, and instead softmax over the logits for the option tokens. Witteveen&rsquo;s guess in his previous video was that Jev does essentially this, and many builders seem to have converged on the same idea.</p>
+          <p>Second is Bespoke Nimble, the same readout trick but with a LoRA on a Qwen 3.5 9B trained on fewer than 3,000 examples — explicitly not distilled from Jev. The interesting part is the data recipe, contrastive data curation: write two nearly identical examples that differ in one fact so the right answer flips. The example is a refund rule — only Mira can authorize refunds — and flipping the signatory from Mira to Noah flips the decision. On Bespoke&rsquo;s own holdout set the adapter hits about 90 percent against the base model&rsquo;s 66 and Jev&rsquo;s 93, but on JevBench&rsquo;s hard tier it manages only around 44 — strong on what it was trained on, unproven beyond it.</p>
+          <p>Third is Mapika&rsquo;s Decider, built on the much smaller Qwen 3.5 2B. It reads the hidden state at each answer slot rather than output logits, serves the same wire format as Jev&rsquo;s TypeSafe API — choice, score, nul — and averages 33 milliseconds per answer. The catch is calibration: Decider hedges in the middle where Jev reads as confident. Fourth is Alex Ortega&rsquo;s OpenJev, built on the entailment idea and, unusually, taking images as input — shown answering true/false statements about UI screenshots and playing Doom and Minecraft through choice-classification. Fifth is DiffusionGemma, a 26B diffusion model that runs a denoising step and reads the log probabilities of the answer slots. Throughput is startling — sixteen support tickets in what feels like an instant — though Witteveen feels it is undertrained relative to similar-size models. The bonus entry is NanoJev, a tiny 600-million-parameter model playing Snake as pure choice classification — and playing genuinely well.</p>
+          <p>One more gets added late: Layla, built on modern BERT Large at about 420 million parameters — huge in 2018, tiny now — multilingual across roughly 100 languages, with a Google Colab anyone can try. Layla lags on accuracy, which Witteveen reads as a generalization gap, and he notes the bittersweet write-up from its creator, frustrated that nobody paid attention to this research for over a year until a well-funded lab got the credit.</p>
+          <p>The recommendations are crisp. Zero training on a model you already run? Use the SemIf-style readout. A small server speaking the Jev wire format? Try Decider. A narrow policy decision? Take Nimble&rsquo;s contrastive recipe and run it on your own data. Images? Ortega&rsquo;s build. The honest limit: on genuinely hard stuff — multi-hop reasoning, date arithmetic — none of these work well. Witteveen&rsquo;s proposed trick is a cascade: let the fast System-1 model take everything first, and pass only low-confidence cases up to a reasoning model — System-1 speed and price for most of the workload, System-2 judgment where it counts.</p>
+          <p>If Jev&rsquo;s terms forbid benchmarking it against competitors, what does that do to trust in a product sold as a measurement tool? If the open models already cover the easy majority, how long before the cascade trick closes the hard-task gap too? And who owes credit — and compensation — to the researchers whose older ideas the well-funded labs are now productizing?</p>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> Source note: This summary is grounded in the full transcript of the video, copied from YouTube&rsquo;s &ldquo;Show transcript&rdquo; panel via a real browser session on September 20, 2026 — not in a viewing of the video itself. The captions are auto-generated, so mis-transcriptions are the transcript&rsquo;s; product and project names were corrected where the meaning was unambiguous. The video discloses a Dell sponsorship covering the compute (Dell T2 Pro Max workstation, NVIDIA RTX PRO 6000 Blackwell) used for the live demos. Figures such as JevBench scores and cost multiples are the creator&rsquo;s as reported.</p>
+      </article>
+    </section>
+
+    <section class="panel" id="panel-jev-rerank" role="tabpanel" aria-labelledby="tab-jev-rerank" data-panel="jev-rerank">
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Prompt Engineering</dd></div>
+        <div><dt>Duration</dt><dd>11:27</dd></div>
+        <div><dt>Published</dt><dd>September 20, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=UhGH8cNG0qs" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; RAG &middot; search</p>
+        <h2>Steerable Reranking: How JEV Solves RAG</h2>
+        <p class="dek">Prompt Engineering on steerable reranking: Jev as an instruction-following, 27&times;-cheaper reranker that lifts top-1 accuracy from 21% to 54% &mdash; because the criterion, not cosine similarity, should decide what ranks.</p>
+        <div class="body-copy">
+          <p>Prompt Engineering&rsquo;s &ldquo;Steerable Reranking: How JEV Solves RAG&rdquo; takes the week&rsquo;s most-hyped model and puts it to work on one of the most boring — and most real — problems in AI engineering: retrieval-augmented generation. Jev is the only thing people are talking about, the creator admits, but there is little content showing where it actually fits in production. His answer: all over a RAG pipeline, at every point where the system has to make a decision — retrieval filtering, reranking, citation — and Jev turns out to be a near-perfect candidate for those decision points.</p>
+          <p>The video starts with Jev&rsquo;s three primitives. First, binary decision-making: a true/false classifier with calibrated probabilities. Second, a choice ranker: hand it multiple options and a criterion, and it picks. Third, nul: a score ladder that assigns different scores to different options. For this video the focus is the reranker, because it shows off Jev&rsquo;s most distinctive capability — and because it exposes a genuine pain point: what happens when an organization&rsquo;s policy changes but the underlying documents stay the same.</p>
+          <p>That is where conventional rerankers break down. Vector search and cosine similarity measure semantic proximity, not correctness under your business logic — they can retrieve a chunk that is about the right topic without answering the question. Cross-encoders, the traditional reranking workhorse, take a question-document pair and score it, but they are frozen in time: they cannot follow instructions, so when policy changes, they cannot be told the new rules. LLM rerankers can follow instructions, but they are expensive and slow. Jev&rsquo;s pitch is a third way: steerability at extreme low cost — a classifier that follows instructions.</p>
+          <p>The key idea is treating the criterion as an executable policy. Rather than a loose prompt, the criterion sets strict decision boundaries. The creator demonstrates with the nul primitive: define what counts as true — the passage directly answers the question — versus false — it shares words or topics but does not answer. Running four sample passages through it, Jev assigns the highest probability to the direct answer and low confidence to the rest. This doubles as a classifier: set a threshold, accept above it, discard below. The beauty, and the title&rsquo;s claim, is that the ranking Jev produces is genuinely steerable: change the criterion and the same documents come out in a different order, because the policy — not the semantic similarity — is doing the ranking.</p>
+          <p>The centerpiece is a live notebook demo, linked in the video description. The scenario: a documentation-based system answering &ldquo;how do I fix a 401 unauthorized error from the APIs,&rdquo; where the corpus contains chunks from multiple competing versions of the API policy, and the system must resolve around them. Vector retrieval pulls a mix of chunks; a cross-encoder would rank them by semantic fit and cannot be told which policy version is authoritative. Jev, given two different criteria — an &ldquo;authoritative version 2&rdquo; policy and a looser &ldquo;fast workaround&rdquo; policy — produces visibly different rankings from the same chunks. The criterion is doing real work: the strict policy surfaces the version-2 answer, the lenient one surfaces the quick fix. Sign-up for the API is cheap, the creator notes — five dollars of free credit — and the demo runs through the official Python SDK.</p>
+          <p>The numbers back up the pitch. On concurrency, Jev handles 17 decisions per second serially; using its 64-connection pool, a batch that would take about 40 seconds sequentially completes in 7.6 seconds. On quality, the creator&rsquo;s benchmark starts from a BM25 full-text-search baseline with 21 percent top-1 accuracy; adding Jev as a reranker pushes it to 54 percent — and top-1 is the hardest metric, since in practice you compute top-K over ten or twenty chunks. On cost, the comparison is against Gemini Flash-Lite and Gemini Flash: at small chunk sizes Jev&rsquo;s speed and cost are close to Flash-Lite, but as chunks grow, Jev&rsquo;s cost stays roughly linear while the LLM rerankers get expensive fast. That&rsquo;s the &ldquo;27x cheaper&rdquo; framing on the thumbnail — not a single apples-to-apples figure, but the direction is clear: instruction-following ranking without paying generation prices.</p>
+          <p>The video closes by framing Jev as a drop-in replacement for decision points across existing workflows, not just reranking. One named example: graph RAG, where Jev can validate entities extracted from a corpus — promised for a future video. The creator&rsquo;s larger point is methodological: stop thinking of Jev as a demo toy and start thinking of it as infrastructure for the unglamorous decisions inside pipelines — the filters, the rerankers, the validators — where a calibrated classifier that follows instructions is exactly what you want, and a reasoning model is overkill you pay for on every token.</p>
+          <p>If policies can steer rankings this directly, who owns the policy — and what stops a stale or malicious criterion from quietly corrupting retrieval? When the cost gap is this wide, how much of the &ldquo;LLM as judge&rdquo; stack collapses into cheap classifiers, and what breaks when it does? And if vector similarity can&rsquo;t measure correctness under business logic, how much of today&rsquo;s RAG infrastructure is ranking the wrong thing?</p>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> Source note: This summary is grounded in the full transcript of the video, copied from YouTube&rsquo;s &ldquo;Show transcript&rdquo; panel via a real browser session on September 20, 2026 — not in a viewing of the video itself. The captions are auto-generated, so mis-transcriptions are the transcript&rsquo;s; product and model names were corrected where the meaning was unambiguous. Benchmark figures (21% to 54% top-1 accuracy, 17 decisions/second serial, 7.6s with 64-pool concurrency, cost comparisons with Gemini Flash-Lite/Flash) are the creator&rsquo;s as reported from the notebook linked in the video description.</p>
+      </article>
+    </section>
+
+    <section class="podcasts" aria-label="Podcast episodes">
+      <h3>Podcasts</h3>
+      <p class="lede">One narrated episode covering the day&rsquo;s summaries &mdash; listen right here.</p>
+      <div class="episode">
+        <p class="episode-title">Two Summaries &mdash; September 20, 2026 <span class="dur">&middot; ~6.1 min</span></p>
+        <audio controls preload="none" src="podcasts/two-summaries-september-20-2026-2026-09-20.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/two-summaries-september-20-2026-2026-09-20.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <p class="podcast-credit">Podcasts created by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a>, a Muse agent &mdash; https://muse.ai</p>
+    </section>
+
+    <footer>
+      <span>Summaries dated September 20, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+
+<script>
+    (() => {
+      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+      const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+
+      function activate(name, moveFocus = false) {
+        tabs.forEach((tab) => {
+          const selected = tab.dataset.target === name;
+          tab.setAttribute('aria-selected', String(selected));
+          tab.tabIndex = selected ? 0 : -1;
+          if (selected && moveFocus) tab.focus();
+        });
+        panels.forEach((panel) => {
+          const selected = panel.dataset.panel === name;
+          panel.classList.toggle('active', selected);
+          panel.hidden = !selected;
+        });
+        if (history.replaceState) history.replaceState(null, '', `#${name}`);
+      }
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activate(tab.dataset.target));
+        tab.addEventListener('keydown', (event) => {
+          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+          event.preventDefault();
+          let next = index;
+          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+          if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+          if (event.key === 'Home') next = 0;
+          if (event.key === 'End') next = tabs.length - 1;
+          activate(tabs[next].dataset.target, true);
+        });
+      });
+
+      const fromHash = location.hash.slice(1);
+      if (tabs.some((tab) => tab.dataset.target === fromHash)) activate(fromHash);
+    })();
+  </script>
+</body>
+</html>
