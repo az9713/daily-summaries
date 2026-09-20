@@ -114,7 +114,7 @@
 
     .tabs {
       display: grid;
-      grid-template-columns: repeat(7, minmax(0, 1fr));
+      grid-template-columns: repeat(8, minmax(0, 1fr));
       gap: 6px;
     }
 
@@ -338,7 +338,7 @@
     <header class="masthead">
       <div>
         <p class="date">Saturday &middot; September 19, 2026</p>
-        <h1>Seven summaries, distilled.</h1>
+        <h1>Eight summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -352,6 +352,7 @@
         <button class="tab" id="tab-gurley" role="tab" aria-selected="false" aria-controls="panel-gurley" tabindex="-1" data-target="gurley"><span class="num">05</span>Searching for Feynman</button>
         <button class="tab" id="tab-prog" role="tab" aria-selected="false" aria-controls="panel-prog" tabindex="-1" data-target="prog"><span class="num">06</span>Programming feels different</button>
         <button class="tab" id="tab-rsi" role="tab" aria-selected="false" aria-controls="panel-rsi" tabindex="-1" data-target="rsi"><span class="num">07</span>RSI</button>
+        <button class="tab" id="tab-swe-changing" role="tab" aria-selected="false" aria-controls="panel-swe-changing" tabindex="-1" data-target="swe-changing"><span class="num">08</span>Software engineering</button>
       </nav>
     </div>
 
@@ -519,9 +520,34 @@
       </article>
     </section>
 
+    <section class="panel" id="panel-swe-changing" role="tabpanel" aria-labelledby="tab-swe-changing" data-panel="swe-changing">
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Tech With Tim</dd></div>
+        <div><dt>Duration</dt><dd>12:11</dd></div>
+        <div><dt>Published</dt><dd>September 19, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=1PdgNyOy20w" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; careers &middot; software engineering</p>
+        <h2>Software Engineering Is Changing &mdash; Here&rsquo;s What Actually Matters</h2>
+        <p class="dek">Tech With Tim on the junior-dev paradox: postings are down 60&ndash;70% since 2022 while the field is still projected to grow 15% over the next decade &mdash; and the four things that matter now are owning systems, using AI like a professional, building with AI, and proving it with shipped work.</p>
+        <div class="body-copy">
+          <p>Tech With Tim&rsquo;s &ldquo;Software Engineering Is Changing &mdash; Here&rsquo;s What Actually Matters&rdquo; opens with a paradox: junior developer job postings are down 60 to 70 percent since 2022 &mdash; yet the Bureau of Labor Statistics still projects 15 percent growth for software developers over the next decade, roughly five times the average across all industries. Which is it: is software engineering dying or growing? Both numbers are true at once, Tim says &mdash; and understanding why tells you what to focus on. It isn&rsquo;t dying, he argues, but it is changing faster than at any point in his career &mdash; and the people getting hurt are optimizing for the job as it existed three years ago, not today.</p>
+          <p>About 77 percent of professional developers now use AI coding tools, and the tools excel at one category of work: boilerplate, simple CRUD endpoints, basic bug fixing, test scaffolding, routine front-end work. That was the juniors&rsquo; bottom rung, and AI has sawed it off. Stanford researchers found employment for developers aged 22 to 25 dropped nearly 20 percent between 2022 and mid-2025, while employment for workers over 30 in AI-heavy roles grew. The jobs didn&rsquo;t disappear; they moved up the stack, away from routine code and toward things AI can&rsquo;t do. IBM is even tripling entry-level hiring, because the junior role is shifting toward judgment and customer-facing work. The job is being redefined &mdash; and the video&rsquo;s core is the four things that actually matter now.</p>
+          <p>First, own systems instead of just writing lines of code. AI made writing code cheap; typing speed is no longer a selling point. What companies pay for is understanding a system: why the architecture is shaped as it is, what breaks when you change something, how the pieces and data flow fit together. Tim&rsquo;s prescription: system design (turning vague requirements into components, trade-offs, and defensible decisions), debugging real systems (when production goes down, AI suggests fixes but a human must diagnose and decide), and reading code &mdash; now more important than writing it, since the bottleneck is how fast you can review AI-generated output. A senior engineer with these skills plus AI tools ships at multiples of what was possible a few years ago.</p>
+          <p>Second, use AI tools like a professional. The wrong way is vibe-coding your entire job &mdash; accepting whatever the model spits out and shipping it, producing codebases nobody understands. The professional way is treating AI like a very fast junior developer: something you supervise, that gets a lot done, but never implicitly trust. Use Copilot, Cursor, Claude Code, whatever fits your stack &mdash; but review everything, test everything, and never merge code you couldn&rsquo;t explain. Employers screen for this explicitly now: they want people fast with AI but skeptical of its output. Being good with AI doesn&rsquo;t make you special in 2026, Tim says, but being bad with it will absolutely filter you out.</p>
+          <p>Third, learn to build with AI, not just alongside it. The new thing is software where AI is part of the features: apps calling model APIs, systems answering questions over company documents, agents automating multi-step workflows. Every company is racing to ship AI features, and few engineers can do it well yet &mdash; which is why AI engineering roles in the US average $175,000 to $200,000 a year. If you can already code, the AI layer &mdash; model APIs, prompt engineering, structured outputs, retrieval-augmented generation, vector databases, agent orchestration, evaluations, observability &mdash; is learnable engineering, no PhD required. (Tim answers it via a sponsored hands-on track, citing 75&ndash;90% retention for active building versus 20% for passive watching.)</p>
+          <p>Fourth is proof. In a market this competitive, claims are worthless and evidence is everything: one or two projects solving a real problem end to end, deployed live, with a link someone can click &mdash; ideally with an AI component. One genuine deployed project beats ten half-finished ones. If you&rsquo;re already employed, become the AI person on your team: volunteer for the AI feature nobody else wants and ship one real thing with a model in your current job. An internal move into AI work is almost always easier than landing it cold.</p>
+          <p>Finally, what to skip. Stop grinding LeetCode as your entire strategy &mdash; algorithms alone are the old game; companies increasingly test practical building and judgment. Stop chasing every new framework &mdash; frameworks churn, while fundamentals like system design, data, APIs, and testing have never mattered more. And stop doom-scrolling the &ldquo;coding is dead&rdquo; headlines &mdash; Tim, a YouTuber, owns his part in that economy, but it isn&rsquo;t something you can control. Nobody feels sorry for you, he closes: it&rsquo;s still one of the best jobs in the world, but the only way in is action.</p>
+          <p>If junior roles now require judgment rather than routine coding, where do new entrants acquire that judgment &mdash; and who pays for the apprenticeship years? If reading and reviewing AI-generated code is the bottleneck skill, why do hiring pipelines still screen mainly for writing code from scratch? And if the profession&rsquo;s center of gravity keeps moving up the stack, is the four-year computer science curriculum teaching the right rung of the ladder?</p>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full transcript of the episode, copied from YouTube&rsquo;s &ldquo;Show transcript&rdquo; panel via a real browser session on September 19, 2026 &mdash; not in a viewing of the video itself. The captions are auto-generated, so transcription errors are the transcript&rsquo;s; product and framework names were corrected where the meaning was unambiguous (notably &ldquo;leak code,&rdquo; rendered here as LeetCode). The episode contains a sponsored segment for a DataCamp course track, noted in the summary as such.</p>
+      </article>
+    </section>
+
     <section class="podcasts" aria-label="Podcast episodes">
       <h3>Podcasts</h3>
-      <p class="lede">Four narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
+      <p class="lede">Five narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
       <div class="episode">
         <p class="episode-title">Three Summaries &mdash; September 19, 2026 <span class="dur">&middot; ~8.5 min</span></p>
         <audio controls preload="none" src="podcasts/three-summaries-2026-09-19.mp3">
@@ -548,6 +574,13 @@
         <audio controls preload="none" src="podcasts/why-i-still-havent-bought-into-true-rsi-september-19-2026-2026-09-19.mp3">
           Your browser does not support the audio element.
           <a href="podcasts/why-i-still-havent-bought-into-true-rsi-september-19-2026-2026-09-19.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <div class="episode">
+        <p class="episode-title">Software Engineering Is Changing &mdash; September 19, 2026 <span class="dur">&middot; ~6.4 min</span></p>
+        <audio controls preload="none" src="podcasts/software-engineering-is-changing-september-19-2026-2026-09-19.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/software-engineering-is-changing-september-19-2026-2026-09-19.mp3">Download the episode</a>.
         </audio>
       </div>
       <p class="podcast-credit">Podcasts created by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a>, a Muse agent &mdash; https://muse.ai</p>
