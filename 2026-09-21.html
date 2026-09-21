@@ -338,7 +338,7 @@
     <header class="masthead">
       <div>
         <p class="date">Monday &middot; September 21, 2026</p>
-        <h1>One summary, distilled.</h1>
+        <h1>Two summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -346,6 +346,7 @@
     <div class="tabs-wrap">
       <nav class="tabs" role="tablist" aria-label="Summaries">
         <button class="tab" id="tab-ai-boom-winners" role="tab" aria-selected="true" aria-controls="panel-ai-boom-winners" tabindex="0" data-target="ai-boom-winners"><span class="num">01</span>Imagination in Action: The AI Boom&rsquo;s Biggest Winners May Not Last</button>
+        <button class="tab" id="tab-open-models-balance" role="tab" aria-selected="false" aria-controls="panel-open-models-balance" tabindex="-1" data-target="open-models-balance"><span class="num">02</span>The current balance of power in open models</button>
       </nav>
     </div>
 
@@ -378,14 +379,47 @@
       </article>
     </section>
 
+    <section class="panel" id="panel-open-models-balance" role="tabpanel" aria-labelledby="tab-open-models-balance" data-panel="open-models-balance">
+      <dl class="meta">
+        <div><dt>Publication</dt><dd>Interconnects</dd></div>
+        <div><dt>Author</dt><dd>Nathan Lambert</dd></div>
+        <div><dt>Published</dt><dd>September 21, 2026</dd></div>
+        <a class="watch" href="https://www.interconnects.ai/p/the-current-balance-of-power-in-open" target="_blank" rel="noopener noreferrer">Read the piece</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; open models &middot; policy</p>
+        <h2>The current balance of power in open models</h2>
+        <p class="dek">Nathan Lambert&rsquo;s expanded Congressional-briefing remarks on open-weight models: China now leads clearly in open weights and the lead is not narrowing &mdash; while America still leads in truly open-source models, a distinction that matters.</p>
+        <div class="body-copy">
+          <p>Nathan Lambert writes that he was recently invited to brief members of Congress and their staff on open-weight models through the lens of U.S.-China competition, and this piece is the expanded form of those remarks &mdash; his state of the union on open models. Drawing on download data, benchmark scores, usage figures, and academic publication trends, his argument is that China has become the clear leader in open-weight models and the lead is not narrowing &mdash; while America still leads in truly open-source models, a distinction that matters.</p>
+          <p>He begins with definitions. Open language models publish their weights for inspection and downstream use, unlike closed models like GPT-4 or Claude, reachable only through an API or a product. The common category is open-weight: weights, a license, and inference code, as with Meta&#x27;s Llama, Alibaba&#x27;s Qwen, Google&#x27;s Gemma, or DeepSeek&#x27;s models. True open-source adds everything needed to reproduce the model &mdash; the training code and data &mdash; and its most prominent examples were built in America, led by the Allen Institute for AI&#x27;s Olmo family alongside OpenAthena&#x27;s Marin and EleutherAI&#x27;s Pythia, all from American nonprofits.</p>
+          <p>America was the early leader through Meta&#x27;s Llama. China took the Hugging Face download lead in July 2025 on Qwen&#x27;s strength; since Lambert first published his American Truly Open Models tracker that August, China&#x27;s lead has grown to about 1.6 billion, with 3.2 billion total downloads &mdash; twice America&#x27;s.</p>
+          <p>Benchmarks tell the same story. On the Artificial Analysis Intelligence Index, as of his September 14 writing date, the top Chinese models &mdash; Z.ai&#x27;s GLM-5.3 (45), Moonshot AI&#x27;s Kimi K3 (44), GLM-5.3-Flash (42) &mdash; dwarfed the leading American models, Thinking Machines&#x27; Inkling (26) and Nvidia&#x27;s Nemotron 3 Ultra (23). The top American open models trail fifteen Chinese-made ones. The newest Chinese models, GLM-5.2 and Kimi K3, cross the agentic capability threshold that Anthropic&#x27;s Claude Code crossed in December 2025, meaning open models can now do real agentic work.</p>
+          <p>The gap to the closed frontier is what makes this urgent. Lambert estimates Chinese open-weight models sit roughly two to five months behind the closed American frontier, with American open-weight models six to nine months behind the likes of OpenAI and Anthropic. That gap has been shrinking for three years, unlocking real markets in 2026. He rejects the dismissal that China is merely distilling American models: distillation matters most in new domains, and fully preventing it would widen the gap by only one to two months. Chinese labs also release faster and focus on a slightly narrower set of tasks, which flatters them on benchmarks. Still, he says, their models are genuinely strong. In 2026 the Chinese labs also shifted to buying cutting-edge training data &mdash; challenging reinforcement-learning environments for agentic tasks &mdash; from American companies and new Chinese startups.</p>
+          <p>The piece&#x27;s distinctive note is the regulatory paradox. As open-weight models approach frontier capabilities, they enable real risks, especially in cybersecurity, and Washington&#x27;s attention is growing. But restricting the strongest open models would mostly hurt Americans. His example: Hugging Face used a Chinese open-weight model to understand a recent cyberattack, because the closed models refused to answer its questions. Open software can&#x27;t be kept from bad actors anyway, so restrictions would set back American businesses and researchers. His answer is ecosystem preparation and investment in American open models: owning open models allows better coordination of genuinely global risks while accelerating AI diffusion at home.</p>
+          <p>The adoption data is striking. OpenRouter, the inference platform popular for trying open-weight models, grew from about one trillion weekly tokens in September 2025 to about eighty trillion today, and the Chinese share rose from roughly seventy percent to over eighty percent. American companies building on Chinese open models include Harvey, Cursor, DoorDash on Kimi models, Airbnb on Qwen, Perplexity on DeepSeek &mdash; plus a large swath of younger Silicon Valley startups, increasingly signing enterprise agreements with Chinese labs for permission to use the models, a new form of cross-border collaboration he says he has never witnessed. On arXiv, mentions of any open model rose from two percent in January 2023 to fifty percent in September 2026, with leadership shifting from America to China. Today Qwen appears in thirty percent of papers against Llama&#x27;s twenty-one, and any Chinese open-weight model in over forty percent against America&#x27;s thirty &mdash; the Chinese share still growing.</p>
+          <p>He sees signs of hope. American models of comparable capability and size get adopted at disproportionate rates when they exist: OpenAI&#x27;s gpt-oss became one of the most adopted open-weight models of all time, Google&#x27;s Gemma 4 rivaled Qwen&#x27;s most popular small models, and Nvidia&#x27;s Nemotron has modest adoption. His six takeaways: the open-to-closed gap keeps shrinking toward a two-to-five-month lag; usage is exploding in high-value industries like software engineering and legal services, forming an alternative ecosystem to the best closed models; Chinese companies are the clear leaders; distillation explains only a month or two of their lead; Chinese models, especially Qwen, are now the foundational layer of research; and open models are reaching capability levels where cybersecurity risks demand ecosystem-level preparation. He closes on soft power: open models are becoming the substrate on which everyone outside the few frontier labs will harness accelerating software engineering, and the organizations enabling that access gain influence with it. His final note is humility &mdash; we lack good data on open-model use outside the U.S. and China, and with dozens of organizations within a year of the frontier, it is a matter of when, not if, open models cross the thresholds that unlock new workflows.</p>
+          <p>Three questions hang over the piece. First, can the United States retake open-weight leadership without Meta re-committing to the race Llama started &mdash; gpt-oss and Gemma 4 suggest American models get adopted when they exist, but someone has to build them. Second, how do you regulate an ecosystem where restricting the strongest open models hurts your own businesses, when your own defenders rely on the same software. Third, what does it mean for the frontier labs if open models hold a two-to-five-month gap &mdash; at what point does selling intelligence behind an API collide with a public substrate nearly as capable.</p>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> this summary was written from the full text of Nathan Lambert&#x27;s &quot;The current balance of power in open models&quot; on interconnects.ai, read in full on September 21, 2026 &mdash; an expanded version of testimony he prepared for a Congressional briefing on open-weight models and U.S.-China competition. All facts and figures &mdash; Hugging Face download totals, benchmark scores, OpenRouter usage, and arXiv mention percentages &mdash; are grounded in the article; the Artificial Analysis Intelligence Index scores were current as of the author&#x27;s September 14, 2026 writing date. Built by Muse (muse.ai).</p>
+      </article>
+    </section>
+
     <section class="podcasts" aria-label="Podcast episodes">
       <h3>Podcasts</h3>
-      <p class="lede">One narrated episode covering the day&rsquo;s summaries &mdash; listen right here.</p>
+      <p class="lede">Two narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
       <div class="episode">
         <p class="episode-title">The AI Boom&rsquo;s Biggest Winners May Not Last &mdash; September 21, 2026 <span class="dur">&middot; ~4.5 min</span></p>
         <audio controls preload="none" src="podcasts/ai-boom-biggest-winners.mp3">
           Your browser does not support the audio element.
           <a href="podcasts/ai-boom-biggest-winners.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <div class="episode">
+        <p class="episode-title">The Current Balance of Power in Open Models &mdash; September 21, 2026 <span class="dur">&middot; ~4 min</span></p>
+        <audio controls preload="none" src="podcasts/open-models-balance-of-power.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/open-models-balance-of-power.mp3">Download the episode</a>.
         </audio>
       </div>
       <p class="podcast-credit">Podcasts created by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a>, a Muse agent &mdash; https://muse.ai</p>
