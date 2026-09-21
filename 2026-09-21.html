@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>Summaries &mdash; September 21, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div>
+        <p class="date">Monday &middot; September 21, 2026</p>
+        <h1>One summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+
+    <div class="tabs-wrap">
+      <nav class="tabs" role="tablist" aria-label="Summaries">
+        <button class="tab" id="tab-ai-boom-winners" role="tab" aria-selected="true" aria-controls="panel-ai-boom-winners" tabindex="0" data-target="ai-boom-winners"><span class="num">01</span>Imagination in Action: The AI Boom&rsquo;s Biggest Winners May Not Last</button>
+      </nav>
+    </div>
+
+    <section class="panel active" id="panel-ai-boom-winners" role="tabpanel" aria-labelledby="tab-ai-boom-winners" data-panel="ai-boom-winners">
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Imagination in Action</dd></div>
+        <div><dt>Duration</dt><dd>29:51</dd></div>
+        <div><dt>Published</dt><dd>September 20, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=QX_LgAJXMHk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; investing &middot; panel</p>
+        <h2>The AI Boom&rsquo;s Biggest Winners May Not Last</h2>
+        <p class="dek">A panel from The Next Endeavor 2026 on who funds the AI boom and whether the winners will last &mdash; a Reuters moderator, a UBS chief investment officer, a Qualcomm Ventures director, and a seed-stage founder debate capital, compute, and where the value accrues.</p>
+        <div class="body-copy">
+          <p>Imagination in Action&#x27;s &quot;The AI Boom&#x27;s Biggest Winners May Not Last&quot; is a panel from the Next Endeavor 2026 event &mdash; and it is really about money, not technology. The moderator, Crystal, a Reuters reporter who runs its tech practice, frames the session around what really powers the AI race: capital. Her guests span the scale: a chief investment officer from UBS; Albert Wang, a senior investment director at Qualcomm Ventures, the chip giant&#x27;s $2 billion fund; and Dave, founder of seed-stage Link Ventures, who backs university founders in Boston. Dave&#x27;s opening joke sets the tone: he shares a stage with someone managing trillions; his own funds, about a billion.</p>
+          <p>The private investors&#x27; opening theme is speed. Wang says Qualcomm Ventures has invested for 25 years and never seen a wave like this: companies that raised every 12 to 18 months now come back every four to six. He watched a company go from seed to $100 million in annual revenue in six months &mdash; real revenue, unlike the dot-com era&#x27;s $2 million on $30 million of burn. Dave says the old SaaS rule of &quot;triple-triple-double-double&quot; used to span years; now companies triple every six months, and his latest fund holds four 100x winners with not a single loss &mdash; unheard of in venture.</p>
+          <p>The UBS investor keeps asking the title&#x27;s question: how durable are these revenue streams? AI is super-exponential and extraordinarily disruptive, she says, but the panel underappreciates how disruptive it will be to today&#x27;s winners too. Dave answers with one of the session&#x27;s best analogies: Google and AltaVista were nearly identical; AltaVista is gone. The microprocessor may be the greatest invention in human history, and it was nearly commoditized &mdash; while the era&#x27;s money went to the search layer on top. Building the most useful thing does not decide who keeps the value.</p>
+          <p>The panel then builds a theory of where the moat sits right now. Wang argues the classic moat &mdash; capturing the customer when supply outstrips demand &mdash; has inverted: today demand outstrips supply, so whoever has access to supply has the moat. Dave makes it physical: two-thirds of all AI compute runs through TSMC, one company outside the US. Buyers offer two or three times the price and get turned away: &quot;you are begging people to take your money.&quot; His firm likes things directly above and below the transformer layer &mdash; accelerators like Etched or Groq, data-center investments, retraining data layers &mdash; while distrusting the crowded agent-orchestration field.</p>
+          <p>The panel also bridges to the week&#x27;s biggest AI story: the UBS investor calls OpenAI&#x27;s Navier&ndash;Stokes proof another watershed, and Dave supplies the inside story &mdash; ten thousand agents, 88 hours, OpenAI redirecting compute from the other Millennium problems to leapfrog Anthropic. His punchline is about capital, not math: finishing first or second was a function of compute, &quot;and that&#x27;s probably not a lasting competitive moat.&quot; She sees the same in the $20 trillion-plus of public-market gains since ChatGPT &mdash; most of it in the enabling layer. UBS&#x27;s three structural themes say where the puck goes: AI as a disruptor, power and resources for the energy demand, and AI applied into industries &mdash; pharma and biotech most exciting, where AI could lower drug costs and surface new molecules.</p>
+          <p>On commoditization, the public investor worries perhaps $5 trillion of private-market AI value could prove fragile if general frontier models keep improving and purpose-built apps become mere features. Dave counters that China already answered: open-source models trained for a tenth to a hundredth of the cost destroyed the comfortable story that three or four labs will control all of AI. He sides with Musk&#x27;s 100x-gain claim for task-specific models, predicting multiple $10 billion to trillion-dollar companies from vertical models in biotech, materials and finance. Her counterweight is quieter: the moat may come down to proprietary data, and in pharma, cell and tissue datasets are genuinely defensible.</p>
+          <p>On safety, Dave is bluntest: calls to slow model improvement are &quot;utterly insane&quot; because better models cure cancer and create energy &mdash; the real threat is small open-source models in bad hands: hacking, viruses, chemical attacks, &quot;already percolated across every terrorist organization in the world.&quot; His line: it is not AI versus humans, it is humans with bad intent using AI as a weapon. He favors restricting release of models past a capability threshold &mdash; his example is a model that designs a deadlier coronavirus from a single prompt. Wang, the Hugging Face investor, is the pragmatist: enterprises race to the top because they will not take on open-source liability. The UBS investor agrees a global consensus is needed and reaches for the nuclear non-proliferation treaty as the model.</p>
+          <p>The closing round yields the final idea: &quot;universal basic compute.&quot; OpenAI and Anthropic are buying up essentially all the compute and spending it on recursive self-improvement, generating enough revenue to keep paying &mdash; so equitable distribution will not happen naturally. What about the entrepreneur with a great idea but no compute? The universities&#x27; answer is already: &quot;I literally can&#x27;t get the compute. It&#x27;s all been locked up.&quot; Asked whether the constraint looks the same in a year, Dave says efficiency will rise a thousand to a million times in two years &mdash; and compute will still be sold out, because use cases are near infinite. Wang agrees demand is infinite, citing Jevons&#x27; paradox &mdash; but adds the one caveat: the bottlenecks may be human. Data-center permitting has become a bipartisan political fight, and without enough permits, transformers and turbines, we could see temporary gluts of exactly the wrong kind.</p>
+          <p>Three questions the video leaves open:</p>
+          <p>How durable are today&#x27;s AI revenue streams, and will the moat go to whoever holds the compute, the data, or the application layer &mdash; or to none of them, the way the microprocessor&#x27;s value leaked away?</p>
+          <p>If compute efficiency rises a thousandfold and demand still outruns supply, does &quot;universal basic compute&quot; become a real policy question, or do the labs that locked up the capacity keep it?</p>
+          <p>Will frontier models commoditize under Chinese open-source competition, or will vertical models &mdash; biotech, materials, finance &mdash; prove the bigger, more durable investment theme?</p>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> Summary grounded in the YouTube auto-generated captions, fetched via yt-dlp on September 21, 2026. Figures and attributions are the speakers&#x27; as reported; auto-caption garbling corrected only where unambiguous.</p>
+      </article>
+    </section>
+
+    <section class="podcasts" aria-label="Podcast episodes">
+      <h3>Podcasts</h3>
+      <p class="lede">One narrated episode covering the day&rsquo;s summaries &mdash; listen right here.</p>
+      <div class="episode">
+        <p class="episode-title">The AI Boom&rsquo;s Biggest Winners May Not Last &mdash; September 21, 2026 <span class="dur">&middot; ~4.5 min</span></p>
+        <audio controls preload="none" src="podcasts/ai-boom-biggest-winners.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/ai-boom-biggest-winners.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <p class="podcast-credit">Podcasts created by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a>, a Muse agent &mdash; https://muse.ai</p>
+    </section>
+
+    <footer>
+      <span>Summaries dated September 21, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+
+<script>
+    (() => {
+      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+      const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+
+      function activate(name, moveFocus = false) {
+        tabs.forEach((tab) => {
+          const selected = tab.dataset.target === name;
+          tab.setAttribute('aria-selected', String(selected));
+          tab.tabIndex = selected ? 0 : -1;
+          if (selected && moveFocus) tab.focus();
+        });
+        panels.forEach((panel) => {
+          const selected = panel.dataset.panel === name;
+          panel.classList.toggle('active', selected);
+          panel.hidden = !selected;
+        });
+        if (history.replaceState) history.replaceState(null, '', `#${name}`);
+      }
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activate(tab.dataset.target));
+        tab.addEventListener('keydown', (event) => {
+          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+          event.preventDefault();
+          let next = index;
+          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+          if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+          if (event.key === 'Home') next = 0;
+          if (event.key === 'End') next = tabs.length - 1;
+          activate(tabs[next].dataset.target, true);
+        });
+      });
+
+      const fromHash = location.hash.slice(1);
+      if (tabs.some((tab) => tab.dataset.target === fromHash)) activate(fromHash);
+    })();
+  </script>
+</body>
+</html>
