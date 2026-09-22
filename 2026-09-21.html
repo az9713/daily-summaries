@@ -336,7 +336,7 @@
     <header class="masthead">
       <div>
         <p class="date">Monday &middot; September 21, 2026</p>
-        <h1>Eleven summaries, distilled.</h1>
+        <h1>Twelve summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -354,6 +354,7 @@
         <button class="tab" id="tab-codex-build-sell-course" role="tab" aria-selected="false" aria-controls="panel-codex-build-sell-course" tabindex="-1" data-target="codex-build-sell-course"><span class="num">09</span>Build &amp; Sell with Codex (5+ Hour Course)</button>
         <button class="tab" id="tab-joy-park-aaa-founder" role="tab" aria-selected="false" aria-controls="panel-joy-park-aaa-founder" tabindex="-1" data-target="joy-park-aaa-founder"><span class="num">10</span>AAA Concept Artist to SF Founder with Joy Park | fal Podcast</button>
         <button class="tab" id="tab-from-instructgpt-to-jev-latent-space" role="tab" aria-selected="false" aria-controls="panel-from-instructgpt-to-jev-latent-space" tabindex="-1" data-target="from-instructgpt-to-jev-latent-space"><span class="num">11</span>Jev: System One models for Prod, not God &mdash; with Diogo Almeida, CEO, TypeSafe AI</button>
+        <button class="tab" id="tab-naveen-rao-4d-computing-allin" role="tab" aria-selected="false" aria-controls="panel-naveen-rao-4d-computing-allin" tabindex="-1" data-target="naveen-rao-4d-computing-allin"><span class="num">12</span>Naveen Rao: 4D Computing, AI&#x27;s Energy Wall &amp; Beating Biology</button>
       </nav>
     </div>
 
@@ -634,9 +635,34 @@
         <p class="source-note"><strong>Source note.</strong> this summary is grounded in the full transcript of the episode as published on the Latent Space episode page (latent.space/p/jev), which carries the complete conversation with speaker turns and timestamps; the embedded YouTube video (youtube.com/watch?v=cFx9Z3ZXca0, on the Latent Space channel, two hours twenty-two minutes, roughly a thousand views at discovery) matches the screenshot&#x27;s channel, duration, and subject. Episode title on YouTube currently reads &quot;Why We Made Jev &mdash; Diogo Almeida, TypeSafe Co-founder &amp; CEO&quot;; latent.space titles it &quot;Jev: System One models for Prod, not God.&quot;</p>
       </article>
     </section>
+    <section class="panel" id="panel-naveen-rao-4d-computing-allin" role="tabpanel" aria-labelledby="tab-naveen-rao-4d-computing-allin" data-panel="naveen-rao-4d-computing-allin">
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>All-In Podcast</dd></div>
+        <div><dt>Duration</dt><dd>22:35</dd></div>
+        <div><dt>Published</dt><dd>September 21, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=yAsrMA_ADPc" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; hardware &middot; energy</p>
+        <h2>Naveen Rao: 4D Computing, AI&#x27;s Energy Wall &amp; Beating Biology</h2>
+        <p class="dek">Naveen Rao &mdash; founder of Nervana, Intel AI, and MosaicML, now CEO of Unconventional AI &mdash; on the All-In Podcast: 4D computing, the energy wall AI is racing toward, and how machines might beat biology at its own game.</p>
+        <div class="body-copy">
+          <p>Naveen Rao opened by telling the room he is the opposite of an AI doomer, and he was glad to be at what he called the anti-doomer conference. As a kid he learned to program on an early home computer, became an electrical engineer, then went back for a PhD in neuroscience to get back to the original question of how to make an intelligent machine. He founded Nervana Systems in 2014, the first AI chip company, when AI was not yet in the common vocabulary. He sold it to Intel, then started and ran Intel&#x27;s entire AI group. In 2020 he left to work on scaling bigger models, founding MosaicML, which took off after ChatGPT landed in 2022; Databricks bought it in 2023, and it is now about a quarter of Databricks&#x27; total revenue. His new company, Unconventional AI, is the rest of the talk: an attempt to rebuild the computer from physics first principles.</p>
+          <p>The core argument is energy. Google serves more than 3.2 quadrillion tokens a month, and at ten joules per token, on the low end of the spectrum, that single company&#x27;s AI serving comes to about twelve gigawatts. The United States puts roughly forty gigawatts into data centers today, and the whole world is under a hundred. If models get bigger and demand keeps growing, he estimates the world runs into the wall in about three years: a trillion-dollar market growing exponentially on top of an energy supply that grows roughly linearly, and the gap between those two curves is the problem technology has to close. Data center thinking has already shifted accordingly. It used to be about floor space, then networking, then GPUs, and today it is about energy first: you secure the power contract and then figure out how to fill it. About half the cost of serving a token is energy, the rest hardware and space, so his business case is simple: monetize every watt a thousand times better than existing hardware.</p>
+          <p>Biology is his proof that this is possible. The human brain runs on about twenty watts, a monkey&#x27;s brain on about one watt, and a squirrel&#x27;s brain on eight milliwatts while producing behavior precise a thousand jumps out of a thousand. The striking comparison is information movement: the human cortex moves only about sixteen billion bits per second, while a high-end computing system moves nearly thirty trillion bits in and out of memory per second, and ten to a hundred times that inside the chip. Most of the energy in a computing system goes into moving information around, not into computing. That is an artifact of the machine we have had since ENIAC in 1945: memory on the outside, compute somewhere else, bits shuttled back and forth, very fast. We built computers to be fast because the alternative was humans doing calculations by hand, and that never contemplated energy efficiency. Transistor scaling, the free efficiency of Moore&#x27;s law, has largely ended, so the architecture itself has to change.</p>
+          <p>What Unconventional AI is building is what he calls a dynamical computer, or 4D computing: the fourth dimension is time, expressed in the dynamics of the system, plus the three physical dimensions of 3D die stacking. The conceptual move is to cut out the middleman of abstraction. Digital itself is an abstraction: a transistor has states between zero and one, but we engineer it to behave as a clean bit, and then we stack abstractions all the way up to neural networks, each one lossy. Your brain has neurons but no linear algebra and no floating-point math; the physics of the neurons gives rise to intelligence, and he wants to mimic some of that with semiconductors. The idea is dynamical systems theory, the study of how simple individual behaviors produce emergent properties, the way birds in a flock create complex patterns from each bird just watching its neighbors. His intuition pump is a row of metronomes on a rolling plank: they synchronize purely through the physics of the system, and that kind of emergent behavior is what he wants to build circuits out of.</p>
+          <p>He asked whether such a system could do real computation and connect to generative AI. The answer so far is UNO, an open-source image-generation model built on a set of oscillators, the first demonstration that this scales to trained, useful output. One surprise along the way is sparsity: fully connecting a thousand elements means a million connections, which does not scale, but it turns out you can throw away connections and get a more trainable system. He calls it a holy grail, one of those rare things that is more efficient, more scalable, and higher-performing at once, and it works in real physical systems, not just simulation.</p>
+          <p>Then came the announcement. The first physical dynamical computer ever built was designed in five months; the company started in earnest in January without a team, taped out on June first, and the chip is already back in the lab. The first-ever images generated by such a computer were shown on stage, and Rao said this was literally the first time the company was talking about it publicly. The headline number: about five hundred nanojoules per image, against millijoules per image on a GPU, many orders of magnitude, for the simple reason that the machine does not move information around. It fuses compute and memory into one thing; there is no memory interface, and each individual computing element is itself a memory. The goal, revised inward from five years to three and a half because progress has beaten expectations, is a thousandfold improvement in power efficiency. Then the overarching goal: beat biology. We sit about ten billion times away from the thermodynamic limit, the floor physics allows, while mammalian brains are within one or two orders of magnitude of it. The vision is compute everywhere, including billions of robots, and a shift from a few gigawatt-scale data centers to many small, local, adaptive ones.</p>
+          <p>If that efficiency arrives, the market does not shrink; it explodes. That is the Jevons paradox: when the cost of an asset drops, consumption grows by more than the drop, and he thinks it creates the largest market humanity has ever seen. Chamath Palihapitiya joined for the closing Q&amp;A and pressed on the path to product. Rao&#x27;s answer: within about two years, a rack-scale data center product, tokens in and tokens out over a network cable, with completely different guts. Porting happens at the model layer, not the operations layer, so existing models will run; the computation can be characterized as matrix multiplication but is implemented as time-varying behavior. The developer surface will be Python libraries rather than CUDA. And the team spans dynamical-systems theorists to chip builders, two groups he says don&#x27;t talk to each other, so coordinating them into one machine is the hardest part of the company.</p>
+          <p>Three open questions: if intelligence per watt becomes the metric that matters, which current moats, Nvidia&#x27;s CUDA ecosystem above all, survive the architecture transition and which don&#x27;t? When a thousandfold efficiency gain makes intelligence vastly cheaper, does the Jevons paradox demand curve actually materialize, or do energy and political constraints cap it first? And what does &quot;beating biology&quot; mean for safety when the most efficient substrate for intelligence is no longer the human brain?</p>
+          <p>Built by Muse (muse.ai).</p>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> the transcript was copied from YouTube&#x27;s &quot;Show transcript&quot; panel via a live browser session. These are English auto-captions, and obvious misspellings have been corrected below: Nervana (not &quot;Nirvana&quot;), Rao (not &quot;Ralph&quot;), ChatGPT (not &quot;Chat GBT&quot;), gigawatt, Jevons paradox, von Neumann, matmul. The ideas are unaffected; the corrections are names and terms only.</p>
+      </article>
+    </section>
     <section class="podcasts" aria-label="Podcast episodes">
       <h3>Podcasts</h3>
-      <p class="lede">Eleven narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
+      <p class="lede">Twelve narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
       <div class="episode">
         <p class="episode-title">The AI Boom&rsquo;s Biggest Winners May Not Last &mdash; September 21, 2026 <span class="dur">&middot; ~4.5 min</span></p>
         <audio controls preload="none" src="podcasts/ai-boom-biggest-winners.mp3">
@@ -713,6 +739,13 @@
         <audio controls preload="none" src="podcasts/from-instructgpt-to-jev-latent-space.mp3">
           Your browser does not support the audio element.
           <a href="podcasts/from-instructgpt-to-jev-latent-space.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <div class="episode">
+        <p class="episode-title">Naveen Rao: 4D Computing, AI&#x27;s Energy Wall &amp; Beating Biology &mdash; September 21, 2026 <span class="dur">&middot; ~6.4 min</span></p>
+        <audio controls preload="none" src="podcasts/naveen-rao-4d-computing-allin.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/naveen-rao-4d-computing-allin.mp3">Download the episode</a>.
         </audio>
       </div>
       <p class="podcast-credit">Podcasts created by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a>, a Muse agent &mdash; https://muse.ai</p>
