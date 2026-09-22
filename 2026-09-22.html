@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>Summaries &mdash; September 22, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div>
+        <p class="date">Tuesday &middot; September 22, 2026</p>
+        <h1>Two summaries, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+    <div class="tabs-wrap">
+      <nav class="tabs" role="tablist" aria-label="Summaries">
+        <button class="tab active" id="tab-a16z-horowitz-andreessen-academy" role="tab" aria-selected="true" aria-controls="panel-a16z-horowitz-andreessen-academy" tabindex="0" data-target="a16z-horowitz-andreessen-academy"><span class="num">01</span>Ben Horowitz &amp; Marc Andreessen Are Starting a University</button>
+        <button class="tab" id="tab-allin-blake-scholl-supersonic" role="tab" aria-selected="false" aria-controls="panel-allin-blake-scholl-supersonic" tabindex="-1" data-target="allin-blake-scholl-supersonic"><span class="num">02</span>Blake Scholl: Why Plane Speed Stalled, Supersonic Commercial Flight, &amp; Revolutionizing the Engine</button>
+      </nav>
+    </div>
+    <section class="panel active" id="panel-a16z-horowitz-andreessen-academy" role="tabpanel" aria-labelledby="tab-a16z-horowitz-andreessen-academy" data-panel="a16z-horowitz-andreessen-academy">
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>a16z</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Z4x71naDx1Q" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; startups &middot; education</p>
+        <h2>Ben Horowitz &amp; Marc Andreessen Are Starting a University</h2>
+        <p class="dek">Ben Horowitz and Marc Andreessen are starting a university &mdash; not a degree mill, but an academy for builders. What the school is for, who it&rsquo;s for, and why they think higher ed left the door open.</p>
+        <div class="body-copy">
+<p>The a16z Show&#x27;s Erik Torenberg sits down with Ben Horowitz and Gagan Biyani &mdash; the newly named CEO of the school they&#x27;re launching together &mdash; to announce Horowitz Andreessen Academy, a new school built from scratch for the AI era. The conversation is part launch announcement, part design document: an extended case for why college, for a certain kind of 18-year-old, has become a strange and expensive proposition, and what a school designed around building rather than studying might look like. Marc Andreessen is a co-namesake and co-commissioner of the Gen Z research cited in the conversation, though the interview itself is Ben, Erik, and Gagan.</p>
+<p>The impetus, as Ben lays it out, came from two directions at once. On one side, college works beautifully if you want to be a scholar or a professor, but it&#x27;s a peculiar proposition if you mostly want a job or to start a company: an enormous financial and time investment, and most of what actually happens there has little to do with either goal. On the other side, from the hiring standpoint of a16z&#x27;s 1,600 portfolio companies, the skill sets the industry needs are evolving so fast that a large university system simply cannot keep up. Put the two together &mdash; young people who want to build, and an investor who knows precisely what skills the jobs require &mdash; and a school starts to look like a thing worth adding to the mix.</p>
+<p>The question Erik keeps pressing is why nobody has pulled this off before, and Ben&#x27;s answer is that past attempts aimed too narrowly. College is a bundle: training for work, yes, but also status and credential and brand &mdash; the signal that says &quot;you went here, so I want to hire you&quot; &mdash; and also fun, something people actually want to do. Too many challengers focused on one element of the bundle and never delivered something that could genuinely compete. Gagan&#x27;s version of the same point is more concrete: this isn&#x27;t a degree-granting college, but it has to be a college-comparable experience, which means it has to be residential in San Francisco, it has to have real interpersonal social dynamics, and it has to be connected to the employers who hire the best people. Only two or three people have even attempted to deliver that bundle in the last fifty years, he estimates.</p>
+<p>The second thing that makes now the right time is the technology itself. Ben draws a straight line back through American educational history: the university system grew out of Jesuit religious institutions, exploded during the Industrial Revolution when a corporate world suddenly needed literate workers, and became the engine the American middle class was built on. His argument is that the AI revolution will be to jobs what the Industrial Revolution was to the farm &mdash; and that training designed for the industrial era is unlikely to map cleanly onto what comes next. Rather than lectures five to eight hours a day, students would have contained instruction, more time with the tools, individually paced AI-assisted learning, and structured social life made possible precisely because less time is spent sitting in a classroom.</p>
+<p>The pedagogy underneath it all is learning by doing. Ben&#x27;s formulation is that if you want to major in music, you should write songs; if you want to be a technologist, you should build systems. Studying about something is a different activity from learning to do it. He tells a story about Dan Boneh, the Stanford cryptography professor, who saw the AI question as binary: you can ban the tools, which won&#x27;t work, or you can make the problems so hard they can&#x27;t be solved without AI &mdash; and his students are now solving things no student in history could have solved, things Boneh himself couldn&#x27;t solve. Orientation day at the academy, he jokes, is essentially: here are the tools &mdash; what can you solve with them? Do you want to be a main character or an NPC?</p>
+<p>Running through everything is a push-to-pull theory of learning, anchored in the old line that education is not the filling of a bucket but the lighting of a fire. Curiosity is one of the academy&#x27;s core tenets. Erik brings up Steve Jobs and calligraphy &mdash; an interest that looked useless until it defined the Mac &mdash; and Ben answers with his own lifelong interest in rap music, which he says made him a more authentic businessperson and, crucially, a better storyteller, which is a large part of what he does. The academy&#x27;s version of this is that every pursuit, even ones with no obvious job relevance &mdash; calligraphy, horticulture, kitesurfing &mdash; gets reframed into a project: don&#x27;t answer test questions about calligraphy, learn enough of it to produce a beautifully displayed poem. The constraint is output, not memorization, because machines now answer the memorization questions better than we can.</p>
+<p>The people-skills thread is where the conversation gets most pointed about the AI era. The millennial loneliness epidemic, Ben argues, came from being locked into screens; AI&#x27;s promise is that it gets us off the screen &mdash; soon you&#x27;ll just talk to your AI and have it do the work and deal with the computer &mdash; which makes the scarce skill knowing people, motivating them, and getting the best out of each other. The academy&#x27;s mechanism for this is osmosis: immerse students in the adult world through co-ops and internships at companies like Databricks, Nvidia, and Stripe, so that the social pressure to accomplish real things forces the skills to develop. A student who needs a specific chip for a robot dog but doesn&#x27;t know how to write a cold email will learn, because everyone around them knows how. Ben&#x27;s own technique, which he tries to impart at the firm, is almost comically simple: start by asking who the person actually is &mdash; where they grew up, what their parents were like. And there&#x27;s a limit the transcript returns to repeatedly: you cannot learn this from books. Ben&#x27;s analogy is an NFL quarterback &mdash; you can read every book ever written on football, but nothing in them teaches you what to do when a 300-pound defender is rushing at you while you&#x27;re deciding where to throw. A founder, in this telling, is somewhere between a movie director and a nightclub promoter, and both roles are learned by doing them.</p>
+<p>California is treated less as a location than as a piece of the curriculum. Ben grew up in Berkeley and went to college in New York, where the main recruiter was financial services; for a builder-focused school, the Bay Area is where most great American companies get started, and something like 80 percent of a16z&#x27;s connected companies are in the area, so students can learn and start their careers in the same place. Gagan adds the cultural layer: &quot;San Francisco is your campus&quot; &mdash; a city that embraces failure (your next company will still get funded), that is positive-sum and high-trust in a way he calls genuinely rare, and where the futures of art, money, and biotech get argued about before they exist anywhere else.</p>
+<p>Two structural decisions get their own segments. First, the academy is a separate company, not a piece of a16z. An investment firm has no business running a school as an investment idea, and keeping it separate preserves its ambition &mdash; Ben explicitly doesn&#x27;t think the idea is limited to technology; music and medicine could follow. Second, it is for-profit on purpose, because for-profit is what forces the student to be the customer. Ben&#x27;s line is that the academy serves young people, not alumni, not donors, not parents &mdash; and his hope is that others steal the whole model: &quot;Please Harvard, copy us.&quot; The profit motive, in Gagan&#x27;s telling, creates the flywheel: if graduates go do great things, the brand compounds and the institution survives, which is an incentive alignment almost no school has.</p>
+<p>The Gen Z research that Ben and Marc commissioned surfaces a finding that shapes the admissions philosophy: it&#x27;s the highest-variance, most fragmented generation across the board. That cuts both ways. On the one hand, there&#x27;s now a real population of 18-year-olds already building startups and immersed in the startup world &mdash; Gagan says he started his first venture at 13 and knew nobody entrepreneurial as a kid, while the founding fellowship will collect fifty actual builders in one place. On the other hand, Ben&#x27;s advice to the generation is not to settle: if you don&#x27;t have the billion-dollar idea, don&#x27;t take the million-dollar one &mdash; go explore. Because the constraint has moved from &quot;what can I build&quot; to &quot;what&#x27;s worth working on,&quot; the academy&#x27;s exposure function matters as much as its instruction: most teenagers haven&#x27;t seen anything beyond teenage life, and failure at a genuinely hard problem is valued for what it teaches. Silicon Valley&#x27;s embrace of failure, Ben clarifies, is specific &mdash; it&#x27;s the failure where you&#x27;ve earned a &quot;secret,&quot; the knowledge of exactly why a hard problem is hard, which becomes the map to the adjacent solvable problem.</p>
+<p>Asked to picture the academy five years out, Ben sketches three measures: graduates with careers they love and interesting companies started; an institution that has learned what actually works and can extend to more kinds of students; and creatives manifesting ideas in every medium, since the same AI tools that change work let a single person with a feeling to convey make a feature film or score a movie. The episode closes with Ben&#x27;s pitch to anyone who is 18 today, and it&#x27;s the passage the whole conversation builds toward: this is the best time in history to be 18, the Thomas Edison and Henry Ford moment, because you&#x27;re entering a world only you will fully understand &mdash; a world where, coming out young and fluent in the new tools, you can be more capable than people with thirty or forty years of experience. He reaches for his own family story to make it concrete: a great-grandfather who immigrated from Russia and slept under his sewing machine in a sweatshop, a grandfather who got an education at CCNY and became a teacher, a father whose life was better still. The parallel is the point &mdash; the past is going to fade much faster than we&#x27;re used to, and the young people living through this transition will look back on the present the way his grandfather&#x27;s generation looked back on the sweatshop.</p>
+<h3 class="open-q">Open questions</h3>
+<ol class="open-q-list">
+<li>If the academy&#x27;s brand depends on graduates doing great things, but great outcomes take years to compound, what carries the institution&#x27;s credibility &mdash; and its admissions &mdash; through the first decade, when there are no alumni stories yet?</li>
+<li>The school is explicitly not degree-granting and openly invites Harvard to copy it &mdash; but if the bundle only works at elite scale with SF real estate, co-op access, and a curated peer network, can the model survive being copied by institutions that don&#x27;t have a16z&#x27;s 1,600 companies behind it?</li>
+<li>&quot;Main character or NPC&quot; is a galvanizing orientation &mdash; but for the students who arrive fired up and discover, through osmosis and hard problems, that they aren&#x27;t the next Zuckerberg, what does the academy offer them that the corporate ladder it bypasses doesn&#x27;t?</li>
+</ol>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> This summary was built from YouTube&#x27;s auto-generated captions, copied verbatim from the watch page&#x27;s &quot;Show transcript&quot; panel. The captions include disfluencies and occasional mistranscriptions &mdash; for example, &quot;Harowitz and Jason Academy&quot; for Horowitz Andreessen Academy, &quot;Gagen&quot; for Gagan Biyani, and &quot;Dan Bonet&quot; for Stanford&#x27;s Dan Boneh &mdash; so direct quotes should be read with that provenance in mind. All names and claims above are grounded in the caption text, and the source video is listed with its published date on the archive page.</p>
+      </article>
+    </section>
+    <section class="panel" id="panel-allin-blake-scholl-supersonic" role="tabpanel" aria-labelledby="tab-allin-blake-scholl-supersonic" data-panel="allin-blake-scholl-supersonic">
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>All-In Podcast</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Gnb-CfNPcPE" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; aviation &middot; startups</p>
+        <h2>Blake Scholl: Why Plane Speed Stalled, Supersonic Commercial Flight, &amp; Revolutionizing the Engine</h2>
+        <p class="dek">Boom Supersonic founder Blake Scholl on why planes stopped getting faster, the economics of Mach 1.7, and the engine pivot that nearly killed his company.</p>
+        <div class="body-copy">
+<p>In a keynote at an All-In event in Houston, Boom Supersonic founder and CEO Blake Scholl opened with a grievance that doubles as the company&#x27;s entire reason for existing: in 1969 humanity landed on the moon and flew an airliner through the sound barrier, yet more than half a century later we can do neither. Concorde&#x27;s political legacy, he argued, was the 1973 American ban on supersonic flight, and the incumbent industry has been treading water ever since &mdash; Boeing&#x27;s newest airliner, he quipped, is a carbon-fiber copy of the 707, and Boom has interns born after Boeing&#x27;s last new airplane launch in 2004. His alternate timeline is the pitch in miniature: the Atlantic in three and a half hours, Sydney as reachable as Honolulu, and the knock-on effects for business, culture, even love.</p>
+<p>Scholl&#x27;s own origin story is the classic founder inversion of expert wisdom. Twelve years ago he was a software engineer and ads guy from Amazon and Groupon with nothing but a pilot&#x27;s license, laughable as an aerospace entrepreneur. In 2015 he pitched his old boss Jeff Bezos on Boom&#x27;s seed round and Bezos passed &mdash; the same year Bezos&#x27;s Amazon shareholder letter declared that some things only large companies can do, that you are not going to build an all-composite airliner in a garage startup, not one you would want to fly on anyway. Scholl took it personally. The garage, as a surviving pitch-deck slide proves, held a supersonic airliner mockup of cardboard, plywood, and Office Depot seats. His refrain to the audience: the moment you become an expert, what you are steeped in is the past, and then you are completely useless; courage is not being fearless, courage is acting despite the fear.</p>
+<p>Fast forward and Boom became the first private company to build a supersonic jet, with roughly fifty people doing the work a legacy prime would assign to thousands. Its XB-1 demonstrator carried the first supersonic Starlink installation, and Scholl&#x27;s favorite memory of the program is the photos sent in from classrooms &mdash; kids who would have tuned out on flight day instead tuned in, some of them jumping up and down. In 2025 XB-1 became the first privately developed jet to break the sound barrier. But the technical move Scholl lingered on was the one that dissolved the regulatory problem rather than bulldozing it: boomless cruise, which uses the atmosphere&#x27;s own refractive power to bend the boom upward so it never reaches the ground &mdash; if a tree falls in a forest and nobody is there to hear it, did it really make a sound? They told the president there was no boom; the president agreed that without a boom there should be no ban. The 1973 ban fell to executive order on June 6 of last year, and the Supersonic Legalization Act then passed the House unanimously and cleared a Senate committee unanimously.</p>
+<p>Then came the near-death story and the pivot that is the talk&#x27;s headline. Outsourcing engine development to a legacy partner &mdash; Rolls-Royce &mdash; was, in Scholl&#x27;s words, one of the dumbest things he ever did; the public breakup had obituaries written for Boom. The company decided to design the engine from scratch with digital design tools and digital manufacturing, down to the turbine blades &mdash; Scholl carried one in his pocket &mdash; and to vertically integrate all of it on the conviction that engineering and manufacturing have to work together, and that re-industrializing America means inventing the next generation of manufacturing technology, not trying to bring back what was lost. The first vertically integrated core is being assembled now, bound for a test stand next month. And in a bizarre twist of history, the engine that nearly killed them became the financial engine: an engine built to run full duration at high power in a hot environment at Mach 1.7, minus its fan and with a generator in the back, becomes behind-the-meter power generation for data centers &mdash; 42 megawatts in a couple of trailers, running so hot it needs no water, which removes the industry&#x27;s water objection. Boom is building what it calls the world&#x27;s most advanced jet turbine factory at an undisclosed location; it made its first parts last week and aims to scale to multiple gigawatts per year, adding more than ten gigawatts to the grid over five years. Scholl called it an incredible money-printing business &mdash; tens of gigawatts of demand are sitting in his inbox &mdash; and when Jason Calacanis asked whether he had talked to Elon Musk about Colossus, Scholl&#x27;s non-answer was a yes. The engine meant to fly the airliner will first be proven on the ground, making Overture, he claims, the most tested new jet engine ever made.</p>
+<p>The passenger numbers, when pressed, were straightforward: Mach 1.7, the Atlantic in about three hours, break-even around $3,500 round trip, a goal of roughly four years with the caveat that it is more important to be fast than to be predictable &mdash; cue the &quot;Elon timing&quot; joke and a working estimate of 2030. Over land, boomless cruise reaches Mach 1.3, which Scholl translated into leaving New York at 9am and landing in San Francisco around 9:30am; over water, full speed. Victory, for Scholl, is generational: his four-and-a-half-year-old daughter once burst into tears at a model-rocket launch because she expected the rocket to come back to the pad &mdash; she had watched nothing but landing videos her entire life. Boom will have won when kids find a six-hour cross-country flight absurd, and supersonic goes from Air Force One to private jets to every cabin class. The closing note was a regulation speedrun: break the barrier on Monday, tweet, get reposted by Elon, fly to DC that night, land to a West Wing invitation on Tuesday, an airplane model in the Oval Office by Thursday &mdash; where, Scholl noted, it still sits &mdash; and an executive order signed in 115 days, which he described, only half-joking, as feeling slow.</p>
+<h3 class="open-q">Open questions</h3>
+<ol class="open-q-list">
+<li>First, does the data-center power business end up swallowing the airplane business &mdash; is Boom becoming an energy company that happens to build a supersonic jet, and does that change what it prioritizes?</li>
+<li>Second, the unanimous politics worked at the sound-barrier-breaking moment, but what happens to that bipartisan consensus if the first full-speed commercial flights carry a different noise, emissions, or cost profile than the current story promises?</li>
+<li>Third, Scholl&#x27;s timeline philosophy is &quot;more important to be fast than to be predictable,&quot; yet the data-center customers lining up for gigawatts will demand delivery dates and contracts &mdash; how does a company hold both postures at once, sprinting in public while signing binding commitments?</li>
+</ol>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> this summary is grounded in YouTube&#x27;s auto-generated captions, copied verbatim from the video&#x27;s &quot;Show transcript&quot; panel, including the platform&#x27;s mistranscriptions (for example &quot;Lake Shaw&quot; for Blake Scholl, &quot;Boone&quot; for Boom, &quot;Concord&quot; for Concorde, &quot;Gulfream&quot; for Gulfstream, and &quot;fair&quot; for fare) and the disfluencies of a live keynote, so direct quotes should be read with that in mind. The transcript is the single source; nothing here was checked against outside reporting.</p>
+      </article>
+    </section>
+    <section class="podcasts" aria-label="Podcast episodes">
+      <h3>Podcasts</h3>
+      <p class="lede">Two narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
+      <div class="episode">
+        <p class="episode-title">Ben Horowitz &amp; Marc Andreessen Are Starting a University &mdash; September 22, 2026 <span class="dur">&middot; ~9.1 min</span></p>
+        <audio controls preload="none" src="podcasts/a16z-horowitz-andreessen-academy.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/a16z-horowitz-andreessen-academy.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <div class="episode">
+        <p class="episode-title">Blake Scholl: Why Plane Speed Stalled, Supersonic Commercial Flight, &amp; Revolutionizing the Engine &mdash; September 22, 2026 <span class="dur">&middot; ~6.7 min</span></p>
+        <audio controls preload="none" src="podcasts/allin-blake-scholl-supersonic.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/allin-blake-scholl-supersonic.mp3">Download the episode</a>.
+        </audio>
+      </div>
+    </section>
+    <footer>
+      <span>Summaries dated September 22, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+
+<script>
+    (() => {
+      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+      const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+
+      function activate(name, moveFocus = false) {
+        tabs.forEach((tab) => {
+          const selected = tab.dataset.target === name;
+          tab.setAttribute('aria-selected', String(selected));
+          tab.tabIndex = selected ? 0 : -1;
+          if (selected && moveFocus) tab.focus();
+        });
+        panels.forEach((panel) => {
+          const selected = panel.dataset.panel === name;
+          panel.classList.toggle('active', selected);
+          panel.hidden = !selected;
+        });
+        if (history.replaceState) history.replaceState(null, '', `#${name}`);
+      }
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activate(tab.dataset.target));
+        tab.addEventListener('keydown', (event) => {
+          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+          event.preventDefault();
+          let next = index;
+          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+          if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+          if (event.key === 'Home') next = 0;
+          if (event.key === 'End') next = tabs.length - 1;
+          activate(tabs[next].dataset.target, true);
+        });
+      });
+
+      const fromHash = location.hash.slice(1);
+      if (tabs.some((tab) => tab.dataset.target === fromHash)) activate(fromHash);
+    })();
+  </script>
+</body>
+</html>
