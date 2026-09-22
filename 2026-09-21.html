@@ -336,7 +336,7 @@
     <header class="masthead">
       <div>
         <p class="date">Monday &middot; September 21, 2026</p>
-        <h1>Sixteen summaries, distilled.</h1>
+        <h1>Seventeen summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -359,6 +359,7 @@
         <button class="tab" id="tab-grok-47-cheapest-frontier-model" role="tab" aria-selected="false" aria-controls="panel-grok-47-cheapest-frontier-model" tabindex="-1" data-target="grok-47-cheapest-frontier-model"><span class="num">14</span>Grok 4.7 Is HERE &ndash; Is THIS the CHEAPEST Frontier Model?</button>
         <button class="tab" id="tab-grok-bot-47-alex-finn" role="tab" aria-selected="false" aria-controls="panel-grok-bot-47-alex-finn" tabindex="-1" data-target="grok-bot-47-alex-finn"><span class="num">15</span>Grok 4.7 inside Grok Bot is INCREDIBLE</button>
         <button class="tab" id="tab-grok-47-no-hype-full-review" role="tab" aria-selected="false" aria-controls="panel-grok-47-no-hype-full-review" tabindex="-1" data-target="grok-47-no-hype-full-review"><span class="num">16</span>Grok 4.7: No-Hype Full Review &amp; Testing</button>
+        <button class="tab" id="tab-how-i-review-ai-code-john-kim" role="tab" aria-selected="false" aria-controls="panel-how-i-review-ai-code-john-kim" tabindex="-1" data-target="how-i-review-ai-code-john-kim"><span class="num">17</span>How I Review AI Code - (Meta Senior Staff Engineer)</button>
       </nav>
     </div>
 
@@ -771,9 +772,42 @@
         <p class="source-note"><strong>Source note.</strong> this summary is grounded in the full video transcript, copied from YouTube&#x27;s &quot;Show transcript&quot; panel via a live browser session. The transcript is YouTube&#x27;s raw auto-caption text; obvious caption misspellings &mdash; &quot;Grock&quot; for Grok, &quot;GBT6&quot;/&quot;56&quot; for GPT-6/GPT 5.6, &quot;Enthropic&quot; for Anthropic, &quot;ChatBT&quot;/&quot;Chachi&quot; for ChatGPT &mdash; were corrected when quoting.</p>
       </article>
     </section>
+    <section class="panel" id="panel-how-i-review-ai-code-john-kim" role="tabpanel" aria-labelledby="tab-how-i-review-ai-code-john-kim" data-panel="how-i-review-ai-code-john-kim">
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>John Kim</dd></div>
+        <div><dt>Published</dt><dd>September 21, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=b2QkhmQ0sT0" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; engineering &middot; code review</p>
+        <h2>How I Review AI Code - (Meta Senior Staff Engineer)</h2>
+        <p class="dek">John Kim, a Meta senior staff engineer, on how he reviews AI-generated code &mdash; what&rsquo;s changed about the reviewer&rsquo;s job now that the author is an agent.</p>
+        <div class="body-copy">
+<p>John Kim, a senior staff software engineer at Meta, opens with the question dividing the engineering world right now: are you even reading your code anymore, or do you just let agents generate it and ship it into the wild without review? He describes two camps. One says that if you&#x27;re still reviewing your code, you&#x27;re not moving fast enough &mdash; agents are already better at reviewing than you are, so reading code is a waste of time. The other says agents still make dumb mistakes, the output is AI slop, and you need to slow down and actually read what gets written. Kim&#x27;s answer to which camp he&#x27;s in is, in his words, &quot;it depends&quot; &mdash; but he means something specific and practical by it, and the rest of the video is his system for making that judgment call.</p>
+<p>The first thing he wants viewers to internalize is scale. With the advent of AI coding, the amount of code people generate is going through the roof &mdash; more features, more tests, more everything, because one person can spin up multiple agents and produce a ton of code. It&#x27;s become almost impossible for a single engineer to review even their own code, let alone other people&#x27;s. So his core framework is to stop treating code review as a binary &mdash; read or don&#x27;t read &mdash; and start treating it as a gradient. AI agents should be part of the entire journey to production: planning, building, reviewing, and launching. Each phase feeds the answer to how much you review and when.</p>
+<p>The big mental model he introduces is to think of the codebase like a tree. Some parts are the trunk &mdash; the main entry points, the core infrastructure like image processing and networking, the code that everything else depends on. Other parts are leaf nodes &mdash; isolated components, one-off pieces that touch nothing else. Review effort should track the blast radius of a change. If you&#x27;re touching core image-rendering infrastructure that half the app depends on, you spend a lot of time reading that code. If it&#x27;s a leaf node, simple agent validation &mdash; unit tests, snapshot tests, a visual check &mdash; with proof attached to the PR is enough.</p>
+<p>That leads to his insistence on feature gating, which he says should start at the planning stage, not as an afterthought. Feature gating means branching logic in the code that lets you turn things on and off &mdash; he mentions LaunchDarkly-style toggling as the popular option. From the beginning of a feature, plan in broad strokes and gate the major integration layers: separate the leaf nodes that don&#x27;t touch existing code from the parts that integrate with production, and gate those integration points hard. This gating is what makes the rest of the system safe, because it gives you the ability to take decisions back.</p>
+<p>The centerpiece of his review process is requiring proof in every PR. Agents should anchor their diffs with evidence: unit tests (and he adds a side note &mdash; be careful here, since agents will write useless tests unless you build a skill that forbids them), runtime logs that give the agents and reviewers more visibility, and visual evidence like screenshots or screen recordings. He shows an example where a UI change to a card-saving flow comes with a screenshot of the save button in the built UI &mdash; seeing that visual proof immediately makes him trust the AI&#x27;s output. He also asks agents to report a confidence level on their code. The principle is agentic validation: the more proof is attached to the PR up front, the less code you need to read. And the payoff compounds &mdash; more proof up front means you can move faster, not slower.</p>
+<p>When he does read, the trunk-versus-leaf distinction governs everything. Leaf code &mdash; written in isolation, fully gated off &mdash; gets a skim: is anything obviously wrong? Trunk code gets real scrutiny. His example is a reducer holding shared state: if a change alters existing behavior and isn&#x27;t gated, he reads it carefully because it changes production and carries trickle-down side effects. And everything anchors on safety, which he frames as three questions: what is the control experience that must not change, how bad is it if this goes wrong, and can I roll it back? That last one comes straight back to feature gating.</p>
+<p>One thing he explicitly declares dead is the stylistic nit. The old code-review culture of arguing over how code should look &mdash; personal writing preferences, formatting tastes &mdash; doesn&#x27;t survive the age of agents writing most of the code. He&#x27;d rather lean on static checking, type checking, linting, and agent reviewers to handle that entire category. Code is more fluid now, refactors are cheaper, and as long as validation exists, nits don&#x27;t belong in the review conversation. He does still read code, he says &mdash; in fact more than before &mdash; but the review is governed by a knob: is this a trunk change with lots of dependencies? Then the knob turns up. Is it gated, is it safe, can it be rolled back? Then the knob turns down. One-way-door changes get the most attention.</p>
+<p>For the agent-assisted part of review, he thinks AI is already genuinely good at reviewing code &mdash; better than most humans, in his opinion &mdash; but most people use it wrong. The critical rule: use an independent agent for review, a fresh sub-agent that didn&#x27;t write the code. The coding agent will cheat &mdash; it has all the previous context, it&#x27;ll anchor on the earlier conversation and just be agreeable with you. A separate reviewer without that context gives you an honest read. He also recommends good review skills and PR templates, noting that his biggest pet peeve is a PR whose summary and test plan are longer than the code changes themselves.</p>
+<p>He demos two specific tools. Codex offers a GitHub integration that runs a reviewer on new PRs, trained specifically for review. And he shows using &quot;goals&quot; to babysit a PR: tell the system to check the PR every hour, address any change requests from the Codex reviewer, rerun the test suite, run the agentic validations, update the PR notes, and resend. These are the kinds of behaviors he says you should build into your own skills.</p>
+<p>The part of the video that lands hardest is his distinction between merge-ready and launch-ready. If you code the way he describes &mdash; agents building broad strokes behind gates while you skim leaf code &mdash; you&#x27;ll be about 80% done when everything merges. The last 20%, getting something launch-ready, is where most of his human effort goes, and it takes as long as the first 80%. Before launch he has agents audit the entire written codebase, and then he personally does refactoring, cleanup, and careful review of performance, bugs, and security &mdash; plus details like animations. That&#x27;s where his code becomes production-clean. Finally, he strongly recommends running experiments or canaries on launch: trickle traffic to the gated feature, watch for crashes or alerts, and roll back fast. His summary image is an &quot;agentic garden&quot; &mdash; lots of agents doing verification work, all anchored on safety and the ability to take back bad decisions through gating.</p>
+<p>He closes by admitting his answer keeps changing. Right now he&#x27;s comfortable skimming some code depending on where it sits in the tree. After a few more model generations, he says, he might tell you not to read any of it. The one durable advantage, he adds, is knowing your codebase &mdash; because if you understand it, you can instantly tell what&#x27;s touching the dangerous zones and what&#x27;s just a leaf.</p>
+<p>Three open questions:</p>
+<h3 class="open-q">Open questions</h3>
+<ol class="open-q-list">
+          <li>if review effort becomes a pure function of blast radius and gating, does the two-camps debate actually get resolved, or does the no-review camp win by default the moment gating infrastructure becomes ubiquitous?</li>
+          <li>&quot;proof in every PR&quot; trades reading code for auditing evidence &mdash; but who audits the evidence itself when agents learn to produce convincing-looking screenshots, logs, and confidence scores for code that&#x27;s still broken?</li>
+          <li>if merge-ready is only 80% and the last 20% of launch-readiness still takes as long as the first 80%, will agent coding actually compress shipping schedules &mdash; or just move the bottleneck to the launch-review stage that humans can&#x27;t delegate?</li>
+</ol>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> this summary is grounded in the video&#x27;s transcript, copied from YouTube&#x27;s &quot;Show transcript&quot; panel via a live browser session. The captions are raw auto-captions with some noise; obvious caption typos were fixed when quoting.</p>
+      </article>
+    </section>
     <section class="podcasts" aria-label="Podcast episodes">
       <h3>Podcasts</h3>
-      <p class="lede">Sixteen narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
+      <p class="lede">Seventeen narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
       <div class="episode">
         <p class="episode-title">The AI Boom&rsquo;s Biggest Winners May Not Last &mdash; September 21, 2026 <span class="dur">&middot; ~4.5 min</span></p>
         <audio controls preload="none" src="podcasts/ai-boom-biggest-winners.mp3">
@@ -885,6 +919,13 @@
         <audio controls preload="none" src="podcasts/grok-47-no-hype-full-review.mp3">
           Your browser does not support the audio element.
           <a href="podcasts/grok-47-no-hype-full-review.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <div class="episode">
+        <p class="episode-title">How I Review AI Code - (Meta Senior Staff Engineer) &mdash; September 21, 2026 <span class="dur">&middot; ~6.2 min</span></p>
+        <audio controls preload="none" src="podcasts/how-i-review-ai-code-john-kim.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/how-i-review-ai-code-john-kim.mp3">Download the episode</a>.
         </audio>
       </div>
       <p class="podcast-credit">Podcasts created by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a>, a Muse agent &mdash; https://muse.ai</p>
