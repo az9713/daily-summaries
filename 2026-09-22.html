@@ -336,7 +336,7 @@
     <header class="masthead">
       <div>
         <p class="date">Tuesday &middot; September 22, 2026</p>
-        <h1>Eight summaries, distilled.</h1>
+        <h1>Nine summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -350,6 +350,7 @@
 <button class="tab" id="tab-skill-engineering-paul-bakaus" role="tab" aria-selected="false" aria-controls="panel-skill-engineering-paul-bakaus" tabindex="-1" data-target="skill-engineering-paul-bakaus"><span class="num">06</span>The Dark Arts of Skill Engineering &mdash; Paul Bakaus, Renaissance Geek (Impeccable)</button>
 <button class="tab" id="tab-openai-anthropic-finance-rogo" role="tab" aria-selected="false" aria-controls="panel-openai-anthropic-finance-rogo" tabindex="-1" data-target="openai-anthropic-finance-rogo"><span class="num">07</span>Why OpenAI and Anthropic Won&rsquo;t Win Finance</button>
 <button class="tab" id="tab-opus55-anthropic-finally-listened" role="tab" aria-selected="false" aria-controls="panel-opus55-anthropic-finally-listened" tabindex="-1" data-target="opus55-anthropic-finally-listened"><span class="num">10</span>Opus 5.5 — Anthropic Finally Listened?</button>
+<button class="tab" id="tab-gpt6-sol-luna-chase-ai" role="tab" aria-selected="false" aria-controls="panel-gpt6-sol-luna-chase-ai" tabindex="-1" data-target="gpt6-sol-luna-chase-ai"><span class="num">12</span>GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!)</button>
       </nav>
     </div>
     <section class="panel active" id="panel-a16z-horowitz-andreessen-academy" role="tabpanel" aria-labelledby="tab-a16z-horowitz-andreessen-academy" data-panel="a16z-horowitz-andreessen-academy">
@@ -581,9 +582,35 @@
         </div>
       </article>
     </section>
+<section class="panel" id="panel-gpt6-sol-luna-chase-ai" role="tabpanel" aria-labelledby="tab-gpt6-sol-luna-chase-ai" data-panel="gpt6-sol-luna-chase-ai">
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Chase AI</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=U_sjnF3jvCo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; pricing</p>
+        <h2>GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!)</h2>
+        <p class="dek">Chase AI walks through OpenAI&rsquo;s answer to Opus 5.5 &mdash; GPT-6 Sol and Luna at half the price, matching Astra-level factuality &mdash; and asks what workloads still justify the flagship models.</p>
+        <div class="body-copy">
+        <p>The YouTube channel Chase AI opens &quot;GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!)&quot; with a frame most AI watchers felt this week: three models in one day. About an hour before recording, Anthropic had released Claude Opus 5.5, and now OpenAI was answering with GPT-6 Sol and GPT-6 Luna. The host&#x27;s verdict, built on a careful benchmark walkthrough, is that OpenAI is not trying to outgun the frontier — it is trying to own the sweet spot just below it, where he says most people actually operate.</p>
+        <p>He starts by locating the two models inside the GPT-6 family: Astra at the top, out for a few weeks and still &quot;the main event,&quot; with Sol and Luna below it. The explicit framing is that Sol and Luna are not meant to be better than Astra — they are meant to deliver close capabilities at much lower cost, so problems that don&#x27;t need Astra&#x27;s depth can run on something cheaper. His first test is the Frontier Code benchmark at maximum reasoning effort: GPT-6 Astra scores 53.3%, Sol scores 49.3% at $2.14 per task — less than half the cost for a drop from 53.3 to 49.3 — and Luna, the cheapest of the family, scores 42.4% at eleven cents per task. Against Anthropic&#x27;s day: Opus 5.5 scores 54.4 on the same benchmark at $6.19 per task, so Sol lands about a third of the cost with a roughly five-point drop in score. Dropping Sol to medium effort keeps 46% at eighty cents a task. The host&#x27;s read is that this price-to-performance zone is exactly what Anthropic&#x27;s lineup lacks — Opus and Fable are really good but expensive, and Anthropic struggles to offer cheap, highly efficient models for uncomplicated tasks, a gap Sol and Luna now fill.</p>
+        <p>The second test is generational: GPT-6 versus GPT-5.6. Sol gains a small performance increase over 5.6 Sol but a significant jump in cost efficiency; Luna&#x27;s improvement is almost entirely economic — essentially the same performance, but fifteen cents per task on the GPT-6 version versus $2.57 on 5.6. In some cases, he notes, the GPT-6 models exceed Claude Fable 5.1 and even beat low-effort GPT-6 Astra. The mechanism is a broad 50% reduction in input and output pricing from the 5.6 to the 6 series — Luna&#x27;s API prices are now ten cents per million input tokens and fifty cents per million output tokens.</p>
+        <p>The third test is factuality, and here the gains look real on his charts: Luna&#x27;s factual-error rate at max effort falls from 12% to 7.6%, and on low effort from 36% to 27%; Sol falls from 8.5% to 4.6%, nearly matching Astra&#x27;s 3.9%. Then come two upgrades that matter to anyone running agents: caching and reasoning-effort behavior. Long conversations keep their 90% cache-read discount even after stepping away for a day, and — the fix he calls really important — adjusting reasoning effort no longer resets the cache into a surprise bill; it stays warm. A new prompt caching dashboard lets API users inspect where the cache breaks. Availability is essentially everywhere, and he closes wondering whether a GPT-6 Terra is coming to complete the portfolio.</p>
+        <p>His overall sentiment is warm but deliberately calibrated: on paper the launch sits a step below Opus 5.5, but he argues they&#x27;re solving different problems. Luna and Sol are built for the step below the frontier, run far more efficiently, and — his closing line — you can never discount how important cost is to these equations.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Now that Sol matches Astra-level factual accuracy at roughly a third of Opus 5.5&#x27;s per-task cost, what real workloads still justify the flagship models?</li>
+<li>Will the big 5.6-to-6 factuality gains hold up in users&#x27; own production evaluations, or are they benchmark-specific?</li>
+<li>And does GPT-6 Terra arrive to round out the portfolio — and how would a four-model GPT-6 stack line up against Anthropic&#x27;s Opus-and-Fable lineup?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> this summary is grounded in the video&#x27;s auto-caption track, copied verbatim from YouTube&#x27;s transcript panel on September 22, 2026, for the video at https://www.youtube.com/watch?v=U_sjnF3jvCo. The captions carry the usual auto-generated quirks — misheard proper nouns like &quot;Soul&quot; for Sol, &quot;Enthroic&quot; for Anthropic, and &quot;GBT&quot; for GPT — corrected where the intended meaning was unambiguous; one cost figure on the benchmark chart was too garbled to attribute and is described only in the host&#x27;s own comparative terms. No other source material was used.</p>
+        </div>
+      </article>
+    </section>
     <section class="podcasts" aria-label="Podcast episodes">
       <h3>Podcasts</h3>
-      <p class="lede">Eight narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
+      <p class="lede">Nine narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
       <div class="episode">
         <p class="episode-title">Ben Horowitz &amp; Marc Andreessen Are Starting a University &mdash; September 22, 2026 <span class="dur">&middot; ~9.1 min</span></p>
         <audio controls preload="none" src="podcasts/a16z-horowitz-andreessen-academy.mp3">
@@ -638,6 +665,13 @@
         <audio controls preload="none" src="podcasts/opus55-anthropic-finally-listened.mp3">
           Your browser does not support the audio element.
           <a href="podcasts/opus55-anthropic-finally-listened.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <div class="episode">
+        <p class="episode-title">GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!) — September 22, 2026 <span class="dur">&middot; ~3.2 min</span></p>
+        <audio controls preload="none" src="podcasts/gpt6-sol-luna-chase-ai.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/gpt6-sol-luna-chase-ai.mp3">Download the episode</a>.
         </audio>
       </div>
     </section>
