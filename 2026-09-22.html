@@ -336,7 +336,7 @@
     <header class="masthead">
       <div>
         <p class="date">Tuesday &middot; September 22, 2026</p>
-        <h1>Seven summaries, distilled.</h1>
+        <h1>Eight summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -349,6 +349,7 @@
 <button class="tab" id="tab-lovable-cofounder-silicon-valley-girl" role="tab" aria-selected="false" aria-controls="panel-lovable-cofounder-silicon-valley-girl" tabindex="-1" data-target="lovable-cofounder-silicon-valley-girl"><span class="num">05</span>$13B Lovable Co-Founder: Turn Your AI Side Project Into a Real Business</button>
 <button class="tab" id="tab-skill-engineering-paul-bakaus" role="tab" aria-selected="false" aria-controls="panel-skill-engineering-paul-bakaus" tabindex="-1" data-target="skill-engineering-paul-bakaus"><span class="num">06</span>The Dark Arts of Skill Engineering &mdash; Paul Bakaus, Renaissance Geek (Impeccable)</button>
 <button class="tab" id="tab-openai-anthropic-finance-rogo" role="tab" aria-selected="false" aria-controls="panel-openai-anthropic-finance-rogo" tabindex="-1" data-target="openai-anthropic-finance-rogo"><span class="num">07</span>Why OpenAI and Anthropic Won&rsquo;t Win Finance</button>
+<button class="tab" id="tab-opus55-anthropic-finally-listened" role="tab" aria-selected="false" aria-controls="panel-opus55-anthropic-finally-listened" tabindex="-1" data-target="opus55-anthropic-finally-listened"><span class="num">10</span>Opus 5.5 — Anthropic Finally Listened?</button>
       </nav>
     </div>
     <section class="panel active" id="panel-a16z-horowitz-andreessen-academy" role="tabpanel" aria-labelledby="tab-a16z-horowitz-andreessen-academy" data-panel="a16z-horowitz-andreessen-academy">
@@ -555,9 +556,34 @@
         </div>
       </article>
     </section>
+<section class="panel" id="panel-opus55-anthropic-finally-listened" role="tabpanel" aria-labelledby="tab-opus55-anthropic-finally-listened" data-panel="opus55-anthropic-finally-listened">
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Prompt Engineering</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=04qy4OWteio" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; benchmarks</p>
+        <h2>Opus 5.5 — Anthropic Finally Listened?</h2>
+        <p class="dek">Prompt Engineering runs Opus 5.5 through benchmarks and his own real-world tests &mdash; agentic coding with visual self-verification, a black-hole sim, a live space-station tracker &mdash; and finds the first Claude that writes like a person, at lower API prices.</p>
+        <div class="body-copy">
+        <p>The YouTube channel Prompt Engineering opens its video &quot;Opus 5.5 — Anthropic Finally Listened?&quot; with the headline that Opus 5.5 beats Fable 5.1 on nearly every benchmark while costing less than Opus 5, and the host&#x27;s real excitement is narrower than the spec sheet: this is the first model in Anthropic&#x27;s Claude 5.5 family that, to his eye, writes like a person instead of producing the stiff, unnatural prose of previous frontier models. His verdict comes from a battery of tests that mixes published benchmarks with his own go-to real-world prompts, and the throughline of his sentiment is that Anthropic finally responded to what users were actually asking for — better writing, verified code, and lower prices.</p>
+        <p>His first test is the benchmark gauntlet. Terminal-Bench 4.0 matters most to him because it isn&#x27;t saturated yet, and Opus 5.5 beats both Astra and Fable 5.1 there; across the agentic coding benchmarks more broadly it looks state of the art, and at multiple reasoning-effort settings it wins while spending less. He flags one genuinely strange result on a frontier code-reasoning benchmark, where medium reasoning effort outperforms high and extra-high — the same odd pattern he sees for Fable 5.1 and Opus 5 — and chalks it up to the benchmark&#x27;s data distribution sitting outside what these models were trained on, worth investigating rather than trusted at face value. A dashboard plotting model intelligence as ELO against cost per task shows Opus 5.5 at the frontier on both axes. But he is explicit that benchmarks only hint at real-world coding ability, which is why the rest of the video is his own testing.</p>
+        <p>The second test is agentic coding with a verification loop, and this is where his sentiment turns from impressed to genuinely enthusiastic. His go-to coding prompt doesn&#x27;t just get code written — Opus 5.5 opens a browser and visually verifies its own output, which he calls the critical step for running agents unattended on long-horizon tasks. The third test is the writing style itself, his personally favorite improvement: from Anthropic&#x27;s announcement post he shows a before-and-after on an explanation task, where Fable 5.1 wanders through a rambling paragraph about a free-tier change and Opus 5.5 answers in a single crisp sentence attributing the metric&#x27;s drop to that change. He expects the cleaner prose to pay off most in long sessions, where the old Opus style grated.</p>
+        <p>Then come the demos, all run in Claude Code with no external assets. A detailed black-hole simulation prompt produces output he&#x27;s pretty impressed with — full controls, density adjustable, though brighter than he wanted and frame-rate limited by his CPU. His real-time space-station tracker is the standout: live position data via real API calls, and he calls it one of the best outputs he&#x27;s seen from any model, down to the neat touch of placing the sun on the correct side. A research-then-build-a-launch-website prompt lands mixed — the visual quality needs work on first glance, but the benchmark animations are sharp, the numbers check out, the page correctly reflects the default medium reasoning setting, and scrolling through a second time he warms to it considerably. In Three.js the model produces the most detailed voxel art he has seen from any model, following the prompt accurately. The practical details round out a warm reception: the model is available in Claude Code and the desktop app behind an update, via the API under the Opus 5.5 tag, with API pricing reduced across input, output, and cache tokens, higher five-hour limits, and new rate-limit resets that he reads as Anthropic answering OpenAI&#x27;s lead — competition, he says, is good for customers. He&#x27;d still trade the five-hour bump for bigger weekly limits, and he points viewers at the data-retention, distillation, and safety notes rather than summarizing them.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Will the benchmark leads actually show up in users&#x27; own real-world codebases, given the host&#x27;s own warning that benchmarks don&#x27;t represent real coding capability?</li>
+<li>Why does medium reasoning effort beat high and extra-high on the frontier code-reasoning benchmark, and what should that teach users about how to set reasoning effort in practice?</li>
+<li>And now that Anthropic is pushing price-to-performance instead of raw intelligence, do OpenAI and Google answer with cheaper models or with more capable ones?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> this summary is grounded in the video&#x27;s auto-caption track, copied verbatim from YouTube&#x27;s transcript panel on September 22, 2026, for the video at https://www.youtube.com/watch?v=04qy4OWteio. The captions carry the usual auto-generated quirks — misheard words like &quot;clot code&quot; for Claude Code and garbled fragments — which were corrected where the intended meaning was unambiguous; one benchmark dashboard&#x27;s name was too garbled to identify and is described generically instead. No other source material was used.</p>
+        </div>
+      </article>
+    </section>
     <section class="podcasts" aria-label="Podcast episodes">
       <h3>Podcasts</h3>
-      <p class="lede">Seven narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
+      <p class="lede">Eight narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
       <div class="episode">
         <p class="episode-title">Ben Horowitz &amp; Marc Andreessen Are Starting a University &mdash; September 22, 2026 <span class="dur">&middot; ~9.1 min</span></p>
         <audio controls preload="none" src="podcasts/a16z-horowitz-andreessen-academy.mp3">
@@ -605,6 +631,13 @@
         <audio controls preload="none" src="podcasts/openai-anthropic-finance-rogo.mp3">
           Your browser does not support the audio element.
           <a href="podcasts/openai-anthropic-finance-rogo.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <div class="episode">
+        <p class="episode-title">Opus 5.5 — Anthropic Finally Listened? — September 22, 2026 <span class="dur">&middot; ~3.4 min</span></p>
+        <audio controls preload="none" src="podcasts/opus55-anthropic-finally-listened.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/opus55-anthropic-finally-listened.mp3">Download the episode</a>.
         </audio>
       </div>
     </section>
