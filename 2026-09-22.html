@@ -336,7 +336,7 @@
     <header class="masthead">
       <div>
         <p class="date">Tuesday &middot; September 22, 2026</p>
-        <h1>Nine summaries, distilled.</h1>
+        <h1>Ten summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -350,6 +350,7 @@
 <button class="tab" id="tab-skill-engineering-paul-bakaus" role="tab" aria-selected="false" aria-controls="panel-skill-engineering-paul-bakaus" tabindex="-1" data-target="skill-engineering-paul-bakaus"><span class="num">06</span>The Dark Arts of Skill Engineering &mdash; Paul Bakaus, Renaissance Geek (Impeccable)</button>
 <button class="tab" id="tab-openai-anthropic-finance-rogo" role="tab" aria-selected="false" aria-controls="panel-openai-anthropic-finance-rogo" tabindex="-1" data-target="openai-anthropic-finance-rogo"><span class="num">07</span>Why OpenAI and Anthropic Won&rsquo;t Win Finance</button>
 <button class="tab" id="tab-opus55-anthropic-finally-listened" role="tab" aria-selected="false" aria-controls="panel-opus55-anthropic-finally-listened" tabindex="-1" data-target="opus55-anthropic-finally-listened"><span class="num">10</span>Opus 5.5 — Anthropic Finally Listened?</button>
+<button class="tab" id="tab-opus55-howi-ai-claude-is-back" role="tab" aria-selected="false" aria-controls="panel-opus55-howi-ai-claude-is-back" tabindex="-1" data-target="opus55-howi-ai-claude-is-back"><span class="num">11</span>Claude is BACK with Opus 5.5</button>
 <button class="tab" id="tab-gpt6-sol-luna-chase-ai" role="tab" aria-selected="false" aria-controls="panel-gpt6-sol-luna-chase-ai" tabindex="-1" data-target="gpt6-sol-luna-chase-ai"><span class="num">12</span>GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!)</button>
       </nav>
     </div>
@@ -582,6 +583,31 @@
         </div>
       </article>
     </section>
+<section class="panel" id="panel-opus55-howi-ai-claude-is-back" role="tabpanel" aria-labelledby="tab-opus55-howi-ai-claude-is-back" data-panel="opus55-howi-ai-claude-is-back">
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>How I AI</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=zObYdmNB2Bo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; benchmarks</p>
+        <h2>Claude is BACK with Opus 5.5</h2>
+        <p class="dek">How I AI&rsquo;s Claire puts Opus 5.5 through her own real-world bench &mdash; long agentic work, prompt-injection tests, and a dual-model Claude-vs-GPT workflow &mdash; and finds a model that finally stopped being annoying.</p>
+        <div class="body-copy">
+        <p>The How I AI channel&#x27;s &quot;Claude is BACK with Opus 5.5&quot; is Claire&#x27;s return-to-Claude video, built around one blunt thesis: she had abandoned Claude for months, not because it wasn&#x27;t smart, but because it was annoying. Opus 5&#x27;s rambly, slop-scented, non-human patter drove her away from talking to it at all, even as she kept it on for background chores. Anthropic&#x27;s pitch for Opus 5.5 is fable-level performance for about forty percent less than Opus 5 and thirty percent faster, with this release the first since the company publicly called for pacing the frontier, evaluated externally and tagged as its strongest on alignment. Claire cares about exactly one claim: is it annoying anymore? Her verdict is that it isn&#x27;t, or at least is minimally so, and she now has a Claude model back in her daily rotation — though she is not moving every workload over, and the caveats she documents are the interesting part.</p>
+        <p>The centerpiece of the video is her &quot;How I AI bench,&quot; a set of real-world tests rather than benchmark tables. She starts with voice: Opus 5.5&#x27;s speaking tone is, in her words, more GPT-like, which she means as a compliment — clear, plainspoken, bullet points instead of obnoxious narration. The one caveat here is subtle and worth attention from anyone building agents: in its effort to stop over-narrating, the model sometimes goes silent for minutes on long turns, so it feels slower than it is. Actual speed versus perceived speed diverge, and she kept asking whether it was still working. Next she runs four long-running agentic tasks — inbox triage, building a backend feature, long-form research, and computer use — and all four succeed, at twenty-five to eighty-two steps per single prompt. The wins she highlights are concrete: the inbox triage ignored a prompt injection, the fake help-desk computer-use task found support tickets linked to the wrong company and declined customer asks that didn&#x27;t match the playbook, and in the research task the model noticed forty-one of forty-four Confluence tickets came from one customer and adjusted its strategic memo accordingly. Generally correct is her honest grade, and the practical consequence is that she has rebuilt Opus 5.5 into her development process as an adversarial reviewer — running Claude and GPT codecs in parallel and having each check the other&#x27;s work, including PRs.</p>
+        <p>On safety, the alignment story cuts both ways. Prompt-injection resistance holds up in her testing, and Opus 5.5 is the first Opus to launch with the fable-grade cyber and bio safeguards, meaning cybersecurity tasks get bumped up to the heavier Opus 4.8 model. But the scolding edge of Claude remains: when she told it to yolo push straight to production and skip the tests, it refused, and when she joked about why she started her company it replied with brown-nosing flattery she found grating. Her wish is practical rather than philosophical — she would rather it said &quot;let me fix it first, then we can ship.&quot; Frontend prototyping is where she is most enthusiastic. Opus 5.5 redesigned her chat PRD homepage so well she plans to ship the result, one-shotted dense DevTools-style prototypes that all actually work, and handles SaaS dashboards and wireframes with lovely rhythm and color. The failures are revealing: its ultra-complex prototypes come out as what she calls &quot;chaos rain&quot; — visually dense and hard to reason about, where competing models simplified more effectively — and consumer-app design remains a disaster, with a plant-caretaking app she calls the sloppiest output of the whole test. Two new bench categories round out the picture. SVG illustration generation is a standout: asked for character illustrations, Opus 5.5 produced consistent, animation-ready artwork that beat every other model she compared. Video editing, via the Eleven Labs connector, failed on taste — bad color grading, weak overlays, not enough jump cuts — confirming that short-form video still needs a purpose-built skill rather than a one-shot prompt. Writing voice and email is a quieter win: the prose doesn&#x27;t annoy her, and it matched her short, em-dash-free email style well enough that she&#x27;d let it write on her behalf.</p>
+        <p>Her final accounting is measured. Opus 5.5 is not annoying, it handles long agentic work, it&#x27;s faster and cheaper, and it&#x27;s exceptional at frontend and visual work, but it&#x27;s still a scold, still conservative, and still felt slower in practice than the Sol and Astra models she favors — though she suspects that&#x27;s reply behavior rather than the model itself. She reaches for Codex for computer use and the desktop harness, and those habits of muscle memory will be hard to break. She is using Opus 5.5 in PR review, architecture questions, and frontend work, and she will keep benching it against newer entrants like the Grok and Meta Muse models in a fuller update.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Perceived latency versus real speed: if models get quieter to feel less annoying, does the silence itself become the new annoyance — and who owns that tradeoff, the model builder or the agent builder?</li>
+<li>Will the &quot;pacing the frontier&quot; posture — heavier alignment, cyber-task guardrails, the refusal to yolo to prod — eventually cost Claude the everyday developer, or will prompt-injection resistance turn out to be the feature people actually pay for?</li>
+<li>Claire&#x27;s dual-model workflow, with Claude and GPT checking each other&#x27;s work, assumes adversarial review scales: as these models get cheaper, does redundancy become the default engineering practice, or a luxury that consolidation kills?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the auto-generated YouTube captions for &quot;Claude is BACK with Opus 5.5&quot; (How I AI), fetched via YouTube&#x27;s &quot;Show transcript&quot; panel on 2026-09-22 around 14:33 PDT. Caption quirks are corrected throughout: &quot;Opus 55&quot; means Opus 5.5, &quot;Fable&quot;/&quot;fable&quot; means the Opus 4.x line, &quot;claw harness&quot; is the Claude harness, &quot;codeex&quot; is Codex, &quot;Soul&quot; is the Sol model, &quot;Grock&quot; is Grok, and &quot;11 Labs&quot; is Eleven Labs. Nothing here is inferred beyond what the captions say; where the captions are unclear, the summary says so or omits the claim.</p>
+        </div>
+      </article>
+    </section>
 <section class="panel" id="panel-gpt6-sol-luna-chase-ai" role="tabpanel" aria-labelledby="tab-gpt6-sol-luna-chase-ai" data-panel="gpt6-sol-luna-chase-ai">
       <dl class="meta">
         <div><dt>Channel</dt><dd>Chase AI</dd></div>
@@ -610,7 +636,7 @@
     </section>
     <section class="podcasts" aria-label="Podcast episodes">
       <h3>Podcasts</h3>
-      <p class="lede">Nine narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
+      <p class="lede">Ten narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
       <div class="episode">
         <p class="episode-title">Ben Horowitz &amp; Marc Andreessen Are Starting a University &mdash; September 22, 2026 <span class="dur">&middot; ~9.1 min</span></p>
         <audio controls preload="none" src="podcasts/a16z-horowitz-andreessen-academy.mp3">
@@ -665,6 +691,13 @@
         <audio controls preload="none" src="podcasts/opus55-anthropic-finally-listened.mp3">
           Your browser does not support the audio element.
           <a href="podcasts/opus55-anthropic-finally-listened.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <div class="episode">
+        <p class="episode-title">Claude is BACK with Opus 5.5 — September 22, 2026 <span class="dur">&middot; ~6 min</span></p>
+        <audio controls preload="none" src="podcasts/opus55-howi-ai-claude-is-back.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/opus55-howi-ai-claude-is-back.mp3">Download the episode</a>.
         </audio>
       </div>
       <div class="episode">
