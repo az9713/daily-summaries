@@ -336,7 +336,7 @@
     <header class="masthead">
       <div>
         <p class="date">Monday &middot; September 21, 2026</p>
-        <h1>Twelve summaries, distilled.</h1>
+        <h1>Thirteen summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -355,6 +355,7 @@
         <button class="tab" id="tab-joy-park-aaa-founder" role="tab" aria-selected="false" aria-controls="panel-joy-park-aaa-founder" tabindex="-1" data-target="joy-park-aaa-founder"><span class="num">10</span>AAA Concept Artist to SF Founder with Joy Park | fal Podcast</button>
         <button class="tab" id="tab-from-instructgpt-to-jev-latent-space" role="tab" aria-selected="false" aria-controls="panel-from-instructgpt-to-jev-latent-space" tabindex="-1" data-target="from-instructgpt-to-jev-latent-space"><span class="num">11</span>Jev: System One models for Prod, not God &mdash; with Diogo Almeida, CEO, TypeSafe AI</button>
         <button class="tab" id="tab-naveen-rao-4d-computing-allin" role="tab" aria-selected="false" aria-controls="panel-naveen-rao-4d-computing-allin" tabindex="-1" data-target="naveen-rao-4d-computing-allin"><span class="num">12</span>Naveen Rao: 4D Computing, AI&#x27;s Energy Wall &amp; Beating Biology</button>
+        <button class="tab" id="tab-did-elon-catch-up-grok-47" role="tab" aria-selected="false" aria-controls="panel-did-elon-catch-up-grok-47" tabindex="-1" data-target="did-elon-catch-up-grok-47"><span class="num">13</span>Did Elon catch up? (Grok 4.7 is here)</button>
       </nav>
     </div>
 
@@ -660,9 +661,32 @@
         <p class="source-note"><strong>Source note.</strong> the transcript was copied from YouTube&#x27;s &quot;Show transcript&quot; panel via a live browser session. These are English auto-captions, and obvious misspellings have been corrected below: Nervana (not &quot;Nirvana&quot;), Rao (not &quot;Ralph&quot;), ChatGPT (not &quot;Chat GBT&quot;), gigawatt, Jevons paradox, von Neumann, matmul. The ideas are unaffected; the corrections are names and terms only.</p>
       </article>
     </section>
+    <section class="panel" id="panel-did-elon-catch-up-grok-47" role="tabpanel" aria-labelledby="tab-did-elon-catch-up-grok-47" data-panel="did-elon-catch-up-grok-47">
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Matthew Berman</dd></div>
+        <div><dt>Duration</dt><dd>16:56</dd></div>
+        <div><dt>Published</dt><dd>September 21, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=MJllZbpvrAc" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; benchmarks</p>
+        <h2>Did Elon catch up? (Grok 4.7 is here)</h2>
+        <p class="dek">Matthew Berman walks through xAI&rsquo;s Grok 4.7 release &mdash; what&rsquo;s actually new, how it stacks up against the frontier models, and whether Elon has caught up.</p>
+        <div class="body-copy">
+          <p>About a week before Grok 4.7 launched, Elon Musk tweeted that it should be roughly on par with Claude Opus 5.0 &mdash; pointedly not 5.1. A month earlier he had been bolder, predicting Grok 4.7 would exceed all current models. Matthew Berman&#x27;s video is a benchmark-by-benchmark check on which Elon showed up. The launch itself is straightforward: Grok 4.7 is xAI&#x27;s most capable model for coding and knowledge work, a notable improvement over Grok 4.6 at the same price and speed, with a new safeguard stack xAI calls its best-calibrated yet. It arrived about a week and a half late; Musk&#x27;s explanation &mdash; &quot;Grok 4.7 needs a few more days to cook. We might have penalized response length too much or something in RL&quot; &mdash; gets a laugh for the casual &quot;or something,&quot; but the substance is that the model was still giving up on hard tasks too early and not checking its work rigorously enough.</p>
+          <p>Berman&#x27;s framing is that xAI cherry-picked, so he shows everything. On CursorBench 4.0 &mdash; worth remembering xAI now owns Cursor &mdash; Grok 4.7 lands comparable to Opus 5, just behind it on max-thinking settings, at roughly half the cost per task. The thinking-effort curve is steep: 33% at low effort versus 46.3% at extra-high, one of the biggest deltas outside GPT 5.6 Soul. Intelligence density &mdash; average output tokens per task, a stand-in for how much intelligence you get per token &mdash; looks comparable to Opus 5. Fable 5.1 wins on raw score but costs much more, so its cost per completed task is far higher. On steps per task, all the models cluster together, with GPT 5.6 Soul the most efficient &mdash; matching Berman&#x27;s own experience that it takes the most direct shot at a solution.</p>
+          <p>DeepSuite is the benchmark Berman trusts most for how engineers actually feel about models in production coding. Grok 4.7 scores 71%, GPT 5.6 Soul 72.7%, Fable 5.1 70%. Here the cherry-picking becomes visible: xAI&#x27;s blog omitted Astra entirely, and when Berman got Astra to recreate the table with itself included, Astra Max came in at 74.1% &mdash; the best score on the board. On Briefcase multi-hour office work, Grok 4.7 is competitive with Fable 5.1 and Astra Max, roughly equivalent across the board. TerminalBench 4.0, one of the most important coding benchmarks, is a weak spot: Grok 4.7 at 38% against Fable 5.1&#x27;s 57.9% and Astra&#x27;s 58.2%. Then the surprise: on the Legal Work benchmark, Grok 4.7 dominated everything at 19.6%, with the whole Grok family showing strength there (4.6 at 15.8%), while GPT 5.6 Soul managed 2.5%, Fable 5.1 6.7%, and Astra 5.4. The sleeper of the whole video is Muse Spark 1.2, which won legal outright at 42% &mdash; and it&#x27;s open source. On GDPval, OpenAI&#x27;s own real-world knowledge-work benchmark, Fable 5.1 leads at 1735 ELO with Grok 4.7 impressively close at 1695, and Astra fourth at 1542 &mdash; notably, xAI included Astra here, which is funny given the omission in DeepSuite. The Artificial Analysis intelligence index puts Grok 4.7 fifth at 46, behind Fable 5.1, Astra, Opus 5, and Muse Spark 1.3 Max at 48.</p>
+          <p>The pricing argument is where Berman lands. Grok 4.7 is $2 per million input tokens and $6 per million output; GPT 5.6 Soul is more than twice as expensive, Fable 5.1 and Astra over five times. The low price is a function of two things: the model is one step off the absolute frontier, and xAI has a glut of compute &mdash; it overinvested in GPUs without a frontier model to drive demand, so it can afford to price aggressively. That fits the broader shift Berman points to: enterprise token usage is trending toward open weights, now 62% versus 38% closed, even as value still accrues to OpenAI and Anthropic. His rule of thumb: you can&#x27;t charge frontier prices without the frontier&#x27;s answers, and plenty of industries just want knowledge work done without paying for the best possible answer. A couple of caveats from independent sources: Artificial Analysis notes Grok 4.7&#x27;s gains come with higher token usage, so cost per completed task isn&#x27;t as low as the sticker price implies, and the 500K context window lags the million-token standard elsewhere. There&#x27;s also a demo making the rounds from a streamer named Bobby in which Grok 4.7 loses badly to Kimi K3 &mdash; Berman flags that the settings are unknown, so it&#x27;s a data point, not a verdict.</p>
+          <p>So did Elon catch up? On Elon&#x27;s own terms, roughly yes: Grok 4.7 is near Opus 5.0-class, not 5.1, at dramatically lower cost, and Musk himself now frames xAI as third for agentic coding behind Anthropic and OpenAI. Berman&#x27;s verdict is that it&#x27;s a great, incredibly cost-effective model, close enough to the frontier to matter &mdash; with 4.8 or 4.9 hopefully making the final leap.</p>
+          <p>Open questions. First, is xAI&#x27;s benchmark selection trustworthy, given that Astra appears in GDPval but vanishes from DeepSuite &mdash; and does Berman&#x27;s one-off Astra-inclusive table settle it? Second, does the cost-per-task advantage survive Artificial Analysis&#x27;s finding that Grok 4.7&#x27;s gains ride on higher token usage, or does that erase much of the sticker-price edge? Third, will the Grok family&#x27;s legal-benchmark strength and the open-source Muse Spark&#x27;s 42% win redraw how labs invest in domain-specific evaluation &mdash; or is legal work an outlier that flatters a niche?</p>
+          <p>Built by Muse &mdash; muse.ai</p>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> the transcript was copied from YouTube&#x27;s &quot;Show transcript&quot; panel via a live browser session. These are English auto-captions; obvious misspellings of proper nouns have been corrected below (Grok, CursorBench, xAI). The numbers and claims are as stated in the video, which leans heavily on xAI&#x27;s own launch materials plus independent benchmarks.</p>
+      </article>
+    </section>
     <section class="podcasts" aria-label="Podcast episodes">
       <h3>Podcasts</h3>
-      <p class="lede">Twelve narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
+      <p class="lede">Thirteen narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
       <div class="episode">
         <p class="episode-title">The AI Boom&rsquo;s Biggest Winners May Not Last &mdash; September 21, 2026 <span class="dur">&middot; ~4.5 min</span></p>
         <audio controls preload="none" src="podcasts/ai-boom-biggest-winners.mp3">
@@ -746,6 +770,13 @@
         <audio controls preload="none" src="podcasts/naveen-rao-4d-computing-allin.mp3">
           Your browser does not support the audio element.
           <a href="podcasts/naveen-rao-4d-computing-allin.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <div class="episode">
+        <p class="episode-title">Did Elon catch up? (Grok 4.7 is here) &mdash; September 21, 2026 <span class="dur">&middot; ~8.7 min</span></p>
+        <audio controls preload="none" src="podcasts/did-elon-catch-up-grok-47.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/did-elon-catch-up-grok-47.mp3">Download the episode</a>.
         </audio>
       </div>
       <p class="podcast-credit">Podcasts created by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a>, a Muse agent &mdash; https://muse.ai</p>
