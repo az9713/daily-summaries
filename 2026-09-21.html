@@ -329,10 +329,32 @@
       html { scroll-behavior: auto; }
       .tab { transition: none; }
     }
-  </style>
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 20px 0 8px; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    </style>
 </head>
 <body>
   <main class="page">
+    <section class="index-view" id="index-view">
     <header class="masthead">
       <div>
         <p class="date">Monday &middot; September 21, 2026</p>
@@ -340,38 +362,45 @@
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
-
-    <div class="tabs-wrap">
-      <nav class="tabs" role="tablist" aria-label="Summaries">
-        <button class="tab" id="tab-ai-boom-winners" role="tab" aria-selected="true" aria-controls="panel-ai-boom-winners" tabindex="0" data-target="ai-boom-winners"><span class="num">01</span>Imagination in Action: The AI Boom&rsquo;s Biggest Winners May Not Last</button>
-        <button class="tab" id="tab-jev-is-incredible-theo" role="tab" aria-selected="false" aria-controls="panel-jev-is-incredible-theo" tabindex="-1" data-target="jev-is-incredible-theo"><span class="num">02</span>Jev is incredible</button>
-        <button class="tab" id="tab-open-models-balance" role="tab" aria-selected="false" aria-controls="panel-open-models-balance" tabindex="-1" data-target="open-models-balance"><span class="num">03</span>The current balance of power in open models</button>
-        <button class="tab" id="tab-ai-factory-warp" role="tab" aria-selected="false" aria-controls="panel-ai-factory-warp" tabindex="-1" data-target="ai-factory-warp"><span class="num">04</span>The AI factory playbook for engineering teams</button>
-        <button class="tab" id="tab-boring-claude-businesses" role="tab" aria-selected="false" aria-controls="panel-boring-claude-businesses" tabindex="-1" data-target="boring-claude-businesses"><span class="num">05</span>5 &#x27;Boring&#x27; Claude AI Businesses That Can Make You Rich In 2026</button>
-        <button class="tab" id="tab-odd-lots-la-industrial" role="tab" aria-selected="false" aria-controls="panel-odd-lots-la-industrial" tabindex="-1" data-target="odd-lots-la-industrial"><span class="num">06</span>How LA Is Becoming America&#x27;s New Industrial Tech Hub | Odd Lots</button>
-        <button class="tab" id="tab-richard-powers-writing" role="tab" aria-selected="false" aria-controls="panel-richard-powers-writing" tabindex="-1" data-target="richard-powers-writing"><span class="num">07</span>Pulitzer Prize-Winner Explains His Writing Process &mdash; Richard Powers</button>
-        <button class="tab" id="tab-agent-context-broken" role="tab" aria-selected="false" aria-controls="panel-agent-context-broken" tabindex="-1" data-target="agent-context-broken"><span class="num">08</span>Your Agent Isn&#x27;t Dumb. Your Context Is Broken.</button>
-        <button class="tab" id="tab-codex-build-sell-course" role="tab" aria-selected="false" aria-controls="panel-codex-build-sell-course" tabindex="-1" data-target="codex-build-sell-course"><span class="num">09</span>Build &amp; Sell with Codex (5+ Hour Course)</button>
-        <button class="tab" id="tab-joy-park-aaa-founder" role="tab" aria-selected="false" aria-controls="panel-joy-park-aaa-founder" tabindex="-1" data-target="joy-park-aaa-founder"><span class="num">10</span>AAA Concept Artist to SF Founder with Joy Park | fal Podcast</button>
-        <button class="tab" id="tab-from-instructgpt-to-jev-latent-space" role="tab" aria-selected="false" aria-controls="panel-from-instructgpt-to-jev-latent-space" tabindex="-1" data-target="from-instructgpt-to-jev-latent-space"><span class="num">11</span>Jev: System One models for Prod, not God &mdash; with Diogo Almeida, CEO, TypeSafe AI</button>
-        <button class="tab" id="tab-naveen-rao-4d-computing-allin" role="tab" aria-selected="false" aria-controls="panel-naveen-rao-4d-computing-allin" tabindex="-1" data-target="naveen-rao-4d-computing-allin"><span class="num">12</span>Naveen Rao: 4D Computing, AI&#x27;s Energy Wall &amp; Beating Biology</button>
-        <button class="tab" id="tab-did-elon-catch-up-grok-47" role="tab" aria-selected="false" aria-controls="panel-did-elon-catch-up-grok-47" tabindex="-1" data-target="did-elon-catch-up-grok-47"><span class="num">13</span>Did Elon catch up? (Grok 4.7 is here)</button>
-        <button class="tab" id="tab-grok-47-cheapest-frontier-model" role="tab" aria-selected="false" aria-controls="panel-grok-47-cheapest-frontier-model" tabindex="-1" data-target="grok-47-cheapest-frontier-model"><span class="num">14</span>Grok 4.7 Is HERE &ndash; Is THIS the CHEAPEST Frontier Model?</button>
-        <button class="tab" id="tab-grok-bot-47-alex-finn" role="tab" aria-selected="false" aria-controls="panel-grok-bot-47-alex-finn" tabindex="-1" data-target="grok-bot-47-alex-finn"><span class="num">15</span>Grok 4.7 inside Grok Bot is INCREDIBLE</button>
-        <button class="tab" id="tab-grok-47-no-hype-full-review" role="tab" aria-selected="false" aria-controls="panel-grok-47-no-hype-full-review" tabindex="-1" data-target="grok-47-no-hype-full-review"><span class="num">16</span>Grok 4.7: No-Hype Full Review &amp; Testing</button>
-        <button class="tab" id="tab-philip-su-career-peaks" role="tab" aria-selected="false" aria-controls="panel-philip-su-career-peaks" tabindex="-1" data-target="philip-su-career-peaks"><span class="num">17</span>OpenAI &amp; Meta Distinguished Eng (IC9): The Psychology Behind Tech Career Peaks | Philip Su</button>
-        <button class="tab" id="tab-how-i-review-ai-code-john-kim" role="tab" aria-selected="false" aria-controls="panel-how-i-review-ai-code-john-kim" tabindex="-1" data-target="how-i-review-ai-code-john-kim"><span class="num">18</span>How I Review AI Code - (Meta Senior Staff Engineer)</button>
-        <button class="tab" id="tab-twist-e2340-hyperloop-trump-ai" role="tab" aria-selected="false" aria-controls="panel-twist-e2340-hyperloop-trump-ai" tabindex="-1" data-target="twist-e2340-hyperloop-trump-ai"><span class="num">19</span>Elon&#x27;s New Hyperloop, Trump&#x27;s AI Rename, and a Model That Won&#x27;t Talk | E2340</button>
+      <nav aria-label="Summaries">
+        <div class="cards">
+      <a class="card" href="#ai-boom-winners"><span class="num">01</span><span><span class="card-title">Imagination in Action: The AI Boom’s Biggest Winners May Not Last</span><span class="card-byline">Imagination in Action</span></span></a>
+      <a class="card" href="#jev-is-incredible-theo"><span class="num">02</span><span><span class="card-title">Jev is incredible</span><span class="card-byline">Theo - t3․gg</span></span></a>
+      <a class="card" href="#open-models-balance"><span class="num">03</span><span><span class="card-title">The current balance of power in open models</span></span></a>
+      <a class="card" href="#ai-factory-warp"><span class="num">04</span><span><span class="card-title">The AI factory playbook for engineering teams</span><span class="card-byline">How I AI</span></span></a>
+      <a class="card" href="#boring-claude-businesses"><span class="num">05</span><span><span class="card-title">5 &#x27;Boring&#x27; Claude AI Businesses That Can Make You Rich In 2026</span><span class="card-byline">Sean Dollwet</span></span></a>
+      <a class="card" href="#odd-lots-la-industrial"><span class="num">06</span><span><span class="card-title">How LA Is Becoming America&#x27;s New Industrial Tech Hub | Odd Lots</span><span class="card-byline">Bloomberg Podcasts</span></span></a>
+      <a class="card" href="#richard-powers-writing"><span class="num">07</span><span><span class="card-title">Pulitzer Prize-Winner Explains His Writing Process — Richard Powers</span><span class="card-byline">David Perell</span></span></a>
+      <a class="card" href="#agent-context-broken"><span class="num">08</span><span><span class="card-title">Your Agent Isn&#x27;t Dumb. Your Context Is Broken.</span><span class="card-byline">Prompt Engineering</span></span></a>
+      <a class="card" href="#codex-build-sell-course"><span class="num">09</span><span><span class="card-title">Build &amp; Sell with Codex (5+ Hour Course)</span><span class="card-byline">Nate Herk | AI Automation</span></span></a>
+      <a class="card" href="#joy-park-aaa-founder"><span class="num">10</span><span><span class="card-title">AAA Concept Artist to SF Founder with Joy Park | fal Podcast</span><span class="card-byline">fal</span></span></a>
+      <a class="card" href="#from-instructgpt-to-jev-latent-space"><span class="num">11</span><span><span class="card-title">Jev: System One models for Prod, not God — with Diogo Almeida, CEO, TypeSafe AI</span><span class="card-byline">Latent Space Podcast</span></span></a>
+      <a class="card" href="#naveen-rao-4d-computing-allin"><span class="num">12</span><span><span class="card-title">Naveen Rao: 4D Computing, AI&#x27;s Energy Wall &amp; Beating Biology</span><span class="card-byline">All-In Podcast</span></span></a>
+      <a class="card" href="#did-elon-catch-up-grok-47"><span class="num">13</span><span><span class="card-title">Did Elon catch up? (Grok 4.7 is here)</span><span class="card-byline">Matthew Berman</span></span></a>
+      <a class="card" href="#grok-47-cheapest-frontier-model"><span class="num">14</span><span><span class="card-title">Grok 4.7 Is HERE – Is THIS the CHEAPEST Frontier Model?</span><span class="card-byline">Bijan Bowen</span></span></a>
+      <a class="card" href="#grok-bot-47-alex-finn"><span class="num">15</span><span><span class="card-title">Grok 4.7 inside Grok Bot is INCREDIBLE</span><span class="card-byline">Alex Finn</span></span></a>
+      <a class="card" href="#grok-47-no-hype-full-review"><span class="num">16</span><span><span class="card-title">Grok 4.7: No-Hype Full Review &amp; Testing</span><span class="card-byline">Pat Simmons</span></span></a>
+      <a class="card" href="#philip-su-career-peaks"><span class="num">17</span><span><span class="card-title">OpenAI &amp; Meta Distinguished Eng (IC9): The Psychology Behind Tech Career Peaks | Philip Su</span><span class="card-byline">The Peterman Pod (Ryan Peterman)</span></span></a>
+      <a class="card" href="#how-i-review-ai-code-john-kim"><span class="num">18</span><span><span class="card-title">How I Review AI Code - (Meta Senior Staff Engineer)</span><span class="card-byline">John Kim</span></span></a>
+      <a class="card" href="#twist-e2340-hyperloop-trump-ai"><span class="num">19</span><span><span class="card-title">Elon&#x27;s New Hyperloop, Trump&#x27;s AI Rename, and a Model That Won&#x27;t Talk | E2340</span><span class="card-byline">This Week in Startups</span></span></a>
+        </div>
       </nav>
-    </div>
-
-    <section class="panel active" id="panel-ai-boom-winners" role="tabpanel" aria-labelledby="tab-ai-boom-winners" data-panel="ai-boom-winners">
+    </section>
+    <section class="article-view" id="ai-boom-winners" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-21.html" data-route="index">&larr; September 21, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Imagination in Action</dd></div>
         <div><dt>Duration</dt><dd>29:51</dd></div>
         <div><dt>Published</dt><dd>September 20, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=QX_LgAJXMHk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">The AI Boom’s Biggest Winners May Not Last <span class="dur">&middot; ~4.5 min</span></p>
+        <audio controls preload="none" src="podcasts/ai-boom-biggest-winners.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/ai-boom-biggest-winners.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; investing &middot; panel</p>
         <h2>The AI Boom&rsquo;s Biggest Winners May Not Last</h2>
@@ -392,14 +421,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> Summary grounded in the YouTube auto-generated captions, fetched via yt-dlp on September 21, 2026. Figures and attributions are the speakers&#x27; as reported; auto-caption garbling corrected only where unambiguous.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-09-21.html" data-route="index">All summaries</a>
+        <a class="next" href="#jev-is-incredible-theo">Jev is incredible &rarr;</a>
+      </nav>
     </section>
-    <section class="panel" id="panel-jev-is-incredible-theo" role="tabpanel" aria-labelledby="tab-jev-is-incredible-theo" data-panel="jev-is-incredible-theo">
+    <section class="article-view" id="jev-is-incredible-theo" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-21.html" data-route="index">&larr; September 21, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Theo - t3․gg</dd></div>
         <div><dt>Duration</dt><dd>30:29</dd></div>
         <div><dt>Published</dt><dd>September 21, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=F3YXg7AaKWE" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Jev is incredible <span class="dur">&middot; ~5.1 min</span></p>
+        <audio controls preload="none" src="podcasts/jev-is-incredible-theo.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/jev-is-incredible-theo.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; models &middot; engineering</p>
         <h2>Jev is incredible</h2>
@@ -414,16 +456,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> grounded in the video&#x27;s English auto-captions, fetched via yt-dlp on the first try with no bot-wall. The captions carry the usual phonetic errors (&quot;RHF&quot; for RLHF, &quot;Daniel Conman&quot; for Daniel Kahneman, model names like &quot;Terra&quot; and &quot;soul and opus 5,&quot; likely Sonnet and Opus 5). The viewer originally saw this as a YouTube Short by @t3dotgg showing the 27-question race; no standalone Short URL exists on Theo&#x27;s channel, so the Short appears to be an excerpt of this full video, which shares the title and the 313K view count. The full video runs 30 minutes 29 seconds, uploaded September 21, 2026, with 313,314 views at the time of writing. The description lists the TypeSafe announcement blog and flaviocopes.com/jev as sources; the episode&#x27;s sponsor is Depot, a CI platform for AI agents.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#ai-boom-winners">&larr; Imagination in Action: The AI Boom’s Biggest Winners May Not Last</a>
+        <a class="to-index" href="2026-09-21.html" data-route="index">All summaries</a>
+        <a class="next" href="#open-models-balance">The current balance of power in open models &rarr;</a>
+      </nav>
     </section>
-
-
-    <section class="panel" id="panel-open-models-balance" role="tabpanel" aria-labelledby="tab-open-models-balance" data-panel="open-models-balance">
+    <section class="article-view" id="open-models-balance" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-21.html" data-route="index">&larr; September 21, 2026</a></div>
       <dl class="meta">
         <div><dt>Publication</dt><dd>Interconnects</dd></div>
         <div><dt>Author</dt><dd>Nathan Lambert</dd></div>
         <div><dt>Published</dt><dd>September 21, 2026</dd></div>
         <a class="watch" href="https://www.interconnects.ai/p/the-current-balance-of-power-in-open" target="_blank" rel="noopener noreferrer">Read the piece</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">The Current Balance of Power in Open Models <span class="dur">&middot; ~4 min</span></p>
+        <audio controls preload="none" src="podcasts/open-models-balance-of-power.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/open-models-balance-of-power.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; open models &middot; policy</p>
         <h2>The current balance of power in open models</h2>
@@ -441,15 +494,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> this summary was written from the full text of Nathan Lambert&#x27;s &quot;The current balance of power in open models&quot; on interconnects.ai, read in full on September 21, 2026 &mdash; an expanded version of testimony he prepared for a Congressional briefing on open-weight models and U.S.-China competition. All facts and figures &mdash; Hugging Face download totals, benchmark scores, OpenRouter usage, and arXiv mention percentages &mdash; are grounded in the article; the Artificial Analysis Intelligence Index scores were current as of the author&#x27;s September 14, 2026 writing date. Built by Muse (muse.ai).</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#jev-is-incredible-theo">&larr; Jev is incredible</a>
+        <a class="to-index" href="2026-09-21.html" data-route="index">All summaries</a>
+        <a class="next" href="#ai-factory-warp">The AI factory playbook for engineering teams &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-ai-factory-warp" role="tabpanel" aria-labelledby="tab-ai-factory-warp" data-panel="ai-factory-warp">
+    <section class="article-view" id="ai-factory-warp" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-21.html" data-route="index">&larr; September 21, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>How I AI</dd></div>
         <div><dt>Duration</dt><dd>46:51</dd></div>
         <div><dt>Published</dt><dd>September 21, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=4_SHhSMHzNo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">The AI Factory Playbook for Engineering Teams <span class="dur">&middot; ~5.0 min</span></p>
+        <audio controls preload="none" src="podcasts/ai-factory-warp.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/ai-factory-warp.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; engineering &middot; agents</p>
         <h2>The AI factory playbook for engineering teams</h2>
@@ -466,15 +531,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> this summary is based on the full transcript of &quot;The AI factory playbook for engineering teams&quot; from the YouTube channel How I AI, a forty-seven-minute video uploaded on September 21, 2026, featuring Warp CEO Zach Lloyd as guest and Clarvo as host. The transcript was obtained from the video&#x27;s full transcript via YouTube&#x27;s &quot;Show transcript&quot; panel on September 21, 2026.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#open-models-balance">&larr; The current balance of power in open models</a>
+        <a class="to-index" href="2026-09-21.html" data-route="index">All summaries</a>
+        <a class="next" href="#boring-claude-businesses">5 &#x27;Boring&#x27; Claude AI Businesses That Can Make You Rich In 2026 &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-boring-claude-businesses" role="tabpanel" aria-labelledby="tab-boring-claude-businesses" data-panel="boring-claude-businesses">
+    <section class="article-view" id="boring-claude-businesses" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-21.html" data-route="index">&larr; September 21, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Sean Dollwet</dd></div>
         <div><dt>Duration</dt><dd>15:57</dd></div>
         <div><dt>Published</dt><dd>September 21, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=ARrbyPOfux4" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">5 &#x27;Boring&#x27; Claude AI Businesses That Can Make You Rich In 2026 <span class="dur">&middot; ~5.9 min</span></p>
+        <audio controls preload="none" src="podcasts/boring-claude-businesses.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/boring-claude-businesses.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; business &middot; entrepreneurship</p>
         <h2>5 &#x27;Boring&#x27; Claude AI Businesses That Can Make You Rich In 2026</h2>
@@ -490,15 +567,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> this summary is based on the full transcript of the Sean Dollwet YouTube video &quot;5 &#x27;Boring&#x27; Claude AI Businesses That Can Make You Rich In 2026&quot; (approximately sixteen minutes long, uploaded 2026-09-21), obtained by copying the text from YouTube&#x27;s &quot;Show transcript&quot; panel on the watch page via a browser.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#ai-factory-warp">&larr; The AI factory playbook for engineering teams</a>
+        <a class="to-index" href="2026-09-21.html" data-route="index">All summaries</a>
+        <a class="next" href="#odd-lots-la-industrial">How LA Is Becoming America&#x27;s New Industrial Tech Hub | Odd Lots &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-odd-lots-la-industrial" role="tabpanel" aria-labelledby="tab-odd-lots-la-industrial" data-panel="odd-lots-la-industrial">
+    <section class="article-view" id="odd-lots-la-industrial" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-21.html" data-route="index">&larr; September 21, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Bloomberg Podcasts</dd></div>
         <div><dt>Duration</dt><dd>34:27</dd></div>
         <div><dt>Published</dt><dd>September 21, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=mgCQ0Pl754c" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">How LA Is Becoming America&#x27;s New Industrial Tech Hub | Odd Lots <span class="dur">&middot; ~5.9 min</span></p>
+        <audio controls preload="none" src="podcasts/odd-lots-la-industrial.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/odd-lots-la-industrial.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">Industry &middot; manufacturing &middot; tech hubs</p>
         <h2>How LA Is Becoming America&#x27;s New Industrial Tech Hub | Odd Lots</h2>
@@ -515,15 +604,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> this summary is based on the full transcript of &quot;How LA Is Becoming America&#x27;s New Industrial Tech Hub | Odd Lots,&quot; a video on the Bloomberg Podcasts YouTube channel, running about thirty-four minutes and uploaded on September twenty-first, twenty twenty-six, with the transcript copied from YouTube&#x27;s &quot;Show transcript&quot; panel. Built by Muse (muse.ai)</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#boring-claude-businesses">&larr; 5 &#x27;Boring&#x27; Claude AI Businesses That Can Make You Rich In 2026</a>
+        <a class="to-index" href="2026-09-21.html" data-route="index">All summaries</a>
+        <a class="next" href="#richard-powers-writing">Pulitzer Prize-Winner Explains His Writing Process — Richard Powers &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-richard-powers-writing" role="tabpanel" aria-labelledby="tab-richard-powers-writing" data-panel="richard-powers-writing">
+    <section class="article-view" id="richard-powers-writing" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-21.html" data-route="index">&larr; September 21, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>David Perell</dd></div>
         <div><dt>Duration</dt><dd>1:24:46</dd></div>
         <div><dt>Published</dt><dd>October 9, 2024</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=QUDlpMN-f5w" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Pulitzer Prize-Winner Explains His Writing Process — Richard Powers <span class="dur">&middot; ~5.7 min</span></p>
+        <audio controls preload="none" src="podcasts/richard-powers-writing.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/richard-powers-writing.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">Writing &middot; craft &middot; interview</p>
         <h2>Pulitzer Prize-Winner Explains His Writing Process &mdash; Richard Powers</h2>
@@ -538,15 +639,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> this summary is based on the video &quot;Pulitzer Prize-Winner Explains His Writing Process &mdash; Richard Powers&quot; on the David Perell YouTube channel, an eighty-five minute interview uploaded on 2024-10-09, and is therefore an older interview rather than a recent one. The summary was written from the video&#x27;s auto-generated captions as obtained through the youtubetotranscript.com mirror, so minor caption errors may be present. A few questions this leaves open: can the environmental kind of drama, man against the living world, become a durable fixture of literary fiction, or will the culture slide back into the human-only stories it grew comfortable with? How much of the Latinate register shift Powers describes is still operating in an era when slang and formal speech are colliding faster than ever? And what would a writer&#x27;s day look like if, like Powers in his later career, the first thousand words stopped being the goal and attention itself became the discipline?</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#odd-lots-la-industrial">&larr; How LA Is Becoming America&#x27;s New Industrial Tech Hub | Odd Lots</a>
+        <a class="to-index" href="2026-09-21.html" data-route="index">All summaries</a>
+        <a class="next" href="#agent-context-broken">Your Agent Isn&#x27;t Dumb. Your Context Is Broken. &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-agent-context-broken" role="tabpanel" aria-labelledby="tab-agent-context-broken" data-panel="agent-context-broken">
+    <section class="article-view" id="agent-context-broken" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-21.html" data-route="index">&larr; September 21, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Prompt Engineering</dd></div>
         <div><dt>Duration</dt><dd>13:15</dd></div>
         <div><dt>Published</dt><dd>September 21, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=tM8Lb7Yk0KE" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Your Agent Isn&#x27;t Dumb. Your Context Is Broken. <span class="dur">&middot; ~6.1 min</span></p>
+        <audio controls preload="none" src="podcasts/agent-context-broken.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/agent-context-broken.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; agents &middot; engineering</p>
         <h2>Your Agent Isn&#x27;t Dumb. Your Context Is Broken.</h2>
@@ -564,15 +677,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> this summary is based on the auto-generated captions of the Prompt Engineering video &quot;Your Agent Isn&#x27;t Dumb. Your Context Is Broken.&quot; (about thirteen minutes long, uploaded September twenty-first, twenty twenty-six), obtained via YouTube captions through yt-dlp and deduped keeping the longest line per timestamp. Caption text is imperfect, so fine details may reflect transcription errors rather than the speaker&#x27;s exact words.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#richard-powers-writing">&larr; Pulitzer Prize-Winner Explains His Writing Process — Richard Powers</a>
+        <a class="to-index" href="2026-09-21.html" data-route="index">All summaries</a>
+        <a class="next" href="#codex-build-sell-course">Build &amp; Sell with Codex (5+ Hour Course) &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-codex-build-sell-course" role="tabpanel" aria-labelledby="tab-codex-build-sell-course" data-panel="codex-build-sell-course">
+    <section class="article-view" id="codex-build-sell-course" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-21.html" data-route="index">&larr; September 21, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Nate Herk | AI Automation</dd></div>
         <div><dt>Duration</dt><dd>5:10:39</dd></div>
         <div><dt>Published</dt><dd>September 21, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=X-pbJWKmwi0" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Build &amp; Sell with Codex (5+ Hour Course) <span class="dur">&middot; ~5.7 min</span></p>
+        <audio controls preload="none" src="podcasts/codex-build-sell-course.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/codex-build-sell-course.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; business &middot; course</p>
         <h2>Build &amp; Sell with Codex (5+ Hour Course)</h2>
@@ -588,14 +713,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> This summary is based on the auto-generated captions of &quot;Build &amp; Sell with Codex (5+ Hour Course)&quot; from the Nate Herk | AI Automation YouTube channel, a video of approximately five hours and twelve minutes uploaded on September 21, 2026, obtained via YouTube&#x27;s caption tracks through yt-dlp. Auto-generated captions contain mistranscriptions, so specific model names, prices, and figures should be treated as approximate and checked against the video itself.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#agent-context-broken">&larr; Your Agent Isn&#x27;t Dumb. Your Context Is Broken.</a>
+        <a class="to-index" href="2026-09-21.html" data-route="index">All summaries</a>
+        <a class="next" href="#joy-park-aaa-founder">AAA Concept Artist to SF Founder with Joy Park | fal Podcast &rarr;</a>
+      </nav>
     </section>
-    <section class="panel" id="panel-joy-park-aaa-founder" role="tabpanel" aria-labelledby="tab-joy-park-aaa-founder" data-panel="joy-park-aaa-founder">
+    <section class="article-view" id="joy-park-aaa-founder" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-21.html" data-route="index">&larr; September 21, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>fal</dd></div>
         <div><dt>Duration</dt><dd>1:00:32</dd></div>
         <div><dt>Published</dt><dd>September 21, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=Rk8FGxwgYN8" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">AAA Concept Artist to SF Founder with Joy Park | fal Podcast <span class="dur">&middot; ~5.6 min</span></p>
+        <audio controls preload="none" src="podcasts/joy-park-aaa-founder.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/joy-park-aaa-founder.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; careers &middot; founders</p>
         <h2>AAA Concept Artist to SF Founder with Joy Park | fal Podcast</h2>
@@ -613,14 +751,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> this summary is based on the transcript of &quot;AAA Concept Artist to SF Founder with Joy Park&quot; from the YouTube channel fal, a 1:00:32 video uploaded on September 21, 2026, featuring Joy Park as guest and fal as host. yt-dlp&#x27;s caption routes were blocked for this video, so the transcript was obtained from YouTube&#x27;s &quot;Show transcript&quot; panel via a live browser; each cue was truncated at roughly 120 characters mid-sentence by the extraction pipeline, so the narrative above avoids specifics the truncated transcript cannot support.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#codex-build-sell-course">&larr; Build &amp; Sell with Codex (5+ Hour Course)</a>
+        <a class="to-index" href="2026-09-21.html" data-route="index">All summaries</a>
+        <a class="next" href="#from-instructgpt-to-jev-latent-space">Jev: System One models for Prod, not God — with Diogo Almeida, CEO, TypeSafe AI &rarr;</a>
+      </nav>
     </section>
-    <section class="panel" id="panel-from-instructgpt-to-jev-latent-space" role="tabpanel" aria-labelledby="tab-from-instructgpt-to-jev-latent-space" data-panel="from-instructgpt-to-jev-latent-space">
+    <section class="article-view" id="from-instructgpt-to-jev-latent-space" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-21.html" data-route="index">&larr; September 21, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Latent Space Podcast</dd></div>
         <div><dt>Duration</dt><dd>2:22:22</dd></div>
         <div><dt>Published</dt><dd>September 21, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=cFx9Z3ZXca0" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Jev: System One models for Prod, not God <span class="dur">&middot; ~11.9 min</span></p>
+        <audio controls preload="none" src="podcasts/from-instructgpt-to-jev-latent-space.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/from-instructgpt-to-jev-latent-space.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; models &middot; interview</p>
         <h2>Jev: System One models for Prod, not God &mdash; with Diogo Almeida, CEO, TypeSafe AI</h2>
@@ -641,14 +792,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> this summary is grounded in the full transcript of the episode as published on the Latent Space episode page (latent.space/p/jev), which carries the complete conversation with speaker turns and timestamps; the embedded YouTube video (youtube.com/watch?v=cFx9Z3ZXca0, on the Latent Space channel, two hours twenty-two minutes, roughly a thousand views at discovery) matches the screenshot&#x27;s channel, duration, and subject. Episode title on YouTube currently reads &quot;Why We Made Jev &mdash; Diogo Almeida, TypeSafe Co-founder &amp; CEO&quot;; latent.space titles it &quot;Jev: System One models for Prod, not God.&quot;</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#joy-park-aaa-founder">&larr; AAA Concept Artist to SF Founder with Joy Park | fal Podcast</a>
+        <a class="to-index" href="2026-09-21.html" data-route="index">All summaries</a>
+        <a class="next" href="#naveen-rao-4d-computing-allin">Naveen Rao: 4D Computing, AI&#x27;s Energy Wall &amp; Beating Biology &rarr;</a>
+      </nav>
     </section>
-    <section class="panel" id="panel-naveen-rao-4d-computing-allin" role="tabpanel" aria-labelledby="tab-naveen-rao-4d-computing-allin" data-panel="naveen-rao-4d-computing-allin">
+    <section class="article-view" id="naveen-rao-4d-computing-allin" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-21.html" data-route="index">&larr; September 21, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>All-In Podcast</dd></div>
         <div><dt>Duration</dt><dd>22:35</dd></div>
         <div><dt>Published</dt><dd>September 21, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=yAsrMA_ADPc" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Naveen Rao: 4D Computing, AI&#x27;s Energy Wall &amp; Beating Biology <span class="dur">&middot; ~6.4 min</span></p>
+        <audio controls preload="none" src="podcasts/naveen-rao-4d-computing-allin.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/naveen-rao-4d-computing-allin.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; hardware &middot; energy</p>
         <h2>Naveen Rao: 4D Computing, AI&#x27;s Energy Wall &amp; Beating Biology</h2>
@@ -666,14 +830,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> the transcript was copied from YouTube&#x27;s &quot;Show transcript&quot; panel via a live browser session. These are English auto-captions, and obvious misspellings have been corrected below: Nervana (not &quot;Nirvana&quot;), Rao (not &quot;Ralph&quot;), ChatGPT (not &quot;Chat GBT&quot;), gigawatt, Jevons paradox, von Neumann, matmul. The ideas are unaffected; the corrections are names and terms only.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#from-instructgpt-to-jev-latent-space">&larr; Jev: System One models for Prod, not God — with Diogo Almeida, CEO, TypeSafe AI</a>
+        <a class="to-index" href="2026-09-21.html" data-route="index">All summaries</a>
+        <a class="next" href="#did-elon-catch-up-grok-47">Did Elon catch up? (Grok 4.7 is here) &rarr;</a>
+      </nav>
     </section>
-    <section class="panel" id="panel-did-elon-catch-up-grok-47" role="tabpanel" aria-labelledby="tab-did-elon-catch-up-grok-47" data-panel="did-elon-catch-up-grok-47">
+    <section class="article-view" id="did-elon-catch-up-grok-47" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-21.html" data-route="index">&larr; September 21, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Matthew Berman</dd></div>
         <div><dt>Duration</dt><dd>16:56</dd></div>
         <div><dt>Published</dt><dd>September 21, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=MJllZbpvrAc" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Did Elon catch up? (Grok 4.7 is here) <span class="dur">&middot; ~8.7 min</span></p>
+        <audio controls preload="none" src="podcasts/did-elon-catch-up-grok-47.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/did-elon-catch-up-grok-47.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; models &middot; benchmarks</p>
         <h2>Did Elon catch up? (Grok 4.7 is here)</h2>
@@ -689,14 +866,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> the transcript was copied from YouTube&#x27;s &quot;Show transcript&quot; panel via a live browser session. These are English auto-captions; obvious misspellings of proper nouns have been corrected below (Grok, CursorBench, xAI). The numbers and claims are as stated in the video, which leans heavily on xAI&#x27;s own launch materials plus independent benchmarks.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#naveen-rao-4d-computing-allin">&larr; Naveen Rao: 4D Computing, AI&#x27;s Energy Wall &amp; Beating Biology</a>
+        <a class="to-index" href="2026-09-21.html" data-route="index">All summaries</a>
+        <a class="next" href="#grok-47-cheapest-frontier-model">Grok 4.7 Is HERE – Is THIS the CHEAPEST Frontier Model? &rarr;</a>
+      </nav>
     </section>
-    <section class="panel" id="panel-grok-47-cheapest-frontier-model" role="tabpanel" aria-labelledby="tab-grok-47-cheapest-frontier-model" data-panel="grok-47-cheapest-frontier-model">
+    <section class="article-view" id="grok-47-cheapest-frontier-model" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-21.html" data-route="index">&larr; September 21, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Bijan Bowen</dd></div>
         <div><dt>Duration</dt><dd>35:08</dd></div>
         <div><dt>Published</dt><dd>September 21, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=HAi7twQBKlY" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Grok 4.7 Is HERE – Is THIS the CHEAPEST Frontier Model? <span class="dur">&middot; ~7.6 min</span></p>
+        <audio controls preload="none" src="podcasts/grok-47-cheapest-frontier-model.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/grok-47-cheapest-frontier-model.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; models &middot; pricing</p>
         <h2>Grok 4.7 Is HERE &ndash; Is THIS the CHEAPEST Frontier Model?</h2>
@@ -718,14 +908,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> this summary is grounded in the video&#x27;s transcript, copied from YouTube&#x27;s &quot;Show transcript&quot; panel via a live browser session. The captions are raw auto-captions, and I&#x27;ve corrected obvious mis-transcriptions of proper nouns where they occur &mdash; &quot;Grok&quot; for the caption renderings &quot;Grock&quot; and &quot;Gro&quot;, &quot;Astra&quot; for &quot;Astro&quot; and &quot;Asher&quot;, &quot;ChatGPT&quot; for &quot;Chachi&quot;, &quot;Godot&quot; for &quot;GDAU&quot;, &quot;extra-high&quot; for &quot;X high&quot;, &quot;SuperGrok&quot; for &quot;Super Gro&quot;. One name deserves special handling: the captions consistently render the Fable model family as &quot;Fable&quot;, and multiple independent caption sources agree on it, so I have kept &quot;Fable&quot; as-is throughout. Bijan&#x27;s own name appears in captions as &quot;Beijan&quot;, &quot;Bjan&quot;, and &quot;Van&quot;; the channel is Bijan Bowen, so I use Bijan.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#did-elon-catch-up-grok-47">&larr; Did Elon catch up? (Grok 4.7 is here)</a>
+        <a class="to-index" href="2026-09-21.html" data-route="index">All summaries</a>
+        <a class="next" href="#grok-bot-47-alex-finn">Grok 4.7 inside Grok Bot is INCREDIBLE &rarr;</a>
+      </nav>
     </section>
-    <section class="panel" id="panel-grok-bot-47-alex-finn" role="tabpanel" aria-labelledby="tab-grok-bot-47-alex-finn" data-panel="grok-bot-47-alex-finn">
+    <section class="article-view" id="grok-bot-47-alex-finn" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-21.html" data-route="index">&larr; September 21, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Alex Finn</dd></div>
         <div><dt>Duration</dt><dd>14:05</dd></div>
         <div><dt>Published</dt><dd>September 21, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=ajuOF7vclCM" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Grok 4.7 inside Grok Bot is INCREDIBLE <span class="dur">&middot; ~4.3 min</span></p>
+        <audio controls preload="none" src="podcasts/grok-bot-47-alex-finn.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/grok-bot-47-alex-finn.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; models &middot; agents</p>
         <h2>Grok 4.7 inside Grok Bot is INCREDIBLE</h2>
@@ -747,14 +950,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> the summary is based on the video&#x27;s YouTube transcript (auto-captions), copied from the &quot;Show transcript&quot; panel via a live browser session; obvious caption misspellings (GrokBot, ChatGPT, Muse, Astra) were corrected when quoted. The episode summary reflects the video as published on September 21, 2026.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#grok-47-cheapest-frontier-model">&larr; Grok 4.7 Is HERE – Is THIS the CHEAPEST Frontier Model?</a>
+        <a class="to-index" href="2026-09-21.html" data-route="index">All summaries</a>
+        <a class="next" href="#grok-47-no-hype-full-review">Grok 4.7: No-Hype Full Review &amp; Testing &rarr;</a>
+      </nav>
     </section>
-    <section class="panel" id="panel-grok-47-no-hype-full-review" role="tabpanel" aria-labelledby="tab-grok-47-no-hype-full-review" data-panel="grok-47-no-hype-full-review">
+    <section class="article-view" id="grok-47-no-hype-full-review" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-21.html" data-route="index">&larr; September 21, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Pat Simmons</dd></div>
         <div><dt>Duration</dt><dd>22:51</dd></div>
         <div><dt>Published</dt><dd>September 21, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=x48xbDO6fKo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Grok 4.7: No-Hype Full Review &amp; Testing <span class="dur">&middot; ~5.2 min</span></p>
+        <audio controls preload="none" src="podcasts/grok-47-no-hype-full-review.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/grok-47-no-hype-full-review.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; models &middot; testing</p>
         <h2>Grok 4.7: No-Hype Full Review &amp; Testing</h2>
@@ -773,14 +989,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> this summary is grounded in the full video transcript, copied from YouTube&#x27;s &quot;Show transcript&quot; panel via a live browser session. The transcript is YouTube&#x27;s raw auto-caption text; obvious caption misspellings &mdash; &quot;Grock&quot; for Grok, &quot;GBT6&quot;/&quot;56&quot; for GPT-6/GPT 5.6, &quot;Enthropic&quot; for Anthropic, &quot;ChatBT&quot;/&quot;Chachi&quot; for ChatGPT &mdash; were corrected when quoting.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#grok-bot-47-alex-finn">&larr; Grok 4.7 inside Grok Bot is INCREDIBLE</a>
+        <a class="to-index" href="2026-09-21.html" data-route="index">All summaries</a>
+        <a class="next" href="#philip-su-career-peaks">OpenAI &amp; Meta Distinguished Eng (IC9): The Psychology Behind Tech Career Peaks | Philip Su &rarr;</a>
+      </nav>
     </section>
-    <section class="panel" id="panel-philip-su-career-peaks" role="tabpanel" aria-labelledby="tab-philip-su-career-peaks" data-panel="philip-su-career-peaks">
+    <section class="article-view" id="philip-su-career-peaks" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-21.html" data-route="index">&larr; September 21, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>The Peterman Pod (Ryan Peterman)</dd></div>
         <div><dt>Duration</dt><dd>44:21</dd></div>
         <div><dt>Published</dt><dd>September 21, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=RMo04pSSiao" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">OpenAI &amp; Meta Distinguished Eng (IC9): The Psychology Behind Tech Career Peaks <span class="dur">&middot; ~11.6 min</span></p>
+        <audio controls preload="none" src="podcasts/philip-su-career-peaks.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/philip-su-career-peaks.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; careers &middot; engineering</p>
         <h2>OpenAI &amp; Meta Distinguished Eng (IC9): The Psychology Behind Tech Career Peaks | Philip Su</h2>
@@ -808,13 +1037,26 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> this summary is grounded in the episode&#x27;s full published transcript on the host&#x27;s own newsletter, developing.dev (https://www.developing.dev/p/openai-and-meta-distinguished-eng), which carries speaker attributions and timestamps for the whole 44:21 conversation. No auto-caption corrections were needed; the video chapter list (00:00 Intro, 00:37 Growth past IC9, 05:39 Motivation changes, 11:36 Asking to not be promoted, 17:33 Hard to sustain IC9, 22:22 Motivation outside promos, 26:21 Is career advice useless, 29:34 After FIRE, 36:08 Meaning, 38:17 Book, 40:14 What he&#x27;d change, 43:24 Outro) matches the conversation above.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#grok-47-no-hype-full-review">&larr; Grok 4.7: No-Hype Full Review &amp; Testing</a>
+        <a class="to-index" href="2026-09-21.html" data-route="index">All summaries</a>
+        <a class="next" href="#how-i-review-ai-code-john-kim">How I Review AI Code - (Meta Senior Staff Engineer) &rarr;</a>
+      </nav>
     </section>
-    <section class="panel" id="panel-how-i-review-ai-code-john-kim" role="tabpanel" aria-labelledby="tab-how-i-review-ai-code-john-kim" data-panel="how-i-review-ai-code-john-kim">
+    <section class="article-view" id="how-i-review-ai-code-john-kim" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-21.html" data-route="index">&larr; September 21, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>John Kim</dd></div>
         <div><dt>Published</dt><dd>September 21, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=b2QkhmQ0sT0" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">How I Review AI Code - (Meta Senior Staff Engineer) <span class="dur">&middot; ~6.2 min</span></p>
+        <audio controls preload="none" src="podcasts/how-i-review-ai-code-john-kim.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/how-i-review-ai-code-john-kim.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; engineering &middot; code review</p>
         <h2>How I Review AI Code - (Meta Senior Staff Engineer)</h2>
@@ -841,13 +1083,26 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> this summary is grounded in the video&#x27;s transcript, copied from YouTube&#x27;s &quot;Show transcript&quot; panel via a live browser session. The captions are raw auto-captions with some noise; obvious caption typos were fixed when quoting.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#philip-su-career-peaks">&larr; OpenAI &amp; Meta Distinguished Eng (IC9): The Psychology Behind Tech Career Peaks | Philip Su</a>
+        <a class="to-index" href="2026-09-21.html" data-route="index">All summaries</a>
+        <a class="next" href="#twist-e2340-hyperloop-trump-ai">Elon&#x27;s New Hyperloop, Trump&#x27;s AI Rename, and a Model That Won&#x27;t Talk | E2340 &rarr;</a>
+      </nav>
     </section>
-    <section class="panel" id="panel-twist-e2340-hyperloop-trump-ai" role="tabpanel" aria-labelledby="tab-twist-e2340-hyperloop-trump-ai" data-panel="twist-e2340-hyperloop-trump-ai">
+    <section class="article-view" id="twist-e2340-hyperloop-trump-ai" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-21.html" data-route="index">&larr; September 21, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>This Week in Startups</dd></div>
         <div><dt>Published</dt><dd>September 21, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=axobPcuvUZg" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Elon&#x27;s New Hyperloop, Trump&#x27;s AI Rename, and a Model That Won&#x27;t Talk | E2340 <span class="dur">&middot; ~9.1 min</span></p>
+        <audio controls preload="none" src="podcasts/twist-e2340-hyperloop-trump-ai.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/twist-e2340-hyperloop-trump-ai.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; startups &middot; news</p>
         <h2>Elon&#x27;s New Hyperloop, Trump&#x27;s AI Rename, and a Model That Won&#x27;t Talk | E2340</h2>
@@ -871,147 +1126,12 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> this summary is grounded in the episode&#x27;s full transcript, copied verbatim from the auto-generated captions in YouTube&#x27;s &quot;Show transcript&quot; panel. Auto-captions carry misheard names and misspellings &mdash; &quot;Grockbot&quot; for Grok, &quot;Lawn&quot; for Lon Harris, &quot;Jay Gal&quot; for JCal &mdash; so direct quotes should be read with that grain of salt. Timestamps, the chapter markers, and the story order above all come straight from that transcript.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#how-i-review-ai-code-john-kim">&larr; How I Review AI Code - (Meta Senior Staff Engineer)</a>
+        <a class="to-index" href="2026-09-21.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
     </section>
-    <section class="podcasts" aria-label="Podcast episodes">
-      <h3>Podcasts</h3>
-      <p class="lede">Nineteen narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
-      <div class="episode">
-        <p class="episode-title">The AI Boom&rsquo;s Biggest Winners May Not Last &mdash; September 21, 2026 <span class="dur">&middot; ~4.5 min</span></p>
-        <audio controls preload="none" src="podcasts/ai-boom-biggest-winners.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/ai-boom-biggest-winners.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Jev is incredible &mdash; September 21, 2026 <span class="dur">&middot; ~5.1 min</span></p>
-        <audio controls preload="none" src="podcasts/jev-is-incredible-theo.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/jev-is-incredible-theo.mp3">Download the episode</a>.
-        </audio>
-      </div>
-
-      <div class="episode">
-        <p class="episode-title">The Current Balance of Power in Open Models &mdash; September 21, 2026 <span class="dur">&middot; ~4 min</span></p>
-        <audio controls preload="none" src="podcasts/open-models-balance-of-power.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/open-models-balance-of-power.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">The AI Factory Playbook for Engineering Teams &mdash; September 21, 2026 <span class="dur">&middot; ~5.0 min</span></p>
-        <audio controls preload="none" src="podcasts/ai-factory-warp.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/ai-factory-warp.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">5 &#x27;Boring&#x27; Claude AI Businesses That Can Make You Rich In 2026 &mdash; September 21, 2026 <span class="dur">&middot; ~5.9 min</span></p>
-        <audio controls preload="none" src="podcasts/boring-claude-businesses.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/boring-claude-businesses.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">How LA Is Becoming America&#x27;s New Industrial Tech Hub | Odd Lots &mdash; September 21, 2026 <span class="dur">&middot; ~5.9 min</span></p>
-        <audio controls preload="none" src="podcasts/odd-lots-la-industrial.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/odd-lots-la-industrial.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Pulitzer Prize-Winner Explains His Writing Process &mdash; Richard Powers &mdash; September 21, 2026 <span class="dur">&middot; ~5.7 min</span></p>
-        <audio controls preload="none" src="podcasts/richard-powers-writing.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/richard-powers-writing.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Your Agent Isn&#x27;t Dumb. Your Context Is Broken. &mdash; September 21, 2026 <span class="dur">&middot; ~6.1 min</span></p>
-        <audio controls preload="none" src="podcasts/agent-context-broken.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/agent-context-broken.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Build &amp; Sell with Codex (5+ Hour Course) &mdash; September 21, 2026 <span class="dur">&middot; ~5.7 min</span></p>
-        <audio controls preload="none" src="podcasts/codex-build-sell-course.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/codex-build-sell-course.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">AAA Concept Artist to SF Founder with Joy Park | fal Podcast &mdash; September 21, 2026 <span class="dur">&middot; ~5.6 min</span></p>
-        <audio controls preload="none" src="podcasts/joy-park-aaa-founder.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/joy-park-aaa-founder.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Jev: System One models for Prod, not God &mdash; September 21, 2026 <span class="dur">&middot; ~11.9 min</span></p>
-        <audio controls preload="none" src="podcasts/from-instructgpt-to-jev-latent-space.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/from-instructgpt-to-jev-latent-space.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Naveen Rao: 4D Computing, AI&#x27;s Energy Wall &amp; Beating Biology &mdash; September 21, 2026 <span class="dur">&middot; ~6.4 min</span></p>
-        <audio controls preload="none" src="podcasts/naveen-rao-4d-computing-allin.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/naveen-rao-4d-computing-allin.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Did Elon catch up? (Grok 4.7 is here) &mdash; September 21, 2026 <span class="dur">&middot; ~8.7 min</span></p>
-        <audio controls preload="none" src="podcasts/did-elon-catch-up-grok-47.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/did-elon-catch-up-grok-47.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Grok 4.7 Is HERE &ndash; Is THIS the CHEAPEST Frontier Model? &mdash; September 21, 2026 <span class="dur">&middot; ~7.6 min</span></p>
-        <audio controls preload="none" src="podcasts/grok-47-cheapest-frontier-model.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/grok-47-cheapest-frontier-model.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Grok 4.7 inside Grok Bot is INCREDIBLE &mdash; September 21, 2026 <span class="dur">&middot; ~4.3 min</span></p>
-        <audio controls preload="none" src="podcasts/grok-bot-47-alex-finn.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/grok-bot-47-alex-finn.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Grok 4.7: No-Hype Full Review &amp; Testing &mdash; September 21, 2026 <span class="dur">&middot; ~5.2 min</span></p>
-        <audio controls preload="none" src="podcasts/grok-47-no-hype-full-review.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/grok-47-no-hype-full-review.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">OpenAI &amp; Meta Distinguished Eng (IC9): The Psychology Behind Tech Career Peaks &mdash; September 21, 2026 <span class="dur">&middot; ~11.6 min</span></p>
-        <audio controls preload="none" src="podcasts/philip-su-career-peaks.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/philip-su-career-peaks.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">How I Review AI Code - (Meta Senior Staff Engineer) &mdash; September 21, 2026 <span class="dur">&middot; ~6.2 min</span></p>
-        <audio controls preload="none" src="podcasts/how-i-review-ai-code-john-kim.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/how-i-review-ai-code-john-kim.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Elon&#x27;s New Hyperloop, Trump&#x27;s AI Rename, and a Model That Won&#x27;t Talk | E2340 &mdash; September 21, 2026 <span class="dur">&middot; ~9.1 min</span></p>
-        <audio controls preload="none" src="podcasts/twist-e2340-hyperloop-trump-ai.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/twist-e2340-hyperloop-trump-ai.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <p class="podcast-credit">Podcasts created by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a>, a Muse agent &mdash; https://muse.ai</p>
-    </section>
-
     <footer>
       <span>Summaries dated September 21, 2026</span>
       <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
@@ -1020,41 +1140,62 @@
 
 <script>
     (() => {
-      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
-      const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+      const TITLES = {
+      "ai-boom-winners": "Imagination in Action: The AI Boom’s Biggest Winners May Not Last",
+      "jev-is-incredible-theo": "Jev is incredible",
+      "open-models-balance": "The current balance of power in open models",
+      "ai-factory-warp": "The AI factory playbook for engineering teams",
+      "boring-claude-businesses": "5 'Boring' Claude AI Businesses That Can Make You Rich In 2026",
+      "odd-lots-la-industrial": "How LA Is Becoming America's New Industrial Tech Hub | Odd Lots",
+      "richard-powers-writing": "Pulitzer Prize-Winner Explains His Writing Process — Richard Powers",
+      "agent-context-broken": "Your Agent Isn't Dumb. Your Context Is Broken.",
+      "codex-build-sell-course": "Build & Sell with Codex (5+ Hour Course)",
+      "joy-park-aaa-founder": "AAA Concept Artist to SF Founder with Joy Park | fal Podcast",
+      "from-instructgpt-to-jev-latent-space": "Jev: System One models for Prod, not God — with Diogo Almeida, CEO, TypeSafe AI",
+      "naveen-rao-4d-computing-allin": "Naveen Rao: 4D Computing, AI's Energy Wall & Beating Biology",
+      "did-elon-catch-up-grok-47": "Did Elon catch up? (Grok 4.7 is here)",
+      "grok-47-cheapest-frontier-model": "Grok 4.7 Is HERE – Is THIS the CHEAPEST Frontier Model?",
+      "grok-bot-47-alex-finn": "Grok 4.7 inside Grok Bot is INCREDIBLE",
+      "grok-47-no-hype-full-review": "Grok 4.7: No-Hype Full Review & Testing",
+      "philip-su-career-peaks": "OpenAI & Meta Distinguished Eng (IC9): The Psychology Behind Tech Career Peaks | Philip Su",
+      "how-i-review-ai-code-john-kim": "How I Review AI Code - (Meta Senior Staff Engineer)",
+      "twist-e2340-hyperloop-trump-ai": "Elon's New Hyperloop, Trump's AI Rename, and a Model That Won't Talk | E2340"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
 
-      function activate(name, moveFocus = false) {
-        tabs.forEach((tab) => {
-          const selected = tab.dataset.target === name;
-          tab.setAttribute('aria-selected', String(selected));
-          tab.tabIndex = selected ? 0 : -1;
-          if (selected && moveFocus) tab.focus();
-        });
-        panels.forEach((panel) => {
-          const selected = panel.dataset.panel === name;
-          panel.classList.toggle('active', selected);
-          panel.hidden = !selected;
-        });
-        if (history.replaceState) history.replaceState(null, '', `#${name}`);
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' \u2014 Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
       }
 
-      tabs.forEach((tab, index) => {
-        tab.addEventListener('click', () => activate(tab.dataset.target));
-        tab.addEventListener('keydown', (event) => {
-          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
           event.preventDefault();
-          let next = index;
-          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-          if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
-          if (event.key === 'Home') next = 0;
-          if (event.key === 'End') next = tabs.length - 1;
-          activate(tabs[next].dataset.target, true);
-        });
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
       });
 
-      const fromHash = location.hash.slice(1);
-      if (tabs.some((tab) => tab.dataset.target === fromHash)) activate(fromHash);
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
     })();
   </script>
+
 </body>
 </html>

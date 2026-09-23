@@ -287,10 +287,32 @@
       html { scroll-behavior: auto; }
       .tab { transition: none; }
     }
-  </style>
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 20px 0 8px; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    </style>
 </head>
 <body>
   <main class="page">
+    <section class="index-view" id="index-view">
     <header class="masthead">
       <div>
         <p class="date">Thursday · September 17, 2026</p>
@@ -298,23 +320,23 @@
       </div>
       <p class="edition">Created by Muse<br />Summary + GitHub repo · remotely from a phone</p>
     </header>
-
-    <div class="tabs-wrap">
-      <nav class="tabs" role="tablist" aria-label="Video summaries">
-        <button class="tab" id="tab-union" role="tab" aria-selected="true" aria-controls="panel-union" tabindex="0" data-target="union"><span class="num">01</span>Union Alpha</button>
-        <button class="tab" id="tab-doomed" role="tab" aria-selected="false" aria-controls="panel-doomed" tabindex="-1" data-target="doomed"><span class="num">02</span>Are We Doomed?</button>
-        <button class="tab" id="tab-stonebraker" role="tab" aria-selected="false" aria-controls="panel-stonebraker" tabindex="-1" data-target="stonebraker"><span class="num">03</span>Stonebraker</button>
-        <button class="tab" id="tab-skills" role="tab" aria-selected="false" aria-controls="panel-skills" tabindex="-1" data-target="skills"><span class="num">04</span>AI Skills</button>
-        <button class="tab" id="tab-stripe" role="tab" aria-selected="false" aria-controls="panel-stripe" tabindex="-1" data-target="stripe"><span class="num">05</span>Stripe Agents</button>
-        <button class="tab" id="tab-quantum" role="tab" aria-selected="false" aria-controls="panel-quantum" tabindex="-1" data-target="quantum"><span class="num">06</span>JAXQuantum</button>
-        <button class="tab" id="tab-dina" role="tab" aria-selected="false" aria-controls="panel-dina" tabindex="-1" data-target="dina"><span class="num">07</span>Dina Powell McCormick</button>
-        <button class="tab" id="tab-rtvideo" role="tab" aria-selected="false" aria-controls="panel-rtvideo" tabindex="-1" data-target="rtvideo"><span class="num">08</span>Real-Time AI Video</button>
-        <button class="tab" id="tab-claude2" role="tab" aria-selected="false" aria-controls="panel-claude2" tabindex="-1" data-target="claude2"><span class="num">09</span>Claude Design 2.0</button>
-        <button class="tab" id="tab-benioff" role="tab" aria-selected="false" aria-controls="panel-benioff" tabindex="-1" data-target="benioff"><span class="num">10</span>Marc Benioff</button>
+      <nav aria-label="Summaries">
+        <div class="cards">
+      <a class="card" href="#union"><span class="num">01</span><span><span class="card-title">Union Alpha</span><span class="card-byline">Tonbi’s AI Garage</span></span></a>
+      <a class="card" href="#doomed"><span class="num">02</span><span><span class="card-title">Are We Doomed?</span></span></a>
+      <a class="card" href="#stonebraker"><span class="num">03</span><span><span class="card-title">Stonebraker</span><span class="card-byline">Ryan Peterman</span></span></a>
+      <a class="card" href="#skills"><span class="num">04</span><span><span class="card-title">AI Skills</span></span></a>
+      <a class="card" href="#stripe"><span class="num">05</span><span><span class="card-title">Stripe Agents</span></span></a>
+      <a class="card" href="#quantum"><span class="num">06</span><span><span class="card-title">JAXQuantum</span><span class="card-byline">OpenXLA</span></span></a>
+      <a class="card" href="#dina"><span class="num">07</span><span><span class="card-title">Dina Powell McCormick</span><span class="card-byline">All-In Podcast</span></span></a>
+      <a class="card" href="#rtvideo"><span class="num">08</span><span><span class="card-title">Real-Time AI Video</span><span class="card-byline">a16z</span></span></a>
+      <a class="card" href="#claude2"><span class="num">09</span><span><span class="card-title">Claude Design 2.0</span><span class="card-byline">Brock Mesarich | AI for Non Techies</span></span></a>
+      <a class="card" href="#benioff"><span class="num">10</span><span><span class="card-title">Marc Benioff</span><span class="card-byline">Salesforce</span></span></a>
+        </div>
       </nav>
-    </div>
-
-    <section class="panel active" id="panel-union" role="tabpanel" aria-labelledby="tab-union" data-panel="union">
+    </section>
+    <section class="article-view" id="union" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-17.html" data-route="index">&larr; September 17, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Tonbi’s AI Garage</dd></div>
         <div><dt>Duration</dt><dd>20:05</dd></div>
@@ -333,9 +355,14 @@
           <p>The identification remains provisional. The host is explicit that the blended-service conclusion depends heavily on external evidence he has not personally verified. The model’s public trial lasts one week, and he expects the real identity—or identities—to become clearer at the end of it.</p>
         </div>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-09-17.html" data-route="index">All summaries</a>
+        <a class="next" href="#doomed">Are We Doomed? &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-doomed" role="tabpanel" aria-labelledby="tab-doomed" data-panel="doomed" hidden>
+    <section class="article-view" id="doomed" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-17.html" data-route="index">&larr; September 17, 2026</a></div>
       <dl class="meta">
         <div><dt>Show</dt><dd>SemiAnalysis</dd></div>
         <div><dt>Duration</dt><dd>1:02:09</dd></div>
@@ -355,9 +382,14 @@
         </div>
         <p class="source-note">Based on a full transcript of the episode (YouTube&rsquo;s English captions, retrieved via yt-dlp).</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#union">&larr; Union Alpha</a>
+        <a class="to-index" href="2026-09-17.html" data-route="index">All summaries</a>
+        <a class="next" href="#stonebraker">Stonebraker &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-stonebraker" role="tabpanel" aria-labelledby="tab-stonebraker" data-panel="stonebraker" hidden>
+    <section class="article-view" id="stonebraker" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-17.html" data-route="index">&larr; September 17, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Ryan Peterman</dd></div>
         <div><dt>Duration</dt><dd>5:31</dd></div>
@@ -377,9 +409,14 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> This clip covers 15:55–21:26 of the full interview, “Turing Award Winner: Postgres, Disagreeing with Google, Future Problems.” The summary uses the full interview’s published transcript for that segment.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#doomed">&larr; Are We Doomed?</a>
+        <a class="to-index" href="2026-09-17.html" data-route="index">All summaries</a>
+        <a class="next" href="#skills">AI Skills &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-skills" role="tabpanel" aria-labelledby="tab-skills" data-panel="skills" hidden>
+    <section class="article-view" id="skills" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-17.html" data-route="index">&larr; September 17, 2026</a></div>
       <dl class="meta">
         <div><dt>Hosts</dt><dd>Gergely Orosz &amp; Matt Pocock</dd></div>
         <div><dt>Duration</dt><dd>1:36:36</dd></div>
@@ -398,9 +435,14 @@
           <p>Two broader ideas emerge. First, a skill is a natural unit of evaluation. It can be tested independently, much as one would test a person’s expertise by assigning a representative task. Second, capturing expertise once allows it to be applied at scale. Pocock expects an ecosystem resembling an app store, with people packaging and sharing specialized ways of working. His final point is democratic: anyone can write one.</p>
         </div>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#stonebraker">&larr; Stonebraker</a>
+        <a class="to-index" href="2026-09-17.html" data-route="index">All summaries</a>
+        <a class="next" href="#stripe">Stripe Agents &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-stripe" role="tabpanel" aria-labelledby="tab-stripe" data-panel="stripe" hidden>
+    <section class="article-view" id="stripe" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-17.html" data-route="index">&larr; September 17, 2026</a></div>
       <dl class="meta">
         <div><dt>Interview</dt><dd>Nate B. Jones × Emily Sands</dd></div>
         <div><dt>Duration</dt><dd>~30 min + companion article</dd></div>
@@ -424,9 +466,14 @@
         </div>
         <p class="source-note"><strong>Two sources, one report.</strong> This summary synthesizes the YouTube interview with Emily Sands and Nate&rsquo;s companion Substack essay, &ldquo;Stripe on Agentic Commerce: Can AI Agents Buy From You?&rdquo; &mdash; the conversation and the analysis, woven together.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#skills">&larr; AI Skills</a>
+        <a class="to-index" href="2026-09-17.html" data-route="index">All summaries</a>
+        <a class="next" href="#quantum">JAXQuantum &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-quantum" role="tabpanel" aria-labelledby="tab-quantum" data-panel="quantum" hidden>
+    <section class="article-view" id="quantum" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-17.html" data-route="index">&larr; September 17, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>OpenXLA</dd></div>
         <div><dt>Speaker</dt><dd>Shantanu Jha (MIT)</dd></div>
@@ -449,9 +496,14 @@
         </div>
         <p class="source-note"><strong>Timing caveat.</strong> The transcript is auto-generated, so all timing and speedup figures in this summary are approximate, as presented in the talk.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#stripe">&larr; Stripe Agents</a>
+        <a class="to-index" href="2026-09-17.html" data-route="index">All summaries</a>
+        <a class="next" href="#dina">Dina Powell McCormick &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-dina" role="tabpanel" aria-labelledby="tab-dina" data-panel="dina" hidden>
+    <section class="article-view" id="dina" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-17.html" data-route="index">&larr; September 17, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>All-In Podcast</dd></div>
         <div><dt>Guest</dt><dd>Dina Powell McCormick (President and Vice Chair, Meta)</dd></div>
@@ -475,9 +527,14 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> YouTube captions were blocked for this video; the summary rests on a full transcription of the identical episode audio from the official All-In Podcast feed.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#quantum">&larr; JAXQuantum</a>
+        <a class="to-index" href="2026-09-17.html" data-route="index">All summaries</a>
+        <a class="next" href="#rtvideo">Real-Time AI Video &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-rtvideo" role="tabpanel" aria-labelledby="tab-rtvideo" data-panel="rtvideo" hidden>
+    <section class="article-view" id="rtvideo" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-17.html" data-route="index">&larr; September 17, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>a16z</dd></div>
         <div><dt>Guest</dt><dd>Gorkem Yurtseven (co-founder, fal) &amp; Batuhan Taskaya (Head of Engineering, fal)</dd></div>
@@ -500,8 +557,14 @@
         </div>
         <p class="source-note">Transcript source: full audio of the same conversation via The a16z Show podcast feed (episode titled &ldquo;The Next Frontier of AI Video Is Control,&rdquo; published September 17, 2026), transcribed locally; YouTube captions were inaccessible to automated fetching.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#dina">&larr; Dina Powell McCormick</a>
+        <a class="to-index" href="2026-09-17.html" data-route="index">All summaries</a>
+        <a class="next" href="#claude2">Claude Design 2.0 &rarr;</a>
+      </nav>
     </section>
-<section class="panel" id="panel-claude2" role="tabpanel" aria-labelledby="tab-claude2" data-panel="claude2" hidden>
+    <section class="article-view" id="claude2" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-17.html" data-route="index">&larr; September 17, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Brock Mesarich | AI for Non Techies</dd></div>
         <div><dt>Duration</dt><dd>8:48</dd></div>
@@ -521,10 +584,14 @@
         </div>
         <p class="source-note">Based on a full transcript of the episode, copied from YouTube&rsquo;s transcript panel via a real browser session. Every automated caption route from this network was blocked by YouTube&rsquo;s bot detection, so the watch page was opened in a browser, &ldquo;Show transcript&rdquo; was clicked, and the complete text was copied by hand. This replaces the earlier description-based version of this section.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#rtvideo">&larr; Real-Time AI Video</a>
+        <a class="to-index" href="2026-09-17.html" data-route="index">All summaries</a>
+        <a class="next" href="#benioff">Marc Benioff &rarr;</a>
+      </nav>
     </section>
-<button class="tab" id="tab-benioff" role="tab" aria-selected="false" aria-controls="panel-benioff" tabindex="-1" data-target="benioff"><span class="num">10</span>Marc Benioff</button>
-
-<section class="panel" id="panel-benioff" role="tabpanel" aria-labelledby="tab-benioff" data-panel="benioff" hidden>
+    <section class="article-view" id="benioff" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-17.html" data-route="index">&larr; September 17, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Salesforce</dd></div>
         <div><dt>Guest</dt><dd>Marc Benioff (Chair and CEO, Salesforce)</dd></div>
@@ -551,51 +618,67 @@
         </div>
         <p class="source-note">Based on a full transcript of the episode, copied from YouTube&rsquo;s transcript panel via a real browser session. Every automated caption route from this network was blocked by YouTube&rsquo;s bot detection, so the watch page was opened in a browser, &ldquo;Show transcript&rdquo; was clicked, and the complete 39:48 text was copied by hand. This replaces the earlier description-and-press-based version of this section.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#claude2">&larr; Claude Design 2.0</a>
+        <a class="to-index" href="2026-09-17.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
     </section>
-
     <footer>
       <span>Summaries dated September 17, 2026</span>
       <span>Summary and GitHub repository created remotely by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> from a human’s phone</span>
     </footer>
   </main>
 
-  <script>
+<script>
     (() => {
-      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
-      const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+      const TITLES = {
+      "union": "Union Alpha",
+      "doomed": "Are We Doomed?",
+      "stonebraker": "Stonebraker",
+      "skills": "AI Skills",
+      "stripe": "Stripe Agents",
+      "quantum": "JAXQuantum",
+      "dina": "Dina Powell McCormick",
+      "rtvideo": "Real-Time AI Video",
+      "claude2": "Claude Design 2.0",
+      "benioff": "Marc Benioff"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
 
-      function activate(name, moveFocus = false) {
-        tabs.forEach((tab) => {
-          const selected = tab.dataset.target === name;
-          tab.setAttribute('aria-selected', String(selected));
-          tab.tabIndex = selected ? 0 : -1;
-          if (selected && moveFocus) tab.focus();
-        });
-        panels.forEach((panel) => {
-          const selected = panel.dataset.panel === name;
-          panel.classList.toggle('active', selected);
-          panel.hidden = !selected;
-        });
-        if (history.replaceState) history.replaceState(null, '', `#${name}`);
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' \u2014 Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
       }
 
-      tabs.forEach((tab, index) => {
-        tab.addEventListener('click', () => activate(tab.dataset.target));
-        tab.addEventListener('keydown', (event) => {
-          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
           event.preventDefault();
-          let next = index;
-          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-          if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
-          if (event.key === 'Home') next = 0;
-          if (event.key === 'End') next = tabs.length - 1;
-          activate(tabs[next].dataset.target, true);
-        });
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
       });
 
-      const fromHash = location.hash.slice(1);
-      if (tabs.some((tab) => tab.dataset.target === fromHash)) activate(fromHash);
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
     })();
   </script>
+
 </body>
 </html>

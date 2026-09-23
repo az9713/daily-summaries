@@ -329,10 +329,32 @@
       html { scroll-behavior: auto; }
       .tab { transition: none; }
     }
-  </style>
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 20px 0 8px; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    </style>
 </head>
 <body>
   <main class="page">
+    <section class="index-view" id="index-view">
     <header class="masthead">
       <div>
         <p class="date">Sunday &middot; September 20, 2026</p>
@@ -340,24 +362,31 @@
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
-
-    <div class="tabs-wrap">
-      <nav class="tabs" role="tablist" aria-label="Summaries">
-        <button class="tab" id="tab-open-jev" role="tab" aria-selected="true" aria-controls="panel-open-jev" tabindex="0" data-target="open-jev-models"><span class="num">01</span>Open Jev models</button>
-        <button class="tab" id="tab-jev-rerank" role="tab" aria-selected="false" aria-controls="panel-jev-rerank" tabindex="-1" data-target="jev-rerank"><span class="num">02</span>JEV reranking</button>
-        <button class="tab" id="tab-google-campus" role="tab" aria-selected="false" aria-controls="panel-google-campus" tabindex="-1" data-target="google-campus"><span class="num">03</span>Google campus journey</button>
-        <button class="tab" id="tab-blackstone-gray" role="tab" aria-selected="false" aria-controls="panel-blackstone-gray" tabindex="-1" data-target="blackstone-gray"><span class="num">04</span>Blackstone&rsquo;s Jon Gray</button>
-        <button class="tab" id="tab-navier-stokes-hairer" role="tab" aria-selected="false" aria-controls="panel-navier-stokes-hairer" tabindex="-1" data-target="navier-stokes-hairer"><span class="num">05</span>TomRocksMaths: Navier-Stokes, AI and Martin Hairer</button>
+      <nav aria-label="Summaries">
+        <div class="cards">
+      <a class="card" href="#open-jev-models"><span class="num">01</span><span><span class="card-title">Open Jev models</span><span class="card-byline">Sam Witteveen</span></span></a>
+      <a class="card" href="#jev-rerank"><span class="num">02</span><span><span class="card-title">JEV reranking</span><span class="card-byline">Prompt Engineering</span></span></a>
+      <a class="card" href="#google-campus"><span class="num">03</span><span><span class="card-title">Google campus journey</span><span class="card-byline">Nate Herk | AI Automation</span></span></a>
+      <a class="card" href="#blackstone-gray"><span class="num">04</span><span><span class="card-title">Blackstone’s Jon Gray</span><span class="card-byline">Blackstone</span></span></a>
+      <a class="card" href="#navier-stokes-hairer"><span class="num">05</span><span><span class="card-title">TomRocksMaths: Navier-Stokes, AI and Martin Hairer</span><span class="card-byline">TomRocksMaths</span></span></a>
+        </div>
       </nav>
-    </div>
-
-    <section class="panel active" id="panel-open-jev" role="tabpanel" aria-labelledby="tab-open-jev" data-panel="open-jev-models">
+    </section>
+    <section class="article-view" id="open-jev-models" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-20.html" data-route="index">&larr; September 20, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Sam Witteveen</dd></div>
         <div><dt>Duration</dt><dd>21:31</dd></div>
         <div><dt>Published</dt><dd>September 20, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=53wDOI_7x8I" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Two Summaries <span class="dur">&middot; ~6.1 min</span></p>
+        <audio controls preload="none" src="podcasts/two-summaries-september-20-2026-2026-09-20.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/two-summaries-september-20-2026-2026-09-20.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; open models &middot; classification</p>
         <h2>Open Jev Models Are Here!!</h2>
@@ -375,15 +404,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> Source note: This summary is grounded in the full transcript of the video, copied from YouTube&rsquo;s &ldquo;Show transcript&rdquo; panel via a real browser session on September 20, 2026 — not in a viewing of the video itself. The captions are auto-generated, so mis-transcriptions are the transcript&rsquo;s; product and project names were corrected where the meaning was unambiguous. The video discloses a Dell sponsorship covering the compute (Dell T2 Pro Max workstation, NVIDIA RTX PRO 6000 Blackwell) used for the live demos. Figures such as JevBench scores and cost multiples are the creator&rsquo;s as reported.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-09-20.html" data-route="index">All summaries</a>
+        <a class="next" href="#jev-rerank">JEV reranking &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-jev-rerank" role="tabpanel" aria-labelledby="tab-jev-rerank" data-panel="jev-rerank">
+    <section class="article-view" id="jev-rerank" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-20.html" data-route="index">&larr; September 20, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Prompt Engineering</dd></div>
         <div><dt>Duration</dt><dd>11:27</dd></div>
         <div><dt>Published</dt><dd>September 20, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=UhGH8cNG0qs" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Two Summaries <span class="dur">&middot; ~6.1 min</span></p>
+        <audio controls preload="none" src="podcasts/two-summaries-september-20-2026-2026-09-20.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/two-summaries-september-20-2026-2026-09-20.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; RAG &middot; search</p>
         <h2>Steerable Reranking: How JEV Solves RAG</h2>
@@ -400,15 +441,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> Source note: This summary is grounded in the full transcript of the video, copied from YouTube&rsquo;s &ldquo;Show transcript&rdquo; panel via a real browser session on September 20, 2026 — not in a viewing of the video itself. The captions are auto-generated, so mis-transcriptions are the transcript&rsquo;s; product and model names were corrected where the meaning was unambiguous. Benchmark figures (21% to 54% top-1 accuracy, 17 decisions/second serial, 7.6s with 64-pool concurrency, cost comparisons with Gemini Flash-Lite/Flash) are the creator&rsquo;s as reported from the notebook linked in the video description.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#open-jev-models">&larr; Open Jev models</a>
+        <a class="to-index" href="2026-09-20.html" data-route="index">All summaries</a>
+        <a class="next" href="#google-campus">Google campus journey &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-google-campus" role="tabpanel" aria-labelledby="tab-google-campus" data-panel="google-campus">
+    <section class="article-view" id="google-campus" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-20.html" data-route="index">&larr; September 20, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Nate Herk | AI Automation</dd></div>
         <div><dt>Duration</dt><dd>14:35</dd></div>
         <div><dt>Published</dt><dd>September 20, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=r3NH48_Z9Vk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Google Campus Journey <span class="dur">&middot; ~5 min</span></p>
+        <audio controls preload="none" src="podcasts/google-campus-journey-september-20-2026-2026-09-20.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/google-campus-journey-september-20-2026-2026-09-20.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; Google &middot; campus visit</p>
         <h2>I spent the day with AI experts at Google</h2>
@@ -425,15 +478,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full auto-generated English captions pulled from YouTube on the day of upload (September 20, 2026), cross-checked against the video&rsquo;s description, which confirms the San Jose campus visit, the coffee-shop site-selection workshop run with Codex and Cloud Code, and the recurring themes of trusted data, clear definitions of done, and a human in the loop. Auto-captions occasionally garble product and tool names; tool references reflect the captions&rsquo; best rendering.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#jev-rerank">&larr; JEV reranking</a>
+        <a class="to-index" href="2026-09-20.html" data-route="index">All summaries</a>
+        <a class="next" href="#blackstone-gray">Blackstone’s Jon Gray &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-blackstone-gray" role="tabpanel" aria-labelledby="tab-blackstone-gray" data-panel="blackstone-gray">
+    <section class="article-view" id="blackstone-gray" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-20.html" data-route="index">&larr; September 20, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Blackstone</dd></div>
         <div><dt>Duration</dt><dd>30:38</dd></div>
         <div><dt>Published</dt><dd>September 20, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=4rhShOPHl50" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Blackstone’s Jon Gray <span class="dur">&middot; ~5.1 min</span></p>
+        <audio controls preload="none" src="podcasts/blackstones-jon-gray-wheres-the-beef.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/blackstones-jon-gray-wheres-the-beef.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; investing &middot; capex</p>
         <h2>Where&rsquo;s the Beef? Blackstone&rsquo;s Jon Gray on the Payoff From the Enormous AI CapEx Spend</h2>
@@ -448,15 +513,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> This summary is based on the full English auto-generated captions from the video, copied in full from the &ldquo;Show transcript&rdquo; panel on the YouTube watch page. The automated caption-download endpoints were blocked with anti-bot errors on 2026-09-20, so the captions were gathered through the rendered watch page instead; mid-sentence caption breaks and minor grammar artifacts come from the auto-captioning, not from editing.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#google-campus">&larr; Google campus journey</a>
+        <a class="to-index" href="2026-09-20.html" data-route="index">All summaries</a>
+        <a class="next" href="#navier-stokes-hairer">TomRocksMaths: Navier-Stokes, AI and Martin Hairer &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-navier-stokes-hairer" role="tabpanel" aria-labelledby="tab-navier-stokes-hairer" data-panel="navier-stokes-hairer">
+    <section class="article-view" id="navier-stokes-hairer" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-20.html" data-route="index">&larr; September 20, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>TomRocksMaths</dd></div>
         <div><dt>Duration</dt><dd>39:42</dd></div>
         <div><dt>Published</dt><dd>September 20, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=G8HMa_tgM34" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Martin Hairer: Navier-Stokes, AI and the Future of Mathematics <span class="dur">&middot; ~5 min</span></p>
+        <audio controls preload="none" src="podcasts/martin-hairer-navier-stokes-ai.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/martin-hairer-navier-stokes-ai.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; mathematics &middot; interview</p>
         <h2>Navier-Stokes, AI and the Future of Mathematics with Martin Hairer (2014 Fields Medal)</h2>
@@ -474,42 +551,12 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full auto-generated English captions of the video, copied in full from the &quot;Show transcript&quot; panel on the YouTube watch page via a rendered browser session on September 20, 2026 (the programmatic caption endpoints were anti-bot blocked with HTTP 429 that day). Caption garbling was corrected where the meaning was unambiguous; figures and attributions are the speakers&#x27; as reported.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#blackstone-gray">&larr; Blackstone’s Jon Gray</a>
+        <a class="to-index" href="2026-09-20.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
     </section>
-
-    <section class="podcasts" aria-label="Podcast episodes">
-      <h3>Podcasts</h3>
-      <p class="lede">Four narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
-      <div class="episode">
-        <p class="episode-title">Two Summaries &mdash; September 20, 2026 <span class="dur">&middot; ~6.1 min</span></p>
-        <audio controls preload="none" src="podcasts/two-summaries-september-20-2026-2026-09-20.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/two-summaries-september-20-2026-2026-09-20.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Google Campus Journey &mdash; September 20, 2026 <span class="dur">&middot; ~5 min</span></p>
-        <audio controls preload="none" src="podcasts/google-campus-journey-september-20-2026-2026-09-20.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/google-campus-journey-september-20-2026-2026-09-20.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Blackstone&rsquo;s Jon Gray &mdash; September 20, 2026 <span class="dur">&middot; ~5.1 min</span></p>
-        <audio controls preload="none" src="podcasts/blackstones-jon-gray-wheres-the-beef.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/blackstones-jon-gray-wheres-the-beef.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Martin Hairer: Navier-Stokes, AI and the Future of Mathematics &mdash; September 20, 2026 <span class="dur">&middot; ~5 min</span></p>
-        <audio controls preload="none" src="podcasts/martin-hairer-navier-stokes-ai.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/martin-hairer-navier-stokes-ai.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <p class="podcast-credit">Podcasts created by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a>, a Muse agent &mdash; https://muse.ai</p>
-    </section>
-
     <footer>
       <span>Summaries dated September 20, 2026</span>
       <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
@@ -518,41 +565,48 @@
 
 <script>
     (() => {
-      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
-      const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+      const TITLES = {
+      "open-jev-models": "Open Jev models",
+      "jev-rerank": "JEV reranking",
+      "google-campus": "Google campus journey",
+      "blackstone-gray": "Blackstone’s Jon Gray",
+      "navier-stokes-hairer": "TomRocksMaths: Navier-Stokes, AI and Martin Hairer"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
 
-      function activate(name, moveFocus = false) {
-        tabs.forEach((tab) => {
-          const selected = tab.dataset.target === name;
-          tab.setAttribute('aria-selected', String(selected));
-          tab.tabIndex = selected ? 0 : -1;
-          if (selected && moveFocus) tab.focus();
-        });
-        panels.forEach((panel) => {
-          const selected = panel.dataset.panel === name;
-          panel.classList.toggle('active', selected);
-          panel.hidden = !selected;
-        });
-        if (history.replaceState) history.replaceState(null, '', `#${name}`);
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' \u2014 Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
       }
 
-      tabs.forEach((tab, index) => {
-        tab.addEventListener('click', () => activate(tab.dataset.target));
-        tab.addEventListener('keydown', (event) => {
-          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
           event.preventDefault();
-          let next = index;
-          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-          if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
-          if (event.key === 'Home') next = 0;
-          if (event.key === 'End') next = tabs.length - 1;
-          activate(tabs[next].dataset.target, true);
-        });
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
       });
 
-      const fromHash = location.hash.slice(1);
-      if (tabs.some((tab) => tab.dataset.target === fromHash)) activate(fromHash);
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
     })();
   </script>
+
 </body>
 </html>
