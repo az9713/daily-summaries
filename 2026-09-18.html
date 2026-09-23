@@ -287,10 +287,32 @@
       html { scroll-behavior: auto; }
       .tab { transition: none; }
     }
-  </style>
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 20px 0 8px; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    </style>
 </head>
 <body>
   <main class="page">
+    <section class="index-view" id="index-view">
     <header class="masthead">
       <div>
         <p class="date">Friday · September 18, 2026</p>
@@ -298,15 +320,15 @@
       </div>
       <p class="edition">Created by Muse<br />Summary · remotely from a phone</p>
     </header>
-
-    <div class="tabs-wrap">
-      <nav class="tabs" role="tablist" aria-label="Summaries">
-        <button class="tab" id="tab-nasa" role="tab" aria-selected="true" aria-controls="panel-nasa" tabindex="0" data-target="nasa"><span class="num">01</span>Isaacman on NASA</button>
-        <button class="tab" id="tab-overhang" role="tab" aria-selected="false" aria-controls="panel-overhang" tabindex="-1" data-target="overhang"><span class="num">02</span>The Overhang</button>
+      <nav aria-label="Summaries">
+        <div class="cards">
+      <a class="card" href="#nasa"><span class="num">01</span><span><span class="card-title">Isaacman on NASA</span><span class="card-byline">All-In Podcast</span></span></a>
+      <a class="card" href="#overhang"><span class="num">02</span><span><span class="card-title">The Overhang</span></span></a>
+        </div>
       </nav>
-    </div>
-
-    <section class="panel active" id="panel-nasa" role="tabpanel" aria-labelledby="tab-nasa" data-panel="nasa">
+    </section>
+    <section class="article-view" id="nasa" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-18.html" data-route="index">&larr; September 18, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>All-In Podcast</dd></div>
         <div><dt>Duration</dt><dd>38:33</dd></div>
@@ -326,9 +348,14 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full transcript of the episode (YouTube&rsquo;s English auto-captions, retrieved via yt-dlp)&mdash;not in a viewing of the video itself.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-09-18.html" data-route="index">All summaries</a>
+        <a class="next" href="#overhang">The Overhang &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-overhang" role="tabpanel" aria-labelledby="tab-overhang" data-panel="overhang">
+    <section class="article-view" id="overhang" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-18.html" data-route="index">&larr; September 18, 2026</a></div>
       <dl class="meta">
         <div><dt>Author</dt><dd>Ethan Mollick</dd></div>
         <div><dt>Publication</dt><dd>One Useful Thing</dd></div>
@@ -347,51 +374,59 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full text of the piece, read directly from the published page&mdash;not in anything beyond what the author wrote.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#nasa">&larr; Isaacman on NASA</a>
+        <a class="to-index" href="2026-09-18.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
     </section>
-
     <footer>
       <span>Summaries dated September 18, 2026</span>
       <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
     </footer>
   </main>
 
-  <script>
+<script>
     (() => {
-      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
-      const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+      const TITLES = {
+      "nasa": "Isaacman on NASA",
+      "overhang": "The Overhang"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
 
-      function activate(name, moveFocus = false) {
-        tabs.forEach((tab) => {
-          const selected = tab.dataset.target === name;
-          tab.setAttribute('aria-selected', String(selected));
-          tab.tabIndex = selected ? 0 : -1;
-          if (selected && moveFocus) tab.focus();
-        });
-        panels.forEach((panel) => {
-          const selected = panel.dataset.panel === name;
-          panel.classList.toggle('active', selected);
-          panel.hidden = !selected;
-        });
-        if (history.replaceState) history.replaceState(null, '', `#${name}`);
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' \u2014 Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
       }
 
-      tabs.forEach((tab, index) => {
-        tab.addEventListener('click', () => activate(tab.dataset.target));
-        tab.addEventListener('keydown', (event) => {
-          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
           event.preventDefault();
-          let next = index;
-          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-          if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
-          if (event.key === 'Home') next = 0;
-          if (event.key === 'End') next = tabs.length - 1;
-          activate(tabs[next].dataset.target, true);
-        });
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
       });
 
-      const fromHash = location.hash.slice(1);
-      if (tabs.some((tab) => tab.dataset.target === fromHash)) activate(fromHash);
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
     })();
   </script>
+
 </body>
 </html>
