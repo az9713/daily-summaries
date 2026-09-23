@@ -329,10 +329,32 @@
       html { scroll-behavior: auto; }
       .tab { transition: none; }
     }
-  </style>
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 20px 0 8px; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    </style>
 </head>
 <body>
   <main class="page">
+    <section class="index-view" id="index-view">
     <header class="masthead">
       <div>
         <p class="date">Saturday &middot; September 19, 2026</p>
@@ -340,27 +362,34 @@
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
-
-    <div class="tabs-wrap">
-      <nav class="tabs" role="tablist" aria-label="Summaries">
-        <button class="tab" id="tab-treasury" role="tab" aria-selected="true" aria-controls="panel-treasury" tabindex="0" data-target="treasury"><span class="num">01</span>Treasury moves</button>
-        <button class="tab" id="tab-aijobs" role="tab" aria-selected="false" aria-controls="panel-aijobs" tabindex="-1" data-target="aijobs"><span class="num">02</span>AI and jobs</button>
-        <button class="tab" id="tab-aicloud" role="tab" aria-selected="false" aria-controls="panel-aicloud" tabindex="-1" data-target="aicloud"><span class="num">03</span>AI cloud talent</button>
-        <button class="tab" id="tab-ghodsi" role="tab" aria-selected="false" aria-controls="panel-ghodsi" tabindex="-1" data-target="ghodsi"><span class="num">04</span>CEO playbook</button>
-        <button class="tab" id="tab-gurley" role="tab" aria-selected="false" aria-controls="panel-gurley" tabindex="-1" data-target="gurley"><span class="num">05</span>Searching for Feynman</button>
-        <button class="tab" id="tab-prog" role="tab" aria-selected="false" aria-controls="panel-prog" tabindex="-1" data-target="prog"><span class="num">06</span>Programming feels different</button>
-        <button class="tab" id="tab-rsi" role="tab" aria-selected="false" aria-controls="panel-rsi" tabindex="-1" data-target="rsi"><span class="num">07</span>RSI</button>
-        <button class="tab" id="tab-swe-changing" role="tab" aria-selected="false" aria-controls="panel-swe-changing" tabindex="-1" data-target="swe-changing"><span class="num">08</span>Software engineering</button>
+      <nav aria-label="Summaries">
+        <div class="cards">
+      <a class="card" href="#treasury"><span class="num">01</span><span><span class="card-title">Treasury moves</span><span class="card-byline">Hoover Institution</span></span></a>
+      <a class="card" href="#aijobs"><span class="num">02</span><span><span class="card-title">AI and jobs</span><span class="card-byline">Perfology Clips</span></span></a>
+      <a class="card" href="#aicloud"><span class="num">03</span><span><span class="card-title">AI cloud talent</span><span class="card-byline">vCluster</span></span></a>
+      <a class="card" href="#ghodsi"><span class="num">04</span><span><span class="card-title">CEO playbook</span><span class="card-byline">Sequoia Capital</span></span></a>
+      <a class="card" href="#gurley"><span class="num">05</span><span><span class="card-title">Searching for Feynman</span><span class="card-byline">All-In Podcast</span></span></a>
+      <a class="card" href="#prog"><span class="num">06</span><span><span class="card-title">Programming feels different</span><span class="card-byline">Ben Davis (@bmdavis419)</span></span></a>
+      <a class="card" href="#rsi"><span class="num">07</span><span><span class="card-title">RSI</span></span></a>
+      <a class="card" href="#swe-changing"><span class="num">08</span><span><span class="card-title">Software engineering</span><span class="card-byline">Tech With Tim</span></span></a>
+        </div>
       </nav>
-    </div>
-
-    <section class="panel active" id="panel-treasury" role="tabpanel" aria-labelledby="tab-treasury" data-panel="treasury">
+    </section>
+    <section class="article-view" id="treasury" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-19.html" data-route="index">&larr; September 19, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Hoover Institution</dd></div>
         <div><dt>Duration</dt><dd>21:32</dd></div>
         <div><dt>Published</dt><dd>September 18, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=R449Km1s6j4" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Three Summaries <span class="dur">&middot; ~8.5 min</span></p>
+        <audio controls preload="none" src="podcasts/three-summaries-2026-09-19.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/three-summaries-2026-09-19.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">Markets &middot; Treasury &middot; fiscal policy</p>
         <h2>Recent US Treasury Interventions in Bond and FX Markets</h2>
@@ -373,15 +402,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full transcript of the episode, copied from YouTube&rsquo;s &ldquo;Show transcript&rdquo; panel via a real browser session (the caption endpoints were bot-walled)&mdash;not in a viewing of the video itself. The captions are the auto-dubbed track, so machine-transcription errors in names and terms are the transcript&rsquo;s, preserved where the meaning was unclear.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-09-19.html" data-route="index">All summaries</a>
+        <a class="next" href="#aijobs">AI and jobs &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-aijobs" role="tabpanel" aria-labelledby="tab-aijobs" data-panel="aijobs">
+    <section class="article-view" id="aijobs" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-19.html" data-route="index">&larr; September 19, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Perfology Clips</dd></div>
         <div><dt>Duration</dt><dd>1:01:11</dd></div>
         <div><dt>Published</dt><dd>September 19, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=50TeOTaQ_h8" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Three Summaries <span class="dur">&middot; ~8.5 min</span></p>
+        <audio controls preload="none" src="podcasts/three-summaries-2026-09-19.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/three-summaries-2026-09-19.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; economics &middot; growth</p>
         <h2>Stanford Professor&rsquo;s Deep Dive | The Future of Jobs in an AI World</h2>
@@ -395,15 +436,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full transcript of the episode, copied from YouTube&rsquo;s &ldquo;Show transcript&rdquo; panel via a real browser session (the caption endpoints were bot-walled)&mdash;not in a viewing of the video itself. The captions are the auto-dubbed track, so machine-transcription errors in names and terms are the transcript&rsquo;s, preserved where the meaning was unclear.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#treasury">&larr; Treasury moves</a>
+        <a class="to-index" href="2026-09-19.html" data-route="index">All summaries</a>
+        <a class="next" href="#aicloud">AI cloud talent &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-aicloud" role="tabpanel" aria-labelledby="tab-aicloud" data-panel="aicloud">
+    <section class="article-view" id="aicloud" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-19.html" data-route="index">&larr; September 19, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>vCluster</dd></div>
         <div><dt>Duration</dt><dd>17:18</dd></div>
         <div><dt>Published</dt><dd>September 18, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=q71VCkv5tcs" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Three Summaries <span class="dur">&middot; ~8.5 min</span></p>
+        <audio controls preload="none" src="podcasts/three-summaries-2026-09-19.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/three-summaries-2026-09-19.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; infrastructure &middot; talent</p>
         <h2>Dylan Patel &mdash; The talent to build your own AI cloud stack does not exist</h2>
@@ -419,15 +472,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full transcript of the episode, retrieved via yt-dlp&rsquo;s English auto-caption download on September 19, 2026 (no browser workaround was needed). The captions were converted to clean text and the summary was written directly from that transcript.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#aijobs">&larr; AI and jobs</a>
+        <a class="to-index" href="2026-09-19.html" data-route="index">All summaries</a>
+        <a class="next" href="#ghodsi">CEO playbook &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-ghodsi" role="tabpanel" aria-labelledby="tab-ghodsi" data-panel="ghodsi">
+    <section class="article-view" id="ghodsi" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-19.html" data-route="index">&larr; September 19, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Sequoia Capital</dd></div>
         <div><dt>Duration</dt><dd>1:14:30</dd></div>
         <div><dt>Published</dt><dd>September 17, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=k7wPdCNfljQ" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Databricks’ Ali Ghodsi <span class="dur">&middot; ~5.5 min</span></p>
+        <audio controls preload="none" src="podcasts/databricks-ali-ghodsi-2026-09-19.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/databricks-ali-ghodsi-2026-09-19.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">Leadership · startups · Databricks</p>
         <h2>Databricks’ Ali Ghodsi Never Wanted to Be CEO. Now He’s Among the Best</h2>
@@ -442,9 +507,14 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> Source note: This summary was written from the full English auto-caption transcript of the video (74 minutes, ~16,000 words), downloaded via yt-dlp on September 19, 2026, and cleaned of timestamps and formatting. The video is &ldquo;Databricks&rsquo; Ali Ghodsi Never Wanted to Be CEO. Now He&rsquo;s Among the Best&rdquo; on Sequoia Capital&rsquo;s YouTube channel (published September 17, 2026), an episode of the show Long Strange Trip. Auto-captions contain occasional transcription errors (e.g., misspelled names); quotations are rendered as faithfully as the transcript allows.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#aicloud">&larr; AI cloud talent</a>
+        <a class="to-index" href="2026-09-19.html" data-route="index">All summaries</a>
+        <a class="next" href="#gurley">Searching for Feynman &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-gurley" role="tabpanel" aria-labelledby="tab-gurley" data-panel="gurley">
+    <section class="article-view" id="gurley" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-19.html" data-route="index">&larr; September 19, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>All-In Podcast</dd></div>
         <div><dt>Duration</dt><dd>38:28</dd></div>
@@ -465,15 +535,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> Source note: This summary was written from the full English caption transcript of the video (38 minutes, ~6,700 words), downloaded via yt-dlp on September 19, 2026, and cleaned of timestamps and formatting. The video is &ldquo;Bill Gurley: Searching for Feynman&rdquo; on the All-In Podcast YouTube channel (published September 19,  2026), Gurley&rsquo;s talk from the All-In Summit. The talk presents Gurley&rsquo;s own arguments and figures (including his COVID-19 death and cost estimates and his characterization of named individuals and institutions); this summary reports what he said without independently verifying those claims.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#ghodsi">&larr; CEO playbook</a>
+        <a class="to-index" href="2026-09-19.html" data-route="index">All summaries</a>
+        <a class="next" href="#prog">Programming feels different &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-prog" role="tabpanel" aria-labelledby="tab-prog" data-panel="prog">
+    <section class="article-view" id="prog" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-19.html" data-route="index">&larr; September 19, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Ben Davis (@bmdavis419)</dd></div>
         <div><dt>Duration</dt><dd>18:05</dd></div>
         <div><dt>Published</dt><dd>September 19, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=E51TwjZcx1c" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Programming Feels Very Different <span class="dur">&middot; ~5.1 min</span></p>
+        <audio controls preload="none" src="podcasts/programming-feels-very-different-2026-09-19.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/programming-feels-very-different-2026-09-19.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; programming &middot; coding agents</p>
         <h2>Programming Feels Very Different</h2>
@@ -489,15 +571,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full transcript of the episode, copied from YouTube&rsquo;s &ldquo;Show transcript&rdquo; panel via a real browser session on September 19, 2026&mdash;the automated caption endpoints were bot-blocked, so no programmatic download was attempted. The captions are auto-generated, so transcription errors (notably garbled product and framework names, rendered here as Svelte, SvelteKit, tRPC, and similar) are the transcript&rsquo;s; names were corrected where the meaning was unambiguous.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#gurley">&larr; Searching for Feynman</a>
+        <a class="to-index" href="2026-09-19.html" data-route="index">All summaries</a>
+        <a class="next" href="#rsi">RSI &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-rsi" role="tabpanel" aria-labelledby="tab-rsi" data-panel="rsi">
+    <section class="article-view" id="rsi" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-19.html" data-route="index">&larr; September 19, 2026</a></div>
       <dl class="meta">
         <div><dt>Publication</dt><dd>Interconnects</dd></div>
         <div><dt>Author</dt><dd>Nathan Lambert</dd></div>
         <div><dt>Published</dt><dd>September 19, 2026</dd></div>
         <a class="watch" href="https://www.interconnects.ai/p/where-i-stand-on-rsi" target="_blank" rel="noopener noreferrer">Read the piece</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Why I Still Haven’t Bought Into True RSI <span class="dur">&middot; ~7.6 min</span></p>
+        <audio controls preload="none" src="podcasts/why-i-still-havent-bought-into-true-rsi-september-19-2026-2026-09-19.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/why-i-still-havent-bought-into-true-rsi-september-19-2026-2026-09-19.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; AI safety &middot; recursive self-improvement</p>
         <h2>Why I still haven&rsquo;t bought into true RSI</h2>
@@ -516,15 +610,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full text of the article, fetched from the publication&rsquo;s own page and its public Substack API on September 19, 2026 (published September 19, 2026). The summary is a transformed condensation with attribution and a link to the original; it does not reproduce the article verbatim.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#prog">&larr; Programming feels different</a>
+        <a class="to-index" href="2026-09-19.html" data-route="index">All summaries</a>
+        <a class="next" href="#swe-changing">Software engineering &rarr;</a>
+      </nav>
     </section>
-
-    <section class="panel" id="panel-swe-changing" role="tabpanel" aria-labelledby="tab-swe-changing" data-panel="swe-changing">
+    <section class="article-view" id="swe-changing" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-19.html" data-route="index">&larr; September 19, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Tech With Tim</dd></div>
         <div><dt>Duration</dt><dd>12:11</dd></div>
         <div><dt>Published</dt><dd>September 19, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=1PdgNyOy20w" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Software Engineering Is Changing <span class="dur">&middot; ~6.4 min</span></p>
+        <audio controls preload="none" src="podcasts/software-engineering-is-changing-september-19-2026-2026-09-19.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/software-engineering-is-changing-september-19-2026-2026-09-19.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; careers &middot; software engineering</p>
         <h2>Software Engineering Is Changing &mdash; Here&rsquo;s What Actually Matters</h2>
@@ -541,49 +647,12 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full transcript of the episode, copied from YouTube&rsquo;s &ldquo;Show transcript&rdquo; panel via a real browser session on September 19, 2026 &mdash; not in a viewing of the video itself. The captions are auto-generated, so transcription errors are the transcript&rsquo;s; product and framework names were corrected where the meaning was unambiguous (notably &ldquo;leak code,&rdquo; rendered here as LeetCode). The episode contains a sponsored segment for a DataCamp course track, noted in the summary as such.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#rsi">&larr; RSI</a>
+        <a class="to-index" href="2026-09-19.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
     </section>
-
-    <section class="podcasts" aria-label="Podcast episodes">
-      <h3>Podcasts</h3>
-      <p class="lede">Five narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
-      <div class="episode">
-        <p class="episode-title">Three Summaries &mdash; September 19, 2026 <span class="dur">&middot; ~8.5 min</span></p>
-        <audio controls preload="none" src="podcasts/three-summaries-2026-09-19.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/three-summaries-2026-09-19.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Databricks&rsquo; Ali Ghodsi &mdash; September 19, 2026 <span class="dur">&middot; ~5.5 min</span></p>
-        <audio controls preload="none" src="podcasts/databricks-ali-ghodsi-2026-09-19.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/databricks-ali-ghodsi-2026-09-19.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Programming Feels Very Different &mdash; September 19, 2026 <span class="dur">&middot; ~5.1 min</span></p>
-        <audio controls preload="none" src="podcasts/programming-feels-very-different-2026-09-19.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/programming-feels-very-different-2026-09-19.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Why I Still Haven&rsquo;t Bought Into True RSI &mdash; September 19, 2026 <span class="dur">&middot; ~7.6 min</span></p>
-        <audio controls preload="none" src="podcasts/why-i-still-havent-bought-into-true-rsi-september-19-2026-2026-09-19.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/why-i-still-havent-bought-into-true-rsi-september-19-2026-2026-09-19.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Software Engineering Is Changing &mdash; September 19, 2026 <span class="dur">&middot; ~6.4 min</span></p>
-        <audio controls preload="none" src="podcasts/software-engineering-is-changing-september-19-2026-2026-09-19.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/software-engineering-is-changing-september-19-2026-2026-09-19.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <p class="podcast-credit">Podcasts created by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a>, a Muse agent &mdash; https://muse.ai</p>
-    </section>
-
     <footer>
       <span>Summaries dated September 19, 2026</span>
       <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
@@ -592,41 +661,51 @@
 
 <script>
     (() => {
-      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
-      const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+      const TITLES = {
+      "treasury": "Treasury moves",
+      "aijobs": "AI and jobs",
+      "aicloud": "AI cloud talent",
+      "ghodsi": "CEO playbook",
+      "gurley": "Searching for Feynman",
+      "prog": "Programming feels different",
+      "rsi": "RSI",
+      "swe-changing": "Software engineering"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
 
-      function activate(name, moveFocus = false) {
-        tabs.forEach((tab) => {
-          const selected = tab.dataset.target === name;
-          tab.setAttribute('aria-selected', String(selected));
-          tab.tabIndex = selected ? 0 : -1;
-          if (selected && moveFocus) tab.focus();
-        });
-        panels.forEach((panel) => {
-          const selected = panel.dataset.panel === name;
-          panel.classList.toggle('active', selected);
-          panel.hidden = !selected;
-        });
-        if (history.replaceState) history.replaceState(null, '', `#${name}`);
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' \u2014 Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
       }
 
-      tabs.forEach((tab, index) => {
-        tab.addEventListener('click', () => activate(tab.dataset.target));
-        tab.addEventListener('keydown', (event) => {
-          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
           event.preventDefault();
-          let next = index;
-          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-          if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
-          if (event.key === 'Home') next = 0;
-          if (event.key === 'End') next = tabs.length - 1;
-          activate(tabs[next].dataset.target, true);
-        });
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
       });
 
-      const fromHash = location.hash.slice(1);
-      if (tabs.some((tab) => tab.dataset.target === fromHash)) activate(fromHash);
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
     })();
   </script>
+
 </body>
 </html>

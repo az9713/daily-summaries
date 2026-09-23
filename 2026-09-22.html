@@ -329,10 +329,32 @@
       html { scroll-behavior: auto; }
       .tab { transition: none; }
     }
-  </style>
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 20px 0 8px; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    </style>
 </head>
 <body>
   <main class="page">
+    <section class="index-view" id="index-view">
     <header class="masthead">
       <div>
         <p class="date">Tuesday &middot; September 22, 2026</p>
@@ -340,31 +362,40 @@
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
-    <div class="tabs-wrap">
-      <nav class="tabs" role="tablist" aria-label="Summaries">
-        <button class="tab active" id="tab-a16z-horowitz-andreessen-academy" role="tab" aria-selected="true" aria-controls="panel-a16z-horowitz-andreessen-academy" tabindex="0" data-target="a16z-horowitz-andreessen-academy"><span class="num">01</span>Ben Horowitz &amp; Marc Andreessen Are Starting a University</button>
-        <button class="tab" id="tab-allin-blake-scholl-supersonic" role="tab" aria-selected="false" aria-controls="panel-allin-blake-scholl-supersonic" tabindex="-1" data-target="allin-blake-scholl-supersonic"><span class="num">02</span>Blake Scholl: Why Plane Speed Stalled, Supersonic Commercial Flight, &amp; Revolutionizing the Engine</button>
-        <button class="tab" id="tab-theo-fable-wrong" role="tab" aria-selected="false" aria-controls="panel-theo-fable-wrong" tabindex="-1" data-target="theo-fable-wrong"><span class="num">03</span>I was using Fable wrong, this is how I fixed it</button>
-        <button class="tab" id="tab-interconnects-denain-rsi" role="tab" aria-selected="false" aria-controls="panel-interconnects-denain-rsi" tabindex="-1" data-target="interconnects-denain-rsi"><span class="num">04</span>Debating RSI, the US-China Gap, and Jaggedness with JS Denain of Epoch AI</button>
-<button class="tab" id="tab-lovable-cofounder-silicon-valley-girl" role="tab" aria-selected="false" aria-controls="panel-lovable-cofounder-silicon-valley-girl" tabindex="-1" data-target="lovable-cofounder-silicon-valley-girl"><span class="num">05</span>$13B Lovable Co-Founder: Turn Your AI Side Project Into a Real Business</button>
-<button class="tab" id="tab-skill-engineering-paul-bakaus" role="tab" aria-selected="false" aria-controls="panel-skill-engineering-paul-bakaus" tabindex="-1" data-target="skill-engineering-paul-bakaus"><span class="num">06</span>The Dark Arts of Skill Engineering &mdash; Paul Bakaus, Renaissance Geek (Impeccable)</button>
-<button class="tab" id="tab-openai-anthropic-finance-rogo" role="tab" aria-selected="false" aria-controls="panel-openai-anthropic-finance-rogo" tabindex="-1" data-target="openai-anthropic-finance-rogo"><span class="num">07</span>Why OpenAI and Anthropic Won&rsquo;t Win Finance</button>
-<button class="tab" id="tab-opus55-anthropic-finally-listened" role="tab" aria-selected="false" aria-controls="panel-opus55-anthropic-finally-listened" tabindex="-1" data-target="opus55-anthropic-finally-listened"><span class="num">10</span>Opus 5.5 — Anthropic Finally Listened?</button>
-<button class="tab" id="tab-opus55-howi-ai-claude-is-back" role="tab" aria-selected="false" aria-controls="panel-opus55-howi-ai-claude-is-back" tabindex="-1" data-target="opus55-howi-ai-claude-is-back"><span class="num">11</span>Claude is BACK with Opus 5.5</button>
-<button class="tab" id="tab-gpt6-sol-luna-chase-ai" role="tab" aria-selected="false" aria-controls="panel-gpt6-sol-luna-chase-ai" tabindex="-1" data-target="gpt6-sol-luna-chase-ai"><span class="num">12</span>GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!)</button>
-<button class="tab" id="tab-anthropic-opus55-full-breakdown" role="tab" aria-selected="false" aria-controls="panel-anthropic-opus55-full-breakdown" tabindex="-1" data-target="anthropic-opus55-full-breakdown"><span class="num">13</span>Anthropic Just Dropped Claude Opus 5.5 (Full Breakdown)</button>
-<button class="tab" id="tab-gpt6-sol-arena-ai" role="tab" aria-selected="false" aria-controls="panel-gpt6-sol-arena-ai" tabindex="-1" data-target="gpt6-sol-arena-ai"><span class="num">14</span>GPT-6 Sol | First impressions</button>
-<button class="tab" id="tab-gpt6-sol-vs-opus55-eric-michaud" role="tab" aria-selected="false" aria-controls="panel-gpt6-sol-vs-opus55-eric-michaud" tabindex="-1" data-target="gpt6-sol-vs-opus55-eric-michaud"><span class="num">15</span>GPT-6 Sol vs Opus 5.5: Benchmarks Are Missing the Point</button>
-<button class="tab" id="tab-gpt6-sol-luna-matthew-berman" role="tab" aria-selected="false" aria-controls="panel-gpt6-sol-luna-matthew-berman" tabindex="-1" data-target="gpt6-sol-luna-matthew-berman"><span class="num">16</span>GPT-6 SOL AND LUNA ARE OUT!!! — Matthew Berman</button>
-<button class="tab" id="tab-gpt6-sol-paul-j-lipsky" role="tab" aria-selected="false" aria-controls="panel-gpt6-sol-paul-j-lipsky" tabindex="-1" data-target="gpt6-sol-paul-j-lipsky"><span class="num">17</span>GPT-6 Sol Is Here (50% Cheaper!)</button>
+      <nav aria-label="Summaries">
+        <div class="cards">
+      <a class="card" href="#a16z-horowitz-andreessen-academy"><span class="num">01</span><span><span class="card-title">Ben Horowitz &amp; Marc Andreessen Are Starting a University</span><span class="card-byline">a16z</span></span></a>
+      <a class="card" href="#allin-blake-scholl-supersonic"><span class="num">02</span><span><span class="card-title">Blake Scholl: Why Plane Speed Stalled, Supersonic Commercial Flight, &amp; Revolutionizing the Engine</span><span class="card-byline">All-In Podcast</span></span></a>
+      <a class="card" href="#theo-fable-wrong"><span class="num">03</span><span><span class="card-title">I was using Fable wrong, this is how I fixed it</span><span class="card-byline">Theo - t3․gg</span></span></a>
+      <a class="card" href="#interconnects-denain-rsi"><span class="num">04</span><span><span class="card-title">Debating RSI, the US-China Gap, and Jaggedness with JS Denain of Epoch AI</span></span></a>
+      <a class="card" href="#lovable-cofounder-silicon-valley-girl"><span class="num">05</span><span><span class="card-title">$13B Lovable Co-Founder: Turn Your AI Side Project Into a Real Business</span><span class="card-byline">Silicon Valley Girl</span></span></a>
+      <a class="card" href="#skill-engineering-paul-bakaus"><span class="num">06</span><span><span class="card-title">The Dark Arts of Skill Engineering — Paul Bakaus, Renaissance Geek (Impeccable)</span><span class="card-byline">AI Engineer</span></span></a>
+      <a class="card" href="#openai-anthropic-finance-rogo"><span class="num">07</span><span><span class="card-title">Why OpenAI and Anthropic Won’t Win Finance</span><span class="card-byline">Invest Like The Best</span></span></a>
+      <a class="card" href="#opus55-anthropic-finally-listened"><span class="num">10</span><span><span class="card-title">Opus 5.5 — Anthropic Finally Listened?</span><span class="card-byline">Prompt Engineering</span></span></a>
+      <a class="card" href="#opus55-howi-ai-claude-is-back"><span class="num">11</span><span><span class="card-title">Claude is BACK with Opus 5.5</span><span class="card-byline">How I AI</span></span></a>
+      <a class="card" href="#gpt6-sol-luna-chase-ai"><span class="num">12</span><span><span class="card-title">GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!)</span><span class="card-byline">Chase AI</span></span></a>
+      <a class="card" href="#anthropic-opus55-full-breakdown"><span class="num">13</span><span><span class="card-title">Anthropic Just Dropped Claude Opus 5.5 (Full Breakdown)</span><span class="card-byline">Brock Mesarich | AI for Non Techies</span></span></a>
+      <a class="card" href="#gpt6-sol-arena-ai"><span class="num">14</span><span><span class="card-title">GPT-6 Sol | First impressions</span><span class="card-byline">Arena AI</span></span></a>
+      <a class="card" href="#gpt6-sol-vs-opus55-eric-michaud"><span class="num">15</span><span><span class="card-title">GPT-6 Sol vs Opus 5.5: Benchmarks Are Missing the Point</span><span class="card-byline">Eric Michaud</span></span></a>
+      <a class="card" href="#gpt6-sol-luna-matthew-berman"><span class="num">16</span><span><span class="card-title">GPT-6 SOL AND LUNA ARE OUT!!! — Matthew Berman</span><span class="card-byline">Matthew Berman</span></span></a>
+      <a class="card" href="#gpt6-sol-paul-j-lipsky"><span class="num">17</span><span><span class="card-title">GPT-6 Sol Is Here (50% Cheaper!)</span><span class="card-byline">Paul J Lipsky</span></span></a>
+        </div>
       </nav>
-    </div>
-    <section class="panel active" id="panel-a16z-horowitz-andreessen-academy" role="tabpanel" aria-labelledby="tab-a16z-horowitz-andreessen-academy" data-panel="a16z-horowitz-andreessen-academy">
+    </section>
+    <section class="article-view" id="a16z-horowitz-andreessen-academy" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>a16z</dd></div>
         <div><dt>Published</dt><dd>September 22, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=Z4x71naDx1Q" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Ben Horowitz &amp; Marc Andreessen Are Starting a University <span class="dur">&middot; ~9.1 min</span></p>
+        <audio controls preload="none" src="podcasts/a16z-horowitz-andreessen-academy.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/a16z-horowitz-andreessen-academy.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; startups &middot; education</p>
         <h2>Ben Horowitz &amp; Marc Andreessen Are Starting a University</h2>
@@ -390,13 +421,26 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> This summary was built from YouTube&#x27;s auto-generated captions, copied verbatim from the watch page&#x27;s &quot;Show transcript&quot; panel. The captions include disfluencies and occasional mistranscriptions &mdash; for example, &quot;Harowitz and Jason Academy&quot; for Horowitz Andreessen Academy, &quot;Gagen&quot; for Gagan Biyani, and &quot;Dan Bonet&quot; for Stanford&#x27;s Dan Boneh &mdash; so direct quotes should be read with that provenance in mind. All names and claims above are grounded in the caption text, and the source video is listed with its published date on the archive page.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#allin-blake-scholl-supersonic">Blake Scholl: Why Plane Speed Stalled, Supersonic Commercial Flight, &amp; Revolutionizing the Engine &rarr;</a>
+      </nav>
     </section>
-    <section class="panel" id="panel-allin-blake-scholl-supersonic" role="tabpanel" aria-labelledby="tab-allin-blake-scholl-supersonic" data-panel="allin-blake-scholl-supersonic">
+    <section class="article-view" id="allin-blake-scholl-supersonic" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>All-In Podcast</dd></div>
         <div><dt>Published</dt><dd>September 22, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=Gnb-CfNPcPE" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Blake Scholl: Why Plane Speed Stalled, Supersonic Commercial Flight, &amp; Revolutionizing the Engine <span class="dur">&middot; ~6.7 min</span></p>
+        <audio controls preload="none" src="podcasts/allin-blake-scholl-supersonic.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/allin-blake-scholl-supersonic.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; aviation &middot; startups</p>
         <h2>Blake Scholl: Why Plane Speed Stalled, Supersonic Commercial Flight, &amp; Revolutionizing the Engine</h2>
@@ -416,13 +460,26 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> this summary is grounded in YouTube&#x27;s auto-generated captions, copied verbatim from the video&#x27;s &quot;Show transcript&quot; panel, including the platform&#x27;s mistranscriptions (for example &quot;Lake Shaw&quot; for Blake Scholl, &quot;Boone&quot; for Boom, &quot;Concord&quot; for Concorde, &quot;Gulfream&quot; for Gulfstream, and &quot;fair&quot; for fare) and the disfluencies of a live keynote, so direct quotes should be read with that in mind. The transcript is the single source; nothing here was checked against outside reporting.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#a16z-horowitz-andreessen-academy">&larr; Ben Horowitz &amp; Marc Andreessen Are Starting a University</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#theo-fable-wrong">I was using Fable wrong, this is how I fixed it &rarr;</a>
+      </nav>
     </section>
-    <section class="panel" id="panel-theo-fable-wrong" role="tabpanel" aria-labelledby="tab-theo-fable-wrong" data-panel="theo-fable-wrong">
+    <section class="article-view" id="theo-fable-wrong" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Theo - t3․gg</dd></div>
         <div><dt>Published</dt><dd>September 22, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=-XWSJM-Ue-o" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">I was using Fable wrong, this is how I fixed it <span class="dur">&middot; ~10.1 min</span></p>
+        <audio controls preload="none" src="podcasts/theo-fable-wrong.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/theo-fable-wrong.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; startups &middot; coding tools</p>
         <h2>I was using Fable wrong, this is how I fixed it</h2>
@@ -447,14 +504,27 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> This summary was built from YouTube&#x27;s auto-generated captions, copied verbatim from the watch page&#x27;s &quot;Show transcript&quot; panel. The captions include disfluencies and occasional mistranscriptions &mdash; for example, &quot;Sam Alman&quot; for Sam Altman, &quot;Babel 5.1&quot; for Fable 5.1, &quot;cloud code&quot; for Claude Code, &quot;clawed outputs&quot; and &quot;claw MD&quot; for CLAUDE.md and AGENTS.md, and &quot;mannered pros&quot; for mannered prose &mdash; so direct quotes should be read with that provenance in mind. All names and claims above are grounded in the caption text, and the source video is listed with its published date on the archive page.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#allin-blake-scholl-supersonic">&larr; Blake Scholl: Why Plane Speed Stalled, Supersonic Commercial Flight, &amp; Revolutionizing the Engine</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#interconnects-denain-rsi">Debating RSI, the US-China Gap, and Jaggedness with JS Denain of Epoch AI &rarr;</a>
+      </nav>
     </section>
-    <section class="panel" id="panel-interconnects-denain-rsi" role="tabpanel" aria-labelledby="tab-interconnects-denain-rsi" data-panel="interconnects-denain-rsi">
+    <section class="article-view" id="interconnects-denain-rsi" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
       <dl class="meta">
         <div><dt>Publication</dt><dd>Interconnects</dd></div>
         <div><dt>Author</dt><dd>Nathan Lambert</dd></div>
         <div><dt>Published</dt><dd>September 22, 2026</dd></div>
         <a class="watch" href="https://www.interconnects.ai/p/debating-rsi-the-us-china-gap-and" target="_blank" rel="noopener noreferrer">Read the piece</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Debating RSI, the US-China Gap, and Jaggedness with JS Denain of Epoch AI <span class="dur">&middot; ~9.6 min</span></p>
+        <audio controls preload="none" src="podcasts/interconnects-denain-rsi.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/interconnects-denain-rsi.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; research &middot; China</p>
         <h2>Debating RSI, the US-China Gap, and Jaggedness with JS Denain of Epoch AI</h2>
@@ -479,13 +549,26 @@
         </div>
         <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full public transcript of the episode as published on the Interconnects Substack page, which is not paywalled. Quotations and figures (such as the two-times-per-month Codex spending growth, the six-to-eight-month US&ndash;China gap estimate, and the ten-percent x-risk figure) are taken from the conversation itself.</p>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#theo-fable-wrong">&larr; I was using Fable wrong, this is how I fixed it</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#lovable-cofounder-silicon-valley-girl">$13B Lovable Co-Founder: Turn Your AI Side Project Into a Real Business &rarr;</a>
+      </nav>
     </section>
-<section class="panel" id="panel-lovable-cofounder-silicon-valley-girl" role="tabpanel" aria-labelledby="tab-lovable-cofounder-silicon-valley-girl" data-panel="lovable-cofounder-silicon-valley-girl">
+    <section class="article-view" id="lovable-cofounder-silicon-valley-girl" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Silicon Valley Girl</dd></div>
         <div><dt>Published</dt><dd>September 22, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=KEAYPqQG2-M" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">$13B Lovable Co-Founder: Turn Your AI Side Project Into a Real Business <span class="dur">&middot; ~5.4 min</span></p>
+        <audio controls preload="none" src="podcasts/lovable-cofounder-silicon-valley-girl.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/lovable-cofounder-silicon-valley-girl.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; startups &middot; no-code tools</p>
         <h2>$13B Lovable Co-Founder: Turn Your AI Side Project Into a Real Business</h2>
@@ -507,13 +590,26 @@
 <p class="source-note"><strong>Source note.</strong> this summary is grounded in the video&#x27;s YouTube auto-captions, fetched via yt-dlp. Auto-captions can mishear names and phrases, so details like proper nouns and exact figures should be treated with appropriate caution.</p>
         </div>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#interconnects-denain-rsi">&larr; Debating RSI, the US-China Gap, and Jaggedness with JS Denain of Epoch AI</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#skill-engineering-paul-bakaus">The Dark Arts of Skill Engineering — Paul Bakaus, Renaissance Geek (Impeccable) &rarr;</a>
+      </nav>
     </section>
-<section class="panel" id="panel-skill-engineering-paul-bakaus" role="tabpanel" aria-labelledby="tab-skill-engineering-paul-bakaus" data-panel="skill-engineering-paul-bakaus">
+    <section class="article-view" id="skill-engineering-paul-bakaus" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>AI Engineer</dd></div>
         <div><dt>Published</dt><dd>September 22, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=SQMCtZX3trg" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">The Dark Arts of Skill Engineering — Paul Bakaus, Renaissance Geek (Impeccable) <span class="dur">&middot; ~9.3 min</span></p>
+        <audio controls preload="none" src="podcasts/skill-engineering-paul-bakaus.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/skill-engineering-paul-bakaus.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; agents &middot; developer tools</p>
         <h2>The Dark Arts of Skill Engineering &mdash; Paul Bakaus, Renaissance Geek (Impeccable)</h2>
@@ -534,13 +630,26 @@
 <p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s YouTube auto-captions, fetched via yt-dlp, and may inherit transcription errors from the captions (speaker names and code terms are occasionally garbled).</p>
         </div>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#lovable-cofounder-silicon-valley-girl">&larr; $13B Lovable Co-Founder: Turn Your AI Side Project Into a Real Business</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#openai-anthropic-finance-rogo">Why OpenAI and Anthropic Won’t Win Finance &rarr;</a>
+      </nav>
     </section>
-<section class="panel" id="panel-openai-anthropic-finance-rogo" role="tabpanel" aria-labelledby="tab-openai-anthropic-finance-rogo" data-panel="openai-anthropic-finance-rogo">
+    <section class="article-view" id="openai-anthropic-finance-rogo" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Invest Like The Best</dd></div>
         <div><dt>Published</dt><dd>September 22, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=B0illwrqUG0" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Why OpenAI and Anthropic Won’t Win Finance <span class="dur">&middot; ~5.4 min</span></p>
+        <audio controls preload="none" src="podcasts/openai-anthropic-finance-rogo.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/openai-anthropic-finance-rogo.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; finance &middot; vertical software</p>
         <h2>Why OpenAI and Anthropic Won&rsquo;t Win Finance</h2>
@@ -562,13 +671,26 @@
 <p class="source-note"><strong>Source note.</strong> this summary is grounded in a local transcription of the video&#x27;s audio, produced with faster-whisper; the captions API was rate-limited, so no official captions were available and minor transcription noise is possible. Nothing here is invented beyond what the audio contains.</p>
         </div>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#skill-engineering-paul-bakaus">&larr; The Dark Arts of Skill Engineering — Paul Bakaus, Renaissance Geek (Impeccable)</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#opus55-anthropic-finally-listened">Opus 5.5 — Anthropic Finally Listened? &rarr;</a>
+      </nav>
     </section>
-<section class="panel" id="panel-opus55-anthropic-finally-listened" role="tabpanel" aria-labelledby="tab-opus55-anthropic-finally-listened" data-panel="opus55-anthropic-finally-listened">
+    <section class="article-view" id="opus55-anthropic-finally-listened" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Prompt Engineering</dd></div>
         <div><dt>Published</dt><dd>September 22, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=04qy4OWteio" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Opus 5.5 — Anthropic Finally Listened? <span class="dur">&middot; ~3.4 min</span></p>
+        <audio controls preload="none" src="podcasts/opus55-anthropic-finally-listened.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/opus55-anthropic-finally-listened.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; models &middot; benchmarks</p>
         <h2>Opus 5.5 — Anthropic Finally Listened?</h2>
@@ -587,13 +709,26 @@
 <p class="source-note"><strong>Source note.</strong> this summary is grounded in the video&#x27;s auto-caption track, copied verbatim from YouTube&#x27;s transcript panel on September 22, 2026, for the video at https://www.youtube.com/watch?v=04qy4OWteio. The captions carry the usual auto-generated quirks — misheard words like &quot;clot code&quot; for Claude Code and garbled fragments — which were corrected where the intended meaning was unambiguous; one benchmark dashboard&#x27;s name was too garbled to identify and is described generically instead. No other source material was used.</p>
         </div>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#openai-anthropic-finance-rogo">&larr; Why OpenAI and Anthropic Won’t Win Finance</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#opus55-howi-ai-claude-is-back">Claude is BACK with Opus 5.5 &rarr;</a>
+      </nav>
     </section>
-<section class="panel" id="panel-opus55-howi-ai-claude-is-back" role="tabpanel" aria-labelledby="tab-opus55-howi-ai-claude-is-back" data-panel="opus55-howi-ai-claude-is-back">
+    <section class="article-view" id="opus55-howi-ai-claude-is-back" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>How I AI</dd></div>
         <div><dt>Published</dt><dd>September 22, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=zObYdmNB2Bo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Claude is BACK with Opus 5.5 <span class="dur">&middot; ~6 min</span></p>
+        <audio controls preload="none" src="podcasts/opus55-howi-ai-claude-is-back.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/opus55-howi-ai-claude-is-back.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; models &middot; benchmarks</p>
         <h2>Claude is BACK with Opus 5.5</h2>
@@ -612,13 +747,26 @@
 <p class="source-note"><strong>Source note.</strong> This summary is grounded in the auto-generated YouTube captions for &quot;Claude is BACK with Opus 5.5&quot; (How I AI), fetched via YouTube&#x27;s &quot;Show transcript&quot; panel on 2026-09-22 around 14:33 PDT. Caption quirks are corrected throughout: &quot;Opus 55&quot; means Opus 5.5, &quot;Fable&quot;/&quot;fable&quot; means the Opus 4.x line, &quot;claw harness&quot; is the Claude harness, &quot;codeex&quot; is Codex, &quot;Soul&quot; is the Sol model, &quot;Grock&quot; is Grok, and &quot;11 Labs&quot; is Eleven Labs. Nothing here is inferred beyond what the captions say; where the captions are unclear, the summary says so or omits the claim.</p>
         </div>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#opus55-anthropic-finally-listened">&larr; Opus 5.5 — Anthropic Finally Listened?</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#gpt6-sol-luna-chase-ai">GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!) &rarr;</a>
+      </nav>
     </section>
-<section class="panel" id="panel-gpt6-sol-luna-chase-ai" role="tabpanel" aria-labelledby="tab-gpt6-sol-luna-chase-ai" data-panel="gpt6-sol-luna-chase-ai">
+    <section class="article-view" id="gpt6-sol-luna-chase-ai" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Chase AI</dd></div>
         <div><dt>Published</dt><dd>September 22, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=U_sjnF3jvCo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!) <span class="dur">&middot; ~3.2 min</span></p>
+        <audio controls preload="none" src="podcasts/gpt6-sol-luna-chase-ai.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/gpt6-sol-luna-chase-ai.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; models &middot; pricing</p>
         <h2>GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!)</h2>
@@ -638,13 +786,26 @@
 <p class="source-note"><strong>Source note.</strong> this summary is grounded in the video&#x27;s auto-caption track, copied verbatim from YouTube&#x27;s transcript panel on September 22, 2026, for the video at https://www.youtube.com/watch?v=U_sjnF3jvCo. The captions carry the usual auto-generated quirks — misheard proper nouns like &quot;Soul&quot; for Sol, &quot;Enthroic&quot; for Anthropic, and &quot;GBT&quot; for GPT — corrected where the intended meaning was unambiguous; one cost figure on the benchmark chart was too garbled to attribute and is described only in the host&#x27;s own comparative terms. No other source material was used.</p>
         </div>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#opus55-howi-ai-claude-is-back">&larr; Claude is BACK with Opus 5.5</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#anthropic-opus55-full-breakdown">Anthropic Just Dropped Claude Opus 5.5 (Full Breakdown) &rarr;</a>
+      </nav>
     </section>
-<section class="panel" id="panel-anthropic-opus55-full-breakdown" role="tabpanel" aria-labelledby="tab-anthropic-opus55-full-breakdown" data-panel="anthropic-opus55-full-breakdown">
+    <section class="article-view" id="anthropic-opus55-full-breakdown" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Brock Mesarich | AI for Non Techies</dd></div>
         <div><dt>Published</dt><dd>September 22, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=fc7l-dut1GM" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Anthropic Just Dropped Claude Opus 5.5 (Full Breakdown) <span class="dur">&middot; ~3.3 min</span></p>
+        <audio controls preload="none" src="podcasts/anthropic-opus55-full-breakdown.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/anthropic-opus55-full-breakdown.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; models &middot; benchmarks</p>
         <h2>Anthropic Just Dropped Claude Opus 5.5 (Full Breakdown)</h2>
@@ -664,13 +825,26 @@
 <p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s auto-generated captions, downloaded from YouTube on 2026-09-22 via the captions API and cleaned of repeated cue lines. Auto-caption quirks (&quot;gamecher&quot; for game-changer, &quot;Chatchabe T6 Astra&quot; for GPT-6 Astra, &quot;Enthropic&quot; for Anthropic, &quot;Grockbot&quot; for Grok, &quot;Cloud Opus 5.5&quot; for Claude Opus 5.5) were corrected in writing where the meaning was unambiguous, but no content was added beyond what the captions and the video&#x27;s on-screen numbers show.</p>
         </div>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#gpt6-sol-luna-chase-ai">&larr; GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!)</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#gpt6-sol-arena-ai">GPT-6 Sol | First impressions &rarr;</a>
+      </nav>
     </section>
-<section class="panel" id="panel-gpt6-sol-arena-ai" role="tabpanel" aria-labelledby="tab-gpt6-sol-arena-ai" data-panel="gpt6-sol-arena-ai">
+    <section class="article-view" id="gpt6-sol-arena-ai" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Arena AI</dd></div>
         <div><dt>Published</dt><dd>September 22, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=jVFz7cTeQxk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">GPT-6 Sol | First impressions <span class="dur">&middot; ~2.8 min</span></p>
+        <audio controls preload="none" src="podcasts/gpt6-sol-arena-ai.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/gpt6-sol-arena-ai.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; models &middot; benchmarks</p>
         <h2>GPT-6 Sol | First impressions</h2>
@@ -689,13 +863,26 @@
 <p class="source-note"><strong>Source note.</strong> this summary is grounded in the video&#x27;s auto-generated caption track, downloaded from YouTube for https://www.youtube.com/watch?v=jVFz7cTeQxk on 2026-09-22; garbled proper nouns (e.g., caption &quot;Astrofable&quot; for Astra/Fable) were corrected where unambiguous, and Peter&#x27;s guesses are flagged as such rather than reported as fact.</p>
         </div>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#anthropic-opus55-full-breakdown">&larr; Anthropic Just Dropped Claude Opus 5.5 (Full Breakdown)</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#gpt6-sol-vs-opus55-eric-michaud">GPT-6 Sol vs Opus 5.5: Benchmarks Are Missing the Point &rarr;</a>
+      </nav>
     </section>
-<section class="panel" id="panel-gpt6-sol-vs-opus55-eric-michaud" role="tabpanel" aria-labelledby="tab-gpt6-sol-vs-opus55-eric-michaud" data-panel="gpt6-sol-vs-opus55-eric-michaud">
+    <section class="article-view" id="gpt6-sol-vs-opus55-eric-michaud" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Eric Michaud</dd></div>
         <div><dt>Published</dt><dd>September 22, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=gJ--dZa6-tA" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">GPT-6 Sol vs Opus 5.5: Benchmarks Are Missing the Point <span class="dur">&middot; ~3.1 min</span></p>
+        <audio controls preload="none" src="podcasts/gpt6-sol-vs-opus55-eric-michaud.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/gpt6-sol-vs-opus55-eric-michaud.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; models &middot; benchmarks</p>
         <h2>GPT-6 Sol vs Opus 5.5: Benchmarks Are Missing the Point</h2>
@@ -716,13 +903,26 @@
 <p class="source-note"><strong>Source note.</strong> This summary is grounded in the auto-caption track copied from YouTube&#x27;s &quot;Show transcript&quot; panel on September 22, 2026. Garbled proper nouns in the captions (e.g. &quot;GPT Soul 6&quot; / &quot;GBT Soul&quot; for GPT-6 Sol, &quot;aentic&quot; for agentic) have been corrected where unambiguous; the numbers and conclusions are the host&#x27;s own as captioned.</p>
         </div>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#gpt6-sol-arena-ai">&larr; GPT-6 Sol | First impressions</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#gpt6-sol-luna-matthew-berman">GPT-6 SOL AND LUNA ARE OUT!!! — Matthew Berman &rarr;</a>
+      </nav>
     </section>
-<section class="panel" id="panel-gpt6-sol-luna-matthew-berman" role="tabpanel" aria-labelledby="tab-gpt6-sol-luna-matthew-berman" data-panel="gpt6-sol-luna-matthew-berman">
+    <section class="article-view" id="gpt6-sol-luna-matthew-berman" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Matthew Berman</dd></div>
         <div><dt>Published</dt><dd>September 22, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=5MFORiebZks" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">Matthew Berman&#x27;s &quot;GPT-6 SOL AND LUNA ARE OUT!!!&quot; <span class="dur">&middot; ~11 min</span></p>
+        <audio controls preload="none" src="podcasts/matthew-berman-gpt6-sol-luna.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/matthew-berman-gpt6-sol-luna.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; models &middot; benchmarks</p>
         <h2>GPT-6 SOL AND LUNA ARE OUT!!! — Matthew Berman</h2>
@@ -743,13 +943,26 @@
 <p class="source-note"><strong>Source note.</strong> this summary is grounded in the full transcript of Matthew Berman&#x27;s livestream &quot;GPT-6 SOL AND LUNA ARE OUT!!!&quot; (1 hour 59 minutes, https://www.youtube.com/watch?v=5MFORiebZks), captured from YouTube&#x27;s &quot;Show transcript&quot; panel via browser on 2026-09-22. The video is a live stream recorded across two recording segments with chat interaction, guest interviews (Tharic of Anthropic, plus team members Alex and Brian), and live screen-sharing demos; the transcript covers 1:26–1:59:25 continuously. Note that the GPT-6 Sol and Luna portion reflects OpenAI&#x27;s own blog post and charts read live at the embargo lift, plus Berman&#x27;s commentary — he had not yet hands-on tested the new models at recording time — and benchmark figures are as presented in the stream, not independently verified.</p>
         </div>
       </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#gpt6-sol-vs-opus55-eric-michaud">&larr; GPT-6 Sol vs Opus 5.5: Benchmarks Are Missing the Point</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#gpt6-sol-paul-j-lipsky">GPT-6 Sol Is Here (50% Cheaper!) &rarr;</a>
+      </nav>
     </section>
-<section class="panel" id="panel-gpt6-sol-paul-j-lipsky" role="tabpanel" aria-labelledby="tab-gpt6-sol-paul-j-lipsky" data-panel="gpt6-sol-paul-j-lipsky">
+    <section class="article-view" id="gpt6-sol-paul-j-lipsky" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Paul J Lipsky</dd></div>
         <div><dt>Published</dt><dd>September 22, 2026</dd></div>
         <a class="watch" href="https://www.youtube.com/watch?v=lPNgeaF2Nk4" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
       </dl>
+      <div class="episode player-top">
+        <p class="episode-title">GPT-6 Sol Is Here (50% Cheaper!) <span class="dur">&middot; ~2.3 min</span></p>
+        <audio controls preload="none" src="podcasts/gpt6-sol-paul-j-lipsky.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/gpt6-sol-paul-j-lipsky.mp3">Download the episode</a>.
+        </audio>
+      </div>
       <article>
         <p class="topic">AI &middot; models &middot; benchmarks</p>
         <h2>GPT-6 Sol Is Here (50% Cheaper!)</h2>
@@ -767,115 +980,11 @@
 <p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s auto-caption track downloaded from YouTube on 2026-09-22. Auto-captions misheard several proper nouns (&quot;Soul&quot; for Sol, &quot;Open Eye&quot; for OpenAI, &quot;GBT&quot; for GPT, &quot;Chat GBT&quot; for ChatGPT, &quot;codecs&quot; for Codex); these were corrected where unambiguous, and all numbers and claims come from the transcript itself.</p>
         </div>
       </article>
-    </section>
-    <section class="podcasts" aria-label="Podcast episodes">
-      <h3>Podcasts</h3>
-      <p class="lede">Fifteen narrated episodes covering the day&rsquo;s summaries &mdash; listen right here.</p>
-      <div class="episode">
-        <p class="episode-title">Ben Horowitz &amp; Marc Andreessen Are Starting a University &mdash; September 22, 2026 <span class="dur">&middot; ~9.1 min</span></p>
-        <audio controls preload="none" src="podcasts/a16z-horowitz-andreessen-academy.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/a16z-horowitz-andreessen-academy.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Blake Scholl: Why Plane Speed Stalled, Supersonic Commercial Flight, &amp; Revolutionizing the Engine &mdash; September 22, 2026 <span class="dur">&middot; ~6.7 min</span></p>
-        <audio controls preload="none" src="podcasts/allin-blake-scholl-supersonic.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/allin-blake-scholl-supersonic.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">I was using Fable wrong, this is how I fixed it &mdash; September 22, 2026 <span class="dur">&middot; ~10.1 min</span></p>
-        <audio controls preload="none" src="podcasts/theo-fable-wrong.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/theo-fable-wrong.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Debating RSI, the US-China Gap, and Jaggedness with JS Denain of Epoch AI &mdash; September 22, 2026 <span class="dur">&middot; ~9.6 min</span></p>
-        <audio controls preload="none" src="podcasts/interconnects-denain-rsi.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/interconnects-denain-rsi.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">$13B Lovable Co-Founder: Turn Your AI Side Project Into a Real Business &mdash; September 22, 2026 <span class="dur">&middot; ~5.4 min</span></p>
-        <audio controls preload="none" src="podcasts/lovable-cofounder-silicon-valley-girl.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/lovable-cofounder-silicon-valley-girl.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">The Dark Arts of Skill Engineering &mdash; Paul Bakaus, Renaissance Geek (Impeccable) &mdash; September 22, 2026 <span class="dur">&middot; ~9.3 min</span></p>
-        <audio controls preload="none" src="podcasts/skill-engineering-paul-bakaus.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/skill-engineering-paul-bakaus.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Why OpenAI and Anthropic Won&rsquo;t Win Finance &mdash; September 22, 2026 <span class="dur">&middot; ~5.4 min</span></p>
-        <audio controls preload="none" src="podcasts/openai-anthropic-finance-rogo.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/openai-anthropic-finance-rogo.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Opus 5.5 — Anthropic Finally Listened? — September 22, 2026 <span class="dur">&middot; ~3.4 min</span></p>
-        <audio controls preload="none" src="podcasts/opus55-anthropic-finally-listened.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/opus55-anthropic-finally-listened.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Claude is BACK with Opus 5.5 — September 22, 2026 <span class="dur">&middot; ~6 min</span></p>
-        <audio controls preload="none" src="podcasts/opus55-howi-ai-claude-is-back.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/opus55-howi-ai-claude-is-back.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!) — September 22, 2026 <span class="dur">&middot; ~3.2 min</span></p>
-        <audio controls preload="none" src="podcasts/gpt6-sol-luna-chase-ai.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/gpt6-sol-luna-chase-ai.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Anthropic Just Dropped Claude Opus 5.5 (Full Breakdown) — September 22, 2026 <span class="dur">&middot; ~3.3 min</span></p>
-        <audio controls preload="none" src="podcasts/anthropic-opus55-full-breakdown.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/anthropic-opus55-full-breakdown.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">GPT-6 Sol | First impressions — September 22, 2026 <span class="dur">&middot; ~2.8 min</span></p>
-        <audio controls preload="none" src="podcasts/gpt6-sol-arena-ai.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/gpt6-sol-arena-ai.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">GPT-6 Sol vs Opus 5.5: Benchmarks Are Missing the Point — September 22, 2026 <span class="dur">&middot; ~3.1 min</span></p>
-        <audio controls preload="none" src="podcasts/gpt6-sol-vs-opus55-eric-michaud.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/gpt6-sol-vs-opus55-eric-michaud.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">Matthew Berman&#x27;s &quot;GPT-6 SOL AND LUNA ARE OUT!!!&quot; <span class="dur">&middot; ~11 min</span></p>
-        <audio controls preload="none" src="podcasts/matthew-berman-gpt6-sol-luna.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/matthew-berman-gpt6-sol-luna.mp3">Download the episode</a>.
-        </audio>
-      </div>
-      <div class="episode">
-        <p class="episode-title">GPT-6 Sol Is Here (50% Cheaper!) — September 22, 2026 <span class="dur">&middot; ~2.3 min</span></p>
-        <audio controls preload="none" src="podcasts/gpt6-sol-paul-j-lipsky.mp3">
-          Your browser does not support the audio element.
-          <a href="podcasts/gpt6-sol-paul-j-lipsky.mp3">Download the episode</a>.
-        </audio>
-      </div>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#gpt6-sol-luna-matthew-berman">&larr; GPT-6 SOL AND LUNA ARE OUT!!! — Matthew Berman</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
     </section>
     <footer>
       <span>Summaries dated September 22, 2026</span>
@@ -885,41 +994,58 @@
 
 <script>
     (() => {
-      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
-      const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+      const TITLES = {
+      "a16z-horowitz-andreessen-academy": "Ben Horowitz & Marc Andreessen Are Starting a University",
+      "allin-blake-scholl-supersonic": "Blake Scholl: Why Plane Speed Stalled, Supersonic Commercial Flight, & Revolutionizing the Engine",
+      "theo-fable-wrong": "I was using Fable wrong, this is how I fixed it",
+      "interconnects-denain-rsi": "Debating RSI, the US-China Gap, and Jaggedness with JS Denain of Epoch AI",
+      "lovable-cofounder-silicon-valley-girl": "$13B Lovable Co-Founder: Turn Your AI Side Project Into a Real Business",
+      "skill-engineering-paul-bakaus": "The Dark Arts of Skill Engineering — Paul Bakaus, Renaissance Geek (Impeccable)",
+      "openai-anthropic-finance-rogo": "Why OpenAI and Anthropic Won’t Win Finance",
+      "opus55-anthropic-finally-listened": "Opus 5.5 — Anthropic Finally Listened?",
+      "opus55-howi-ai-claude-is-back": "Claude is BACK with Opus 5.5",
+      "gpt6-sol-luna-chase-ai": "GPT 6 Sol & Luna Are Here (And 50% CHEAPER!)",
+      "anthropic-opus55-full-breakdown": "Anthropic Just Dropped Claude Opus 5.5 (Full Breakdown)",
+      "gpt6-sol-arena-ai": "GPT-6 Sol | First impressions",
+      "gpt6-sol-vs-opus55-eric-michaud": "GPT-6 Sol vs Opus 5.5: Benchmarks Are Missing the Point",
+      "gpt6-sol-luna-matthew-berman": "GPT-6 SOL AND LUNA ARE OUT!!! — Matthew Berman",
+      "gpt6-sol-paul-j-lipsky": "GPT-6 Sol Is Here (50% Cheaper!)"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
 
-      function activate(name, moveFocus = false) {
-        tabs.forEach((tab) => {
-          const selected = tab.dataset.target === name;
-          tab.setAttribute('aria-selected', String(selected));
-          tab.tabIndex = selected ? 0 : -1;
-          if (selected && moveFocus) tab.focus();
-        });
-        panels.forEach((panel) => {
-          const selected = panel.dataset.panel === name;
-          panel.classList.toggle('active', selected);
-          panel.hidden = !selected;
-        });
-        if (history.replaceState) history.replaceState(null, '', `#${name}`);
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' \u2014 Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
       }
 
-      tabs.forEach((tab, index) => {
-        tab.addEventListener('click', () => activate(tab.dataset.target));
-        tab.addEventListener('keydown', (event) => {
-          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
           event.preventDefault();
-          let next = index;
-          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-          if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
-          if (event.key === 'Home') next = 0;
-          if (event.key === 'End') next = tabs.length - 1;
-          activate(tabs[next].dataset.target, true);
-        });
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
       });
 
-      const fromHash = location.hash.slice(1);
-      if (tabs.some((tab) => tab.dataset.target === fromHash)) activate(fromHash);
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
     })();
   </script>
+
 </body>
 </html>
