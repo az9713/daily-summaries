@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries &mdash; September 23, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    </style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Wednesday &middot; September 23, 2026</p>
+        <h1>One summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+      <a class="card" href="#nemotron-3-diarization-sam-witteveen"><span class="num">01</span><span><span class="card-title">Nemotron 3 Diarization - Who Said That?</span><span class="card-byline">Sam Witteveen</span></span></a>
+        </div>
+      </nav>
+    </section>
+    <section class="article-view" id="nemotron-3-diarization-sam-witteveen" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-23.html" data-route="index">&larr; September 23, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Nemotron 3 Diarization - Who Said That? — September 23, 2026 <span class="dur">&middot; ~3.3 min</span></p>
+        <audio controls preload="none" src="podcasts/nemotron-3-diarization-sam-witteveen.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/nemotron-3-diarization-sam-witteveen.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Sam Witteveen</dd></div>
+        <div><dt>Published</dt><dd>September 23, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=PZuuOXNB3Vw" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; speech &middot; open weights</p>
+        <h2>Nemotron 3 Diarization - Who Said That?</h2>
+        <p class="dek">Sam Witteveen walks through NVIDIA's just-released Nemotron 3 diarization model &mdash; an open-weights, ~100M-parameter model that answers the question plain transcripts can't: not what was said, but who said it.</p>
+        <div class="body-copy">
+        <p>Sam Witteveen has a new video on NVIDIA&#x27;s just-released Nemotron 3 diarization model — the open-weights model that answers the question plain transcripts can&#x27;t: not what was said, but who said it. His framing is aimed at builders: speech recognition from Whisper, Parakeet, or Canary is practically a solved problem, but once you&#x27;re feeding transcripts to an LLM or an agent, a wall of unattributed text isn&#x27;t enough. You need timestamps, and more importantly speaker attribution — who took which side in a debate, who agreed to which action item, which quote belongs to whom.</p>
+        <p>The model itself is small and practical. Around 100 million parameters, it runs on a GPU with just 4 GB of VRAM — a laptop RTX card, or a DGX Spark. It handles up to eight speakers, where older diarization models topped out at three or four, and it stays accurate when people talk over each other. The license allows commercial use, and it&#x27;s designed as a companion: you keep whatever ASR model you already like — Parakeet in his demo — and bolt diarization on alongside it rather than stitching together models from different providers.</p>
+        <p>For context, Sam walks through NVIDIA&#x27;s growing Nemotron speech lineup, which many people haven&#x27;t clocked. On recognition there&#x27;s Parakeet, Canary, and Nemotron ASR, covering 43 languages across streaming and batch. There&#x27;s a multilingual TTS model called Magpie, translation models, and full-duplex speech-to-speech under the PersonaPlex name. Until now the diarization slot was held by Sortformer, capped at four speakers — still popular, with over three hundred thousand downloads in August alone. Nemotron 3 diarization is effectively its drop-in replacement, and Sam reads the launch as NVIDIA systematically upgrading the whole speech stack piece by piece.</p>
+        <p>He also gives a compact explainer for newcomers. Diarization answers &quot;who said it&quot; where speech recognition answers &quot;what was said,&quot; and together they produce a speaker-aware transcript. The standard score is diarization error rate — missed speech, false alarms, and speech assigned to the wrong person — where lower is better, and NVIDIA&#x27;s charts show the new model beating both the competition and its own predecessor. He notes the model doesn&#x27;t know anyone&#x27;s name out of the box; it labels speakers one through eight, and a little glue code swaps in real names once you tell it who was on the call. There&#x27;s also the streaming-versus-offline distinction: offline sees the whole recording and is the right pick for podcasts; streaming decides as audio arrives, which live captions and voice agents need.</p>
+        <p>The demo is where it gets concrete. The setup is a Next.js app on his Mac calling over Tailscale to a DGX Spark running NVIDIA NeMo in a Docker container, serving the diarization model plus Parakeet ASR and the Nemotron 3.5 multilingual ASR model behind a FastAPI app. To stress-test overlapping speech, he plays a party of eight synthetic open TTS voices introducing themselves — Chris the Nemotron voice, Jane, Serena the Qwen 3 voice, Adam from Kokoro, Chatterbox from Resemble AI, John, Maia — and the model tags each one correctly even while two talk at once, with per-frame &quot;who spoke when&quot; labels visible in the raw JSON the model returns.</p>
+        <p>Then the long-file test: a full All-In Podcast episode interviewing Jensen Huang, over an hour of audio, diarized and transcribed in 148 seconds. The app shows per-speaker stats — talk time, word counts, turn counts — Jensen dominating as the guest, and exports the result as a text file or SRT. Swap the ASR model and the same pipeline goes multilingual, including fine-tuning hooks NVIDIA calls adaptation-ready for other languages. He hasn&#x27;t wired up streaming in the app, but the model supports it, with some expected accuracy cost.</p>
+        <p>His closing pitch is that the whole thing runs locally. For anyone building voice transcription with diarization, this is, in his view, the current best way to set it up.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Eight speakers and overlapping-speech handling sound strong on benchmarks, but how does Nemotron 3 diarization hold up on messy real-world audio — noisy rooms, phone calls, strong accents — compared with the controlled synthetic-voice demo and the clean podcast file?</li>
+<li>The model labels speakers but never names them, so every deployment needs its own speaker-to-name glue — is that mapping step a trivial post-processing detail, or the place where most real-world pipelines actually break down?</li>
+<li>Streaming mode works but costs accuracy — for a live voice agent that needs to act on who said what in real time, is the streaming output good enough to drive decisions, or is reliable speaker attribution still a batch-only game?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s transcript, taken from YouTube&#x27;s auto-generated en-US captions downloaded via yt-dlp on 2026-09-23 at approximately 09:12 PDT (the video&#x27;s &quot;Show transcript&quot; panel was not needed; the caption file downloaded cleanly, though YouTube&#x27;s separate manual-subtitle track returned a 429 and was not retried). Auto-captions garble some names, so the following were kept as heard and flagged: &quot;Qtai&quot; (a pocket voice Jane&#x27;s provider), &quot;Nari Labs&quot; (Dio voice), &quot;Maia Research&quot; (Maia 1 voice), &quot;adaption ready&quot; (likely &quot;adaptation-ready,&quot; NVIDIA&#x27;s fine-tuning term). &quot;Sortformer&quot; is NVIDIA&#x27;s prior diarization model; &quot;Magpie,&quot; &quot;PersonaPlex,&quot; &quot;Parakeet,&quot; &quot;Canary,&quot; and &quot;Kokoro&quot; are model names as captioned. Sam thanks NVIDIA for sponsoring the DGX Spark compute used in the demo. Figures such as 100 million parameters, 4 GB VRAM, eight speakers, 300,000+ August downloads, and 148 seconds for an hour-long file come from on-screen charts and narration and should be treated as cross-check-worthy.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-09-23.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated September 23, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "nemotron-3-diarization-sam-witteveen": "Nemotron 3 Diarization - Who Said That?"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' \u2014 Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+</body>
+</html>
