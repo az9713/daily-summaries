@@ -341,8 +341,14 @@
     .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
     .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
     .article-bar a.back:hover { text-decoration: underline; }
-    .player-top { margin: 20px 0 8px; }
+    .player-top { margin: 8px 0 0; }
     .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
     .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
     .article-nav a { text-decoration: none; }
     .article-nav a:hover { text-decoration: underline; }
@@ -374,12 +380,6 @@
     </section>
     <section class="article-view" id="open-jev-models" hidden>
       <div class="article-bar"><a class="back" href="2026-09-20.html" data-route="index">&larr; September 20, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Channel</dt><dd>Sam Witteveen</dd></div>
-        <div><dt>Duration</dt><dd>21:31</dd></div>
-        <div><dt>Published</dt><dd>September 20, 2026</dd></div>
-        <a class="watch" href="https://www.youtube.com/watch?v=53wDOI_7x8I" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">Two Summaries <span class="dur">&middot; ~6.1 min</span></p>
         <audio controls preload="none" src="podcasts/two-summaries-september-20-2026-2026-09-20.mp3">
@@ -387,6 +387,12 @@
           <a href="podcasts/two-summaries-september-20-2026-2026-09-20.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Sam Witteveen</dd></div>
+        <div><dt>Duration</dt><dd>21:31</dd></div>
+        <div><dt>Published</dt><dd>September 20, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=53wDOI_7x8I" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; open models &middot; classification</p>
         <h2>Open Jev Models Are Here!!</h2>
@@ -412,12 +418,6 @@
     </section>
     <section class="article-view" id="jev-rerank" hidden>
       <div class="article-bar"><a class="back" href="2026-09-20.html" data-route="index">&larr; September 20, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Channel</dt><dd>Prompt Engineering</dd></div>
-        <div><dt>Duration</dt><dd>11:27</dd></div>
-        <div><dt>Published</dt><dd>September 20, 2026</dd></div>
-        <a class="watch" href="https://www.youtube.com/watch?v=UhGH8cNG0qs" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">Two Summaries <span class="dur">&middot; ~6.1 min</span></p>
         <audio controls preload="none" src="podcasts/two-summaries-september-20-2026-2026-09-20.mp3">
@@ -425,6 +425,12 @@
           <a href="podcasts/two-summaries-september-20-2026-2026-09-20.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Prompt Engineering</dd></div>
+        <div><dt>Duration</dt><dd>11:27</dd></div>
+        <div><dt>Published</dt><dd>September 20, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=UhGH8cNG0qs" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; RAG &middot; search</p>
         <h2>Steerable Reranking: How JEV Solves RAG</h2>
@@ -449,12 +455,6 @@
     </section>
     <section class="article-view" id="google-campus" hidden>
       <div class="article-bar"><a class="back" href="2026-09-20.html" data-route="index">&larr; September 20, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Channel</dt><dd>Nate Herk | AI Automation</dd></div>
-        <div><dt>Duration</dt><dd>14:35</dd></div>
-        <div><dt>Published</dt><dd>September 20, 2026</dd></div>
-        <a class="watch" href="https://www.youtube.com/watch?v=r3NH48_Z9Vk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">Google Campus Journey <span class="dur">&middot; ~5 min</span></p>
         <audio controls preload="none" src="podcasts/google-campus-journey-september-20-2026-2026-09-20.mp3">
@@ -462,6 +462,12 @@
           <a href="podcasts/google-campus-journey-september-20-2026-2026-09-20.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Nate Herk | AI Automation</dd></div>
+        <div><dt>Duration</dt><dd>14:35</dd></div>
+        <div><dt>Published</dt><dd>September 20, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=r3NH48_Z9Vk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; Google &middot; campus visit</p>
         <h2>I spent the day with AI experts at Google</h2>
@@ -486,12 +492,6 @@
     </section>
     <section class="article-view" id="blackstone-gray" hidden>
       <div class="article-bar"><a class="back" href="2026-09-20.html" data-route="index">&larr; September 20, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Channel</dt><dd>Blackstone</dd></div>
-        <div><dt>Duration</dt><dd>30:38</dd></div>
-        <div><dt>Published</dt><dd>September 20, 2026</dd></div>
-        <a class="watch" href="https://www.youtube.com/watch?v=4rhShOPHl50" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">Blackstone’s Jon Gray <span class="dur">&middot; ~5.1 min</span></p>
         <audio controls preload="none" src="podcasts/blackstones-jon-gray-wheres-the-beef.mp3">
@@ -499,6 +499,12 @@
           <a href="podcasts/blackstones-jon-gray-wheres-the-beef.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Blackstone</dd></div>
+        <div><dt>Duration</dt><dd>30:38</dd></div>
+        <div><dt>Published</dt><dd>September 20, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=4rhShOPHl50" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; investing &middot; capex</p>
         <h2>Where&rsquo;s the Beef? Blackstone&rsquo;s Jon Gray on the Payoff From the Enormous AI CapEx Spend</h2>
@@ -521,12 +527,6 @@
     </section>
     <section class="article-view" id="navier-stokes-hairer" hidden>
       <div class="article-bar"><a class="back" href="2026-09-20.html" data-route="index">&larr; September 20, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Channel</dt><dd>TomRocksMaths</dd></div>
-        <div><dt>Duration</dt><dd>39:42</dd></div>
-        <div><dt>Published</dt><dd>September 20, 2026</dd></div>
-        <a class="watch" href="https://www.youtube.com/watch?v=G8HMa_tgM34" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">Martin Hairer: Navier-Stokes, AI and the Future of Mathematics <span class="dur">&middot; ~5 min</span></p>
         <audio controls preload="none" src="podcasts/martin-hairer-navier-stokes-ai.mp3">
@@ -534,6 +534,12 @@
           <a href="podcasts/martin-hairer-navier-stokes-ai.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>TomRocksMaths</dd></div>
+        <div><dt>Duration</dt><dd>39:42</dd></div>
+        <div><dt>Published</dt><dd>September 20, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=G8HMa_tgM34" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; mathematics &middot; interview</p>
         <h2>Navier-Stokes, AI and the Future of Mathematics with Martin Hairer (2014 Fields Medal)</h2>

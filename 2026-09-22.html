@@ -341,8 +341,14 @@
     .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
     .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
     .article-bar a.back:hover { text-decoration: underline; }
-    .player-top { margin: 20px 0 8px; }
+    .player-top { margin: 8px 0 0; }
     .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
     .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
     .article-nav a { text-decoration: none; }
     .article-nav a:hover { text-decoration: underline; }
@@ -384,11 +390,6 @@
     </section>
     <section class="article-view" id="a16z-horowitz-andreessen-academy" hidden>
       <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Channel</dt><dd>a16z</dd></div>
-        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
-        <a class="watch" href="https://www.youtube.com/watch?v=Z4x71naDx1Q" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">Ben Horowitz &amp; Marc Andreessen Are Starting a University <span class="dur">&middot; ~9.1 min</span></p>
         <audio controls preload="none" src="podcasts/a16z-horowitz-andreessen-academy.mp3">
@@ -396,6 +397,11 @@
           <a href="podcasts/a16z-horowitz-andreessen-academy.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>a16z</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Z4x71naDx1Q" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; startups &middot; education</p>
         <h2>Ben Horowitz &amp; Marc Andreessen Are Starting a University</h2>
@@ -429,11 +435,6 @@
     </section>
     <section class="article-view" id="allin-blake-scholl-supersonic" hidden>
       <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Channel</dt><dd>All-In Podcast</dd></div>
-        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
-        <a class="watch" href="https://www.youtube.com/watch?v=Gnb-CfNPcPE" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">Blake Scholl: Why Plane Speed Stalled, Supersonic Commercial Flight, &amp; Revolutionizing the Engine <span class="dur">&middot; ~6.7 min</span></p>
         <audio controls preload="none" src="podcasts/allin-blake-scholl-supersonic.mp3">
@@ -441,6 +442,11 @@
           <a href="podcasts/allin-blake-scholl-supersonic.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>All-In Podcast</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Gnb-CfNPcPE" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; aviation &middot; startups</p>
         <h2>Blake Scholl: Why Plane Speed Stalled, Supersonic Commercial Flight, &amp; Revolutionizing the Engine</h2>
@@ -468,11 +474,6 @@
     </section>
     <section class="article-view" id="theo-fable-wrong" hidden>
       <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Channel</dt><dd>Theo - t3․gg</dd></div>
-        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
-        <a class="watch" href="https://www.youtube.com/watch?v=-XWSJM-Ue-o" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">I was using Fable wrong, this is how I fixed it <span class="dur">&middot; ~10.1 min</span></p>
         <audio controls preload="none" src="podcasts/theo-fable-wrong.mp3">
@@ -480,6 +481,11 @@
           <a href="podcasts/theo-fable-wrong.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Theo - t3․gg</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=-XWSJM-Ue-o" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; startups &middot; coding tools</p>
         <h2>I was using Fable wrong, this is how I fixed it</h2>
@@ -512,12 +518,6 @@
     </section>
     <section class="article-view" id="interconnects-denain-rsi" hidden>
       <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Publication</dt><dd>Interconnects</dd></div>
-        <div><dt>Author</dt><dd>Nathan Lambert</dd></div>
-        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
-        <a class="watch" href="https://www.interconnects.ai/p/debating-rsi-the-us-china-gap-and" target="_blank" rel="noopener noreferrer">Read the piece</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">Debating RSI, the US-China Gap, and Jaggedness with JS Denain of Epoch AI <span class="dur">&middot; ~9.6 min</span></p>
         <audio controls preload="none" src="podcasts/interconnects-denain-rsi.mp3">
@@ -525,6 +525,12 @@
           <a href="podcasts/interconnects-denain-rsi.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Publication</dt><dd>Interconnects</dd></div>
+        <div><dt>Author</dt><dd>Nathan Lambert</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.interconnects.ai/p/debating-rsi-the-us-china-gap-and" target="_blank" rel="noopener noreferrer">Read the piece</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; research &middot; China</p>
         <h2>Debating RSI, the US-China Gap, and Jaggedness with JS Denain of Epoch AI</h2>
@@ -557,11 +563,6 @@
     </section>
     <section class="article-view" id="lovable-cofounder-silicon-valley-girl" hidden>
       <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Channel</dt><dd>Silicon Valley Girl</dd></div>
-        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
-        <a class="watch" href="https://www.youtube.com/watch?v=KEAYPqQG2-M" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">$13B Lovable Co-Founder: Turn Your AI Side Project Into a Real Business <span class="dur">&middot; ~5.4 min</span></p>
         <audio controls preload="none" src="podcasts/lovable-cofounder-silicon-valley-girl.mp3">
@@ -569,6 +570,11 @@
           <a href="podcasts/lovable-cofounder-silicon-valley-girl.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Silicon Valley Girl</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=KEAYPqQG2-M" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; startups &middot; no-code tools</p>
         <h2>$13B Lovable Co-Founder: Turn Your AI Side Project Into a Real Business</h2>
@@ -598,11 +604,6 @@
     </section>
     <section class="article-view" id="skill-engineering-paul-bakaus" hidden>
       <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Channel</dt><dd>AI Engineer</dd></div>
-        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
-        <a class="watch" href="https://www.youtube.com/watch?v=SQMCtZX3trg" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">The Dark Arts of Skill Engineering — Paul Bakaus, Renaissance Geek (Impeccable) <span class="dur">&middot; ~9.3 min</span></p>
         <audio controls preload="none" src="podcasts/skill-engineering-paul-bakaus.mp3">
@@ -610,6 +611,11 @@
           <a href="podcasts/skill-engineering-paul-bakaus.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>AI Engineer</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=SQMCtZX3trg" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; agents &middot; developer tools</p>
         <h2>The Dark Arts of Skill Engineering &mdash; Paul Bakaus, Renaissance Geek (Impeccable)</h2>
@@ -638,11 +644,6 @@
     </section>
     <section class="article-view" id="openai-anthropic-finance-rogo" hidden>
       <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Channel</dt><dd>Invest Like The Best</dd></div>
-        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
-        <a class="watch" href="https://www.youtube.com/watch?v=B0illwrqUG0" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">Why OpenAI and Anthropic Won’t Win Finance <span class="dur">&middot; ~5.4 min</span></p>
         <audio controls preload="none" src="podcasts/openai-anthropic-finance-rogo.mp3">
@@ -650,6 +651,11 @@
           <a href="podcasts/openai-anthropic-finance-rogo.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Invest Like The Best</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=B0illwrqUG0" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; finance &middot; vertical software</p>
         <h2>Why OpenAI and Anthropic Won&rsquo;t Win Finance</h2>
@@ -679,11 +685,6 @@
     </section>
     <section class="article-view" id="opus55-anthropic-finally-listened" hidden>
       <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Channel</dt><dd>Prompt Engineering</dd></div>
-        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
-        <a class="watch" href="https://www.youtube.com/watch?v=04qy4OWteio" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">Opus 5.5 — Anthropic Finally Listened? <span class="dur">&middot; ~3.4 min</span></p>
         <audio controls preload="none" src="podcasts/opus55-anthropic-finally-listened.mp3">
@@ -691,6 +692,11 @@
           <a href="podcasts/opus55-anthropic-finally-listened.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Prompt Engineering</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=04qy4OWteio" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; models &middot; benchmarks</p>
         <h2>Opus 5.5 — Anthropic Finally Listened?</h2>
@@ -717,11 +723,6 @@
     </section>
     <section class="article-view" id="opus55-howi-ai-claude-is-back" hidden>
       <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Channel</dt><dd>How I AI</dd></div>
-        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
-        <a class="watch" href="https://www.youtube.com/watch?v=zObYdmNB2Bo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">Claude is BACK with Opus 5.5 <span class="dur">&middot; ~6 min</span></p>
         <audio controls preload="none" src="podcasts/opus55-howi-ai-claude-is-back.mp3">
@@ -729,6 +730,11 @@
           <a href="podcasts/opus55-howi-ai-claude-is-back.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>How I AI</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=zObYdmNB2Bo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; models &middot; benchmarks</p>
         <h2>Claude is BACK with Opus 5.5</h2>
@@ -755,11 +761,6 @@
     </section>
     <section class="article-view" id="gpt6-sol-luna-chase-ai" hidden>
       <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Channel</dt><dd>Chase AI</dd></div>
-        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
-        <a class="watch" href="https://www.youtube.com/watch?v=U_sjnF3jvCo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!) <span class="dur">&middot; ~3.2 min</span></p>
         <audio controls preload="none" src="podcasts/gpt6-sol-luna-chase-ai.mp3">
@@ -767,6 +768,11 @@
           <a href="podcasts/gpt6-sol-luna-chase-ai.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Chase AI</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=U_sjnF3jvCo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; models &middot; pricing</p>
         <h2>GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!)</h2>
@@ -794,11 +800,6 @@
     </section>
     <section class="article-view" id="anthropic-opus55-full-breakdown" hidden>
       <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Channel</dt><dd>Brock Mesarich | AI for Non Techies</dd></div>
-        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
-        <a class="watch" href="https://www.youtube.com/watch?v=fc7l-dut1GM" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">Anthropic Just Dropped Claude Opus 5.5 (Full Breakdown) <span class="dur">&middot; ~3.3 min</span></p>
         <audio controls preload="none" src="podcasts/anthropic-opus55-full-breakdown.mp3">
@@ -806,6 +807,11 @@
           <a href="podcasts/anthropic-opus55-full-breakdown.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Brock Mesarich | AI for Non Techies</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=fc7l-dut1GM" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; models &middot; benchmarks</p>
         <h2>Anthropic Just Dropped Claude Opus 5.5 (Full Breakdown)</h2>
@@ -833,11 +839,6 @@
     </section>
     <section class="article-view" id="gpt6-sol-arena-ai" hidden>
       <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Channel</dt><dd>Arena AI</dd></div>
-        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
-        <a class="watch" href="https://www.youtube.com/watch?v=jVFz7cTeQxk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">GPT-6 Sol | First impressions <span class="dur">&middot; ~2.8 min</span></p>
         <audio controls preload="none" src="podcasts/gpt6-sol-arena-ai.mp3">
@@ -845,6 +846,11 @@
           <a href="podcasts/gpt6-sol-arena-ai.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Arena AI</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=jVFz7cTeQxk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; models &middot; benchmarks</p>
         <h2>GPT-6 Sol | First impressions</h2>
@@ -871,11 +877,6 @@
     </section>
     <section class="article-view" id="gpt6-sol-vs-opus55-eric-michaud" hidden>
       <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Channel</dt><dd>Eric Michaud</dd></div>
-        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
-        <a class="watch" href="https://www.youtube.com/watch?v=gJ--dZa6-tA" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">GPT-6 Sol vs Opus 5.5: Benchmarks Are Missing the Point <span class="dur">&middot; ~3.1 min</span></p>
         <audio controls preload="none" src="podcasts/gpt6-sol-vs-opus55-eric-michaud.mp3">
@@ -883,6 +884,11 @@
           <a href="podcasts/gpt6-sol-vs-opus55-eric-michaud.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Eric Michaud</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=gJ--dZa6-tA" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; models &middot; benchmarks</p>
         <h2>GPT-6 Sol vs Opus 5.5: Benchmarks Are Missing the Point</h2>
@@ -911,11 +917,6 @@
     </section>
     <section class="article-view" id="gpt6-sol-luna-matthew-berman" hidden>
       <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Channel</dt><dd>Matthew Berman</dd></div>
-        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
-        <a class="watch" href="https://www.youtube.com/watch?v=5MFORiebZks" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">Matthew Berman&#x27;s &quot;GPT-6 SOL AND LUNA ARE OUT!!!&quot; <span class="dur">&middot; ~11 min</span></p>
         <audio controls preload="none" src="podcasts/matthew-berman-gpt6-sol-luna.mp3">
@@ -923,6 +924,11 @@
           <a href="podcasts/matthew-berman-gpt6-sol-luna.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Matthew Berman</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=5MFORiebZks" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; models &middot; benchmarks</p>
         <h2>GPT-6 SOL AND LUNA ARE OUT!!! — Matthew Berman</h2>
@@ -951,11 +957,6 @@
     </section>
     <section class="article-view" id="gpt6-sol-paul-j-lipsky" hidden>
       <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
-      <dl class="meta">
-        <div><dt>Channel</dt><dd>Paul J Lipsky</dd></div>
-        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
-        <a class="watch" href="https://www.youtube.com/watch?v=lPNgeaF2Nk4" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-      </dl>
       <div class="episode player-top">
         <p class="episode-title">GPT-6 Sol Is Here (50% Cheaper!) <span class="dur">&middot; ~2.3 min</span></p>
         <audio controls preload="none" src="podcasts/gpt6-sol-paul-j-lipsky.mp3">
@@ -963,6 +964,11 @@
           <a href="podcasts/gpt6-sol-paul-j-lipsky.mp3">Download the episode</a>.
         </audio>
       </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Paul J Lipsky</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=lPNgeaF2Nk4" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
       <article>
         <p class="topic">AI &middot; models &middot; benchmarks</p>
         <h2>GPT-6 Sol Is Here (50% Cheaper!)</h2>
