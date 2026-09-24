@@ -364,7 +364,7 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; September 24, 2026</p>
-        <h1>Five summaries, distilled.</h1>
+        <h1>Six summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -375,6 +375,7 @@
 <a class="card" href="#grok47-doesnt-make-sense-bmdavis419"><span class="num">03</span><span><span class="card-title">Grok 4.7 Doesn&#x27;t Make Much Sense</span><span class="card-byline">Ben Davis</span></span></a>
 <a class="card" href="#design-engineering-maggie-appleton-pragmaticengineer"><span class="num">04</span><span><span class="card-title">Design Engineering with Maggie Appleton</span><span class="card-byline">The Pragmatic Engineer</span></span></a>
 <a class="card" href="#jev-use-cases-matthew-berman"><span class="num">05</span><span><span class="card-title">8 Jev Use Cases That Feel Like Cheating</span><span class="card-byline">Matthew Berman</span></span></a>
+<a class="card" href="#vast-data-hallak-mad"><span class="num">06</span><span><span class="card-title">Who Feeds the GPUs? Inside AI&#x27;s Hidden $30B Layer | Renen Hallak, VAST Data</span><span class="card-byline">The MAD Podcast (Matt Turck)</span></span></a>
         </div>
       </nav>
     </section>
@@ -597,6 +598,49 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#design-engineering-maggie-appleton-pragmaticengineer">&larr; Design Engineering with Maggie Appleton</a>
         <a class="to-index" href="2026-09-24.html" data-route="index">All summaries</a>
+        <a class="next" href="#vast-data-hallak-mad">Who Feeds the GPUs? Inside AI&#x27;s Hidden $30B Layer &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="vast-data-hallak-mad" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-24.html" data-route="index">&larr; September 24, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Who Feeds the GPUs? Inside AI&#x27;s Hidden $30B Layer — September 24, 2026 <span class="dur">&middot; ~7.6 min</span></p>
+        <audio controls preload="none" src="podcasts/vast-data-hallak-mad.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/vast-data-hallak-mad.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>The MAD Podcast (Matt Turck)</dd></div>
+        <div><dt>Published</dt><dd>September 24, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=awoR908Yu5Y" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; infrastructure &middot; data</p>
+        <h2>Who Feeds the GPUs? Inside AI&#x27;s Hidden $30B Layer | Renen Hallak, VAST Data</h2>
+        <p class="dek">Matt Turck interviews VAST Data founder and CEO Renen Hallak on DataEnclave confidential AI with NVIDIA, the DASE architecture bet, and why the next ten years could bring more change than the previous thousand.</p>
+        <div class="body-copy">
+        <p>The MAD Podcast&#x27;s Matt Turck interviews Renen Hallak, founder and CEO of VAST Data, the $30 billion company that sits in the hidden middle layer of the AI stack — the software infrastructure that feeds data to GPUs. VAST powers xAI and some of the world&#x27;s biggest AI clouds. The conversation moves from a brand-new confidential AI announcement, through the architecture bet behind the company, to where Hallak thinks value accrues in the AI economy.</p>
+        <p>The centerpiece is VAST&#x27;s announcement this week: models are no longer just software sitting on top of infrastructure — they have become a resource to manage, like a GPU or an SSD. The launch has two parts. First, model management: an operating-system-level understanding of which model is good at what, at what cost, routing the right tasks to the right models as organizations go from tens of models to hundreds and thousands, including fine-tuned and reinforcement-learned derivatives.</p>
+        <p>Second, and the bigger deal, is DataEnclave — confidential AI built with NVIDIA. The problem it solves is a standoff: model builders won&#x27;t let their weights leave their premises because that&#x27;s their IP, while regulated enterprises can&#x27;t hand their data to the model builders the way they once handed it to the cloud. DataEnclave runs inference inside the enterprise&#x27;s own environment while encrypting the weights end to end — from memory, through the network, all the way to the GPU — so nobody sees what they&#x27;re not allowed to see. The technology isn&#x27;t new (confidential computing has existed for CPUs for years); it had to be plumbed through for GPUs and, just as importantly, wrapped in a trust and auditability layer that only a system-level middle layer can provide. Cisco and Supermicro are building the physical appliances.</p>
+        <p>Hallak&#x27;s mental model for everything else is Jensen Huang&#x27;s five-layer cake — power, hardware, software infrastructure, models, applications — with VAST owning the middle. An AI factory, he argues, means rebuilding every layer: five years ago data centers ran 10-kilowatt racks; today they need 500-kilowatt racks, plus GPUs instead of CPUs, much faster networks, and big SSDs replacing slow hard drives. Enterprises will all need AI factories eventually, he says, because every organization&#x27;s IP will distill into the weights of its own fine-tuned models. &quot;We infer during the day, we fine-tune at night&quot; — agents learn from experience the way people do, and each organization&#x27;s model becomes a slightly different, proprietary model of the universe.</p>
+        <p>That requires the middle layer to make AI as simple and safe as the PC operating system made computers in the 1970s. Agents get identity like people do — user IDs, access-control lists, role- and attribute-based permissions — inheriting constraints from whoever deployed them. And the operating system sits in the data path not just to observe but to intervene, especially as AI moves into cars, robots, and satellites where physical harm is possible.</p>
+        <p>The origin story is the most charming part. Hallak was a math kid in Israel who spent six months in high school trying to solve P versus NP for the Clay Institute&#x27;s million-dollar bounty (he figured if he proved P equals NP he&#x27;d solve all seven problems at once and collect $7 million). He was employee number one at flash-storage startup XtremIO, later acquired by EMC, and founded VAST in 2015–2016 — three years before the Transformers paper — on one pre-generative-AI insight: neural networks were winning not because of new algorithms but because they got much faster access to much more data.</p>
+        <p>The technical bet is DASE — disaggregated shared everything. Old distributed systems were &quot;shared nothing&quot;: each node owns a slice, they collaborate, and past about a hundred nodes the communication grows quadratically and resilience collapses. VAST put the flash on the other side of the network (NVMe over fabrics), so every node sees all the data as if locally attached. One customer cluster today is multiple exabytes in a single namespace, pushing tens of terabytes per second to tens of thousands of nodes. The same logic drove them to build their own database — a Singapore customer vectorizing camera feeds needed trillions of rows, and no existing database was built for trillions — and to argue that S3, Snowflake, and Databricks were built on the old stack and are now playing catch-up.</p>
+        <p>On the macro questions, Hallak is bullish almost to the point of alarm. One AI cloud customer planned for 500 petabytes over three years; last week it came back asking for 2 more exabytes, and he expects a double-digit exabyte ask within a quarter or two. Some AI clouds are sold out 18 months ahead; the limit is physical — land, power, chips. He defends circular financing as natural ecosystem liquidity from believers rather than outsiders, says neoclouds are eating the hyperscalers&#x27; lunch (the innovator&#x27;s dilemma: the old clouds have a cash cow to protect, the new ones have nothing to lose), and argues software infrastructure is where value accrues historically — hardware commoditizes, and every trillion-dollar company of the past eras was a software or cloud company. VAST itself is profitable on high software margins, with zero customer churn and gross dollar retention over 200%. Notably, he says there&#x27;s no legal document between VAST and NVIDIA beyond NVIDIA&#x27;s investment — just dozens of collaborating teams and triple-digit developer counts on both sides.</p>
+        <p>He closes with the boldest prediction: the next ten years will bring more change than the previous thousand, and VAST&#x27;s endgame is exactly what it sounds like — &quot;if all the data is managed by VAST.&quot;</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Can the confidential-computing trust model hold? Hallak argues the operating system is the natural place for the ecosystem&#x27;s trust layer — high enough to be useful, low enough to be neutral. But VAST is a private vendor, not a neutral referee. Will hyperscalers and rival clouds accept a third party in the middle of all data flows, or will each build their own?</li>
+<li>Is the demand curve real or a bubble? The anecdotes are staggering — 500 petabytes becoming 2 exabytes, clouds sold out for 18 months, the limit being physical. But the entire buildout is financed on the assumption that end-user demand materializes. What does the middle layer look like if the financing cycle turns?</li>
+<li>Will enterprises actually own their AI factories — or drift back to the labs? Hallak&#x27;s pitch is that ownership of fine-tuned weights is what makes the AI factory worth building, with an &quot;intelligence marketplace&quot; for leasing skill sets. But convenience, talent scarcity, and the labs&#x27; compounding advantage are powerful gravity. Who actually keeps the IP?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> transcript pulled from YouTube&#x27;s &quot;Show transcript&quot; panel on 2026-09-24, verified against the live watch page the same day. Auto-generated captions; corrected only where captions garbled the names that the description itself confirms — Renen Hallak (caption &quot;Renan Hock&quot;/&quot;Randon Hock&quot;) and Matt Turck (caption &quot;Met&quot;). Other caption quirks (e.g. &quot;pabytes&quot; for petabytes, &quot;neocads&quot;) are preserved verbatim in transcript.txt.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#jev-use-cases-matthew-berman">&larr; 8 Jev Use Cases That Feel Like Cheating</a>
+        <a class="to-index" href="2026-09-24.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -612,7 +656,8 @@
       "system1-vs-system2-prompt-engineering": "When to Use System 1 vs System 2 Models",
       "grok47-doesnt-make-sense-bmdavis419": "Grok 4.7 Doesn't Make Much Sense",
       "design-engineering-maggie-appleton-pragmaticengineer": "Design Engineering with Maggie Appleton",
-      "jev-use-cases-matthew-berman": "8 Jev Use Cases That Feel Like Cheating"
+      "jev-use-cases-matthew-berman": "8 Jev Use Cases That Feel Like Cheating",
+      "vast-data-hallak-mad": "Who Feeds the GPUs? Inside AI's Hidden $30B Layer | Renen Hallak, VAST Data"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
