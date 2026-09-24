@@ -364,7 +364,7 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; September 24, 2026</p>
-        <h1>Two summaries, distilled.</h1>
+        <h1>Three summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -372,6 +372,7 @@
         <div class="cards">
 <a class="card" href="#nvidia-cosmos-world-models-nate-jones"><span class="num">01</span><span><span class="card-title">NVIDIA Doesn&#x27;t Just Build Chips Anymore. It Builds The Brain Inside The Robot.</span><span class="card-byline">AI News &amp; Strategy Daily | Nate B Jones</span></span></a>
 <a class="card" href="#system1-vs-system2-prompt-engineering"><span class="num">02</span><span><span class="card-title">When to Use System 1 vs System 2 Models</span><span class="card-byline">Prompt Engineering</span></span></a>
+<a class="card" href="#grok47-doesnt-make-sense-bmdavis419"><span class="num">03</span><span><span class="card-title">Grok 4.7 Doesn&#x27;t Make Much Sense</span><span class="card-byline">Ben Davis</span></span></a>
         </div>
       </nav>
     </section>
@@ -463,6 +464,48 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#nvidia-cosmos-world-models-nate-jones">&larr; NVIDIA Doesn&#x27;t Just Build Chips Anymore. It Builds The Brain Inside The Robot.</a>
         <a class="to-index" href="2026-09-24.html" data-route="index">All summaries</a>
+        <a class="next" href="#grok47-doesnt-make-sense-bmdavis419">Grok 4.7 Doesn&#x27;t Make Much Sense &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="grok47-doesnt-make-sense-bmdavis419" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-24.html" data-route="index">&larr; September 24, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Grok 4.7 Doesn&#x27;t Make Much Sense — September 24, 2026 <span class="dur">&middot; ~5.2 min</span></p>
+        <audio controls preload="none" src="podcasts/grok47-doesnt-make-sense-bmdavis419.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/grok47-doesnt-make-sense-bmdavis419.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Ben Davis</dd></div>
+        <div><dt>Published</dt><dd>September 24, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=VJReUq7iOIk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; reviews</p>
+        <h2>Grok 4.7 Doesn&#x27;t Make Much Sense</h2>
+        <p class="dek">Ben Davis puts Grok 4.7 through its paces: a fast mode that genuinely impresses, pricing that doesn’t add up, and usage limits that sting — plus why he still thinks SpaceX AI is the best engineering lab of the three big US labs.</p>
+        <div class="body-copy">
+        <p>Ben Davis opens his review of Grok 4.7 with a disclaimer. He has worked with Cursor, which is now part of SpaceX AI, and says he genuinely likes the products they build. But he stresses that SpaceX AI had nothing to do with this video — they did not see it, pay for it, or control any of it. The disclaimer matters because, in his own words, the review is going to be &quot;mostly pretty negative.&quot;</p>
+        <p>First, what the model gets right. Davis says Grok 4.7&#x27;s new fast mode is genuinely impressive — ridiculously fast and great to use. It handles the modern frontier behaviors well: juggling lots of subagents, running for long stretches, checking its own work, doing lots of research. In heavy pair-programming scenarios, where the user stays in the loop and gives very specific instructions on what to do, when, where, how, and why, he says it excels. And he finds it a pleasant model to work with — its writing is clear and readable, and it asks decent questions when a prompt is ambiguous.</p>
+        <p>Then come the failures, starting with performance. Grok 4.7 is positioned as the cheaper, faster, not-quite-as-powerful-but-useful model — on paper it sits neatly on the capability-to-price curve right where it should. The problem, Davis says, is that reality does not match. Opus 5.5, which came out the day before he recorded, completely demolishes everything on that chart, and GPT-6 Sol, released the day he recorded, is also excellent. Both sit in the same tier as Grok 4.7, and it does not hold a candle to either of them.</p>
+        <p>His most concrete evidence is a side-by-side. On a site he was building, a dark-blue top bar was cutting off instead of sliding behind a sidebar. Opus 5.5&#x27;s version looked great after three prompts — nicely faded back, centered, lined up. Grok 4.7&#x27;s version, after five prompts of pleading with it in Cursor, looked awful: an awkwardly floating top bar he would never ship. One small example, but he says it captures his general experience — Grok 4.7 can kind of get there, but it is not at the same level.</p>
+        <p>The pricing rant is the heart of the video. Elon had teased better token efficiency, and Davis says flatly that this is not true — the model is not efficient, burning lots of tokens across many more steps, while OpenAI&#x27;s models (especially Astra) are dramatically more token-efficient. The advertised price is 2 dollars in, 6 dollars out, same as Grok 4.6. But under 200K context you get that price; enable fast mode or cross the 200K threshold and the price doubles to 4 in, 12 out; stack both and you are at 6 in, 18 out — nearly the price of Opus 5.5 at 4 in, 20 out, and more expensive than GPT-6 Sol at 2 in, 10 out. On a true cost-per-task metric, factoring in efficiency, Grok 4.7 loses to both.</p>
+        <p>The deepest cut is usage limits. Grok models historically felt borderline unlimited inside the 300-dollar-a-month subscription, while Opus and Sol burned limits fast. Now one day of middling use on Grok 4.7 burned 30 percent of his weekly limit. That edge — the one thing that made Grok the best choice in its tier — is gone. Opus 5.5, he says, is not only much higher quality but also easy on limits, so there is no compelling reason left to pick Grok 4.7, except one: SpaceX AI&#x27;s engineering.</p>
+        <p>Davis thinks SpaceX AI is the best engineering lab of the three big US labs — Grokbot, the Grok Build CLI, Cursor, their cloud agents — and at the same time the weakest research lab. He sketches a crude diagram: Anthropic is best at research but not great at engineering, OpenAI is a hybrid with extraordinary research plus much better engineering than Anthropic, and SpaceX AI is all engineering, no frontier research. Grok 4.7, he says, is not the kind of model the other two labs would ship.</p>
+        <p>For outlook, he cites Elon&#x27;s own September post — Grok 4.7 roughly on par with Opus 5, which Davis thinks is about right — and the roadmap claims: Grok 4.8 a noticeable improvement, Grok 4.9 at Astra and Fable class, Grok 5 maybe better than anything. He is skeptical. The only path he can see is a novel data source the other two labs lack, letting SpaceX AI win through reinforcement learning instead of pre-training, where Anthropic is, in his words, unbelievably good. His verdict: Grok 4.7 is one step forward, two steps back. For main day-to-day work, Opus 5.5 and Astra remain the kings.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>First, was the pricing architecture — fast mode and long context doubling the rate — a deliberate bet that users would trade cost for speed, or did SpaceX AI underestimate how quickly the competition would force efficiency to the center of the story?</li>
+<li>Second, if Anthropic&#x27;s advantage really is pre-training taste and discernment that compounds across generations, how many iterations would SpaceX AI&#x27;s reinforcement-learning-first approach need to close that gap — and does their engineering speed buy them enough time?</li>
+<li>Third, does the best-engineering-lab position itself defend a moat, or will agents that route between models on the fly make the model behind the interface increasingly irrelevant?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s auto-generated transcript, captured verbatim from the YouTube &quot;Show transcript&quot; panel on September 24, 2026, at about 9:40 in the morning Pacific time, with auto-caption spelling errors corrected (&quot;Grock&quot; to Grok, &quot;Enthropic&quot; to Anthropic, &quot;Obus 55&quot; to Opus 5.5, &quot;SpaceX AAI&quot; to SpaceX AI, and similar). The video&#x27;s sponsored Firecrawl segment was skipped as ad content.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#system1-vs-system2-prompt-engineering">&larr; When to Use System 1 vs System 2 Models</a>
+        <a class="to-index" href="2026-09-24.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -475,7 +518,8 @@
     (() => {
       const TITLES = {
       "nvidia-cosmos-world-models-nate-jones": "NVIDIA Doesn't Just Build Chips Anymore. It Builds The Brain Inside The Robot.",
-      "system1-vs-system2-prompt-engineering": "When to Use System 1 vs System 2 Models"
+      "system1-vs-system2-prompt-engineering": "When to Use System 1 vs System 2 Models",
+      "grok47-doesnt-make-sense-bmdavis419": "Grok 4.7 Doesn't Make Much Sense"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
