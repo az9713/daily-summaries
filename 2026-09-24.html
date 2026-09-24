@@ -364,7 +364,7 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; September 24, 2026</p>
-        <h1>Four summaries, distilled.</h1>
+        <h1>Five summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -374,6 +374,7 @@
 <a class="card" href="#system1-vs-system2-prompt-engineering"><span class="num">02</span><span><span class="card-title">When to Use System 1 vs System 2 Models</span><span class="card-byline">Prompt Engineering</span></span></a>
 <a class="card" href="#grok47-doesnt-make-sense-bmdavis419"><span class="num">03</span><span><span class="card-title">Grok 4.7 Doesn&#x27;t Make Much Sense</span><span class="card-byline">Ben Davis</span></span></a>
 <a class="card" href="#design-engineering-maggie-appleton-pragmaticengineer"><span class="num">04</span><span><span class="card-title">Design Engineering with Maggie Appleton</span><span class="card-byline">The Pragmatic Engineer</span></span></a>
+<a class="card" href="#jev-use-cases-matthew-berman"><span class="num">05</span><span><span class="card-title">8 Jev Use Cases That Feel Like Cheating</span><span class="card-byline">Matthew Berman</span></span></a>
         </div>
       </nav>
     </section>
@@ -556,6 +557,46 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#grok47-doesnt-make-sense-bmdavis419">&larr; Grok 4.7 Doesn&#x27;t Make Much Sense</a>
         <a class="to-index" href="2026-09-24.html" data-route="index">All summaries</a>
+        <a class="next" href="#jev-use-cases-matthew-berman">8 Jev Use Cases That Feel Like Cheating &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="jev-use-cases-matthew-berman" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-24.html" data-route="index">&larr; September 24, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">8 Jev Use Cases That Feel Like Cheating — September 24, 2026 <span class="dur">&middot; ~4.3 min</span></p>
+        <audio controls preload="none" src="podcasts/jev-use-cases-matthew-berman.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/jev-use-cases-matthew-berman.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Matthew Berman</dd></div>
+        <div><dt>Published</dt><dd>September 24, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=jGD_UR4wMJc" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; tools</p>
+        <h2>8 Jev Use Cases That Feel Like Cheating</h2>
+        <p class="dek">Matthew Berman runs Jev through eight hands-on demos — from slop detection to autonomous agent workflows — and argues its decision-making at scale is what makes experimentation nearly free.</p>
+        <div class="body-copy">
+        <p>Matthew Berman&#x27;s &quot;8 Jev Use Cases That Feel Like Cheating&quot; is a ten-minute hands-on tour of Jev, an AI model launched just days before this video went up, which Berman calls the most exciting AI he has seen in a long time — comparable, he says, to the early days of ChatGPT, when everyone was figuring out what the thing was actually for.</p>
+        <p>Jev&#x27;s defining trait, in his framing, is decision-making at scale: it can make thousands, tens of thousands, even hundreds of thousands of decisions incredibly quickly and incredibly inexpensively. The pricing he quotes is striking — 4.2 cents per million input tokens, with output tokens completely free — and new users get $5 in credits to start. It&#x27;s not a text generation model: don&#x27;t ask it for life advice or to write code for you. What it does well is structured decisions where you can describe the decision precisely, supply clear criteria, and pose well-formed questions, ideally as JSON. His demo example: &quot;is hot dog a sandwich?&quot; given explicit true/false criteria about starch-enclosed fillings, which Jev resolves at 73% true.</p>
+        <p>He reaches for a chess analogy to make the speed point. Against a stronger engine with no time limit, Jev loses; against one with a time limit, Jev likely wins because its decisions land nearly instantly while the stronger engine burns clock on every move. The analogy is the pitch for Jev&#x27;s whole category: where decisions have to be fast and cheap, speed beats raw reasoning.</p>
+        <p>The eight demos, pulled largely from a community site called madewithjev.com, show what that unlocks. A slop detector rates pages for AI-generated content, down to highlighting exactly which passages look machine-written — Berman runs it on Anthropic&#x27;s own homepage and finds 26% slop, &quot;mostly humans, but there is some slop there.&quot; Unclutter, built by someone named Kitsy, strips ads, cookie banners, upsells, and dialog boxes from pages nearly instantly by having Jev judge each element against a &quot;spammy or annoying&quot; criterion.</p>
+        <p>Zapier — the video&#x27;s sponsor — has added Jev as a native app, so automations can branch on Jev&#x27;s decisions across Zapier&#x27;s thousands of integrations. The rest are smaller but genuinely compelling. One demo sorts 100 emails by priority in under half a second, a job Berman had previously built tooling around himself. A Google product manager built an open-source fuzzy find-in-page for the browser that matches meaning instead of keywords. A web-page builder assembles full pages in real time by having Jev select from a preconfigured library of buttons, inputs, and fonts rather than writing code. Clipfast cuts a 90-minute video into clips from a typed query in under two seconds. And the two purely-for-fun demos have Jev generating color palettes from world knowledge — 80s disco, the blue screen of death, Mario — and matching emoji to whatever you type.</p>
+        <p>His closing advice is simple: start playing with it, because the price makes experimentation nearly free and the use cases are still being discovered.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>First, how robust are Jev&#x27;s judgments on ambiguous, real-world criteria once developers move past demo-grade prompts — will &quot;spammy or annoying&quot; hold up at production scale?</li>
+<li>Second, will free unlimited output tokens survive, or is the current pricing a land-grab that reprices once usage matures?</li>
+<li>Third, which incumbent category gets absorbed first: spam filtering, content moderation, triage, or something nobody has demoed yet?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> summary grounded in the full YouTube transcript of &quot;8 Jev Use Cases That Feel Like Cheating&quot; by Matthew Berman (10:37, published September 24, 2026), pulled via the video&#x27;s &quot;Show transcript&quot; panel on 2026-09-24 at ~2:48 PM PDT with a live browser capture. Caption quirks corrected where obvious: &quot;Jeb&quot; → Jev, &quot;slot blocker&quot; → slop blocker, &quot;madewithjv.com&quot; → madewithjev.com; the auto captions render the chess engine&#x27;s name as &quot;Fable&quot; and several product names (&quot;NextG Zaps&quot;, &quot;Grockbot&quot;, &quot;Y RL&quot;) in ways I could not verify, flagged rather than guessed. Sponsor segment (Zapier) included as the video presents it, since the Zapier integration is itself a Jev use case.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#design-engineering-maggie-appleton-pragmaticengineer">&larr; Design Engineering with Maggie Appleton</a>
+        <a class="to-index" href="2026-09-24.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -570,7 +611,8 @@
       "nvidia-cosmos-world-models-nate-jones": "NVIDIA Doesn't Just Build Chips Anymore. It Builds The Brain Inside The Robot.",
       "system1-vs-system2-prompt-engineering": "When to Use System 1 vs System 2 Models",
       "grok47-doesnt-make-sense-bmdavis419": "Grok 4.7 Doesn't Make Much Sense",
-      "design-engineering-maggie-appleton-pragmaticengineer": "Design Engineering with Maggie Appleton"
+      "design-engineering-maggie-appleton-pragmaticengineer": "Design Engineering with Maggie Appleton",
+      "jev-use-cases-matthew-berman": "8 Jev Use Cases That Feel Like Cheating"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
