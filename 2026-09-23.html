@@ -364,13 +364,19 @@
     <header class="masthead">
       <div>
         <p class="date">Wednesday &middot; September 23, 2026</p>
-        <h1>One summary, distilled.</h1>
+        <h1>Seven summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
       <nav aria-label="Summaries">
         <div class="cards">
       <a class="card" href="#nemotron-3-diarization-sam-witteveen"><span class="num">01</span><span><span class="card-title">Nemotron 3 Diarization - Who Said That?</span><span class="card-byline">Sam Witteveen</span></span></a>
+<a class="card" href="#anthropic-actually-fixed-opus-theo"><span class="num">02</span><span><span class="card-title">Anthropic Actually Fixed Opus</span><span class="card-byline">Theo - t3.gg</span></span></a>
+<a class="card" href="#opus55-vs-gpt6-astra-nate-herk"><span class="num">03</span><span><span class="card-title">I Tested Opus 5.5 vs. GPT-6 Astra on 12 Real Use Cases</span><span class="card-byline">Nate Herk | AI Automation</span></span></a>
+<a class="card" href="#gpt6-sol-bijan-bowen"><span class="num">04</span><span><span class="card-title">GPT-6 Sol Is VERY GOOD – Is THIS an Opus 5.5 Competitor?</span><span class="card-byline">Bijan Bowen</span></span></a>
+<a class="card" href="#ai-coding-rate-limits-cole-medin"><span class="num">05</span><span><span class="card-title">AI Coding Rate Limits are RIDICULOUS Now - Here&#x27;s How You Keep Scaling Anyway</span><span class="card-byline">Cole Medin</span></span></a>
+<a class="card" href="#how-anthropic-engineers-actually-use-claude-opus-5-5"><span class="num">06</span><span><span class="card-title">How Anthropic Engineers Actually Use Claude Opus 5.5</span><span class="card-byline">Duncan Rogoff | Learn Claude Code</span></span></a>
+<a class="card" href="#getting-the-most-out-of-opus-55-claude-dev"><span class="num">07</span><span><span class="card-title">Getting the Most Out of Opus 5.5 in Claude and Claude Code</span><span class="card-byline">claude.dev (Addy Osmani)</span></span></a>
         </div>
       </nav>
     </section>
@@ -412,6 +418,248 @@
       <nav class="article-nav" aria-label="More summaries">
         <span class="spacer"></span>
         <a class="to-index" href="2026-09-23.html" data-route="index">All summaries</a>
+        <a class="next" href="#anthropic-actually-fixed-opus-theo">Anthropic Actually Fixed Opus &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="anthropic-actually-fixed-opus-theo" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-23.html" data-route="index">&larr; September 23, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Anthropic Actually Fixed Opus — September 23, 2026 <span class="dur">&middot; ~4.9 min</span></p>
+        <audio controls preload="none" src="podcasts/anthropic-actually-fixed-opus-theo.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/anthropic-actually-fixed-opus-theo.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Theo - t3.gg</dd></div>
+        <div><dt>Published</dt><dd>September 23, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=jgGyX7MPPVg" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; coding</p>
+        <h2>Anthropic Actually Fixed Opus</h2>
+        <p class="dek">After a full day of heavy use, Theo Browne says Opus 5.5 clears the brutal bar set by Opus 5’s unreliability — sloppy prose and missed details gave way to a model that finally feels like a tool again.</p>
+        <div class="body-copy">
+        <p>Theo Browne opens with some personal history. Nearly ten months ago, Opus 4.5 changed how he wrote code with AI — but since then, Anthropic&#x27;s non-Fable launches have been &quot;iffy at best.&quot; He admits he fell for Opus 5 at launch, then found it unreliable in daily use: sloppy prose, code that missed important details, a model that felt like a liability rather than a tool. That sets a brutal bar for Opus 5.5, and after a full day of heavy use, he says Anthropic may actually have cleared it.</p>
+        <p>The headline improvements are cost and communication. Opus 5.5 costs roughly 40% less to run than Opus 5 on typical workloads — $4 per million input tokens and $20 per million output, cache reads at 20 cents per million — and runs about 30% faster. More importantly for daily use, it writes plainly. Where Opus 5 answered a billing bug with em-dashes and nonsense, Opus 5.5 leads with the key numbers and a clean before-and-after. One early tester summed it up as &quot;It writes the way I do.&quot; Theo went so far as to delete his de-slop instructions from CLAUDE.md just to see how the model talks on its own, and says he&#x27;s not putting them back.</p>
+        <p>The benchmark story is strong but nuanced. Theo scraped Artificial Analysis data into his own visualizer and found Opus 5.5 medium scoring higher than Fable 5.1 on max — at $2.94 per task versus $20 — plus a five-point jump on the Artificial Analysis intelligence index and a sweep of the Pareto frontier line. But he stresses the token-efficiency caveat: Opus 5.5 on max burns nearly 120,000 tokens per task versus 73K for Opus 5 and 27K for GPT-6 Astra, so API bills land uncomfortably close to Opus 5&#x27;s. And max effort itself is a trap — on his SkateBench run, bumping from X-high to max multiplied reasoning tokens per question from about 300 to nearly 5,000 for a one-percent score gain. His rule of thumb: low and max are dangerous, medium/high/X-high is where the value is.</p>
+        <p>Two less obvious details matter. First, Opus 5.5 brings back zero data retention to the Opus line, which Fable never had — that alone makes it the default for companies that restrict models by retention policy. Second, changing reasoning effort mid-session no longer busts the prompt cache. The quirks are tamer than Opus 5&#x27;s but real: the model sometimes panics about context limits that aren&#x27;t there (claiming it was 10% from auto-compact and warning work could be lost in a crash), and it has occasional &quot;dumb spikes,&quot; though Theo&#x27;s early pull-request data suggests fewer severe issues than Fable 5.1 with slightly more nitpicks.</p>
+        <p>On front-end design, Theo is honest that Opus 5.5 hasn&#x27;t matched Fable 5.1&#x27;s taste for him — the demos feel template-y — though he acknowledges counter-evidence, like Mia&#x27;s 100-page generation test calling it the best she&#x27;s ever tested. The 3D demos are where the model shines for him: a Dark Souls clone, a flight sim, Bijan Bowen&#x27;s from-scratch C++ skate game, and his own &quot;Fishslop 3D&quot; aquarium, which he refined on X-high into a genuinely playable game running at 120 FPS. Perhaps the most practical stat in the video: a full day of deliberately pushing the model cost him about 20% of one Claude plan&#x27;s weekly allowance. For his $200 subscription, he calls it a far better value than anything on the Codex side right now.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Is the pricing story durable, or does it collapse outside Anthropic&#x27;s test workloads? Opus 5.5&#x27;s 40%-cheaper claim comes from typical tasks — but if your workflow leans on max effort or long autonomous runs, the 120K-tokens-per-task appetite could erase the discount. How much of Theo&#x27;s &quot;way better value for your 200 bucks&quot; survives real usage patterns that aren&#x27;t his?</li>
+<li>How fast will the max-effort trap bite teams that don&#x27;t read the fine print? The jump from X-high to max is one slider notch for over 10x the cost and almost no score gain. Until that behavior is either fixed or prominently warned about, how many users will burn their budgets before learning what Theo learned in a day?</li>
+<li>What actually causes the model&#x27;s context-window paranoia, and can post-training fix it? Theo&#x27;s theory — leftover training instinct from the era when running out of context meant failure — is plausible but unproven, and benchmarks rarely hit compaction so they never see it. If the quirk shows up exactly when things are going badly, how do you test a fix?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> summary grounded in the video&#x27;s captions from YouTube&#x27;s &quot;Show transcript&quot; panel, copied verbatim from the rendered page and captured via a live browser session on 2026-09-23 around 8:05 PM PDT (313 caption lines, 0:00–40:10). Auto-caption artifacts corrected in writing: Grock → Grok, GBD6 → GPT-6, CloudMD/Cloud Code → CLAUDE.md/Claude Code, &quot;cash&quot; → cache (prompt-cache references), Sonet 55 → Sonnet 5.5, Skatebench → SkateBench. Sponsor segments (WorkOS&#x27;s OMD standard, Parallel&#x27;s search API) are included as part of the video. Numbers above (prices, token counts, scores) are Theo&#x27;s stated figures from the transcript.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#nemotron-3-diarization-sam-witteveen">&larr; Nemotron 3 Diarization - Who Said That?</a>
+        <a class="to-index" href="2026-09-23.html" data-route="index">All summaries</a>
+        <a class="next" href="#opus55-vs-gpt6-astra-nate-herk">I Tested Opus 5.5 vs. GPT-6 Astra on 12 Real Use Cases &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="opus55-vs-gpt6-astra-nate-herk" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-23.html" data-route="index">&larr; September 23, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">I Tested Opus 5.5 vs. GPT-6 Astra on 12 Real Use Cases — September 23, 2026 <span class="dur">&middot; ~8.4 min</span></p>
+        <audio controls preload="none" src="podcasts/opus55-vs-gpt6-astra-nate-herk.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/opus55-vs-gpt6-astra-nate-herk.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Nate Herk | AI Automation</dd></div>
+        <div><dt>Published</dt><dd>September 23, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=GmLcJVzkxPA" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; benchmarks</p>
+        <h2>I Tested Opus 5.5 vs. GPT-6 Astra on 12 Real Use Cases</h2>
+        <p class="dek">Nate Herk pits Opus 5.5 against GPT-6 Astra across twelve real tasks: Opus dominates the creative, taste-driven work, Astra wins where the prompt is concrete — at 2.5× the list price.</p>
+        <div class="body-copy">
+        <p>Nate Herk spent the full day pitting Anthropic&#x27;s Opus 5.5 against OpenAI&#x27;s GPT-6 Astra in a twelve-task shootout, measuring not just which output he preferred but how long each task took and what it would have cost at API rates. It&#x27;s the follow-up to his video from the night before, where Opus 5.5 faced GPT-6 Sol — same format, two new dimensions: he ran both models on high effort inside his subscriptions, then converted everything to API-billing equivalents so viewers could contextualize the results against their own plans.</p>
+        <p>The headline numbers are worth sitting with. Astra&#x27;s list price is 2.5 times higher than Opus 5.5&#x27;s, so the natural expectation was that it should perform roughly 2.5 times better. It didn&#x27;t. Opus won eight of the twelve tasks to Astra&#x27;s four, and across the whole day Opus ran for almost 11 hours at a billing-equivalent of $214 while Astra ran 6 hours for $132 — making Astra about 45 percent faster and 38 percent cheaper in practice, per Herk&#x27;s own accounting, despite the per-token price premium.</p>
+        <p>Opus dominated the creative, taste-driven work. In website design it built a dark-mode site that felt premium from the hero section down, while Astra&#x27;s brighter attempt felt cheaper; the round went to Opus 40 minutes and $18.32 versus Astra&#x27;s 32 minutes and $11.33. For the event sizzle reel, cut from 105 gigabytes of his event recordings, Opus synced cuts to the music&#x27;s beat with layered depth and energy, while Astra&#x27;s version opened quiet and flat — Opus took it in 31 minutes for $10 against Astra&#x27;s 39 minutes and $21.</p>
+        <p>The reel-editing round showed the same pattern. Both models edited the same recording of Herk explaining Andre Karpathy&#x27;s three-layer method, but Opus&#x27;s cut was more engaging with better b-roll and pacing, while Astra&#x27;s felt bland and vanilla. Herk went further and said Astra&#x27;s editing outputs have actually degraded since he first tested it at launch, something he promises to dig into elsewhere. On business deliverables — an investor deck, a financial report, an analytics dashboard, and a landing page from mock company data — Opus&#x27;s spreadsheets carried far more formulas and dynamic references, which he argues matters more than the design, since a static sheet has to be regenerated every time a number changes.</p>
+        <p>Astra&#x27;s wins clustered where the prompt was concrete. It took the museum escape game — both versions were impressive, but Astra&#x27;s was faster, cheaper, and easier to start iterating on, while Opus&#x27;s hour-and-a-half, $31 build went for immersive realism. Astra also won the coding challenge decisively: both models scored essentially perfect, but Astra ran in a fifth of the time at half the cost. It took trip planning too, with a cleaner 3D itinerary, and the Instagram carousel round on taste and judgment, coming in at $7 against Opus&#x27;s $10.</p>
+        <p>Herk&#x27;s synthesis is the part most worth keeping. He frames Claude models as a wise old owl — good judgment, creativity, taste — and GPT models as the obedient worker: pragmatic, logical, goal-oriented, excellent when given a very specific spec but frustrating on vague goals where something like Claude fills in the vision better. His closing advice is that both models are superb at the average task, so the differentiator is the 30 percent on top of the base plumbing: how you talk to it and the context you add.</p>
+        <p>He also owned a mistake from the previous night&#x27;s video, where two agents had accidentally worked together because he forgot to isolate them in separate work trees — a small credibility moment worth noting.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>First, is Astra&#x27;s apparent quality regression real, or is it an artifact of how Herk tests? He raised it unprompted during the reel-editing round, saying Astra&#x27;s outputs have degraded since launch — but that&#x27;s a claim that needs controlled before-and-after runs, not just one afternoon&#x27;s impressions.</li>
+<li>Second, what would Astra look like at cost parity? Herk himself floated this: Astra spent $132 total while Opus spent $214, so what if he&#x27;d iterated with Astra until the spend matched — would the second and third rounds of feedback have beaten Opus&#x27;s first-round quality? His instinct says yes, but it&#x27;s an open experiment.</li>
+<li>Third, how much of the scoring is harness, not model? The business-deliverables round turned partly on Codex being better than Claude Code at asking clarifying questions mid-task — that&#x27;s an orchestration-layer difference, and it muddies the attribution of who actually won.</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> transcript pulled verbatim from the YouTube &quot;Show transcript&quot; panel via a live browser task on September 23, 2026, around 7:36 PM PDT; segments 0:00 through 42:49, captured in order. Auto-caption typos corrected in the summary: GBD6/GPT → GPT, Ashstro/Asha/Ashra → Astra, Enthropic → Anthropic, clawed → Claude, Grock → Grok, Fable → Fable (Claude Fable 5.1), Codeex → Codex, and the model names &quot;GPT-6 Sol,&quot; &quot;GPT-6 Astra,&quot; &quot;Opus 5.5,&quot; &quot;Claude Fable 5.1,&quot; and &quot;GLM 5.3 Flash&quot; normalized. The dollar figures, runtimes, and 8-to-4 score are Herk&#x27;s own stated numbers from the video.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#anthropic-actually-fixed-opus-theo">&larr; Anthropic Actually Fixed Opus</a>
+        <a class="to-index" href="2026-09-23.html" data-route="index">All summaries</a>
+        <a class="next" href="#gpt6-sol-bijan-bowen">GPT-6 Sol Is VERY GOOD – Is THIS an Opus 5.5 Competitor? &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="gpt6-sol-bijan-bowen" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-23.html" data-route="index">&larr; September 23, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">GPT-6 Sol Is VERY GOOD – Is THIS an Opus 5.5 Competitor? — September 23, 2026 <span class="dur">&middot; ~22.3 min</span></p>
+        <audio controls preload="none" src="podcasts/gpt6-sol-bijan-bowen.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/gpt6-sol-bijan-bowen.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Bijan Bowen</dd></div>
+        <div><dt>Published</dt><dd>September 23, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=LrUCo_7jor4" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; benchmarks</p>
+        <h2>GPT-6 Sol Is VERY GOOD – Is THIS an Opus 5.5 Competitor?</h2>
+        <p class="dek">Bijan Bowen runs GPT-6 Sol through roughly ten practical builds — a browser OS benchmark, a RuneScape clone, Blender renders — to find out if OpenAI’s $2/$10 price-to-performance play is a real Opus 5.5 competitor.</p>
+        <div class="body-copy">
+        <p>Bijan Bowen&#x27;s latest video, &quot;GPT-6 Sol Is VERY GOOD – Is THIS an Opus 5.5 Competitor?&quot;, is a first hands-on test of OpenAI&#x27;s newest mid-tier model, GPT-6 Sol, which launched alongside its budget sibling Luna. Both are pitched squarely at price-to-performance, and Bowen spends the episode running Sol through roughly ten practical builds to see where it actually lands.</p>
+        <p>The headline numbers are the whole pitch. Sol costs two dollars per million input tokens and ten dollars per million output — half the price of its predecessor and, Bowen notes, half the price of Anthropic&#x27;s Opus 5.5, which he calls the model he now has to follow with every test. It carries a little over a million tokens of context, up to 128,000 output tokens, accepts images, and has a knowledge cutoff in late April 2026. Luna goes further still: ten cents per million in, fifty cents out — which Bowen calls one of the most competitive prices any large lab has shipped. He also complains, amusingly, that OpenAI&#x27;s benchmark chart is nearly unreadable, with models distinguished only by &quot;which tinge of yellow&quot; they are.</p>
+        <p>The testing starts with his browser OS benchmark, version 2.7, where Sol worked for 23 minutes and 28 seconds on maximum effort and named the result &quot;Astro OS.&quot; The verdict is decent with rough edges: in the built-in driving game, the police AI teleports straight onto the player&#x27;s position instead of navigating there — &quot;the smell of a small model,&quot; as Bowen puts it — and the left-right controls are inverted. It&#x27;s clean, but comparatively unimpressive.</p>
+        <p>He keeps pushing through a long build list. A RuneScape 2007 clone set at the Grand Exchange took 45 minutes across two prompts and came out &quot;respectable,&quot; if not pixel-perfect. A self-contained C++ skate game on a New York City block, built without raylib, arrived simple but competent; a follow-up prompt — basically &quot;go hard on this now&quot; — delivered a genuine visual overhaul on ultra effort. The robot-arm pick-and-place test nearly grabbed the toy car but misclosed the gripper, dropped it in a bad spot, and after about an hour and a half Bowen called it an incomplete pass.</p>
+        <p>The pattern of the episode emerges in the middle stretch. A subway FPS took 21.5 minutes and landed as &quot;simple but well done&quot;; then he asked Sol to rebuild it through Blender and Godot, and 47 extra minutes produced a massively better-looking game in the same cartoon style. A watch website with Bowen&#x27;s own photo set into the dial flubbed the numeral markers — a mistake he says he&#x27;d expect from cheaper open-weight models, not a frontier release. The follow-up prompt, he concludes, &quot;really pushes it over the edge,&quot; and he increasingly wishes these models would just start at that level instead of needing a second run to show what they can do.</p>
+        <p>The standouts are memorable. Asked for a highly detailed 1980s Saab 900 Turbo in Blender, Sol produced something that looked more like a Volkswagen Scirocco, so Bowen sent it the classic office meme — &quot;corporate needs you to find the difference between these two pictures&quot; — and the model got the joke, acknowledged the point, and materially improved the car. A 1980s-themed wrestling game called Ring Riot 88 ran 31 minutes and came out playable, cartoonish, and fun. The most ambitious test was a real iPhone 18 hackathon app: &quot;Echo Frame&quot; turns the live camera into a time-warping portal using Metal shaders on the A20 Pro&#x27;s 7-core GPU, with a ghost mode that segments people from the scene. The app went black on first launch, but the failure turned out to be Bowen&#x27;s own glitchy phone, not the code — after a restart, the app worked and genuinely impressed him.</p>
+        <p>The guitar-store game closed the run: simpler than Opus 5.5&#x27;s famous take on the same prompt, but fun in its own right, with the beat-&#x27;em-up half landing well. And so the verdict: Sol never made a mistake, never omitted anything, and never did anything jaw-droppingly impressive. &quot;Competent everywhere, spectacular nowhere&quot; is a fair paraphrase. The model is fast even on ultra effort, cheap to run, and notably undemanding — the entire testing session consumed only about 7 percent of Bowen&#x27;s weekly plan, from 94 percent down to 87.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>First, is Sol&#x27;s ceiling really a model limitation, or a prompting discipline problem? If a single follow-up prompt can transform an output, how much of the gap with Opus 5.5 would close if every test got two rounds?</li>
+<li>Second, the DeepSWE benchmark score apparently slipped from Sol&#x27;s predecessor, though Bowen suspects the benchmark itself has been unreliable lately — so is Sol genuinely weaker at software engineering, or is the yardstick drifting?</li>
+<li>Third, with Luna at ten cents a million input tokens, at what point does &quot;good enough&quot; become the rational default for the bulk of ordinary knowledge work, and what happens to the mid-tier when the floor collapses like that?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is based on the video&#x27;s full transcript, pulled verbatim from YouTube&#x27;s &quot;Show transcript&quot; panel by a live browser session on September 23, 2026. Auto-caption artifacts corrected in writing: &quot;GPT6 Soul&quot; = GPT-6 Sol; &quot;Opus 55&quot; = Opus 5.5; &quot;GDAU&quot;/&quot;GDO&quot; = Godot; &quot;Shurocco&quot; = Scirocco; &quot;Open AAI&quot; = OpenAI; &quot;Beijan&quot; (on the watch dial) = Bijan. Quoted prices, timings, and test names are as stated in the video.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#opus55-vs-gpt6-astra-nate-herk">&larr; I Tested Opus 5.5 vs. GPT-6 Astra on 12 Real Use Cases</a>
+        <a class="to-index" href="2026-09-23.html" data-route="index">All summaries</a>
+        <a class="next" href="#ai-coding-rate-limits-cole-medin">AI Coding Rate Limits are RIDICULOUS Now - Here&#x27;s How You Keep Scaling Anyway &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="ai-coding-rate-limits-cole-medin" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-23.html" data-route="index">&larr; September 23, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">AI Coding Rate Limits are RIDICULOUS Now - Here&#x27;s How You Keep Scaling Anyway — September 23, 2026 <span class="dur">&middot; ~4.1 min</span></p>
+        <audio controls preload="none" src="podcasts/ai-coding-rate-limits-cole-medin.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/ai-coding-rate-limits-cole-medin.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Cole Medin</dd></div>
+        <div><dt>Published</dt><dd>September 23, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=NZq88JAJSag" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; coding &middot; agents</p>
+        <h2>AI Coding Rate Limits are RIDICULOUS Now - Here&#x27;s How You Keep Scaling Anyway</h2>
+        <p class="dek">Cole Medin’s plan-first trick for scaling AI coding under rate limits: let the strongest model plan and review, put cheaper models everywhere else, and audit the pipeline for where capability actually moves the needle.</p>
+        <div class="body-copy">
+        <p>Cole Medin — &quot;AI Coding Rate Limits are RIDICULOUS Now - Here&#x27;s How You Keep Scaling Anyway&quot;</p>
+        <p>Cole Medin opens with a complaint anyone doing heavy AI coding work will recognize. He&#x27;s burned through his $200-a-month Claude Max plan faster than ever without doing much more work than usual, and his $200-a-month Codex Pro subscription is nearly tapped out too. Both limits reset in three or four days, which means he&#x27;s stuck until then. Rate limits getting worse has been the trend all year, he says, and token frugality no longer cuts it. The fix he has spent the past half year developing is no longer optional: mix models inside your workflow so the most expensive one is only used where it actually matters.</p>
+        <p>The core insight from his testing is about the plan step. In his AI software factory — a system that takes a scope of work and runs planning, implementation, validation, and review almost autonomously — he found the plan is always the most important part of the workflow. If the plan is well written, the model implementing it doesn&#x27;t have to be that capable to get essentially the same result. And implementation, he notes, is the most token-heavy step of any coding workflow, which is exactly where the savings come from. For single-agent setups, pairing Claude Fable 5.1 for planning with Sonnet for implementation delivered basically the same results as Fable alone.</p>
+        <p>His favorite combination right now, after hundreds of test runs, is GPT-6 Astra for planning and review with GLM 5.3 Flash doing the implementation. To prove it, he built the same game three ways: a multiplayer storm-chasing game on Neptune, dreamed up by a friend. The open-models-only build, with DeepSeek V4.1 Flash planning and reviewing and GLM 5.3 Flash implementing, looked terrible — barely moving. The Claude Fable 5.1-only build looked quite good. But the Astra-planned, GLM-built version came in at roughly a quarter of the token cost of the closed-model runs, and Medin judged it as good as or better than the Fable build, with even smoother motion.</p>
+        <p>The workflow shape is consistent across every test. A GitHub issue goes in as the input. The strongest model writes the plan. That plan document gets handed to the cheaper model to implement. The strong model reviews, sends findings back to the cheap model to fix, and the build has to be green before merging. He shows a few ways to combine models and providers: the manual route of handing markdown documents between coding agents, harnesses like Omnien, or his own open-source harness builder Archon. For reaching open models, he runs the PI agent harness through Neon&#x27;s AI gateway. Mid-video there&#x27;s a sponsored segment for Scrimba&#x27;s Explain, which turns a question into a narrated video lesson and plugs into Codex and Claude Code over MCP.</p>
+        <p>The takeaway is blunt. You don&#x27;t need the best model for every step of your AI coding workflow. Audit your pipeline, find the steps where capability actually moves the needle, and put cheaper models everywhere else.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>First, how durable is the plan-first trick as tasks get messier? Medin built bounded greenfield projects; what happens on a gnarly legacy codebase where the plan itself needs constant revision?</li>
+<li>Second, is four-times-cheaper enough to change provider economics, or do the frontier labs just tighten rate limits further and push everyone back onto the expensive plans?</li>
+<li>Third, how much of the result is the model pair versus the harness? The Archon workflow itself does real work — structured retries, green-build gates — so how much of the quality would survive if you ran the same model mix with a bare markdown handoff?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> the transcript was copied from the YouTube &quot;Show transcript&quot; panel, captured live on 2026-09-23 at about 7:48 PM PDT through a live browser task. It contains the video&#x27;s own caption quirks, preserved verbatim; applied corrections are: Codeex = Codex, Cloud Code = Claude Code, Claude Fable / Fable 5.1 = Claude&#x27;s Fable 5.1, GPT6 Astra = GPT-6 Astra, Deepseek V4.1 Flash = DeepSeek V4.1 Flash, Scribba = Scrimba, Omnien = Omnien, Kimmy K3 = Kimi K3.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#gpt6-sol-bijan-bowen">&larr; GPT-6 Sol Is VERY GOOD – Is THIS an Opus 5.5 Competitor?</a>
+        <a class="to-index" href="2026-09-23.html" data-route="index">All summaries</a>
+        <a class="next" href="#how-anthropic-engineers-actually-use-claude-opus-5-5">How Anthropic Engineers Actually Use Claude Opus 5.5 &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="how-anthropic-engineers-actually-use-claude-opus-5-5" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-23.html" data-route="index">&larr; September 23, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">How Anthropic Engineers Actually Use Claude Opus 5.5 — September 23, 2026 <span class="dur">&middot; ~2.9 min</span></p>
+        <audio controls preload="none" src="podcasts/how-anthropic-engineers-actually-use-claude-opus-5-5.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/how-anthropic-engineers-actually-use-claude-opus-5-5.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Duncan Rogoff | Learn Claude Code</dd></div>
+        <div><dt>Published</dt><dd>September 23, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=WKVcnfE_9Kw" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; coding &middot; claude-code</p>
+        <h2>How Anthropic Engineers Actually Use Claude Opus 5.5</h2>
+        <p class="dek">Duncan Rogoff condenses Anthropic’s official Opus 5.5 playbook for Claude Code — the usage tips Anthropic’s own engineers published — into a seven-minute briefing.</p>
+        <div class="body-copy">
+        <p>This is Duncan Rogoff&#x27;s walkthrough of Anthropic&#x27;s official Opus 5.5 playbook for Claude Code — the full set of usage tips Anthropic&#x27;s own engineers published alongside the new model, condensed here into a seven-minute briefing. He opens with the claim that Opus 5.5 is outperforming rival models like Fable and GPT6 Astra at a fraction of the cost, and frames the video as worth attention for both newcomers and veterans of Claude Code.</p>
+        <p>The first three tips set the tone. Opus 5.5 works well with how you already use Claude, but it behaves differently in three ways: it works longer on its own, it tells you plainly what it did, and it thinks before every reply. So the first move is to hand over the whole task with an explicit done state and clear stop-and-ask conditions, then let it go to work instead of going back and forth with small messages. His example prompt: &quot;migrate the payment endpoints; done means every endpoint uses the new client, the old client is deleted, the test suite passes; stop and ask me only if a test fails for a reason you can&#x27;t explain.&quot;</p>
+        <p>The second tip is to delete every &quot;think carefully&quot; or &quot;think step by step&quot; line from your CLAUDE.md and working files. Opus 5.5 already thinks before every reply, so those lines just add tokens — Anthropic&#x27;s own testing showed replies start sooner with no clear quality drop. For a quick answer to a simple question, just say so, and if you want to change how much the model thinks, use the effort slider instead.</p>
+        <p>The third tip is one he says most people skip: when a long run ends, read what it needs from you first. That&#x27;s how you learn to build with the model — by reading and responding.</p>
+        <p>The rest of the playbook is about keeping long runs efficient. You can inject follow-ups into a running task — type while Claude is working and hit enter — instead of waiting and re-sending context, which just increases tokens and cost. For design work, name the styles you don&#x27;t want rather than saying &quot;avoid a generic look,&quot; which merely swaps one default for another: no real words in headings, no numbered section labels, no monospace labels, no pill-shaped buttons.</p>
+        <p>Put a stop/ask rule in CLAUDE.md so long sessions don&#x27;t stall: keep going when a step doesn&#x27;t need input, put status notes in the same message as the next step, and only stop when it can&#x27;t continue without you or before destructive actions like deleting data, force pushing, or changing public APIs. Split big tasks across subagents — faster and fewer tokens. And keep the task list in a file like tasks.md, updated as it goes, so it survives context compaction and shows at a glance what&#x27;s done and what&#x27;s left.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>How much of the playbook&#x27;s payoff is specific to Opus 5.5&#x27;s longer autonomous runs versus habits that were already good practice on earlier Claude models?</li>
+<li>Which of these tips — the done-state framing, the stop/ask rule, the task-list file — actually moves the needle on token cost in real long sessions, and which are mostly comfort?</li>
+<li>What does Anthropic&#x27;s testing actually say about when the effort slider beats prompt-based reasoning control, and where does the slider fall short?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> * This summary is grounded in the video&#x27;s full verbatim transcript, taken from YouTube&#x27;s &quot;Show transcript&quot; panel (English caption track) and captured live 2026-09-23 ~19:39 PDT via a live browser task. The captions carry auto-caption quirks, corrected where the meaning is unambiguous: &quot;Quad&quot; reads Claude, &quot;cloud code&quot; reads Claude Code, &quot;sub aents&quot; reads subagents, and &quot;tasks.mmd&quot; reads tasks.md. The video description marks the video as auto-dubbed; the transcript used here is the English track. Duncan Rogoff links Anthropic&#x27;s official Opus 5.5 tips in the video description. Note: this video overlaps with the claude.dev playbook article — the two pieces were commissioned together as a pair.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#ai-coding-rate-limits-cole-medin">&larr; AI Coding Rate Limits are RIDICULOUS Now - Here&#x27;s How You Keep Scaling Anyway</a>
+        <a class="to-index" href="2026-09-23.html" data-route="index">All summaries</a>
+        <a class="next" href="#getting-the-most-out-of-opus-55-claude-dev">Getting the Most Out of Opus 5.5 in Claude and Claude Code &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="getting-the-most-out-of-opus-55-claude-dev" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-23.html" data-route="index">&larr; September 23, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Getting the Most Out of Opus 5.5 in Claude and Claude Code — September 23, 2026 <span class="dur">&middot; ~4.5 min</span></p>
+        <audio controls preload="none" src="podcasts/getting-the-most-out-of-opus-55-claude-dev.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/getting-the-most-out-of-opus-55-claude-dev.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>claude.dev (Addy Osmani)</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://claude.dev/blog/getting-the-most-out-of-opus-5-5/" target="_blank" rel="noopener noreferrer">Read the piece</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; coding &middot; claude-code</p>
+        <h2>Getting the Most Out of Opus 5.5 in Claude and Claude Code</h2>
+        <p class="dek">Addy Osmani’s official guide to Opus 5.5 in Claude and Claude Code: hand over the whole task in one message, steer long runs, fan out audits — and mind the flagged-message safety net.</p>
+        <div class="body-copy">
+        <p>Addy Osmani&#x27;s &quot;Getting the most out of Opus 5.5 in Claude and Claude Code,&quot; published on Anthropic&#x27;s developer blog on September 22, is the official field manual for the new model. Its thesis is simple: Opus 5.5 works well with the habits you already have, but three things behave differently. It works for longer on its own, it tells you plainly what it did, and it thinks before every reply — so a few old prompting reflexes are now counterproductive.</p>
+        <p>The guide opens with three things to try in your first session. Hand over the whole task in one message, naming what &quot;done&quot; looks like and when the model should stop and ask, then let it cook. Delete &quot;think carefully&quot; and &quot;think step by step&quot; lines from your prompts and saved instructions — Opus 5.5 always decides how much to think on its own, and removing those lines made replies start sooner with no clear drop in quality in Anthropic&#x27;s testing. And when a long run ends, read what it needs from you first: the model&#x27;s final summaries now name decisions it left open or changes it wants approved, in plain language.</p>
+        <p>A lot of the piece is about steering long runs in Claude Code. Opus 5.5 keeps going on multi-step work better than Opus 5 — early testers had it run long coding tasks for hours with little oversight — which means a restart costs more. The recommended fix is a short CLAUDE.md rule naming when to keep going and when to stop and ask, with a standing stop before anything destructive like deleting data, force-pushing, or changing anything outside the repository. Keep permission prompts on for destructive commands even so.</p>
+        <p>For big audits and migrations, the guide says to fan the work out: ask Opus 5.5 to give each service its own subagent and check each result&#x27;s evidence before accepting it. And for any run that will take a while, have the model keep its task list in a file like TASKS.md — a checklist in a file survives the context-window summarization that eats long scrollbacks, and it shows at a glance what&#x27;s done and what&#x27;s left. For pair programming, the opposite steering works: a one-line plan before it starts and a short recap at the end. The model follows either.</p>
+        <p>The checking section is where the guide gets pointed. Ask Opus 5.5 to review a diff or pull request before a person does — one early tester said it caught more bugs at its lowest effort than Opus 5 at high effort, with fewer false alarms. For research, ask it to mark anything it couldn&#x27;t confirm and say where it looked; &quot;I couldn&#x27;t find this&quot; is worth reading, and asking makes it easy to find. The CLAUDE.md line &quot;End every run with three headings: Blocked on me, Changed, Found&quot; lets you shape its reports.</p>
+        <p>In Claude apps, the advice leans on the model&#x27;s sharper eyes: attach the chart, diagram, or screenshot itself rather than retyping numbers — Opus 5.5 reads them more accurately than Opus 5 and handles layout-dependent meaning, like which boxes an arrow connects. It caught a date on the wrong weekday in a long planning thread and a chart that didn&#x27;t match its deck&#x27;s numbers in testing. And when you want a spreadsheet or a document, ask for the finished file, not an outline; the outputs need less editing before you share them.</p>
+        <p>There&#x27;s a new section worth reading on its own: when a message is flagged. Opus 5.5 is the first Opus model to launch with Fable-level bio and cyber safeguards, and most flagged messages quietly move the conversation to an older model. The guide tells you what the &quot;Switched to&quot; notice looks like, how to switch back (model picker, or /model in Claude Code), and how to be asked first instead of switched (Settings → Capabilities, or /config in Claude Code). One caution: don&#x27;t ask it to reproduce its internal reasoning in the reply — that&#x27;s one of the flag categories.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>first, the guide leans on early-tester anecdotes for the big claims — hours of unsupervised coding, more bugs caught at lowest effort — so how much of the steering advice survives contact with a messy real-world repo where tests are flaky and &quot;done&quot; is a judgment call?</li>
+<li>Second, the &quot;let it run&quot; philosophy pushes a lot of trust onto the CLAUDE.md stop-rule; is that rule enough of a guardrail for destructive operations in a production codebase, or does the permission-prompt safety net end up doing the real work?</li>
+<li>Third, fast mode arrives as a research preview at higher per-token cost — for back-and-forth work, is the latency win worth the meter, or does standard mode stay the default for anything that isn&#x27;t time-critical?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> this summary is grounded in the full article text fetched from https://claude.dev/blog/getting-the-most-out-of-opus-5-5/ on September 23, 2026 via browser fetch (complete, 345 lines). Author Addy Osmani and publish date September 22, 2026 come from the page&#x27;s meta tags; no byline is rendered in the article body, which closes with a thanks to reviewer Molly Vorwerck. No corrections to the fetched text were needed.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#how-anthropic-engineers-actually-use-claude-opus-5-5">&larr; How Anthropic Engineers Actually Use Claude Opus 5.5</a>
+        <a class="to-index" href="2026-09-23.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -423,7 +671,13 @@
   <script>
     (() => {
       const TITLES = {
-      "nemotron-3-diarization-sam-witteveen": "Nemotron 3 Diarization - Who Said That?"
+      "nemotron-3-diarization-sam-witteveen": "Nemotron 3 Diarization - Who Said That?",
+      "anthropic-actually-fixed-opus-theo": "Anthropic Actually Fixed Opus",
+      "opus55-vs-gpt6-astra-nate-herk": "I Tested Opus 5.5 vs. GPT-6 Astra on 12 Real Use Cases",
+      "gpt6-sol-bijan-bowen": "GPT-6 Sol Is VERY GOOD – Is THIS an Opus 5.5 Competitor?",
+      "ai-coding-rate-limits-cole-medin": "AI Coding Rate Limits are RIDICULOUS Now - Here's How You Keep Scaling Anyway",
+      "how-anthropic-engineers-actually-use-claude-opus-5-5": "How Anthropic Engineers Actually Use Claude Opus 5.5",
+      "getting-the-most-out-of-opus-55-claude-dev": "Getting the Most Out of Opus 5.5 in Claude and Claude Code"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
