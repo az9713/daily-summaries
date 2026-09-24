@@ -364,7 +364,7 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; September 24, 2026</p>
-        <h1>Six summaries, distilled.</h1>
+        <h1>Seven summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -376,6 +376,7 @@
 <a class="card" href="#design-engineering-maggie-appleton-pragmaticengineer"><span class="num">04</span><span><span class="card-title">Design Engineering with Maggie Appleton</span><span class="card-byline">The Pragmatic Engineer</span></span></a>
 <a class="card" href="#jev-use-cases-matthew-berman"><span class="num">05</span><span><span class="card-title">8 Jev Use Cases That Feel Like Cheating</span><span class="card-byline">Matthew Berman</span></span></a>
 <a class="card" href="#vast-data-hallak-mad"><span class="num">06</span><span><span class="card-title">Who Feeds the GPUs? Inside AI&#x27;s Hidden $30B Layer | Renen Hallak, VAST Data</span><span class="card-byline">The MAD Podcast (Matt Turck)</span></span></a>
+<a class="card" href="#patrick-collison-claude-code-stripe"><span class="num">07</span><span><span class="card-title">Patrick Collison on Claude Code at Stripe</span><span class="card-byline">Claude</span></span></a>
         </div>
       </nav>
     </section>
@@ -641,6 +642,50 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#jev-use-cases-matthew-berman">&larr; 8 Jev Use Cases That Feel Like Cheating</a>
         <a class="to-index" href="2026-09-24.html" data-route="index">All summaries</a>
+        <a class="next" href="#patrick-collison-claude-code-stripe">Patrick Collison on Claude Code at Stripe &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="patrick-collison-claude-code-stripe" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-24.html" data-route="index">&larr; September 24, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Patrick Collison on Claude Code at Stripe — September 24, 2026 <span class="dur">&middot; ~4.8 min</span></p>
+        <audio controls preload="none" src="podcasts/patrick-collison-claude-code-stripe.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/patrick-collison-claude-code-stripe.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Claude</dd></div>
+        <div><dt>Published</dt><dd>September 24, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=S_lzYIvtEaQ" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; coding &middot; interviews</p>
+        <h2>Patrick Collison on Claude Code at Stripe</h2>
+        <p class="dek">Stripe CEO Patrick Collison sits down with Claude Code creator Boris Cherny on how Stripe ships at five and a half nines with AI writing most of its code — and what an agent-to-agent economy means for payments.</p>
+        <div class="body-copy">
+        <p>On the official Claude channel, Stripe CEO Patrick Collison sits down with Boris Cherny, the creator of Claude Code, for an 18-minute conversation about how Stripe builds with Claude Code. It&#x27;s a dense tour of what happens when one of the most reliability-obsessed companies in tech lets agents loose on its codebase.</p>
+        <p>Collison opens with a small, telling anecdote: at home, he installed a weather station, and with Claude he designed a multimodal model from scratch that now predicts afternoon weather better than the National Weather Service. That vignette sets the frame — this isn&#x27;t about experiments, it&#x27;s about production.</p>
+        <p>Stripe runs its core APIs at five and a half nines of reliability, which in most of financial services would mean deploying once a month or once a quarter. Collison calls that tradeoff untenable. The whole point of Stripe&#x27;s development process is getting customer feedback multiple times a day, so the company invested in end-to-end quality assurance instead: every engineer works on throwaway devboxes — Claude Code pre-installed on each one — and deployment rolls out progressively, a handful of machines first, then one percent, then wider.</p>
+        <p>The numbers he shares are striking. About 55 percent of Stripe&#x27;s pull requests now begin as a prompt to Minions, Stripe&#x27;s internal tool for orchestrating Claude Code on disposable VMs from a Slack message or web prompt. One engineer Collison spoke with that morning had more than 600 pull requests merged in the first half of the year — every single one AI-written, and exactly one needed reverting. Quality per pull request is up over the last 18 months. The one honest caveat: incidents per unit time are up slightly, though they&#x27;re mostly minor and the secondary catching mechanisms keep total reliability essentially unchanged.</p>
+        <p>The deeper lesson is about guardrails as infrastructure. Collison argues you can&#x27;t rely on the model being aligned; you need hard barriers, not probabilistic ones. Stripe started investing in semantically aware data guardrails and granular permissioning back in 2017, for plain security reasons — which accidentally put it in a perfect position for the agentic era. And, he notes, Claude turns out to be great at writing guardrails too. His equilibrium guess: AI ends up substantially defense-advantaging within a couple of years.</p>
+        <p>He gives one concrete shipping story. Inspired by Claude Code itself, a two-to-three person team built Stripe Projects — a way for agents to instantly set up accounts with partner services — from first idea to public launch in about two months, integrating roughly 50 third-party services. The engineer&#x27;s estimate for the old world: a bigger team and six months. That&#x27;s roughly a sixfold change, and even a pessimistic twofold improvement across all of Stripe&#x27;s work would, in his words, be a preposterously large deal.</p>
+        <p>On code quality, he pushes back on the slop narrative. Stripe is undertaking more architecture and codebase improvement projects, not fewer, and there&#x27;s a line around the company: every codebase is now the prompt for another codebase. His bet is that code quality at Stripe will be higher in three years, not lower. The really interesting idea he floats is the fluidity between tokens and infrastructure — teams can spend model output writing product code, or infrastructure, or guardrails, and the intermediary uses are often the most powerful.</p>
+        <p>His own workflow changed this year: plan heavily with the smartest model, then dispatch ten devboxes with agents executing different parts of the plan for a day or more. His graveyard of started-but-never-finished projects is gone — shower thoughts now get translated into existence at a far higher rate, and the returns to being curious are much higher.</p>
+        <p>The macro data is the most surprising part. At Y Combinator talks, Cherny now asks who writes 100 percent of their code with AI — about 70 percent of hands go up. Stripe&#x27;s own firm-creation data shows the biggest acceleration in new business creation it&#x27;s ever seen, roughly a factor of two, outstripping even March 2020. Average revenue per new business is going up, not down, and companies hitting revenue thresholds are up substantially. Collison reads this as evidence against the fear that AI centralizes the economy: more firms, likelier to succeed, growing faster.</p>
+        <p>The closing thread is Stripe&#x27;s product future: a world where most transactions have agents as counterparties on both sides, within about three years. How does an agent sign up for Stripe? Is MCP enough? What should the CLI do? How do agents pay each other, and in what currency? He expects a whirling vortex of small agent-to-agent payments — not necessarily most of the dollar volume, but most of the transaction count.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Will code quality really be higher in three years, or will the &quot;incidents per unit time are slightly up&quot; trend compound once AI is writing effectively everything?</li>
+<li>How portable is Stripe&#x27;s formula? The guardrails-as-infrastructure moat took nearly a decade of tagging and permissioning work — can other companies buy their way to it, or does that multi-year lag decide who survives the agentic transition?</li>
+<li>In the agent-to-agent economy Collison describes, who handles identity, fraud, and disputes when both sides of most transactions are machines?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full verbatim transcript of &quot;Patrick Collison on Claude Code at Stripe&quot; (Claude channel, 17:49), pulled from YouTube&#x27;s &quot;Show transcript&quot; panel on September 24, 2026, the day it was published. The transcript is YouTube&#x27;s auto-generated captioning; minor filler-word and punctuation artifacts are inherent. The video&#x27;s description notes it is auto-dubbed (machine-generated audio tracks for some languages). No other sources were used.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#vast-data-hallak-mad">&larr; Who Feeds the GPUs? Inside AI&#x27;s Hidden $30B Layer | Renen Hallak, VAST Data</a>
+        <a class="to-index" href="2026-09-24.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -657,7 +702,8 @@
       "grok47-doesnt-make-sense-bmdavis419": "Grok 4.7 Doesn't Make Much Sense",
       "design-engineering-maggie-appleton-pragmaticengineer": "Design Engineering with Maggie Appleton",
       "jev-use-cases-matthew-berman": "8 Jev Use Cases That Feel Like Cheating",
-      "vast-data-hallak-mad": "Who Feeds the GPUs? Inside AI's Hidden $30B Layer | Renen Hallak, VAST Data"
+      "vast-data-hallak-mad": "Who Feeds the GPUs? Inside AI's Hidden $30B Layer | Renen Hallak, VAST Data",
+      "patrick-collison-claude-code-stripe": "Patrick Collison on Claude Code at Stripe"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
