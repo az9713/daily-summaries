@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries &mdash; September 24, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    </style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Thursday &middot; September 24, 2026</p>
+        <h1>Two summaries, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+<a class="card" href="#nvidia-cosmos-world-models-nate-jones"><span class="num">01</span><span><span class="card-title">NVIDIA Doesn&#x27;t Just Build Chips Anymore. It Builds The Brain Inside The Robot.</span><span class="card-byline">AI News &amp; Strategy Daily | Nate B Jones</span></span></a>
+<a class="card" href="#system1-vs-system2-prompt-engineering"><span class="num">02</span><span><span class="card-title">When to Use System 1 vs System 2 Models</span><span class="card-byline">Prompt Engineering</span></span></a>
+        </div>
+      </nav>
+    </section>
+    <section class="article-view" id="nvidia-cosmos-world-models-nate-jones" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-24.html" data-route="index">&larr; September 24, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">NVIDIA Doesn&#x27;t Just Build Chips Anymore. It Builds The Brain Inside The Robot. — September 24, 2026 <span class="dur">&middot; ~4.9 min</span></p>
+        <audio controls preload="none" src="podcasts/nvidia-cosmos-world-models-nate-jones.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/nvidia-cosmos-world-models-nate-jones.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>AI News &amp; Strategy Daily | Nate B Jones</dd></div>
+        <div><dt>Published</dt><dd>September 24, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=ry9J1i3krIY" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; robotics &middot; nvidia</p>
+        <h2>NVIDIA Doesn&#x27;t Just Build Chips Anymore. It Builds The Brain Inside The Robot.</h2>
+        <p class="dek">Nate Jones interviews Ming Yu, NVIDIA’s Cosmos world-models lead, on how world models give robots physical common sense — and why NVIDIA thinks of itself as a developer company that happens to build computers.</p>
+        <div class="body-copy">
+        <p>NVIDIA&#x27;s Cosmos World Models — Interview with Ming Yu</p>
+        <p>A world model is a model that produces actions the way large language models produce text. Where an LLM writes &quot;pick up the water bottle,&quot; a world model issues the guidance that moves the robot arm to actually do it. Jones opens with a mundane example of his own: his robot lawn mower carries a tiny world model that simply decides where the mower goes next.</p>
+        <p>Yu started at NVIDIA ten years ago as a generative researcher, when telling the chief scientist that AI would replace computer graphics for visual content sounded controversial — the AI humans of that era looked like zombies. The scale-up since has been, in his words, super-exponential: AI now generates the bulk of new visual content.</p>
+        <p>NVIDIA, he says, is a developer company that happens to build computers, not a hardware company that happens to write software. It has more software engineers than hardware engineers. Building layers of software on top of the hardware — CUDA, libraries, and now models — both serves developers and teaches NVIDIA what computer architectures the future will need. That is the vertical strategy behind Cosmos.</p>
+        <p>Babies build a model of the world before they have language, and that is the intuition behind world models: some tasks need understanding what happened, predicting what will happen next, or navigating space. The Cosmos platform targets physical AI — self-driving cars, robots, factory orchestration — with three fused capabilities: world understanding (did the worker follow the safety protocol?), world simulation (what does the self-driving car&#x27;s policy see when the pallet falls over?), and world action. In June&#x27;s Taipei keynote, Cosmos 3 combined all three into a single model sharing one underlying representation of the same world.</p>
+        <p>Real-time constraints shaped the architecture directly. Cosmos 3 ships in three sizes — Super, Nano, and H, the smallest of which is meant to run in real time on embedded devices like Jetson Thor and the DGX Spark, one model living where the robot lives. The largest, Super, targets frontier performance in the data center. For navigation you cannot wait; for higher-order reasoning you can be patient. A mix of both is the answer.</p>
+        <p>On scaling laws, Yu sees data scaling, model-size scaling, and something more interesting: test-time scaling. The more detailed the description of the simulated scene — second-by-second robot motion, joint angles, even pixel color — the better the generation. A reasoner component expands a short instruction into that rich description automatically. Agent scaling — multiple models and tools in a harness — is a fourth dimension. One open gap remains: can the model discover that a dropped bottle accelerates at 9.8 meters per second squared from observation alone? Yu is honest: models approximate physics through data, improved with synthetic data from physics engines, but no — they have not figured it out yet. The mimicking, though, is already good enough for real applications.</p>
+        <p>Two of his favorite uses: policy verification — rolling out driving policies inside a world model to score success rates before sending them to a real fleet — and the Cosmos model itself as a policy model, which has shown strong pick-and-place results. A policy model, for the newcomer, is an AI that controls a physical device: given a text command and visual input, it emits a trajectory — a vector through space and time — and re-plans continuously as the world changes.</p>
+        <p>The future is agentic, Yu says, in physical AI as it is in software. Both next-token prediction and diffusion-style denoising decompose hard problems into small steps solved one at a time, and that decomposition is what makes agents scalable. But efficiency will force specialization: you cannot put a supercomputer inside a tiny robot, and data-center batching does not exist in the field. That is also why he argues programmability still matters — the GPU case.</p>
+        <p>Jones floats the idea of robot skills as recipe cards, like the software skills that let agents do reliable tasks. Yu agrees it is the right mental model, but says the physical equivalent of a skill file is still to come — verification is the bottleneck. In digital AI you verify with a computer in seconds; in physical AI you need a world model to trade compute for development velocity. Instead of building a thousand kitchens, you build a thousand kitchens inside the world model.</p>
+        <p>That leads to the video&#x27;s punchline question: will a home robot fold laundry correctly before it cooks perfect scrambled eggs? Yes. Laundry is visually verifiable — did the fold match the instruction? Food quality needs a human to eat it. Verifiable reward is how fast coding agents advanced, and the domains that can be simulated will evolve fastest.</p>
+        <p>Yu closed on NVIDIA&#x27;s model families — Nemotron for language and coding, Cosmos for world models, plus self-driving and healthcare-focused families — and on openness. APIs are fine, he said, but you cannot learn from a black box; NVIDIA is a developer company, so open models empower developers to build. His most surprising recent data point was Astra, a 3D world-generation achievement from just weeks earlier: with a verifiable reward loop — generate a Blender scene, render it, check it against the description — a handful of researchers unlocked capability nobody expected.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>First, if the reasoner component can already introspect its own representations, how far is a genuine answer to &quot;does the model know the physics&quot; — and what would count as proof?</li>
+<li>Second, which hard-to-verify domains — the scrambled eggs of the world — get unlocked first, and is the missing ingredient better simulation or better sensors?</li>
+<li>Third, as world models fuse understanding, simulation, and action into one representation, how long before the policy model and the simulator stop being two products and become one continuous loop?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s auto-generated captions, captured September 24, 2026 at approximately 8:45 a.m. PDT directly from YouTube&#x27;s &quot;Show transcript&quot; panel (full 46:17 panel text, copied verbatim). Auto-caption renderings were corrected against the conversation&#x27;s context: &quot;war model&quot; → world model, &quot;media&quot; → NVIDIA, &quot;dig spark&quot; → DGX Spark, &quot;Neotron/neimotang&quot; → Nemotron, garbled self-driving and healthcare family names paraphrased rather than quoted, &quot;GBD&quot; → GPT, &quot;mu&quot; → Ming Yu. The captions briefly rendered a different tab title on load (&quot;When Will AI Make Me Scrambled Eggs? I Went To NVIDIA To Find Out.&quot;); the page heading consistently showed the title used here. No other sources were used.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-09-24.html" data-route="index">All summaries</a>
+        <a class="next" href="#system1-vs-system2-prompt-engineering">When to Use System 1 vs System 2 Models &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="system1-vs-system2-prompt-engineering" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-24.html" data-route="index">&larr; September 24, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">When to Use System 1 vs System 2 Models — September 24, 2026 <span class="dur">&middot; ~6.2 min</span></p>
+        <audio controls preload="none" src="podcasts/system1-vs-system2-prompt-engineering.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/system1-vs-system2-prompt-engineering.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Prompt Engineering</dd></div>
+        <div><dt>Published</dt><dd>September 24, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=S4efgdWLvIc" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; reasoning</p>
+        <h2>When to Use System 1 vs System 2 Models</h2>
+        <p class="dek">Prompt Engineering borrows Kahneman’s System 1 / System 2 frame to answer when a one-shot model is enough: if the answer is visible in one look, use System 1 — if the model needs more than a few chained steps, bring in the thinker.</p>
+        <div class="body-copy">
+        <p>Prompt Engineering — &quot;When to Use System 1 vs System 2 Models&quot;</p>
+        <p>With the release of JEV, a model family built around single-shot inference, everyone is talking about System 1 and System 2 models — but the actual distinction is widely misunderstood. This episode of Prompt Engineering clears it up with a concrete experiment, and turns the answer into a practical selection rule: count the steps the problem needs.</p>
+        <p>The terms come from Daniel Kahneman&#x27;s Thinking, Fast and Slow. System 1 is the part of you that answers on autopilot — you see a face and just know it&#x27;s angry. System 2 is the part that works things out step by step, like doing mathematics, where you have to hold onto intermediate results along the way. In a model, System 1 is a single forward pass: the input goes through a fixed stack of layers exactly once. A good mental model is that it&#x27;s one look at a problem — whatever the model can work out in that one look, it has to answer that. JEV is built around exactly this idea: text goes in, one pass runs, and you get back probabilities or one of the allowed answers. It&#x27;s architecturally unable to hallucinate — it can only pick from the answers you provide — but that also means it can be confidently wrong.</p>
+        <p>To make the difference concrete, the video sets up a small puzzle: a list of who manages who at a small company, three separate reporting chains, facts shuffled so you can&#x27;t just read down the list. The question: start at Mo, go four managers up — who do you end at? Two models were tested. JEV answers almost instantly, without writing anything down: Eli. Qwen 3.8 with thinking turned on writes out its chain of thought and answers Gus — which is correct.</p>
+        <p>Here&#x27;s the twist: JEV wasn&#x27;t guessing. Eli is exactly three levels up from Mo. It was on the right track but stopped one step short, and that missing step is the real difference between the two systems. System 2 is not a different kind of brain or a different architecture — it&#x27;s the same stack of layers run in a loop. Each time around, the model writes one step down and reads that step back on the next pass. That&#x27;s what chain of thought really is: every step creates a result that didn&#x27;t exist before, and the next step builds on it. In the example, the first pass writes &quot;Mo&#x27;s manager is Tia,&quot; the next pass reads Tia and finds Tia&#x27;s manager. Each step manufactures an intermediate result the way you hold a partial product when multiplying 17 by 24.</p>
+        <p>The reason this matters goes deeper than intuition. There&#x27;s a paper showing that checking whether two points in a graph are connected is provably out of reach for a transformer that has to answer straight away — and a manager chain is exactly that kind of problem. That&#x27;s why the one-look model fails at it. The missing step isn&#x27;t a matter of the model being &quot;less smart&quot;; it&#x27;s structural.</p>
+        <p>The experiment gets better when the chains get longer. JEV, Qwen with thinking off, and Qwen with thinking on all got the same one-step version right — that&#x27;s a simple lookup. But as soon as a second step is needed, both one-look models start to slip, and a few steps in they&#x27;re getting almost nothing right. The thinking model stays near perfect the whole way; the only thing that grows is its notes. Notably, the model isn&#x27;t getting smarter by thinking longer — it&#x27;s just taking more steps with notes.</p>
+        <p>Then comes the most interesting pattern. Looking at where JEV&#x27;s wrong answers landed, most were not random. Whether the question asked for two, three, or four levels up, its most common answer was the person three levels up. It walks up the right chain and runs out at about the same place almost every time. From the outside, that&#x27;s what one look&#x27;s reach looks like — it gets you about this far and no further. What&#x27;s inside JEV is closed, so the exact reason for the limit is unknown, but the behavioral signature is consistent.</p>
+        <p>None of this makes System 1 weaker — it&#x27;s the right tool whenever the answer is visible in one look. Ticket triage (&quot;is this ticket about billing? is it urgent? does it mention food?&quot;) is the canonical case: you can ask a one-look model lots of questions about one simple input at once, and that&#x27;s where JEV genuinely excels. Where it slips is when you hand it a question that secretly needs steps. Kahneman calls this substitution: System 1 quietly answers an easier question instead. A hard phishing-detection dataset showed this exactly — JEV performed no better than a coin flip, because it was really answering &quot;does this look like phishing?&quot; When the same problem was broken into smaller per-feature questions (with the model examining one specific feature at a time and the answers combined in code), accuracy jumped significantly.</p>
+        <p>There&#x27;s one more signal JEV provides with every answer: a confidence score. On the chain questions, its confidence dropped right along with its accuracy as the chains got too deep. That&#x27;s exactly how Kahneman describes the two systems working together — System 1 answers first, then System 2 steps in when something feels off. That suggests a hybrid architecture: a one-look model answers everything, and anything below a confidence threshold gets handed to a thinking model — for example, tool calls in an agentic harness, where System 1 makes the tool calls and only the uncertain ones go back to System 2 for a closer look. One caveat: the confidence score is a scaled probability, not the model&#x27;s actual self-assessed confidence, so any application should have its threshold fine-tuned before deployment.</p>
+        <p>The final selection rule is simple. Count the number of steps the model would need to reach the answer. If the answer is visible in one look, that&#x27;s System 1. If you need a result that doesn&#x27;t exist yet and the model has to create results across multiple steps, that&#x27;s System 2 — or you break the question into one-look pieces yourself and combine them in code. The next video in the series will build this into an agent: the thinking model handles the planning, JEV handles the hundreds of small decisions in between. The code for the chain tests is in the video description, so you can probe for yourself how far a System 1 model really reaches.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>First, what determines the exact reach of one look — is &quot;about three hops&quot; a property of this model family, the task framing, or something more fundamental about single-pass architectures?</li>
+<li>Second, how well do confidence-threshold hybrids actually hold up in production, given that the confidence score is just a scaled probability — can the threshold be trusted under distribution shift?</li>
+<li>Third, which real agentic workloads decompose cleanly into one-look pieces, and which resist decomposition because the sub-steps can&#x27;t be combined deterministically in code?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full verbatim transcript of the YouTube video &quot;When to Use System 1 vs System 2 Models&quot; (Prompt Engineering, published September 24, 2026), captured 2026-09-24 ~08:45 PDT from the video&#x27;s &quot;Show transcript&quot; panel. The captions were auto-generated with phonetic mis-renderings; names corrected for the summary were: JEV (&quot;Jev/Jeff/Jeel&quot;), Qwen 3.8 (&quot;Quent/Quinn 3.8&quot;), Daniel Kahneman (&quot;Daniel&#x27;s Kahman&quot;), phishing (&quot;fishing&quot;), and the chain names Mo, Eli, Gus, Tia. No other sources were used; details not stated in the transcript (such as JEV&#x27;s internals) are flagged as unknown.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#nvidia-cosmos-world-models-nate-jones">&larr; NVIDIA Doesn&#x27;t Just Build Chips Anymore. It Builds The Brain Inside The Robot.</a>
+        <a class="to-index" href="2026-09-24.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated September 23, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "nvidia-cosmos-world-models-nate-jones": "NVIDIA Doesn't Just Build Chips Anymore. It Builds The Brain Inside The Robot.",
+      "system1-vs-system2-prompt-engineering": "When to Use System 1 vs System 2 Models"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' \u2014 Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+</body>
+</html>
