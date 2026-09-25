@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries &mdash; September 25, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    </style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Friday &middot; September 25, 2026</p>
+        <h1>Three summaries, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#ai-news-opus55-gpt6-sol-lipsky"><span class="num">01</span><span><span class="card-title">Big AI News: Opus 5.5 vs GPT-6 Sol, NotebookLM Updates, Muse Charm &amp; More!</span><span class="card-byline">Paul J Lipsky</span></span></a>
+        <a class="card" href="#ai-news-500-chatgpt-pro-max-brock-mesarich"><span class="num">02</span><span><span class="card-title">AI News: $500 ChatGPT Plan? OpenAI Agent Leak &amp; Opus 5.5</span><span class="card-byline">Brock Mesarich | AI for Non Techies</span></span></a>
+        <a class="card" href="#youtube-updates-made-on-youtube-2026-think-media"><span class="num">03</span><span><span class="card-title">BREAKING: YouTube Just Announced Huge Changes</span><span class="card-byline">Think Media</span></span></a>
+      </div>
+      </nav>
+    </section>
+    <section class="article-view" id="ai-news-opus55-gpt6-sol-lipsky" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-25.html" data-route="index">&larr; September 25, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Big AI News: Opus 5.5 vs GPT-6 Sol, NotebookLM Updates, Muse Charm &amp; More! &mdash; September 25, 2026 <span class="dur">&middot; ~6.3 min</span></p>
+        <audio controls preload="none" src="podcasts/ai-news-opus55-gpt6-sol-lipsky.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/ai-news-opus55-gpt6-sol-lipsky.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Paul J Lipsky</dd></div>
+        <div><dt>Published</dt><dd>September 25, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Q6uuvZmb0t8" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI · news</p>
+        <h2>Big AI News: Opus 5.5 vs GPT-6 Sol, NotebookLM Updates, Muse Charm &amp; More!</h2>
+        <p class="dek">Lipsky pits Opus 5.5 against GPT-6 Sol in writing and design bake-offs, then rounds up the week in NotebookLM, Grok, Muse, and ChatGPT updates.</p>
+        <div class="body-copy">
+        <p>Paul J Lipsky&#x27;s weekly AI news recap for September 25, 2026 leads with a rare same-day showdown: Anthropic&#x27;s Claude Opus 5.5 and OpenAI&#x27;s GPT-6 Sol launched within hours of each other, and Lipsky spent the week testing both side by side on his real production work.</p>
+        <p>The writing test asked both models to script a YouTube video with browser research and no access to his notes. GPT-6 Sol finished first, in about a minute and a half to Opus 5.5&#x27;s two-plus minutes, and it costs half as much per API token. But speed and price lost to prose. Opus 5.5&#x27;s script told a clearer, better-paced story, while GPT-6 Sol&#x27;s felt jumpy. After a week of writing with it, Lipsky calls Opus 5.5 the best writing model he has ever used — the most humanlike, the best at matching his voice — even if it still sounds like AI.</p>
+        <p>The design test was a blind motion-graphics bake-off against Fable 5.1, his longtime graphics workhorse. GPT-6 Sol came in last by a wide margin. Fable 5.1 took first, but Opus 5.5 was a close second — close enough and cheap enough that Lipsky expects it to take over most of his design work. The video-editing test was the most lopsided: both models plugged into his AI editor to cut silences and bad takes and add zooms and highlights. Opus 5.5 nailed the layout, zoom positions, and highlighting; GPT-6 Sol chose a bizarre full-screen layout, zoomed on the wrong spots, and took fifteen and a half minutes to Opus 5.5&#x27;s seven and a quarter — the reverse of their usual speed relationship.</p>
+        <p>Lipsky&#x27;s verdict is blunt. Opus 5.5 is his new go-to model and, price and speed factored in, the best model available right now — even ahead of Fable 5.1. GPT-6 Sol, meanwhile, he calls a disappointment: somehow worse than GPT 5.6 Sol on some tasks. Opus 5.5 also redeems the Opus line itself; he found Opus 5 so weak he never used it after testing it.</p>
+        <p>Beyond the showdown, Google had a packed week. Gemini Notebook gained live voice chat with notebooks (Ultra subscribers first, other paid plans to follow), notebooks as citable sources inside Google Docs via the @ menu, and a new &quot;interactive report&quot; format that embeds generated assets — infographics, slide decks, mind maps, quizzes — directly in the report. Google also opened pre-orders for a new Google Book laptop built around Gemini Intelligence Everywhere, made Gemini work with thirteen new apps, and released Gemini 3.8 text-to-speech, an expressive speech model aimed at developers that already captures details like microphone plosives.</p>
+        <p>On the xAI side, Grok 4.7 launched as a notable improvement over 4.6 at the same price and speed, though early reactions are split and Lipsky himself hasn&#x27;t formed an opinion. The bigger deal for him is Grok Bot: traffic can now route through your local computer instead of a cloud VM so bots stop getting blocked, and bots gained voice memos plus voice calls — a phone-call-style conversation where each bot gets its own selectable voice and speed.</p>
+        <p>Meta Connect was dominated by Meta Muse, the number-one app in the App Store. New capabilities include a personal email address for each Muse (just CC it on tasks), live video calls with an animated avatar, and — with permission — control of any app on your Mac so it can work through a task list unattended. Meta says Muse will stay essentially free, with paid plans for heavy users; the business model is a cut of transactions your Muse makes. That means a wave of shopping connectors: Walmart, Best Buy, Sephora, Wayfair, Shop Pay, PayPal, Instacart, and Expedia — but not Amazon, which blocked Muse from its site, a move Lipsky calls a colossal mistake. On hardware, Muse is coming to Meta&#x27;s AI glasses over the next few months, there is a camera-free Ray-Ban Meta Audio pair for the camera-shy, and a Tamagotchi-style pocket device called Muse Charm with a fingerprint sensor and a camera for asking questions about what you are looking at.</p>
+        <p>OpenAI rounded out the week with ChatGPT updates: the desktop app now supports any Chrome extension, plugins like Gmail can connect multiple accounts, ChatGPT Voice can use plugins such as email, calendar, and Slack, and ChatGPT can now track your credit score if you let it.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Will Opus 5.5&#x27;s writing and editing edge survive once OpenAI inevitably iterates on GPT-6 Sol — or is this just the launch-week gap?</li>
+<li>How long can Meta keep Muse &quot;basically free&quot; with high usage limits before the transaction-cut model has to carry the cost?</li>
+<li>Will Amazon&#x27;s block on agent shopping backfire as agent-driven purchasing grows, or will it force the industry toward a model where retailers control the agent rails?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s YouTube auto-captions, pulled verbatim from the &quot;Show transcript&quot; panel on 2026-09-25 and corrected for known caption misspellings (GPT-6 Sol, Grok, Grok Bot, xAI, ChatGPT, Ray-Ban). It covers only what Lipsky said and showed in the 26-minute video, including his own benchmark results and opinions; no independent testing or outside sources were added.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="to-index" href="2026-09-25.html" data-route="index">All summaries</a>
+        <a class="next" href="#ai-news-500-chatgpt-pro-max-brock-mesarich">AI News: $500 ChatGPT Plan? OpenAI Agent Leak &amp; Opus 5.5 &rarr;</a>
+      </nav>
+    </section>
+
+    <section class="article-view" id="ai-news-500-chatgpt-pro-max-brock-mesarich" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-25.html" data-route="index">&larr; September 25, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">AI News: $500 ChatGPT Plan? OpenAI Agent Leak &amp; Opus 5.5 &mdash; September 25, 2026 <span class="dur">&middot; ~7.8 min</span></p>
+        <audio controls preload="none" src="podcasts/ai-news-500-chatgpt-pro-max-brock-mesarich.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/ai-news-500-chatgpt-pro-max-brock-mesarich.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Brock Mesarich | AI for Non Techies</dd></div>
+        <div><dt>Published</dt><dd>September 25, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=k5Wo0-FWK3k" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI · news</p>
+        <h2>AI News: $500 ChatGPT Plan? OpenAI Agent Leak &amp; Opus 5.5</h2>
+        <p class="dek">Brock Mesarich on Opus 5.5, the rumored $500 ChatGPT Pro Max tier, a leaked OpenAI &quot;Aeon&quot; agent, new ChatGPT voice mode, and Meta’s Muse Charm keychain.</p>
+        <div class="body-copy">
+        <p>Brock Mesarich&#x27;s Friday AI roundup for September 25 covers a genuinely loaded week: Anthropic&#x27;s Claude Opus 5.5, OpenAI&#x27;s two cheaper GPT-6 models, a Meta keychain AI device, and rumors of a brand-new OpenAI agent platform landing next week.</p>
+        <p>The headline is Claude Opus 5.5, the first model in Anthropic&#x27;s new Claude 5.5 family. It performs at roughly the level of the flagship Fable 5.1 on most work, but costs about 40% less to run than Opus 5. API pricing drops to $4 per million input tokens and $20 per million output tokens, with cached input cheaper too, and it needs less compute to serve.</p>
+        <p>On the benchmarks Anthropic showed, Opus 5.5 beats Fable 5.1 across every listed task — including 66.4 versus 55.8 on agentic coding — and compares well against OpenAI&#x27;s GPT-6 Astra, losing only on business workflows and agentic scientific research. Brock is honest that computer use, the benchmark he watches most, improved only slightly. A code-migration test finished in 9.5 hours versus 12 for Fable 5.1 at 51% lower cost, and a spreadsheet-and-presentation test ran in 63 minutes versus 93 at half the cost.</p>
+        <p>Brock&#x27;s bigger point is that the story here is cost per task, not new capability. A near-flagship model at half the price is a real improvement for everyday work. The change he&#x27;s personally most excited about is communication: Opus 5.5 puts the most important information up front, uses less jargon, and follows the user&#x27;s writing rules. He tested it against Fable 5.1&#x27;s output on his own YouTube analytics and found the new model far easier to read at a glance — bolded key points, a table of video views, and a clear &quot;three things to do today&quot; list. Usage limits also got roomier: higher five-hour limits plus a savable reset for Pro, Max, Team, and seat-based enterprise users.</p>
+        <p>OpenAI answered with GPT-6 Sol and Luna, two cheaper, faster additions to the GPT-6 family alongside Astra. Astra stays the flagship at $10 input / $50 output per million tokens. Sol targets complex coding and professional work at $2 / $10. Luna handles everyday work at scale for $0.10 / $0.50. GPT-6 API prices are roughly halved versus GPT 5.6. All three are available in ChatGPT on paid plans, Codeex on paid plans, and via the API.</p>
+        <p>The title&#x27;s &quot;$500 ChatGPT plan&quot; is a leak, and Brock is careful to say so. A code snippet surfaced by a &quot;testing catalog&quot; account points to a ChatGPT Pro Max tier at $500 per month — pure speculation, but Brock thinks ultra-expensive tiers are inevitable since providers have never gone above $200. As someone who hits the limits of the $200 plan himself, he&#x27;d consider it. He puts the question to viewers: ridiculous pricing, or justified by demand?</p>
+        <p>OpenAI also shipped a new ChatGPT voice mode with plugins, powered by the GPT-6 family. It can reach email, calendar, and Slack across ChatGPT work, web, and mobile, and it&#x27;s rolling out globally. Brock&#x27;s demo pulled his latest Drip email broadcast and its stats — 28.6% open rate, 0.59% click-through — through a Zapier MCP server bridging apps ChatGPT can&#x27;t connect to directly, like Skool, Beehive, and Drip. His honest note: app pulls take 15–20 seconds, noticeably slower than plain conversation.</p>
+        <p>Meta entered the hardware fray with Muse Charm, a physical keychain device running its new MetaMuse personal assistant, announced at a Meta event the day before. Shipping target is December, there&#x27;s no price yet, and Zuckerberg admitted only a couple of prototypes exist. Brock reads it as part of the week&#x27;s theme: personal AI assistants moving onto phones, glasses, and now standalone devices.</p>
+        <p>The assistant theme continues with Grok. A leaked video shows Grok bot running inside a Tesla Cybertruck, managing inbox, calendar, and files. Grok also says it rebuilt customer support around Grok bot: a 175% increase in support tickets handled with no new hires, and roughly 200 hires it claims to have avoided.</p>
+        <p>Two smaller but practical items: the Claude mobile app now supports multiple accounts you can toggle between, and Brock walked through wiring a Neon database as shared memory — a &quot;second brain&quot; — across Claude Code, Codeex, and Grok bot via connectors, so context follows you between agents. He also posted a full tutorial for the viral Migos clip remakes (Sam Altman and Elon Musk rapping) using Higgsfield&#x27;s Genjutsu video model: upload a reference video and character photos, add a simple character-swap prompt, render at 1080p.</p>
+        <p>The biggest rumor is OpenAI&#x27;s &quot;Aeon&quot; agent (spelled A-E-O-N), possibly to be named ChatGPT Orbit. Per a tweet Brock cites, it would be more than a chatbot — its own profile, DMs, and groups designed to compete directly with Grok bot and Meta&#x27;s Muse, launching as early as Thursday or at OpenAI Dev Day, with an entire social layer around it. OpenAI hired the creator of OpenClaw, which Brock assumes is connected. He also hears Anthropic will ship its own Grok bot competitor in the coming weeks. All of this is unconfirmed; his bet is that something real drops next week.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Does the rumored $500 ChatGPT Pro Max tier actually exist, and are enough power users hitting the $200 plan&#x27;s limits to make it real?</li>
+<li>Will OpenAI&#x27;s Aeon agent — and the rumored Anthropic competitor — materialize next week, or is this another leak that fizzles?</li>
+<li>With Opus 5.5 matching Fable 5.1 at roughly half the cost, does the frontier flagship still matter for most work, or does the market now belong to the cheap near-flagships?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s YouTube auto-captions from the &quot;Show transcript&quot; panel, pulled on September 25, 2026, with ASR spelling errors corrected (Anthropic/Claude, Grok bot/Grok, ChatGPT, GPT, Genjutsu, Higgsfield). The Pro Max and Aeon items are leaks and speculation as presented by Brock Mesarich — explicitly unconfirmed — and benchmark figures are Anthropic&#x27;s and OpenAI&#x27;s own as shown in the video, not independently verified. Descriptions, demo steps, and tutorial links are as shown on screen.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#ai-news-opus55-gpt6-sol-lipsky">&larr; Big AI News: Opus 5.5 vs GPT-6 Sol, NotebookLM Updates, Muse Charm &amp; More!</a>
+        <a class="to-index" href="2026-09-25.html" data-route="index">All summaries</a>
+        <a class="next" href="#youtube-updates-made-on-youtube-2026-think-media">BREAKING: YouTube Just Announced Huge Changes &rarr;</a>
+      </nav>
+    </section>
+
+    <section class="article-view" id="youtube-updates-made-on-youtube-2026-think-media" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-25.html" data-route="index">&larr; September 25, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">BREAKING: YouTube Just Announced Huge Changes &mdash; September 25, 2026 <span class="dur">&middot; ~8.6 min</span></p>
+        <audio controls preload="none" src="podcasts/youtube-updates-made-on-youtube-2026-think-media.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/youtube-updates-made-on-youtube-2026-think-media.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Think Media</dd></div>
+        <div><dt>Published</dt><dd>September 25, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=rcFqyWYT1xY" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">YouTube · creator tools</p>
+        <h2>BREAKING: YouTube Just Announced Huge Changes</h2>
+        <p class="dek">Think Media recaps the 12 biggest announcements from Made on YouTube 2026: video A/B testing, dynamic thumbnails, Ask Studio, custom AI feeds, and more.</p>
+        <div class="body-copy">
+        <p>Think Media&#x27;s Sean Cann sat through the Made on YouTube 2026 keynote in New York City — where CEO Neal Mohan opened by saying more than three thousand updates have shipped to the platform since the start of the year, with about thirty-five of them covered on stage — and compressed roughly ten hours of research into the twelve announcements that actually matter to creators. Most of the thirty-five will barely touch your channel. A few could change it completely.</p>
+        <p>The headline feature is video A/B testing. Creators have long been able to split-test titles and thumbnails — over forty million of those tests have run since the feature launched in 2024 — but beginning in 2027, select creators will be able to test up to three different cuts of the video itself. YouTube will serve the cuts to different viewers, judge them on watch time, let the creator pick the winner, or automatically make the winning cut permanent after seven days. The versions can&#x27;t be dramatically different — think two different hooks on the same edit, not a ten-minute video against a two-hour one — and TechCrunch confirmed it&#x27;s coming to Shorts, with long-form details still pending in YouTube&#x27;s help pages. MKBHD has already pushed back, asking how viewers will know they&#x27;re watching a test, whether comments will attach to the right version, and what happens to timestamps. YouTube hasn&#x27;t answered any of that yet.</p>
+        <p>Thumbnails got their own cluster of announcements. Dynamic thumbnails go beyond A/B testing: instead of finding one winner, YouTube will show different thumbnails to different viewers, Netflix-style, matching the image to the person&#x27;s taste. There&#x27;s no single winner; all three versions stay active. Separately, an automatic thumbnail swap arriving later this year lets YouTube Studio flag underperforming thumbnails and test replacements for you, and Ask Studio can now generate long-form thumbnails from a video&#x27;s themes and your channel style, refined through conversation. Pre-publish feedback rounds out the packaging tools: upload a draft and Ask Studio will critique the script, hook, pacing, title, and thumbnail before anything goes public — on desktop now, mobile soon.</p>
+        <p>The back catalog is becoming a first-class citizen. Ask Studio is turning proactive — a kind of AI agent that reviews your old videos, suggests fresh thumbnails, and even drafts brand pitches using your channel&#x27;s audience data. That ties directly into the most disruptive announcement, which DigiDay called the most disruptive development in the creator economy this year: swappable sponsor segments. Creators will be able to insert a sponsor read into up to twenty long-form videos at once, target segments by region with different call-to-action buttons and product shelves, and see sponsor performance data in YouTube Studio. It&#x27;s been in testing since its announcement at Made on YouTube 2025, with no public rollout date yet — but the implication is that a channel&#x27;s back library can be sold like a TV network sells ad time. YouTube is also investing hundreds of millions of dollars in agency incentives to bring more brand deals to creators, and creator partnerships plus a one-click brand access code are already live to make sponsorship deals easier.</p>
+        <p>Discovery and search are being rebuilt around AI. Analytics is being renamed Insights, and the Research tab is going outlier-based — keyword phrases are being retired, with a three-month window to export saved keywords as CSV. The new Research tab will surface videos from other channels that broke out, measured by outlier score: a video performing far above its channel&#x27;s norm. Ask YouTube, the ask button on videos, has grown from twenty million users in December to one hundred forty million in June; conversational search rolled out to mobile in the US on August 12th, and now returns AI answers stitched from moments across many creators&#x27; videos. That creates discovery opportunity for well-structured videos — and a red flag about who keeps the affiliate commission when a purchase happens inside the AI answer rather than on a creator&#x27;s video.</p>
+        <p>For viewers, custom feeds arrive this fall in the US: type a prompt like &quot;home remodeling tips&quot; and get a saved, self-updating homepage for that interest. Shorts series roll out globally with seasons, episodes, and custom thumbnails, driven by micro dramas — watch time for the format rose by half year over year, and TV viewership of micro dramas nearly doubled. YouTube Shopping now includes Amazon affiliate products, live in the US since summer and reaching India and Brazil soon, with tags switching to local stores for international viewers. AI comment moderation is in testing as an opt-in filter that learns from what you delete, hide, or allow, and conversational video editing — describing an edit in plain words and letting the app build a first draft — arrives in early 2027 for YouTube Create and Shorts, built on Gemini Omni. Honorable mentions included going live together, likeness protection for face and voice, and live autodubbing.</p>
+        <p>The stage statistics were enormous. YouTube is number one in US streaming watch time for the third straight year per Nielsen, the number one US podcast platform, with more than six hundred million people watching live content daily and over three hundred million engaging with posts daily — and posts are coming to television. The creator economy added over sixty billion dollars to US GDP in 2025, supporting five hundred forty thousand full-time-equivalent jobs, with brand deals on Shorts growing by well over half.</p>
+        <p>Cann&#x27;s three takeaways: master the tools, the platform, and the craft — tools and taste, not tools alone. Treat your video library as your greatest asset, because old videos are about to get easier to optimize and monetize. And start now, because the best time to plant a tree was ten years ago and the second best time is today. Neal Mohan closed by declaring this the next chapter — the new YouTube — and insisting the breakthrough technology, the stories, and the culture will always be made on YouTube.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>who owns the version history when videos become test subjects? If comments, timestamps, and viewer expectations attach to a cut that later loses the A/B test, the platform needs an answer for what survives — and viewers may reasonably want to know they&#x27;re watching an experiment.</li>
+<li>when an AI answer stitches clips together and the viewer buys inside the answer, who gets the affiliate commission? The attribution rules for conversational search are the difference between a discovery engine and a middleman.</li>
+<li>does personalization at this scale fracture the platform? Custom feeds, per-viewer thumbnails, and multiple cuts of the same video mean there may soon be no single version of YouTube at all — which could be wonderful for relevance and disorienting for shared culture.</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the YouTube auto-captions for Think Media&#x27;s &quot;BREAKING: YouTube Just Announced Huge Changes&quot; (published Sep 24, 2026, 59:21, https://www.youtube.com/watch?v=rcFqyWYT1xY), pulled from the &quot;Show transcript&quot; panel on 2026-09-25. Auto-caption misspellings were corrected against the source header&#x27;s notes (Made on YouTube, Neal Mohan, Nielsen, Dwight Schrute, Parks and Rec) and one duplicated promo paragraph was removed; no other content was altered. Nothing here is drawn from memory or inference — where the video reports secondhand press coverage (The Verge, TechCrunch, DigiDay), that attribution is preserved.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#ai-news-500-chatgpt-pro-max-brock-mesarich">&larr; AI News: $500 ChatGPT Plan? OpenAI Agent Leak &amp; Opus 5.5</a>
+        <a class="to-index" href="2026-09-25.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated September 23, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "ai-news-opus55-gpt6-sol-lipsky": "Big AI News: Opus 5.5 vs GPT-6 Sol, NotebookLM Updates, Muse Charm & More!",
+      "ai-news-500-chatgpt-pro-max-brock-mesarich": "AI News: $500 ChatGPT Plan? OpenAI Agent Leak & Opus 5.5",
+      "youtube-updates-made-on-youtube-2026-think-media": "BREAKING: YouTube Just Announced Huge Changes"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' \u2014 Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+</body>
+</html>
