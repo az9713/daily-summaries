@@ -364,7 +364,7 @@
     <header class="masthead">
       <div>
         <p class="date">Friday &middot; September 25, 2026</p>
-        <h1>Ten summaries, distilled.</h1>
+        <h1>Twelve summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -380,6 +380,8 @@
 <a class="card" href="#shumer-what-actually-mattered"><span class="num">08</span><span><span class="card-title">What actually mattered: Sep 21–24</span><span class="card-byline">Matt Shumer</span></span></a>
 <a class="card" href="#dwarkesh-sarah-paine-war"><span class="num">09</span><span><span class="card-title">Sarah Paine — How to win a war</span><span class="card-byline">Dwarkesh Patel</span></span></a>
 <a class="card" href="#lenny-katie-dill-stripe"><span class="num">10</span><span><span class="card-title">How to scale intent, quality, and artistry with AI | Katie Dill (Stripe)</span><span class="card-byline">Lenny&#x27;s Podcast</span></span></a>
+<a class="card" href="#ai-engineer-pr-bottleneck"><span class="num">11</span><span><span class="card-title">Fixing the PR Bottleneck — Matt Pocock, AIHero</span><span class="card-byline">AI Engineer</span></span></a>
+<a class="card" href="#latent-space-openrouter-stripe"><span class="num">12</span><span><span class="card-title">The $10 Trillion Token Economy — Alex Atallah, OpenRouter &amp; Anjney Midha, AMP</span><span class="card-byline">Latent Space</span></span></a>
       </div>
       </nav>
     </section>
@@ -850,6 +852,91 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#dwarkesh-sarah-paine-war">&larr; Sarah Paine — How to win a war</a>
         <a class="to-index" href="2026-09-25.html" data-route="index">All summaries</a>
+        <a class="next" href="#ai-engineer-pr-bottleneck">Fixing the PR Bottleneck &#x2014; Matt Pocock, AIHero &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="ai-engineer-pr-bottleneck" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-25.html" data-route="index">&larr; September 25, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Fixing the PR Bottleneck — Matt Pocock, AIHero &mdash; September 25, 2026 <span class="dur">&middot; ~5.5 min</span></p>
+        <audio controls preload="none" src="podcasts/matt-pocock-pr-bottleneck.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/matt-pocock-pr-bottleneck.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>AI Engineer</dd></div>
+        <div><dt>Published</dt><dd>September 25, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=LlgiOCmFG_w" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; engineering</p>
+        <h2>Fixing the PR Bottleneck — Matt Pocock, AIHero</h2>
+        <p class="dek">AIHero’s Matt Pocock on fixing the PR bottleneck — why agentic coding floods teams with pull requests and how to keep review honest.</p>
+        <div class="body-copy">
+        <p>This is a summary of a twenty-two minute conference talk by Matt Pocock of AIHero, published on the AI Engineer channel on September 25, 2026, and recorded at the AI Engineer World&#x27;s Fair in Paris.</p>
+        <p>Pocock opens with a problem teams felt long before AI and feel far more now: pull requests piling up unreviewed. Agents have multiplied the volume of work while the review bottleneck barely moved. He frames the current era as the software factory — a setup where agents, not humans, kick off the work. Deterministic triggers scan systems for things to fix, a classifier like Jev turns a bug report into a reproduction, and monitoring hooks fire off tasks. All of that acceleration pushes more code through the factory.</p>
+        <p>Acceleration without resistance, he warns, produces a slop cannon: a flood of low-quality PRs nobody can read, let alone review. The answer is brakes — three layers that slow things down in order to make the whole system go faster. First come automated checks: linting, tests, type checking. These are cheap — they cost compute cycles, not tokens or human attention — so teams should layer on far more of them than they typically do. Second comes automated review, agents that catch what the tests missed. Third comes human review, and the goal is to make that final layer as fast and light as possible by leaning on the first two.</p>
+        <p>The catch is that automated checks can lie. Pocock walks through the ways agents cheat them, mostly in good faith. The most common is the tautological test — a test that simply reasserts the implementation, like asserting a constant equals the value it was defined as. These are brittle in the worst way: hypersensitive to internal structure, so renaming or moving anything breaks them, while real behavior changes slip through. A more extreme variant reads source files directly to check that two UI sections appear in the right order, instead of rendering anything. And over-mocked tests can be written so they literally cannot fail, hiding real production error modes from view.</p>
+        <p>The fix for lying checks is partly design. Pocock leans on John Ousterhout&#x27;s idea of deep modules: hide complex behavior behind a small interface, and tests written against that interface stop being structure-sensitive. He demos a codebase-design skill that scans a messy repo for chances to deepen modules, along with a shared vocabulary — locality, leverage, seam — so teams can talk about structure consistently.</p>
+        <p>His sharpest organizational point is about where coding standards live. The implementing agent is already overloaded — it explores the codebase, edits it, and debugs it, all inside one context window — so stuffing coding standards in there degrades its work. Instead, run a separate review agent in its own context window: it receives the diff, reads a coding-standards file, and checks compliance. The reviewer never implements or debugs, so it has attention to spare for the standards. Implement to make it work, review to make it good — a red-green-refactor split across two context windows.</p>
+        <p>He also warns against outsourcing review to generic third-party bots. Too general and you drown in irrelevant false positives; too narrow and the bot only fits one stack. Build your own standards, grow them over time, share them across the team — and have the review agent commit its fixes rather than just commenting. Comments hand the human more work; commits hand them a clean artifact.</p>
+        <p>For the human layer itself, he previews a new PR skill built around three ideas. First, not every review matters equally: classify PRs as one-way or two-way doors. Most PRs are two-way — easily reverted — and need only a light look. One-way doors, like a change that could blast an email to sixty thousand people or a risky data migration, deserve intense scrutiny. Each of his PRs ends with a &quot;merge danger&quot; note: door type plus blast radius. Second, help the human grasp what the PR does with pseudocode and diagrams rather than walls of text — he credits Dex Holley&#x27;s &quot;show me&quot; skill for the inspiration. Third, review the system that produces the code, not just the code. His rule is never write the same comment twice: a new &quot;retro&quot; skill runs retrospectives over past sessions and PRs, suggesting new automated checks, coding-standard updates, navigation pointers, tool-economy improvements, and slimmer steering files. The idea is a compounding loop, where each round of human review makes the next one easier.</p>
+        <p>He closes by pointing the audience to aihero.dev/skills, with version 1.3 shipping that week.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>How well does the implement/review split hold up outside Pocock&#x27;s own workflow — is the review agent&#x27;s context window really immune to the same instruction-dilution problems, or does it just move the bottleneck?</li>
+<li>What does a mature, team-grown coding-standards file actually cost to maintain — and does it rot as fast as the repos it&#x27;s meant to protect?</li>
+<li>Can the retro skill&#x27;s compounding loop survive adversarial or legacy codebases — or does it just codify a team&#x27;s existing blind spots into more automated checks?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in a transcript of the video &quot;Fixing the PR Bottleneck — Matt Pocock, AIHero&quot; (AI Engineer channel, published September 25, 2026, duration 22:35), pulled from YouTube&#x27;s &quot;Show transcript&quot; panel on 2026-09-25. The captions are auto-generated, with ASR quirks left uncorrected (e.g. &quot;tortological&quot; for tautological). No paid-promotion disclosure was observed on the video.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#lenny-katie-dill-stripe">&larr; How to scale intent, quality, and artistry with AI | Katie Dill (Stripe)</a>
+        <a class="to-index" href="2026-09-25.html" data-route="index">All summaries</a>
+        <a class="next" href="#latent-space-openrouter-stripe">The $10 Trillion Token Economy — Alex Atallah, OpenRouter &amp; Anjney Midha, AMP &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="latent-space-openrouter-stripe" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-25.html" data-route="index">&larr; September 25, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">The $10 Trillion Token Economy — Alex Atallah, OpenRouter &amp; Anjney Midha, AMP &mdash; September 25, 2026 <span class="dur">&middot; ~9.9 min</span></p>
+        <audio controls preload="none" src="podcasts/token-economy-openrouter-stripe.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/token-economy-openrouter-stripe.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Latent Space</dd></div>
+        <div><dt>Published</dt><dd>September 25, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=dCX4PE2HxMs" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; markets</p>
+        <h2>The $10 Trillion Token Economy — Alex Atallah, OpenRouter &amp; Anjney Midha, AMP</h2>
+        <p class="dek">Latent Space on the $10 trillion token economy — OpenRouter’s Alex Atallah and AMP’s Anjney Midha on tokens as a unit of value and why Stripe acquired OpenRouter.</p>
+        <div class="body-copy">
+        <p>There&#x27;s a new unit of value streaming across the internet, and it&#x27;s the token. That&#x27;s the opening argument of this Latent Space episode, where host Sean sits down in Anjney Midha&#x27;s San Francisco house with OpenRouter founder Alex Atallah and Midha, an a16z partner who led the seed investment into OpenRouter and serves as chairman of AMP. Tokens, Anjney argues, are the common denominator of AI — and over the next ten years, the entire internet value chain will have to grapple with the fact that as tokens get more valuable, more bad actors will come after them. Anjney puts numbers on it: the token economy sits roughly where online payments sat in the early days, is headed for about five trillion dollars in five years, and ten trillion dollars of token flow within a decade.</p>
+        <p>OpenRouter is the neutral layer that made this market legible. Atallah&#x27;s realization moment was the Alpaca release in early 2023, when a Stanford team fine-tuned Meta&#x27;s Llama model for about six hundred dollars and produced something nearly indistinguishable from ChatGPT. If making a good model cost that little — and costs were only going to fall — then anyone&#x27;s data could be repackaged as a model and sold as a service. But nobody was tracking who was using which models and why. Hugging Face had downloads but no closed models and no usage data, so Atallah set out to build a marketplace and control plane for inference: model slugs, an auto router, leaderboards, and a developer experience the research labs never built for themselves.</p>
+        <p>The origin story runs through Discord. Atallah and Midha met around 2011 at the Stanford Review, the campus libertarian paper, where they bonded over tech policy. Midha later ran the platform team at Discord during the NFT boom, when several billion dollars of volume flowed through Discord servers and his team absorbed the social-engineering and denial-of-service attacks that came with it. When OpenAI gave Discord early access to the reinforced-learning version of GPT-3, Midha&#x27;s team shipped a Discord bot, the Clyde assistant, and AI content moderation — and promptly discovered that heavy-handed post-training guardrails made the model refuse legitimate prompts, from Harry Potter fan fiction to violent detective fiction. OpenAI&#x27;s answer was essentially that they were a closed company. That was the moment, Midha says, he realized the world needed open models and a management layer for them. He went on to lead the Series A into Mistral.</p>
+        <p>Everybody told them they were wrong. The biggest objection from venture capitalists was the &quot;one model wins&quot; thesis: scaling laws plus network effects would concentrate all value in a single Google-style monopoly. Atallah&#x27;s counter was that building a good competing model is far more decentralizable than winning search, and a Google-level monopoly in AI would be like the Dutch East India Company magnified a quadrillion times — an absurd outcome for the whole economy to funnel through one company. Midha, an early investor in Anthropic, saw scaling laws as a feature: it was obvious other labs would catch up, and each one was brilliant at training but terrible at distribution. Atallah&#x27;s favorite image for what OpenRouter built instead: a big dark room full of black-box models, with users feeling around in the dark, and OpenRouter shining lights into every corner so developers can see what&#x27;s good.</p>
+        <p>The dismissal continued even as it worked. Investors called OpenRouter &quot;just a marketplace,&quot; &quot;just a proxy,&quot; &quot;just a wrapper&quot; on other people&#x27;s APIs. Midha, who had actually operated production systems, thought the framework was idiotic — by that logic Stripe is just a wrapper on banking and venture capitalists are wrappers on limited partners. The operating experience is the point: standing up launch-day endpoints, surviving the mess of inference pricing, building the community flywheel. Atallah had learned community-first distribution in the crypto days, when the Axie Infinity server was Discord&#x27;s biggest and Midha&#x27;s team kept bumping its member limits. The same playbook — find the communities blocked on something, build what they want, let them share the links — bootstrapped OpenRouter&#x27;s developer base.</p>
+        <p>The milestones came in waves. A 2024 prototype called mixture-of-models fused outputs from several models with the smartest one adjudicating; it was shelved because the best model was still so far ahead that fusion made things worse, then revived in 2026 as the frontier models converged. Anthropic&#x27;s Claude Sonnet 3.5 in mid-2024 turned OpenRouter&#x27;s volume toward coding. Mistral&#x27;s European mixture-model release kicked off a price war that cut prices by roughly eighty percent and delivered the first open-weights model that people seriously called the best in the world. And at the end of 2025, OpenClaw arrived — &quot;ChatGPT for normies,&quot; a personal-agent app whose constant heartbeat checks to its chosen model sent OpenRouter&#x27;s auto router usage vertical. Today the company routes about ten trillion tokens a day, growing roughly ten percent week over week.</p>
+        <p>Then there&#x27;s the fraud, which is the other half of the episode and the thread that explains everything else. OpenRouter blocked roughly ten times the fraudulent dollar volume last month as the month before, and the fraud types are diversifying: stolen credit cards, terms-of-service-violating resellers, hacked accounts, even accidental runaway agents whose owners don&#x27;t realize what&#x27;s happening. Midha&#x27;s framework comes from a midnight phone call years earlier: someone in China had started reselling Midjourney free-trial accounts, Midjourney shut its free trial down, and Midha realized that tokens were a new unit of value that the internet&#x27;s existing security infrastructure wasn&#x27;t built for. Online payments took twenty years to pass a trillion dollars and required an entire industry of fraud solutions; tokens are headed to ten trillion in ten.</p>
+        <p>That history is why Stripe acquired OpenRouter, and the fifteenth chapter&#x27;s title says it outright. Stripe&#x27;s original pitch, Midha notes, was that unlike old payment processors demanding week-long verification, Stripe would accept your payments in five minutes and absorb the fraud cost as customer acquisition — then spend five years building Stripe Radar, whose fraud detection is why Stripe remains dominant over cheaper competitors. The same story, he says, keeps showing up: PayPal and Affirm, Cloudflare, every stream of internet value needs a security layer. OpenRouter has the cross-ecosystem vantage point that no single lab has — it sees bad behavior from agents built on every lab&#x27;s models — and the promise is to become the shield for the entire token economy, the new sheriffs before agentic fraud hits like a tsunami. Atallah adds that pricing will likely evolve alongside: infrastructure companies moving from marking up resold inference to charging per discrete task or outcome, with companies like Dog already showing what that pricing page looks like. The OpenRouter brand and team stay; the roadmap, he says, is everything they would have done independently, just faster.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>if agentic fraud scales the way Midha predicts, does the token economy actually reach ten trillion dollars — or does fraud and abuse eat a meaningful share of that growth, the way fraud taxes reshaped early online payments?</li>
+<li>will inference pricing really migrate from token metering to per-task or per-outcome pricing, or does per-token billing stick because it&#x27;s transparent, auditable, and easy to compare across providers?</li>
+<li>can OpenRouter stay credibly neutral as a Stripe-owned marketplace — will competing labs, inference providers, and rival billing companies keep treating it as the neutral layer when its parent is the dominant payments company?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded entirely in the transcript of the Latent Space episode &quot;The $10 Trillion Token Economy — Alex Atallah, OpenRouter &amp; Anjney Midha, AMP&quot; (https://www.youtube.com/watch?v=dCX4PE2HxMs), published September 25, 2026, duration 1:22:40. The transcript was pulled on September 25, 2026 from YouTube&#x27;s &quot;Show transcript&quot; panel (auto-generated captions; ASR quirks uncorrected). The episode was commissioned under the working title &quot;Why Stripe Acquired OpenRouter,&quot; taken from the thumbnail text; that phrase is only the title of Chapter 15 of the video, so the source&#x27;s own live title is used throughout. Paid-promotion disclosure: none observed — the host explicitly states the show runs without sponsors or ads, supported by subscribers.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#ai-engineer-pr-bottleneck">&larr; Fixing the PR Bottleneck — Matt Pocock, AIHero</a>
+        <a class="to-index" href="2026-09-25.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -870,7 +957,9 @@
       "oOpF0ZXSXuk": "Stanford Doctor: Get More Out of Your Next Doctor\'s Visit With AI",
       "shumer-what-actually-mattered": "What actually mattered: Sep 21–24",
       "dwarkesh-sarah-paine-war": "Sarah Paine — How to win a war",
-      "lenny-katie-dill-stripe": "How to scale intent, quality, and artistry with AI | Katie Dill (Stripe)"
+      "lenny-katie-dill-stripe": "How to scale intent, quality, and artistry with AI | Katie Dill (Stripe)",
+      "ai-engineer-pr-bottleneck": "Fixing the PR Bottleneck — Matt Pocock, AIHero",
+      "latent-space-openrouter-stripe": "The $10 Trillion Token Economy — Alex Atallah, OpenRouter & Anjney Midha, AMP"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
