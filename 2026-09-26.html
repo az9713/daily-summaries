@@ -364,7 +364,7 @@
     <header class="masthead">
       <div>
         <p class="date">Saturday &middot; September 26, 2026</p>
-        <h1>Five summaries, distilled.</h1>
+        <h1>Six summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -375,6 +375,7 @@
 <a class="card" href="#boz-aparna-wearables"><span class="num">03</span><span><span class="card-title">Boz to the Future Episode 28: The Future According to Aparna Chennapragada</span><span class="card-byline">Meta</span></span></a>
 <a class="card" href="#a16z-outside-big-labs"><span class="num">04</span><span><span class="card-title">Why AI&#x27;s Next Breakthroughs Could Come from Outside the Big Labs</span><span class="card-byline">a16z</span></span></a>
 <a class="card" href="#hackmit-collie-pug"><span class="num">05</span><span><span class="card-title">The collie and the pug | HackMIT keynote 2026</span><span class="card-byline">Grant Sanderson</span></span></a>
+<a class="card" href="#robot-use-agents"><span class="num">06</span><span><span class="card-title">Robot-Use Agents: Why General-Purpose Models May Win in Robotics</span><span class="card-byline">Y Combinator</span></span></a>
       </div>
       </nav>
     </section>
@@ -601,6 +602,52 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#a16z-outside-big-labs">&larr; Why AI&#x27;s Next Breakthroughs Could Come from Outside the Big Labs</a>
         <a class="to-index" href="2026-09-26.html" data-route="index">All summaries</a>
+        <a class="next" href="#robot-use-agents">Robot-Use Agents: Why General-Purpose Models May Win in Robotics &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="robot-use-agents" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-26.html" data-route="index">&larr; September 26, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Robot-Use Agents: Why General-Purpose Models May Win in Robotics &mdash; September 26, 2026 <span class="dur">&middot; ~6.6 min</span></p>
+        <audio controls preload="none" src="podcasts/robot-use-agents.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/robot-use-agents.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Y Combinator</dd></div>
+        <div><dt>Published</dt><dd>September 26, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Jv5B5CEaPJI" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; robotics</p>
+        <h2>Robot-Use Agents: Why General-Purpose Models May Win in Robotics</h2>
+        <p class="dek">Y Combinator’s Decoded on robot-use agents — why general-purpose models may win in robotics, from RT2 to code as policies and the harness.</p>
+        <div class="body-copy">
+        <p>Y Combinator&#x27;s Decoded series has a new episode asking a question that would have sounded absurd a few years ago: what if the best robot brains aren&#x27;t built for robots at all? The guests are the founders of Waddle Labs and RoboCurve, two startups whose viral demos — language models uncapping pens, unscrewing caps, coordinating between multiple robots — helped spark the whole conversation.</p>
+        <p>The trigger for the episode is a viral essay by MIT professor Philip Isola. He argues we may be entering the era of &quot;robot-use agents&quot;: general-purpose models that can control different robots, write their own policies, and pick up new physical tasks with little or no robot-specific training. The essay quotes both startups&#x27; demos as evidence.</p>
+        <p>The research lineage starts with the RT2 paper. The team fine-tuned a language model pretrained on web text and images, but instead of outputting English, it output effector poses — coordinates translated into joint commands for a robot arm. One guest compares it to the chain-of-thought moment: instead of being forced to emit an answer immediately, the model gets to think first, then act.</p>
+        <p>Then came code as policies, around 2022. Give a coding agent a list of simple functions — pick up an object, move to a pose — and it writes programs that chain them into complex tasks, one-shot, with no robot data at all. Voyager did the same trick in Minecraft, compressing experience into reusable tools it could invoke later. The surprise was how far coding ability alone carried.</p>
+        <p>That feeds the episode&#x27;s reframing of the bitter lesson. The lesson isn&#x27;t about which architecture wins, the guests argue — it&#x27;s about which data modality wins. Robot-specific data is scarce and slow to collect. Code, computer-use, and web data are abundant, and models trained on them transfer. Pour enough of the blessed data in, and you get a general agent that happens to control robots.</p>
+        <p>One of the sharpest segments contrasts in-context learning with weight training. In-context learning is astonishingly cheap — no gradient steps, just examples in the prompt — but one guest&#x27;s unpublished experiments show it improves non-monotonically and saturates after twenty to forty examples. The hierarchy runs from in-context corrections, to compressed skills and tools, to small adapter updates, to full training. Nobody has figured out that ladder yet.</p>
+        <p>Waddle Labs&#x27; answer is the harness. Wrap a general model in a domain-specific harness, let it learn in context in a new environment, then consolidate what it learned — skills, memories, programs — for future agents to reuse. A bigger model does the domain specialization; smaller, faster models run inside the harness. The line between weight space and symbolic space, they say, is getting blurry.</p>
+        <p>Mid-episode there&#x27;s a live demo: GPT-5 watching camera feeds and driving two robot arms to pick up a block and drop it in a bowl, issuing commands turn by turn. It&#x27;s slow — bottlenecked by the model&#x27;s latency — but the founders note frontier-model latency is roughly halving every month. If that holds, real-time control could arrive by year&#x27;s end.</p>
+        <p>The most striking explanation is for the sudden jump in spatial intelligence. The guests believe GPT-5 was pretrained on far more computer-use and CAD data than anything before — dragging cursors to orbit objects in design software teaches top-down, left-right, the geometry of space itself. There&#x27;s a wry observation in the episode: we built graphical interfaces to resemble the physical world, and now that resemblance is training robots to operate in it.</p>
+        <p>That connects to Isola&#x27;s platonic representation hypothesis, also discussed: train models on enough data and they converge on a shared representation of the world. If that&#x27;s true, a strong enough language model is already a strong robotics model — no robot-specific architecture required. It&#x27;s the bitter lesson in its purest form.</p>
+        <p>The closing prediction is blunt. There&#x27;s a growing consensus among frontier labs and robotics companies that general-purpose robots arrive within about two years — machines that take any natural-language instruction and do what a competent teenager could do with their bare hands. A ChatGPT moment for robotics. The builders themselves say society is not ready for it.</p>
+        <p>Two hard problems remain. Latency: a model thinking at every step is too slow and too expensive to be useful. And consolidation: how the day&#x27;s in-context experience gets distilled into faster skills or updated weights overnight — the &quot;sleep&quot; metaphor, dreamcoder-style. How you manage a growing library of skills, the guests admit, is anyone&#x27;s guess.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>if general-purpose models win, where does the value accrue — to the foundation labs training the models, or to the harness and evaluation builders like Waddle and RoboCurve who make them usable?</li>
+<li>in-context learning saturates after a few dozen examples and full training is expensive; is the &quot;sleep&quot; consolidation step — distilling traces into weights and skills — actually solvable in practice, or does it become the new bottleneck?</li>
+<li>the builders predict a general-purpose robot within two years and say society isn&#x27;t ready — so who governs a machine that can do anything a competent teenager can do, and what does readiness even look like?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s auto-generated YouTube captions, pulled 2026-09-26 from the on-page &quot;Show transcript&quot; panel. Caption artifacts were corrected in interpretation: &quot;Astra&quot;/&quot;Aster&quot;/&quot;Astro&quot; for GPT-5, &quot;Chad GBT&quot; for ChatGPT, &quot;Xerx Park&quot; for Xerox PARC, &quot;Wadd Labs&quot;/&quot;Waddles&quot; for Waddle Labs, &quot;Robocur&quot; for RoboCurve, &quot;VAS&quot; for vision-language-action models, &quot;Laura&quot; for LoRA, &quot;kodas policies&quot; for code as policies, &quot;effectctor/infectctor pose&quot; for effector pose. Guest surnames follow the captions where unclear (&quot;Jame Hame&quot;, Vincent, Jay). Claims about model capabilities, latency trends, and timelines are the guests&#x27; as reported in the video, not independently verified.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#hackmit-collie-pug">&larr; The collie and the pug | HackMIT keynote 2026</a>
+        <a class="to-index" href="2026-09-26.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -616,7 +663,8 @@
       "jev-intelligence-free": "What Happens When Intelligence Becomes Almost Free",
       "boz-aparna-wearables": "Boz to the Future Episode 28: The Future According to Aparna Chennapragada",
       "a16z-outside-big-labs": "Why AI\'s Next Breakthroughs Could Come from Outside the Big Labs",
-      "hackmit-collie-pug": "The collie and the pug | HackMIT keynote 2026"
+      "hackmit-collie-pug": "The collie and the pug | HackMIT keynote 2026",
+      "robot-use-agents": "Robot-Use Agents: Why General-Purpose Models May Win in Robotics"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
