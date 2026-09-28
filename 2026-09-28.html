@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - September 28, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    </style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Monday &middot; September 28, 2026</p>
+        <h1>Two summaries, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+      <a class="card" href="#bart-m6-mac-mini-local-ai"><span class="num">01</span><span><span class="card-title">Is The New 16gb M6 Mac Mini Good for Local AI? A Beginner&#x27;s Guide</span><span class="card-byline">Bart Slodyczka</span></span><span class="card-dur">5:17</span></a>
+      <a class="card" href="#how-i-ai-jev-why"><span class="num">02</span><span><span class="card-title">I&#x27;m using Jev more than Opus 5.5 or GPT-6. Here&#x27;s why.</span><span class="card-byline">Claire Vo</span></span><span class="card-dur">3:32</span></a>
+      </div>
+      </nav>
+    </section>
+    
+    <section class="article-view" id="bart-m6-mac-mini-local-ai" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-28.html" data-route="index">&larr; September 28, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Is The New 16gb M6 Mac Mini Good for Local AI? A Beginner&#x27;s Guide - September 28, 2026 <span class="dur">&middot; 5:17</span></p>
+        <audio controls preload="none" src="podcasts/bart-m6-mac-mini-local-ai.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/bart-m6-mac-mini-local-ai.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Bart Slodyczka</dd></div>
+        <div><dt>Published</dt><dd>September 28, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=B8knY1pU9xg" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; hardware</p>
+        <h2>Is The New 16gb M6 Mac Mini Good for Local AI? A Beginner&#x27;s Guide</h2>
+        <p class="dek">Bart Slodyczka puts the new 16GB M6 Mac Mini through its paces for local AI work, comparing it against his M4 on the two stages of running a language model, prefill and decode, and weighing it against a 24GB M6 and a cited third-party M5 Pro test, all to answer whether Apple&#x27;s cheapest desktop can serve as a dedicated always-on agent machine.</p>
+        <div>
+        <p>Bart Slodyczka&#x27;s YouTube channel published &quot;Is The New 16gb M6 Mac Mini Good for Local AI? A Beginner&#x27;s Guide&quot; on September 28, 2026. The twelve minute video compares the new sixteen gigabyte M6 Mac Mini against the M4 version he bought earlier this year, all through the lens of running local AI agents, and it also brings a twenty four gigabyte M6 into the test.</p>
+        <p>His motivation is practical. He wants a dedicated machine he can leave on his desk running a Hermes or OpenClaw agent on a local model while he works on his main computer. Everything in the video flows from that single use case, and it makes the benchmarks easy to interpret.</p>
+        <p>Before the numbers, he explains how a language model answers a message. There are two stages. First the model reads and absorbs whatever you send it, a stage called prefill, which leans on the GPU&#x27;s compute power. Then it generates the reply one token at a time, a stage called decode, which leans more on memory bandwidth. Two stages, two different hardware appetites.</p>
+        <p>The core test runs a nine billion parameter Qwen model, four bit, inside LM Studio, at inputs of two thousand, eight thousand, and thirty thousand tokens. At eight thousand tokens, the M4 processes input at 222 tokens per second while the M6 manages 998, a dramatic jump. Generation rises from 19.3 tokens per second to 27.2, about forty percent faster. The M6 leads at the shorter and longer inputs too.</p>
+        <p>The hardware story explains why. Moving from M4 to M6, the CPU and GPU each go from ten cores to twelve, and the M6&#x27;s GPU carries neural accelerators for AI math. Memory bandwidth rises from 120 to 153 gigabytes per second. That is the first jump.</p>
+        <p>The second comparison, sixteen versus twenty four gigabytes of M6, is far less dramatic. Both have the same twelve GPU cores and the same AI acceleration, so prefill barely moves. The twenty four gigabyte unit edges ahead by about ten percent at thirty two thousand tokens, and decode improves by roughly five percent despite an eleven percent bandwidth advantage on paper. The thirty two gigabyte M6 shares the twenty four&#x27;s core count and bandwidth, so do not expect a speed leap there either.</p>
+        <p>For a real step up in speed, he points at the M5 Pro, which he does not own. It offers sixteen or twenty GPU cores and 307 gigabytes per second of bandwidth, roughly double the sixteen gigabyte M6. A public test of the same model on an M5 Pro reported around 1,280 tokens per second for prefill and 50 for decode, but it ran in a different app, so he cautions against treating it as a direct comparison with his LM Studio numbers.</p>
+        <p>Then comes the memory math, the most useful part for a buyer. On a sixteen gigabyte machine, the operating system and everyday apps take roughly four gigabytes, leaving twelve for AI. Model weights alone eat about eight, leaving four gigabytes of working space for the conversation. An agent&#x27;s conversation includes instructions, files it has read, and tool call results, so four gigabytes runs out fast. On a twenty four gigabyte machine, after setting aside six for the system, eighteen remain for AI, leaving ten gigabytes of working space after the same eight gigabyte model loads. That is the real argument for the upgrade, not speed.</p>
+        <p>Prices frame the decision. The M4 launched at $599 and the M6 starts at $899, but the base M4 had already been repriced to $799 by June, so the new machine costs $100 more than the machine it replaces. Apple blamed rising memory and storage costs for the June increases.</p>
+        <p>His verdict: the M6 is a decent upgrade for local AI, particularly if an agent does regular work for you. A simulated agent workload comes out close to twice as fast as the M4. If your M4 already does what you need, keep it. If you spend the day waiting on the model, the M6 buys you real time back, except when the agent is stalled on a website or a tool call, where no chip removes the wait. For a first purchase, sixteen gigabytes gets you started, but for long agent sessions with big context, he leans toward twenty four, and if raw speed matters most, look at the M5 Pro.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>How do his LM Studio numbers translate to other popular runners like Ollama or llama.cpp, where the software overhead is different?</li>
+        <li>At what context size does the twenty four gigabyte machine&#x27;s extra headroom stop being theoretical and start deciding whether a big agent task completes at all?</li>
+        <li>Will Apple&#x27;s pricing hold, or will the memory cost increases that lifted the M6 to $899 keep pushing prices up as configurations grow?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s transcript, copied verbatim from YouTube&#x27;s &quot;In this video &gt; Transcript&quot; panel on September 28, 2026 at about 5:05 in the morning Pacific time, when the video had nine views and had been live for under an hour. YouTube&#x27;s panel carried minor transcription artifacts (&quot;Quen 3.59B&quot; and &quot;Quinn 3.59B&quot; for Qwen 3.5 9B, &quot;OMLX&quot;), which were corrected against context. All numbers are reported as the presenter stated them; the M5 Pro figures come from a third party test he cited, not his own hardware.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-09-28.html" data-route="index">All summaries</a>
+        <a class="next" href="#how-i-ai-jev-why">I&#x27;m using Jev more than Opus 5.5 or GPT-6. Here&#x27;s why. &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="how-i-ai-jev-why" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-28.html" data-route="index">&larr; September 28, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">I&#x27;m using Jev more than Opus 5.5 or GPT-6. Here&#x27;s why. - September 28, 2026 <span class="dur">&middot; 3:32</span></p>
+        <audio controls preload="none" src="podcasts/how-i-ai-jev-why.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/how-i-ai-jev-why.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>How I AI with Claire Vo</dd></div>
+        <div><dt>Published</dt><dd>September 28, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=-KIBgpGA_XI" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; research</p>
+        <h2>I&#x27;m using Jev more than Opus 5.5 or GPT-6. Here&#x27;s why.</h2>
+        <p class="dek">Claire Vo opens &#x27;Jev week&#x27; with a blunt claim: after a week in which Opus 5.5, GPT-6 Sol, GPT-6 Luna, and Muse all landed, the model she used most was Jev, TypeSafe&#x27;s tiny decision model. She explains its three output primitives, choice, score, and Noul, its four-cents-per-million-input-tokens pricing, and walks through classifying and clustering thousands of GitHub pull requests for cents.</p>
+        <div>
+        <p>Claire Vo opened &quot;Jev week&quot; on the How I AI podcast with a blunt claim. After a week in which Opus 5.5, GPT-6 Sol, GPT-6 Luna and Muse all landed, the model she has actually used the most is Jev, a small decision model from TypeSafe AI. It takes text in, like any language model, but instead of generated text it returns type-safe values: a Choice from a list you define, a Score on a scale you define, or a Noul, a probability that the answer to a yes-or-no question is yes. It is, in her framing, a model for decisions rather than generation.</p>
+        <p>The economics are the other half of the story. Jev charges four cents per million input tokens and nothing for output, because it barely outputs anything. Vo says her week of heavy use cost her under ten dollars. She used it first on GitHub pull requests: on a marketing site with 112 pull requests, classifying and pairwise-clustering them cost about one cent, and on her ChatPRD app with roughly two thousand pull requests this year, analyzing 1,700 pull requests across 17,000 pairs cost nine cents and took about two minutes. The payoff for product leaders: an honest map of where engineering time goes. At ChatPRD, nearly thirty percent of pull requests turned out to be platform, security and infrastructure work.</p>
+        <p>The same pattern scales beyond code. She ran the classification over her own local Claude Code and Codex sessions and watched her work shift in the transcript: almost entirely engineering tasks in January, under forty percent by September, with agents, publishing and a new business filling the gap. She ran it over her personal Gmail to score which emails could be deleted, then handed the tagged clusters to a bigger model for precise action. Her summary of the formula: Jev alone is fine, but Jev plus an LLM buddy is super powerful. Big models like Astra do the analysis, strategy and insight extraction; generation work goes to models like Sol or Luna; Jev does the cheap classification, clustering and mapping that makes the expensive models worth running.</p>
+        <p>The most ambitious example is ChatPRD&#x27;s product insights graph, the feature she says she had spent thousands, possibly tens of thousands of dollars, trying to brute-force with frontier models before cracking it with this split. It pulls in pull requests, support tickets, conversation transcripts and Linear tickets, ran over two hundred thousand classifications and pairwise groupings, and cost roughly four dollars on the Jev side. The result closes the gap she cares about most: the distance between what customers say they want and what the team is actually building.</p>
+        <p>She also built two small apps in an afternoon to show what real-time decision loops enable. One is an audience signal dashboard for the How I AI YouTube channel: forty-five hundred comments pulled through the YouTube API, categorized as positive, negative or neutral, with episode ideas extracted and a request board, plus live search across all comments. The other is a playful voice-to-color app that takes speech in through OpenAI&#x27;s realtime voice API, has Jev score the emotion against a list of hex color values, and returns a matching quote. Both demos make the same point: when a decision costs almost nothing and returns in near real time, you can put a model inside loops that used to be impractical.</p>
+        <p>Her advice for newcomers is to start with the TypeSafe docs: the primitives page explaining Choice, Score and Noul, and the cookbook patterns. The honest caveat she repeats is that cross-app comparisons, like the public M5 Pro numbers she cites in passing, need matched software and settings before you attribute a difference to the chip.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>how far does Jev&#x27;s decision accuracy hold on genuinely ambiguous classifications, and where does it start to degrade when the choices aren&#x27;t cleanly separable?</li>
+        <li>if every team can run the same sub-ten-cent clustering over their repos and inboxes, does the insight advantage last, or does it become table stakes?</li>
+        <li>what governance should surround a pipeline that cheap when it touches an entire Gmail history or a company repository?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> summary grounded in the verbatim YouTube transcript panel for &quot;I&#x27;m using Jev more than Opus 5.5 or GPT-6. Here&#x27;s why.&quot; by How I AI with Claire Vo (@howiaipodcast), pulled 2026-09-28 around 05:15 PDT. One resolution note: the commissioned screenshot showed a vertical Short captioned &quot;Jev is basically free. Here&#x27;s how to u...&quot; displaying the TypeSafe Noul docs page, but no such Short exists on the channel (the Shorts tab was checked multiple times and an exact-phrase search found nothing). This brand-new full video matches the screenshot&#x27;s timing and topic exactly, and the screenshot&#x27;s Noul docs frame matches this video&#x27;s segment explaining the three output primitives, so the summary was built against it. Caveats: the panel transcription frequently renders &quot;Jev&quot; as &quot;Jeb&quot;, &quot;Jeff&quot; or &quot;Jab&quot;; the page notes that audio tracks for some languages were auto-generated; the episode carries an OpenArt Arena sponsorship read from 1:41 to 2:44.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#bart-m6-mac-mini-local-ai">&larr; Is The New 16gb M6 Mac Mini Good for Local AI? A Beginner&#x27;s Guide</a>
+        <a class="to-index" href="2026-09-28.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated September 28, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "bart-m6-mac-mini-local-ai": "Is The New 16gb M6 Mac Mini Good for Local AI? A Beginner\'s Guide",
+      "how-i-ai-jev-why": "I\'m using Jev more than Opus 5.5 or GPT-6. Here\'s why."
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+</body>
+</html>
