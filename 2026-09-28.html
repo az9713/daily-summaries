@@ -365,7 +365,7 @@
     <header class="masthead">
       <div>
         <p class="date">Monday &middot; September 28, 2026</p>
-        <h1>Six summaries, distilled.</h1>
+        <h1>Seven summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -377,6 +377,7 @@
       <a class="card" href="#nate-herk-claude-code-dangerous"><span class="num">04</span><span><span class="card-title">No, Seriously. Claude is Starting To Get Dangerous</span><span class="card-byline">Nate Herk</span></span><span class="card-dur">4:42</span></a>
       <a class="card" href="#sourcery-jen-prosek-wall-street-brands"><span class="num">05</span><span><span class="card-title">How Wall Street Builds Billion-Dollar Brands</span><span class="card-byline">Jen Prosek</span></span><span class="card-dur">6:26</span></a>
       <a class="card" href="#lmarena-harnesstax-coding-agents"><span class="num">06</span><span><span class="card-title">HarnessTax: How Much Does the Harness Matter for Coding Agents?</span><span class="card-byline">Melissa Pan</span></span><span class="card-dur">2:55</span></a>
+      <a class="card" href="#openai-defenders-window-keynote"><span class="num">07</span><span><span class="card-title">The Defender&#x27;s Window: Cyber security keynote</span><span class="card-byline">OpenAI</span></span><span class="card-dur">4:17</span></a>
       </div>
       </nav>
     </section>
@@ -628,6 +629,47 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#sourcery-jen-prosek-wall-street-brands">&larr; How Wall Street Builds Billion-Dollar Brands</a>
         <a class="to-index" href="2026-09-28.html" data-route="index">All summaries</a>
+        <a class="next" href="#openai-defenders-window-keynote">The Defender&#x27;s Window: Cyber security keynote &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="openai-defenders-window-keynote" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-28.html" data-route="index">&larr; September 28, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">The Defender&#x27;s Window: Cyber security keynote - September 28, 2026 <span class="dur">&middot; 4:17</span></p>
+        <audio controls preload="none" src="podcasts/openai-defenders-window-keynote.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/openai-defenders-window-keynote.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>OpenAI</dd></div>
+        <div><dt>Published</dt><dd>September 28, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=3jDhHA9JGUE" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; security</p>
+        <h2>The Defender&#x27;s Window: Cyber security keynote</h2>
+        <p class="dek">OpenAI&#x27;s cybersecurity keynote, delivered at its Intelligence at Work: Cyber event, makes one central argument: defenders have a short window of time to get ahead of attackers, and they need to act now. Emanuel Mariel introduces the &#x27;defender&#x27;s window,&#x27; the gap between frontier AI capabilities and slower-moving open-weight models, with the talk&#x27;s fidelity caveats carried in the source note.</p>
+        <div>
+        <p>OpenAI&#x27;s cybersecurity keynote, delivered at its Intelligence at Work: Cyber event, makes one central argument: defenders have a short window of time to get ahead of attackers, and they need to act now. The talk opens with OpenAI&#x27;s Emanuel Mariel, who introduces the &quot;defender&#x27;s window&quot; idea, the gap between the capabilities of frontier AI models and the slower-moving world of open-weight models. While that gap exists, he argues, defenders can use the best available models to close weaknesses before attackers exploit them.</p>
+        <p>The keynote then moves through a series of speakers. Matt, OpenAI&#x27;s head of engineering for cyber, describes how his team assembled its security and applied-engineering groups to build what it calls a &quot;defense factory&quot;: agents given their own sandboxed environments to investigate weaknesses, write fixes, and validate that the fixes actually work. He claims the models are now surfacing flaws that sat hidden for decades, including a twenty-three-year-old flaw in OpenBSD and vulnerabilities in a tool called MicroTalk going back to 2013. But finding, he says, is not the hard part. Closing is. Findings must be validated, deduplicated, assigned to the right owners, fixed, and the fix re-tested.</p>
+        <p>To show how capable the models are getting, the talk points to an internal test called &quot;exploit gym,&quot; where a model must turn a known software flaw into a working exploit. The video claims its newest model, which it calls GPT6 Astra, solved roughly forty percent more of these challenges than the prior model, using far fewer output tokens. It also says Astra has crossed a &quot;cyber critical threshold,&quot; bringing real opportunities for defense along with real misuse risk. The response, according to the talk, is layered safeguards: request monitoring, abuse detection and blocking, tighter controls for high-risk accounts, and monitoring of the model&#x27;s reasoning and actions.</p>
+        <p>The middle of the keynote is a run of announcements. OpenAI describes a program it calls Daybreak with two tiers. Daybreak Red gives approved security teams the highest level of cyber access, for authorized work like penetration testing and red teaming. Daybreak Blue targets everyday defensive work: reviewing code, investigating alerts, and working through vulnerability backlogs. The talk also announces a managed version of its Codex security tooling that runs penetration tests against a team&#x27;s own applications, with scoping, network controls, and oversight built into the workflow.</p>
+        <p>A live demo by Vanessa, a cyber deployment engineer, grounds the claims. She points the Codex security plugin at Ladybird, an open source browser, and the scanner reviews twenty-eight thousand files, builds a threat model of about three hundred candidates, and validates one real flaw in a shared JavaScript byte cache. It drafts a patch, applies it, and verifies the flaw is gone. The same workflow can spawn sub-agents that generate patches and open tickets and pull requests for engineers to review, and a CLI and SDK extend the pattern to thousands of repositories and continuous integration.</p>
+        <p>Lou, OpenAI&#x27;s field CTO for cyber, describes running this internally: a cross-functional team of two hundred fifty people moving through inventory, scanning, dynamic validation, ownership assignment, and verified fixes. He claims the false-positive rate fell below one percent, about ninety percent of findings reached the right team, and fewer than one percent of fixes had to be rolled back. The ecosystem push is where the money goes. OpenAI says it is putting one billion dollars into a fund for defenders, including nonprofits, open source maintainers, and critical infrastructure, and it published an open letter that five hundred organizations signed. It points to Patch the Planet, a joint effort with Trail of Bits, which merged thirty-seven patches in its first week across projects including Python, curl, Go, and aiohttp.</p>
+        <p>The talk closes with practical advice from Matt: do not wait. Start with the models already available, try the security plugin, build custom tooling for the organization&#x27;s own context, and package work in dev containers so tests run reproducibly. The defender&#x27;s window, he says, is open now, but it will not stay open long.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>The video claims dramatic internal metrics, like a sub-one-percent false-positive rate, from a two-hundred-fifty-person effort. What would it take for an ordinary security team with a fraction of those resources to get anywhere close?</li>
+        <li>Daybreak Red puts high-end offensive capability in approved hands, but the talk concedes safeguards cannot cover every lab, country, or person with a downloaded model. Who decides which teams count as trusted defenders?</li>
+        <li>If the defender&#x27;s window really is a temporary gap between frontier and open models, what happens to the strategy when that gap closes?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s full transcript, pulled from YouTube&#x27;s transcript panel on September 28, 2026, around 7:10 AM Pacific, all 359 segments copied verbatim. Two fidelity caveats: the caption track is auto-generated, with characteristic artifacts (OpenAI rendered as &quot;open AAI,&quot; Codex as &quot;codecs&quot; or &quot;codeex,&quot; Jira tickets as &quot;juro tickets,&quot; and similar mishearings), and it uses names that appear fictionalized or scrubbed (GPT6 Astra, GPT 5.6 Soul, Daybreak, Emanuel Mariel, Fable 5). The summary treats these as the video&#x27;s own claims and terminology; the underlying events have not been independently verified.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#lmarena-harnesstax-coding-agents">&larr; HarnessTax: How Much Does the Harness Matter for Coding Agents?</a>
+        <a class="to-index" href="2026-09-28.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -644,7 +686,8 @@
       "noah-shinn-instinct-personal-agent": "Inside the Personal AI Assistant Growing 10% a Day | Instinct Founder",
       "nate-herk-claude-code-dangerous": "No, Seriously. Claude is Starting To Get Dangerous",
       "sourcery-jen-prosek-wall-street-brands": "How Wall Street Builds Billion-Dollar Brands",
-      "lmarena-harnesstax-coding-agents": "HarnessTax: How Much Does the Harness Matter for Coding Agents?"
+      "lmarena-harnesstax-coding-agents": "HarnessTax: How Much Does the Harness Matter for Coding Agents?",
+      "openai-defenders-window-keynote": "The Defender's Window: Cyber security keynote"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
