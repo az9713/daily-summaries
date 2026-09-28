@@ -365,7 +365,7 @@
     <header class="masthead">
       <div>
         <p class="date">Monday &middot; September 28, 2026</p>
-        <h1>Five summaries, distilled.</h1>
+        <h1>Six summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -376,6 +376,7 @@
       <a class="card" href="#noah-shinn-instinct-personal-agent"><span class="num">03</span><span><span class="card-title">Inside the Personal AI Assistant Growing 10% a Day | Instinct Founder</span><span class="card-byline">Noah Shinn</span></span><span class="card-dur">7:57</span></a>
       <a class="card" href="#nate-herk-claude-code-dangerous"><span class="num">04</span><span><span class="card-title">No, Seriously. Claude is Starting To Get Dangerous</span><span class="card-byline">Nate Herk</span></span><span class="card-dur">4:42</span></a>
       <a class="card" href="#sourcery-jen-prosek-wall-street-brands"><span class="num">05</span><span><span class="card-title">How Wall Street Builds Billion-Dollar Brands</span><span class="card-byline">Jen Prosek</span></span><span class="card-dur">6:26</span></a>
+      <a class="card" href="#lmarena-harnesstax-coding-agents"><span class="num">06</span><span><span class="card-title">HarnessTax: How Much Does the Harness Matter for Coding Agents?</span><span class="card-byline">Melissa Pan</span></span><span class="card-dur">2:55</span></a>
       </div>
       </nav>
     </section>
@@ -588,6 +589,45 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#nate-herk-claude-code-dangerous">&larr; No, Seriously. Claude is Starting To Get Dangerous</a>
         <a class="to-index" href="2026-09-28.html" data-route="index">All summaries</a>
+        <a class="next" href="#lmarena-harnesstax-coding-agents">HarnessTax: How Much Does the Harness Matter for Coding Agents? &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="lmarena-harnesstax-coding-agents" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-28.html" data-route="index">&larr; September 28, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">HarnessTax: How Much Does the Harness Matter for Coding Agents? - September 28, 2026 <span class="dur">&middot; 2:55</span></p>
+        <audio controls preload="none" src="podcasts/lmarena-harnesstax-coding-agents.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/lmarena-harnesstax-coding-agents.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Arena AI</dd></div>
+        <div><dt>Published</dt><dd>September 28, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=4R8qZGtEnAE" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; coding</p>
+        <h2>HarnessTax: How Much Does the Harness Matter for Coding Agents?</h2>
+        <p class="dek">Melissa Pan, a PhD candidate at UC Berkeley&#x27;s Sky Computing Lab, walks through her blog post measuring how much the harness, the system of prompts and tools wrapped around a coding model, actually matters. The headline is a hidden tax: you could be paying double for the same task with almost no gain in correctness.</p>
+        <div>
+        <p>Coding agents are everywhere now, but when people pick a setup they almost always fixate on the model and let the harness, the system of prompts and tools wrapped around the model, get chosen implicitly. In this video, Melissa Pan walks through a blog post she wrote measuring how much that choice actually matters, and the headline is a hidden tax: you could be paying double for the same task, with almost no gain in correctness.</p>
+        <p>The first finding is that harness selection moves cost, not accuracy. For the same task, cost can run up to twice as high while the success rate barely shifts. The video shows a Pareto frontier of cost versus task success, where the presenter reads off model positions, GPT 5.6 Luna looking cost efficient, a model she calls Fable 5 sitting at the top of the curve, and the open source KIMI K3 landing near the frontier as well. Then she clicks into a per-harness view, and the trend holds across both benchmarks: Pi is the most efficient harness, followed by Codex, then Claude Code. The correctness gap is small, the cost gap is large, so the harness is mostly a cost lever.</p>
+        <p>The second finding is that a simple harness can be surprisingly competitive. Pi, an open source harness, exposes just four tools, read, write, edit, and bash. Because it stays lean, it wastes little token budget on the system prompt and tool schemas, which keeps it cost efficient. Her concrete comparison: Fable 5 running on Claude Code scores about 1.1 percent higher accuracy than Fable on Pi, at twice the cost. Again, cost, not success rate, is what the harness decides.</p>
+        <p>The third finding is that models perform well on harnesses from other providers. Pi stays the cheapest option for many models, but on accuracy, Claude Opus does slightly better with Codex. This is the surprising part, because it suggests models are general and portable enough that harness research, compaction techniques, agent memory, can be worth doing even by people who never get to train the model weights.</p>
+        <p>Why should anyone outside the lab care? The presenter argues the community spent last year on what she calls token maxing, throwing as many tokens as possible at tasks. Models are now capable enough for real work, but regular users cannot afford expensive token prices. If a harness burns budget for nothing, that is the harness tax, and with a fixed budget the same tokens could have gone to actual useful tasks. It is a practical, day-to-day concern, not just a research curiosity.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>Would the cost-first ranking hold on a wider set of real-world tasks beyond the two benchmarks in the study?</li>
+        <li>Does a four-tool harness stay competitive on long, multi-step tasks where memory and compaction matter more?</li>
+        <li>How much of the harness tax comes from prompt size versus tool-call overhead, and which is easier for a new harness to fix?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded entirely in the YouTube transcript of &quot;HarnessTax: How Much Does the Harness Matter for Coding Agents?&quot; (Arena AI, 4:38, published September 28, 2026), pulled verbatim from YouTube&#x27;s transcript panel at about 7:05 AM PDT on September 28, 2026 (42 segments). Model names are quoted as the presenter states them and are not independently verified.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#sourcery-jen-prosek-wall-street-brands">&larr; How Wall Street Builds Billion-Dollar Brands</a>
+        <a class="to-index" href="2026-09-28.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -603,7 +643,8 @@
       "how-i-ai-jev-why": "I\'m using Jev more than Opus 5.5 or GPT-6. Here\'s why.",
       "noah-shinn-instinct-personal-agent": "Inside the Personal AI Assistant Growing 10% a Day | Instinct Founder",
       "nate-herk-claude-code-dangerous": "No, Seriously. Claude is Starting To Get Dangerous",
-      "sourcery-jen-prosek-wall-street-brands": "How Wall Street Builds Billion-Dollar Brands"
+      "sourcery-jen-prosek-wall-street-brands": "How Wall Street Builds Billion-Dollar Brands",
+      "lmarena-harnesstax-coding-agents": "HarnessTax: How Much Does the Harness Matter for Coding Agents?"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
