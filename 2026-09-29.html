@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - September 29, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    </style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Tuesday &middot; September 29, 2026</p>
+        <h1>Two summaries, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+
+      <a class="card" href="#theo-openai-scared-sonnet-55"><span class="num">01</span><span><span class="card-title">OpenAI should be scared of this one</span><span class="card-byline">Theo - t3.gg</span></span><span class="card-dur">5:36</span></a>
+
+      <a class="card" href="#lennys-podcast-claude-pm"><span class="num">02</span><span><span class="card-title">Why Claude can&#x27;t be your PM (yet) | Anthropic CPO Panel</span><span class="card-byline">Lenny&#x27;s Podcast</span></span><span class="card-dur">6:40</span></a>
+
+      </div>
+
+    <section class="article-view" id="theo-openai-scared-sonnet-55" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-29.html" data-route="index">&larr; September 29, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">OpenAI should be scared of this one - September 29, 2026 <span class="dur">&middot; 5:36</span></p>
+        <audio controls preload="none" src="podcasts/theo-openai-scared-sonnet-55.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/theo-openai-scared-sonnet-55.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Theo - t3.gg</dd></div>
+        <div><dt>Published</dt><dd>September 29, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=8WbW_n95wc4" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models</p>
+        <h2>OpenAI should be scared of this one</h2>
+        <p class="dek">Theo - t3.gg&#x27;s &quot;OpenAI should be scared of this one&quot; takes on Anthropic&#x27;s surprise Sonnet 5.5 release, and lands a twist that gives the video its title. Theo Browne loves the new model, but his punchline is that you should not use it yourself.</p>
+        <div>
+        <p>Theo - t3.gg&#x27;s &quot;OpenAI should be scared of this one&quot; takes on Anthropic&#x27;s surprise Sonnet 5.5 release, and lands a twist that gives the video its title. Theo Browne loves the new model, but his punchline is that you should not use it yourself.</p>
+        <p>Sonnet 5.5 arrives as the second model in the 5.5 family after Opus 5.5, and Theo came in skeptical. He had called Sonnet 5 one of his least favorite model releases ever and assumed he would skip this one. Anthropic pitches the new model as thirty percent faster and up to thirty percent cheaper per task than its predecessor, built for well scoped everyday work while Opus handles judgment heavy tasks, with a claimed sharp eye for design.</p>
+        <p>The benchmarks look strong on paper. Sonnet 5.5 posted the best Terminal Bench 4 score to date, 70.6 percent against 10.3 for Sonnet 5, a jump Theo calls both impressive and a reason to distrust benchmarks in general. It is the first Sonnet model to beat Pokémon Red while working only from screenshots, shows real strength on long horizon work and image understanding, and lands slightly below Opus 5.5 on GDP Val.</p>
+        <p>Theo also credits Anthropic with sanding down the quirks he calls clawisms, so Sonnet 5.5 writes more clearly than the previous generation and feels like a better collaborator. Then comes the pricing reality check, and this is where the video gets sharp.</p>
+        <p>Sonnet 5.5 keeps Sonnet 5&#x27;s list price: two dollars per million input tokens, ten per million output, and twenty cents per million cache reads. That last number is the problem. Cache reads dominate the cost of real agentic coding, and while Fable 5.1 cut cache read costs by ninety percent and Opus 5.5 cut them by sixty, Sonnet 5.5 got no such discount. On the artificial analysis intelligence index, Theo found it neck and neck with Fable 5.1 for the most expensive run ever recorded, which he says should kill most reasons to pick it directly.</p>
+        <p>His loudest warning is about the max reasoning effort setting. Reasoning levels are really budgets, he explains. Moving from low to x-high effort adds only about five percent more tokens, but jumping from x-high to max adds fifteen times as many, because max raises the floor on how much the model must reason rather than the ceiling. That forces the model to overthink simple tasks until it second guesses itself into wrong answers. His advice is blunt: pretend max does not exist, and avoid low as well.</p>
+        <p>The efficiency story is not kind either. On Cursor Bench, Sonnet 5.5 used nearly 272,000 tokens per task, the most ever recorded, ahead of 218,000 for Opus and 162,000 for Gemini 3.8 Flash, and roughly five times what GPT-6 Sol and Astra used. It is genuinely fast, around 150 tokens per second on Theo&#x27;s subscription versus 100 for Opus, but sheer token volume erases that. His fish slop game demo took forty-three minutes on Sonnet against thirty-six on Opus.</p>
+        <p>Design is another weak spot. Running the Witch AI design showcase built by Dra, Theo found Sonnet worse than Opus and far behind Fable 5.1, which he calls the best overall design model for marketing style pages, though still ahead of anything from OpenAI or xAI.</p>
+        <p>So why does he love this model? Here is the thesis of the whole video. Sonnet 5.5 is not a model you should select. It is a tool for your other models to call. His own orchestrator v2 audit, a deep analytical dive through hundreds of thousands of lines of his T3 Code project, came in at about half the cost of Opus with a slightly better score, finishing in around five minutes against nearly ten for Opus and fifteen for Astra. That is the best value he has ever measured for that kind of work.</p>
+        <p>His real world tests back it up. In a wild side project rewriting the TypeScript compiler in Rust, Sonnet 5.5 cleared out about 1.6 million lines of legacy slop. And in a nice moment, when Theo asked it about the wrong conversation thread, it stayed consistent with the thread it was in instead of guessing at his intent, which he counts as genuinely good behavior.</p>
+        <p>Then there is the fish slop demo itself: a full game generated from a prompt, running at a smooth 120 frames per second on his laptop, with cute fish, decent coral and seaweed, and what he calls the best looking alien he has seen in any of these demos. Total cost at API prices: about sixteen dollars. For the price of a skin in Fortnite, you can make your own game.</p>
+        <p>The video closes with the economics behind its title. Theo estimates his two hundred dollar Claude subscription delivers roughly twenty-three hundred dollars of weekly usage, nearly ten thousand dollars a month, while OpenAI&#x27;s two hundred dollar Codex plan gets him nowhere near as much real world code. OpenAI, he says, does not have the smartest model, the most efficient model, the cheapest model, or the best model for calling other models. With OpenAI&#x27;s developer event approaching, he is watching to see how they answer.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>If Anthropic extended the cache read discounts that Fable 5.1 and Opus 5.5 got to Sonnet 5.5, would Theo&#x27;s cost math flip enough to make it a model worth selecting directly?</li>
+        <li>When Haiku 5.5 arrives for high volume, cost sensitive work, where does that leave Sonnet 5.5 in the family stack, and will its orchestration niche survive?</li>
+        <li>OpenAI&#x27;s developer event is imminent. What would a real answer to Sonnet 5.5 look like, in model quality, pricing, and agent orchestration?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded on the full auto-generated English transcript of Theo - t3.gg&#x27;s &quot;OpenAI should be scared of this one&quot; (31:46, posted September 29, 2026), pulled from YouTube&#x27;s &quot;Show transcript&quot; panel on September 29, 2026. The transcript runs 249 timestamped segments from 0:00 to 31:42. Auto-caption mishearings were corrected against context, including Sonet and Sonic for Sonnet, cash for cache, poll request for pull request, Xi for x-high, Grock for Grok, Soul for GPT-6 Sol, Kim K3 for Kimi K3, Pokémon Reding for Pokémon Red, fish slot for fish slop, cloud for Claude, and codeex for Codex. Fable 5.1 is a real Anthropic model in Theo&#x27;s coverage, not a caption error. The video includes a sponsored segment for CodeRabbit.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="to-index" href="2026-09-29.html" data-route="index">All summaries</a>
+        <a class="next" href="#lennys-podcast-claude-pm">Why Claude can&#x27;t be your PM (yet) | Anthropic CPO Panel &rarr;</a>
+      </nav>
+    </section>
+
+    <section class="article-view" id="lennys-podcast-claude-pm" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-29.html" data-route="index">&larr; September 29, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Why Claude can&#x27;t be your PM (yet) | Anthropic CPO Panel - September 29, 2026 <span class="dur">&middot; 6:40</span></p>
+        <audio controls preload="none" src="podcasts/lennys-podcast-claude-pm.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/lennys-podcast-claude-pm.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Lenny&#x27;s Podcast</dd></div>
+        <div><dt>Published</dt><dd>September 29, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=sEXdyK6woKU" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; product</p>
+        <h2>Why Claude can&#x27;t be your PM (yet) | Anthropic CPO Panel</h2>
+        <p class="dek">Recorded live at the Lenny and Friends Summit in San Francisco, this panel puts a pointed question to two of Anthropic&#x27;s product leaders. A year ago, people were told AI might make product managers obsolete. Now the word is that everyone needs to become a PM.</p>
+        <div>
+        <p>Lenny&#x27;s Podcast</p>
+        <p>Recorded live at the Lenny and Friends Summit in San Francisco, this panel puts a pointed question to two of Anthropic&#x27;s product leaders. A year ago, people were told AI might make product managers obsolete. Now the word is that everyone needs to become a PM. Moderator Dan Shipper asks Ami Vora, Anthropic&#x27;s chief product officer, and Mike Krieger, who leads Anthropic Labs, which story is true.</p>
+        <p>Vora&#x27;s answer starts with her definition of the job, one she says has always held. The job of product is to be a bridge between the real problems people have in the world and the technology that can solve them. What changed is the cadence. Technology used to change every five or ten years. Now it feels like it changes every two months, while human problems barely move. The PM&#x27;s edge therefore moves from knowing the technology to staying obsessed with the human problem and being willing to throw away most of what used to work.</p>
+        <p>What dies, in her telling, is the craft she spent decades perfecting. She learned to put herself in a user&#x27;s mindset down to tiny details, like where a finger lands on a phone screen and what situation had someone pulling the phone out of their pocket. She says nobody will ask her that question again. Her punchline, met with laughter: that is a Fable question now. It is faster to build three versions and try them. She calls this a personal innovator&#x27;s dilemma: you keep doing what you are good at, even when the world has moved on to a more important way of working.</p>
+        <p>What survives and matters more: adaptability, tolerance for change, judgment, and relentlessness. Vora says leaders should frame the chaos so it feels safe to engage with, because that is where the productivity lives. Krieger adds a structural point: inside the chaos you need clear ownership, a directly responsible individual for each bet, with the power to double down or wind things down. In Anthropic Labs they call those people bet leads, and he says the role matters more the faster things move.</p>
+        <p>The panel then turned to what to build. Krieger traced three stages: first the AI sidebar bolted onto an app, then whole features powered by AI, and now agent-native software, where everything a human can do, an agent can do as well. He says very few products get this right yet, but once they do, new emergent behavior unlocks. The next stage he is thinking about is interfaces that are malleable by the agent too, personal for the task, the project, even the user, while keeping predictable building blocks and design systems underneath so things do not go insane.</p>
+        <p>Inside Anthropic, he says, this is already daily life. Much of the software they interact with is built, maintained, and iterated by Claude itself. His example: a complex project with four independent workstreams, where Claude both tracks everything going on and generates the dashboard through which the technical program manager, and then the whole team, understands the project. If you do not like that display, you are not stuck with it. You change it, together with Claude.</p>
+        <p>For companies that are not Anthropic, Krieger&#x27;s advice is to build the right primitives into the product: an infrastructural layer, shared plumbing, that both humans and agents go through. Shared memory, shared files, shared model context. You can tell when a product was thought through this way, and you can tell when an agent feels bolted on. Start with a side pane, or a personal landing page, and evolve from there. You do not have to blow up the whole interface on day one.</p>
+        <p>Vora addressed the hardest organizational part: running many parallel experiments without confusing everyone. Her approach is to take a lot of shots on goal while the frontier is unexplored, accept overlapping products, and then reincorporate the winners into something coherent once product-market fit shows. The fail state is deciding the answer from theory and over-constraining a product from the start. She also warned against assigning a team to an area it is not excited about. That creates a B-team feeling, and she said the product will suffer for it.</p>
+        <p>How do you know something is starting to work? Vora says the classic product-market fit signals still apply: people use it, like it, come back, talk about it, get value. Krieger added a newer discipline: park projects and revisit them with each new model. Anthropic Labs built its first computer-use product in 2024, parked it because the models were not ready, and kept it alive as an evaluation harness. When Sonnet 3.7 arrived, the transcripts showed the leap. Vora polled the live audience on who had used Fable, then Astra, and noted how often people judge the models by an older version, telling her they used something like Sonnet 4.5. The model family, as discussed on the panel and in a companion video commissioned the same day: Sonnet at the smaller end, Opus in the middle, Fable 5.1 at the top tier, with Haiku 5.5 expected within weeks. Vora&#x27;s warning runs the other way too: capability blindness, trying something once, deciding the models will never do it, and missing the model that changes everything three months later.</p>
+        <p>The closing question was what will be different a year from now. Vora said she hopes people can just do much more: build in whatever way they want, get answers whenever they want, start businesses, with small teams and solo builders magnified in their impact. Krieger said his biggest goal is to close the gap between what models are capable of and what most people actually use them for. Not just the deeply embedded engineer with a fully working multi-agent setup, but the researcher and the business owner, all brought along. The &quot;yet&quot; in the title, then: judgment, ownership, and the bridge between humans and technology are still human jobs, and the art is doing long-horizon work without making people feel disempowered.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>If &quot;build three versions and try them&quot; replaces design judgment, where does the taste come from that makes the three versions worth trying in the first place?</li>
+        <li>If interfaces become malleable per user and per task, who owns coherence, and how do you track the provenance of data when agents are editing it underneath?</li>
+        <li>How does a company run parallel experiments without the teams whose bets get parked or wound down feeling like the B team?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> Grounded on the full English auto-generated captions of the YouTube video &quot;Why Claude can&#x27;t be your PM (yet) | Anthropic CPO Panel,&quot; pulled from YouTube&#x27;s &quot;Show transcript&quot; panel on September 29, 2026, around 4:20 AM PDT (235 segments, running 0:06 to 28:43; the 28:48 video&#x27;s captions end at 28:43). The panel was recorded live at the Lenny and Friends Summit in San Francisco on September 10, 2026. The moderator is Dan Shipper; the guests are Ami Vora, chief product officer at Anthropic, and Mike Krieger, who leads Anthropic Labs. The auto-captions misheard several proper nouns: &quot;Enthropic&quot; and &quot;an anthropic&quot; for Anthropic, &quot;Ammy&quot; for Ami, &quot;cloud mode,&quot; &quot;early agent cloud way,&quot; and &quot;cloud tag&quot; for Claude mode, the early agent Claude way, and Claude Code, &quot;DRRi&quot; and &quot;DRRship&quot; for DRI, &quot;orc streams&quot; for workstreams, &quot;side paint&quot; for side pane, &quot;provenence&quot; for provenance, &quot;reinccorporate&quot; for reincorporate, and &quot;Sonnet 45&quot; and &quot;37&quot; for Sonnet 4.5 and Sonnet 3.7. These are corrected in the summary; the transcript file remains verbatim. &quot;Fable&quot; is not a mishearing: it is Anthropic&#x27;s top-tier model, above Opus, and the panel treats it as already released (the moderator&#x27;s &quot;Fable 7&quot; is a joke about an unreleased future version; &quot;Astra&quot; is named once alongside it in an audience poll, without further detail). The model family, as discussed on the panel and in a companion video commissioned the same day: Sonnet at the smaller end, Opus in the middle, Fable 5.1 at the top, with Haiku 5.5 expected within weeks.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#theo-openai-scared-sonnet-55">&larr; OpenAI should be scared of this one</a>
+        <a class="to-index" href="2026-09-29.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated September 28, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "theo-openai-scared-sonnet-55": "OpenAI should be scared of this one",
+      "lennys-podcast-claude-pm": "Why Claude can't be your PM (yet) | Anthropic CPO Panel"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+</body>
+</html>
