@@ -365,7 +365,7 @@
     <header class="masthead">
       <div>
         <p class="date">Tuesday &middot; September 29, 2026</p>
-        <h1>Six summaries, distilled.</h1>
+        <h1>Seven summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -376,7 +376,7 @@
       <a class="card" href="#sourcery-deel-scaled"><span class="num">03</span><span><span class="card-title">Deel&#x27;s Shuo Wang on Scaling From $1M to $1B+ ARR</span><span class="card-byline">Sourcery with Molly O&#x27;Shea</span></span><span class="card-dur">3:43</span></a>
       <a class="card" href="#blackstone-eric-schmidt-superintelligence"><span class="num">04</span><span><span class="card-title">Former Google CEO Eric Schmidt: The Road to Superintelligence</span><span class="card-byline">Inside Blackstone</span></span><span class="card-dur">4:09</span></a>
       <a class="card" href="#a16z-who-gets-paid-ai-shopping"><span class="num">05</span><span><span class="card-title">Who Gets Paid When AI Does the Shopping?</span><span class="card-byline">a16z News</span></span><span class="card-dur">3:28</span></a>
-      <a class="card" href="#a16z-personal-ai-agents"><span class="num">06</span><span><span class="card-title">We Tested the New Wave of Personal AI Agents</span><span class="card-byline">a16z · September 29, 2026</span></span><span class="card-dur">8:37</span></a>
+      <a class="card" href="#a16z-personal-ai-agents"><span class="num">06</span><span><span class="card-title">We Tested the New Wave of Personal AI Agents</span><span class="card-byline">a16z · September 29, 2026</span></span><span class="card-dur">8:37</span></a><a class="card" href="#theo-sol-61-cheap"><span class="num">07</span><span><span class="card-title">Sol 6.1 shouldn&#x27;t be so cheap</span><span class="card-byline">Theo - t3.gg</span></span><span class="card-dur">3:40</span></a>
       </div>
       </nav>
     </section>
@@ -647,6 +647,46 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#a16z-who-gets-paid-ai-shopping">&larr; Who Gets Paid When AI Does the Shopping?</a>
         <a class="to-index" href="2026-09-29.html" data-route="index">All summaries</a>
+        <a class="next" href="#theo-sol-61-cheap">Sol 6.1 shouldn&#x27;t be so cheap &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="theo-sol-61-cheap" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-29.html" data-route="index">&larr; September 29, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Sol 6.1 shouldn&#x27;t be so cheap — September 29, 2026 <span class="dur">&middot; 3:40</span></p>
+        <audio controls preload="none" src="podcasts/theo-sol-61-cheap.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/theo-sol-61-cheap.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Theo - t3.gg</dd></div>
+        <div><dt>Published</dt><dd>September 29, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=vu8X3YroB-w" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models</p>
+        <h2>Sol 6.1 shouldn&#x27;t be so cheap</h2>
+        <p class="dek">Theo Browne&#x27;s Theo - t3.gg channel, posted September 29, 2026. The commissioned Short was never indexed by YouTube, so this summary is grounded on the full transcript of the longer video it was clipped from, "Sol 6.1 is Astra with Sonnet Pricing." The headline is simple: OpenAI&#x27;s GPT-6.1 Sol costs a fraction of everything around it while matching the benchmark scores of models priced far above it.</p>
+        <div>
+        <p>The price is the story. The model is 2 dollars per million input tokens and 10 dollars per million output, with cache reads at 10 cents per million. That cache price is new: OpenAI&#x27;s cache reads were always exactly 10 percent of the input price, and now it is 5 percent, cutting the cost of real agentic workloads roughly in half. It is the same headline price as GPT-6 Sol and one fifth of Astra&#x27;s. Theo ran Terminal-Bench 4 himself on his own machines. Sol 6.1 on low effort scored around what Astra managed on high, at 21 cents per task against 1.46 dollars for Astra on low. His most expensive Sol task run was about 1.38 dollars; the cheapest Opus 5.5 run was 5.12 dollars. On Deep SWE, Sol 6.1 on low tied the score Opus 5.5 needed max effort and 50 minutes per task to reach, at a small fraction of the time and price.</p>
+        <p>Reliability matters as much as price here. Astra was brilliant and erratic, spiking into failures so dumb that Theo effectively churned off it, leaning on Fable 5.1 and now Opus 5.5 for day-to-day work. Sol 6.1, he says, is much less spiky. He trusts it to go through his email, find invoices he forgot to pay, and set up wire transfers in Chrome tabs, leaving only the send button for him. He would never have trusted Astra with that. The tradeoff is that its peaks are lower: not the revolutionary 3D capability Astra had, slightly below Opus 5.5 on that class of thing.</p>
+        <p>Where the model shines is Rottweiler work: deep audits and code review. On Theo&#x27;s orchestrator v2 audit it scored nearly identically to Astra at about half the price. Asked to find improvement opportunities in the T3 codebase, a task where Grok 4.7 scored strangely well, Sol 6.1 hit 87.4 against Astra&#x27;s 83.8 and Grok 4.7&#x27;s 80.7, at 2.15 dollars against 5 for Opus 5.5 and nearly 9 for Sonnet 5.5. Theo even had Opus 5.5 blind-review the model under a different name. It concluded quickly that it was frontier-tier, said it becomes the default model for scoped work, and guessed it should cost roughly Opus-level prices. Told the actual price, it called that very aggressive and expected the price to go up in the future.</p>
+        <p>The funniest thread in the video is the TypeScript-to-Rust port. Months of Astra and 6.0 Sol work had burned hundreds of thousands of dollars in tokens without unblocking it, and Opus 5.5 later restarted it from scratch and got it working in a night. Theo then had 6.1 Sol audit that finished work, and it found that of 1.8 million lines, 1.3 million were unused: Opus had silently concluded the older agents&#x27; code was unrecoverable slop and rewritten from scratch in a new crate. Sol also did three rounds of work for about half the cost of a single Sonnet round, using under half the input tokens per request, about 110,000 against 360,000.</p>
+        <p>The weaknesses are real. The "fish slop" segment is brutal. The fish look stunning and the 3D modeling is genuinely good, but the game is wrapped in garbage UI, with janky movement, a worse frame rate than the Opus and Sonnet versions, and twenty-plus unnecessary text overlays. Theo calls the model unacceptably bad at UI and says it has regressed again: if you want frontends that do not suck, spend your money elsewhere. And for long unattended heavy rewrites, Anthropic is, in his words, comically far ahead.</p>
+        <p>Theo&#x27;s workflow verdict: keep Opus 5.5 as the daily driver and the more pleasant collaborator, but wire 6.1 Sol in as the reviewer, investigator, and auditor. He has almost no reason to use Sonnet anymore. And he reads the aggressive pricing, landing alongside Tibo&#x27;s announcement that the 200-dollar pro plan&#x27;s usage math nets out at half the old API spend, as the possible start of the end of the subsidization era.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>Will the price hold? Opus itself, told the real price, expected it to go up. Is this a land grab that ends with a hike once adoption sticks, or a genuine margin reset?</li>
+        <li>Can OpenAI ever fix the frontend and design taste gap, or is Sol permanently a backend model that needs a human&#x27;s eye on anything visual?</li>
+        <li>What does the coding stack look like in a year? Is Opus writing plus Sol reviewing the stable pattern, or does one model eventually do both jobs well enough that the pairing collapses?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> Grounded on the full YouTube transcript of "Sol 6.1 is Astra with Sonnet Pricing" (Theo - t3.gg, posted September 29, 2026, https://www.youtube.com/watch?v=vu8X3YroB-w), pulled from the English auto-generated captions via the &#x27;Show transcript&#x27; panel on September 29, 2026 at about 11:10 AM PDT: 236 timestamped segments from 0:04 to 30:51 of the 30:58 video, continuous, with 9 chapter markers as listed in the panel. The commissioned Short "Sol 6.1 shouldn&#x27;t be so cheap" was not indexed anywhere on YouTube at build time, so no transcript of the Short itself exists; the episode is grounded on this longer source video, which the Short was clipped from. Caption mishearings corrected in drafting: Soul to Sol, Grock to Grok, Sonic 55 to Sonnet 5.5, GBD6 to GPT-6, and swive.link/devo to the sponsor URL as shown.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#a16z-personal-ai-agents">&larr; We Tested the New Wave of Personal AI Agents</a>
+        <a class="to-index" href="2026-09-29.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -663,7 +703,8 @@
       "sourcery-deel-scaled": "Deel's Shuo Wang on Scaling From $1M to $1B+ ARR",
       "blackstone-eric-schmidt-superintelligence": "Former Google CEO Eric Schmidt: The Road to Superintelligence",
       "a16z-who-gets-paid-ai-shopping": "Who Gets Paid When AI Does the Shopping?",
-      "a16z-personal-ai-agents": "We Tested the New Wave of Personal AI Agents"
+      "a16z-personal-ai-agents": "We Tested the New Wave of Personal AI Agents",
+      "theo-sol-61-cheap": "Sol 6.1 shouldn't be so cheap"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
