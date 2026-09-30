@@ -365,12 +365,12 @@
     <header class="masthead">
       <div>
         <p class="date">Wednesday &middot; September 30, 2026</p>
-        <h1>One summary, distilled.</h1>
+        <h1>Two summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
       <nav aria-label="Summaries">
-        <div class="cards"><a class="card" href="#dhh-rails-world-2026-keynote"><span class="num">01</span><span><span class="card-title">Rails World 2026 Opening Keynote - DHH</span><span class="card-byline">Ruby on Rails</span></span><span class="card-dur">7:06</span></a>
+        <div class="cards"><a class="card" href="#dhh-rails-world-2026-keynote"><span class="num">01</span><span><span class="card-title">Rails World 2026 Opening Keynote - DHH</span><span class="card-byline">Ruby on Rails</span></span><span class="card-dur">7:06</span></a><a class="card" href="#how-i-ai-dev-day-2026"><span class="num">02</span><span><span class="card-title">OpenAI Dev Day 2026: The releases that actually matter</span><span class="card-byline">How I AI</span></span><span class="card-dur">4:52</span></a>
       </div>
       </nav>
     </section>
@@ -417,10 +417,51 @@
       </article>
       <nav class="article-nav" aria-label="More summaries">
         <a class="to-index" href="2026-09-30.html" data-route="index">All summaries</a>
+        <a class="next" href="#how-i-ai-dev-day-2026">OpenAI Dev Day 2026: The releases that actually matter &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="how-i-ai-dev-day-2026" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-30.html" data-route="index">&larr; September 30, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">OpenAI Dev Day 2026: The releases that actually matter — September 30, 2026 <span class="dur">&middot; 4:52</span></p>
+        <audio controls preload="none" src="podcasts/how-i-ai-dev-day-2026.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/how-i-ai-dev-day-2026.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>How I AI</dd></div>
+        <div><dt>Published</dt><dd>September 29, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=pJNM1z9l5mU" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; industry</p>
+        <h2>OpenAI Dev Day 2026: The releases that actually matter</h2>
+        <p class="dek">This is a summary of the How I AI episode "OpenAI Dev Day 2026: The releases that actually matter," posted September 29, 2026. Claire Vo spent the day in San Francisco at OpenAI&#x27;s Dev Day, from the keynote through the afternoon, and got early access to several of the releases. Her framing is simple: the good news is that OpenAI released a lot of stuff, and the bad news is that OpenAI released a lot of stuff, so this episode picks out what she thinks actually deserves your attention.</p>
+        <div>
+        <p>The big release of the morning is Dots. A Dot is an always-on, long-running agent that works for you across ChatGPT, Codex, its own cloud computer, your local computer, and your phone, through text or a real phone call, and even inside Slack. Right now each user gets a single Dot, available on Pro, Business, and Enterprise plans. Vo&#x27;s own Dot is named Ba, a pink blob with glasses and googly eyes. Dots are positioned as a replica or delegate of you, a master thread that can kick off Codex threads and chat threads to do work on your behalf.</p>
+        <p>Vo&#x27;s early take on Dots is that the bones are good. It found the right shoes while shopping for her, coded well for her, and reminded her proactively about her kids&#x27; swim class schedule. But the user experience has rough edges, and the information architecture is confusing: it is not clear what a Dot thread is versus a chat thread versus a Codex thread. She is not doing a full Dots review yet, partly because OpenAI is clearly still building it out by the hour, and partly because her own habits lean toward Grok bots for work, where she hires micro-agents for specific jobs rather than one agent to rule them all. She finds Muse&#x27;s experience a little more consumer-friendly and approachable.</p>
+        <p>The release she calls underhyped is Spaces: a place in ChatGPT where humans and agents collaborate on documents, artifacts, and slides, with proper sharing, permissions, and data controls built in. Her Dot made her a space called "your personal scratch pad" for shared to-dos, and she sees this as what enterprises have been waiting for: an AI-native collaboration surface with governance. She also notes the parallel with her own earlier project, a shared notebook where all her agents could collaborate on her to-do list.</p>
+        <p>Related to Spaces is the Sites update. Sites is OpenAI&#x27;s built-in website and app builder, and it now lets you bundle connectors and plugins into a deployed site. Her example: a custom dashboard pulling from your Snowflake connector, where a teammate who logs in sees the report through their own connector, and data they lack access to stays behind the controls. She calls this OpenAI&#x27;s answer to the number one enterprise problem she hears about: what to do with the flood of vibecoded internal tools and prototypes. The open competition here is between Claude artifacts and OpenAI sites for the enterprise source of truth.</p>
+        <p>On models, OpenAI released GPT-6.1 Sol, described as near-Astra intelligence at Sol speed and price: $2 per million input tokens and $10 per million output tokens, versus $10 and $50 for Astra. More interesting to Vo is the Decisions API, OpenAI&#x27;s competitor to constrained-decision models like "little Jeff," except this one has vision. She built a demo that scanned 100 frames of a 40-minute episode in under 10 seconds to find thumbnails where neither guest was making an awkward face, a job she says the vision-less Jeff could never do, plus the classic hot-dog demo at 100% confidence in under a second. The Decisions API is not released yet; she plans a head-to-head against Jeff when it ships.</p>
+        <p>The release she most wants, though she admits she cannot really afford it, is Astra ultrafast. Models in Codex can run in normal, fast, or ultrafast mode, where ultrafast runs about eight times as fast at six times the cost. Her two demos show why she cares: The Other Pencil, a collaborative sketch pad where Astra draws SVGs behind her strokes in near real time, and Little Starship, a 3D app where prompts render new scenes live, from a bathroom with a rubber ducky to a tropical island to a zero-gravity float party. Thirty minutes of her kids playing Little Starship cost her about $97. Latency is still a little slow for true real-time, but she calls it magical.</p>
+        <p>Around the edges, the keynote also covered the Agents API with computer use, the Codex developer primitives, plugin updates with rumored monetization for plugin builders, and a new Pro 500 plan. Her what-to-try-first advice: give Dots a whirl and report back, look at Spaces and Sites if your company struggles with AI collaboration, and pay attention to the models, because a developer who builds both with and on these models finds the Decisions API and ultrafast genuinely exciting.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>Will Spaces become the enterprise source of truth for AI-generated work, or will companies keep their collaboration in Slack, Google Drive, and Dropbox? Vo is watching adoption closely, and the push and pull between OpenAI-hosted documents and existing platforms is unresolved.</li>
+        <li>When the Decisions API actually ships, will vision make it the missing piece in AI architecture that Vo expects, or will the simpler Jeff-style models keep winning on cost and simplicity? The promised head-to-head evaluation has not happened yet.</li>
+        <li>What will frontier intelligence at near real-time speed actually enable once the price comes down? Vo&#x27;s demos point at new kinds of products, but a thirty-minute demo costing about $97 shows how far the economics still have to go.</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded on the full YouTube caption track of the episode, pulled September 30, 2026. YouTube&#x27;s native "Show transcript" panel would not load after repeated attempts, so the captions were read through Tactiq&#x27;s YouTube-transcript tool, which renders the same underlying YouTube caption data with timestamps, every segment verbatim. The video is 24:19, posted September 29, 2026, by the How I AI channel (120K subscribers, @howiaipodcast). View counts and details are as of September 30, 2026.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#dhh-rails-world-2026-keynote">&larr; Rails World 2026 Opening Keynote - DHH</a>
+        <a class="to-index" href="2026-09-30.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
-        <footer>
+    <footer>
       <span>Summaries dated September 30, 2026</span>
       <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
     </footer>
@@ -428,7 +469,8 @@
   <script>
     (() => {
       const TITLES = {
-      "dhh-rails-world-2026-keynote": "Rails World 2026 Opening Keynote - DHH"
+      "dhh-rails-world-2026-keynote": "Rails World 2026 Opening Keynote - DHH",
+      "how-i-ai-dev-day-2026": "OpenAI Dev Day 2026: The releases that actually matter"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
