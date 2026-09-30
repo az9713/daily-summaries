@@ -365,12 +365,12 @@
     <header class="masthead">
       <div>
         <p class="date">Wednesday &middot; September 30, 2026</p>
-        <h1>Two summaries, distilled.</h1>
+        <h1>Three summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
       <nav aria-label="Summaries">
-        <div class="cards"><a class="card" href="#dhh-rails-world-2026-keynote"><span class="num">01</span><span><span class="card-title">Rails World 2026 Opening Keynote - DHH</span><span class="card-byline">Ruby on Rails</span></span><span class="card-dur">7:06</span></a><a class="card" href="#how-i-ai-dev-day-2026"><span class="num">02</span><span><span class="card-title">OpenAI Dev Day 2026: The releases that actually matter</span><span class="card-byline">How I AI</span></span><span class="card-dur">4:51</span></a>
+        <div class="cards"><a class="card" href="#dhh-rails-world-2026-keynote"><span class="num">01</span><span><span class="card-title">Rails World 2026 Opening Keynote - DHH</span><span class="card-byline">Ruby on Rails</span></span><span class="card-dur">7:06</span></a><a class="card" href="#how-i-ai-dev-day-2026"><span class="num">02</span><span><span class="card-title">OpenAI Dev Day 2026: The releases that actually matter</span><span class="card-byline">How I AI</span></span><span class="card-dur">4:51</span></a><a class="card" href="#sourcery-physical-limits-chips"><span class="num">03</span><span><span class="card-title">We&#x27;re Reaching the Physical Limits of Chips</span><span class="card-byline">Sourcery with Molly O&#x27;Shea</span></span><span class="card-dur">3:31</span></a>
       </div>
       </nav>
     </section>
@@ -458,6 +458,48 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#dhh-rails-world-2026-keynote">&larr; Rails World 2026 Opening Keynote - DHH</a>
         <a class="to-index" href="2026-09-30.html" data-route="index">All summaries</a>
+        <a class="next" href="#sourcery-physical-limits-chips">We&#x27;re Reaching the Physical Limits of Chips &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="sourcery-physical-limits-chips" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-30.html" data-route="index">&larr; September 30, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">We&#x27;re Reaching the Physical Limits of Chips — September 30, 2026 <span class="dur">&middot; 3:31</span></p>
+        <audio controls preload="none" src="podcasts/sourcery-physical-limits-chips.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/sourcery-physical-limits-chips.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Sourcery with Molly O&#x27;Shea</dd></div>
+        <div><dt>Published</dt><dd>September 30, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=6-q_8T_m5GM" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; hardware</p>
+        <h2>We&#x27;re Reaching the Physical Limits of Chips</h2>
+        <p class="dek">This is a summary of the Sourcery with Molly O&#x27;Shea episode "We&#x27;re Reaching the Physical Limits of Chips," posted September 30, 2026. Molly O&#x27;Shea sits down with Steven Latre, VP of AI at imec and a Thema board member, and Adam Chambers of Strike Capital, to talk about what comes after the GPU.</p>
+        <div>
+        <p>Latre starts by explaining imec, which he calls the most unknown hidden gem in semiconductors. It is a research institute in Belgium that works at the very earliest stage of chip building, with a clean room facility nobody else in the world has. The biggest chip providers come to imec first to design the next generation chip, a process that takes five to ten years, and then take the designs home to commercialize. Latre says almost no chip in the world today has not been touched by imec in some way. The institute has been driving the chip roadmap for forty years.</p>
+        <p>His core claim is that Moore&#x27;s Law is plateauing. Transistors have shrunk to about one nanometer deep, roughly one hundred thousand times smaller than a human hair, and he says we are at the end of physics of what we can still do. The era ahead, in his view, will require hardware that is far more inventive than anything of the last ten to twenty years if chips are to keep getting faster.</p>
+        <p>Chambers maps the bottlenecks from an investor&#x27;s seat. GPUs are very good at training, he says, but the binding constraint is now in the inference layer: power and energy, memory, cooling, and data transfer. Getting useful memory to a GPU as fast as possible, with more bandwidth and lower latency, is the most interesting territory, and he expects liquid cooling to move closer and closer to the chip over the next five to ten years, with a lot of the value going to the manufacturing side.</p>
+        <p>Memory is already the number one component that is broken. Only three companies in the world produce memory, Micron, SK Hynix, and Samsung, together holding about ninety five percent of the market. Hyperscalers have taken over much of their inventory, and prices for the memory part of the chip have risen seven hundred percent this year. Chambers frames this as a hardware era renaissance, with fantastic chip margins while software gets eaten by AI.</p>
+        <p>Latre pushes back on the idea that the pyramid has flipped. He calls today&#x27;s software market immature: the last four or five years of AI were tremendous in software, but large language models are still a brute force approach, and the value extracted is limited. New software evolutions tied much closer to hardware will follow, and the value will grow there too. On the flood of new chip startups, he says demand looks endless and the real bottleneck is manufacturing, not the number of companies. Every company can bring a different unique design, and more diverse algorithms will need more diverse hardware beyond GPUs.</p>
+        <p>He is also blunt that models will not keep getting bigger. The newest open-source models already carry more parameters than the human brain, yet the chip needed to fuel such a model is roughly a million times less efficient than the brain. He says the era of going from one hundred seventy five billion parameters to ten trillion is going to stop, and companies are already abandoning the scaling hypothesis to solve memory bottlenecks instead.</p>
+        <p>The technology both guests are most excited about is photonics. Moving data as light instead of through copper attacks three bottlenecks at once: energy, cooling, and data transfer. Today photonics sits between clusters as linear pluggable optics, but Chambers expects optical components to move closer to the actual GPU within five years, toward co-packaged optics. Latre calls it the killer technology that will enable the chips of the future, and points to the human brain&#x27;s three-dimensional structure as proof of what efficient data movement can do.</p>
+        <p>For hottest takes, Latre predicts that in five to ten years we will laugh at how old fashioned AI was today, the way people now laugh at dialup internet tones. He expects an actual software revolution to follow. Chambers says he is biased, but his take is to recruit and invest in people who combine a European academic and technical background with American business sense.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>Will photonics really reach co-packaged optics within five years, or will the optical-to-electrical conversion bottleneck keep it at the cluster edge? The timeline decides who captures the value in AI infrastructure.</li>
+        <li>If the scaling hypothesis is truly over, where does AI value accrue next: in hardware, in software tied closely to hardware, or in entirely new model architectures? Latre expects a software revolution, but neither guest describes what it looks like.</li>
+        <li>Is the memory crunch a cyclical supply story or a structural constraint? Three producers hold ninety five percent of the market and prices are up seven hundred percent this year, yet neither guest lays out what the relief valve is.</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded on the full YouTube caption track of the episode, pulled September 30, 2026 from YouTube&#x27;s native "Show transcript" panel, every segment verbatim. The video is auto-dubbed, so the captions contain dub artifacts that were corrected for this summary: "IMC" for imec, "Stephen" for Steven Latre, "sorcery" for Sourcery, and "tema foundaries" for Thema foundries. The video is 13:40, posted September 30, 2026, by the Sourcery with Molly O&#x27;Shea channel. View counts and details are as of September 30, 2026.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#how-i-ai-dev-day-2026">&larr; OpenAI Dev Day 2026: The releases that actually matter</a>
+        <a class="to-index" href="2026-09-30.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -470,7 +512,8 @@
     (() => {
       const TITLES = {
       "dhh-rails-world-2026-keynote": "Rails World 2026 Opening Keynote - DHH",
-      "how-i-ai-dev-day-2026": "OpenAI Dev Day 2026: The releases that actually matter"
+      "how-i-ai-dev-day-2026": "OpenAI Dev Day 2026: The releases that actually matter",
+      "sourcery-physical-limits-chips": "We're Reaching the Physical Limits of Chips"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
