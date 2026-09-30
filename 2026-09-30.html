@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - September 30, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    </style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Wednesday &middot; September 30, 2026</p>
+        <h1>One summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards"><a class="card" href="#dhh-rails-world-2026-keynote"><span class="num">01</span><span><span class="card-title">Rails World 2026 Opening Keynote - DHH</span><span class="card-byline">Ruby on Rails</span></span><span class="card-dur">7:06</span></a>
+      </div>
+      </nav>
+    </section>
+
+    <section class="article-view" id="dhh-rails-world-2026-keynote" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-30.html" data-route="index">&larr; September 30, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Rails World 2026 Opening Keynote - DHH — September 30, 2026 <span class="dur">&middot; 7:06</span></p>
+        <audio controls preload="none" src="podcasts/dhh-rails-world-2026-keynote.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/dhh-rails-world-2026-keynote.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Ruby on Rails</dd></div>
+        <div><dt>Published</dt><dd>September 23, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=vDjW_dRyKXY" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; programming</p>
+        <h2>Rails World 2026 Opening Keynote - DHH</h2>
+        <p class="dek">The Ruby on Rails channel&#x27;s "Rails World 2026 Opening Keynote - DHH" is DHH&#x27;s hour-long opening address from Rails World 2026 in Austin, delivered in front of a room of Rails programmers. He diagnoses himself with "AI euphoria" rather than the AI psychosis his critics might prescribe, and spends the next hour making the case that this is the most exciting thing computers have ever done, with receipts from 37signals to back it up.</p>
+        <div>
+        <p>His framing is history. He opens with portrait painters in the eighteenth century, where a master painter spent months on a single commissioned portrait, then traces the long arc of the camera: its arrival around 1840, the Kodak Brownie in 1900 putting a picture in reach for about a dollar, the painters pivoting to cubism and impressionism, then a long plateau until camera phones made photography frictionless and the world started taking two trillion photos a year. Technology moves in fits and starts, he argues, and the point is that the old craft did not die. It found a new home.</p>
+        <p>The story has a personal hook he clearly loves. The Danish portrait painter in it, Laurits Tuxen, is his great-great-grandfather, and the woman in the pink dress in the painting is his great-grandmother Yvonne. Tuxen embraced having his own portrait taken by the very technology that had ended his old profession. DHH is holding that up as the model he wants for programmers now.</p>
+        <p>His date for software&#x27;s Kodak Brownie moment is November 24, 2025, when Opus 4.5 arrived. There was a trough of disillusionment from February through May 2026, when new models felt like steps backward. Then Fable 5 and Mythos landed in June, GPT-6 Astra in September, and DeepSeek-4-1 Flash a week later broke the idea that frontier intelligence belongs to a few American companies. The old debate over the 10x programmer is settled, he says, and the live question now is whether the gap between programmers with these tools and those without them is a hundred times or a thousand times.</p>
+        <p>Then it gets concrete. A couple of weeks ago, 37signals went pencils down on hand-written code. Writing code by hand is now an exceptional state there, treated like a bug showing up in Sentry, a sign the machine is broken. He polled the room: about five hands went up for still writing material amounts of code by hand every week. Basecamp 5 was the trial run. In the spring, designers vibe-coded the finishing features and the architecture came back looking, in his words, like Swiss cheese. The team concluded the technology was not ready. Wrong conclusion, he says now. Give it five minutes and you get Fable, and everything works as intended.</p>
+        <p>The new work is HEY Next, a new version of his email service, and the first decision was to stop making it a web app. A week into the effort, six high-fidelity native applications were already on stage being demoed. He points to Shopify&#x27;s tiny team rewriting the Shop app as native proof this is coming for every web app that was only a web app because a small team could not afford better. The backend goes further. He hates Rust and says so at length, but the agent-written Rust backend uses ninety-nine percent less CPU and ninety-five percent less memory, and his back-of-the-envelope math says HEY&#x27;s peak traffic could be served on a single Raspberry Pi. The division of labor is simple: he tells the agent what to do, the agent writes the Rust, he never looks at it.</p>
+        <p>Where does that leave Ruby and Rails? The web still matters for apps that cannot ask anyone to install anything, and Rails is well positioned because convention over configuration maps directly to token efficiency. Agent evals run by Evil Martians for the Rails Foundation saturated the first benchmark at ninety-five percent, so they had to build a harder one. His practical advice is to not be overly prescriptive, keep a beginner&#x27;s mind, and give every app a command line interface, because agents operate through interfaces, not screens. The HEY CLI lets him search by concept instead of keyword, and it found a five-year-old email about sneakers and a podcast that no keyword search ever could.</p>
+        <p>The personal numbers are the knockout. Across twenty-one years he wrote about thirty thousand lines of production Ruby a year. In August, he wrote a hundred and fifty thousand lines in one month. And there is, he says, a programming language he likes better than Ruby. It is called English. Writing programs in English turned out to be a tremendously satisfying experience.</p>
+        <p>Then comes the line that defines the keynote. He has retired from being a professional programmer, probably around March. He does not mean it as an eulogy. He spent a quarter of a century chiseling code by hand and loved every minute of it, and he wants everyone to look back on that era with joy rather than regret. It is simply over as an economically productive enterprise, and on the other side is a new career as a professional maker of things.</p>
+        <p>He takes the same rethink to software architecture. Abstractions were invented to avoid repeating ourselves, but the price of repetition has fallen near zero, so the choke points that abstractions create no longer buy what they used to. Nobody has the blueprint yet, he admits, and the audience is invited to help draw it.</p>
+        <p>Omarchy, his Linux setup, gets its own victory lap. Twenty million dollars raised. Anoush from AMD installed it on a laptop in thirty-five seconds. In the lab, a full operating system install is down to nine seconds. And this very talk was built in Hype, new presentation software he wrote that week, built on Markdown, with a binary of half a megabyte. Every optimization is now within reach, he says, because an agent can work on it overnight.</p>
+        <p>He gives the skeptics their due, briefly. Security is the one legitimate concern he names, with a recent Rails image-library vulnerability as the example, and HotCell as one defensive effort. Then he treats the rest as prediction error. No economist can call the stock market six months out, so they do not know what a paradigm shift looks like either. He retells the ATM story: the nineteen fifties panic that thirty thousand bank tellers would be out of work in eighteen months, followed by the Jevons paradox punchline that teller employment actually grew. His prescription is P(bloom) over P(doom). If you are sad about it up front and it turns out wonderful, what a waste of time.</p>
+        <p>The closer is the case for total optimism. Agent Luther, he says, will disintermediate the cleric class the way Martin Luther did, and make programmers of everyone. Kids trying a kids version of Omarchy are not stressed about unlearning five hundred layers of habit. Take the white pill, lean in with gusto, and be happy about the future, because the rational choice, he insists, is to be happy about it. The future, in his words, is galactically awesome.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>If writing code by hand is no longer an economically productive enterprise, what becomes of the craft knowledge and taste that hand-written code used to teach?</li>
+        <li>HEY&#x27;s rewrite bets that native apps are now cheap to build and maintain; what happens when six native apps drift apart and the team has to reason about behavior it never wrote?</li>
+        <li>Security is named as the one legitimate worry while everything else is treated as prediction error; is P(bloom) a strategy, or just a bet that the ATM analogy holds at a scale no prior technology has matched?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> Grounded on the full YouTube caption track of "Rails World 2026 Opening Keynote - DHH" (Ruby on Rails channel, 26.4K subscribers, posted September 23, 2026, duration 1:03:07, https://www.youtube.com/watch?v=vDjW_dRyKXY), pulled on September 30, 2026 at about 4:00 AM PDT. YouTube&#x27;s native "Show transcript" panel would not load after repeated attempts and the legacy caption endpoint returned empty, so the transcript was pulled via a Tactiq transcript mirror of the same underlying YouTube caption data, timestamped segments from 0:00:07 to 1:02:55 of the 1:03:07 video, continuous, verbatim. Caption mishearings corrected in drafting: codecs to Codex, chatbt and Chad GPT to ChatGPT, Grockbots to Grokbot, Tuxen to Tuxen, and assorted proper-name spellings. Nothing beyond what the transcript contains has been added.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="to-index" href="2026-09-30.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+        <footer>
+      <span>Summaries dated September 30, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "dhh-rails-world-2026-keynote": "Rails World 2026 Opening Keynote - DHH"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+</body>
+</html>
