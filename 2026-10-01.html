@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - October 1, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    </style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Thursday &middot; October 1, 2026</p>
+        <h1>Three summaries, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards"><a class="card" href="#dx-justin-reock-state-of-ai-software-dev"><span class="num">01</span><span><span class="card-title">The State of AI in Software Development: Data from 400+ Orgs — Justin Reock, DX</span><span class="card-byline">AI Engineer</span></span><span class="card-dur">4:11</span></a><a class="card" href="#laurie-voss-death-of-code-review"><span class="num">02</span><span><span class="card-title">The Death of the Code Review: What the Data Actually Says — Laurie Voss, Arize AI</span><span class="card-byline">AI Engineer</span></span><span class="card-dur">7:27</span></a><a class="card" href="#20vc-amd-worldlabs-instinct-bessemer"><span class="num">03</span><span><span class="card-title">Instinct Raises $1B at $10B Valuation | AMD Buys World Labs for $8.2B | Bessemer Raises $5.75B</span><span class="card-byline">20VC with Harry Stebbings</span></span><span class="card-dur">8:09</span></a>
+      </div>
+      </nav>
+    </section>
+
+    <section class="article-view" id="dx-justin-reock-state-of-ai-software-dev" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-01.html" data-route="index">&larr; October 1, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">The State of AI in Software Development: Data from 400+ Orgs — Justin Reock, DX &mdash; October 1, 2026 <span class="dur">&middot; 4:11</span></p>
+        <audio controls preload="none" src="podcasts/dx-justin-reock-state-of-ai-software-dev.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/dx-justin-reock-state-of-ai-software-dev.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>AI Engineer</dd></div>
+        <div><dt>Published</dt><dd>September 30, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Se8jHLliLXE" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI · industry</p>
+        <h2>The State of AI in Software Development: Data from 400+ Orgs — Justin Reock, DX</h2>
+        <div>
+        <p class="dek">This is a summary of the AI Engineer video &quot;The State of AI in Software Development: Data from 400+ Orgs — Justin Reock, DX,&quot; posted September 30, 2026, recorded as a talk at the AI Engineer World&#x27;s Fair. The speaker is Justin Reock, deputy CTO at DX, and the talk previews DX&#x27;s quarterly State of AI and AI impact reports, which gather telemetry and survey data from about 200,000 engineers across more than 400 organizations. DX is a research-backed platform built by the same people behind DORA metrics, the SPACE framework, and the DevEx framework, and Reock&#x27;s framing is that the last year of his research has been dominated by AI&#x27;s impact on developer experience and productivity.</p>
+        <p>The velocity story is a qualified win. DORA deployment frequency is steadily increasing, though the surge is tapering, with North America trending up and Europe pulling back slightly in the last quarter over token spend and regulation differences. But the more interesting number is perceived delivery rate: engineers report feeling only about four and a half percent faster after a full year of AI investment. He holds that up against the now-infamous METR study from February, in which a small, flawed sample of sixteen engineers showed productivity falling nineteen percent while their self-reported perception rose twenty percent, a forty-point spread the authors later admitted rested on imperfect signals. On the aggregate, Reock says, perception and reality both stay mostly flat.</p>
+        <p>Quality is where the talk gets its edge. The DORA change failure rate has turned volatile: each company&#x27;s line swings hard, with some orgs increasing failures by up to two points against an industry benchmark of about four percent, which is potentially fifty percent more defects shipped. He is careful that this is not purely causal with AI; release pipeline, automated testing, and the surrounding machinery all drive the pattern, but AI has amplified the extremes. Two normally in-sync quality signals have split apart. Perceived code maintainability rose almost four percent, agents make code easier to understand and modify, yet change confidence, how developers feel about pushing to production, fell six percent. Developers understand the code better and trust it less.</p>
+        <p>The mechanism he fingers is pull request size. Average PR size went from about 44 lines to 72 in a year, not quite doubled but on that trajectory. Models trained on the law of averages generate mediocre, verbose code, and slow build pipelines make developers cram everything into one PR instead of waiting an hour per build. Every extra line is a potential bug, more to review, and less portable, which is why perceived incremental delivery, the ability to work in small, reviewable, rollback-safe changes, fell ten percent. It is one of the most damaged developer-experience drivers in the study.</p>
+        <p>The demographics section lands a few counterintuitive results. Junior engineers use AI the most, which should surprise nobody, since there is less to unlearn, but staff-plus engineers save about the same amount of time while burning fewer tokens, because they spot hallucinations and understand the surrounding architecture. Juniors spend more tokens on the same use case purely as a learning curve. Smaller companies lead in time savings, with less pipeline complexity and organizational friction to eat the gains. And none of this is free: token spend is the new cost line, and he jokes the industry is fifteen years past the last hype cycle and still figuring out cloud cost.</p>
+        <p>From data he moves to prescriptions. His AI measurement framework has three dimensions: utilization, like daily and weekly active users; impact, the value-generation metrics that should move as utilization rises; and cost. Most orgs start at utilization and mature toward correlating it with impact, comparing cohorts of users against the foundational productivity metrics they already trust rather than inventing new vanity measures. He also wants orgs to measure their platform&#x27;s AI readiness: clear documentation, clean data relationships, modular code, reliable CI and non-flaky tests. What used to be called good developer experience turns out to be exactly what agents need too, so the industry may finally make investments it has deferred for decades. He also describes taking qualitative feedback from the agents themselves, asking them where they struggled with steering, context, and feedback cycles, to learn which use cases burn tokens most efficiently.</p>
+        <p>His closing frame is that code generation was never the bottleneck. Even perfect, instant code would only attack fourteen to sixteen percent of the overall value stream. DX&#x27;s own study from November 2024 to February 2025 found a median velocity increase of only 7.7 percent, thirteen percent on average, with top performers in the seventies; nobody hit two x, five x, or ten x, because time savings from AI keep getting outweighed by meeting load, context switching, and dev-environment friction. Invoking Eliyahu Goldratt&#x27;s theory of constraints, he argues an hour saved on a non-bottleneck is worthless. The stories that get it right attack real bottlenecks elsewhere: Morgan Stanley&#x27;s DevGen.AI agent interprets legacy mainframe, COBOL, and Perl code and writes PRDs to skip reverse-engineering, saving about 300,000 hours a year; Zapier&#x27;s agent ecosystem cut daily standups from five times a week to two, onboarded engineers in about two weeks against an industry benchmark of over a month, and delivered roughly fifteen percent additional value creation per engineer, so Zapier is hiring more than ever, a throughput story rather than a headcount replacement story; and Spotify built an SRE agent that gathers remediation steps from runbooks into incident channels so responders skip minutes of discovery. The bottom line he wants the audience to leave with: measure the whole value stream, find the actual bottleneck, and fix that.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>Change confidence fell six percent even as maintainability rose four. Is that trust gap something better models will close on their own, or does it require fundamentally different review and rollout machinery?</li>
+        <li>Juniors use AI most but save no more time than staff engineers while burning more tokens. How should organizations train junior developers on AI collaboration without letting the learning curve erase the productivity gain?</li>
+        <li>If code generation is only fourteen to sixteen percent of the value stream, which non-coding AI use cases, documentation, incident response, or admin overhead, show the strongest ROI evidence, and how do you prove it with cohort data rather than vibes?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded on the full English caption track of &quot;The State of AI in Software Development: Data from 400+ Orgs — Justin Reock, DX&quot; (555 timestamped segments from 00:00:12 to 00:18:52, matching the 19:00 runtime), pulled via YouTube&#x27;s native transcript panel and cross-checked against a Tactiq mirror of the same underlying caption data. Caption mishearings corrected in drafting: Justin Rio to Justin Reock, Ellie Goldroat to Eliyahu Goldratt, Pearl to Perl, cobalt to COBOL, dovel to developers, and assorted proper-name spellings. Nothing beyond what the transcript contains has been added. The video is at https://www.youtube.com/watch?v=Se8jHLliLXE, posted September 30, 2026 by the AI Engineer channel (652K subscribers). View count and details are as of October 1, 2026.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-10-01.html" data-route="index">All summaries</a>
+        <a class="next" href="#laurie-voss-death-of-code-review">The Death of the Code Review: What the Data Actually Says — Laurie Voss, Arize AI &rarr;</a>
+      </nav>
+    </section>
+
+    <section class="article-view" id="laurie-voss-death-of-code-review" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-01.html" data-route="index">&larr; October 1, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">The Death of the Code Review: What the Data Actually Says — Laurie Voss, Arize AI &mdash; October 1, 2026 <span class="dur">&middot; 7:27</span></p>
+        <audio controls preload="none" src="podcasts/laurie-voss-death-of-code-review.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/laurie-voss-death-of-code-review.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>AI Engineer</dd></div>
+        <div><dt>Published</dt><dd>September 30, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=_mi3alkqy4s" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI · programming</p>
+        <h2>The Death of the Code Review: What the Data Actually Says — Laurie Voss, Arize AI</h2>
+        <div>
+        <p class="dek">This is a summary of the AI Engineer video &quot;The Death of the Code Review: What the Data Actually Says — Laurie Voss, Arize AI,&quot; posted September 30, 2026, recorded as a talk at the AI Engineer World&#x27;s Fair. The speaker is Laurie Voss, head of developer relations at Arize AI and co-founder of npm, Inc., and the talk surveys what the industry actually knows about the new bottleneck: agents generate code dramatically faster, while human review speed has not moved at all.</p>
+        <p>The numbers that open the talk set the stakes. Three economists tracked more than 100,000 GitHub developers against telemetry showing exactly when each started using AI. Developers who turned on autonomous agents wrote 741 percent more code but only 30 percent more software shipped. The route to production still runs through humans, and the human step, code review, chokes everything downstream. Generation is no longer the bottleneck at all: Stripe reported migrating a 50-million-line Ruby codebase in a single day, work once estimated at over two months for a team, and Bun moved over a million lines of Zig to Rust in six days. Most engineers now feel the smaller version of this daily: agents generate whole apps and everyone merges diffs they never read, hoping it works.</p>
+        <p>The obvious answer, review harder, does not work. The best study on review limits is a two-decades-old Cisco study: across 2,500 reviews and 3.2 million lines of code over ten months, reviewers stopped finding defects effectively after 400 lines in one sitting, and effectiveness fell off a cliff past 450 lines an hour. At that pace a 10,000-line agent pull request takes three or four working days of real human review, and 10,000 lines is an entirely ordinary agent output. Developers can now run a dozen agents at once. Trying harder also burns reviewers out, since full-time reviewing is boring work.</p>
+        <p>The radical answer, skip review entirely, is being tested in public. Peter Steinberger of OpenClaw and Andrej Karpathy have both argued for designing the loops that prompt agents rather than staying in the loop yourself. In February, OpenAI published an account of building an internal product with no manually written code: empty repository, agents wrote everything, five months later about a million lines and 1,500 merged pull requests from three engineers, with almost all review pushed to agent-to-agent. Voss notes the interesting omission: OpenAI never said what the product did and never open sourced the method, which suggests holes in the strategy. The bet is that loop design substitutes for inspection, and whether that works depends entirely on what the loop can see.</p>
+        <p>The industry&#x27;s proxy for what the loop can see has been passing tests, and METR tested that proxy directly in March. They hired four active maintainers of the same open source projects SWE-bench tests against and asked them to judge pull requests that had already passed the benchmark. Only about half were actually merge-worthy. The failures were not correctness, the tests passed, but code quality and quiet breakage outside the test suite. Cognition, the company behind Devin, built a benchmark around the maintainer&#x27;s real question, would you merge this, with 150 tasks from more than 20 maintainers, each over 40 hours of expert work, grading correctness, regression, safety, scope discipline, test quality, and maintainability. On that rubric, Fable 5 scored 88 percent on SWE-bench Pro but only 29 percent on the hardest Frontier Code slice, and GPT-5.5 scored under 6 percent. The strongest models are nowhere near passing human review reliably. Somebody has to write down what mergeable actually means, and Voss&#x27;s argument is that the moment anyone builds a reliable test of mergeability, it becomes a training signal, so whoever writes today&#x27;s review standard is writing next year&#x27;s default model behavior. There is prior art: OpenAI&#x27;s Critic GPT in 2024 trained a model to catch bugs in model-written code, and human reviewers working with it beat either alone, creating a training signal that improved models almost instantly.</p>
+        <p>Meanwhile automated review is already the mainstream. GitHub Copilot&#x27;s reviewer has done 60 million reviews and now handles more than one in five code reviews across GitHub, the world&#x27;s largest code host. Cursor published its reviewer architecture: the first version ran eight review passes per diff and shuffled reviewer order, because order changed the outcome, filtering for false positives, which are what kill a reviewer. Independent research from Peking University found multi-pass review raised quality up to 44 percent. Cursor then rebuilt so the model reasons over the diff and calls tools to dig, and they had to instruct it to be suspicious by default, to assume something is wrong, since it otherwise approved everything like a tired human. Review is also fusing with repair: Cursor&#x27;s reviewer spawns a fix agent that hands back a patch, and the roadmap is the reviewer running code to prove its own bug reports. Every vendor, including CodeRabbit, Graptile, and Graphite, grades itself the same way: human acceptance, Cursor&#x27;s resolution rate going from 52 percent to over 70 percent. Humans still review the reviews, but the loop is tightening.</p>
+        <p>The experiments in fully skipping humans are instructive in their caveats. Anthropic&#x27;s Nicholas Carini had 16 agents build a C compiler from scratch in Rust that compiled the Linux kernel across about 2,000 sessions, with no human in the loop, but a human very much on the loop: the test harness, feedback systems, and review machinery were all human-written, and his own warning was that it is easy to watch tests pass and assume the job is done. The Bun port passed 99.8 percent of its test suite, but the ported Rust contains 13,044 unsafe blocks against about 74 in a comparable human-written codebase, and the test suite was never designed to look for them. OpenAI&#x27;s internal build worked until Fridays were spent cleaning up AI slop by hand, which did not scale, so they trained agents to hunt the slop. Review never disappeared; it got rebuilt as a system, and that system is built by humans. The most direct reversal: Dexter Horthy spent six months telling people not to review code, then said on stage in March, &quot;I was wrong. Please please read the code. We tried not reading the code for like six months. It did not end well.&quot;</p>
+        <p>Where does the human checkpoint survive? Where correctness is not cheaply checkable, where blast radius is large, since every proposal to drop human review in security gets an immediate no, and wherever someone has to put their name on the result. The human role is moving up the stack, from inspecting code line by line to designing and tuning the systems that inspect the code and designing the definition of good. And that raises the meta question: who reviews the reviewers? Anthropic ships an automated security reviewer whose own README warns it is not hardened against prompt injection and should only review trusted pull requests, meaning it can be talked out of its findings by the very thing it reviews. A March study dressed vulnerable code in innocent commit messages and fooled an autonomous review agent 88 percent of the time, against 35 percent for humans. Automated reviewers fall for confidently framed bad code, which is exactly what agents produce well. The one reviewer you cannot skip, Voss argues, is production: once review is all machines, what the code actually does in the wild becomes the last reviewer standing.</p>
+        <p>Her landing: code review is not dead, but it is being rebuilt as an engineered system, and humans are moving from the engine that drives review to its pilots. Teams that win the next few years will not be the ones that generate the most code. They will be the ones who can say, with evidence, why they trust what they shipped. Her practical advice for the audience is the provocation of the talk: stop reviewing pull requests. It is the wrong level of abstraction for 2026. Pour that judgment into a reliable review harness, codify what good means, your company context, your domain knowledge, then crank up the agents on top of it.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>If whoever writes today&#x27;s mergeability standard effectively trains next year&#x27;s model behavior, who should own that standard: vendors, open benchmarks, or individual companies with their own context?</li>
+        <li>Automated reviewers grade themselves on human acceptance, but humans are the thing the system is supposed to replace. What would an honest, non-circular evaluation of review quality actually look like?</li>
+        <li>Production is the last reviewer you cannot skip, yet incidents are the most expensive classroom. How much production signal is needed to trust an automated review pipeline on a codebase with a large blast radius?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded on the full English caption track of &quot;The Death of the Code Review: What the Data Actually Says — Laurie Voss, Arize AI&quot; (632 timestamped segments from 00:00:01 to 00:24:21, matching the 24:40 runtime), pulled via a Tactiq mirror of the video&#x27;s YouTube caption data; YouTube&#x27;s native transcript panel was bot-walled on October 1, 2026. Caption quirks corrected in drafting where unambiguous: Lori to Laurie Voss, Arise AI to Arize AI, an incoherent fragment (&quot;howululing&quot;) dropped, Devon to Devin, Swebench to SWE-bench, Fable rendered as Fable 5, codeex to Codex, Curser to Cursor, PKing University to Peking University; Nicholas Carini kept as the caption names him, and Graptile kept as the caption renders it. Nothing beyond what the transcript contains has been added. The video is at https://www.youtube.com/watch?v=_mi3alkqy4s, posted September 30, 2026 by the AI Engineer channel (652K subscribers). View count and details are as of October 1, 2026.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#dx-justin-reock-state-of-ai-software-dev">&larr; The State of AI in Software Development: Data from 400+ Orgs — Justin Reock, DX</a>
+        <a class="to-index" href="2026-10-01.html" data-route="index">All summaries</a>
+        <a class="next" href="#20vc-amd-worldlabs-instinct-bessemer">Instinct Raises $1B at $10B Valuation | AMD Buys World Labs for $8.2B | Bessemer Raises $5.75B &rarr;</a>
+      </nav>
+    </section>
+
+    <section class="article-view" id="20vc-amd-worldlabs-instinct-bessemer" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-01.html" data-route="index">&larr; October 1, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Instinct Raises $1B at $10B Valuation | AMD Buys World Labs for $8.2B | Bessemer Raises $5.75B &mdash; October 1, 2026 <span class="dur">&middot; 8:09</span></p>
+        <audio controls preload="none" src="podcasts/20vc-amd-worldlabs-instinct-bessemer.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/20vc-amd-worldlabs-instinct-bessemer.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>20VC with Harry Stebbings</dd></div>
+        <div><dt>Published</dt><dd>October 1, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=UNH5YtuK5UE" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">VC · industry</p>
+        <h2>Instinct Raises $1B at $10B Valuation | AMD Buys World Labs for $8.2B | Bessemer Raises $5.75B</h2>
+        <div>
+        <p class="dek">This is a summary of the 20VC with Harry Stebbings episode &quot;Instinct Raises $1B at $10B Valuation | AMD Buys World Labs for $8.2B | Bessemer Raises $5.75B,&quot; posted October 1, 2026. Harry is joined by Jack Altman of Benchmark as the guest, with regular panelists Rory O&#x27;Driscoll and Jason Calacanis in the mix, for a venture-news roundtable covering a week of outsized rounds, megadeals, and pulled IPOs.</p>
+        <p>The show opens on Anthropic&#x27;s leaked draft S1. The panel treats the numbers as stale history: about $4.6B of 2025 revenue against an $8B operating loss, numbers everyone considers priced in. The one genuinely interesting factoid, in Jason&#x27;s read, is that two customers accounted for 25% of revenue, meaning somebody spent half a billion dollars on Anthropic last year. The bigger debate is what the S1&#x27;s existential-risk boilerplate does to the IPO: Jack argues public-market investors will be more long-term oriented than the month-to-month hand-wringing of private markets, while Jason worries retail negativity could drag the stock below its issue price a few weeks in. The panel notes the litigation angle too: once you state existential risk in a legal document, an ambitious attorney general has a reason to sue.</p>
+        <p>The lead story is Instinct&#x27;s $1B Series C at a $10B valuation. Benchmark invested early, first at around $2.5B and then at $10B, and Jack frames it as an early-stage bet wearing a growth-stage price tag: consumer agents are a new paradigm, the aggregator of aggregators, on the level of chat and coding, and when something is that important many players can win. Jason&#x27;s framing is generational: OpenClaw was generation one that nobody knew how to run, Instinct and Meta&#x27;s Muse are generation two, and the open question is whether anyone reaches the eight-hours-a-day app that coding already has. On monetization, Jason does the travel math and finds the addressable fees underwhelming, which means the $10B pre is implicitly a bet that something bigger emerges. The sizing discussion is the heart of it: Kelly-criterion framing, 5% of a fund being a full-whack bet, and Benchmark&#x27;s logic that if this matters it will matter enormously, with real downside protection since the biggest labs would buy the team anyway.</p>
+        <p>Next is AMD&#x27;s $8.2B all-stock acquisition of Fei-Fei Li&#x27;s World Labs, the first big lab exit, two and a half years into the company&#x27;s journey. Jason reads it as cheap insurance on AMD&#x27;s 279% run to a trillion-dollar market cap: spend 8% of the market cap to make sure the good times continue as the counter-Nvidia. The panel expects more: there are roughly 100 neolabs that raised $70B+, but only about 10 companies that can write $10B acquisition checks, and credentialism decides who gets picked, with Fei-Fei Li&#x27;s ImageNet lineage making the press release write itself. One caution threads through: standalone world-model companies never had the clean monetization path from demo to chat to coding that the big labs enjoyed, so the exit had to come from M&amp;A.</p>
+        <p>The seed-inflation debate splits the room into two venture worlds. Harry&#x27;s CIO conversation says nothing can be done under a $100M round anymore. Jack pushes back: there are labs that cannot ship anything under $450M, and then there are companies shipping real products on $10M or less, where raising $100M is optional because the capital is available. Jason defends the $2-3M seed as the still-natural atomic unit of company creation, while Jack admits the traditional 3-to-6M-check-for-8-to-15% round is broken in the lanes everyone reads about. The quiet-compounder argument, that slow software compounding still works over 10-20 years, gets a rough ride: in a world of ten-times-more competitors and talent wars, low risk is the only justification for low growth, and the risk is no longer low.</p>
+        <p>The talent war has its own headline: Meta poached MongoDB&#x27;s CEO to run Muse Enterprise, with the panel&#x27;s banter putting the package at roughly $500M against a reported $52M current comp, a clean 10x, enough to make someone quit the top job of a $20B public company nine months in. MongoDB&#x27;s stock dropped 20% in a day, and former CEO Dev stepped back in. The panel reads it as money as signal: the hot stock and the zeitgeist let the winners take whatever talent they want. Jack&#x27;s broader point is more optimistic: talent has rarely been this liquid, and great people are moving to the most important problems, which is societally healthy even if individual exits look chaotic.</p>
+        <p>The investment-committee gag of the week is Jev, raising at $10B a week after a $200M seed. Jason pitches it as the week&#x27;s real deal: 17% of OpenRouter traffic, a seventieth of the price, 100x faster, with inference as the index bet on everything outside the labs, citing Modal&#x27;s run to $15B and Base 10&#x27;s $26B. Jack adds the intelligent-saturation argument: once the tax return is filed correctly, throwing more intelligence at it buys nothing, which favors cheap inference. But Jason then argues we&#x27;ve hit peak open weights, for two reasons: Anthropic and OpenAI can twist pricing knobs at will, with Sonnet 5.5 already 20% cheaper, and enterprise buyers at places like Dreamforce want nothing to do with China-origin open-weight models. The synthesis the panel reaches is that compute share proxies token share: who owns the gigawatts owns the future.</p>
+        <p>On public markets, Aura pulled its planned $16B IPO, which surprised even Rory, who has an interest. The deal had everything, the full bulge bracket, a profitable consumer company, and then 4Runner announced it would sell its entire position, an almost unheard-of move that signaled downside and made the book price-sensitive. The panel&#x27;s lesson: when a huge secondary component makes the sellers care about every dollar, they would rather walk than transact at a discount. Employees got a $534M tender offer a couple of months earlier, which softens the blow, but pulling an IPO the night before pricing is the hardest thing in venture.</p>
+        <p>The fintech story is NuBank&#x27;s reported $8-12B acquisition of the British bank Monzo, a deal that surprised the panel mostly on the buyer side. Monzo is a phenomenal UK asset, but NuBank is focused on winning the US, and its stock fell over 12% on the week. Harry&#x27;s bull case: NuBank wins by attacking inefficient banking markets full of overcharging incumbents, Brazil worked that way, and the UK is another one. The bear case: you enter the UK just as the country exits Europe, and you compete with Revolute, which nobody describes as a shrinking violet. Jack adds the general venture lesson: acquirers pay to save time, and Monzo&#x27;s boardroom chaos, a retired founder, a swapped CEO, furious investors, a retired chairman, made hitting the bid the rational move.</p>
+        <p>The fund news closes the loop on the check-size debate. Bessemer raised a $5.75B flagship plus a $1.75B seed fund, the same logic as Benchmark&#x27;s growth embrace: if a seed round is $30M, you cannot do many with 1:1 reserves unless the fund is enormous. NFX is going the other way, investing only GP capital, no new LP money. The panel gets the appeal, no LPAC, keep the carry, and notes the counterarguments: if you want to build a firm with junior partners and careers, you need outside capital, salaries, and the tension of external stakeholders, and the end beneficiaries of LP capital are endowments and hospitals, not just one rich person.</p>
+        <p>The episode wraps on Anthropic&#x27;s founders locking up 50.1% voting control ahead of the IPO. The panel&#x27;s best guess is a recreated pre-IPO arrangement that expired on conversion to common. Nobody minds much: after an S1 that leads with the risk of blowing up the world, item 17 asking for voting control reads as a rounding error, and at least the public markets will know exactly whom to indict.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>The Instinct round is priced like growth and underwritten like early-stage. If monetization stays in travel fees and thin adjacencies, how long can the &quot;new paradigm&quot; thesis carry a $10B valuation before cohort data has to show up?</li>
+        <li>AMD paid 8% of a trillion-dollar market cap for a lab exit. If the next ten neolabs go the same route, which buyers are left standing, and what happens to the credential bar for labs that don&#x27;t have an ImageNet-class founder?</li>
+        <li>Jev&#x27;s pitch is that cheap inference wins when intelligence saturates, but the labs can cut prices at will. Is inference a durable index bet on AI demand, or just a margin that the frontier labs will eventually reclaim?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded on the full English caption track of &quot;Instinct Raises $1B at $10B Valuation | AMD Buys World Labs for $8.2B | Bessemer Raises $5.75B&quot; (198 timestamped segments from 00:00:00 to 01:20:16, matching the 1:20:27 runtime), pulled via a Tactiq mirror of the video&#x27;s YouTube caption data. Caption quirks normalized in drafting: Fay Fay / FE Lee / Feel Lee to Fei-Fei Li, Entropic / Openthropic / Tropic to Anthropic, Jev rendered consistently as Jev, Monzo to Monzo, New Bank to NuBank, 4Runner / 4Erunner to 4Runner, Aura kept as the caption renders the IPO-puller, Ncale to Nscale, Dev kept as the MongoDB CEO named in the caption, Nick Kle to Nick Clegg. Garbled fragments were dropped or rendered plainly where no confident correction existed. Nothing beyond what the transcript contains has been added. The video is at https://www.youtube.com/watch?v=UNH5YtuK5UE, posted October 1, 2026 by the 20VC with Harry Stebbings channel (222K subscribers). View count and details are as of October 1, 2026.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#laurie-voss-death-of-code-review">&larr; The Death of the Code Review: What the Data Actually Says — Laurie Voss, Arize AI</a>
+        <a class="to-index" href="2026-10-01.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+
+
+    <footer>
+      <span>Summaries dated October 1, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "dx-justin-reock-state-of-ai-software-dev": "The State of AI in Software Development: Data from 400+ Orgs — Justin Reock, DX",
+      "laurie-voss-death-of-code-review": "The Death of the Code Review: What the Data Actually Says — Laurie Voss, Arize AI",
+      "20vc-amd-worldlabs-instinct-bessemer": "Instinct Raises $1B at $10B Valuation | AMD Buys World Labs for $8.2B | Bessemer Raises $5.75B"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+</body>
+</html>
