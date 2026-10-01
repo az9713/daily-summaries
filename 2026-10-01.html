@@ -365,7 +365,7 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; October 1, 2026</p>
-        <h1>9 summaries, distilled.</h1>
+        <h1>11 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -375,6 +375,8 @@
       <a class="card" href="#uncapped-david-george-growth-investing"><span class="num">05</span><span><span class="card-title">David George on Growth Investing, AI, and Why the Power Law Is Stronger Than Ever — David George, a16z</span><span class="card-byline">Uncapped with Jack Altman</span></span><span class="card-dur">6:43</span></a>
       <a class="card" href="#svg-brian-chesky-airbnb-gap"><span class="num">06</span><span><span class="card-title">$95B Airbnb CEO: The Gap Is Growing — What It Takes to Be a Top Performer Now</span><span class="card-byline">Silicon Valley Girl</span></span><span class="card-dur">6:40</span></a><a class="card" href="#a16z-privacy-doxnet"><span class="num">07</span><span><span class="card-title">Why Online Privacy Is Harder Than You Think</span><span class="card-byline">a16z</span></span><span class="card-dur">6:38</span></a><a class="card" href="#mollick-dot-and-swarm"><span class="num">08</span><span><span class="card-title">The Dot and the Swarm</span><span class="card-byline">Ethan Mollick</span></span><span class="card-dur">3:44</span></a>
       <a class="card" href="#dwarkesh-si-sheppard-spanish-soldiers"><span class="num">09</span><span><span class="card-title">Si Sheppard – How did a few hundred Spanish soldiers topple two empires?</span><span class="card-byline">Dwarkesh Patel</span></span><span class="card-dur">7:32</span></a>
+      <a class="card" href="#azisk-m5-ultra-dgx-sparks"><span class="num">10</span><span><span class="card-title">M5 Ultra vs 2 DGX Sparks… The Number You&#x27;re Not Looking At</span><span class="card-byline">Alex Ziskind</span></span><span class="card-dur">5:00</span></a>
+      <a class="card" href="#bloomberg-michigan-lift-dimon-farley-whitmer"><span class="num">11</span><span><span class="card-title">JPMorgan&#x27;s Dimon, Gov. Whitmer and Ford&#x27;s Farley Talk the Michigan Lift</span><span class="card-byline">Bloomberg Talks</span></span><span class="card-dur">4:16</span></a>
       </div>
       </nav>
     </section>
@@ -771,6 +773,90 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#mollick-dot-and-swarm">&larr; The Dot and the Swarm — Ethan Mollick</a>
         <a class="to-index" href="2026-10-01.html" data-route="index">All summaries</a>
+        <a class="next" href="#azisk-m5-ultra-dgx-sparks">M5 Ultra vs 2 DGX Sparks… The Number You&#x27;re Not Looking At &rarr;</a>
+      </nav>
+    </section>
+
+<section class="article-view" id="azisk-m5-ultra-dgx-sparks" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-01.html" data-route="index">&larr; October 1, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">M5 Ultra vs 2 DGX Sparks… The Number You&#x27;re Not Looking At &mdash; October 1, 2026 <span class="dur">&middot; 5:00</span></p>
+        <audio controls preload="none" src="podcasts/azisk-m5-ultra-dgx-sparks.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/azisk-m5-ultra-dgx-sparks.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Alex Ziskind</dd></div>
+        <div><dt>Published</dt><dd>October 1, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=_yrw6c5gw3E" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI hardware &middot; inference benchmarks</p>
+<h2>M5 Ultra vs 2 DGX Sparks… The Number You&#x27;re Not Looking At</h2>
+        <div>
+<p class="dek">Alex Ziskind puts Apple&#x27;s top-end M5 Ultra Mac Studio head to head against two Nvidia DGX Sparks. Both sides have 256 gigabytes of memory in total and 8 terabytes of storage, and both run the same models: DeepSeek V4 Flash and Qwen 3.5 Flash Next, each quantized to four bits. The Mac, configured here at $14,000, holds everything in one box. The Sparks, about $10,000 for the pair plus a 200-gigabit interconnect cable, split every layer of the model across the two machines using vLLM&#x27;s tensor parallelism, swapping results over the cable before each new layer can start.</p>
+<p>The opening benchmark looks like a dead heat. On DeepSeek, both sides write at about 38 tokens per second; on Qwen, the Mac leads 45 to 38. But the software stack matters enormously. Switching the Mac from llama.cpp to MLX jumps DeepSeek output from 40 to 53 tokens per second, roughly a third faster from a software change alone. On identical serving setups, the Mac and the Sparks land within 2 percent of each other.</p>
+<p>The real story is prompt reading, not token writing. Before a model writes anything, it must read the whole prompt, and that step is pure parallel math where two GPUs beat one. At 32,000 tokens of real code, fourteen Python files, the Spark cluster started streaming after 17 seconds while the Mac was still reading at 50 seconds. He pushed the Sparks to 128,000 tokens, read in 72 seconds; the Mac never attempted that length, since at its pace the wait would have passed three minutes.</p>
+<p>That split creates a clean rule of thumb. Big inputs favor the Sparks, big outputs favor the Mac, at least on Qwen, where the Mac writes slightly faster per token and slowly eats into the Sparks&#x27; head start. With a 32,000-token prompt on DeepSeek, the Sparks get roughly a 30-second head start, and on the same engine the writing pace is a tie from there. It is why some researchers are now experimenting with splitting the job itself: Sparks handle the reading, the Mac handles the writing.</p>
+<p>Real coding sessions soften the Mac&#x27;s disadvantage, because servers cache what they have already read. The first question on a 16,000-token codebase took 21 seconds on the Mac versus 8.3 on the Sparks, but follow-ups dropped to 3 seconds versus 1.4. You pay for the long read once per session. The pain returns whenever the context keeps changing: a new repo, big new files, long sessions that outgrow the cache, or switching models.</p>
+<p>Adding users widens the gap. DeepSeek on the Mac peaks at four users and then falls off, while the Sparks keep climbing to eight. With 8,000 tokens of chat history at eight users, each person on the Mac waits over a minute for the first word and gets about five tokens a second; on the Sparks, about a 24-second wait and seven tokens a second. His conclusion: the Mac is a machine for one person, maybe two. The Sparks suit a small team.</p>
+<p>Beyond speed, the tradeoff is hassle. The Sparks need matched operating systems, drivers, and firmware plus a multi-machine vLLM setup, but then run the same CUDA stack as the cloud. The Mac needs nothing, just a quick install, and doubles as a daily driver. Power draw is nearly identical, 434 watts versus 410, and both run hot under load.</p>
+<p>His closing advice: 256 gigabytes across two boxes holds the same model as 256 in one. It just reads a lot faster. Before spending ten thousand dollars or more, look at your own work: how big are your prompts, and how long are the answers?</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Could a split setup, with the Sparks doing the reading and the Mac doing the writing, beat either machine alone in practice?</li>
+<li>How much of the Mac&#x27;s reading gap comes from Apple silicon&#x27;s memory bandwidth, and how much from inference software that is not yet optimized for it?</li>
+<li>As models keep growing past 256 gigabytes, does the two-box approach scale more gracefully than waiting for bigger single machines?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded on the full English transcript of the video, pulled from YouTube&#x27;s transcript panel on October 1, 2026. The video&#x27;s sponsor segment for Merlin AI was excluded from this summary.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#dwarkesh-si-sheppard-spanish-soldiers">&larr; Si Sheppard &ndash; How did a few hundred Spanish soldiers topple two empires?</a>
+        <a class="to-index" href="2026-10-01.html" data-route="index">All summaries</a>
+        <a class="next" href="#bloomberg-michigan-lift-dimon-farley-whitmer">JPMorgan&#x27;s Dimon, Gov. Whitmer and Ford&#x27;s Farley Talk the Michigan Lift &rarr;</a>
+      </nav>
+    </section>
+
+<section class="article-view" id="bloomberg-michigan-lift-dimon-farley-whitmer" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-01.html" data-route="index">&larr; October 1, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">JPMorgan&#x27;s Dimon, Gov. Whitmer and Ford&#x27;s Farley Talk the Michigan Lift &mdash; October 1, 2026 <span class="dur">&middot; 4:16</span></p>
+        <audio controls preload="none" src="podcasts/bloomberg-michigan-lift-dimon-farley-whitmer.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/bloomberg-michigan-lift-dimon-farley-whitmer.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Bloomberg Talks</dd></div>
+        <div><dt>Published</dt><dd>October 1, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=RhqwCPDx3v0" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">manufacturing &middot; reshoring &middot; capital</p>
+<h2>JPMorgan&#x27;s Dimon, Gov. Whitmer and Ford&#x27;s Farley Talk the Michigan Lift</h2>
+        <div>
+<p class="dek">Bloomberg Talks, &quot;JPMorgan&#x27;s Dimon, Gov. Whitmer and Ford&#x27;s Farley Talk the Michigan Lift.&quot; David Westin sits down in Detroit, at Michigan Central, with JPMorganChase CEO Jamie Dimon, Ford CEO Jim Farley, and Michigan Governor Gretchen Whitmer for the launch of Michigan LIFT, short for Launchpad for Industrial Innovation and Transformation. It is a public-private push to rebuild the state&#x27;s manufacturing base and supply chains, and the three leaders use the interview to argue that reshoring is now a matter of national security, not just economics.</p>
+<p>The numbers are the headline. Ford is committing a billion dollars of purchasing to new Michigan companies building advanced manufacturing capabilities, including magnets and rare earths that used to be bought overseas. JPMorganChase is the anchor capital provider, aspiring to supply up to a billion dollars in financing to suppliers. Together with the state of Michigan, the package is a two billion dollar bet that demand plus capital can pull production back onshore. Farley is explicit that participating companies must be Michigan companies, though he allows that innovative Canadian suppliers, especially in aluminum, could still find a place.</p>
+<p>Dimon frames the whole effort as a fix for a market failure. Markets handle most things, he says, but an innovative company that invents something in America needs an actual order and a real plant rather than an experimental one, and that takes government, business, and finance working together. He ties it to his Wall Street Journal argument that American preeminence, military and economic, rests on keeping the best economy in the world, which is what underwrites the dollar. He wants the model replicated in other states and other industries, and he says JPMorgan would anchor capital elsewhere too.</p>
+<p>Whitmer&#x27;s pitch is Michigan itself. The state was the arsenal of democracy, she says, and it still has the highest concentration of engineers per capita in the country, plus free community college, accessible apprenticeships, and a number four national ranking for workforce efforts. She reached out to JPMorgan when she saw its resiliency initiative and argued Michigan should be the proving ground. On Canada, she is warm but firm: Canadians are tremendous allies and the Detroit crossing is the busiest in North America, yet the goal is to onshore as much as possible.</p>
+<p>Farley brings the workforce crisis into the frame. There are 1.7 million open skilled trade jobs in the United States, and he calls it a crisis, saying Ford is only in the second inning of its response. Only two percent of high school advisors recommend trade school, he says, even though quality trade programs graduate nearly everyone. He also answers the China question directly: a small Ford team in California out-innovated strong Chinese EV makers, and the company is bringing a thirty thousand dollar vehicle built in Louisville, Kentucky, that he claims will be fully competitive with BYD.</p>
+<p>Dimon closes several loops. On rising rates squeezing small suppliers, he says the effort transcends the yield curve and some short-term pain is acceptable to get inflation down. On the one point five trillion dollar security and resiliency initiative nearing its first anniversary, he says the numbers will come in better than promised, and JPMorgan has also put five billion dollars directly into security and resiliency companies. On AI crowding out industrial investment, he says the real crowding comes from governments borrowing record sums, not from productive private capital.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Which Michigan suppliers actually get the first Ford purchase orders, and how quickly can a new magnet or rare earths plant go from announcement to production?</li>
+<li>Dimon says the model should be replicated in other states and that JPMorgan would anchor capital elsewhere too, but which state is next, and what does replication require from governors who did not call him first?</li>
+<li>Farley claims the thirty thousand dollar Louisville EV will be fully competitive with BYD, but on what timeline, and does Michigan LIFT actually accelerate that vehicle or run on a separate track?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded on the full transcript of the Bloomberg Talks podcast episode of the same title, pulled from the show&#x27;s official podcast RSS feed (published September 29, 2026) and transcribed locally on October 1, 2026. Minor transcription errors in names were corrected in drafting.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#azisk-m5-ultra-dgx-sparks">&larr; M5 Ultra vs 2 DGX Sparks… The Number You&#x27;re Not Looking At</a>
+        <a class="to-index" href="2026-10-01.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -792,6 +878,8 @@
       "a16z-privacy-doxnet": "Why Online Privacy Is Harder Than You Think",
       "mollick-dot-and-swarm": "The Dot and the Swarm — Ethan Mollick",
       "dwarkesh-si-sheppard-spanish-soldiers": "Si Sheppard – How did a few hundred Spanish soldiers topple two empires?",
+      "azisk-m5-ultra-dgx-sparks": "M5 Ultra vs 2 DGX Sparks… The Number You're Not Looking At",
+      "bloomberg-michigan-lift-dimon-farley-whitmer": "JPMorgan's Dimon, Gov. Whitmer and Ford's Farley Talk the Michigan Lift",
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
