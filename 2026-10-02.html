@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - October 2, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    </style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Friday &middot; October 2, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards"><a class="card" href="#a16z-american-manufacturing-asset-class"><span class="num">01</span><span><span class="card-title">The Case for the American Manufacturing Asset Class</span><span class="card-byline">a16z News</span></span><span class="card-dur">8:07</span></a></div>
+      </nav>
+    </section>
+
+    <section class="article-view" id="a16z-american-manufacturing-asset-class" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-02.html" data-route="index">&larr; October 2, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">The Case for the American Manufacturing Asset Class &mdash; Connor Love and Collen Larson &mdash; October 2, 2026 <span class="dur">&middot; 8:07</span></p>
+        <audio controls preload="none" src="podcasts/a16z-american-manufacturing-asset-class.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/a16z-american-manufacturing-asset-class.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Author</dt><dd>Connor Love and Collen Larson</dd></div>
+        <div><dt>Published</dt><dd>October 2, 2026</dd></div>
+        <a class="watch" href="https://www.a16z.news/p/the-case-for-the-american-manufacturing" target="_blank" rel="noopener noreferrer">Read the article</a>
+      </dl>
+      <article>
+        <p class="topic">Manufacturing &middot; defense &middot; investing</p>
+        <h2>The Case for the American Manufacturing Asset Class</h2>
+        <div>
+        <p class="dek">a16z&#x27;s latest American Dynamism essay, &quot;The Case for the American Manufacturing Asset Class&quot; by Connor Love and Collen Larson, argues that the most underpriced layer in American industry right now is not the flashy defense startups at the top of the stack. It is the thousands of small machine shops and component makers underneath them, and the authors think private capital is about to discover them.</p>
+        <p>The setup is the defense-tech renaissance. Venture money has poured into companies like SpaceX, Anduril, Castelion, Saronic, Covenant, and K2 Space, and those firms have proven they can design advanced missiles, autonomous systems, aircraft, ships, and spacecraft quickly and cheaply. But the authors argue that raising capital and winning development contracts is not what ultimately matters. Production and fielding at scale is what matters. Without it, America ends up with prototypes instead of an overwhelming force capable of deterrence, and the push to scale is now sending a surge of demand through an aging industrial base that cannot keep pace.</p>
+        <p>That supplier base is strikingly fragmented. The 2022 Economic Census counted 16,876 machine shops, and among those operating all year, 83 percent employed fewer than 20 people and 95 percent fewer than 50. Across American manufacturing as a whole, roughly three-quarters of the country&#x27;s 240,644 manufacturing employers employed fewer than 20 people. These firms are often excellent at the difficult processes they perform, but companies that small cannot casually add machines, workers, qualification runs, and inventory for an abrupt production ramp.</p>
+        <p>Size is only half the problem. The capabilities needed to build a single system are scattered across highly specialized shops that rarely function as a coordinated network, and in many critical processes there may be only one or two qualified sources to begin with. Much of the base was built around low-rate production of exquisite systems with service lives measured in decades, so suppliers were rewarded for specialized work in small runs rather than for building excess capacity. The essay cites a telling statistic: 61 percent of tier-two-and-below defense manufacturers named tooling, automation, or production-line limitations among their top three barriers to expansion.</p>
+        <p>The other constraint is demand uncertainty. Systems companies and their suppliers are often expected to prepare for a production ramp while the government stays noncommittal about how much it will buy or when. The authors point to Anduril&#x27;s Ghost-X program, where suppliers needed roughly six months to add capacity but the Army could not commit to quantities, and to the multibillion-dollar CCA program, where Anduril says it cannot begin FQ-44 Fury production without the Air Force&#x27;s $1.1 billion FY27 procurement request being funded. Their conclusion: the Pentagon has to act as the anchor customer, because credible demand signals are what let investors finance new capacity and let companies commit to suppliers before full-rate production begins.</p>
+        <p>Reliable demand alone does not deliver systems by the thousands, though. The essay&#x27;s second big idea is co-engineering. Traditionally, a build-to-print vendor gets a drawing, quotes it, and makes the part, with no authority to redesign it even when the supplier knows exactly why it will be costly or produce scrap at volume. Production knowledge never flows back into design, and prototype decisions get frozen into programs meant to produce tens of thousands of units. The modern alternative starts from the performance requirement rather than the inherited drawing, so the supplier can propose a redesigned fin, a different tolerance, or a different process and take bounded responsibility for the component and its production system.</p>
+        <p>That loop is not new. A study of the global auto industry in the 1980s found that intensive supplier participation in engineering helped explain substantial advantages in development time and cost. What is new is the software layer: companies like Nominal connect requirements, design, test, and production data, cutting Anduril&#x27;s five-to-six-hour test-review cycles to near real time. The firm that masters this feedback loop, the authors suggest, becomes critical infrastructure for the next generation of physical systems.</p>
+        <p>SpaceX is the exception that proves the rule. Elon Musk decided early to build almost all of Falcon 9 and Dragon internally, and Starship is manufactured roughly 80 percent in-house. For once-in-a-generation challenges, vertical integration may be necessary. But most companies are not SpaceX and should not organize as if they were. Even Anduril, which brought rocket motor manufacturing in-house, builds its low-cost Barracuda-500M from 70 percent commodity components, and Castelion designs its low-cost missile seeker around automotive electronics suppliers and standard industry sizes. That gap between the primes and the supplier layer beneath them is, in the authors&#x27; words, the whitespace, and the investment opportunity.</p>
+        <p>The economics improve when a supplier&#x27;s capability can serve multiple programs instead of betting the factory on one. Common components let manufacturers combine demand into larger orders and carry engineering knowledge, tooling, and qualification from one customer to the next. But the network needs redundancy too: one excellent manufacturer supplying the same critical component across five missile programs is a five-program single point of failure. The goal is resilient capacity without recreating sole-source dependence.</p>
+        <p>All of this leads to the essay&#x27;s central investment claim: manufacturing is capital in, capability out, with no software-style zero-marginal-cost escape hatch, which is exactly why the category is not obvious yet. Tier 2 and 3 suppliers sit grossly underpriced, holding assets built over decades: approvals, qualification history, components already flying on active platforms, skilled workers, and hard-won process knowledge, most operating at a fraction of their potential on dated software and equipment. The opportunity is explicitly not to buy these shops and slap AI on them, but to use modern engineering, software, and capital to make scarce industrial assets produce more.</p>
+        <p>The authors offer two proof points. Hadrian builds new AI-driven factories from scratch; its Opus platform turns design files into manufacturing steps and work instructions, and even back in 2022 it was making spaceflight-grade parts far faster and more efficiently than the legacy supply chain, later hitting 98 percent on-time delivery on RTX programs. Amca takes the opposite route, combining AI-based engineering with established capacity: its RAPID platform digitizes decades of tribal knowledge, and across six factories it ships more than 50,000 components a month while cutting development-to-production timelines by 67 percent against industry standards. One builds new capacity from a blank floor plan; the other modernizes the capacity America already has.</p>
+        <p>Finally, the essay lays out what it calls the defense-industrial flywheel. Government capital acts as the anchor where a capability is strategically necessary, venture takes the early technical and operating-model risk, and once production is proven, growth equity, private equity, strategic capital, and credit finance the next factory. Hadrian is the exhibit: one week after raising $1.37 billion in equity, it closed a $360 million revolving credit facility for manufacturing infrastructure, and institutional entrants like Apollo and JP Morgan signal that industrial production can attract larger, cheaper pools of capital. The authors also set a standard for the inevitable criticism that private equity hollows out manufacturing: acquisitions should leave behind stronger suppliers and more qualified sources, not fewer. Anything else, they write, is dangerous to the national interest.</p>
+        <p>The closing argument is that this build-out is simultaneously a national security imperative and a massive opportunity for American capital, and that the two are not mutually exclusive. A new age of manufacturing may be inspired by Silicon Valley, but the authors say it will be built across Middle America, creating a brand new American manufacturing asset class.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>The essay wants the Pentagon to act as anchor customer with credible demand commitments, but procurement funding still moves through annual appropriations. What mechanism could actually make demand credible enough for a 20-person machine shop to finance a speculative ramp?</li>
+        <li>Co-engineering asks suppliers to take bounded responsibility for component redesign, which shifts risk and liability down the tiers. Who carries that risk when a redesigned part fails qualification, and will small shops accept it?</li>
+        <li>The authors set a standard that private equity in manufacturing should leave behind stronger suppliers rather than hollowing them out. What would enforce that standard in practice, beyond hoping investors choose renewal over leverage?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> commissioned from the a16z.news article &quot;The Case for the American Manufacturing Asset Class&quot; by Connor Love and Collen Larson (a16z, American Dynamism), at https://www.a16z.news/p/the-case-for-the-american-manufacturing. This summary is grounded on the article&#x27;s full text, fetched on October 2, 2026. The episode title uses the source&#x27;s own title; narration rephrases it to suit the spoken format.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-10-02.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+
+    <footer>
+      <span>Summaries dated October 2, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "a16z-american-manufacturing-asset-class": "The Case for the American Manufacturing Asset Class"
+      };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+</body>
+</html>
