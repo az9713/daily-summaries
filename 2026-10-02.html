@@ -365,13 +365,13 @@
     <header class="masthead">
       <div>
         <p class="date">Friday &middot; October 2, 2026</p>
-        <h1>5 summaries, distilled.</h1>
+        <h1>6 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
       <nav aria-label="Summaries">
         <div class="cards"><a class="card" href="#a16z-american-manufacturing-asset-class"><span class="num">01</span><span><span class="card-title">The Case for the American Manufacturing Asset Class</span><span class="card-byline">a16z News</span></span><span class="card-dur">8:07</span></a><a class="card" href="#sourcery-turing-reward-hacking"><span class="num">02</span><span><span class="card-title">If an AI Model Can Cheat, It Will | Turing CEO on Reward Hacking</span><span class="card-byline">Sourcery with Molly O'Shea</span></span><span class="card-dur">6:01</span></a><a class="card" href="#a16z-agent-deploy"><span class="num">03</span><span><span class="card-title">Why Building an AI Agent Is Easier Than Deploying One</span><span class="card-byline">a16z</span></span><span class="card-dur">6:40</span></a><a class="card" href="#brock-mesarich-ai-news-chatgpt-dots-grok"><span class="num">04</span><span><span class="card-title">AI News: ChatGPT Dots, Major Grok Bot Upgrades, GPT Sol 6.1 (+ more)</span><span class="card-byline">Brock Mesarich</span></span><span class="card-dur">5:23</span></a>
-        <a class="card" href="#latentspace-semianalysis-gpu-clouds"><span class="num">05</span><span><span class="card-title">Which GPU Clouds Are Actually Good? | ClusterMAX 3.0</span><span class="card-byline">Latent Space</span></span><span class="card-dur">5:12</span></a></div>
+        <a class="card" href="#latentspace-semianalysis-gpu-clouds"><span class="num">05</span><span><span class="card-title">Which GPU Clouds Are Actually Good? | ClusterMAX 3.0</span><span class="card-byline">Latent Space</span></span><span class="card-dur">5:12</span></a><a class="card" href="#mlst-speech-recognition"><span class="num">06</span><span><span class="card-title">How a Voice Agent Learns the Rhythm of Conversation &mdash; Shawn Wen</span><span class="card-byline">Machine Learning Street Talk</span></span><span class="card-dur">7:02</span></a></div>
       </nav>
     </section>
 
@@ -599,6 +599,54 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#brock-mesarich-ai-news-chatgpt-dots-grok">&larr; AI News: ChatGPT Dots, Major Grok Bot Upgrades, GPT Sol 6.1 (+ more)</a>
         <a class="to-index" href="2026-10-02.html" data-route="index">All summaries</a>
+        <a class="next" href="#mlst-speech-recognition">How a Voice Agent Learns the Rhythm of Conversation &mdash; Shawn Wen &rarr;</a>
+      </nav>
+    </section>
+
+    <section class="article-view" id="mlst-speech-recognition" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-02.html" data-route="index">&larr; October 2, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">How a Voice Agent Learns the Rhythm of Conversation &mdash; Shawn Wen &mdash; October 2, 2026 <span class="dur">&middot; 7:02</span></p>
+        <audio controls preload="none" src="podcasts/mlst-speech-recognition.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/mlst-speech-recognition.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Machine Learning Street Talk</dd></div>
+        <div><dt>Published</dt><dd>October 2, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=VoAPg8Fj6-c" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Voice agents &middot; speech models &middot; enterprise AI</p>
+        <h2>How a Voice Agent Learns the Rhythm of Conversation &mdash; Shawn Wen</h2>
+        <div>
+        <p class="dek">On Machine Learning Street Talk, host Tim Scarfe interviews Tsung-Hsien (Shawn) Wen, CTO of PolyAI, about why voice agents remain one of the hardest products in applied AI. The episode runs just over an hour and ranges from model architecture to the sociology of talking to machines at work.</p>
+        <p>Wen's starting claim is that voice is one step closer to the physical world than text. Text models feast on documentation and papers, but a phone conversation adds a dimension those models barely understand: time. Knowing when to speak, when to wait, and how a half-finished sentence differs from a finished one is a temporal skill, and in conversation the real intelligence is adaptation rather than reasoning. He likens voice to robotics, where progress is slow for the same reason, physical-world data is scarce because machines have never been able to observe it. When large language models arrived, a wave of wrapper companies piped speech recognition and speech synthesis around them and assumed voice was solved. It was not.</p>
+        <p>What enterprises actually want, Wen says, is a contradiction. They want a branded voice that says their name exactly their way. They want the agent to be as capable as their best human employee and as controllable as a robot. Adoption only moves when a vendor finds a narrow efficiency wedge where the agent is plainly better than expected.</p>
+        <p>That contradiction is why PolyAI stopped extending its speech recognition models and, about a year ago, bet on collapsing the traditional cascade. In a cascaded system, a recognizer, a language model, and a separate turn-taking detector each need hand-tuned parameters, and the pieces do not work well together. Frontier speech-to-speech models demo beautifully, Wen argues, but break in contact centers: they interrupt too aggressively, talk over a confused elderly caller, and cannot be slowed down for someone who needs more thinking time. Collapsing the pipeline into one audio-native model lets the system learn those adaptations from data instead of parameter knobs.</p>
+        <p>The model, Dialog-RSN-1, takes streaming audio in and answers in text, deliberately not speech. Text is far easier for an enterprise to constrain, audit, and put guardrails around. As audio streams in, the first thing the model predicts is a turn-taking signal: is this speech starting, continuing, or finished? That token is cheap, and while generating it the model has already encoded the audio, so the reply does not start from scratch. It then streams a text response or a tool call, generates citations tying the answer to knowledge-base facts, and only at the very end writes out the transcript, reversing the usual order. The transcript still exists for auditing and debugging, but the caller never waits for it. Retrieval works differently too: without an upfront transcription to embed, the model issues a search as a tool call, much like an agent searching the web. Wen is blunt that the underlying model matters less than this input and output contract; open models arrive monthly, and PolyAI keeps its training scripts ready to retrain on each new one.</p>
+        <p>The training data is the company's moat. Years of deployed contact-center conversations across banking, utilities, logistics, restaurants, hotels, and retail become training material, under client agreements, with personal data redacted and synthetic stand-ins inserted so the model still learns how names and addresses sound. The model learns the mechanics of conversation rather than anyone's actual data. Audio enters as mel spectrograms, which the model reads much like an image, recalling Victor Zue's once-mocked claim that a trained eye can read speech off a spectrogram. Noise is handled by adding more of it: a generative model layers synthetic speech and background sounds, a baby crying behind a robotic voice, onto already noisy real calls. The older instinct to denoise and sanitize audio first actually made the end-to-end model worse.</p>
+        <p>Cross talk gets no special machinery. Traditional speaker diarization labels speaker one, two, three, which Wen calls an unnatural way to solve the cocktail party problem. A fused model can simply perceive that background talk is not its conversational partner, and because it is promptable it can be told to ignore the background or to join in; the difference lies entirely in the training data and instructions.</p>
+        <p>Latency, in the old cascade, was mostly a guessing game about when a caller had finished speaking, with one crude threshold for every user. The fused model predicts the end of a turn from the audio itself, including how fast someone speaks and whether the sentence is semantically complete, so it can wait out a mid-sentence pause. Hosting their own models removes the network long tail, and the saved time is now spent on reasoning with a budget: the model is trained to ask whether it really needs to think longer, often capping itself near a second. While it thinks, the agent must never go silent. Three to five seconds of dead air makes callers panic, so production systems use filler lines, typing sounds, even hold music, anything to maintain trust.</p>
+        <p>On personality, most enterprises are as conservative as Apple and Google. Generic voices actively hurt, because callers associate them with the old press-one-for-payments systems and hang up or hunt for a bypass. A slight regional flavor performs best, a Newcastle accent in Britain reads as a real local agent. Early on, PolyAI's most natural English voice was a French voice made to speak English, its slight imperfection making it believable. One South American casino wanted a voice that opened with "howdy" and still decided not to launch it.</p>
+        <p>Benchmarks are the unsolved scaffolding. Module scores for recognition and reasoning exist, but a voice agent also has to be fast, accurate with names, and good at tasks, and most public voice benchmarks are synthetic because real voice data is too private to release. PolyAI evaluates on real conversation data, counting response time as part of the score, and plans to publish that benchmark within a month or two. In production the measure blunter still: did the caller stay, engage, and finish the task.</p>
+        <p>The conversation then turns to harness engineering, the enterprise habit of building custom scaffolding around models. Wen's read is that companies have given up owning models but still want to own the intelligence, and the harness is the only part they can build themselves. His advice runs the other way for voice: do not own the voice harness. Let the agent be the fast front door and delegate real work to the systems behind it. Enterprise conversations are unusually well specified, the problem either got solved or it did not, which is why coding agents optimize them so well, and why audit trails, flow visualizations, and citations matter as agents get capable: one large utility customer now demands two-week review cycles on everything an agent merges. Where behavior belongs, in the harness or the weights, he advises starting with the harness and treating fine-tuning as a last resort, since weights travel better between teams but punish amateurs.</p>
+        <p>The last stretch is about working with agents day to day. The bottleneck, Wen says, has shifted from producing content to validating and auditing it, and his own engineers refuse to let agents review and merge code unsupervised. Voice agents generate so little text, around fifty tokens a turn in production, that they mostly dodge the slop problem; their constraint is channel bandwidth instead. He dictates through Wispr Flow all day, opens little besides an agent interface, Slack, and a browser for logins, and builds tools that make applications agent-friendly. Voice has a social adoption problem, though: talking to an agent in an open office gets you judged, the same awkwardness that follows smart glasses.</p>
+        <p>His forecast for the next decade: turn-taking fully end to end, then a split between consumer voice built for fun and enterprise voice built to be professional, regulated, and auditable, plus a second wave of voice-native devices. The host defines slop as generation without competence, and Wen closes on a twist: slop may live in the reader, since a message rich in the sender's context reads as slop to anyone missing that context. His half-serious fix is that everyone's agent should summarize incoming messages against their own context, letting senders write richly and machines do the cherry-picking.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>If response time is part of the score, can a voice-agent benchmark stay honest once vendors start optimizing against it, the way speech recognition benchmarks were gamed before?</li>
+        <li>Wen advises enterprises to rent the voice front door and own the back end, but if the front door owns the customer relationship and the conversation data, how much leverage does the back end really keep?</li>
+        <li>If every incoming message is summarized by the receiver's agent, does anything like a shared organizational understanding survive, or does everyone end up reading a different company?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English auto-generated caption transcript of the episode (13,060 words, 0:00 to 1:10:05), pulled via the yt-dlp android player client captions API on October 2, 2026, after the default web client was bot-walled and not retried. The commission screenshot showed a YouTube title A/B variant ("Why Speech Recognition Was Solved ..."); the video's canonical title is used above. Anything not in the transcript is not in this piece.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#latentspace-semianalysis-gpu-clouds">&larr; Which GPU Clouds Are Actually Good? | ClusterMAX 3.0</a>
+        <a class="to-index" href="2026-10-02.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -615,7 +663,8 @@
       "sourcery-turing-reward-hacking": "If an AI Model Can Cheat, It Will | Turing CEO on Reward Hacking",
       "a16z-agent-deploy": "Why Building an AI Agent Is Easier Than Deploying One",
       "brock-mesarich-ai-news-chatgpt-dots-grok": "AI News: ChatGPT Dots, Major Grok Bot Upgrades, GPT Sol 6.1 (+ more)",
-      "latentspace-semianalysis-gpu-clouds": "Which GPU Clouds Are Actually Good? | ClusterMAX 3.0"
+      "latentspace-semianalysis-gpu-clouds": "Which GPU Clouds Are Actually Good? | ClusterMAX 3.0",
+      "mlst-speech-recognition": "How a Voice Agent Learns the Rhythm of Conversation — Shawn Wen"
       };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
