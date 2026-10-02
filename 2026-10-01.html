@@ -365,7 +365,7 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; October 1, 2026</p>
-        <h1>15 summaries, distilled.</h1>
+        <h1>16 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -380,7 +380,8 @@
 <a class="card" href="#ackman-biggest-fight"><span class="num">12</span><span><span class="card-title">Bill Ackman: The Biggest Fight of His Life</span><span class="card-byline">The Knowledge Project</span></span><span class="card-dur">4:35</span></a>
 <a class="card" href="#robinhood-hood-summit-26"><span class="num">13</span><span><span class="card-title">Robinhood Presents: Engines of Creation</span><span class="card-byline">Robinhood</span></span><span class="card-dur">4:03</span></a>
 <a class="card" href="#isenberg-fde-1m"><span class="num">14</span><span><span class="card-title">Become a $1M/yr FDE (Full Course)</span><span class="card-byline">Greg Isenberg</span></span><span class="card-dur">10:36</span></a>
-      <a class="card" href="#twia-muse-imessages"><span class="num">15</span><span><span class="card-title">Is Meta&#x27;s Muse agent reading your iMessages, even after you decline access? | E33</span><span class="card-byline">This Week in AI</span></span><span class="card-dur">3:34</span></a></div>
+      <a class="card" href="#twia-muse-imessages"><span class="num">15</span><span><span class="card-title">Is Meta&#x27;s Muse agent reading your iMessages, even after you decline access? | E33</span><span class="card-byline">This Week in AI</span></span><span class="card-dur">3:34</span></a>
+      <a class="card" href="#latentspace-alex-zhang-academia-ambition"><span class="num">16</span><span><span class="card-title">Academia is for Ambition &mdash; Alex Zhang, MIT</span><span class="card-byline">Latent Space</span></span><span class="card-dur">4:38</span></a></div>
       </nav>
     </section>
 
@@ -1031,9 +1032,55 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#isenberg-fde-1m">&larr; Become a $1M/yr FDE (Full Course)</a>
         <a class="to-index" href="2026-10-01.html" data-route="index">All summaries</a>
+        <a class="next" href="#latentspace-alex-zhang-academia-ambition">Academia is for Ambition &mdash; Alex Zhang, MIT &rarr;</a>
+      </nav>
+    </section>
+
+    <section class="article-view" id="latentspace-alex-zhang-academia-ambition" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-01.html" data-route="index">&larr; October 1, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Academia is for Ambition &mdash; Alex Zhang, MIT &mdash; October 1, 2026 <span class="dur">&middot; 4:38</span></p>
+        <audio controls preload="none" src="podcasts/latentspace-alex-zhang-academia-ambition.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/latentspace-alex-zhang-academia-ambition.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Latent Space</dd></div>
+        <div><dt>Published</dt><dd>October 1, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=kog7mwsDqnk" target="_blank" rel="noopener noreferrer">Watch</a>
+      </dl>
+      <article>
+<p class="topic">AI research &middot; agents &middot; academia</p>
+<h2>Academia is for Ambition &mdash; Alex Zhang, MIT</h2>
+<div>
+<p class="dek">MIT PhD student Alex Zhang, known for Recursive Language Models, argues academia’s edge over industry labs is the freedom to take ambitious bets &mdash; and explains how better harnesses, not just better models, unlock long-horizon agency.</p>
+<p>Latent Space&#x27;s latest episode features Alex Zhang, a second year PhD student at MIT CSAIL advised by Omar Khattab and Tim Kraska. Zhang is best known for Recursive Language Models (RLMs), and for KernelBench and his central role in the GPU MODE community. The conversation moves from GPU kernels to agent harnesses to research taste, and lands on a thesis about what academia is actually for.</p>
+<p>Zhang&#x27;s path into systems work started almost by accident. Interning at Snapchat and bored, he joined a Discord called CUDA MODE, started by Mark Saroufim and Jeremy Howard as a place to learn GPU kernel programming with lectures. He met Saroufim and others there, and Saroufim pitched &quot;popcorn,&quot; which became the community&#x27;s kernel leaderboard. Zhang describes GPU programming as surprisingly like competitive programming: a small space of known optimizations, constraints you grind against for a while, and a community that turned into what he calls the hiring pipeline of the PyTorch team.</p>
+<p>That kernel background shapes how he thinks about agents. For matrix multiplication you can compute a theoretical &quot;speed of light&quot; estimate of the fastest possible kernel, and most hand written kernels are nowhere near it. He sees the same pattern in agent swarms: throwing a trillion tokens at a problem can work, but one person who understands the problem can uncover something that erases that whole spend. Efficiency still matters, and he is fairly certain that something like 95 percent of a typical swarm&#x27;s exploration is useless token burning. Still, he finds it exciting that pointing 40 million dollars at a problem is even an option now. The open research question is where to draw the line: what should be a swarm, and can the agent decide that itself.</p>
+<p>The heart of the episode is Recursive Language Models. The original problem was that agent harnesses handle long context badly. An RLM keeps a central context stored in a code environment, sometimes just the filesystem, and runs its tools inside a Python or Bash REPL. The model treats the prompt as a variable it can explore programmatically, recursively spawning sub calls over smaller chunks instead of cramming everything into one giant context window. Zhang&#x27;s Prime Agent pushes this further: context is offloaded to disk so the model can always reference its original context even after compaction, and IPython is the only tool. The design goal is compositionality, giving the system much more control over the actions it takes at every step, unlike the rigid tool A then tool B then tool C loop with no shared context to draw back from.</p>
+<p>Zhang uses the RLM paper to make a broader point about research taste. When it came out, the common reaction was dismissal: this is just subagents, what is even the point. He notes the same happened with SWE-bench, which nobody cared about until Devin made it obviously important, and with ideas like chain of thought and ReAct that looked trivially simple in retrospect. A paper&#x27;s value, he argues, is that it tells a story about what the field should look like, and that is something academia is uniquely positioned to do precisely because it cannot afford frontier lab scale releases.</p>
+<p>That is the ambition thesis. As a PhD student you can work on literally whatever you want, with no bureaucracy, which is an unfair advantage over anyone at an industry lab. The price of that freedom is that you have to take big bets, most of which will fail, on things people currently see as trivial. If you are not doing that, he says, you might as well join an industry lab with its resources and talent. He extends the same impatience to model design itself: people have accepted that a language model is just an autoregressive decoder, but work like Jeb, which changes the output space for fast inference tradeoffs, or loop transformers, opens a whole new set of questions about what the model even is.</p>
+<p>The clip that prompted this summary comes from a passage where Zhang calls reliable long horizon agency a &quot;skill issue.&quot; Frontier models still cannot do a particular job over the span of a month consistently and well, and he thinks someone in academia should just sit down and build the harness that can: a system you talk to like an intern, doing long running but simple tasks reliably, automating the easy parts of research workflows. No frontier lab required.</p>
+<p>He closes with advice for students who email him. He likes people who are opinionated, even when he disagrees, and who have actually read the paper instead of asking to pick his brain. Strong convictions about a problem, clearly stated, get his attention fast. He also admits he is drowning in projects and that agents have not helped him manage them: he prompts something, never looks at it again, and calls that very common and terrible.</p>
+<p>*Source note: commissioned from the Latent Space YouTube Short &quot;Academia is for Ambition &mdash; Alex Zha...&quot; (@LatentSpacePod, posted Oct 1, 2026). Shorts are not transcript indexed anywhere, so this summary is grounded on the full episode transcript: the identical Latent Space podcast episode &quot;Academia is for Ambition &mdash; Alex Zhang, MIT&quot; (101 minutes), pulled from the show&#x27;s podcast RSS MP3 on Oct 1, 2026 and transcribed locally with faster-whisper. The long form video is at https://www.youtube.com/watch?v=kog7mwsDqnk.*</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If 95 percent of swarm exploration is wasted tokens, what is the principled way to decide which problems deserve a swarm and which deserve a carefully designed harness?</li>
+<li>RLMs show that changing the harness unlocks capability already latent in the model. How much of the remaining gap to reliable month long agency is harness design versus the base model itself?</li>
+<li>Zhang&#x27;s bet is that academia&#x27;s edge is ambition without bureaucracy. As industry labs absorb more open research talent, what keeps that edge from eroding?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> The commission arrived as a Latent Space YouTube Short, &quot;Academia is for Ambition &mdash; Alex Zha...&quot; (@LatentSpacePod, posted October 1, 2026). Shorts are not transcript-indexed anywhere, so this summary is grounded on the full episode transcript: the identical 101-minute Latent Space episode &quot;Academia is for Ambition &mdash; Alex Zhang, MIT&quot;, pulled from the show&#x27;s podcast RSS MP3 on October 1, 2026 and transcribed locally with faster-whisper. The long-form video is linked above as Watch.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+</div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#twia-muse-imessages">&larr; Is Meta&#x27;s Muse agent reading your iMessages, even after you decline access? | E33</a>
+        <a class="to-index" href="2026-10-01.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
+
 
     <footer>
       <span>Summaries dated October 1, 2026</span>
@@ -1058,6 +1105,7 @@
       "robinhood-hood-summit-26": "Robinhood Presents: Engines of Creation",
       "isenberg-fde-1m": "Become a $1M/yr FDE (Full Course)",
       "twia-muse-imessages": "Is Meta's Muse agent reading your iMessages, even after you decline access? | E33",
+      "latentspace-alex-zhang-academia-ambition": "Academia is for Ambition — Alex Zhang, MIT",
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
