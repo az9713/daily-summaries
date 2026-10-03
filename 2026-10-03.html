@@ -365,7 +365,7 @@
     <header class="masthead">
       <div>
         <p class="date">Saturday &middot; October 3, 2026</p>
-        <h1>7 summaries, distilled.</h1>
+        <h1>10 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -378,7 +378,10 @@
         <a class="card" href="#nate-jones-dots-vs-muse"><span class="num">05</span><span><span class="card-title">Should You Pay $100 A Month For OpenAI&rsquo;s Dots When Meta&rsquo;s Muse Has A Free Version?</span><span class="card-byline">AI News &amp; Strategy Daily | Nate B Jones</span></span><span class="card-dur">6:16</span></a>
         <a class="card" href="#imagination-action-ai-biology"><span class="num">06</span><span><span class="card-title">Why AI Still Struggles With Biology | The Next Endeavor 2026</span><span class="card-byline">Imagination in Action</span></span><span class="card-dur">6:22</span></a>
         <a class="card" href="#austin-marchese-best-worst-advice"><span class="num">07</span><span><span class="card-title">The BEST &amp; WORST Advice to Build 10x Faster with Claude</span><span class="card-byline">Austin Marchese</span></span><span class="card-dur">6:25</span></a>
-        </div>
+        <a class="card" href="#humans-in-the-loop-quantum-aaronson"><span class="num">08</span><span><span class="card-title">What Quantum Computing is Actually Good For | Scott Aaronson- Computer Scientist Complexity Theorist</span><span class="card-byline">Humans in the Loop</span></span><span class="card-dur">6:23</span></a>
+        <a class="card" href="#abel-prize-terence-tao-wavelets"><span class="num">09</span><span><span class="card-title">Terence Tao on Yves Meyer's wavelets – The Abel Prize 2017</span><span class="card-byline">The Abel Prize</span></span><span class="card-dur">6:26</span></a>
+        
+        <a class="card" href="#20vc-crusoe-gpu-depreciation"><span class="num">10</span><span><span class="card-title">Crusoe CEO: Why Everyone Gets GPU Depreciation &amp; AI Energy Costs Wrong</span><span class="card-byline">Chase Lochmiller</span></span><span class="card-dur">5:08</span></a></div>
       </nav>
     </section>
 
@@ -681,6 +684,135 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#imagination-action-ai-biology">&larr; Why AI Still Struggles With Biology | The Next Endeavor 2026</a>
         <a class="to-index" href="2026-10-03.html" data-route="index">All summaries</a>
+        <a class="next" href="#humans-in-the-loop-quantum-aaronson">What Quantum Computing is Actually Good For | Scott Aaronson- Computer Scientist Complexity Theorist &rarr;</a>
+      </nav>
+    </section>
+
+    <section class="article-view" id="humans-in-the-loop-quantum-aaronson" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-03.html" data-route="index">&larr; October 3, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">What Quantum Computing is Actually Good For | Scott Aaronson- Computer Scientist Complexity Theorist &mdash; October 3, 2026 <span class="dur">&middot; 6:23</span></p>
+        <audio controls preload="none" src="podcasts/humans-in-the-loop-quantum-aaronson.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/humans-in-the-loop-quantum-aaronson.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Humans in the Loop</dd></div>
+        <div><dt>Published</dt><dd>October 3, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=jpmM8tMRa8w" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">quantum computing &middot; algorithms &middot; error correction &middot; cryptography</p>
+        <h2>What Quantum Computing is Actually Good For | Scott Aaronson- Computer Scientist Complexity Theorist</h2>
+        <div>
+        <p class="dek">Humans in the Loop, a podcast hosted by Seb, sits down with Scott Aaronson, the University of Texas at Austin computer scientist who has spent twenty years as quantum computing&rsquo;s most prominent myth-buster. Asked to explain quantum computing to a five-year-old, Aaronson insists on a longer runway: first bits and logic gates, then classical probability, and only then the strange part. Classical probability assigns a number between zero and one to how likely something is, and you would never talk about a negative thirty percent chance of rain. Quantum mechanics, he says, keeps the probabilities but changes the arithmetic underneath them. Nature tracks a different kind of number, an amplitude, and amplitudes can be negative or even complex. When something can happen several ways, you add the amplitudes, not the probabilities, and amplitudes pointing in opposite directions cancel each other out.</p>
+        <p>That single fact, illustrated by the two-slit experiment, is the whole game. A particle given two paths to a point may never arrive there, because the two amplitudes cancel, while closing one slit lets it through. Superposition is the name for a system carrying amplitudes for many states at once, and measurement forces it to pick one. A qubit is any two-state system that can hold such a superposition, and the bookkeeping explodes fast: two qubits need four amplitudes, three need eight, and a thousand particles would need more amplitudes than there are atoms in the observable universe. Nature maintains that scratch paper whether we look or not. Chemists and physicists have coped with hacks and approximations for a century, until Richard Feynman and David Deutsch asked, in the early 1980s, why not build a computer that exploits the exponentiality instead of suffering from it.</p>
+        <p>The first great answer to what such a machine would be good for came in 1994, when Peter Shor showed that a large quantum computer could factor huge numbers quickly. Internet encryption rests on the belief that factoring is hard, and Shor&rsquo;s algorithm turned that belief into a deadline. Aaronson spends real effort dismantling the popular account of why. A quantum computer does not try every possible divisor in parallel and magically report the right one; measuring an untouched superposition yields a random answer, which a coin could have given you for free. The only route to advantage is interference: choreograph the amplitudes so that wrong answers cancel and the right answer reinforces, without knowing in advance which answer is right. That is why the list of problems with known quantum speedups is short and strange, topped by simulating quantum physics and chemistry itself, the application Feynman imagined and still, Aaronson says, the most economically valuable one we are confident about.</p>
+        <p>Building the machine is a separate mountain. Any interaction that carries away information about whether a qubit is zero or one collapses it, whether the eavesdropper is a person, a stray atom, or stray radiation, so qubits must be isolated almost perfectly while still being controllable, a contradiction that led distinguished physicists in the 1990s to call the whole project impossible. Quantum error correction, developed in 1995 and 1996, answered them in principle: if gates are reliable enough, clever codes handle the rest, and the required accuracy has since relaxed from 99.999 percent toward 99.9 percent while experimental gates climbed from coin-flip quality to that same threshold. Google has shown a logical qubit living longer as more physical qubits encode it. What remains, Aaronson says, is a massive engineering problem of scale, and he teases the remaining skeptics that the burden is now on them to name the exotic new physics that will stop it.</p>
+        <p>The implications cut both ways. Public-key cryptography, including the signature schemes behind Bitcoin and Ethereum, falls to a scaled-up quantum computer, and the migration to lattice-based, quantum-resistant standards that NIST settled on after its 2017 to 2022 competition has begun at companies like Google and Amazon. Aaronson calls it a bigger Y2K with no known deadline, and says people should upgrade now. Symmetric encryption, by contrast, is barely touched. For everyday computing problems, he is blunt: optimization and machine learning mostly offer modest or speculative gains. Grover&rsquo;s algorithm gives only a square-root speedup that error-correction overhead will keep impractical for a long time, and many celebrated quantum machine learning algorithms were dequantized, matched by better classical algorithms, a fate his own undergraduate Ewin Tang helped deliver at eighteen. Startups that promised quantum speedups for whatever problem an investor had were selling a story the basics never supported.</p>
+        <p>The closing comparison is with AI, where Aaronson spent two years at OpenAI after starting in AI in graduate school. He left the field in 2000 partly because its progress was empirical black magic, and he says that is truer now: we grow large models rather than build them, and nobody fully understands why they work. Quantum computing is the mirror image, with theory decades ahead of experiment since the 1990s, while AI has experiment decades ahead of theory, which is exactly what makes AI perilous. The practical stakes differ too. A quantum computer must beat the best classical algorithm to matter at all, whereas an AI only needs to match a mediocre human, tirelessly and in parallel, to threaten a field. His parting advice to students is the same for both fields: study linear algebra and probability. The video&rsquo;s brief sponsored and promotional material, where present, is omitted from this summary.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+<li>Gate accuracy has reached the error-correction threshold in small systems; what will actually break first as labs push toward thousands or millions of physical qubits, the hardware, the control electronics, or the error-correction overhead itself?</li>
+<li>If the migration to quantum-resistant encryption is a Y2K without a deadline, who bears the cost and blame for the data harvested today and decrypted later, and what would make laggard industries move before a machine exists?</li>
+<li>Aaronson argues AI&rsquo;s experiment has outrun its theory in a way that is perilous; is there any realistic path for AI theory to catch up, or does safety work have to proceed empirically forever?</li>
+</ol>
+        <p class="source-note"><strong>Source note.</strong> grounded on the full YouTube transcript (English auto-captions, 11,687 words covering 0:00 to 63:28) of &ldquo;What Quantum Computing is Actually Good For | Scott Aaronson- Computer Scientist Complexity Theorist&rdquo; from Humans in the Loop, pulled October 3, 2026 via the yt-dlp android player client captions API after the default web route was bot-walled. Guest identity and episode title confirmed against the video&rsquo;s own description. The auto-captions garble a few names; &ldquo;Shor&rdquo; appears as &ldquo;Shore,&rdquo; &ldquo;Feynman&rdquo; as &ldquo;Fineman,&rdquo; and &ldquo;qubit&rdquo; as &ldquo;cubit,&rdquo; and the summary uses the standard spellings.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#austin-marchese-best-worst-advice">&larr; The BEST &amp; WORST Advice to Build 10x Faster with Claude</a>
+        <a class="to-index" href="2026-10-03.html" data-route="index">All summaries</a>
+        <a class="next" href="#abel-prize-terence-tao-wavelets">Terence Tao on Yves Meyer's wavelets – The Abel Prize 2017 &rarr;</a>
+      </nav>
+    </section>
+
+    <section class="article-view" id="abel-prize-terence-tao-wavelets" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-03.html" data-route="index">&larr; October 3, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Terence Tao on Yves Meyer's wavelets – The Abel Prize 2017 &mdash; October 3, 2026 <span class="dur">&middot; 6:26</span></p>
+        <audio controls preload="none" src="podcasts/abel-prize-terence-tao-wavelets.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/abel-prize-terence-tao-wavelets.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>The Abel Prize (Terence Tao)</dd></div>
+        <div><dt>Published</dt><dd>October 3, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=5Fi6TdH9poU" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Wavelets &middot; signal processing &middot; compressed sensing &middot; mathematics</p>
+        <h2>Terence Tao on Yves Meyer's wavelets – The Abel Prize 2017</h2>
+        <div>
+        <p class="dek">On The Abel Prize channel, &ldquo;Terence Tao on Yves Meyer&rsquo;s wavelets – The Abel Prize 2017&rdquo; is a lecture from afterMath, the Abel Prize event held in Oslo in 2017. Terence Tao presents the work of that year&rsquo;s Abel Laureate, Yves Meyer, whom he describes as one of the rare mathematicians to have made fundamental contributions to both pure and applied mathematics. To Meyer, Tao says, it really is just one subject.</p>
+        <p>The talk opens with Meyer&rsquo;s earliest work, in pure number theory. Studying special numbers such as Pisot numbers, with the golden ratio as a familiar example, Meyer described what are now called Meyer sets: patterns of points that are almost periodic but never quite repeat with equal spacing. He showed these sets always come from an ordinary periodic lattice in higher dimensions, sliced and projected down. A decade later, chemists found exactly these structures in nature, the quasicrystals, and Dan Shechtman won the Nobel Prize in Chemistry for the discovery. Even Meyer&rsquo;s most theoretical work, it turned out, had a physical shadow.</p>
+        <p>Tao then touches on fluid mechanics, where Meyer used wavelets to keep solving the Navier-Stokes equations as a steady flow breaks into turbulence and energy cascades to finer and finer scales. That sets up the main subject, because wavelets are now a fundamental tool of signal processing, and digital data is everywhere. Tao treats sound as one-dimensional data over time, an image as a two-dimensional function, and a video as three-dimensional data, all open to the same mathematics.</p>
+        <p>The heart of the lecture is a comparison of representations. The naive way to store data is spatial: break it into individual points, the pixels of a bitmap. That captures fine detail, but a computer staring at a million pixels cannot easily see the deer in the picture, and storing every point is expensive. The opposite extreme is the Fourier representation, two hundred years old, which rebuilds any signal from sine and cosine waves. Fourier is superb at large-scale structure, like the seasonal swing in a temperature record, and hopeless at fine structure: approximate a signal with its largest Fourier modes and sharp edges come back rounded, decorated with oscillating artifacts that were never there.</p>
+        <p>Wavelets, developed by Meyer and several others, are the best of both worlds. A wavelet oscillates like a sine wave but only briefly, so it lives at one place and one scale. Rebuild the same spiky signal from its largest wavelet pieces and the spikes survive, the edges stay sharp, and the spurious ringing mostly disappears. Then comes the property Tao calls most important: sparse representation. Take a photograph of the Golden Gate Bridge with a hundred thousand pixels, run the simplest wavelet transform over it, and most of the resulting coefficients are zero or nearly so. Only about a tenth carry the picture. Keep the ten thousand that matter and the image is already well described.</p>
+        <p>That single fact explains the applications reel. JPEG 2000 compresses images with the wavelet machinery Meyer and his co-authors built. Wavelets denoise scratched or noisy images, detect edges such as fingerprints, help solve differential equations from fluid flow to the relativity equations of colliding black holes, and model the curves and surfaces of CGI. Tao&rsquo;s own entry point was compressed sensing: because a scan is sparse in wavelets, an MRI does not need to measure everything. A body scan that once took several minutes can now take ten or twenty seconds and still yield a good image, which matters when the patient is a small child who cannot hold still.</p>
+        <p>Near the end of the lecture, Tao states Meyer&rsquo;s precise role. Meyer was not quite the first to invent wavelets. What he did was give the subject its systematic theory: what wavelets are, how to find them, and how to design them, from the simple step-shaped Haar wavelet to the smooth wavelet that bears his name. With Stéphane Mallat he built multiresolution analysis, a framework that generates whole families of wavelets tailored to different jobs. Before that, wavelets were an ad hoc trick: geophysicists analyzing seismic data had stumbled onto something that worked without knowing why, or whether it was special to their data. The abstract framework is what let everyone else in. As Tao puts it in the conversation that follows, mathematics takes something from the real world and makes it abstract, and once it is abstract it can be reused in many unexpected ways.</p>
+        <p>The conversation after the talk (from 17:23) ranges wider. Meyer, Tao suggests, was unafraid of talking to people in other fields, and a chance conversation with a physicist fed directly into the wavelets work. Asked about his own MRI contribution, Tao explains that his co-author Emmanuel Candès had been Meyer&rsquo;s student, and that twenty years after the theory, the two of them attacked the partial reconstruction problem: if only ten thousand coefficients describe an image, then in principle only ten thousand measurements should be needed, and their contribution was working out how an MRI machine could take just those. The image that once demanded a hundred thousand measurements now comes together in seconds.</p>
+        <p>Tao is then asked whether a great mathematician in 2017 can still work alone in an office. Mathematics has changed, he says: it is far more collaborative and interdisciplinary now, and many of the best advances come from pairing a deep specialist with someone who carries ideas between fields. Specialists like Andrew Wiles still thrive, but Tao counts himself as the other kind, broad rather than deep, and notes that the internet and even Wikipedia have made learning new mathematics far more democratic than when a handful of universities monopolized each field. His advice to students is to keep asking why a definition is written the way it is, and to tinker: drop a hypothesis, flip a sign, and watch how the statement breaks and how it can be fixed. Research itself is nothing like homework, he warns. A homework problem yields in an hour; a research problem may need months, and the skill is breaking it into smaller pieces and trusting that progress accumulates quietly, like an iceberg below the surface, until one day everything fits and seems obvious. Careers have widened in step: data science and industry research groups now hire mathematics PhDs less for any specific theorem than for their ability to simplify abstract problems until they can be solved. Wavelets themselves are settled science, Tao concludes, but compressed sensing and the growing ties between mathematics and biology are live frontiers.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+<li>Wavelets escaped the geophysicists&rsquo; toolbox only once Meyer abstracted them into a general theory. Which techniques in data science and machine learning today are still ad hoc tricks waiting for their Meyer, and would we recognize the moment of abstraction when it happens?</li>
+<li>Compressed sensing leans on real signals being sparse in the right basis. Where does that assumption break down, in medical imaging or elsewhere, and what does reconstruction owe a patient when the tenth of coefficients that matter turns out to be the wrong tenth?</li>
+<li>Tao describes research progress as an iceberg that builds invisibly for months before everything suddenly fits. For students and the people who fund them, how do you tell a slow iceberg from a problem that simply is not ready to be solved?</li>
+</ol>
+        <p class="source-note"><strong>Source note.</strong> grounded on the full YouTube transcript (English auto-captions, 0:07 to 30:07 of the 30:16 video) of &ldquo;Terence Tao on Yves Meyer&rsquo;s wavelets – The Abel Prize 2017&rdquo; on The Abel Prize channel, pulled October 3, 2026 via the yt-dlp android player client captions API; the default web route was bot-walled with a 429 and was not retried. The video is archival footage of the 2017 afterMath event in Oslo, uploaded to the channel on October 1, 2026. Names the auto-captions garble (Yves Meyer, Stéphane Mallat, Emmanuel Candès, Dan Shechtman, Pisot numbers, multiresolution analysis) are spelled per the video&rsquo;s own description and the standard literature. View count at pull time was about 26,000, matching the commissioning screenshot.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#humans-in-the-loop-quantum-aaronson">&larr; What Quantum Computing is Actually Good For | Scott Aaronson- Computer Scientist Complexity Theorist</a>
+        <a class="to-index" href="2026-10-03.html" data-route="index">All summaries</a>
+        <a class="next" href="#20vc-crusoe-gpu-depreciation">Crusoe CEO: Why Everyone Gets GPU Depreciation &amp; AI Energy Costs Wrong &rarr;</a>
+      </nav>
+    </section>
+
+    <section class="article-view" id="20vc-crusoe-gpu-depreciation" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-03.html" data-route="index">&larr; October 3, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Crusoe CEO: Why Everyone Gets GPU Depreciation &amp; AI Energy Costs Wrong &mdash; October 3, 2026 <span class="dur">&middot; 5:08</span></p>
+        <audio controls preload="none" src="podcasts/20vc-crusoe-gpu-depreciation.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/20vc-crusoe-gpu-depreciation.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>20VC with Harry Stebbings</dd></div>
+        <div><dt>Published</dt><dd>October 3, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Ko7nU1Img40" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">GPU depreciation &middot; AI data centers &middot; energy costs &middot; vertical integration</p>
+        <h2>Crusoe CEO: Why Everyone Gets GPU Depreciation &amp; AI Energy Costs Wrong</h2>
+        <div>
+        <p class="dek">On 20VC with Harry Stebbings, "Crusoe CEO: Why Everyone Gets GPU Depreciation &amp; AI Energy Costs Wrong," Harry sits down with Chase Lochmiller, co-founder and CEO of Crusoe, days after the company closed a $3.9 billion Series F at a $30.9 billion valuation. Crusoe sells three products: data centers, GPUs, and tokens. The conversation ranges from mountaineering to the price of intelligence, but its spine is one argument: nearly everything the public believes about AI infrastructure, that it wastes water, that it drives up power bills, that a GPU is obsolete inside three years, is backwards, and the company built to prove it is the vertically integrated one.</p>
+        <p>Start with the mountain. One of Crusoe's company values is "think like a mountaineer," and Lochmiller means it literally. He climbed Everest in 2018 and came home to the first blank calendar of his life, no next job lined up, and Crusoe grew out of that emptiness. Mountaineering, for him, means planning for the weather to turn: a plan A and a plan B and a plan C, a willingness to endure the miserable stretches, and a safety culture built on the old climbing line that getting up is optional and getting down is mandatory. Having money already, he adds, is what let him take the risk without flinching.</p>
+        <p>What actually stops data centers getting built, he says, is unglamorous: permits, entitlements, land a seller will not part with, interconnection agreements with local utilities, air permits for new generation. Asked what share of planned data centers will never open, he calls fifty percent reasonable. China can steamroller every one of those obstacles by fiat, which he freely admits is an advantage viewed through a purely Machiavellian lens. His counter is that the facts favor building where communities want the investment.</p>
+        <p>On energy and water, he is combative. In markets where big data centers have landed, he says, local energy prices typically come down, because the build catalyzes new generation and spreads the cost of transmission across more megawatts. The water story, he argues, is simply false: Crusoe's cooling is a closed loop, and one of its 140 megawatt buildings in Abilene, Texas uses about as much water in a year as ten single family homes, mostly staff bathrooms and watering the plants. The legitimate local costs are construction noise, dust, and traffic, and against those he sets jobs, permanent operations roles, and tax revenue: his campus will account for more than a third of the tax revenue in Taylor County and more than double what the schools take in.</p>
+        <p>That makes data centers, in his telling, a political problem rather than an engineering one. They have become a polarizing midterm issue, and he concedes the anxiety underneath is real: people fear AI takes their job. His reply is that data centers are among the largest employers going, driving a blue-collar boom and a reindustrialization of the United States, and that so far AI has created far more work than it has destroyed. The gap, he thinks, is between emotional reaction and the record.</p>
+        <p>The GPU economics are where the episode earns its title. The price of a GPU hour is becoming a traded commodity, and Crusoe's rental agreements are typically take-or-pay: the customer pays whether it uses the capacity or not. The company runs the book as a portfolio, five-year contracts with creditworthy customers that cash flow from day one, shorter and riskier contracts at higher margins, and managed services like managed inference and serverless fine-tuning on top. Vertical integration is the hedge. He models Crusoe on the oil super majors, Exxon and Chevron, integrated from wellhead to gas station, so that when margins shrink at one layer they grow at another. Today the richest layer is managed GPU clusters, for one simple reason: supply is desperately short.</p>
+        <p>Depreciation is the misconception he most wants to kill. Crusoe books its chips over a six-year cycle, the industry standard, yet Hopper GPUs bought in 2023 are renting today at higher rates than when they were brand new. The early skeptics warned the hardware might be worthless after year three. What they underestimated, he says, is the ingenuity of application developers at turning compute into valuable services, and the way managed services abstract the chip away so an older generation keeps earning behind a product nobody has to think about. His bet is that the earning life of the fleet stretches well past six years.</p>
+        <p>Investor Gavin Baker's line, that the lowest cost producer of intelligence wins, frames the last technical stretch. Lochmiller measures that cost in dollars per token, with an asterisk: not all tokens are created equal, so throughput, latency, and time to first token matter too. Underneath sits the least visible craft in the business. The GPU is the most expensive thing in the building, so an idle GPU is money burning, and keeping it busy comes down to managing the key-value cache across on-chip memory, system memory, solid-state drives, and object storage without letting any layer starve the others.</p>
+        <p>From his inference seat he sees a split market: people spend more money on closed frontier models, but they generate more tokens on open source ones, and he expects both to endure, with private company data as the great untapped source of performance. On moats he has reversed himself completely: most moats are an illusion, he says, and the durable edge is moving quickly as the board keeps changing. Crusoe will probably go public at some point, a matter of when, and if he could add anyone to the board it would be Michael Dell, who is not joining. Asked what the 2018 version of himself would find most unbelievable about the nearly two thousand person company of today, his answer is the simplest one in the episode: that it worked at all.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>If roughly half of planned data centers never get built, what decides which half dies, and does the surviving half leave the industry more concentrated than the announced map suggests?</li>
+        <li>The claim that data centers lower local energy prices rests on new generation actually being built and shared across the same wires. What happens in the regions where the generation does not follow the data center?</li>
+        <li>If most moats are an illusion and advantage is only speed, what actually protects a capital-hungry builder like Crusoe when a richer rival decides to copy the vertically integrated playbook?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English auto-generated captions (en-orig, 13,065 words) of the YouTube video "Crusoe CEO: Why Everyone Gets GPU Depreciation &amp; AI Energy Costs Wrong" on the 20VC with Harry Stebbings channel (video Ko7nU1Img40, about 65 minutes), pulled via the yt-dlp android player client captions API on October 3, 2026. The same interview is the current 20VC podcast episode with Chase Lochmiller. Sponsored reads in the episode are excluded except where relevant. Caption artifacts and recognition errors were read in context, and names and figures are given as spoken.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#abel-prize-terence-tao-wavelets">&larr; Terence Tao on Yves Meyer's wavelets – The Abel Prize 2017</a>
+        <a class="to-index" href="2026-10-03.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -699,7 +831,10 @@
       "mts-anthropic-rsi-august-2027": "Anthropic Will Reach Full RSI by August 2027 | Rayan Krishnan",
       "nate-jones-dots-vs-muse": "Should You Pay $100 A Month For OpenAI's Dots When Meta's Muse Has A Free Version?",
       "imagination-action-ai-biology": "Why AI Still Struggles With Biology | The Next Endeavor 2026",
-      "austin-marchese-best-worst-advice": "The BEST & WORST Advice to Build 10x Faster with Claude"
+      "austin-marchese-best-worst-advice": "The BEST & WORST Advice to Build 10x Faster with Claude",
+      "humans-in-the-loop-quantum-aaronson": "What Quantum Computing is Actually Good For | Scott Aaronson- Computer Scientist Complexity Theorist",
+      "abel-prize-terence-tao-wavelets": "Terence Tao on Yves Meyer's wavelets – The Abel Prize 2017",
+      "20vc-crusoe-gpu-depreciation": "Crusoe CEO: Why Everyone Gets GPU Depreciation & AI Energy Costs Wrong"
       };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
