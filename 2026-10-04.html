@@ -376,6 +376,22 @@
       background: var(--signal); border-color: var(--signal); color: #fff;
     }
     .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
 </style>
 </head>
 <body>
@@ -390,12 +406,12 @@
     </header>
       <nav aria-label="Summaries">
         <div class="cards">
-        <a class="card" href="#lennys-podcast-tibo-sottiaux-chatgpt"><span class="num">01</span><span><span class="card-title">OpenAI's Head of ChatGPT: We're entering a new era of AI (again) | Tibo Sottiaux</span><span class="card-byline">Lenny's Podcast</span></span><span class="card-dur">6:15</span></a>
-        <a class="card" href="#mts-ai-agents-subscription-cancellations"><span class="num">02</span><span><span class="card-title">AI Agents Will Cause Mass Subscription Cancellations</span><span class="card-byline">MTS</span></span><span class="card-dur">4:53</span></a>
-        <a class="card" href="#moonshots-five-visions-future"><span class="num">03</span><span><span class="card-title">Five Visions Of The Future | MOONSHOTS LIVE</span><span class="card-byline">MoonshotsHighlights</span></span><span class="card-dur">3:44</span></a>
-        <a class="card" href="#sam-witteveen-best-qwen38-27b"><span class="num">04</span><span><span class="card-title">Which is The Best Qwen3.8-27B?</span><span class="card-byline">Sam Witteveen</span></span><span class="card-dur">3:46</span></a>
-        <a class="card" href="#nate-jones-end-of-app-era"><span class="num">05</span><span><span class="card-title">The end of the app era: What comes next?</span><span class="card-byline">Nate B Jones</span></span><span class="card-dur">5:43</span></a>
-        <a class="card" href="#david-senra-jeremy-stern"><span class="num">06</span><span><span class="card-title">How Mark Zuckerberg, Palmer Luckey, Josh Kushner &amp; Scott Wu Think | Jeremy Stern</span><span class="card-byline">David Senra</span></span><span class="card-dur">5:29</span></a></div>
+        <a class="card" href="#lennys-podcast-tibo-sottiaux-chatgpt"><span class="num">01</span><span><span class="card-title">OpenAI's Head of ChatGPT: We're entering a new era of AI (again) | Tibo Sottiaux</span><span class="card-byline">Lenny's Podcast</span></span><span class="card-dur">6:15</span><span class="listen-state" data-slug="lennys-podcast-tibo-sottiaux-chatgpt"></span></a>
+        <a class="card" href="#mts-ai-agents-subscription-cancellations"><span class="num">02</span><span><span class="card-title">AI Agents Will Cause Mass Subscription Cancellations</span><span class="card-byline">MTS</span></span><span class="card-dur">4:53</span><span class="listen-state" data-slug="mts-ai-agents-subscription-cancellations"></span></a>
+        <a class="card" href="#moonshots-five-visions-future"><span class="num">03</span><span><span class="card-title">Five Visions Of The Future | MOONSHOTS LIVE</span><span class="card-byline">MoonshotsHighlights</span></span><span class="card-dur">3:44</span><span class="listen-state" data-slug="moonshots-five-visions-future"></span></a>
+        <a class="card" href="#sam-witteveen-best-qwen38-27b"><span class="num">04</span><span><span class="card-title">Which is The Best Qwen3.8-27B?</span><span class="card-byline">Sam Witteveen</span></span><span class="card-dur">3:46</span><span class="listen-state" data-slug="sam-witteveen-best-qwen38-27b"></span></a>
+        <a class="card" href="#nate-jones-end-of-app-era"><span class="num">05</span><span><span class="card-title">The end of the app era: What comes next?</span><span class="card-byline">Nate B Jones</span></span><span class="card-dur">5:43</span><span class="listen-state" data-slug="nate-jones-end-of-app-era"></span></a>
+        <a class="card" href="#david-senra-jeremy-stern"><span class="num">06</span><span><span class="card-title">How Mark Zuckerberg, Palmer Luckey, Josh Kushner &amp; Scott Wu Think | Jeremy Stern</span><span class="card-byline">David Senra</span></span><span class="card-dur">5:29</span><span class="listen-state" data-slug="david-senra-jeremy-stern"></span></a></div>
       </nav>
     </section>
 
@@ -408,6 +424,7 @@
           <a href="podcasts/lennys-podcast-tibo-sottiaux-chatgpt.mp3">Download the episode</a>.
         </audio>
         <div class="rating" data-slug="lennys-podcast-tibo-sottiaux-chatgpt" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="lennys-podcast-tibo-sottiaux-chatgpt"></div>
       </div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Lenny's Podcast (Tibo Sottiaux)</dd></div>
@@ -450,6 +467,7 @@
         <p class="episode-title">AI Agents Will Cause Mass Subscription Cancellations &mdash; October 4, 2026</p>
         <audio controls preload="metadata" src="podcasts/mts-ai-agents-subscription-cancellations.mp3"></audio>
         <div class="rating" data-slug="mts-ai-agents-subscription-cancellations" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="mts-ai-agents-subscription-cancellations"></div>
         <p class="episode-links"><a href="podcasts/mts-ai-agents-subscription-cancellations.mp3">&#8595; MP3</a></p>
       </div>
       <article>
@@ -500,6 +518,7 @@
           <a href="podcasts/moonshots-five-visions-future.mp3">Download the episode</a>.
         </audio>
         <div class="rating" data-slug="moonshots-five-visions-future" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="moonshots-five-visions-future"></div>
       </div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>MoonshotsHighlights</dd></div>
@@ -541,6 +560,7 @@
           <a href="podcasts/sam-witteveen-best-qwen38-27b.mp3">Download the episode</a>.
         </audio>
         <div class="rating" data-slug="sam-witteveen-best-qwen38-27b" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="sam-witteveen-best-qwen38-27b"></div>
       </div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Sam Witteveen</dd></div>
@@ -584,6 +604,7 @@
           <a href="podcasts/nate-jones-end-of-app-era.mp3">Download the episode</a>.
         </audio>
         <div class="rating" data-slug="nate-jones-end-of-app-era" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="nate-jones-end-of-app-era"></div>
       </div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Nate B Jones</dd></div>
@@ -630,6 +651,7 @@
           <a href="podcasts/david-senra-jeremy-stern.mp3">Download the episode</a>.
         </audio>
         <div class="rating" data-slug="david-senra-jeremy-stern" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="david-senra-jeremy-stern"></div>
       </div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>David Senra (Jeremy Stern)</dd></div>
@@ -743,6 +765,120 @@
         paint(box, val);
       });
     });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done };
+    } catch (e) { return { p: 0, d: 0, done: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    st.done = !isDone(st);
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="podcasts/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) st.done = true;
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) st.done = true;
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
   });
 })();
 </script>
