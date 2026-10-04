@@ -365,7 +365,7 @@
     <header class="masthead">
       <div>
         <p class="date">Sunday &middot; October 4, 2026</p>
-        <h1>3 summaries, distilled.</h1>
+        <h1>4 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -373,7 +373,8 @@
         <div class="cards">
         <a class="card" href="#lennys-podcast-tibo-sottiaux-chatgpt"><span class="num">01</span><span><span class="card-title">OpenAI's Head of ChatGPT: We're entering a new era of AI (again) | Tibo Sottiaux</span><span class="card-byline">Lenny's Podcast</span></span><span class="card-dur">6:15</span></a>
         <a class="card" href="#mts-ai-agents-subscription-cancellations"><span class="num">02</span><span><span class="card-title">AI Agents Will Cause Mass Subscription Cancellations</span><span class="card-byline">MTS</span></span><span class="card-dur">4:53</span></a>
-        <a class="card" href="#moonshots-five-visions-future"><span class="num">03</span><span><span class="card-title">Five Visions Of The Future | MOONSHOTS LIVE</span><span class="card-byline">MoonshotsHighlights</span></span><span class="card-dur">3:44</span></a></div>
+        <a class="card" href="#moonshots-five-visions-future"><span class="num">03</span><span><span class="card-title">Five Visions Of The Future | MOONSHOTS LIVE</span><span class="card-byline">MoonshotsHighlights</span></span><span class="card-dur">3:44</span></a>
+        <a class="card" href="#sam-witteveen-best-qwen38-27b"><span class="num">04</span><span><span class="card-title">Which is The Best Qwen3.8-27B?</span><span class="card-byline">Sam Witteveen</span></span><span class="card-dur">3:46</span></a></div>
       </nav>
     </section>
 
@@ -503,6 +504,48 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#mts-ai-agents-subscription-cancellations" data-route="article" data-article="mts-ai-agents-subscription-cancellations">&larr; Previous summary</a>
         <a class="to-index" href="2026-10-04.html" data-route="index">All summaries</a>
+        <a class="next" href="#sam-witteveen-best-qwen38-27b">Which is The Best Qwen3.8-27B? &rarr;</a>
+      </nav>
+    </section>
+
+    <section class="article-view" id="sam-witteveen-best-qwen38-27b" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-04.html" data-route="index">&larr; October 4, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Which is The Best Qwen3.8-27B? &mdash; October 4, 2026 <span class="dur">&middot; 3:46</span></p>
+        <audio controls preload="none" src="podcasts/sam-witteveen-best-qwen38-27b.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/sam-witteveen-best-qwen38-27b.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Sam Witteveen</dd></div>
+        <div><dt>Published</dt><dd>October 4, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=2RA7jWJvQ1U" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Qwen &middot; reasoning tokens &middot; fine-tuning &middot; local models</p>
+        <h2>Which is The Best Qwen3.8-27B?</h2>
+        <div>
+        <p class="dek">Sam Witteveen opens with the core frustration of modern reasoning models. The same question goes into two versions of the same model, same weights underneath, and both reach a similar answer. One burns through a long chain of thought to get there. The other uses far fewer thinking tokens. On his machine that gap is the difference between about eighteen seconds and ninety seconds.</p>
+        <p>That time difference is also a cost difference. Every extra token is time spent waiting and money spent on inference. Sam notes that OpenAI has talked about cutting tokens between its 5.0 and 5.5 models, but the major labs are not alone in chasing shorter reasoning. Open source teams are trying to teach Qwen 3.8 27B to think less while keeping accuracy intact.</p>
+        <p>Out of the box, Qwen 3.8 27B ships with reasoning effort settings of low, medium, and x-high. X-high is the default. Lowering the setting does shorten the chain of thought, but Sam warns it usually costs accuracy. On a single GPU you are decode bound, so thinking tokens translate almost directly into seconds before you see a final answer. He also points out that multi-token prediction for speculative decoding works better on shorter traces, so thinking less can make each token come out faster too.</p>
+        <p>Three fine-tunes take three different approaches. ThinkingCap, from BottleCapAI in Prague, aims for a conservative drop-in replacement. It is trained at x-high and focuses on harder tasks like math, reasoning, long context, and agentic work. The goal is teaching the model when it is done, rather than teaching it to be brief across the board. BottleCap reports about 37 percent fewer tokens on average across 12 benchmarks, with accuracy moving from 86.6 to 85.8. On GPQA Diamond, average thinking tokens fall from 12,800 to 7,300. On long context retrieval, thinking drops 39 percent while accuracy actually rises a couple of points. Sam contrasts that with simply dropping the base model to medium, which removes about half the thinking but gives up about nine points of accuracy.</p>
+        <p>Swift 1.5, from UkisAI, is more aggressive. It claims up to 58.5 percent fewer thinking tokens. The first Swift version looked for specific tokens that trigger overthinking, phrases like &ldquo;let me reconsider,&rdquo; and fine-tuned the model to penalize those tokens rather than just penalizing length. Version 1.5 scaled up reinforcement learning and on-policy distillation, with a focus on long horizon agentic and coding tasks. On LiveCodeBench, the model card shows accuracy rising from just under 77 percent at about 11,200 tokens to 81.7 percent at 8,400 tokens. Swift ships in many formats, including GGUF for llama.cpp, MLX, NVFP4, and an AMD build, plus a free research API. Its license is free up to one million dollars in revenue.</p>
+        <p>QwenPi takes a narrower path. It is Qwen 3.8 27B fine-tuned specifically for Pi, a minimal open source coding agent with a small toolset and a system prompt under 1,000 tokens. Training used supervised fine-tuning on successful Pi sessions, checks that separate working code from broken code, and reinforcement learning with GRPO and a custom reward for reasoning efficiency. The reward targets the low and medium settings, while x-high is left to focus on getting it right. Checkpoints were picked based on actual agent results, not just training loss. Sam says Pi medium matches the base model x-high on Terminal Bench with about 41 percent fewer output tokens. The tradeoff is scope. All the evidence comes from inside Pi, nobody has shown it carries over to other harnesses, and on general reasoning like GPQA the base model still wins at medium. It is also the only one of the three with an Apache 2 license.</p>
+        <p>Sam then runs all four models side by side on a Dell Pro Max tower with an RTX Pro 6000 and standard vLLM, playing back saved runs at high speed. Across math problems, logic puzzles, and coding prompts, the fine-tunes consistently finish well ahead of the base model, often with the same correct answer. ThinkingCap is fastest most of the time in his tests. Swift wins some rounds, Pi shines on coding tasks, and the order can flip depending on the prompt. One SVG generation test shows each model producing a slightly different result from the same prompt, a reminder that answers without a single exact solution can vary a lot. His closing advice is practical. Try each one on your own workloads, because what a fine-tune was trained to focus on is what it will be good at.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+<li>How much of the token saving holds up outside the benchmarks each team chose for itself, especially on messy real world prompts?</li>
+<li>Will harness-specific fine-tunes like QwenPi stay a niche, or will every popular agent harness end up with its own tuned model?</li>
+<li>As licenses move away from Apache 2 toward personal and small business terms, how will that affect adoption in production?</li>
+</ol>
+        <p class="source-note"><strong>Source note.</strong> Summary grounded in the full English auto-caption transcript of the video (about 4,012 words), pulled via yt-dlp on October 4, 2026. Standard spellings are used where captions garble names (Qwen, ThinkingCap, UkisAI, BottleCapAI, Tomas Mikolov, vLLM, GPQA).</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#moonshots-five-visions-future">&larr; Five Visions Of The Future | MOONSHOTS LIVE</a>
+        <a class="to-index" href="2026-10-04.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -517,7 +560,8 @@
       const TITLES = {
       "lennys-podcast-tibo-sottiaux-chatgpt": "OpenAI's Head of ChatGPT: We're entering a new era of AI (again) | Tibo Sottiaux",
       "mts-ai-agents-subscription-cancellations": "AI Agents Will Cause Mass Subscription Cancellations",
-      "moonshots-five-visions-future": "Five Visions Of The Future | MOONSHOTS LIVE"
+      "moonshots-five-visions-future": "Five Visions Of The Future | MOONSHOTS LIVE",
+      "sam-witteveen-best-qwen38-27b": "Which is The Best Qwen3.8-27B?"
       };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
