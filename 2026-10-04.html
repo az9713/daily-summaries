@@ -357,7 +357,26 @@
     .article-nav .next { text-align: right; }
     .article-nav .to-index { color: var(--muted); flex: none; }
     .article-nav .spacer { flex: 1; }
-    </style>
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.05rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 5px 12px; cursor: pointer;
+      opacity: 0.55; filter: grayscale(1);
+      transition: opacity .15s ease, filter .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { opacity: 0.85; }
+    .rating .rate-btn.selected {
+      opacity: 1; filter: none;
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+</style>
 </head>
 <body>
   <main class="page">
@@ -388,6 +407,7 @@
           Your browser does not support the audio element.
           <a href="podcasts/lennys-podcast-tibo-sottiaux-chatgpt.mp3">Download the episode</a>.
         </audio>
+        <div class="rating" data-slug="lennys-podcast-tibo-sottiaux-chatgpt" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
       </div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Lenny's Podcast (Tibo Sottiaux)</dd></div>
@@ -429,6 +449,7 @@
       <div class="episode player-top">
         <p class="episode-title">AI Agents Will Cause Mass Subscription Cancellations &mdash; October 4, 2026</p>
         <audio controls preload="metadata" src="podcasts/mts-ai-agents-subscription-cancellations.mp3"></audio>
+        <div class="rating" data-slug="mts-ai-agents-subscription-cancellations" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
         <p class="episode-links"><a href="podcasts/mts-ai-agents-subscription-cancellations.mp3">&#8595; MP3</a></p>
       </div>
       <article>
@@ -478,6 +499,7 @@
           Your browser does not support the audio element.
           <a href="podcasts/moonshots-five-visions-future.mp3">Download the episode</a>.
         </audio>
+        <div class="rating" data-slug="moonshots-five-visions-future" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
       </div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>MoonshotsHighlights</dd></div>
@@ -518,6 +540,7 @@
           Your browser does not support the audio element.
           <a href="podcasts/sam-witteveen-best-qwen38-27b.mp3">Download the episode</a>.
         </audio>
+        <div class="rating" data-slug="sam-witteveen-best-qwen38-27b" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
       </div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Sam Witteveen</dd></div>
@@ -560,6 +583,7 @@
           Your browser does not support the audio element.
           <a href="podcasts/nate-jones-end-of-app-era.mp3">Download the episode</a>.
         </audio>
+        <div class="rating" data-slug="nate-jones-end-of-app-era" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
       </div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>Nate B Jones</dd></div>
@@ -605,6 +629,7 @@
           Your browser does not support the audio element.
           <a href="podcasts/david-senra-jeremy-stern.mp3">Download the episode</a>.
         </audio>
+        <div class="rating" data-slug="david-senra-jeremy-stern" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
       </div>
       <dl class="meta">
         <div><dt>Channel</dt><dd>David Senra (Jeremy Stern)</dd></div>
@@ -691,5 +716,35 @@
     })();
   </script>
 
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
