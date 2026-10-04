@@ -775,10 +775,10 @@
   function load(slug) {
     try {
       var raw = window.localStorage.getItem(KEY + slug);
-      if (!raw) return { p: 0, d: 0, done: false };
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
       var o = JSON.parse(raw);
-      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done };
-    } catch (e) { return { p: 0, d: 0, done: false }; }
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
   }
   function save(slug, st) {
     try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
@@ -787,7 +787,7 @@
     if (!st.d) return 0;
     return Math.min(100, Math.floor((st.p / st.d) * 100));
   }
-  function isDone(st) { return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
 
   var lastRender = {};
   function render(slug) {
@@ -826,7 +826,8 @@
   }
   function toggle(slug) {
     var st = load(slug);
-    st.done = !isDone(st);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
     if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
     save(slug, st);
     delete lastRender[slug];
@@ -854,7 +855,7 @@
       var st = load(slug);
       if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
       if (audio.currentTime > st.p) st.p = audio.currentTime;
-      if (st.d > 0 && st.p / st.d >= 0.9) st.done = true;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
       var now = Date.now();
       if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
       render(slug);
@@ -863,7 +864,7 @@
       var st = load(slug);
       if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
       if (audio.currentTime > st.p) st.p = audio.currentTime;
-      if (st.d > 0 && st.p / st.d >= 0.9) st.done = true;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
       save(slug, st);
       render(slug);
     }
@@ -871,7 +872,7 @@
     audio.addEventListener('ended', function () {
       var st = load(slug);
       if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
-      st.done = true;
+      st.done = true; st.off = false;
       save(slug, st);
       render(slug);
     });
