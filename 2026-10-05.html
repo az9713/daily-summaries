@@ -401,14 +401,15 @@
     <header class="masthead">
       <div>
         <p class="date">Monday &middot; October 5, 2026</p>
-        <h1>2 summaries, distilled.</h1>
+        <h1>3 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
       <nav aria-label="Summaries">
         <div class="cards">
         <a class="card" href="#talks-gs-daniel-nadler-openevidence"><span class="num">01</span><span><span class="card-title">Daniel Nadler on Building an AI-Powered Search Engine for Medicine</span><span class="card-byline">Talks at GS</span></span><span class="card-dur">3:39</span><span class="listen-state" data-slug="talks-gs-daniel-nadler-openevidence"></span></a>
-        <a class="card" href="#a16z-biggest-spenders"><span class="num">02</span><span><span class="card-title">What AI's Biggest Spenders Are Buying and Building</span><span class="card-byline">The a16z Show</span></span><span class="card-dur">3:08</span><span class="listen-state" data-slug="a16z-biggest-spenders"></span></a></div>
+        <a class="card" href="#a16z-biggest-spenders"><span class="num">02</span><span><span class="card-title">What AI's Biggest Spenders Are Buying and Building</span><span class="card-byline">The a16z Show</span></span><span class="card-dur">3:08</span><span class="listen-state" data-slug="a16z-biggest-spenders"></span></a>
+<a class="card" href="#no-priors-fractile-walter-goodwin"><span class="num">03</span><span><span class="card-title">Frontier Chips for Frontier AI Labs, with Walter Goodwin, Founder/CEO of Fractile</span><span class="card-byline">No Priors</span></span><span class="card-dur">5:10</span><span class="listen-state" data-slug="no-priors-fractile-walter-goodwin"></span></a></div>
       </nav>
     </section>
 
@@ -510,6 +511,54 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#talks-gs-daniel-nadler-openevidence">&larr; Daniel Nadler on Building an AI-Powered Search Engine for Medicine</a>
         <a class="to-index" href="2026-10-05.html" data-route="index">All summaries</a>
+        <a class="next" href="#no-priors-fractile-walter-goodwin">Frontier Chips for Frontier AI Labs, with Walter Goodwin, Founder/CEO of Fractile &rarr;</a>
+      </nav>
+    </section>
+
+    <section class="article-view" id="no-priors-fractile-walter-goodwin" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-05.html" data-route="index">&larr; October 5, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Frontier Chips for Frontier AI Labs, with Walter Goodwin, Founder/CEO of Fractile &mdash; October 5, 2026 <span class="dur">&middot; 5:10</span></p>
+        <audio controls preload="none" src="podcasts/no-priors-fractile-walter-goodwin.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/no-priors-fractile-walter-goodwin.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="no-priors-fractile-walter-goodwin" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="no-priors-fractile-walter-goodwin"></div>
+        <div class="episode-download"><a href="podcasts/no-priors-fractile-walter-goodwin.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>No Priors (Walter Goodwin)</dd></div>
+        <div><dt>Published</dt><dd>October 2, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=OpeCP4wCxkA" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI chips &middot; inference &middot; memory bandwidth &middot; chip design</p>
+        <h2>Frontier Chips for Frontier AI Labs, with Walter Goodwin, Founder/CEO of Fractile</h2>
+        <div>
+        <p class="dek">On No Priors, host Sarah Guo talks with Walter Goodwin, founder and CEO of Fractile, a chip company he started in the summer of 2022. Fractile has about 150 people and builds very fast inference chips for the world&rsquo;s largest AI models.</p>
+        <p>Goodwin&rsquo;s starting observation is that most AI chips look alike. Nearly all of them pair the same high-bandwidth memory with tensor cores and advanced packaging from TSMC. The chips from Google, Meta, Microsoft, and OpenAI are designed in house but physically delivered through a small set of partners, with Broadcom the largest. Very few teams build the whole stack themselves.</p>
+        <p>Fractile does. Architecture, front-end design, physical design, back-end implementation, and advanced packaging all sit inside the company. Goodwin argues that this closed loop matters more in AI chips than in any earlier chip market, because the workloads change fast and the bets have to be placed years before a chip ships in volume.</p>
+        <p>The company&rsquo;s first bet was inference itself, placed at a time when inference was still treated as a minor cost. Goodwin points out that inference cost is paid every single time a model runs. The second bet was speed. Fractile&rsquo;s early designs put model weights in on-chip SRAM memory, the approach also used by Groq and Cerebras, which gives enormous bandwidth and thousands of tokens per second.</p>
+        <p>The team grew worried about that path by late 2023. Model sizes keep growing, and context lengths are growing faster. SRAM capacity cannot follow. For the past two years Fractile has worked with memory vendors on a different building block: extremely high bandwidth to the cheaper, higher-capacity DRAM used in ordinary accelerators. The resulting platform is planned to ramp in the second half of next year. At data center scale, Goodwin says, inference economics reduce to the cost per gigabyte of memory you deploy.</p>
+        <p>Where does the speed actually matter? Not in snappier chatbots, which he treats the way Henry Ford treated requests for faster horses. It matters for long-running agents, and for multi-trillion-parameter models running at thousands of tokens per second over very long contexts. Today&rsquo;s fastest chips cannot hold long-context attention, so users fall back to GPUs for exactly the work where speed would help most.</p>
+        <p>The hard tension in the business is time. New models arrive roughly every two weeks, but a fabrication run takes three to five months, and a chip needs a three to five year working life to pay for itself. Goodwin does not expect anyone to ship a new chip every few weeks. The prize is compressing the gap between seeing where workloads are going and shipping a chip for it. A company that keeps a rolling set of design bets, ready to ramp, could hold a structural three to six month lead, which he compares to the frontier model labs&rsquo; edge in the chip world.</p>
+        <p>AI is also changing how Fractile designs. A senior semiconductor CEO told Guo, off the record, that going from an architect&rsquo;s intent to a finished layout file is ten years away. Goodwin&rsquo;s rule of thumb is to take such estimates and divide the timeline by four. The bottlenecks, he says, will move to slow conventional steps: placement and routing tools that run for days, and final sign-off checks that foundries require. Faster approximate algorithms for the middle steps are where he sees the returns, much as AI research is becoming bottlenecked by experiments rather than ideas.</p>
+        <p>The technical case rests on bandwidth. Fractile talks about roughly 25 times more memory bandwidth per chip than an HBM-based design. Compute performance has grown about a million-fold in twenty years, while memory bandwidth grew only about forty-fold. Goodwin argues that abundant bandwidth would unlock model designs that are impractical today, such as mixture-of-experts models with far sparser activation, which save compute at a given intelligence level but choke on today&rsquo;s bandwidth-starved chips. More bandwidth could mean the same intelligence for far less compute.</p>
+        <p>On market structure, he expects big deployers to keep running several chip platforms, because supply diversity matters when compute is existential. In-house chips, he notes, partly exist as leverage to negotiate Nvidia&rsquo;s prices down. He still sees a durable role for independent chip companies. A lab that goes all in on its own silicon risks being stranded if a rival&rsquo;s breakthrough only runs on the rival&rsquo;s hardware, so the labs need to deploy platforms they share with their competitors. The winners, in his telling, will be whoever runs frontier models fastest.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>If bandwidth becomes abundant, will model designers actually redesign around it with much sparser models and new forms of attention, or will architectures stay locked to whatever today&rsquo;s dominant chips do well?</li>
+        <li>Fractile&rsquo;s planned lead is three to six months of design cadence. Can a 150-person company hold that edge once its first platform ramps, or does the advantage depend on larger rivals staying slow?</li>
+        <li>Each chip still needs a three to five year payoff, yet workloads turn over in weeks. How often will a speed-first chip bet placed two years early turn out to be the wrong bet?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> Summary grounded in the full transcript of this episode of No Priors (YouTube video OpeCP4wCxkA, 35:38, published October 2, 2026). YouTube&rsquo;s caption endpoints were bot-walled, so the episode was grounded on the identical episode&rsquo;s official audio from the No Priors podcast RSS feed (Megaphone), published October 2, 2026, transcribed in full locally with faster-whisper (about 6,800 words) on October 5, 2026. Speech-to-text garbles a few names and technical terms in the raw transcript; standard spellings (Groq, Cerebras, Maia, GDSII, Amdahl&rsquo;s law) are used here.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#a16z-biggest-spenders">&larr; What AI's Biggest Spenders Are Buying and Building</a>
+        <a class="to-index" href="2026-10-05.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -523,7 +572,8 @@
     (() => {
       const TITLES = {
       "talks-gs-daniel-nadler-openevidence": "Daniel Nadler on Building an AI-Powered Search Engine for Medicine",
-      "a16z-biggest-spenders": "What AI's Biggest Spenders Are Buying and Building"
+      "a16z-biggest-spenders": "What AI's Biggest Spenders Are Buying and Building",
+      "no-priors-fractile-walter-goodwin": "Frontier Chips for Frontier AI Labs, with Walter Goodwin, Founder/CEO of Fractile"
       };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
