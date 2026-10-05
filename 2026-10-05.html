@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - October 5, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Monday &middot; October 5, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#talks-gs-daniel-nadler-openevidence"><span class="num">01</span><span><span class="card-title">Daniel Nadler on Building an AI-Powered Search Engine for Medicine</span><span class="card-byline">Talks at GS</span></span><span class="card-dur">3:39</span><span class="listen-state" data-slug="talks-gs-daniel-nadler-openevidence"></span></a></div>
+      </nav>
+    </section>
+
+    <section class="article-view" id="talks-gs-daniel-nadler-openevidence" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-05.html" data-route="index">&larr; October 5, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Daniel Nadler on Building an AI-Powered Search Engine for Medicine &mdash; October 5, 2026 <span class="dur">&middot; 3:39</span></p>
+        <audio controls preload="none" src="podcasts/talks-gs-daniel-nadler-openevidence.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/talks-gs-daniel-nadler-openevidence.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="talks-gs-daniel-nadler-openevidence" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="talks-gs-daniel-nadler-openevidence"></div>
+        <div class="episode-download"><a href="podcasts/talks-gs-daniel-nadler-openevidence.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Talks at GS (Daniel Nadler)</dd></div>
+        <div><dt>Published</dt><dd>September 30, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=daeBq_f3JgI" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Medical knowledge &middot; AI search &middot; bench to bedside &middot; clinical trials</p>
+        <h2>Daniel Nadler on Building an AI-Powered Search Engine for Medicine</h2>
+        <div>
+        <p class="dek">On Talks at GS, the Goldman Sachs interview series hosted by Meena Flynn, &ldquo;Daniel Nadler on Building an AI-Powered Search Engine for Medicine&rdquo; is a conversation with Daniel Nadler, co-founder and CEO of OpenEvidence. Nadler&rsquo;s first company, Kensho Technologies, was incubated at Goldman and sold in 2018 for $700 million, then a record for an AI startup. After a stretch of paddle boarding and studying the classics, he came back to build a search engine for medicine.</p>
+        <p>The idea started with information overload. Early in COVID, the published literature on the virus went from zero papers to roughly 30,000 in a few months, a haystack doubling about every 30 days. Nadler frames medicine&rsquo;s problem the way he once framed finance: no Goldman analyst could cover 100 companies in real detail, yet every oncologist is expected to master around 100 cancer drugs, each with its own side effects, drug interactions, and sequencing rules.</p>
+        <p>His answer is a tool he describes as a Bloomberg Terminal for physicians, or, in his closing line, the MRI of medical knowledge: something that lets a doctor scan the full body of medical evidence at the point of care.</p>
+        <p>The numbers he cites for why it matters are stark. In a study of second opinions, 88% changed the first opinion, one in five overturned it completely, and only 12% confirmed it. Much of that variance, he argues, is an accident of when a doctor went to medical school, because today&rsquo;s immunotherapies were approved long after most practicing physicians trained.</p>
+        <p>That produces what he calls the bench-to-bedside lag: on average, patients get the benefit of frontier medical knowledge from about 17 years ago. His target is to compress that to 17 hours, so a newly approved drug is understood by your physician the next morning.</p>
+        <p>A second mission follows from the first. If every doctor is reading from the same current evidence, most second opinions stop being overturned. He allows that 5 to 10 percent variance is reasonable disagreement; the rest is noise he wants gone.</p>
+        <p>The scale is already national. Nadler says OpenEvidence powered 1.5 million license-verified physician queries in the United States on a single day, and that this year some 300 million Americans will be treated by a doctor who used it to make a decision. Usage skews toward the hardest specialties, cancer and neurodegenerative disease, and away from the everyday complaints family physicians already handle cold.</p>
+        <p>He is careful to call the product a search engine rather than an oracle. Google is the company&rsquo;s largest investor, and OpenEvidence positions itself as the bridge between doctors and the sources, among them The New England Journal of Medicine and the NCCN oncology guidelines network, where it acts as official AI partner.</p>
+        <p>The partnership strategy is the part of the conversation he lingers on. Reading Walter Isaacson&rsquo;s Steve Jobs biography while AI labs were being sued for training on publishers&rsquo; content, he borrowed the iTunes playbook: instead of taking the material, call the publishers, offer a consortium, and make them economically involved, in some cases shareholders. OpenEvidence became the official AI partner of the leading medical societies and journals.</p>
+        <p>The practical payoff is depth. General-purpose models are largely trained on abstracts, the summary paragraphs of studies. OpenEvidence users search the full text, including methods sections and tables, down to details like whether a trial&rsquo;s control arm included women of color, and they can pull up the actual charts, such as a drug&rsquo;s progression-free survival curve.</p>
+        <p>His next frontier is clinical trials. Society spends about $50 billion a year running them, yet one in three trials shuts down mainly because it cannot recruit enough patients, while fewer than 10 percent of eligible dying cancer patients ever find a trial that might have helped them. OpenEvidence wants to match that supply and demand, so the doctor knows, and therefore the patient knows.</p>
+        <p>Flynn closes by asking whether a third act follows finance and medicine. Nadler says no. He plans to spend the rest of his career on this, pushing medical error out of the top ten causes of death in the United States, and he treats the company itself as his philanthropy rather than something to sell before giving the money away.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>If most physicians end up reading medicine through one licensed layer, what happens when the best evidence sits in a source that never joined the consortium, or when the gold-standard sources disagree with each other?</li>
+        <li>Nadler wants frontier knowledge at the bedside within 17 hours. At that speed, who verifies an answer before it shapes a treatment decision, and who carries the liability when a doctor follows it?</li>
+        <li>Matching patients to trials could save lives, but it also makes OpenEvidence the ranking layer between drug makers and doctors. What keeps that matching honest, and who audits it?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> Summary grounded in the full official transcript of this episode published by Goldman Sachs on the Talks at GS episode page (goldmansachs.com), pulled October 5, 2026, for the video &ldquo;Daniel Nadler on Building an AI-Powered Search Engine for Medicine&rdquo; (YouTube daeBq_f3JgI, 16:41, published September 30, 2026). YouTube&rsquo;s caption endpoints were bot-walled (HTTP 429, then a sign-in wall) on October 5, 2026, so the show&rsquo;s official episode-page transcript is the grounding source.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-10-05.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+
+<footer>
+      <span>Summaries dated October 5, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "talks-gs-daniel-nadler-openevidence": "Daniel Nadler on Building an AI-Powered Search Engine for Medicine"
+      };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="podcasts/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+</body>
+</html>
