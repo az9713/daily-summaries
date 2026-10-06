@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - October 6, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Tuesday &middot; October 6, 2026</p>
+        <h1>2 summaries, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#sequoia-amin-vahdat-ai-infrastructure"><span class="num">01</span><span><span class="card-title">Google's AI Infrastructure Chief, Amin Vahdat, on the Physics &amp; Economics of Frontier AI</span><span class="card-byline">Sequoia Capital</span></span><span class="card-dur">3:07</span><span class="listen-state" data-slug="sequoia-amin-vahdat-ai-infrastructure"></span></a><a class="card" href="#iltb-huberman-frontier-neurotechnology"><span class="num">02</span><span><span class="card-title">Why Every AI Lab Will Become a Biotech Company | Andrew Huberman</span><span class="card-byline">Invest Like the Best</span></span><span class="card-dur">4:25</span><span class="listen-state" data-slug="iltb-huberman-frontier-neurotechnology"></span></a></div>
+      </nav>
+    </section>
+
+        <section class="article-view" id="sequoia-amin-vahdat-ai-infrastructure" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-06.html" data-route="index">&larr; October 6, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Google's AI Infrastructure Chief, Amin Vahdat, on the Physics &amp; Economics of Frontier AI &mdash; October 6, 2026 <span class="dur">&middot; 3:07</span></p>
+        <audio controls preload="none" src="podcasts/sequoia-amin-vahdat-ai-infrastructure.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/sequoia-amin-vahdat-ai-infrastructure.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="sequoia-amin-vahdat-ai-infrastructure" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="sequoia-amin-vahdat-ai-infrastructure"></div>
+        <div class="episode-download"><a href="podcasts/sequoia-amin-vahdat-ai-infrastructure.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Sequoia Capital (Amin Vahdat)</dd></div>
+        <div><dt>Published</dt><dd>October 6, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=bGph8GwB3Sk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Sequoia Capital &middot; AI infrastructure &middot; TPUs &middot; data centers &middot; power</p>
+        <h2>Google's AI Infrastructure Chief, Amin Vahdat, on the Physics &amp; Economics of Frontier AI</h2>
+        <div>
+        <p class="dek">Sequoia Capital sat down with Amin Vahdat, who has led Google's AI infrastructure since late last year, for "Google's AI Infrastructure Chief, Amin Vahdat, on the Physics &amp; Economics of Frontier AI." The conversation runs the full stack, from how an AI data center differs from a conventional one to what a frontier supercomputer might look like in 2036.</p>
+        <p>Vahdat starts with the building itself. A traditional data center is a 25 to 30 year asset designed to stay flexible across many generations of hardware. An AI data center is increasingly purpose built and co-designed with the machines that go inside, because the power profile is so extreme. A storage rack might draw 10 to 40 kilowatts, while a single accelerator rack already draws hundreds of kilowatts and could pass a megawatt. A building shaped for one simply cannot serve the other well.</p>
+        <p>The metric he trusts is goodput per watt: not the theoretical peak a chip can hit, but the useful work actually delivered once failures, recoveries, and software flaws are counted. At 100,000 accelerators working in lockstep, something fails multiple times a day, possibly multiple times an hour. The causes form a long tail across hardware, networking, and software, so the team's accountability is measured in answered questions, not peak benchmarks.</p>
+        <p>That discipline drives a startling capacity target. Google aims to roughly double its effective serving capacity, meaning its ability to generate tokens, about every six months. Most of that gain, he says, comes from model and software improvements rather than new silicon, though hardware still delivers a twofold or better yearly multiplier underneath everything else.</p>
+        <p>The TPU story is a study in betting against the bitter lesson. Google began building custom silicon in 2013, when conventional wisdom said specialization never wins. The first chip handled inference, the second added training, and then the transformer arrived and reshaped the program entirely. This year Google split the line in two: an 8I chip specialized for serving and an 8T chip for training, justified because inference is now projected to be 30 to 60 percent of the market over the hardware's life. Crucially, each chip can still do the other's job, which preserves flexibility if the mix shifts.</p>
+        <p>He declines to just burn the transformer into silicon. The argument is that the underlying primitives, very large matrix multiply units plus a handful of supporting operations, have barely changed since the first TPU and have carried many generations of model architectures. Specialize to a workload that lasts months and the window to intercept it has already closed.</p>
+        <p>Co-design, he argues, is where the large wins hide. A fully portable stack that runs on anyone's hardware, network, and software leaves perhaps 10 to 20 percent, sometimes twofold, on the table at each layer, and those losses multiply. Google co-designs shoulder to shoulder with DeepMind, occasionally delaying a tape-out by a week or two when a model idea is worth intercepting, and now uses Gemini to help design the hardware future Geminis will run on.</p>
+        <p>Agentic workloads are reshaping the demand picture. Long-horizon agents remove the human pause between requests, so interaction times fall from seconds to milliseconds, and the orchestration work lands on ordinary CPUs, which now need to sit near the accelerators along with memory and storage. That complicates building design, since accelerator racks, CPU racks, and disk racks each want different density, networking, and power.</p>
+        <p>On networking, he describes optical circuit switching, which Google has used for about 15 years: tiny mirrors steer light between ports without converting it to electrical signals, letting the network reshape itself and letting a failed accelerator rack be swapped for a spare in milliseconds, no new fiber required.</p>
+        <p>Power is the constraint he calls most fundamental. Google prefers staying on the grid, co-planning gigawatt-scale sites with utilities years ahead and covering the infrastructure costs itself, because sharing a large grid beats building two gigawatts of private redundancy. Where utility power arrives late, local generation can bridge the gap and even feed energy back during the hottest weeks of the year.</p>
+        <p>Old hardware does not retire quietly. Vahdat says TPUs from seven and eight years ago still run at full utilization, with replacement happening at the pod level on roughly a six-year depreciation schedule, while dedicated serving clusters get built worldwide rather than relying on yesterday's training sites. He also presses the case for open standards: JAX is Google's preferred framework, but PyTorch models run on TPUs too, in the same spirit that let IP win the protocol wars.</p>
+        <p>Two closing notes. Orbital data centers, which Google is genuinely pursuing as a moonshot, trade abundant sunlight for hard problems in cooling and repair. And by 2036, he guesses, the frontier machine is a tightly integrated, possibly multi-megawatt rack with a small bundle of fiber, wheeled in and plugged into water, power, and network, or perhaps launched into orbit.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>if most capacity gains now come from models and software, how long can that compounding continue before the returns shift back to silicon?</li>
+        <li>when inference demand is spread across the whole planet in smaller, mixed clusters, how much of the co-design advantage survives outside the giant training sites?</li>
+        <li>will power procurement, not compute, end up deciding which companies get to train frontier models at all?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in a full transcript made from this video's own audio, which I downloaded and transcribed locally with faster-whisper (11,172 words). The video's caption track could not be retrieved because YouTube's subtitle endpoint returned a rate-limit error, so no caption file was used. No alternate or tested title for the video was visible in the metadata I could reach. Quotes are brief and paraphrase carries the rest.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-10-06.html" data-route="index">All summaries</a>
+        <a class="next" href="#iltb-huberman-frontier-neurotechnology">Why Every AI Lab Will Become a Biotech Company | Andrew Huberman &rarr;</a>
+      </nav>
+    </section>
+
+    
+
+        <section class="article-view" id="iltb-huberman-frontier-neurotechnology" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-06.html" data-route="index">&larr; October 6, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Why Every AI Lab Will Become a Biotech Company | Andrew Huberman &mdash; October 6, 2026 <span class="dur">&middot; 4:25</span></p>
+        <audio controls preload="none" src="podcasts/iltb-huberman-frontier-neurotechnology.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/iltb-huberman-frontier-neurotechnology.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="iltb-huberman-frontier-neurotechnology" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="iltb-huberman-frontier-neurotechnology"></div>
+        <div class="episode-download"><a href="podcasts/iltb-huberman-frontier-neurotechnology.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Invest Like the Best (Andrew Huberman)</dd></div>
+        <div><dt>Published</dt><dd>October 6, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=_QSX3BF9UX0" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Invest Like the Best &middot; neurotechnology &middot; AI labs &middot; brain states</p>
+        <h2>Why Every AI Lab Will Become a Biotech Company | Andrew Huberman</h2>
+        <div>
+        <p class="dek">Invest Like the Best, hosted by Patrick O'Shaughnessy, sits down with Andrew Huberman, the Stanford neuroscientist behind the Huberman Lab podcast and the book Protocols. The conversation starts with energy as the hidden bottleneck for high performers and ends with Huberman's prediction that the biggest AI companies are, at their core, becoming brain companies.</p>
+        <p>The opening stretch is about self-knowledge. Huberman argues that people should honestly assess how much sleep they personally need instead of copying outliers who thrive on four or five hours, and that what looks like boundless energy in others often comes with an inability to switch off at night. Early in a career or a company, he says, the goal is simply to get a great deal done without breaking yourself; recovery and optimization come later.</p>
+        <p>That leads to the skill he calls downshifting: falling asleep on demand. He breaks it into three trainable pieces: quieting thought by shifting attention to pure sensation, slowing the heart through long exhales, and losing track of where your limbs are in space. Rocking works on babies and adults for the same reason, he notes, and an experimental eye mask from an MIT-linked team coaxes the slow eye movements that help the brain let go of body position. Devices like that, seven to twelve months out by his estimate, point to a bigger shift: technology that steers brain states directly, first in sleep, then in waking life.</p>
+        <p>He is blunt about the state of public health advice, calling the discourse a theatrics-driven mess with a near-zero bar for entry. His forecast is a downturn in optimization culture, followed by a wave of seriously trained scientists and physicians doing public education well. His book, he says, was his way of writing down what he actually knows for certain and moving on.</p>
+        <p>The centerpiece claim explains the episode's title. Reading from the brain, through electrodes, imaging, or wearables, has been neuroscience's project for decades. The new project is writing to it non-invasively, with ultrasound or similar tools, at high spatial and temporal precision, and with graded control rather than a simple on or off switch. Anyone who thinks Meta, OpenAI, Anthropic, and Elon Musk's Neuralink are only language-model companies, he says, will be surprised: "Every single one of those is going to be a biotech company." AI enters the picture as the titration layer, learning which stimulation pattern produces which state in a given person and adjusting in real time.</p>
+        <p>He contrasts that precision with today's blunt tools. Drugs mostly raise or lower the brain's firing threshold everywhere at once, which is why they work and why they carry side effects. Vagal stimulation for depression shows what targeted input can do, and he expects small under-the-skin implants, about as invasive as a piercing, to tempt a large share of entrepreneurs within about a year. Peptides, in his telling, matter less than implantables.</p>
+        <p>The honest limit, he says, is the model of the brain itself. The sensory periphery and deep circuits for hunger, anger, and appetite are well understood, which is why GLP-1 drugs work. Memory and thought are not. He describes animal studies where reactivating the exact neurons tagged during learning, in any order or all at once, produces the same behavior, a result that quietly undermines the textbook idea that firing sequence is everything. The same neurons also serve many behaviors, so writing to the brain carries real cross-talk risk even as it gets easier.</p>
+        <p>From there the talk runs to gene editing, embryo screening, and the CRISPR babies case, which he treats as proof that these technologies spread whether or not anyone approves them in public. His own excitement, though, is narrower: he wants neuroscience to define waking brain states properly, the way sleep stages are defined, so that future tools can deliberately produce the right state for focus, learning, or calm. He also predicts the health space goes quiet around 2027 and 2028 as the field resets.</p>
+        <p>The closing answer, to the show's traditional question about the kindest thing anyone has done for him, goes back to graduate school. His advisor, Barbara Chapman, essentially told him to leave the fashionable lab and follow the work he was sneaking off to do at night. His phrasing of her lesson: "Success is determined by how precisely you match your genuine curiosity to the work that you do."</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>If the temporal order of neuron firing matters far less than textbooks claim, what should replace sequence as the working model of memory, and how much of the read-and-write neurotechnology roadmap depends on the answer?</li>
+        <li>When stimulation devices can dial motivation or calm up and down on demand, who sets the safeguards, and what stops self-experimentation from outrunning them the way it has outrun other blunt tools?</li>
+        <li>Huberman says the technologists now leading brain exploration came from outside neuroscience. What do academic labs still uniquely contribute, and does the field's center of gravity move to the AI labs for good?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full official podcast audio of the identical episode: Invest Like the Best EP.494, &ldquo;Andrew Huberman - The Frontier of Neurotechnology,&rdquo; published October 6, 2026, downloaded from the show's official RSS feed and transcribed locally (14,329 words). The same episode was uploaded to the Invest Like the Best YouTube channel under the title &ldquo;Why Every AI Lab Will Become a Biotech Company | Andrew Huberman&rdquo;; the show's Colossus episode page titles it &ldquo;Reading and Writing the Brain.&rdquo; YouTube's own caption and audio endpoints were bot-walled from this network, so the video's caption track could not be used; no tested or alternate YouTube title beyond the published one was visible. Guest and host identities are as given in the episode description and audio.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#sequoia-amin-vahdat-ai-infrastructure">&larr; Google's AI Infrastructure Chief, Amin Vahdat, on the Physics &amp; Economics of Frontier AI</a>
+        <a class="to-index" href="2026-10-06.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+
+    
+
+    <footer>
+      <span>Summaries dated October 6, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "sequoia-amin-vahdat-ai-infrastructure": "Google's AI Infrastructure Chief, Amin Vahdat, on the Physics & Economics of Frontier AI",
+      "iltb-huberman-frontier-neurotechnology": "Why Every AI Lab Will Become a Biotech Company | Andrew Huberman"
+      };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="podcasts/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+</body>
+</html>
