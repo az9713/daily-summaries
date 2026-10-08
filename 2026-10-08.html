@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; October 8, 2026</p>
-        <h1>14 summaries, distilled.</h1>
+        <h1>17 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -421,6 +421,9 @@
         <a class="card" href="#this-week-in-ai-data-centers-save-grid"><span class="num">12</span><span><span class="card-title">Data Centers Aren't Killing the Grid. They Could SAVE It.</span><span class="card-byline">This Week in AI &middot; Jason Calacanis</span></span><span class="card-dur">3:23</span><span class="listen-state" data-slug="this-week-in-ai-data-centers-save-grid"></span></a>
         <a class="card" href="#mad-podcast-andy-pavlo-ai-agents-database"><span class="num">13</span><span><span class="card-title">Andy Pavlo: What Happens When Billions of AI Agents Hit Your Database</span><span class="card-byline">The MAD Podcast with Matt Turck &middot; Andy Pavlo</span></span><span class="card-dur">2:29</span><span class="listen-state" data-slug="mad-podcast-andy-pavlo-ai-agents-database"></span></a>
         <a class="card" href="#yc-jeetu-patel-cisco-largest-startup"><span class="num">14</span><span><span class="card-title">How Jeetu Patel Runs Cisco Like the World's Largest Startup</span><span class="card-byline">Y Combinator &middot; Jeetu Patel</span></span><span class="card-dur">7:06</span><span class="listen-state" data-slug="yc-jeetu-patel-cisco-largest-startup"></span></a>
+        <a class="card" href="#pragmatic-engineer-sam-newman-resilient-systems"><span class="num">15</span><span><span class="card-title">Building resilient systems with Sam Newman</span><span class="card-byline">The Pragmatic Engineer &middot; Sam Newman</span></span><span class="card-dur">3:07</span><span class="listen-state" data-slug="pragmatic-engineer-sam-newman-resilient-systems"></span></a>
+        <a class="card" href="#semi-doped-synopsys-ravi-subramanian"><span class="num">16</span><span><span class="card-title">Synopsys Will Take a Royalty on Amazon's Chips and Sell GPT-Synopsys: Ravi Subramanian</span><span class="card-byline">Semi Doped &middot; Ravi Subramanian</span></span><span class="card-dur">3:16</span><span class="listen-state" data-slug="semi-doped-synopsys-ravi-subramanian"></span></a>
+        <a class="card" href="#forbes-town-ai-agents-busywork"><span class="num">17</span><span><span class="card-title">Can AI Agents Kill Office Busywork? Town's Founder Is Betting On It</span><span class="card-byline">Forbes &middot; Jean-Denis Greze</span></span><span class="card-dur">4:16</span><span class="listen-state" data-slug="forbes-town-ai-agents-busywork"></span></a>
         </div>
       </nav>
     </section>
@@ -1084,6 +1087,138 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#mad-podcast-andy-pavlo-ai-agents-database" data-route="article">&larr; The MAD Podcast with Matt Turck &middot; Andy Pavlo: What Happens When Billions of AI Agents Hit Your Database</a>
         <a class="to-index" href="2026-10-08.html" data-route="index">All summaries</a>
+        <a class="next" href="#pragmatic-engineer-sam-newman-resilient-systems" data-route="article">The Pragmatic Engineer &middot; Building resilient systems with Sam Newman &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="pragmatic-engineer-sam-newman-resilient-systems" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-08.html" data-route="index">&larr; October 8, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Building resilient systems with Sam Newman &mdash; October 8, 2026 <span class="dur">&middot; 3:07</span></p>
+        <audio controls preload="none" src="podcasts/pragmatic-engineer-sam-newman-resilient-systems.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/pragmatic-engineer-sam-newman-resilient-systems.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="pragmatic-engineer-sam-newman-resilient-systems" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="pragmatic-engineer-sam-newman-resilient-systems"></div>
+        <div class="episode-download"><a href="podcasts/pragmatic-engineer-sam-newman-resilient-systems.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>The Pragmatic Engineer</dd></div>
+        <div><dt>Published</dt><dd>October 8, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=a0sZV0qIbI0" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">The Pragmatic Engineer &middot; Sam Newman</p>
+        <h2>Building resilient systems with Sam Newman</h2>
+        <div>
+        <p>The Pragmatic Engineer sits down with Sam Newman, the engineer and author behind widely read books on microservices, to talk about why distributed systems fail and what actually keeps them standing.</p>
+        <p>Newman is blunt about microservices. He describes them as a last resort rather than a default, and says teams often adopt them expecting unrelated magic to follow. He was present when the term took shape, and his case rests on independent deployment: splitting a system only pays off when teams can ship on their own and work autonomously. Without that, he argues, teams inherit the costs of distribution without the benefit.</p>
+        <p>The conversation turns to his new book on resilient distributed systems and to three rules he uses to explain nearly every failure. First, information cannot move instantly from one place to another, so there is always delay and uncertainty. Second, the component you want to call is sometimes simply not there. Third, resource pools are finite, and he says saturated resources sit behind the vast majority of outages.</p>
+        <p>That third rule shapes his practical advice. Retries are the natural response to the first two rules, but repeating an operation blindly can charge a customer twice or book the same ticket twice. His fix is to make important operations safe to repeat, for example by attaching unique request identifiers so a repeated call has an effect exactly once.</p>
+        <p>He is equally direct about observability. In his account you cannot reason your way to resilience in the abstract; you have to watch real systems under real load, including the thundering herds that arrive when many clients retry at once.</p>
+        <p>Just as strongly, he insists resilience is a business decision, not only a technical one. A retailer may reasonably keep showing products when an inventory service is down, accepting a refund later. A ticketing seller should not sell a seat it cannot guarantee, because the customer may book travel around it. Same failure, opposite answers, both correct in context.</p>
+        <p>The final stretch covers AI. Newman worries about teams leaning on generated code they do not understand, a slide he links to shrinking shared understanding of a system. He favors modular architecture as a safer way to experiment, keeping boundaries clear so people still know what the software does. His broader stance is cautious and hedging oriented: use models where they help tactically, stay able to swap vendors, and prefer turning generated output into deterministic code a team can inspect.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>If microservices are a last resort, what evidence should a team demand of itself before splitting a system that still deploys as one unit?</li>
+        <li>How should a team decide, in advance and in writing, which failures it will absorb quietly and which it will surface to customers?</li>
+        <li>As AI writes more production code, what practices keep a team's shared understanding of its systems from quietly draining away?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the video's own full English caption track (the en-orig track from the video's caption metadata), 26,136 words, opening to closing thanks. No alternate or tested title was visible in the player metadata or description.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#yc-jeetu-patel-cisco-largest-startup" data-route="article">&larr; Y Combinator &middot; How Jeetu Patel Runs Cisco Like the World's Largest Startup</a>
+        <a class="to-index" href="2026-10-08.html" data-route="index">All summaries</a>
+        <a class="next" href="#semi-doped-synopsys-ravi-subramanian" data-route="article">Semi Doped &middot; Synopsys Will Take a Royalty on Amazon's Chips and Sell GPT-Synopsys: Ravi Subramanian &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="semi-doped-synopsys-ravi-subramanian" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-08.html" data-route="index">&larr; October 8, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Synopsys Will Take a Royalty on Amazon's Chips and Sell GPT-Synopsys: Ravi Subramanian &mdash; October 8, 2026 <span class="dur">&middot; 3:16</span></p>
+        <audio controls preload="none" src="podcasts/semi-doped-synopsys-ravi-subramanian.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/semi-doped-synopsys-ravi-subramanian.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="semi-doped-synopsys-ravi-subramanian" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="semi-doped-synopsys-ravi-subramanian"></div>
+        <div class="episode-download"><a href="podcasts/semi-doped-synopsys-ravi-subramanian.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Semi Doped</dd></div>
+        <div><dt>Published</dt><dd>October 8, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=9iqRdrBYUxA" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Semi Doped &middot; Ravi Subramanian &middot; Synopsys</p>
+        <h2>Synopsys Will Take a Royalty on Amazon's Chips and Sell GPT-Synopsys: Ravi Subramanian</h2>
+        <div>
+        <p>Semi Doped sat down with Ravi Subramanian, Synopsys's chief product management officer, the morning after the company's investor day in New York. Two announcements frame the conversation: a multiyear deal with Amazon valued above a billion dollars, and a partnership with OpenAI.</p>
+        <p>Subramanian starts with what he calls application optimized IP. Chip building blocks were long sold against public standards such as USB and PCIe, with interoperability as the promise. Hyperscalers now tune silicon for one or two workloads that carry their revenue, so they want interface blocks shaped for a specific job, for example a lower latency variant for trading systems.</p>
+        <p>The Amazon agreement is the first large example. Synopsys will deliver customized interface IP across areas such as PCIe, high bandwidth memory, die to die links, and Ethernet, with specifications driven from the system level down.</p>
+        <p>The business model is the real change. Alongside a license fee, customers pay a customization fee that reserves scarce engineering slots, and, for the first time at Synopsys, a royalty on chips that ship. Subramanian links the structure to the older Arm and Amazon relationship and to a twelve month design rhythm.</p>
+        <p>That royalty also changes the work after handoff. Verification in a system context, test chips, and bring up support become part of keeping the customer's product on schedule, tying Synopsys revenue more closely to whether the chip reaches production.</p>
+        <p>The second half turns to AI inside design tools. Subramanian describes three stages of chip design, from writing the functional description through implementation and verification, and places AI agents as helpers that can take on bounded tasks while engineers keep the signoff responsibility.</p>
+        <p>He then outlines what he calls the agent engineer idea: a customer can bring in an AI worker with a defined skill set that fits an existing team and budget, rather than buying only software seats. The OpenAI partnership, which he refers to as GPT-Synopsys, packages a specialized model with compute and forward deployed engineers to lower adoption friction.</p>
+        <p>His closing line, repeated from investor day, is that the company believes in AI but trusts physics. Device equations multiply as transistors move from planar to fin and gate all around structures, and crash style simulation is trusted only because decades of results match physical products. In his telling, that physical ground truth is what keeps a design from being a confident guess.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>Will other hyperscalers accept a royalty on custom IP, or is Amazon a one off lead customer?</li>
+        <li>How much design work can an AI agent engineer actually own before verification and signoff become the bottleneck?</li>
+        <li>If physics simulation stays the ground truth, how fast can model driven exploration grow without outrunning the simulators that validate it?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> Summary grounded in the full English caption track of this episode as served by YouTube (7,121 words, opening welcome to closing thanks), saved as transcript.txt in the build directory. No tested or alternate title was visible in the player metadata or description. Channel shown on YouTube: Semi Doped, hosted by Austin Lines of Chipstrat. Upload date October 8, 2026, runtime 42 minutes 23 seconds. Presented by Crusoe per the episode description.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#pragmatic-engineer-sam-newman-resilient-systems" data-route="article">&larr; The Pragmatic Engineer &middot; Building resilient systems with Sam Newman</a>
+        <a class="to-index" href="2026-10-08.html" data-route="index">All summaries</a>
+        <a class="next" href="#forbes-town-ai-agents-busywork" data-route="article">Forbes &middot; Can AI Agents Kill Office Busywork? Town's Founder Is Betting On It &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="forbes-town-ai-agents-busywork" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-08.html" data-route="index">&larr; October 8, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Can AI Agents Kill Office Busywork? Town's Founder Is Betting On It &mdash; October 8, 2026 <span class="dur">&middot; 4:16</span></p>
+        <audio controls preload="none" src="podcasts/forbes-town-ai-agents-busywork.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/forbes-town-ai-agents-busywork.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="forbes-town-ai-agents-busywork" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="forbes-town-ai-agents-busywork"></div>
+        <div class="episode-download"><a href="podcasts/forbes-town-ai-agents-busywork.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Forbes</dd></div>
+        <div><dt>Published</dt><dd>October 8, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=OPEllHMykHg" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Forbes &middot; Jean-Denis Greze &middot; Town</p>
+        <h2>Can AI Agents Kill Office Busywork? Town's Founder Is Betting On It</h2>
+        <div>
+        <p>Forbes, on its Agentic Edge series, talks with Town co-founder and chief executive Jean-Denis Greze about building a work assistant that starts from email and calendar.</p>
+        <p>Greze describes Town as a paid assistant for work tasks people find tedious. In his telling, the product briefs users before meetings, drafts replies for routine messages, and follows up on action items, always leaving the person to approve anything that writes to another system or contacts someone else.</p>
+        <p>The conversation spends a lot of time on trust. Greze argues the business model matters: because users pay directly, he says, the company is not making money from ads or from reselling data. He also frames trust as gradual. People connect a little data, see useful briefings, then choose over time whether to connect more tools or allow routine actions to run with less checking.</p>
+        <p>On safety, he contrasts Town with lab systems trained to keep pushing. Town, he says, is built to stop and ask for help when it cannot complete a step, rather than inventing riskier workarounds. Purchases are given as the clearest example: the assistant shows what would be bought and asks for approval in the moment.</p>
+        <p>The second half turns to team use. Greze gives an example of assistants checking with each other to find who inside a company might know someone elsewhere, so a person does not have to broadcast a request to everyone. He says the product uses bounded groups and per project permissions to limit what one assistant can ask another, comparing the idea to choosing recipients on an email thread.</p>
+        <p>He closes with uses the team did not design for, including a restaurant group comparing supplier prices and a rental business using image checks on returned equipment. The point he returns to is that nontechnical users, given a general assistant, invent workflows the builders had not planned.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>How much checking will busy users actually keep doing once an assistant is usually right, and what happens to the approval habit over months of use?</li>
+        <li>When assistants start talking to each other inside a company, who owns the boundary between helpful discovery and unwanted exposure of work in progress?</li>
+        <li>Can a paid, work only assistant hold its own against larger consumer platforms if those platforms decide to take workplace data and enterprise controls more seriously?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> Grounded in the video's own English caption track (en-orig, automatic captions) fetched through the Android player client on October 8, 2026: 5,204 words, opening to closing thanks, saved as transcript.txt. No podcast RSS twin was used. The screenshot that commissioned this piece showed a tested title fragment, "Town Wants To Turn Busywork Into Bo...", while the published title is the one used here; that alternate fragment is disclosed here and was not used as the episode title. All summary prose is in my own words.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#semi-doped-synopsys-ravi-subramanian" data-route="article">&larr; Semi Doped &middot; Synopsys Will Take a Royalty on Amazon's Chips and Sell GPT-Synopsys: Ravi Subramanian</a>
+        <a class="to-index" href="2026-10-08.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -1108,7 +1243,10 @@
       "eo-founders-think-like-engineers": "Why Great Founders Think Like Engineers | Qasar Younis, Applied Intuition",
       "this-week-in-ai-data-centers-save-grid": "Data Centers Aren't Killing the Grid. They Could SAVE It.",
       "mad-podcast-andy-pavlo-ai-agents-database": "Andy Pavlo: What Happens When Billions of AI Agents Hit Your Database",
-      "yc-jeetu-patel-cisco-largest-startup": "How Jeetu Patel Runs Cisco Like the World's Largest Startup"
+      "yc-jeetu-patel-cisco-largest-startup": "How Jeetu Patel Runs Cisco Like the World's Largest Startup",
+      "pragmatic-engineer-sam-newman-resilient-systems": "Building resilient systems with Sam Newman",
+      "semi-doped-synopsys-ravi-subramanian": "Synopsys Will Take a Royalty on Amazon's Chips and Sell GPT-Synopsys: Ravi Subramanian",
+      "forbes-town-ai-agents-busywork": "Can AI Agents Kill Office Busywork? Town's Founder Is Betting On It"
       };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
