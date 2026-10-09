@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Friday &middot; October 9, 2026</p>
-        <h1>3 summaries, distilled.</h1>
+        <h1>4 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -410,6 +410,7 @@
         <a class="card" href="#mts-nathan-lambert-open-science-frontier"><span class="num">01</span><span><span class="card-title">Why Open Science Is Dying at Frontier AI Labs | Nathan Lambert</span><span class="card-byline">MTS &middot; Nathan Lambert</span></span><span class="card-dur">3:13</span><span class="listen-state" data-slug="mts-nathan-lambert-open-science-frontier"></span></a>
         <a class="card" href="#raoul-pal-emad-mostaque-ai-job-shock"><span class="num">02</span><span><span class="card-title">The AI Job Shock is Coming | Raoul Pal The Journey</span><span class="card-byline">Raoul Pal The Journey Man &middot; Emad Mostaque</span></span><span class="card-dur">4:23</span><span class="listen-state" data-slug="raoul-pal-emad-mostaque-ai-job-shock"></span></a>
         <a class="card" href="#bloomberg-odd-lots-ai-mathematics"><span class="num">03</span><span><span class="card-title">How AI Is Upending the World of Mathematics | Odd Lots</span><span class="card-byline">Bloomberg Podcasts · Justin Solomon</span></span><span class="card-dur">6:31</span><span class="listen-state" data-slug="bloomberg-odd-lots-ai-mathematics"></span></a>
+        <a class="card" href="#techtechpotato-agentic-ai-cpus-again"><span class="num">04</span><span><span class="card-title">Agentic AI and Why Everyone Wants CPUs Again</span><span class="card-byline">TechTechPotato &middot; Dr. Ian Cutress</span></span><span class="card-dur">4:29</span><span class="listen-state" data-slug="techtechpotato-agentic-ai-cpus-again"></span></a>
         </div>
       </nav>
     </section>
@@ -545,6 +546,52 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#raoul-pal-emad-mostaque-ai-job-shock" data-route="article">&larr; Raoul Pal The Journey Man &middot; The AI Job Shock is Coming | Raoul Pal The Journey</a>
         <a class="to-index" href="2026-10-09.html" data-route="index">All summaries</a>
+        <a class="next" href="#techtechpotato-agentic-ai-cpus-again" data-route="article">Agentic AI and Why Everyone Wants CPUs Again &rarr;</a>
+      </nav>
+    </section>
+
+        <section class="article-view" id="techtechpotato-agentic-ai-cpus-again" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-09.html" data-route="index">&larr; October 9, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Agentic AI and Why Everyone Wants CPUs Again &mdash; October 9, 2026 <span class="dur">&middot; 4:29</span></p>
+        <audio controls preload="none" src="podcasts/techtechpotato-agentic-ai-cpus-again.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/techtechpotato-agentic-ai-cpus-again.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="techtechpotato-agentic-ai-cpus-again" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="techtechpotato-agentic-ai-cpus-again"></div>
+        <div class="episode-download"><a href="podcasts/techtechpotato-agentic-ai-cpus-again.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>TechTechPotato</dd></div>
+        <div><dt>Published</dt><dd>October 9, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Q_QVlJkyaWc" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">TechTechPotato &middot; Dr. Ian Cutress</p>
+        <h2>Agentic AI and Why Everyone Wants CPUs Again</h2>
+        <div>
+        
+        <p>Dr. Ian Cutress of TechTechPotato delivered this keynote at the Design Automation Conference after the scheduled speaker missed a flight. He had roughly three hours to prepare. The talk starts with the panic of that substitution, then settles into a serious question: what hardware does an AI agent actually need when it leaves the chat box and begins doing work?</p>
+        <p>Cutress describes agentic AI as a loop, not a single prompt. A model receives a task, consults knowledge and tools, calls solvers or code, inspects the result, and repeats. The model may live on accelerators, but much of the surrounding work runs on ordinary processors: database lookups, PDF parsing, generated Python, verification tools, and the solvers used in chip design. That is the reason CPUs have moved back into the center of AI infrastructure planning.</p>
+        <p>The awkward part is sizing. Vendors can describe their chips, but none can yet say how much CPU capacity one agent consumes. A simple workflow might call a tool once. A complex engineering workflow might loop dozens of times, with each branch asking for more memory, bandwidth, and parallel execution. Cutress frames the procurement problem bluntly: a buyer may not know whether a core should support several agents or whether one agent needs several cores. Until workloads stabilize, utilization targets built for model serving do not answer the question.</p>
+        <p>Four processor families anchor the comparison. AMD's Venice pairs Zen 6 compute chiplets with separate I/O dies, offering high-frequency and high-density variants and a path to LPDDR support. Intel's Xeon 6 splits performance and efficiency cores, with dense designs reaching toward 288 cores. Arm's AGI CPU is a 136-core design built first for Meta. Nvidia's Vera uses a custom Arm-compatible core and NVLink for rack-scale systems. The contest is less about a single benchmark than about cores per rack, memory cost, software compatibility, and how much of the installed x86 world customers still need to run.</p>
+        <p>The talk then follows the CPU into advanced packaging. Large processors are becoming assemblies of chiplets, stacked memory, high-bandwidth interconnects, and sometimes optical links. That helps designers mix process nodes and add capacity, but it also makes thermal limits, mechanical stress, signaling, test, and substrate supply part of the processor problem. Glass substrates remain a research topic rather than a near-term default. Even the familiar question of Moore's law changes shape: Cutress prefers counting transistors per package, a measure that still rises as packages grow more elaborate.</p>
+        <p>For chip design itself, the stakes are practical. Today's EDA assistants mostly point out errors or explain a test. The next step is agents that can close timing, run validation, explore alternatives, and notice a better design option. Cutress is cautious about that jump. An agent that satisfies a metric is not necessarily solving the intended problem, and token costs can spiral when nobody designs the workflow with a budget. He argues that thermal and mechanical constraints must become first-class inputs to design kits and tools, not late checks after the interesting decisions have been made.</p>
+        <p>The closing discussion returns to uncertainty. Requirements will be workload-driven, and AI software is changing too quickly for a fixed recipe. Engineers will need tools that report thermal and mechanical effects during each small iteration, not after a design is finished. Low-power alternatives such as specialized mathematical accelerators may win narrow jobs, but Cutress expects them to supplement conventional digital design rather than replace it. The CPU revival, in his account, is not nostalgia. It is what happens when AI systems stop merely generating text and start operating the machinery around the model.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>What benchmark will let a data center buyer size CPU cores, memory capacity, and memory bandwidth for a real agent workflow rather than a vendor slide?</li>
+        <li>As CPUs adopt chiplets, stacked memory, and optical links, which becomes the binding constraint first: packaging supply, heat removal, or the design tools?</li>
+        <li>When EDA agents can close timing and validate a design, how will engineers prove that the agent solved the intended problem instead of gaming the metric?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full transcript of this video, taken from its own auto-generated English caption track (en-orig json3) retrieved through the YouTube android player client, covering the complete 53:41 keynote and audience discussion. The published video title is "Agentic AI and Why Everyone Wants CPUs Again"; the on-stage introduction also calls the talk "Agentic AI and friends why everyone suddenly wants CPUs again," which appears to be the keynote's spoken variant rather than a separate tested title. Speaker identity follows the conference introduction and the channel description. Nothing here is drawn from outside reporting about this episode.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#bloomberg-odd-lots-ai-mathematics" data-route="article">&larr; Bloomberg Podcasts &middot; How AI Is Upending the World of Mathematics | Odd Lots</a>
+        <a class="to-index" href="2026-10-09.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -559,7 +606,8 @@
       const TITLES = {
       "mts-nathan-lambert-open-science-frontier": "Why Open Science Is Dying at Frontier AI Labs | Nathan Lambert",
       "raoul-pal-emad-mostaque-ai-job-shock": "The AI Job Shock is Coming | Raoul Pal The Journey",
-      "bloomberg-odd-lots-ai-mathematics": "How AI Is Upending the World of Mathematics | Odd Lots"
+      "bloomberg-odd-lots-ai-mathematics": "How AI Is Upending the World of Mathematics | Odd Lots",
+      "techtechpotato-agentic-ai-cpus-again": "Agentic AI and Why Everyone Wants CPUs Again"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
