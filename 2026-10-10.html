@@ -401,13 +401,14 @@
     <header class="masthead">
       <div>
         <p class="date">Saturday &middot; October 10, 2026</p>
-        <h1>1 summaries, distilled.</h1>
+        <h1>2 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
       <nav aria-label="Summaries">
         <div class="cards">
         <a class="card" href="#rivest-cryptography-quantum-information"><span class="num">01</span><span><span class="card-title">Interview with Ronald L. Rivest about Cryptography and Quantum Information Theory</span><span class="card-byline">Post Quantum Cryptography Inquiry &middot; Ronald L. Rivest</span></span><span class="card-dur">4:20</span><span class="listen-state" data-slug="rivest-cryptography-quantum-information"></span></a>
+        <a class="card" href="#lauter-cryptography-quantum-information"><span class="num">02</span><span><span class="card-title">Interview with Kristin E. Lauter about Cryptography and Quantum Information Theory</span><span class="card-byline">Post Quantum Cryptography Inquiry &middot; Kristin E. Lauter</span></span><span class="card-dur">6:13</span><span class="listen-state" data-slug="lauter-cryptography-quantum-information"></span></a>
         </div>
       </nav>
     </section>
@@ -453,6 +454,51 @@
       <nav class="article-nav" aria-label="More summaries">
         <span class="spacer"></span>
         <a class="to-index" href="2026-10-10.html" data-route="index">All summaries</a>
+        <a class="next" href="#lauter-cryptography-quantum-information" data-route="article">Post Quantum Cryptography Inquiry &middot; Interview with Kristin E. Lauter about Cryptography and Quantum Information Theory &rarr;</a>
+      </nav>
+    </section>
+
+                    <section class="article-view" id="lauter-cryptography-quantum-information" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-10.html" data-route="index">&larr; October 10, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Interview with Kristin E. Lauter about Cryptography and Quantum Information Theory &mdash; October 10, 2026 <span class="dur">&middot; 6:13</span></p>
+        <audio controls preload="none" src="podcasts/lauter-cryptography-quantum-information.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/lauter-cryptography-quantum-information.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="lauter-cryptography-quantum-information" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="lauter-cryptography-quantum-information"></div>
+        <div class="episode-download"><a href="podcasts/lauter-cryptography-quantum-information.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Post Quantum Cryptography Inquiry</dd></div>
+        <div><dt>Published</dt><dd>October 10, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=61TxbQpSnKw" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Post Quantum Cryptography Inquiry &middot; Kristin E. Lauter &middot; FAIR, Meta</p>
+        <h2>Interview with Kristin E. Lauter about Cryptography and Quantum Information Theory</h2>
+        <div>
+        <p>Post Quantum Cryptography Inquiry published &quot;Interview with Kristin E. Lauter about Cryptography and Quantum Information Theory,&quot; a conversation with Kristin E. Lauter recorded in San Francisco in May 2025. Lauter, a mathematician trained at the University of Chicago, spent two years on the University of Michigan faculty, then led cryptography and privacy research at Microsoft Research for 22 years before moving to Facebook AI Research, now Meta AI. She opens by placing her career between pure number theory and deployment: she went into industry to help elliptic curve cryptography work at scale, then helped invent a new hard problem for the post-quantum era.</p>
+        <p>The interview treats quantum computing less as a machine deadline and more as a mathematical change in what attackers can do. Shor&#x27;s algorithm already gives a polynomial-time route against RSA and elliptic curve systems once a large, high-fidelity quantum computer exists. Lauter says her Microsoft work with quantum algorithms researchers even implemented the elliptic curve attack path in a compiler setting, estimating gates and runtime under assumed architectures. The uncertainty is not whether the math points at RSA and ECC, but when hardware reaches the scale and fidelity needed. That is why parameter choices have already been moving defensively: RSA 2048 has long been the baseline, while NSA guidance pushed elliptic curve keys from 256 toward 384 bits because ECC can require fewer quantum resources to attack.</p>
+        <p>Replacement is harder than swapping one signature for another. Blockchains and anonymous credential systems lean on elliptic curve signatures and pairing-based constructions such as BLS signatures, whose useful feature is that signatures can be combined and checked in flexible ways. A post-quantum signature therefore has to do more than resist quantum attack. It also needs properties that current systems use for credentials, smart contracts, and aggregation. Lauter expects new signatures across blockchains and Bitcoin-like systems, but she is frank that migration may mean re-signing, coordination, and something close to a hard fork, with users still needing to be convinced.</p>
+        <p>Her answer on access is reassuring in a specific way. Public-key cryptography has a strong open standards culture, shaped by academic, government, and industry researchers and by a bias against patent-encumbered standards. Once standards exist, procurement rules, compliance expectations, certification services, and interoperability pressure tend to spread them broadly. A company can try to wall off a proprietary secure network, but systems that do not interoperate get pushed aside. Internationally, she points to ISO as the established meeting point, while noting real differences in trust models. South Korea&#x27;s government-run public key infrastructure interests her precisely because most countries leave that trusted directory role to companies.</p>
+        <p>The sharpest turn in the interview is her move from post-quantum cryptography to what she calls post-AI cryptography. At Meta, her team uses machine learning to attack lattice-based systems built on learning with errors, a problem whose hardness depends on learning a secret inner product after noise is added. Machine learning begins from almost the opposite instinct: noisy data can still be learned from. Her group has shown proof-of-concept secret recovery and is now trying to widen the range of secrets and parameters. The point is not to break the new standards for sport. It is to learn, before deployment hardens, whether AI attacks scale in a way that parameter choices must absorb. Lauter sleeps fine, she says, because cryptography has historically set parameters conservatively against known attacks. The open risk is that AI capability is improving faster than the field understands its scaling.</p>
+        <p>That AI thread also runs backward into mathematics itself. Lauter argues that models are still surprisingly uneven at math, even as math problems become a proxy for reasoning in benchmarks. Better AI attacks on hard problems could teach researchers both where new cryptosystems are fragile and how to make general models reason better. Her own favorite construction remains the supersingular isogeny graph work she co-invented: a vast graph whose nodes are supersingular elliptic curves and whose edges are maps between them, where security rests on finding a path between distant nodes in a graph far too large to search naively. The key-exchange line from that family was later broken, and she is careful not to overclaim. The original hash-function proposal, she says, has not been broken. For the standardized future, she points mainly to lattice-based and code-based systems selected by NIST in 2022, both tied at bottom to high-dimensional decoding problems.</p>
+        <p>The closing portion widens from algorithms to who gets to do mathematics. As president of the Association for Women in Mathematics from 2015 to 2017, Lauter helped build research networks that began with Women in Numbers and grew to more than 25 communities, supported by an NSF grant. She describes years of number theory conferences with few or no women speakers, top journals without women editors, and good work struggling for recognition. Industry, paradoxically, gave her a clearer argument for value: when the work is elliptic curve cryptography that needs to ship in products, the audience and stakes are easier to explain. The networks were her way of making that recognition less dependent on gatekeepers.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>will AI attacks on learning-with-errors systems scale far enough, fast enough, to force larger parameters or different lattice assumptions after post-quantum deployment is already underway?</li>
+        <li>can post-quantum signatures recover the pairing and aggregation features that blockchains and anonymous credentials now get from elliptic curves, without a migration so painful that users resist it?</li>
+        <li>will open standards, certification, and interoperability keep post-quantum protection broadly available across countries, or will different trust models for public key infrastructure split the world into incompatible security regimes?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s full auto-generated English caption track (en-orig, json3) retrieved through the YouTube Android player client and saved as transcript.txt, 6,626 words. The description says the interview was made in May 2025 in San Francisco. No alternate or tested title was visible in the metadata checked for this build.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#rivest-cryptography-quantum-information" data-route="article">&larr; Post Quantum Cryptography Inquiry &middot; Interview with Ronald L. Rivest about Cryptography and Quantum Information Theory</a>
+        <a class="to-index" href="2026-10-10.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -465,7 +511,8 @@
   <script>
     (() => {
       const TITLES = {
-      "rivest-cryptography-quantum-information": "Interview with Ronald L. Rivest about Cryptography and Quantum Information Theory"
+      "rivest-cryptography-quantum-information": "Interview with Ronald L. Rivest about Cryptography and Quantum Information Theory",
+      "lauter-cryptography-quantum-information": "Interview with Kristin E. Lauter about Cryptography and Quantum Information Theory"
       };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
