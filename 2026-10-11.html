@@ -1,0 +1,752 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - October 11, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Sunday &middot; October 11, 2026</p>
+        <h1>3 summaries, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#mts-zain-javaid-frontier-ai-local"><span class="num">01</span><span><span class="card-title">Frontier AI Models Will Run Local in 6 Months | Zain Javaid</span><span class="card-byline">MTS · Zain Javaid</span></span><span class="card-dur">5:14</span><span class="listen-state" data-slug="mts-zain-javaid-frontier-ai-local"></span></a>
+        <a class="card" href="#lenny-josh-woodward-labs-team"><span class="num">02</span><span><span class="card-title">Why every company now needs to think and operate like a lab team | Josh Woodward (VP Google Labs)</span><span class="card-byline">Lenny&#x27;s Podcast · Josh Woodward</span></span><span class="card-dur">3:39</span><span class="listen-state" data-slug="lenny-josh-woodward-labs-team"></span></a>
+        <a class="card" href="#david-senra-alexandr-wang-creating-muse"><span class="num">03</span><span><span class="card-title">Creating Muse: The Fastest-Growing AI Product Since ChatGPT | Alexandr Wang, Meta</span><span class="card-byline">David Senra · Alexandr Wang</span></span><span class="card-dur">4:17</span><span class="listen-state" data-slug="david-senra-alexandr-wang-creating-muse"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="mts-zain-javaid-frontier-ai-local" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-11.html" data-route="index">&larr; October 11, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Frontier AI Models Will Run Local in 6 Months | Zain Javaid &mdash; October 11, 2026 <span class="dur">&middot; 5:14</span></p>
+        <audio controls preload="none" src="podcasts/mts-zain-javaid-frontier-ai-local.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/mts-zain-javaid-frontier-ai-local.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="mts-zain-javaid-frontier-ai-local" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="mts-zain-javaid-frontier-ai-local"></div>
+        <div class="episode-download"><a href="podcasts/mts-zain-javaid-frontier-ai-local.mp3" download>Download mts-zain-javaid-frontier-ai-local.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>MTS</dd></div>
+        <div><dt>Published</dt><dd>October 11, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=IzXw0gr_5Vk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">MTS &middot; Zain Javaid &middot; Ghost</p>
+        <h2>Frontier AI Models Will Run Local in 6 Months | Zain Javaid</h2>
+        <div>
+<p>MTS sat down with Zain Javaid, the founder and CEO of Ghost, on the day Ghost came out of stealth with $11 million in funding led by Andreessen Horowitz. The company launched Core, a $3,500 compute computer built specifically for personal AI. The idea is that you can have AI that runs on your own hardware, learns the context of your life over time, and takes actions for you without sending all of that personal context to an AI company.</p>
+<p>Javaid opens with the prediction that gives the episode its title. There is no reason, he says, that local models, given their capability level and how fast they are improving, will not match today&#x27;s frontier within three to six months. He points to Qwen 4 coming out soon and says the current frontier will be running on a laptop, or on a Core, in that window.</p>
+<p>The pitch for Core starts from a definition. The most capable personal AI, in his view, will be the one with the most access to your life: able to reason over your entire context, and able to take action wherever you can, from your browser to your smart home to data streaming in from your health wearables. Ghost streams in context from your apps, files, and devices. The reason it must run locally, he argues, is that giving a system unilateral access to the most sensitive parts of your life is only acceptable if you own that system. It should not be something you surrender to a big lab and read back by the token. Every Core ships with a GPU on board, which is what the $3,500 buys, and it runs models like Qwen 3.8 well.</p>
+<p>The bet on local was made about four months ago, and Javaid describes it as the kind of bet that felt almost stupid at the time. The models available then, Qwen 3.6 and Gemma, were subpar, probably not good enough to productize for consumers. But the trajectory was clearly exponential. Two months ago the models crossed into being comparable to Sonnet 5 level, and now, for 90 percent of what people do day to day with these models, he says they are no longer intelligence constrained. The models do not need to be smarter from here.</p>
+<p>There is a full-stack argument for building hardware, not just software. When you co-design the agent software together with the operating system and the hardware, the experience gets better. Core can sit there 24/7, constantly processing, noticing when an email lands or your health data updates, and surfacing things proactively. That ambient, always-on pattern is the whole point.</p>
+<p>The most interesting part of the conversation is how Javaid reframes the privacy trade-off. In the previous internet era, privacy-centric products meant accepting a worse product. DuckDuckGo, the self-host crowd: you could have privacy, but in exchange you would end up with a worse experience. He argues that bargain does not apply to AI. Internet products were many-to-one, where you needed the central company to aggregate supply and demand, like DoorDash, or exabyte-scale network effects, like Google and Facebook. AI is one-to-one. The best AI experience is an agent reasoning over all of your data uniquely, even differently at the harness or eventually the weights level. There is no reason to sacrifice capability for privacy.</p>
+<p>Trust is the other half of the argument. Early on, these systems were glorified search replacements. Now people are giving models their health records and their finances and asking them to materially improve their lives, even connecting camera feeds. This system is more integrated than any previous system, and he thinks public attitudes toward technology are unilaterally negative: people look at Flock safety cameras, labs training models on user data and then gating access, and they are reluctant to give up more. Four years into AI existing in any consumer form, nothing about the current arrangement is inevitable.</p>
+<p>Asked whether privacy is even the main value proposition for local models, Javaid reaches for the early PC market analogy and gives what he calls the unsatisfying but true answer: it is different for everybody. Some of it is privacy. Some of it is that open, modifiable weights let post-training make the model specifically good for you, which is a better product. Some of it is offline access. And there is a compelling economics argument: if you are running models 24/7, renting inference per token becomes way more expensive than owning the hardware. He notes that in his developer-relations days, local models were hugely popular in parts of Africa, not for privacy but for cost, because people there track spending down to the cents and do not want subscriptions. Adoption is already broader than the indie-hacker stereotype. His own mom and dad now run local AI.</p>
+<p>On use cases, Javaid thinks the industry is stuck in a local maximum where every product has converged on the same form factor: you open an app, enter a prompt, get a response. He estimates 80 to 90 percent of the value consumers get from AI will not come from prompt-action systems but from models that have enough context to be better at using themselves to provide value than you are at using them. His shorthand for the product goal is &quot;brain in a box&quot;: you plug it into the wall, spend five to ten minutes setting it up, and an autonomous brain constantly takes in data and provides value without you needing to do anything. Agent phone calls, browser and computer use, CAD, these are all useful, but the real shift is making value effortless.</p>
+<p>Zooming out, he says it feels inevitable that a very large AI hardware company will be built, an entire new class of hardware and software designed around agents. We are only a few years into AI existing at all, so it makes sense that this does not exist yet. The sci-fi reference points, Jarvis in the utopian version, still sit far away, and closing that gap comes down to three things: getting agents the right data, getting them to process it the right way, and making the whole thing effortless with great form factors to interact through.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If current frontier models really run locally within three to six months, what happens to the per-token pricing model of the big labs, and does the consumer battleground shift from models to hardware?</li>
+<li>Can post-training on one person&#x27;s full life context make a small local model genuinely better for that person than a frontier cloud model, and how would anyone outside the company verify that claim?</li>
+<li>If 80 to 90 percent of AI&#x27;s value comes from ambient, always-on processing, what are the failure modes of a system with unilateral access to your life, and what does redress look like when it acts on your behalf and gets it wrong?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the episode&#x27;s own auto-generated English caption track, fetched from YouTube via the iOS player client and parsed from json3 (3,958 words). The sponsor-read tail of the transcript (Lovable, ElevenLabs, Neon, Kong, Larid, MongoDB, Charge, Blitzy, AdQuick, Arena, VCX) was excluded from grounding. The caption track spells the guest&#x27;s name &quot;Zayn Javad&quot;; the published title and thumbnail identify him as Zain Javaid, Founder &amp; CEO of Ghost, and the summary follows the published spelling. The MTS host is unnamed in the transcript. The channel, resolved from YouTube, is MTS (@mtsituation).</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-10-11.html" data-route="index">All summaries</a>
+        <a class="next" href="#lenny-josh-woodward-labs-team" data-route="article">Lenny&#x27;s Podcast · Why every company now needs to think and operate like a lab team | Josh Woodward (VP Google Labs) &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="lenny-josh-woodward-labs-team" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-11.html" data-route="index">&larr; October 11, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Why every company now needs to think and operate like a lab team | Josh Woodward (VP Google Labs) &mdash; October 11, 2026 <span class="dur">&middot; 3:39</span></p>
+        <audio controls preload="none" src="podcasts/lenny-josh-woodward-labs-team.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/lenny-josh-woodward-labs-team.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="lenny-josh-woodward-labs-team" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="lenny-josh-woodward-labs-team"></div>
+        <div class="episode-download"><a href="podcasts/lenny-josh-woodward-labs-team.mp3" download>Download lenny-josh-woodward-labs-team.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Lenny&#x27;s Podcast</dd></div>
+        <div><dt>Published</dt><dd>October 11, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=3I6QYkccd3o" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Lenny's Podcast &middot; Josh Woodward &middot; Google Labs</p>
+        <h2>Why every company now needs to think and operate like a lab team | Josh Woodward (VP Google Labs)</h2>
+        <div>
+<p>Lenny&#x27;s Podcast sat down with Josh Woodward, head of Google Labs, the Gemini app, and AI Studio, to argue the thesis of the episode: every company now needs to start thinking and operating like a labs team.</p>
+<p>Woodward opens with the core claim. Every company needs a set of people whose job is to live at the frontier. They are the people who have eight two hundred dollar a month subscriptions to everything, who try a bunch of stuff with the latest models, and who figure out what is now possible before the competition does, or before a startup eats their lunch. The point is to create a space where weird things can grow.</p>
+<p>He is blunt about how this usually goes wrong inside big companies. Corporate labs, he says, are almost always ineffective. They fizzle out after about three or four years. The failure mode is nesting the lab under an existing business unit. A lab needs real independence, its own methodology, and its own energy, otherwise it just becomes a decorative R and D department.</p>
+<p>When it works, the lab does more than ship products. Woodward describes Google Labs as a creator of what he calls good trouble. It challenges how the whole company works. One example: Labs was one of the first teams at Google to push for a builder job ladder as roles blurred, piloting it before it could roll out more broadly. The lesson for other companies is to use the lab for multi-dimensional change, including how work itself gets done, not just technology exploration.</p>
+<p>Lenny pushes on where the best ideas actually come from. They rarely come from design sprints, Woodward says, and you cannot microwave good ideas. What he looks for is more human. Does the person&#x27;s eyes light up? Can the demo hit a nerve with a real pain point in someone&#x27;s life? He also watches for the monetization signal: can you get to a group of people who cannot live without it and will literally pay because it is so valuable? In the early days, he admits, it is more art and passion than science, and the strategy is to take a lot of shots rather than fall in love with one product solution before falling in love with the user problem.</p>
+<p>That shots-on-goal philosophy is how Labs survived the viral moments of the last year. When NotebookLM&#x27;s audio overviews or Nana Banana on Gemini took off, Woodward says the team just swarms the thing and holds on for dear life. It is exhausting and fun, and it means planning on a roughly six month rolling horizon rather than detailed long range roadmaps, because the tech underneath changes that fast.</p>
+<p>Lenny raises Dan Shipper&#x27;s frontier team model, a dedicated crew that tests everything new and reports back so the rest of the company can stay focused. Woodward endorses it completely. If the frontier team has not heard about the latest thing going viral in the last 24 hours, he says, that is basically malpractice. Everyone has to get really good at trying things, but the frontier team does it full time so nobody else gets distracted.</p>
+<p>On hiring, Woodward names the trait he screens for: unlearning rate. How fast can someone drop old mental models and adapt? He also uses a major and minor metaphor for skills. Everyone is becoming a builder now, but the advice he gives new PMs is to prototype in service of becoming an exceptional PM, not to lose the major that made them valuable in the first place. Specialties still matter even on a builder crew.</p>
+<p>A fun exchange has Lenny asking why Google never turned its mountain of Gmail, Calendar, and Docs data into the magical AI assistant everyone else seems to be building. Woodward points to Gemini Spark, where you can already connect all of that, and shares the bigger lesson: forget modes and toggles. Just one prompt box. Tell it what you want and iterate.</p>
+<p>He closes with a warning about benchmarks. Every model launch declares the best model ever, and with each one the industry jokes that AGI is here. Benchmarks are useful proxies, he says, but they can make the industry lose sight of the only question that matters: can you build something people actually want? That, he says, is what makes this the best time ever to be a product person.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If the answer is a frontier team, how does a mid-size company without Google&#x27;s resources staff one that actually has independence and teeth?</li>
+<li>What does the &quot;unlearning rate&quot; interview screen look like in practice, and how do you measure it without it becoming vibes?</li>
+<li>If AI experiences consolidate into a few super apps, as Woodward partly expects, what happens to the labs strategy of taking many shots at standalone products?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> grounded in the video&#x27;s own auto-generated English caption track via the YouTube Android player client, parsed from word-level timedtext XML (about 12,600 words). Search results also showed the title &quot;Lessons from running the biggest labs team in the world | Josh Woodward (VP Google Labs)&quot;, which appears to be an alternate tested title for the same video.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#mts-zain-javaid-frontier-ai-local" data-route="article">&larr; MTS · Frontier AI Models Will Run Local in 6 Months | Zain Javaid</a>
+        <a class="to-index" href="2026-10-11.html" data-route="index">All summaries</a>
+        <a class="next" href="#david-senra-alexandr-wang-creating-muse" data-route="article">David Senra · Creating Muse: The Fastest-Growing AI Product Since ChatGPT | Alexandr Wang, Meta &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="david-senra-alexandr-wang-creating-muse" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-11.html" data-route="index">&larr; October 11, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Creating Muse: The Fastest-Growing AI Product Since ChatGPT | Alexandr Wang, Meta &mdash; October 11, 2026 <span class="dur">&middot; 4:17</span></p>
+        <audio controls preload="none" src="podcasts/david-senra-alexandr-wang-creating-muse.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/david-senra-alexandr-wang-creating-muse.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="david-senra-alexandr-wang-creating-muse" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="david-senra-alexandr-wang-creating-muse"></div>
+        <div class="episode-download"><a href="podcasts/david-senra-alexandr-wang-creating-muse.mp3" download>Download david-senra-alexandr-wang-creating-muse.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>David Senra</dd></div>
+        <div><dt>Published</dt><dd>October 11, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=S6l3aRsecuE" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">David Senra &middot; Alexandr Wang &middot; Meta</p>
+        <h2>Creating Muse: The Fastest-Growing AI Product Since ChatGPT | Alexandr Wang, Meta</h2>
+        <div>
+<p>David Senra sat down with Alexandr Wang, Meta&#x27;s chief AI officer, to talk through how Muse became what Wang calls the fastest-growing consumer AI app since ChatGPT. Wang, who founded Scale AI at 19 and joined Meta in the summer of 2026 deal that brought him and much of Scale&#x27;s talent over, runs Meta Superintelligence Labs. Senra, who has spent nearly a decade reading biographies of founders for his Founders podcast, frames the conversation as a founder story: how the product was conceived, why Meta of all places built it, and what Wang believes it says about the future.</p>
+<p>The origin, Wang says, was a memo. When Meta Superintelligence Labs started in mid-2025, Mark Zuckerberg published a memo on &quot;personal superintelligence,&quot; the idea of building AI that lifts everyone&#x27;s experience rather than serving only institutions. But the catalytic moment came in February 2026, when Anthropic&#x27;s Opus 4.5 made the future of agents vivid, and Nat Friedman, one of Wang&#x27;s closest collaborators at the lab, went deep on OpenClaw. Friedman trusted it completely, and the stories piled up: he told his agent he wanted to drink more water, and the agent started watching him on security footage to confirm he was hydrating. When Wang tried it, the first thing Friedman had him run was a self-analysis prompt that felt like three years of therapy compressed into one session. Both of them wrote memos to the board: Wang&#x27;s argued the personal super-agent was the final consumer product form factor, and Friedman&#x27;s two memos, with memorable names like &quot;trust is a must,&quot; defined the product&#x27;s core.</p>
+<p>A prototype came together in about a week. Many of the decisions that made it into the final Muse were in that first board demo, including the Jolly mascot character and an early version of the Muse charm. Then came seven painful months of turning something magical-but-flaky into a reliable consumer product. Wang&#x27;s unglamorous explanation for why Meta succeeded where OpenClaw flamed out is simply grinding: iterating relentlessly on the model and the product together. While the industry crowded into coding agents chasing Anthropic&#x27;s lead, Meta aimed its whole model roadmap at personal agents, a bet rooted in Wang&#x27;s conviction that Meta is uniquely positioned here because its products cover what people want to do, not what they have to do.</p>
+<p>Launch brought the famous unhinged X persona. Wang says he didn&#x27;t plan it; after a few meme posts with the Jolly character landed, he realized the internet rewards risk and surprise, and drew on years of internet knowledge to go further, including racy memes nobody had tried for a product launch before. He credits an old advertising insight from Scientific Advertising: people don&#x27;t care about your company or research, they care about what it does for them, so lead with the benefit. For retention, Wang describes a trust fall: a new user gives the agent something small, it works, so they try something a little bigger, then bigger still, until college students are brain-dumping voice notes and trusting Muse to organize their lives.</p>
+<p>On the Meta deal itself, Wang tells it plainly. Zuckerberg reached out after Llama 4 underperformed, asking what Meta should be doing in AI. Scale was a very different business from Meta, so Wang doubted an acquisition made sense at first. It became clear when the numbers arrived. Meta was buying talent for its AI program, and Wang joined to rebuild the lab.</p>
+<p>That rebuilding is its own story. Wang runs more than 200 direct reports in a group called TBD, which he calls deliberately anti-bureaucracy: no people management, just technical leadership through pod leads and group debate. The model is diamond mining, not skyscraper construction. Data businesses have linear payoffs where you squeeze out efficiency; research has power-law payoffs where one brilliant idea justifies everything, so the job is giving exceptional people room to cook. He offers his 19th birthday party as evidence of talent spotting: an MIT freshman winter internship at trading firm HRT with about a dozen Harvard and MIT friends who went on to found Hyperliquid, Cognition, Decagon, and hold key roles at Anthropic.</p>
+<p>The interview closes on Wang&#x27;s longer view. The personal agent, he argues, is a durable form factor because it is human nature to want and dream, and agents bridge the gap between wanting and doing. His vision is an escalator of agency: kids start with big dreams and keep them instead of having them beaten out by adult life, until billions of people all have their agency fully switched on. He admits nobody knows what that world looks like, but thinks it will be artistic, diverse, and strange in a very good way.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If the personal super-agent is really the final consumer product form factor, what happens to Meta&#x27;s other apps, and does Muse eventually absorb Instagram and WhatsApp rather than sit alongside them?</li>
+<li>Wang says Meta won by grinding reliability where open-source efforts died on flakiness. Is that an enduring moat, or will open agent frameworks eventually close the reliability gap the way they did in other layers of the stack?</li>
+<li>The anti-bureaucracy lab with 200 direct reports works while Wang is personally running it. Can talent-density-by-design survive succession, or does it depend entirely on the founder at the top?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Grounded in the full auto-generated English caption track of the David Senra YouTube interview (14,812 words), pulled via the YouTube player API. A brief mid-video sponsor read for Applovin was excluded from grounding. The interviewer is David Senra, host of the Founders podcast; the guest is Alexandr Wang, Meta&#x27;s chief AI officer and former Scale AI founder.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#lenny-josh-woodward-labs-team" data-route="article">&larr; Lenny&#x27;s Podcast · Why every company now needs to think and operate like a lab team | Josh Woodward (VP Google Labs)</a>
+        <a class="to-index" href="2026-10-11.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+
+
+
+<footer>
+      <span>Summaries dated October 11, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "mts-zain-javaid-frontier-ai-local": "Frontier AI Models Will Run Local in 6 Months | Zain Javaid",
+      "lenny-josh-woodward-labs-team": "Why every company now needs to think and operate like a lab team | Josh Woodward (VP Google Labs)",
+      "david-senra-alexandr-wang-creating-muse": "Creating Muse: The Fastest-Growing AI Product Since ChatGPT | Alexandr Wang, Meta"
+      };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="podcasts/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+</body>
+</html>
