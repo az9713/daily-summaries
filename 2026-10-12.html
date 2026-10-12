@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Monday &middot; October 12, 2026</p>
-        <h1>9 summaries, distilled.</h1>
+        <h1>10 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -416,6 +416,7 @@
 <a class="card" href="#foxh-tsimerman-openai-tao"><span class="num">07</span><span><span class="card-title">Fields Medalist Tsimerman Joins OpenAI, Terence Tao Proposes Math 2.0: How Two Top Mathematicians View AI Solving Problems</span><span class="card-byline">fOx Hsiao</span></span><span class="card-dur">4:15</span><span class="listen-state" data-slug="foxh-tsimerman-openai-tao"></span></a>
 <a class="card" href="#twentyvc-atlassian-ceo-agents-interfaces"><span class="num">08</span><span><span class="card-title">Atlassian CEO: Enterprises Won&#x27;t Trust Chinese AI | Why The Jury&#x27;s Still Out on Specialised Models</span><span class="card-byline">20VC with Harry Stebbings</span></span><span class="card-dur">6:36</span><span class="listen-state" data-slug="twentyvc-atlassian-ceo-agents-interfaces"></span></a>
 <a class="card" href="#chloeshih-hottest-pm-holly-li"><span class="num">09</span><span><span class="card-title">The Hottest Product Manager in Tech Right Now 🔥 @OpenAI’s Holly Li Talks About Dots | Office Drama</span><span class="card-byline">Chloe Shih</span></span><span class="card-dur">5:35</span><span class="listen-state" data-slug="chloeshih-hottest-pm-holly-li"></span></a>
+<a class="card" href="#lowleveltv-ai-reverse-engineering"><span class="num">10</span><span><span class="card-title">Has AI Solved Reverse Engineering?</span><span class="card-byline">Low Level</span></span><span class="card-dur">4:24</span><span class="listen-state" data-slug="lowleveltv-ai-reverse-engineering"></span></a>
         </div>
       </nav>
     </section>
@@ -846,6 +847,53 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#twentyvc-atlassian-ceo-agents-interfaces" data-route="article">&larr; Prev</a>
         <a class="to-index" href="2026-10-12.html" data-route="index">All summaries</a>
+        <a class="next" href="#lowleveltv-ai-reverse-engineering" data-route="article">Next &rarr;</a>
+      </nav>
+</section>
+<section class="article-view" id="lowleveltv-ai-reverse-engineering" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-12.html" data-route="index">&larr; October 12, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Has AI Solved Reverse Engineering? &mdash; October 12, 2026 <span class="dur">&middot; 4:24</span></p>
+        <audio controls preload="none" src="podcasts/lowleveltv-ai-reverse-engineering.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/lowleveltv-ai-reverse-engineering.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="lowleveltv-ai-reverse-engineering" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="lowleveltv-ai-reverse-engineering"></div>
+        <div class="episode-download"><a href="podcasts/lowleveltv-ai-reverse-engineering.mp3" download>Download lowleveltv-ai-reverse-engineering.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Low Level</dd></div>
+        <div><dt>Published</dt><dd>October 12, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=wIe3eDfGKUo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Low Level &middot; reverse engineering &middot; monitor firmware</p>
+<h2>Has AI Solved Reverse Engineering?</h2>
+<div>
+<p>On Low Level (@LowLevelTV), in &quot;Has AI Solved Reverse Engineering?&quot;, the channel&#x27;s host, a working vulnerability researcher, sets out to hack his own monitor and ends up watching an AI do in about fifteen minutes a piece of reverse engineering he estimates would have taken him the better part of a week.</p>
+<p>The target is his office monitor, a Dell 34-inch ultrawide (model S3422). His point of departure is that a monitor is not a passive screen. Inside it sits a blob of firmware that processes HDMI commands, handles the video signal, and manages any wireless features, and firmware like that is a real attack surface. His goal is concrete: pull the firmware out of Dell&#x27;s update package, find a vulnerability in it, and get code execution on the monitor.</p>
+<p>The old workflow, he explains, started with Dell&#x27;s firmware updater, a small executable you run with a USB stick. He would run the extraction tool binwalk recursively over that executable, unpacking everything nested inside it, until the actual firmware image fell out. In this case the extraction surfaced two interesting items: the upgrade file itself, labeled with the monitor&#x27;s model and firmware numbers, and a component called the Dell ISP library, the in-system programming library that uploads and downloads firmware to the device. That library would tell him where in the upgrade file the real code lives.</p>
+<p>Then the familiar wall appeared. An entropy analysis of the firmware file showed a flat, high reading, the signature of encrypted data. The manufacturer, he notes, may simply not want anyone peering inside the monitor&#x27;s software, and he did not have the key, which he assumed was locked away in the hardware. Traditionally, that is close to game over, or at least the start of a long grind.</p>
+<p>The grind, as he walks through it, looks like this. He opened the ISP library in Ghidra, the NSA&#x27;s reverse engineering framework, and found a promising entry point: an encrypt and decrypt method. Inside its table of functions sit nine routines doing various things to seemingly random data. He could spot stretches of text-like data that looked like key material, the kind of thing experience teaches you to notice, but further down the code dissolved into loops and structure-shuffling that resisted quick reading. Reverse engineering a crypto routine is unforgiving work, he says, because the offsets where encryption starts and stops are not obvious, and a single byte wrong makes the whole result wrong. Progress means forming a hypothesis, testing it, narrowing the noise, and repeating that loop for hours or days.</p>
+<p>His shortcut was to hand the problem to an AI model (the transcript names it GLM) with one short prompt: find the firmware in this image, identify the HDMI command parsers in it, and note that the firmware is potentially encrypted. Then he let it run. The timeline he shows on screen puts the whole job at roughly sixteen minutes, a task he says would have taken him a week of full workdays.</p>
+<p>The model&#x27;s path retraced his own and then kept going. It located the upgrade container holding the image, drove Ghidra through its MCP interface to lift the binary into readable pseudo-C code, and found the same library function he had found. Where he had stalled, it quickly identified a constructor that builds a key blob and a companion function that is plainly a decryption routine using that blob&#x27;s data to run cipher math. It extracted the keys, wrote a Python program to decrypt the firmware file in under a minute, and produced a decrypted image less than a minute after that.</p>
+<p>What persuaded him was not the speed but the verification, which the model performed next, in well under a minute. The decrypted image carries its own integrity check: an MD5 value stored at a fixed offset, computed over the plaintext by the flashing library with that field zeroed out. The model wrote a small script to recompute it, and the stored value matched the computed one exactly, confirming the decryption was correct against the library&#x27;s own specification rather than plausible-looking noise. It backed that up with an entropy analysis showing the zero and FF byte patterns expected in plaintext flash firmware, code that reads coherently as instructions for the monitor&#x27;s 8051-family microcontroller, a valid reset vector in the right place, and the monitor&#x27;s real model number and build metadata sitting in the image where they should be.</p>
+<p>His conclusion is aimed less at the model than at the product design it exposed. If the intent of encrypting the firmware was to protect Dell&#x27;s intellectual property, shipping the decryption keys to every user inside the flashing library is an inherent flaw, he argues. Done properly, the encrypted file would be decrypted on the device itself using a key baked into the chip&#x27;s read-only memory, where it cannot be extracted and reused. Any skilled reverse engineer could have found this eventually; the change is that the work is now, in his word, commoditized. Anyone can take apart an improperly designed product and find the issues in it, quickly and cheaply.</p>
+<p>His closing answer to his own title question is measured rather than triumphant. AI has not replaced the researcher&#x27;s judgment: he chose the target, recognized the weak design, and knew which checks would prove the result real. What AI has collapsed is the slow, iterative middle of the craft, the hypothesis testing that used to consume days. The consequence he predicts for security is simple and double-edged: a lot more bugs will be found, by anyone.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If AI makes pulling apart peripheral firmware this cheap, will vendors actually move to on-chip keys and sounder designs, or will most monitors, keyboards, and other peripherals stay soft targets for years?</li>
+<li>Bug-finding is now fast and cheap, but disclosing, patching, and shipping fixed firmware still move at human and corporate speed. Which side, attackers or defenders, benefits more from that mismatch?</li>
+<li>The skill this host used to judge the AI&#x27;s work came from years of doing the slow manual version. If the slow version disappears, where does the next generation of researchers get that judgment?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary and episode are grounded in the video&#x27;s full auto-generated English transcript. YouTube&#x27;s caption endpoints were bot-walled for this video on every route tried, and the watch page&#x27;s transcript panel would not render signed out, so Simon supplied the complete transcript text himself (timestamped lines spanning 0:00 to 13:34). Sponsor material in the video was not used. The summary is written in our own words, with only brief quotes from the transcript.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+</div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#chloeshih-hottest-pm-holly-li" data-route="article">&larr; Prev</a>
+        <a class="to-index" href="2026-10-12.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
 </section>
@@ -869,6 +917,7 @@
       "foxh-tsimerman-openai-tao": "Fields Medalist Tsimerman Joins OpenAI, Terence Tao Proposes Math 2.0: How Two Top Mathematicians View AI Solving Problems",
       "twentyvc-atlassian-ceo-agents-interfaces": "Atlassian CEO: Enterprises Won't Trust Chinese AI | Why The Jury's Still Out on Specialised Models",
       "chloeshih-hottest-pm-holly-li": "The Hottest Product Manager in Tech Right Now 🔥 @OpenAI’s Holly Li Talks About Dots | Office Drama",
+      "lowleveltv-ai-reverse-engineering": "Has AI Solved Reverse Engineering?",
       };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
