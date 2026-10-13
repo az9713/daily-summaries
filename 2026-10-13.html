@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Tuesday &middot; October 13, 2026</p>
-        <h1>8 summaries, distilled.</h1>
+        <h1>9 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -415,6 +415,7 @@
         <a class="card" href="#platypus-economics-hall-woodford-nobel"><span class="num">06</span><span><span class="card-title">Bob Hall and Mike Woodford Win the 2026 Economics Nobel</span><span class="card-byline">Platypus Economics with Justin Wolfers</span></span><span class="card-dur">4:05</span><span class="listen-state" data-slug="platypus-economics-hall-woodford-nobel"></span></a>
         <a class="card" href="#sequoia-training-data-silver-espeholt-superlearner"><span class="num">07</span><span><span class="card-title">David Silver and Lasse Espeholt of Ineffable Intelligence: A Superlearner for the Age of Experience</span><span class="card-byline">Sequoia Capital</span></span><span class="card-dur">5:47</span><span class="listen-state" data-slug="sequoia-training-data-silver-espeholt-superlearner"></span></a>
         <a class="card" href="#nate-b-jones-openai-700-math-papers"><span class="num">08</span><span><span class="card-title">OpenAI&#x27;s AI Wrote 700 Math Papers. Engineers Still Won&#x27;t Trust AI With Their Code.</span><span class="card-byline">AI News &amp; Strategy Daily | Nate B Jones</span></span><span class="card-dur">4:39</span><span class="listen-state" data-slug="nate-b-jones-openai-700-math-papers"></span></a>
+        <a class="card" href="#latent-space-dyna-2-jason-ma"><span class="num">09</span><span><span class="card-title">Robots That Predict the Future: Dyna-2 &amp; Physical AI — Jason Ma, Dyna Robotics</span><span class="card-byline">Latent Space</span></span><span class="card-dur">5:02</span><span class="listen-state" data-slug="latent-space-dyna-2-jason-ma"></span></a>
         </div>
       </nav>
     </section>
@@ -787,6 +788,53 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#sequoia-training-data-silver-espeholt-superlearner" data-route="article">&larr; Prev</a>
         <a class="to-index" href="2026-10-13.html" data-route="index">All summaries</a>
+        <a class="next" href="#latent-space-dyna-2-jason-ma" data-route="article">Next &rarr;</a>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="latent-space-dyna-2-jason-ma" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-13.html" data-route="index">&larr; October 13, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Robots That Predict the Future: Dyna-2 &amp; Physical AI — Jason Ma, Dyna Robotics &mdash; October 13, 2026 <span class="dur">&middot; 5:02</span></p>
+        <audio controls preload="none" src="podcasts/latent-space-dyna-2-jason-ma.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/latent-space-dyna-2-jason-ma.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="latent-space-dyna-2-jason-ma" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="latent-space-dyna-2-jason-ma"></div>
+        <div class="episode-download"><a href="podcasts/latent-space-dyna-2-jason-ma.mp3" download>Download latent-space-dyna-2-jason-ma.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Latent Space</dd></div>
+        <div><dt>Published</dt><dd>October 13, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=BHiYomkfoGQ" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Latent Space &middot; Jason Ma &middot; Dyna Robotics &middot; Dyna-2 world-action model</p>
+        <h2>Robots That Predict the Future: Dyna-2 &amp; Physical AI — Jason Ma, Dyna Robotics</h2>
+        <div>
+<p>On Latent Space, host swyx records on site at Dyna Robotics with Jason Ma, the company&#x27;s co-founder and chief scientist, for &quot;Robots That Predict the Future: Dyna-2 &amp; Physical AI — Jason Ma, Dyna Robotics.&quot; The white semi-humanoid robots standing behind Ma in the video are the product: wheeled below the waist, human-like in the torso, and already folding thousands of napkins a day at Din Tai Fung restaurants across the United States.</p>
+<p>The technical core of the episode is Dyna-2, the world-action model Dyna released last month. A vision-language-action model predicts only the robot&#x27;s next actions. A world-action model also predicts the future video, the way the world itself will look after those actions, and uses that imagined future to guide control. Ma frames it as reasoning in visual and physical space before acting, the way people implicitly simulate consequences before moving. Under the hood it is a diffusion transformer, with flow matching to cut the number of refinement steps so the model can re-evaluate in real time. Inputs are camera video, joint-encoder readings, and language instructions; outputs are continuous action vectors of roughly a hundred dimensions, produced many times a second.</p>
+<p>What makes the approach plausible, Ma argues, is data scale. Dyna-2 was trained on more than a million hours of human egocentric video, which gives the model a prior over how the physical world evolves around an embodied actor. Human data alone cannot drive a robot, since the bodies differ, so Dyna adapts the base model with small amounts of robot data. The headline numbers are striking: a new task typically needs a couple of hours of teleoperated demonstrations, some need only tens of minutes, and the chopping task took 45 minutes. A million hours, Ma insists, is just the beginning.</p>
+<p>Robotics has no internet to scrape, and the conversation keeps returning to that constraint. Data quality is non-stationary: almost anything helps a model that knows nothing, while a mature model needs targeted, task-specific data, the kind hotels could collect by putting cameras on employees. Ma also sees synthetic data as the next scaling dimension. Frontier models can now build simulation environments from real scenes, a leap from his PhD-era Eureka project at NVIDIA, where GPT-4 wrote reward functions for reinforcement learning in simulation. Dyna&#x27;s own world model can go further and generate its own training data.</p>
+<p>Latency shapes everything else. A robot holding a knife cannot pause for three seconds while a cloud model thinks, and gravity does not wait, so deployed models must run on device at a size that fits local hardware. Dyna trains big and expects to distill down, builds its own inference stack, and is progressively owning the parts of the stack that matter most, including actuators, because actuator quality determines how well the robot can be modeled. Components with mature off-the-shelf answers, like lidar and some cameras, it buys.</p>
+<p>The hardware philosophy follows from the data strategy. Dyna&#x27;s robot is a semi-humanoid because legs are energy-hungry, unstable, and hard to make safe, while wheels are practical today. The torso is proportioned against real people so human training data transfers, and the waist has four degrees of freedom because human movement leans on torso motion constantly, something Ma says you only appreciate after pulling a muscle. The long-term bet is still the human form factor, reached iteratively through real customer deployments rather than designed in one shot.</p>
+<p>On top of the model sits an agentic harness, a reasoning layer that plans multi-step work, sequences skills, and decides what to do while the washer runs, with the world-action model handling the low-level manipulation. Ma argues the real value in robotics is workflows that run unsupervised for hours, not one-minute task demos, and the episode closes with demos of the Dyna 2.1 system doing exactly that: a full hotel laundry workflow, including recovering from a dropped towel, and fetching a chosen drink from a fridge on a spoken order.</p>
+<p>The commercial proof point is Din Tai Fung, which moved from pilot to multi-site deployment and a much larger contract, and now wants the robots cutting food as well as folding napkins to a seam tolerance of a couple of centimeters. Best Western is a laundry customer in hotels. Tens of robots are deployed; the goal for next year is hundreds. Ma&#x27;s larger claim is a bitter lesson for robotics: keep the algorithm simple, scale the right data, and generalization emerges, but robotics makes the scaling itself hard because the sensors, hardware, and data pipeline all have to be built first.</p>
+<p>Asked where his approach could be wrong, Ma points at the sensors. A world model trained on video alone may be missing the dimensions that matter most: touch, sound, even smell. A rival model that predicts tactile input alongside vision could be far more data-efficient. He also traces his own path: a Go player in high school when AlphaGo landed, a Penn PhD in reinforcement learning for robotics at the GRASP Lab, the Eureka pen-spinning work with Jim Fan at NVIDIA, a stint at Google DeepMind, and the decision in late 2024 that the technology was ready to matter outside the lab. The company name itself is a nod to Richard Sutton&#x27;s Dyna architecture, an agent that improves inside a world model, and to the Ultraman series of his birth year.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Does future-video prediction stay the winning objective once tactile and audio data become available at scale, or does a multimodal world model make the vision-first approach look wasteful?</li>
+<li>Can the few-shot adaptation numbers, tens of minutes to a couple of hours per new task, survive contact with messier, less curated customer sites than the ones shown here?</li>
+<li>Will the full-stack bet, owning actuators, hardware, models, and data, outrun better-capitalized rivals who specialize in one layer, or does the supply chain grind it down?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary and episode are grounded in the video&#x27;s full auto-generated English caption track (2,312 caption lines, 15,740 words, spanning the complete 1:21:05 runtime), fetched via the YouTube iOS player endpoint with the json3 format honored. ASR renders the company and model names variously (&quot;Dina&quot;, &quot;Dino&quot;); the published spellings Dyna and Dyna-2 are used here. Jason Ma&#x27;s identity, role, and the guest topics are taken from the episode&#x27;s own title and description, matched to the transcript. The commission arrived as a screenshot with the title truncated; the exact published title, channel, upload date, and runtime were resolved from YouTube before building.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#nate-b-jones-openai-700-math-papers" data-route="article">&larr; Prev</a>
+        <a class="to-index" href="2026-10-13.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -806,7 +854,8 @@
       "a16z-108-billion-ai-opportunity-specialty-practices": "The $108 Billion AI Opportunity for Specialty Practices",
       "platypus-economics-hall-woodford-nobel": "Bob Hall and Mike Woodford Win the 2026 Economics Nobel",
       "sequoia-training-data-silver-espeholt-superlearner": "David Silver and Lasse Espeholt of Ineffable Intelligence: A Superlearner for the Age of Experience",
-      "nate-b-jones-openai-700-math-papers": "OpenAI's AI Wrote 700 Math Papers. Engineers Still Won't Trust AI With Their Code."
+      "nate-b-jones-openai-700-math-papers": "OpenAI's AI Wrote 700 Math Papers. Engineers Still Won't Trust AI With Their Code.",
+      "latent-space-dyna-2-jason-ma": "Robots That Predict the Future: Dyna-2 & Physical AI — Jason Ma, Dyna Robotics"
       };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
