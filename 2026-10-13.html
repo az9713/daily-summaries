@@ -401,13 +401,14 @@
     <header class="masthead">
       <div>
         <p class="date">Tuesday &middot; October 13, 2026</p>
-        <h1>1 summary, distilled.</h1>
+        <h1>2 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
       <nav aria-label="Summaries">
         <div class="cards">
         <a class="card" href="#baseten-continual-learning-horse"><span class="num">01</span><span><span class="card-title">AI researchers talk continual learning over a game of HORSE</span><span class="card-byline">Baseten</span></span><span class="card-dur">5:18</span><span class="listen-state" data-slug="baseten-continual-learning-horse"></span></a>
+        <a class="card" href="#techtechpotato-next-gen-facebook"><span class="num">02</span><span><span class="card-title">The Next Generation of Facebook Is Here</span><span class="card-byline">TechTechPotato</span></span><span class="card-dur">4:52</span><span class="listen-state" data-slug="techtechpotato-next-gen-facebook"></span></a>
         </div>
       </nav>
     </section>
@@ -455,6 +456,50 @@
       <nav class="article-nav" aria-label="More summaries">
         <span class="spacer"></span>
         <a class="to-index" href="2026-10-13.html" data-route="index">All summaries</a>
+        <a class="next" href="#techtechpotato-next-gen-facebook" data-route="article">Next &rarr;</a>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="techtechpotato-next-gen-facebook" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-13.html" data-route="index">&larr; October 13, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">The Next Generation of Facebook Is Here &mdash; October 13, 2026 <span class="dur">&middot; 4:52</span></p>
+        <audio controls preload="none" src="podcasts/techtechpotato-next-gen-facebook.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/techtechpotato-next-gen-facebook.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="techtechpotato-next-gen-facebook" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="techtechpotato-next-gen-facebook"></div>
+        <div class="episode-download"><a href="podcasts/techtechpotato-next-gen-facebook.mp3" download>Download techtechpotato-next-gen-facebook.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>TechTechPotato</dd></div>
+        <div><dt>Published</dt><dd>October 13, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Y7VigDmUds8" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">TechTechPotato &middot; Meta MTIA &middot; custom AI silicon</p>
+        <h2>The Next Generation of Facebook Is Here</h2>
+        <div>
+<p>On TechTechPotato, &quot;The Next Generation of Facebook Is Here&quot; has Dr. Ian Cutress walking through Meta&#x27;s Hot Chips 2026 presentation on the next two generations of its in-house AI silicon, the MTIA 300 and MTIA 400. Cutress opens with a bit of show and tell: he owns physical samples of the first two MTIA generations, the small accelerator cards Meta has been deploying internally by the tens or hundreds of thousands, built with help from Broadcom and, in the first generation, around an Andes RISC-V core. The video then works through Meta&#x27;s slides on why the company designs its own chips at all, and what the third and fourth generations change.</p>
+<p>The core argument is that Meta&#x27;s dominant workload is not chatbot token generation but recommendation: the ranking systems that decide which post, product, or video each user sees next. Those models lean on enormous embedding tables rather than next-token prediction, and Meta says its recommendation compute demand triples every year. On general-purpose GPUs, these memory-hungry workloads leave much of the silicon idle waiting on data; Cutress cites utilization figures in the industry ranging from roughly a tenth to two fifths of peak arithmetic. Because a small accuracy slip in ranking can cost billions over a year, and because owning the chip means owning the toolchain and the total cost of ownership, Meta designs silicon with a much higher ratio of memory bandwidth to compute than a merchant GPU would carry.</p>
+<p>The MTIA 300, which Meta labels a 2025 chip and detailed in a paper earlier this year, is a dedicated training part. It pairs a 3-nanometer compute die with five 5-nanometer I/O chiplets and six HBM3 stacks for 216 gigabytes of memory, draws on the order of 700 to 800 watts depending on the numeric precision in use, and needs liquid cooling. A grid of processing elements and messaging elements handles decoupled collective communication, with about 1.2 terabytes per second of custom on-package remote direct memory access. Meta&#x27;s reported results emphasize embedding operations: large speedups over GPUs on a 150-billion-parameter model, higher point-to-point and scale-up bandwidth, and a modest gain in performance per unit of total cost, around nine percent, alongside support for larger batches and full-precision communication where quantized arithmetic would lose accuracy the workload cannot spare.</p>
+<p>The MTIA 400, due next year, carries a dual mandate: generative AI and recommendation together, covering both the deep learning ranking models and the token generation and training behind Meta&#x27;s Llama family and its growing fleet of internal agent models. Its design shifts to chiplets for yield and flexibility. Each package combines two compute chiplets with an SoC die and I/O dies, all of the main logic on 3 nanometers, and eight HBM3E stacks delivering about 9.4 terabytes per second of peak bandwidth and 288 gigabytes of memory per package. Relative to the 300, Meta increased the processing element count by roughly a third while cutting memory by roughly a third, and claims about four times the compute density and around five times the 16-bit performance across the generations. The chips run wide and slow, at deliberately low clock frequencies, because these problems span many packages and efficiency beats latency. Systems scale from four chips in a tray to 72 in a rack.</p>
+<p>Two architectural details get extended treatment. Each processing element in the 8-by-6 grid, which carries a redundant row purely to rescue yield, holds two RISC-V scalar and vector cores plus a command processor that orchestrates the arithmetic and the fabric interface. Notably, Meta declined to say whose RISC-V cores it licenses for these generations, a change from the openness around the first chip&#x27;s Andes core, and the presenters also had no answer for Cutress when he asked how an outsider could get software for the chips he owns. The second detail is a number format Meta calls MX8s: where existing microscaling formats share one exponent across a vector of low-precision values, Meta shares a single exponent across a whole 16-by-16 matrix block of FP8 numbers, saving data movement whenever the data arrives in tiles of that shape. Cutress believes it is the first such format publicly announced. A host embedding cache rounds out the memory story: since even 288 gigabytes of HBM cannot hold embedding tables that run to terabytes, host memory backs the tables while dedicated hardware manages a cache of them inside the HBM, keeping the hottest data next to the compute.</p>
+<p>The roadmap does not stop at the 400. Meta plans a 450 as an enhanced step and then a 500 series aimed more squarely at inference scaling, closer in spirit to the first two generations. Cutress closes by noting how unusual it is for a hyperscaler to present internal silicon this openly, since nothing obliges Meta to disclose any of it; his read is that the engineers are proud of the work and that the presentation doubles as recruiting. He invites anyone running these chips internally to tell him how they behave in practice and how hard they are to program.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Will Meta&#x27;s matrix-wide shared-exponent format stay a private advantage, or does its usefulness for tiled training push it toward wider adoption the way earlier microscaling formats spread?</li>
+<li>As Meta splits its roadmap between dedicated training parts, dual-mandate parts, and a future inference-focused 500 series, how much of its fleet actually migrates off merchant GPUs, and where do NVIDIA and AMD keep the workloads Meta&#x27;s own silicon does not fit?</li>
+<li>Why has Meta stopped naming its RISC-V core supplier after disclosing it for the first generation, and what does that silence signal about how the design&#x27;s control points are shifting as the MTIA program matures?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s own English caption track (auto-generated), fetched via the YouTube iOS player endpoint with json3 honored: 507 caption lines, 3,519 words, spanning the full 20:30 runtime. The video was commissioned from a screenshot showing a truncated title; it was resolved to the exact published title and video above, uploaded by TechTechPotato on October 13, 2026. Ian Cutress is the sole speaker. Figures quoted are Meta&#x27;s as presented in its Hot Chips 2026 slides and relayed in the video; the summary and episode are written in our own words from that transcript.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#baseten-continual-learning-horse" data-route="article">&larr; Prev</a>
+        <a class="to-index" href="2026-10-13.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -467,7 +512,8 @@
   <script>
     (() => {
       const TITLES = {
-      "baseten-continual-learning-horse": "AI researchers talk continual learning over a game of HORSE"
+      "baseten-continual-learning-horse": "AI researchers talk continual learning over a game of HORSE",
+      "techtechpotato-next-gen-facebook": "The Next Generation of Facebook Is Here"
       };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
