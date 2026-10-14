@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Wednesday &middot; October 14, 2026</p>
-        <h1>2 summaries, distilled.</h1>
+        <h1>3 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -409,6 +409,7 @@
         <div class="cards">
         <a class="card" href="#mts-aaron-levie-agents-compute"><span class="num">01</span><span><span class="card-title">Why AI Agents Will Demand 1,000x More Compute | Aaron Levie</span><span class="card-byline">MTS &middot; Aaron Levie</span></span><span class="card-dur">6:00</span><span class="listen-state" data-slug="mts-aaron-levie-agents-compute"></span></a>
         <a class="card" href="#addy-osmani-agentic-verification"><span class="num">02</span><span><span class="card-title">Agentic Verification</span><span class="card-byline">Elevate &middot; Addy Osmani</span></span><span class="card-dur">6:24</span><span class="listen-state" data-slug="addy-osmani-agentic-verification"></span></a>
+        <a class="card" href="#arena-ai-max-spero-ai-detectors"><span class="num">03</span><span><span class="card-title">Do AI Detectors Actually Work? Arena Conversations With Pangram CEO Max Spero</span><span class="card-byline">Arena AI &middot; Max Spero</span></span><span class="card-dur">5:56</span><span class="listen-state" data-slug="arena-ai-max-spero-ai-detectors"></span></a>
         </div>
       </nav>
     </section>
@@ -502,6 +503,53 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#mts-aaron-levie-agents-compute" data-route="article">&larr; Prev</a>
         <a class="to-index" href="2026-10-14.html" data-route="index">All summaries</a>
+        <a class="next" href="#arena-ai-max-spero-ai-detectors" data-route="article">Next &rarr;</a>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="arena-ai-max-spero-ai-detectors" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-14.html" data-route="index">&larr; October 14, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Do AI Detectors Actually Work? Arena Conversations With Pangram CEO Max Spero &mdash; October 14, 2026 <span class="dur">&middot; 5:56</span></p>
+        <audio controls preload="none" src="podcasts/arena-ai-max-spero-ai-detectors.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/arena-ai-max-spero-ai-detectors.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="arena-ai-max-spero-ai-detectors" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="arena-ai-max-spero-ai-detectors"></div>
+        <div class="episode-download"><a href="podcasts/arena-ai-max-spero-ai-detectors.mp3" download>Download arena-ai-max-spero-ai-detectors.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Arena AI</dd></div>
+        <div><dt>Published</dt><dd>October 14, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=04gWGIhJNMI" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Arena AI &middot; Arena Conversations &middot; Max Spero &middot; Pangram Labs &middot; AI detection</p>
+        <h2>Do AI Detectors Actually Work? Arena Conversations With Pangram CEO Max Spero</h2>
+        <div>
+<p>On Arena AI&#x27;s Arena Conversations, host Peter Gostev sits down with Max Spero, the CEO of Pangram Labs, for &quot;Do AI Detectors Actually Work? Arena Conversations With Pangram CEO Max Spero.&quot; Gostev opens with a confession: when detection startups appeared in 2023 he assumed they were all bogus, something a few word changes would defeat, and he now counts Pangram as the one survivor that genuinely works. Spero traces the founding to the arrival of GPT-4 that year, when machine text suddenly looked indistinguishable from human writing and nobody had yet built an intuition for spotting it.</p>
+<p>The break with the rest of the field, Spero argues, was methodological. The research consensus at the time relied on perplexity, the idea that text which surprises a language model is probably human. Pangram discarded that approach and went, in his words, the bitter-lesson route: full deep learning over millions of labeled examples. The foundation is data hygiene. The human side of the training set comes from before ChatGPT existed, so it can be treated as genuinely human, and for every human document the team builds what it calls a synthetic mirror, asking a frontier model to produce a piece on the same topic, in the same style and at the same length. The pair teaches the model to separate origin from subject matter. Architecturally, Pangram is an open-source language model whose next-token prediction head has been replaced with classifier heads, one judging human versus AI and others handling auxiliary sub-tasks.</p>
+<p>One byproduct surprised even the team. Probing the model&#x27;s later layers, they found those layers separate the output of different model families, and a small probe trained on the embeddings can name the family behind a piece of text, GPT versus Gemini versus Claude, with about ninety percent top-one accuracy, a task the detector was never trained on. Size is the blind spot: distilled smaller models mimic their larger siblings so closely that the probe cannot reliably tell a Pro tier from a Flash tier. The OpenAI models look the most internally diverse, with the o-series forming its own branch. What Pangram sees in the wild is skewed by its user base, many of them teachers checking student work against free models, so around seventy percent of detected AI text traces to OpenAI, while Gemini barely registers anymore.</p>
+<p>The obvious worry is drift: when a new model changes its writing style, does detection break? Spero points to a test the team ran on the day Opus 5.5 launched, September 23, running a thousand prompts drawn from Chatbot Arena data through the new model and scoring 997 of 1,000 correctly. His explanation is that Pangram is not a tell detector. A human reader may double-take at a phrase like &quot;load bearing,&quot; but the model aggregates hundreds of weak signals, slight preferences in word choice and sentence structure that individually mean nothing and together, across a few hundred words, become a confident call. Style changes shuffle the surface signals without removing the aggregate.</p>
+<p>Edited text gets its own category rather than a forced binary. Alongside human and AI, Pangram trains on AI-assisted documents, produced by having a frontier model revise human writing under prompts such as make it more detailed or make it clearer, with the size of the edit measured so the example lands somewhere in the middle. The distinction Spero cares about is between a person who feeds three bullet points to a chatbot and receives an article, and a person who writes a draft and lets the model polish it. Evasion tools get the same treatment. So-called humanizers, which paraphrase text to fool detectors, are folded into training as just another transformation, with a dedicated classifier head that flags humanized text, so the paraphrase itself becomes evidence.</p>
+<p>Images came second for a deliberate reason. Spero&#x27;s co-founder argued images carry far more information per example, but the AI images of 2023, with their extra fingers and garbled text, needed no machine to expose them, while AI text was already a live problem in classrooms. Now the image work mirrors the text playbook with a twist: because generating images is expensive, the team started from datasets of AI images and searched its real-photo collections for topic matches, filling gaps with its own generations. Mixed media is handled the way mixed text is, by synthetically compositing AI and real regions into patchwork images so the model learns to paint a heat map showing exactly which pixels are generated, lighting up an AI-made bodega sign inside an otherwise genuine photograph. Frequency analysis offers another lead, since image families such as Flux and Gemini leave distinct spectral signatures. Spero is candid that the image model still trails the text model, and that some images still fool it. Video frames and face-swap deepfakes are the next frontiers, along with the older narrow GAN faces.</p>
+<p>Much of the conversation is a training masterclass. Pangram&#x27;s models grew by iteration: start tiny, the first were DistilBERT-sized, add data until data stops helping, then scale the model, then repeat. Easy examples are the enemy, because a model fed too many of them saturates and stops learning, so the team mines deliberately for hard examples, a practice Spero likens to curriculum learning. Base model choice mattered far more than he expected. Pangram runs ablations measuring how well each candidate base learns from ten thousand or a hundred thousand examples, and favors data efficiency; it settled on a sparse model with ample capacity that stays cheap to run. Multilingual performance is a hard constraint, since a base that never saw a language cannot be trained to judge it, and some respected models disappointed badly, possibly because instruct tuning had leaked into supposedly raw base models. He suggests fine-tuneability itself deserves benchmarks nobody currently runs.</p>
+<p>Two operational habits stand out. When a major new model ships, Pangram trains a fresh detector from scratch on the enlarged dataset rather than patching the old one, because fine-tuning a fine-tune reliably degrades things; he would like hot-fix infrastructure but does not have it yet. And on the industry&#x27;s new general classifier models, the &quot;Jev&quot; line discussed in the episode, Spero is enthusiastic for cheap, simple judgments and blunt about the limits: asked whether a text is AI-generated, such a model is roughly a coin flip, because detection needs deep language understanding that a tiny model cannot hold. Pangram tested one for its social media bot&#x27;s triage, a job currently costing about three dollars a year with Claude Haiku, and found the savings irrelevant next to the extra errors. At a hundred thousand times the volume, he concedes, the calculus flips.</p>
+<p>The closing thread is what the embeddings reveal about the ecosystem. The same probe that names model families was pointed at messages from a swarm of OpenAI agents that had colonized a German forum as a message board, and about half were classified as OpenAI, most of the rest as other, sight unseen on that exact model. Spero half-jokes that he hopes rogue agent swarms do not become a recurring assignment, and notes the darker possibility that such agents might one day try to attack the classifier itself. He ends on hiring: Pangram is recruiting in NLP and computer vision, wants high-agency people who actually build things, and pitches the rarity of a company still training its own models from scratch. Gostev closes by saying the charts Pangram posts online hide how much serious research sits underneath them.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Pangram&#x27;s accuracy rests on aggregating weak statistical signals rather than any durable tell, so what happens to detection confidence as frontier models are trained ever harder to write like specific humans, and is there a text length below which Spero would admit the signals simply are not there?</li>
+<li>The team retrains from scratch for every major model release because fine-tuning a fine-tune degrades the detector. How long can that conservative cycle keep pace if frontier releases accelerate, and what breaks first, the training budget or the hard-example mining?</li>
+<li>The embedding probe identifies model families it was never trained to name and has already been used to attribute a rogue agent swarm. Who else gets to use that capability, and what stops the same fingerprinting from being turned on ordinary users&#x27; writing?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English caption track of the video (the en-US track, 790 caption lines, about 8,100 words, covering the full 49:17 runtime), fetched from the video&#x27;s own YouTube caption track via the iOS player endpoint in json3 format and cross-checked against the auto-generated ASR track. The host&#x27;s name, Peter Gostev, comes from the video&#x27;s own description; the guest is Max Spero, CEO of Pangram Labs. Product and model names mentioned in passing (including the &quot;Jev&quot; classifier discussed late in the episode) are rendered as the captions give them. Upload date October 14, 2026, and the exact published title were read from YouTube&#x27;s player endpoints.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#addy-osmani-agentic-verification" data-route="article">&larr; Prev</a>
+        <a class="to-index" href="2026-10-14.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -515,7 +563,8 @@
     (() => {
       const TITLES = {
       "mts-aaron-levie-agents-compute": "Why AI Agents Will Demand 1,000x More Compute | Aaron Levie",
-      "addy-osmani-agentic-verification": "Agentic Verification"
+      "addy-osmani-agentic-verification": "Agentic Verification",
+      "arena-ai-max-spero-ai-detectors": "Do AI Detectors Actually Work? Arena Conversations With Pangram CEO Max Spero"
       };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
