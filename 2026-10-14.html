@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Wednesday &middot; October 14, 2026</p>
-        <h1>4 summaries, distilled.</h1>
+        <h1>5 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -411,6 +411,7 @@
         <a class="card" href="#addy-osmani-agentic-verification"><span class="num">02</span><span><span class="card-title">Agentic Verification</span><span class="card-byline">Elevate &middot; Addy Osmani</span></span><span class="card-dur">6:24</span><span class="listen-state" data-slug="addy-osmani-agentic-verification"></span></a>
         <a class="card" href="#arena-ai-max-spero-ai-detectors"><span class="num">03</span><span><span class="card-title">Do AI Detectors Actually Work? Arena Conversations With Pangram CEO Max Spero</span><span class="card-byline">Arena AI &middot; Max Spero</span></span><span class="card-dur">5:56</span><span class="listen-state" data-slug="arena-ai-max-spero-ai-detectors"></span></a>
         <a class="card" href="#mts-alexander-amini-frontier-biology"><span class="num">04</span><span><span class="card-title">Why Frontier AI Models Fail at Biology | Alexander Amini</span><span class="card-byline">MTS &middot; Alexander Amini</span></span><span class="card-dur">4:00</span><span class="listen-state" data-slug="mts-alexander-amini-frontier-biology"></span></a>
+        <a class="card" href="#semianalysis-ep038-glm53-mythos"><span class="num">05</span><span><span class="card-title">Ep. 038 - Is GLM 5.3 a Mythos-Class Cyber Model From China? (InferenceX)</span><span class="card-byline">SemiAnalysis &middot; Kimbo Chen &middot; Wenyao Gao</span></span><span class="card-dur">6:50</span><span class="listen-state" data-slug="semianalysis-ep038-glm53-mythos"></span></a>
         </div>
       </nav>
     </section>
@@ -597,6 +598,52 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#arena-ai-max-spero-ai-detectors" data-route="article">&larr; Prev</a>
         <a class="to-index" href="2026-10-14.html" data-route="index">All summaries</a>
+        <a class="next" href="#semianalysis-ep038-glm53-mythos" data-route="article">Next &rarr;</a>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="semianalysis-ep038-glm53-mythos" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-14.html" data-route="index">&larr; October 14, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Ep. 038 - Is GLM 5.3 a Mythos-Class Cyber Model From China? (InferenceX) &mdash; October 14, 2026 <span class="dur">&middot; 6:50</span></p>
+        <audio controls preload="none" src="podcasts/semianalysis-ep038-glm53-mythos.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/semianalysis-ep038-glm53-mythos.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="semianalysis-ep038-glm53-mythos" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="semianalysis-ep038-glm53-mythos"></div>
+        <div class="episode-download"><a href="podcasts/semianalysis-ep038-glm53-mythos.mp3" download>Download semianalysis-ep038-glm53-mythos.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>SemiAnalysis</dd></div>
+        <div><dt>Published</dt><dd>October 14, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=5OwUwMSkO4Y" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">SemiAnalysis &middot; Kimbo Chen &middot; Wenyao Gao &middot; Z.ai &middot; GLM 5.3 and sparse attention</p>
+        <h2>Ep. 038 - Is GLM 5.3 a Mythos-Class Cyber Model From China? (InferenceX)</h2>
+        <div>
+<p>On SemiAnalysis, host Jordan Nanos sits down with Kimbo Chen and Wenyao Gao for &quot;Ep. 038 - Is GLM 5.3 a Mythos-Class Cyber Model From China? (InferenceX).&quot; The occasion is the pair&#x27;s recent SemiAnalysis article on how GLM 5.3&#x27;s sparse attention affects HBM and memory usage. The model, from the Chinese lab Z.ai, is about two months old, and the conversation ranges across its attention architecture, its InferenceX serving results on AMD and NVIDIA hardware, the post-training pipeline that produced it, its cybersecurity capabilities, and the possibility that Z.ai quietly tuned it for Chinese chips.</p>
+<p>Chen starts with the architecture. Sparse attention keeps the standard attention operation intact and instead changes which tokens get attended to: a selection mechanism picks the most relevant tokens at every step, no matter how long the context grows. GLM has used DeepSeek Sparse Attention since GLM-5, a design DeepSeek introduced in its V3.2 model and built on top of its multi-head latent attention, with a component called a lightning indexer doing the token selection. DeepSeek itself has kept moving, adding compressed sparse attention variants in its V4 series. The motivation is partly physics and partly circumstance: contexts now routinely run past a million tokens per session, dense attention cannot serve that economically, and Chinese labs working under hardware restrictions have extra reason to care. Done well, sparse attention drives the cost of serving tokens down sharply.</p>
+<p>The catch, and the article&#x27;s central point, is that sparse attention relieves memory bandwidth, not memory capacity. Because the model still has to select among tokens, it has to keep all of them: the full key-value cache has to live somewhere and be loaded into HBM when selected. That is where HiCache and its sparse-attention counterpart HiSparse come in. They offload the KV cache from HBM into host DRAM, a larger but slower tier, and pull back only the relevant pieces, which is what makes high concurrency at million-token contexts practical. On the team&#x27;s B200 charts, the share of host memory climbs steeply as concurrency rises, and the effect is stronger on chips with less memory per GPU. Serving GLM 5.3 well is therefore as much a memory-systems problem as a compute one.</p>
+<p>That systems work shows up in the InferenceX results the team tracks over time. NVIDIA hardware leads when a model first lands, but within weeks AMD&#x27;s MI355X had caught up at interactive speeds, matching the B200&#x27;s cost at 50 tokens per second per user, and for stretches the AMD curves overtook NVIDIA&#x27;s on throughput per dollar of total cost of ownership before NVIDIA responded. The lesson the guests draw is that the hardware ships fixed while the inference engines keep improving, so the cost per million tokens is a moving target set by software teams working, in AMD&#x27;s case, visibly hard to close the ecosystem gap. At the other end of the trade-off sits TileRT, a low-latency engine whose mega-kernel decode path reaches roughly 470 tokens per second at batch size one, at the price of being unable to serve large batches and costing significantly more per token. Whether that premium is worth paying depends entirely on the use case: a trading firm will pay it, a casual agent user will not even feel the difference. Underneath these choices is a consistent bet that bandwidth matters more than capacity, the same bet the guests see in NVIDIA&#x27;s Rubin Ultra de-spec, which cut per-GPU memory capacity back while holding bandwidth: capacity shortfalls can be managed with cache hierarchies and overlapped transfers, while bandwidth sets the speed limit in the low-latency regime.</p>
+<p>The second half of the episode turns to how GLM 5.3 got so capable, because the striking fact is what did not change. The architecture is the same as GLM 5.2&#x27;s; every gain came from post-training. The timeline became a small legend: back in June, asked when China would have a Mythos-class model, Elon Musk guessed the first quarter of next year, and Z.ai&#x27;s founder answered that it would not take that long. He was right within about a month. The guests are careful with the label: 5.3 is technically not Mythos-class, but it is close enough that Anthropic itself has described it as near Fable class, and its cybersecurity capability is, in Gao&#x27;s words, a night-and-day difference from 5.2, achieved entirely in post-training. Nanos adds a practitioner&#x27;s data point: he falls back on GLM 5.3 for frontier cybersecurity work because the closed American models refuse or derail his red-team requests even inside vendor programs, while GLM&#x27;s weights are open and downloadable by anyone.</p>
+<p>On the pipeline itself, Chen describes a GRPO-based recipe run in stages: first a synchronous version for stability, then a variant that tolerates policy staleness so the system can run more efficiently on the long sequences agentic workloads produce, where reward signals otherwise dilute. Two things stand out as genuinely distinctive. Z.ai has moved back toward PPO-style training with a critic model grading rollouts and being co-trained with the main model, a scheme called single-rollout asynchronous optimization that was already in 5.2, and the work runs on Slime, their post-training framework, which the open-source community regards as among the best designed of its kind. Gao calls the result a wake-up call for everyone else: agentic benchmark scores rose by more than ten percent from post-training alone, post-training is far more GPU-efficient than pretraining, and any company holding proprietary data can now plausibly post-train an open model past the closed frontier in its own niche, as Harvey has done on top of a Kimi model and Periodic Labs is doing for science. The ingredient nobody can see from outside is the human effort Z.ai says it poured into data for 5.2 and 5.3, and what kind of labeling work that actually was.</p>
+<p>The most speculative thread is hardware co-design. The GLM-5 paper states that from its first day the model was full-stack adapted to Chinese GPU ecosystems, with deep optimization from kernels to inference frameworks across seven domestic chip platforms, including Huawei Ascend, Moore Threads, Hygon, and MetaX. The claim gained credibility when GLM 5.3 Flash, which had circulated stealthily on OpenRouter under the name Ox Alpha, turned out to have been served entirely on Chinese hardware at a token volume that had seemed impossible for a lab presumed short on GPUs. Chen then offers his own evidence: he calculated the arithmetic intensity of GLM-5&#x27;s attention at roughly 120, a poor match for the sweet spot of NVIDIA&#x27;s GPUs but a rough fit for Moore Threads hardware. He is explicit that this proves nothing about Z.ai&#x27;s serving choices, and he invites the company to respond, but he calls it a sign of what is coming: a lab making software-level design decisions around hardware that is not NVIDIA&#x27;s. Layered on top is a compressing R&amp;D cycle, with kernel-writing agents now outperforming humans given the right harness and budget, turning model competition into a human-plus-AI contest.</p>
+<p>Looking ahead, the guests expect Z.ai to scale up the architecture of 5.3 Flash, which mixes DeepSeek Sparse Attention with Kimi&#x27;s delta attention in what Chen calls a Frankenstein model that nonetheless works very well, toward a GLM 5.4, while squeezing still more from post-training. The sign-off returns to the episode&#x27;s economic throughline, the Jevons paradox: efficiency gains like these do not shrink the memory business, they expand it, because cheaper tokens mean more users, more concurrency, and more demand for HBM and bandwidth over time. That, Nanos says, is why a release like this is no reason to sell memory stocks.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Sparse attention cuts bandwidth pressure but not capacity, and serving stacks answer with DRAM offloading and cache hierarchies. As contexts and concurrency keep growing, where does the bottleneck actually land next: host memory capacity, interconnect, or the latency tail that offloading creates?</li>
+<li>GLM 5.3&#x27;s leap came from post-training on an unchanged architecture, and the replicable parts of the recipe are documented while the human data effort behind it is not. How much of Z.ai&#x27;s edge is method that any well-run lab can copy, and how much is undisclosed data work that cannot be?</li>
+<li>If GLM&#x27;s architecture really is co-designed around Chinese accelerators rather than NVIDIA&#x27;s, how should benchmark results and InferenceX-style cost comparisons be read as the two hardware ecosystems diverge, and does the model give up performance on NVIDIA hardware in the bargain?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full auto-generated English caption track of the video (1,047 caption events, about 7,100 words, covering the full 44:12 runtime), fetched from the video&#x27;s own YouTube caption track via the iOS player endpoint in json3 format and cross-checked against the Android and WEB player endpoints, which serve the identical title. Auto-captions garble names and technical terms throughout (Wenyao appears as &quot;Wyao,&quot; Rubin as &quot;Reuben,&quot; Hygon and Moore Threads are mangled, and TileRT is rendered several ways); speaker spellings follow the video&#x27;s own description, which names Kimbo Chen and Wenyao Gao as joining host Jordan Nanos. One honesty note: a YouTube search listing for this video showed a different title, &quot;Ep. 038 - GLM 5.3 on AMD, NVIDIA, and Chinese Chips From Day One (InferenceX),&quot; while all three player endpoints serve the title used here, which also matches the truncated title in the commissioning screenshot.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#mts-alexander-amini-frontier-biology" data-route="article">&larr; Prev</a>
+        <a class="to-index" href="2026-10-14.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -612,7 +659,8 @@
       "mts-aaron-levie-agents-compute": "Why AI Agents Will Demand 1,000x More Compute | Aaron Levie",
       "addy-osmani-agentic-verification": "Agentic Verification",
       "arena-ai-max-spero-ai-detectors": "Do AI Detectors Actually Work? Arena Conversations With Pangram CEO Max Spero",
-      "mts-alexander-amini-frontier-biology": "Why Frontier AI Models Fail at Biology | Alexander Amini"
+      "mts-alexander-amini-frontier-biology": "Why Frontier AI Models Fail at Biology | Alexander Amini",
+      "semianalysis-ep038-glm53-mythos": "Ep. 038 - Is GLM 5.3 a Mythos-Class Cyber Model From China? (InferenceX)"
       };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
