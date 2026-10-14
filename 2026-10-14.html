@@ -401,13 +401,14 @@
     <header class="masthead">
       <div>
         <p class="date">Wednesday &middot; October 14, 2026</p>
-        <h1>1 summary, distilled.</h1>
+        <h1>2 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
       <nav aria-label="Summaries">
         <div class="cards">
         <a class="card" href="#mts-aaron-levie-agents-compute"><span class="num">01</span><span><span class="card-title">Why AI Agents Will Demand 1,000x More Compute | Aaron Levie</span><span class="card-byline">MTS &middot; Aaron Levie</span></span><span class="card-dur">6:00</span><span class="listen-state" data-slug="mts-aaron-levie-agents-compute"></span></a>
+        <a class="card" href="#addy-osmani-agentic-verification"><span class="num">02</span><span><span class="card-title">Agentic Verification</span><span class="card-byline">Elevate &middot; Addy Osmani</span></span><span class="card-dur">6:24</span><span class="listen-state" data-slug="addy-osmani-agentic-verification"></span></a>
         </div>
       </nav>
     </section>
@@ -453,6 +454,54 @@
       <nav class="article-nav" aria-label="More summaries">
         <span class="spacer"></span>
         <a class="to-index" href="2026-10-14.html" data-route="index">All summaries</a>
+        <a class="next" href="#addy-osmani-agentic-verification" data-route="article">Next &rarr;</a>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="addy-osmani-agentic-verification" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-14.html" data-route="index">&larr; October 14, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Agentic Verification &mdash; October 14, 2026 <span class="dur">&middot; 6:24</span></p>
+        <audio controls preload="none" src="podcasts/addy-osmani-agentic-verification.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/addy-osmani-agentic-verification.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="addy-osmani-agentic-verification" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="addy-osmani-agentic-verification"></div>
+        <div class="episode-download"><a href="podcasts/addy-osmani-agentic-verification.mp3" download>Download addy-osmani-agentic-verification.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Elevate</dd></div>
+        <div><dt>Author</dt><dd>Addy Osmani</dd></div>
+        <div><dt>Published</dt><dd>October 14, 2026</dd></div>
+        <a class="watch" href="https://addyo.substack.com/p/agentic-verification" target="_blank" rel="noopener noreferrer">Read the piece</a>
+      </dl>
+      <article>
+        <p class="topic">Elevate &middot; Addy Osmani &middot; Agent self-verification and software testing</p>
+        <h2>Agentic Verification</h2>
+        <div>
+<p>In Elevate, his Substack newsletter, Addy Osmani publishes &quot;Agentic Verification,&quot; an essay arguing that the bottleneck in software development has moved. Models are now good enough that writing code is no longer the hard part. Knowing the code is correct is. His central claim is that the quality of an agent&#x27;s output depends less on the model than on whether the agent has a way to check its own work, and that giving it one changes the whole shape of the job.</p>
+<p>The reasoning starts with cost. The things that used to make good code expensive, tests, benchmarks, specifications, real end-to-end runs, are now cheap to request from an agent, and the checks themselves can be improved on demand. So the human&#x27;s work shifts away from reading every line and toward building loops the agent can run on its own. When the agent gets something wrong, the fix is to write the lesson down somewhere durable, in a shared config, a hook, or a test, so the same mistake does not happen twice. Taste, in his phrase, should compound. A human still owns what ships, but increasingly reviews evidence rather than diffs.</p>
+<p>The alternative is an agent that cannot verify anything, which Osmani describes as essentially guessing. A wrong guess then gets caught by the human instead, who reads the diff, runs the tests, opens the app, finds the bug, and reports it back. That is the slowest and most expensive feedback loop available, and it does not scale past one reviewer. An agent that can test its own output works differently: it writes a change, runs the check, reads the result, and tries again, all before a person sees anything. He is blunt about the trade-off, saying he would take a much better feedback loop over a slightly better model every time.</p>
+<p>This reframes what tests are for. For years they were mainly a human tool, a way to catch bugs and refactor with confidence. They still serve that purpose, but for an agent they are also senses: the means by which it perceives the state of the system and knows when a task is finished. Not every test is equally good at that job, and much of the essay is a tour of the ones he thinks are worth investing in.</p>
+<p>First come end-to-end tests, the kind he would choose if only one kind were allowed. An end-to-end test replays what a real user does, signing up, adding an item to a cart, checking out, seeing a confirmation, and it cares only about what the user can observe, not about the code&#x27;s internal structure. That makes it very hard to fool. A unit test built on mocks can pass while the feature is actually broken, because the agent and the test can share the same misunderstanding. An end-to-end test either works or it does not. It also reports failure usefully, through screenshots, traces, and the identity of the step that broke, and it gives the agent a precise definition of done: making a named test pass is a target it can pursue alone in a way that &quot;implement this feature&quot; is not. The costs are real, since these tests are slower and flakier than unit tests, so his advice is a small set of high-value ones rather than a sprawling suite. He also passes along a point from Lauren, known as poteto: beyond tests, it is worth giving the agent hands and eyes on the running system, a maintained tool that can launch, drive, and observe the app, plus a feature map, an inventory written from the user&#x27;s point of view of what the product does, how each feature is reached, and where the traps are.</p>
+<p>Next are property-based tests, which invert the usual premise. Example tests state what should happen for inputs a human thought of. Properties state what must never happen, and a tool then generates hundreds or thousands of inputs trying to break the rule, shrinking any failure down to the smallest case that reproduces it. He names fast-check for JavaScript and TypeScript, Hypothesis for Python, and proptest for Rust, and lists properties that apply almost anywhere: encoding and then decoding returns the original value, sorting never changes a collection&#x27;s contents, a balance never goes negative, running a migration twice has the same effect as running it once, and an optimized function agrees with the simple correct one. The reason this matters specifically for agents is that an agent will happily invent its own test examples, and those examples tend to confirm its own logic. A property denies it that choice. Properties also double as specifications: the rule that a cart&#x27;s total always equals the sum of its line items is something an agent can build against directly. His starting advice is modest: begin with a small, mostly pure function, write the property in plain English before writing it in code, save minimized failures as regression tests, and ask the agent for properties rather than examples when writing new code. He notes that Boris Cherny of Claude Code goes further on the hardest pieces, using formal models such as Lean and TLA+ on state machines, concurrency, and data flow, where short prompts can surface race conditions by building a model and hunting for counterexamples.</p>
+<p>The third technique is differential testing, aimed at rewrites and migrations. Its premise is that the old system is the oracle. Instead of trusting a new test suite, you run old and new side by side on the same inputs, ideally randomly generated ones or a replayed sample of live traffic, and treat every mismatch as either a bug in the new system or a deliberate change that belongs on a list of approved differences, each with a reason. This guards against the classic rewrite failure, where the new system passes its own suite while quietly diverging from the old one&#x27;s actual behavior in dozens of small ways that users had come to depend on. Housekeeping matters: differences that carry no meaning, such as ordering, have to be normalized away before comparing, or the loop drowns in false alarms. The payoff is confidence to delete the old system, which he argues is the real goal, since running both is twice the understanding work and two ways for the migration to break. Because the old system answers the edge cases, the agent can loop through mismatches methodically instead of needing each one explained.</p>
+<p>Underpinning all three is a demand that the loop be fast and deterministic, and his argument here is about incentives rather than convenience. A slow or unstable suite teaches the agent the wrong lesson. People tolerate flaky infrastructure because they know which tests misbehave and are willing to rerun a build and wait. An agent learns from the loop&#x27;s rewards: if retrying a failed test sometimes makes it pass, retrying becomes its strategy, and if a full run takes fifteen minutes, it will test less often, batch more changes between runs, and lose the ability to tell which change caused a failure. Both failure modes quietly degrade output quality with no obvious signal. So his picture of good is strict: a core suite fast enough to run on every cycle, ideally subsecond, with a command the agent can find easily; identical results on every run through seeded randomness, frozen clocks, controlled networking, and isolated state; flaky tests quarantined and deleted at once, because one flaky test in the main suite is worse than none, since it corrodes trust in every other result; short, specific failure output rather than long logs; and a quick inner loop with the heavy end-to-end and differential tests run before changes are integrated. Test infrastructure, in this view, is a component the agent depends on, and improving it compounds across every task. He adds a few working habits in the same spirit: have the agent restate the success criteria before it codes, use fresh-context or separate reviewer agents for verification, and scrutinize generated tests themselves, asking whether a test could actually tell a correct implementation apart from a plausible wrong one.</p>
+<p>The essay closes where it began: write the check before the code. Before asking an agent to build something, decide what success looks like, an end-to-end flow, a property, or a comparison against a prior system, and make sure that check is fast and deterministic enough to iterate against. The human&#x27;s judgment does not disappear in this arrangement. It moves to the place where it scales, defining what done means, instead of being spent reading every line the agent produces.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Osmani wants the agent to write and run its own checks, but also warns that a generated test can share the agent&#x27;s own misunderstanding. How much scrutiny do the checks themselves need, and who or what verifies the verifiers before the loop can be trusted end to end?</li>
+<li>Differential testing leans on the old system as the oracle, which works for rewrites and migrations. For a brand-new system with no predecessor, what plays that oracle role with anything like the same authority?</li>
+<li>If engineers stop reading diffs and review evidence instead, what happens to their own mental models of the systems they ship, and who is accountable when a thoroughly self-verified change still breaks in production?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary and episode are grounded in the full text of Addy Osmani&#x27;s essay &quot;Agentic Verification,&quot; published in his Substack newsletter Elevate on October 14, 2026, and fetched in full from the publication&#x27;s own post endpoint (the piece is free to read, not paywalled; about 2,300 words). The subtitle, &quot;The bottleneck has moved from writing code to knowing it&#x27;s correct,&quot; and all section structure, tools named, and claims are as published there. Nothing here rests on the screenshot that commissioned it beyond identifying which post to fetch.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#mts-aaron-levie-agents-compute" data-route="article">&larr; Prev</a>
+        <a class="to-index" href="2026-10-14.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -465,7 +514,8 @@
   <script>
     (() => {
       const TITLES = {
-      "mts-aaron-levie-agents-compute": "Why AI Agents Will Demand 1,000x More Compute | Aaron Levie"
+      "mts-aaron-levie-agents-compute": "Why AI Agents Will Demand 1,000x More Compute | Aaron Levie",
+      "addy-osmani-agentic-verification": "Agentic Verification"
       };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
