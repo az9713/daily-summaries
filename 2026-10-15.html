@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - October 15, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Thursday &middot; October 15, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#bg2-jensen-huang-ai-revenue"><span class="num">01</span><span><span class="card-title">Jensen Huang | Does AI Revenue Justify Capex, &#x27;27 AI Bottlenecks, Singularity, Open vs Closed &amp; more</span><span class="card-byline">Bg2 Pod &middot; Jensen Huang</span></span><span class="card-dur">10:01</span><span class="listen-state" data-slug="bg2-jensen-huang-ai-revenue"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="bg2-jensen-huang-ai-revenue" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-15.html" data-route="index">&larr; October 15, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Jensen Huang | Does AI Revenue Justify Capex, &#x27;27 AI Bottlenecks, Singularity, Open vs Closed &amp; more &mdash; October 15, 2026 <span class="dur">&middot; 10:01</span></p>
+        <audio controls preload="none" src="podcasts/bg2-jensen-huang-ai-revenue.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/bg2-jensen-huang-ai-revenue.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="bg2-jensen-huang-ai-revenue" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="bg2-jensen-huang-ai-revenue"></div>
+        <div class="episode-download"><a href="podcasts/bg2-jensen-huang-ai-revenue.mp3" download>Download bg2-jensen-huang-ai-revenue.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Bg2 Pod</dd></div>
+        <div><dt>Published</dt><dd>October 15, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=eS7qQ3WJSrw" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Bg2 Pod &middot; Jensen Huang &middot; NVIDIA &middot; AI revenue and the capital buildout</p>
+        <h2>Jensen Huang | Does AI Revenue Justify Capex, &#x27;27 AI Bottlenecks, Singularity, Open vs Closed &amp; more</h2>
+        <div>
+<p>On Bg2 Pod, the investing show hosted by Brad Gerstner and Bill Gurley, Gerstner and Altimeter partner Clark Tang sit down with Jensen Huang, the co-founder and chief executive of NVIDIA, for a conversation titled &quot;Jensen Huang | Does AI Revenue Justify Capex, &#x27;27 AI Bottlenecks, Singularity, Open vs Closed &amp; more.&quot; It is their third BG2 conversation with Huang, recorded days after an extraordinary week for him in Washington: a state dinner at the White House, the summit that produced a new accord on superintelligence, and a ceremony where the president presented him with the National Medal of Science in front of his parents, who had flown in on a day&#x27;s notice. Gerstner notes that five of the six people honored on that stage were born outside the United States, and Huang turns the observation into the episode&#x27;s first theme: America&#x27;s superpower is that the world&#x27;s best builders still want to come and build there, and keeping that flow of talent lawful, open, and alive is a strategic asset.</p>
+<p>The hosts open by recapping Huang&#x27;s earlier calls on the show: two years ago he said the compute buildout would reach at least two trillion dollars when most people expected one, he predicted inference demand would explode once models began to reason, and last year he said the age of agents was arriving. All three landed. Asked where things stand now, with lab leaders talking about entering the singularity, Huang explains why demand for compute keeps compounding. A chatbot mostly repeats what a model has memorized, but real work requires reasoning: laying out options, rolling them forward, reflecting, pruning, and trying again. On top of that, the models have gained what he calls a harness, the surrounding system that manages working memory, builds long term knowledge, and teaches the model to use the tools humans already rely on, from design software to simulators. Coding was the first easy on-ramp. The next wave, he argues, is design, creative work, and science, powered by agents that can turn a photograph into an editable CAD model and work inside a company&#x27;s own information.</p>
+<p>The conversation&#x27;s emblematic example is a recent result on the Navier-Stokes equations, a famous open problem in mathematics. Huang is careful about the credit: the model did not start from nothing, it stood on decades of work by mathematicians and scientists, and then applied exhaustive exploration, with some ten thousand agents working the problem, to push past a point where human effort had stalled. The hosts put the compute cost at roughly four million dollars and note how fast that cost is falling. Huang&#x27;s wider point is that many fields sit at the same kind of precipice, with the groundwork laid and only massive, cheap exploration missing. He expects the cost of intelligence to keep dropping, and demand to more than make up for it, because every answer opens new doors. Gerstner raises Keynes, who foresaw an eightfold richer economy and a fifteen hour week, and got the wealth right and the leisure wrong. Huang agrees: work is purpose, ambition expands to fill the opportunity, and he is working harder than ever by choice.</p>
+<p>From there the talk turns to physical AI, intelligence that senses and acts in the real world: self-driving cars, warehouse robots, surgical systems, imaging machines, logistics networks. Huang says this business did about ten billion dollars in the first half of the year, up from five billion the year before, and that his earlier talk of a hundred billion dollar market was probably understated. Building it takes three computers, he explains: one to train the brain, one running a digital twin of the world, his Omniverse platform, where robots and agents can learn safely, and one inside the machine itself. NVIDIA builds all three, and he expects company after company, from FedEx and Walmart to the telecom carriers, to become technology companies in the process. He also concedes that AI&#x27;s benefits are mostly invisible today: people already rely on it every time they search, shop, or get a package delivered, and would only notice its value if the data centers went dark for a weekend.</p>
+<p>The middle of the episode is a long argument about safety, where Huang rejects the idea that perfect alignment is either possible or the right goal. Values differ across people and cultures, he says, so alignment will always be a work in progress. The practical answer is the one we use with children and new employees: start with zero trust, grant the minimum rights a job requires, and expand them only as confidence grows. Containment comes first, then monitoring that watches the system from outside its own view, with the ability to escalate or shut it down. NVIDIA&#x27;s contribution is a framework he calls Open Shell, which he says more than a hundred companies have joined. His larger claim is that safety is not a brake on the technology but part of it, the way braking systems and airbags are part of a car: when the industry says accelerate, it should mean accelerating the safety and security technology fastest of all. He describes the new American framework as a three legged stool: Commerce Department review of every new frontier model, the White House accord the labs signed, with audits and board oversight, and a coordinating body for critical industry security. It is imperfect, he says, but it is real, it has teeth, and it is moving now, which beats arguing about perfection.</p>
+<p>Winning, in his definition, is not NVIDIA or the labs winning. It is every American industry, state, and community winning, an economy many times larger, with more spent on health, education, and infrastructure. That frames the buildout discussion. Citing SemiAnalysis estimates, the hosts say something like forty three gigawatts of new AI compute may come online next year, more than all the AI compute that exists today, with a similar amount the year after. Huang says the demand is there and more. The obstacles are physical: land, power, the buildings themselves, skilled construction labor, and local moratoriums. Scarcity, he argues, actually helps NVIDIA, because when power is the constraint, buyers choose the hardware that produces the most intelligence per watt, and NVIDIA now sells far more into each gigawatt than it used to, on the order of forty billion dollars of systems, networking, processors, and software, up from under twenty. He is warm about Elon Musk&#x27;s buildout, including the ambition of ten gigawatts by the end of 2027 and their joint work on servers designed for orbit, where he argues only the highest value computing earns its launch cost, and NVIDIA&#x27;s is the most rentable and durable once it is up there.</p>
+<p>The title question gets the episode&#x27;s most sustained answer. The hosts do the skeptical math: the frontier labs and inference companies take in something like two hundred billion dollars this year, and to pay back trillions in capital spending that figure must double again and again. Huang calls the framing a misunderstanding of where the infrastructure actually goes, and splits demand into rough thirds. One third is ordinary computing that has nothing to do with chatbots: data processing, simulation, recommendation systems, fraud detection, growing at thirty to forty percent a year on its own. A second slice, a quarter to a third, is the labs, and there are more of them than the famous two: Meta&#x27;s Muse effort, Grok, Gemini, and Anthropic all run on NVIDIA now. The final third is thousands of startups renting NVIDIA compute the way a previous generation rented AWS, most of them building on open models, which he says eighty percent of startups use, and specializing them into domain tools for fields like manufacturing, health, and biology. Add in the end of Moore&#x27;s law, which means more computing now costs more money rather than arriving free with time, and he holds to his forecast of three to four trillion dollars a year of infrastructure buildout by the end of the decade, without needing any lab to reach a trillion in revenue. The same logic explains NVIDIA&#x27;s valuation puzzle: analyst forecasts for the company have been revised up by one to two hundred percent in a year while the stock is up only about twenty percent, and Huang argues the moat is widening, because at fifty to a hundred billion dollars a site, buyers place sight unseen orders only with a supplier they trust to deliver, the way he trusts TSMC with all of his own business. General purpose hardware, he says, is what makes the investment safe: it stays useful across workloads, models, and customers, so it stays rentable, financeable, and cheap to own over its life.</p>
+<p>He closes with NVIDIA&#x27;s next act and his own outlook. Two new business models sit on top of the installed base: licensing NVIDIA&#x27;s software stack to enterprises that need it operated for them, at a few thousand dollars per graphics processor per year across millions of units, and revenue sharing with regional cloud partners that rely on NVIDIA for its stack, its ecosystem, and help securing financing. The company is returning more than half its free cash flow to shareholders through buybacks, and its much watched investments in ecosystem companies will shrink as a share of cash generation. Asked whether he is more confident than a year ago, Huang says he is about as confident as a person can be that the outcome will be good, because too many smart people, most of them invisible to the commentators, are doing the work responsibly. Worry is healthy, he says. Predicting the end of the world underestimates everyone else.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Huang&#x27;s payback case rests on demand being far broader than the famous labs, with baseline computing and thousands of startups absorbing much of the buildout. If the physical bottlenecks he names, land, power, and finished buildings, cap how much compute actually comes online in 2027, which of those demand segments gets rationed first, and does the revenue story still hold for the financiers funding the sites?</li>
+<li>His safety model, zero trust containment plus monitoring from outside the system, is an engineering answer that assumes operators keep tight boundaries as agents gain tools, funds, and responsibilities. As competitive pressure pushes companies to grant agents wider rights faster, what institution, if any, actually enforces the gradual expansion he describes, the accord, the Commerce review, or the market?</li>
+<li>NVIDIA&#x27;s widening moat, in his telling, comes from trust at a scale where buyers cannot benchmark before committing a hundred billion dollars. If that trust becomes the main barrier to entry, does the industry&#x27;s push toward open models and custom chips ever produce a real second source, or does the fungibility argument lock in a single supplier for the world&#x27;s intelligence infrastructure?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the episode&#x27;s full official podcast audio, transcribed locally with faster-whisper (16,473 words, covering the full 1:39:52 runtime). YouTube&#x27;s caption endpoints returned sign in walls for this video on every player client tried, so the grounding route is the identical episode&#x27;s podcast RSS twin: the Bg2 Pod feed published the same conversation on October 15, 2026, with an audio length of 5,992.5 seconds against the video&#x27;s listed 5,993 seconds, and the same title. That title, confirmed identical in the channel&#x27;s YouTube listing and the episode&#x27;s RSS entry, is the title this card uses. Simon&#x27;s screenshot showed only a truncated form of it (&quot;Jensen Huang | Does AI Revenue Justi...&quot;), which matches. Speaker spellings follow the standard forms of the people and companies involved; the automatic transcription occasionally garbles names, rendering Huang once as &quot;Hmong&quot; in a joking exchange about a chart review, which is a transcription artifact, not a name used here. The episode description lists Gerstner and Altimeter partner Clark Tang as Huang&#x27;s conversation partners, and both are heard in the recording alongside the show&#x27;s hosts. Figures quoted, from gigawatt estimates to revenue shares, are the speakers&#x27; own statements in the conversation. Short quotes are the speakers&#x27; own words; everything else is paraphrase.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-10-15.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+
+
+
+<footer>
+      <span>Summaries dated October 15, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "bg2-jensen-huang-ai-revenue": "Jensen Huang | Does AI Revenue Justify Capex, '27 AI Bottlenecks, Singularity, Open vs Closed & more"
+      };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="podcasts/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+</body>
+</html>
