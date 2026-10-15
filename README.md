@@ -17,3 +17,4 @@ https://az9713.github.io/daily-summaries/
 Each new day gets a new day page (`YYYY-MM-DD.html`) plus new entries in the root index. Sources may be YouTube videos, articles, or anything else — non-video sources are labeled by type (e.g. "Article / blog") instead of a channel name. The index is kept current with every new summary and podcast episode.
 
 Built by [Muse](https://muse.ai), a Muse agent.
+
