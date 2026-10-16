@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Friday &middot; October 16, 2026</p>
-        <h1>9 summaries, distilled.</h1>
+        <h1>10 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -416,6 +416,7 @@
         <a class="card" href="#a16z-this-week-in-charts-agents-denied"><span class="num">07</span><span><span class="card-title">This Week in Charts: Agents Denied</span><span class="card-byline">a16z &middot; Moses Sternstein</span></span><span class="card-dur">4:46</span><span class="listen-state" data-slug="a16z-this-week-in-charts-agents-denied"></span></a>
         <a class="card" href="#sourcery-guillermo-rauch-building-internet-agents"><span class="num">08</span><span><span class="card-title">Vercel CEO Guillermo Rauch on Building the Internet for Agents</span><span class="card-byline">Sourcery with Molly O'Shea &middot; Guillermo Rauch</span></span><span class="card-dur">8:10</span><span class="listen-state" data-slug="sourcery-guillermo-rauch-building-internet-agents"></span></a>
         <a class="card" href="#3blue1brown-never-been-a-better-time-to-go-into-math"><span class="num">09</span><span><span class="card-title">There&#x27;s never been a better time to go into math</span><span class="card-byline">3Blue1Brown &middot; Grant Sanderson</span></span><span class="card-dur">6:44</span><span class="listen-state" data-slug="3blue1brown-never-been-a-better-time-to-go-into-math"></span></a>
+        <a class="card" href="#techtechpotato-fastest-arm-cpu-ibm-mainframe"><span class="num">10</span><span><span class="card-title">The Fastest Arm CPU Is... An IBM Mainframe?</span><span class="card-byline">TechTechPotato &middot; Dr. Ian Cutress</span></span><span class="card-dur">3:53</span><span class="listen-state" data-slug="techtechpotato-fastest-arm-cpu-ibm-mainframe"></span></a>
         </div>
       </nav>
     </section>
@@ -821,6 +822,50 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#sourcery-guillermo-rauch-building-internet-agents" data-route="article">&larr; Sourcery with Molly O'Shea &middot; Vercel CEO Guillermo Rauch on Building the Internet for Agents</a>
         <a class="to-index" href="2026-10-16.html" data-route="index">All summaries</a>
+        <a class="next" href="#techtechpotato-fastest-arm-cpu-ibm-mainframe" data-route="article">TechTechPotato &middot; The Fastest Arm CPU Is... An IBM Mainframe? &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="techtechpotato-fastest-arm-cpu-ibm-mainframe" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-16.html" data-route="index">&larr; October 16, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">The Fastest Arm CPU Is... An IBM Mainframe? &mdash; October 16, 2026 <span class="dur">&middot; 3:53</span></p>
+        <audio controls preload="none" src="podcasts/techtechpotato-fastest-arm-cpu-ibm-mainframe.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/techtechpotato-fastest-arm-cpu-ibm-mainframe.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="techtechpotato-fastest-arm-cpu-ibm-mainframe" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="techtechpotato-fastest-arm-cpu-ibm-mainframe"></div>
+        <div class="episode-download"><a href="podcasts/techtechpotato-fastest-arm-cpu-ibm-mainframe.mp3" download>Download techtechpotato-fastest-arm-cpu-ibm-mainframe.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>TechTechPotato</dd></div>
+        <div><dt>Published</dt><dd>October 16, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=0oNqfLl6YPE" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">TechTechPotato &middot; Dr. Ian Cutress &middot; IBM's dual-ISA Z processor</p>
+        <h2>The Fastest Arm CPU Is... An IBM Mainframe?</h2>
+        <div>
+<p>On TechTechPotato, Dr. Ian Cutress walks through the slide deck from the opening talk of Hot Chips 2026, where IBM unveiled its next-generation Z processor. The headline twist is that this mainframe chip does not only run IBM&#x27;s own z/Architecture. Each core also executes Arm instructions natively, and because the chip runs above 5.7 GHz, Cutress argues that makes it, by clock speed, the fastest Arm processor ever built.</p>
+<p>The core is what he calls a dual-ISA design. A single core can run z programs or Armv9.3 programs, switching between them with a small context switch on a per-thread basis. This is native execution on the same silicon, not emulation and not separate Arm cores parked next to Z cores.</p>
+<p>His explanation for why IBM bothered starts with what Z already does well. The platform is built for transaction processing and extreme reliability, the famous eight nines of uptime, and customers tend to keep systems for several generations and consolidate many servers onto fewer machines. Adding native Arm opens that installed base to the enormous Arm software ecosystem, including ordinary Arm64 Linux, without giving up the mainframe&#x27;s resilience features.</p>
+<p>The chip itself is a monolithic die rather than a chiplet design, built on Samsung&#x27;s 2-nanometer process, with 11 cores. Each core&#x27;s L2 cache grows from 32 MB to 36 MB, and IBM&#x27;s virtual cache scheme lets those L2 caches stand in as L3 for other cores and even as L4 for other chips. The die shot shows twelve L2 segments for eleven cores, and Cutress says the extra one serves the on-chip DPU, a smart-NIC-style block that takes over PCIe and I/O management so the compute cores do not have to.</p>
+<p>Making one core speak both instruction sets took real redesign. Z is big-endian and Arm is little-endian, so the core has to handle both byte orders depending on its mode. Arm also brings a much larger instruction set and its own system registers into the decoder, plus different register renaming, memory ordering, branch prediction, and half-precision floating point behavior. In return, the Arm side gets access to the platform&#x27;s traditional strengths: the cryptography and compression engines, the AI accelerator, and the redundant memory system designed so a memory failure does not lose data. Arm workloads are delivered through IBM&#x27;s logical partition machinery, in a virtual platform that can host either s390x Linux or Arm64 Linux, and the Arm side is Arm SystemReady compliant, so standard Linux distributions are the target.</p>
+<p>There is also a second-generation PCIe AI accelerator card alongside the on-chip one. Cutress describes 16 AI cores plus a redundant spare, support for 4-bit formats such as FP4, roughly four times the previous performance, 96 GB of HBM3E memory with about twenty times the prior bandwidth, and a PCIe Gen 6 interface. Where the earlier card suited convolutional networks, this one is aimed at transformer workloads.</p>
+<p>Plenty is still undisclosed. IBM has not named the chip, though Cutress says he will keep calling it Telum 3 until they do. The packaging, whether single-chip or dual-chip modules and how they fill a rack, and the details of the OMI memory interface are all promised for later disclosures. His expectation is more information in the first half of 2027, with products late in 2027 or early in 2028.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Will enterprise customers actually move Arm workloads onto a mainframe, or does native Arm on Z stay a consolidation convenience for existing Z shops rather than a reason for anyone new to buy in?</li>
+<li>How much performance does the dual-ISA core give up, if any, to carry two decoders, two byte orders, and two memory models, and will IBM publish numbers that let anyone compare its Arm mode against a purpose-built Arm server chip?</li>
+<li>With the chip unnamed and its packaging and memory interface undisclosed until 2027, how much of this design can still change before it ships as a product in late 2027 or early 2028?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English automatic caption track of the video, fetched via the Android player client (srv3 format, 355 caption lines, about 2,300 words, spanning the full 13:41 runtime) and saved verbatim as transcript.txt in the build record. The video carries no uploader-provided caption track in any language, so the automatic track is the grounding source; figures quoted in it, such as the accelerator&#x27;s TOPS rating, are Cutress&#x27;s own recollections from the presentation and are hedged the same way here. The chip&#x27;s name is likewise unofficial: IBM has not named it, and &quot;Telum 3&quot; is Cutress&#x27;s placeholder. The player-served title is used verbatim above; search listings showed the same title. Summary written in my own words; the video&#x27;s narration was not reproduced.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#3blue1brown-never-been-a-better-time-to-go-into-math" data-route="article">&larr; 3Blue1Brown &middot; There's never been a better time to go into math</a>
+        <a class="to-index" href="2026-10-16.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -840,7 +885,8 @@
       "big-think-blaise-aguera-y-arcas-mitochondrial-event": "The industrial revolution as humanity’s mitochondrial event | Blaise Aguera y Arcas",
       "a16z-this-week-in-charts-agents-denied": "This Week in Charts: Agents Denied",
       "sourcery-guillermo-rauch-building-internet-agents": "Vercel CEO Guillermo Rauch on Building the Internet for Agents",
-      "3blue1brown-never-been-a-better-time-to-go-into-math": "There's never been a better time to go into math"
+      "3blue1brown-never-been-a-better-time-to-go-into-math": "There's never been a better time to go into math",
+      "techtechpotato-fastest-arm-cpu-ibm-mainframe": "The Fastest Arm CPU Is... An IBM Mainframe?"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
