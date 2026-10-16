@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Friday &middot; October 16, 2026</p>
-        <h1>2 summaries, distilled.</h1>
+        <h1>3 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -409,6 +409,7 @@
         <div class="cards">
         <a class="card" href="#will-tesla-roadster-flying-sports-car-unveil"><span class="num">01</span><span><span class="card-title">Tesla Roadster Flying Sports Car Unveil</span><span class="card-byline">Will &middot; Elon Musk</span></span><span class="card-dur">3:43</span><span class="listen-state" data-slug="will-tesla-roadster-flying-sports-car-unveil"></span></a>
         <a class="card" href="#dialectic-patrick-hsu-biology-future"><span class="num">02</span><span><span class="card-title">Will AI Make Scientists Obsolete? | Arc Institute’s Patrick Hsu</span><span class="card-byline">Dialectic &middot; Patrick Hsu</span></span><span class="card-dur">9:22</span><span class="listen-state" data-slug="dialectic-patrick-hsu-biology-future"></span></a>
+        <a class="card" href="#mts-sarah-sachs-local-computers"><span class="num">03</span><span><span class="card-title">Why AI Agents Need Local Computers | Sarah Sachs</span><span class="card-byline">MTS &middot; Sarah Sachs</span></span><span class="card-dur">5:37</span><span class="listen-state" data-slug="mts-sarah-sachs-local-computers"></span></a>
         </div>
       </nav>
     </section>
@@ -502,6 +503,50 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#will-tesla-roadster-flying-sports-car-unveil" data-route="article">&larr; Will &middot; Tesla Roadster Flying Sports Car Unveil</a>
         <a class="to-index" href="2026-10-16.html" data-route="index">All summaries</a>
+        <a class="next" href="#mts-sarah-sachs-local-computers" data-route="article">MTS &middot; Why AI Agents Need Local Computers | Sarah Sachs &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="mts-sarah-sachs-local-computers" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-16.html" data-route="index">&larr; October 16, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Why AI Agents Need Local Computers | Sarah Sachs &mdash; October 16, 2026 <span class="dur">&middot; 5:37</span></p>
+        <audio controls preload="none" src="podcasts/mts-sarah-sachs-local-computers.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/mts-sarah-sachs-local-computers.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="mts-sarah-sachs-local-computers" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="mts-sarah-sachs-local-computers"></div>
+        <div class="episode-download"><a href="podcasts/mts-sarah-sachs-local-computers.mp3" download>Download mts-sarah-sachs-local-computers.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>MTS (Sarah Sachs)</dd></div>
+        <div><dt>Published</dt><dd>October 16, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=3yPhotFM7tw" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">MTS &middot; Sophia Dew &middot; Sarah Sachs &middot; Why agents need local computers</p>
+        <h2>Why AI Agents Need Local Computers | Sarah Sachs</h2>
+        <div>
+<p>On MTS, the live technology interview show hosted by Sophia Dew, this episode is a conversation with Sarah Sachs, the head of AI at Notion, recorded live at Vercel Ship, the conference in San Francisco where MTS has been taping interviews all week. Sachs arrives with a position Notion holds strongly: a lot of the work agents currently do on GPUs should be served on CPUs instead, because running executed code, rather than asking a model to reason its way through every step, brings determinism to the tasks that matter. Vercel, a longtime Notion partner and fellow customer, is the company helping Notion deliver that approach to customers in a way Sachs describes as both more cost effective and higher quality.</p>
+<p>Her concrete example is an agent that needs a particular SQL query written, and then needs to use the Notion command line tool to update a dashboard with the result. An agent does not need a language model to reinvent that process from scratch on every run. Doing it through the model each time is token exhaustive, slow, and impossible to observe or make deterministic. Real workflows, she says, are full of small chunks of deterministic steps, and those steps are more reliable when they are programmed once and then executed. Notion has built its own agent infrastructure so those pieces can be shipped as code, running on what the two companies call Vercel Workers. Her second point is about place: a great deal of agent processing is best done on an actual computer. As the context available to agents has exploded, giving an agent a local file system, somewhere to store its working thoughts and write short Python scripts, has become one of the most important tools Notion&#x27;s internal agents rely on, outside of edit and search. Vercel Sandboxes supply that computer, and Sachs calls them a critical component of Notion&#x27;s agent infrastructure.</p>
+<p>Users, she is quick to add, never ask for any of this machinery. Nobody says they want to execute code or ship a worker. Users have outcomes and goals, and Notion&#x27;s job is to apply taste about when these tools are appropriate. She traces how the product got here. Notion AI began as an assistant, launched in the GPT-3.5 era, that could edit a page or make a passage shorter. Then came retrieval, answering questions across a workspace, still fundamentally an assistant. Around 2025, she says, Notion&#x27;s agents stopped being assistants and became processes, and processes are what demand determinism, very large amounts of context, and independent, reliable decision making. The stage beyond that, where she places the present, is processes working together inside a system, sharing state and a universal context, which is exactly where Notion itself comes into play.</p>
+<p>She frames the industry&#x27;s central puzzle as the capability overhang. Every time a new model lands, Notion asks where AI is already super capable but the surrounding process, product, and permissions do not yet exist to let it work. Models have become far better in a year, by her estimate several times over, yet knowledge workers are plainly not several times more efficient. That gap is the work. Collaboration is shifting in stages, from human to human, to human to agent, and now to agent to agent, and in an age of agent sprawl she argues that the defining feature of a healthy process will be an intelligent context layer that many agents can share, contribute to, and work through together.</p>
+<p>Context, in her telling, is widely misunderstood. Treating it as a scratch pad or a repository of pages is naive. The valuable part is understanding: not just the state of a database behind a go-to-market workflow, but why it is structured that way, why certain deals matter, and why agents prioritized things the way they did in the past. If a business switches to a different agent tomorrow, that knowledge should travel with it. It is the why of the work, she says, that gets lost when context is treated as a pile of markdown files. That leads to her position on lock-in: companies should own their context. Many Notion customers, most of them not technology companies, are currently spending their entire IT organizations&#x27; time building context layers and agent tooling themselves, and a large and growing market of customers does not want the party supplying that layer to be the same party supplying the model. A model should be judged on the value of the model, not propped up by fear of losing context. Bundling the two can look sensible in the short term, but she calls it a micro-optimization that lands a company at a local optimum, and she describes a steady inbound flow of CIOs and CTOs who want Notion&#x27;s help precisely so they can bet on the frontier rather than on any one lab.</p>
+<p>Making that bet requires knowing which model is right for which task, across a whole frontier of cost and quality trade-offs, and Sachs says Notion invests roughly a third to a half of its AI resources in evaluations. Her team includes a full research group, and Notion recently acquired Zero Entropy, a reinforcement learning team. The surprise, she says, is that the biggest immediate gain from that reinforcement learning investment was not a model of their own. It was infrastructure: duplicated Notion workspaces in which candidate models and harnesses could be run through rollouts, compared, and automatically hill-climbed toward an optimal setup. Building a reinforcement learning environment and building a good evaluation have converged, in her view, because a single decision cannot be judged on its own; there is no precision-recall curve for one turn. You have to watch behavior across an entire environment, run many times. That evaluation depth is what powers Notion&#x27;s automatic model selection, which she describes as genuinely automatic and riding the cost and quality frontier on the customer&#x27;s behalf.</p>
+<p>She closes with an analogy about where all of this goes next. A formula cell in a spreadsheet shows you a value and hides the formula behind it, and most context is like that: there is hidden information about why it was created, which humans only open when they need it. Working with agents today is the opposite experience, a flood of shown work that inundates people. Rich AI products, she predicts, will learn to pass the underlying metadata to other agents when agents collaborate, while showing each human only what that human needs to know, and within a year she expects people to look back at today&#x27;s flood of agent output and laugh at it.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Who draws the line between code and judgment? Sachs says workflows are full of deterministic chunks and that Notion applies taste in deciding how agents use these tools, but the episode never says who, inside a customer company, decides which steps get frozen into executed code, or how often that decision gets revisited as models improve and the capability overhang moves.</li>
+<li>Does an independent context layer just relocate the lock-in? Notion&#x27;s pitch is that owning your context frees you from any model lab, but the understanding layer she describes, the accumulated why behind a company&#x27;s work, would itself accumulate inside Notion. What a real exit from that layer would look like, and what would be lost in it, goes unexamined.</li>
+<li>Who audits what humans never see? If agents increasingly exchange hidden context and metadata with each other while people see only the equivalent of a spreadsheet value, the decisions made on that invisible context still have owners and consequences. The episode celebrates hiding the formula; it does not say who double-clicks into it when something goes wrong.</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in a full transcription of the episode&#x27;s own audio, made locally with faster-whisper (small.en model): 492 segments, 3,381 words, spanning 00:00 to 17:16 of the 17:26 runtime (the remaining seconds are the tail of the outro). The audio came from the show&#x27;s official podcast feed on anchor.fm, which carries this identical episode under the same title, published October 16, 2026, at the same length; the YouTube caption route was closed, with the Android and iOS player clients both bot-walled behind a sign-in check, the web embedded player reporting the video unavailable, and the timed-text track listing empty, unsurprising for a video posted about two hours earlier. The machine transcription renders the guest&#x27;s surname as &quot;Sacks&quot; throughout; this summary uses the spelling from the published title, Sarah Sachs. It also renders &quot;token exhaustive&quot; as &quot;took and exhaustive&quot;, the Pareto frontier as the &quot;pretto frontier&quot;, and GPT-3.5 as &quot;GPT-35&quot;; standard spellings are used here. Summary written in my own words; the episode was not reproduced.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#dialectic-patrick-hsu-biology-future" data-route="article">&larr; Dialectic &middot; Will AI Make Scientists Obsolete? | Arc Institute’s Patrick Hsu</a>
+        <a class="to-index" href="2026-10-16.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -514,7 +559,8 @@
     (() => {
       const TITLES = {
       "will-tesla-roadster-flying-sports-car-unveil": "Tesla Roadster Flying Sports Car Unveil",
-      "dialectic-patrick-hsu-biology-future": "Will AI Make Scientists Obsolete? | Arc Institute’s Patrick Hsu"
+      "dialectic-patrick-hsu-biology-future": "Will AI Make Scientists Obsolete? | Arc Institute’s Patrick Hsu",
+      "mts-sarah-sachs-local-computers": "Why AI Agents Need Local Computers | Sarah Sachs"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
