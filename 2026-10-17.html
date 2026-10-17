@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Saturday &middot; October 17, 2026</p>
-        <h1>12 summaries, distilled.</h1>
+        <h1>13 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -419,6 +419,7 @@
         <a class="card" href="#silicon-valley-girl-james-manyika-ai-economy"><span class="num">10</span><span><span class="card-title">Top Google Exec: Who Actually Gets Paid in the AI Economy</span><span class="card-byline">Silicon Valley Girl &middot; James Manyika</span></span><span class="card-dur">6:12</span><span class="listen-state" data-slug="silicon-valley-girl-james-manyika-ai-economy"></span></a>
         <a class="card" href="#techcrunch-amjad-masad-everyone-can-build-software"><span class="num">11</span><span><span class="card-title">Everyone Can Build Software. What Happens Now? Replit&#x27;s CEO Amjad Masad Has an Idea | Disrupt 2026</span><span class="card-byline">TechCrunch &middot; Amjad Masad</span></span><span class="card-dur">6:18</span><span class="listen-state" data-slug="techcrunch-amjad-masad-everyone-can-build-software"></span></a>
         <a class="card" href="#forbes-viral-videos-into-lasting-business"><span class="num">12</span><span><span class="card-title">The Playbook For Creators To Build And Scale Their Brands</span><span class="card-byline">Forbes &middot; Crystelle Pereira, Monica Ravichandran, and Mally Roncal</span></span><span class="card-dur">5:12</span><span class="listen-state" data-slug="forbes-viral-videos-into-lasting-business"></span></a>
+        <a class="card" href="#huggingface-reflection-beam-alex-polozov"><span class="num">13</span><span><span class="card-title">New Model: Reflection Beam is a new Open Weight Model</span><span class="card-byline">Hugging Face &middot; Alex Polozov</span></span><span class="card-dur">5:32</span><span class="listen-state" data-slug="huggingface-reflection-beam-alex-polozov"></span></a>
         </div>
       </nav>
     </section>
@@ -970,6 +971,52 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#techcrunch-amjad-masad-everyone-can-build-software" data-route="article">&larr; TechCrunch &middot; Everyone Can Build Software. What Happens Now? Replit's CEO Amjad Masad Has an Idea | Disrupt 2026</a>
         <a class="to-index" href="2026-10-17.html" data-route="index">All summaries</a>
+        <a class="next" href="#huggingface-reflection-beam-alex-polozov" data-route="article">Hugging Face &middot; New Model: Reflection Beam is a new Open Weight Model &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="huggingface-reflection-beam-alex-polozov" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-16.html" data-route="index">&larr; October 17, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">New Model: Reflection Beam is a new Open Weight Model &mdash; October 17, 2026 <span class="dur">&middot; 5:32</span></p>
+        <audio controls preload="none" src="podcasts/huggingface-reflection-beam-alex-polozov.mp3">
+          Your browser does not support the audio element.
+          <a href="podcasts/huggingface-reflection-beam-alex-polozov.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="huggingface-reflection-beam-alex-polozov" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="huggingface-reflection-beam-alex-polozov"></div>
+        <div class="episode-download"><a href="podcasts/huggingface-reflection-beam-alex-polozov.mp3" download>Download huggingface-reflection-beam-alex-polozov.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Hugging Face</dd></div>
+        <div><dt>Published</dt><dd>October 17, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=dGhUFqeITbY" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Hugging Face &middot; Alex Polozov &middot; Reflection Beam open weight model</p>
+        <h2>New Model: Reflection Beam is a new Open Weight Model</h2>
+        <div>
+<p>On Hugging Face, this launch livestream introduces Beam, a new open weight model from the lab Reflection. Hugging Face&#x27;s Ben hosts alongside a Reflection colleague, and the guests are the people who built the model: Alex Polozov, who leads pre-training data, the lead on the high compute reinforcement learning run, and Jess, who leads the data and skills team. Beam has 501 billion parameters and is aimed squarely at agentic work and code. The pitch is token efficiency: a workhorse model you can comfortably delegate small day to day tasks to and leave running in the background.</p>
+<p>The release is unusually open, even by open weight standards. The weights ship in BF16, FP8, and NVFP4, so builders can pick a checkpoint that suits Blackwell or Hopper hardware or a fine-tuning setup. The architecture code sits in Transformers in canonical form, the model already runs in vLLM and SGLang, and Reflection has published its evals, the implementations of those evals, and reasoning traces on the Hub, including evals run on the quantized checkpoints. The launch comes with a contest, Beam Build: 10,000 dollars in cash and 10,000 dollars in Hub credits for the best projects built with Beam, entered by posting a Space, a model, or a data set as a comment on the Beam model page.</p>
+<p>Polozov describes how the team landed on 501 billion parameters. The size was not chosen directly; it fell out of a scaling ladder. You build the training recipe in steps, testing every new data set, architecture change, and optimizer change at several model sizes, and you check that each improvement still holds as you climb a tier. Only when the predictions hold do you trust the recipe at the next size up. He says the team spent at least a month on ladder details that rarely get discussed, like whether the finished model fits a particular GPU configuration or a single node, because discovering a mismatch after the design is fixed means starting the design over.</p>
+<p>The pre-training corpus came to 23 trillion tokens, and Polozov stresses that the work was curation, not collection. The team scored the educational quality of pages, PDFs, and code documents, and decided deliberately how much the model should see from each source. Documentation for an open source library might be repeated alongside its actual implementation, so the connection between the two settles into the base weights. Mathematical and scientific data got the same treatment, on the theory that reading proofs and notebooks builds the foundations that later reasoning stands on.</p>
+<p>Jess explains that the skills side of training is organized around cognitive behaviors rather than subject domains. Math, science, code, and terminal use are the obvious buckets, but the real targets are behaviors like self-verification, backtracking, and trying a new strategy when the first one stalls. Reinforcement learning environments are built to force those behaviors, and they are held to a strict standard: the reward signal must carry zero noise. A question the model can guess, a verifier that scores the same answer inconsistently, or a problem with several defensible answers all corrupt the signal, so the team iterates on sourcing, reviewing, and test-running environments in a tight loop with the training team. She gives a telling failure: a batch of hard-looking science questions turned out to be factual recall in disguise, and RL exposed it by collapsing the model&#x27;s reasoning on them to nothing.</p>
+<p>The RL lead describes what it takes to keep a run like this alive. Beam&#x27;s final run was a continuous effort of about a month at frontier lab scale, on the order of ten thousand GB200 GPUs. The subtle hazard at that scale is numerical divergence between the inference engine and the training engine: in a short run it is harmless, but under heavy optimization pressure the policy learns to exploit the divergence itself, and rewards crash or completion lengths blow up. Around the algorithms sits an asynchronous system that has to tolerate chips and inference engines dying without losing the run, while staying observable enough to debug. Along the way the team grew the context window it could train at from 16,000 tokens to 256,000 and beyond, because real coding and long horizon agent work cannot happen in a 16,000 token box.</p>
+<p>Beam also ships with a harness, a Rust based coding agent called Mirror. It began as an internal tool built by an engineer named Jake, wired into the team&#x27;s Slack and project tracker, and a smaller training harness underneath it was used to tune behaviors like token efficiency and context compaction during post-training. The team expected Beam to work best inside its own harness, so they were pleasantly surprised when it transferred to third party harnesses like Pi and OpenCode with no drop in performance. They credit the randomization in the RL run: the model saw many diversified environments and tool calling styles, so the core reasoning and agentic capability sits in the weights rather than in any one harness&#x27;s habits.</p>
+<p>For people who want to run or adapt the model, the ecosystem pieces are already in place. The inference engines are optimized with NVIDIA for recent data center GPUs, Unsloth produced quantized versions that can run locally through llama.cpp, and fine-tuning recipes exist across NVIDIA&#x27;s AutoModel, Hugging Face&#x27;s TRL, and RL frameworks such as Miles, SkyRL, and NeMo RL, several of them built with the community and merged into those projects. Ben walks through his own experiments from the launch blog: he had Beam one-shot a native macOS dictation app that uses on-device models and a keyboard shortcut, working through the Pi harness, and he published the full trace. He also set Beam to research how Beam itself behaves with sub-agents, and used it to build training data for a small decision model that ended up both faster and more accurate.</p>
+<p>The clearest signal about what comes next is that the training curves had not flattened. Jess says the benchmark scores were still rising when the run stopped; what ran out was environments, because data a model has mastered stops teaching it anything, so the team&#x27;s standing problem is manufacturing ever harder tasks, including longer horizon agentic work and more explicit training for human agent collaboration. Polozov confirms the next models in the family are already being worked on, and that a fresh run from a stronger base is expected to go further. His closing argument is the one he says brought him to Reflection: the Western world has lacked a frontier open model that people can own end to end, with known data provenance, inside their own applications and infrastructure. Beam, built in under a year, is meant to be that model.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If Beam&#x27;s scores were still climbing when training stopped, and the binding constraint is a supply of hard enough environments rather than the model, how much capability is being left on the table, and who ends up building the environments that would reveal it?</li>
+<li>The team credits RL randomization for Beam working just as well in other people&#x27;s harnesses as in Mirror. As harnesses keep diverging in how they manage context and tools, does that generalization hold, or does every serious deployment still end up co-designing the model and the harness?</li>
+<li>Reflection published not just weights but eval code, traces, and evals of its quantized checkpoints. Does that level of transparency become the standard other open labs are judged against, and does it actually convert into adoption?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s full English automatic caption track, fetched via the Android player client (clientVersion 21.02.35, Pixel 8 profile) from the track address in the player response, in srv3 and json3 formats: 1,962 caption lines, 14,170 words, spanning the full 81 minute runtime (the last caption ends at 4,861.4 seconds of 4,862), saved verbatim as transcript.txt in the build record. The video has no manually uploaded caption track; the available tracks are all automatic, so the English automatic track is the only caption source. Player metadata (title, channel, and length) was confirmed identically across the Android 21.02.35, Android 20.10.38, and iOS player clients; the web-embedded client returned an error and the web client returned the video as unplayable. The automatic track garbles several terms and names, rendering SGLang as SG Lang, vLLM as VLM, Daedalus as datalless or dedalus, GB200 as GB 200, AIME as IME, LoRA as Laura, and Unsloth in several forms; where the track&#x27;s spellings differ from recognizable spellings, the summary follows the recognizable spelling. Some participants&#x27; names are rendered too unreliably by the track to print with confidence, so the reinforcement learning lead and the open source lead are described by role; Alex Polozov&#x27;s name and role are as given in the video&#x27;s on-screen labels and his own introduction. Summary written in my own words; the conversation was not reproduced.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#forbes-viral-videos-into-lasting-business" data-route="article">&larr; Forbes &middot; The Playbook For Creators To Build And Scale Their Brands</a>
+        <a class="to-index" href="2026-10-17.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -992,7 +1039,8 @@
       "chriswillx-david-deutsch-think-like-a-genius": "Father Of Quantum Computing: How To Think Like A Genius - David Deutsch",
       "silicon-valley-girl-james-manyika-ai-economy": "Top Google Exec: Who Actually Gets Paid in the AI Economy",
       "techcrunch-amjad-masad-everyone-can-build-software": "Everyone Can Build Software. What Happens Now? Replit's CEO Amjad Masad Has an Idea | Disrupt 2026",
-      "forbes-viral-videos-into-lasting-business": "The Playbook For Creators To Build And Scale Their Brands"
+      "forbes-viral-videos-into-lasting-business": "The Playbook For Creators To Build And Scale Their Brands",
+      "huggingface-reflection-beam-alex-polozov": "New Model: Reflection Beam is a new Open Weight Model"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
