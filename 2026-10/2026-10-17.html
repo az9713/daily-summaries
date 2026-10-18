@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Saturday &middot; October 17, 2026</p>
-        <h1>17 summaries, distilled.</h1>
+        <h1>18 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -424,6 +424,7 @@
         <a class="card" href="#bloomberg-mib-financing-ai-boom-bob-michele"><span class="num">15</span><span><span class="card-title">Financing The AI Boom: Masters in Business</span><span class="card-byline">Bloomberg Podcasts &middot; Bob Michele</span></span><span class="card-dur">8:16</span><span class="listen-state" data-slug="bloomberg-mib-financing-ai-boom-bob-michele"></span></a>
         <a class="card" href="#a16z-production-systems-ai-next-hurdle"><span class="num">16</span><span><span class="card-title">Why AI Can Write Code But Can’t Keep It Running (Yet)</span><span class="card-byline">a16z &middot; Martin Casado, Jad Naous</span></span><span class="card-dur">8:30</span><span class="listen-state" data-slug="a16z-production-systems-ai-next-hurdle"></span></a>
         <a class="card" href="#aidotengineer-agent-banned-from-resy"><span class="num">17</span><span><span class="card-title">An AI Agent Got Its User Banned From Resy — Keycard, JPMorgan Chase &amp; AAuth</span><span class="card-byline">AI Engineer &middot; Allie Howe, Ian Livingstone, Michael Davis, Dick Hardt</span></span><span class="card-dur">6:22</span><span class="listen-state" data-slug="aidotengineer-agent-banned-from-resy"></span></a>
+        <a class="card" href="#lowleveltv-tested-viral-reverse-engineering-repo"><span class="num">18</span><span><span class="card-title">I Tested The Viral Reverse Engineering Repo</span><span class="card-byline">Low Level</span></span><span class="card-dur">4:15</span><span class="listen-state" data-slug="lowleveltv-tested-viral-reverse-engineering-repo"></span></a>
         </div>
       </nav>
     </section>
@@ -1202,6 +1203,53 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#a16z-production-systems-ai-next-hurdle" data-route="article">&larr; a16z &middot; Why AI Can Write Code But Can’t Keep It Running (Yet)</a>
         <a class="to-index" href="2026-10-17.html" data-route="index">All summaries</a>
+        <a class="next" href="#lowleveltv-tested-viral-reverse-engineering-repo" data-route="article">Low Level &middot; I Tested The Viral Reverse Engineering Repo &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="lowleveltv-tested-viral-reverse-engineering-repo" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-17.html" data-route="index">&larr; October 17, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">I Tested The Viral Reverse Engineering Repo &mdash; October 17, 2026 <span class="dur">&middot; 4:15</span></p>
+        <audio controls preload="none" src="../podcasts/lowleveltv-tested-viral-reverse-engineering-repo.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/lowleveltv-tested-viral-reverse-engineering-repo.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="lowleveltv-tested-viral-reverse-engineering-repo" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="lowleveltv-tested-viral-reverse-engineering-repo"></div>
+        <div class="episode-download"><a href="../podcasts/lowleveltv-tested-viral-reverse-engineering-repo.mp3" download>Download lowleveltv-tested-viral-reverse-engineering-repo.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Low Level</dd></div>
+        <div><dt>Published</dt><dd>October 17, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=qFEuYUfauNY" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Low Level &middot; REA, MCP decompilers &middot; AI reverse engineering</p>
+        <h2>I Tested The Viral Reverse Engineering Repo</h2>
+        <div>
+<p>On Low Level, the video &quot;I Tested The Viral Reverse Engineering Repo&quot; puts a working reverse engineer in front of the project that is currently making his profession nervous. The project is REA, short for Reverse Engineer Anything, a GitHub project that has gone viral by connecting traditional decompilers like Ghidra, IDA Pro, and Hopper to an AI agent through an MCP server. The agent takes a compiled program apart, studies the decompiled pseudo code, and then writes a fresh recreation of the application from scratch.</p>
+<p>The host, who goes by Low Level, has worked professionally as a reverse engineer and vulnerability researcher for about twelve years, so the video is partly a product test and partly an existential question about his own job. Meme recreations of games like Mario, Skyrim, and Modern Warfare 3 have already come out of this workflow, and he says they set a bleak tone for the future of software development and software ownership alike.</p>
+<p>Before testing anything, he explains what reverse engineering actually is. Programs ship as binaries, an ELF file on Linux or a PE file on Windows, and compilation is a lossy process: variable names, function names, and other human intent are stripped away, partly to save space and partly to protect intellectual property. Reverse engineering is the work of inferring that lost intent back out of the machine code. He demonstrates with a small program that hides a number, reads the binary to find the value it checks against, and types in 4919 to pass. Tools like Ghidra have done the decompiling half of this for years, lifting assembly into an intermediate representation and then into a best-guess version of C.</p>
+<p>The test itself uses Claude Code, running Opus 4.8, pointed at the GNOME Calculator binary. He is upfront that the calculator is open source, and equally clear that REA never touches the source: it works from the binary alone, a 936 kilobyte ELF with roughly two thousand functions. Twenty-eight minutes later, the agent produced a recreation, written in Python, that sits convincingly next to the original. The arithmetic checks out, and the differences are small: a mode switch sits in a different place, and the recreated window has some user interface scaling bugs when resized. Work that would take a person days or weeks by hand took under half an hour.</p>
+<p>His verdict on the tool is measured. REA is not a new decompiler; it is a well-built harness. Reverse engineering is an iterative loop of taking a binary apart, asking a question, reading the evidence, and using the answer to ask a better question, and the harness automates exactly that loop for the agent, then lets the agent regenerate code from what it learned. It reportedly handles Electron apps and websites as well, at least the parts that run on the user&#x27;s machine. For a beginner it holds your hand and builds the guardrails, though he warns to mind the token spend. His open doubt is whether such a harness survives at all, since tools like it keep getting absorbed into the agents themselves.</p>
+<p>The last third of the video turns to why the trend worries him, and he raises three problems. (The video is sponsored by CodeRabbit, an AI code review tool pitched at exactly the flood of AI generated pull requests he describes.)</p>
+<p>The first problem is maintenance. A group has already recreated Adobe&#x27;s Photoshop, Lightroom, and Premiere Pro in Rust, reportedly slow and rough, for little more than a few dollars of token spend. If anyone can produce a copy of any program nearly for free, he asks whether all software is effectively abandonware now. Who maintains the clone, who fixes its bugs, and who earns the money that pays the people doing that fixing? Open source already struggles here, he notes, pointing to curl, maintained for free by Daniel Stenberg.</p>
+<p>The second problem is trust. Adobe may be unpopular, but Adobe is paid, identifiable, and accountable: if it shipped malware it would lose money, so it is incentivized not to. An anonymous vibe-coded recreation carries no such accountability, and almost nobody audits the code before running it. Cheap cloning, in his framing, turns all software into a supply chain risk.</p>
+<p>The third problem is the corporate response. Companies need revenue to exist, and if shipping a binary now means handing out the means to clone it, vendors may stop letting customers touch the software at all. He points to gaming, where players increasingly get a license and a cloud instance rather than the game itself, and imagines Photoshop delivered as a virtual desktop session, or everything retreating into web apps whose back ends run on a server and cannot be taken apart.</p>
+<p>He closes by separating the tool from the economics. Taking things apart to learn how they work is the hacker ethos, he believes in it strongly, and a world where anyone can do what once required reading assembly by hand is, in his judgment, a good thing on net. What makes him nervous is that the tooling and the economy of software no longer match, and he does not know where that mismatch leads.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If any shipped program can be cloned for a few dollars of tokens, who maintains the clones, and what pays for the bug fixes and security work that the original vendor&#x27;s revenue used to fund?</li>
+<li>Can recreations from anonymous builders ever be trusted enough to run, or does the accountability gap become the paid vendors&#x27; strongest remaining selling point?</li>
+<li>Will vendors answer by keeping binaries off user machines entirely, through cloud instances, virtual desktops, and web back ends, closing again the door that tools like REA just opened?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s full English automatic caption track, fetched via the Android player client (clientVersion 21.02.35, Pixel 8 profile) in srv3 and json3 formats: 520 caption lines, 3,691 words, spanning the full 16:20 runtime, saved verbatim as transcript.txt in the build record. The video has no manually uploaded caption track, so the automatic track is the only caption source. Player metadata (title &quot;I Tested The Viral Reverse Engineering Repo&quot;, channel Low Level, length 980 seconds) was confirmed identically across the Android 21.02.35, Android 20.10.38, and iOS player clients; the web and web-embedded clients returned the video as unavailable. The caption track garbles a few terms, rendering plebeian as &quot;plebian&quot; and Stenberg as &quot;Steinberg&quot;; the summary uses the standard spellings. Summary written in my own words; the conversation was not reproduced.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#aidotengineer-agent-banned-from-resy" data-route="article">&larr; AI Engineer &middot; An AI Agent Got Its User Banned From Resy — Keycard, JPMorgan Chase & AAuth</a>
+        <a class="to-index" href="2026-10-17.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -1229,7 +1277,8 @@
       "willphillips-24hrs-ai-law-firm": "24hrs Inside a Silicon Valley Startup Building an AI Law Firm",
       "bloomberg-mib-financing-ai-boom-bob-michele": "Financing The AI Boom: Masters in Business",
       "a16z-production-systems-ai-next-hurdle": "Why AI Can Write Code But Can’t Keep It Running (Yet)",
-      "aidotengineer-agent-banned-from-resy": "An AI Agent Got Its User Banned From Resy — Keycard, JPMorgan Chase & AAuth"
+      "aidotengineer-agent-banned-from-resy": "An AI Agent Got Its User Banned From Resy — Keycard, JPMorgan Chase & AAuth",
+      "lowleveltv-tested-viral-reverse-engineering-repo": "I Tested The Viral Reverse Engineering Repo"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
