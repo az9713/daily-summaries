@@ -1,0 +1,1129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - October 6, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Tuesday &middot; October 6, 2026</p>
+        <h1>11 summaries, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#sequoia-amin-vahdat-ai-infrastructure"><span class="num">01</span><span><span class="card-title">Google's AI Infrastructure Chief, Amin Vahdat, on the Physics &amp; Economics of Frontier AI</span><span class="card-byline">Sequoia Capital</span></span><span class="card-dur">3:07</span><span class="listen-state" data-slug="sequoia-amin-vahdat-ai-infrastructure"></span></a><a class="card" href="#iltb-huberman-frontier-neurotechnology"><span class="num">02</span><span><span class="card-title">Why Every AI Lab Will Become a Biotech Company | Andrew Huberman</span><span class="card-byline">Invest Like the Best</span></span><span class="card-dur">4:25</span><span class="listen-state" data-slug="iltb-huberman-frontier-neurotechnology"></span></a><a class="card" href="#a16z-kevin-mandia-cybersecurity"><span class="num">03</span><span><span class="card-title">Building Cyber Defense for the Agentic Era</span><span class="card-byline">The a16z Show</span></span><span class="card-dur">4:50</span><span class="listen-state" data-slug="a16z-kevin-mandia-cybersecurity"></span></a><a class="card" href="#next-endeavor-cancer-treatments"><span class="num">04</span><span><span class="card-title">Can AI Find Cancer Treatments We’re Missing? | The Next Endeavor 2026</span><span class="card-byline">Imagination in Action</span></span><span class="card-dur">2:50</span><span class="listen-state" data-slug="next-endeavor-cancer-treatments"></span></a><a class="card" href="#svg-daron-acemoglu-stay-valuable"><span class="num">05</span><span><span class="card-title">Nobel Economist: How to Stay Valuable as AI Changes Work | Daron Acemoglu</span><span class="card-byline">Silicon Valley Girl</span></span><span class="card-dur">4:06</span><span class="listen-state" data-slug="svg-daron-acemoglu-stay-valuable"></span></a><a class="card" href="#isenberg-13-businesses-age-of-ai"><span class="num">06</span><span><span class="card-title">13 Businesses for the Age of AI</span><span class="card-byline">The Startup Ideas Podcast</span></span><span class="card-dur">3:40</span><span class="listen-state" data-slug="isenberg-13-businesses-age-of-ai"></span></a><a class="card" href="#pragmatic-engineer-state-of-tech-2026"><span class="num">07</span><span><span class="card-title">The state of the tech industry in 2026 - LDX3 New York</span><span class="card-byline">The Pragmatic Engineer</span></span><span class="card-dur">5:06</span><span class="listen-state" data-slug="pragmatic-engineer-state-of-tech-2026"></span></a>
+          <a class="card" href="#claude-building-secure-agents"><span class="num">08</span><span><span class="card-title">Building secure agents for knowledge work</span><span class="card-byline">Claude</span></span><span class="card-dur">3:38</span><span class="listen-state" data-slug="claude-building-secure-agents"></span></a><a class="card" href="#berman-mistral-le-chonk"><span class="num">09</span><span><span class="card-title">Mistral is BACK! (Le Chonk)</span><span class="card-byline">Matthew Berman</span></span><span class="card-dur">2:31</span><span class="listen-state" data-slug="berman-mistral-le-chonk"></span></a>
+        <a class="card" href="#wes-roth-openai-secret-model-math"><span class="num">10</span><span><span class="card-title">OpenAI's secret model just BROKE math...</span><span class="card-byline">Wes Roth</span></span><span class="card-dur">2:46</span><span class="listen-state" data-slug="wes-roth-openai-secret-model-math"></span></a>
+          <a class="card" href="#alexander-openai-math-372"><span class="num">11</span><span><span class="card-title">OpenAI releases 372 families of major math results obtained using AI!</span><span class="card-byline">Dr. Samuel Allen Alexander</span></span><span class="card-dur">2:58</span><span class="listen-state" data-slug="alexander-openai-math-372"></span></a></div>
+      </nav>
+    </section>
+
+        <section class="article-view" id="sequoia-amin-vahdat-ai-infrastructure" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-06.html" data-route="index">&larr; October 6, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Google's AI Infrastructure Chief, Amin Vahdat, on the Physics &amp; Economics of Frontier AI &mdash; October 6, 2026 <span class="dur">&middot; 3:07</span></p>
+        <audio controls preload="none" src="../podcasts/sequoia-amin-vahdat-ai-infrastructure.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/sequoia-amin-vahdat-ai-infrastructure.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="sequoia-amin-vahdat-ai-infrastructure" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="sequoia-amin-vahdat-ai-infrastructure"></div>
+        <div class="episode-download"><a href="../podcasts/sequoia-amin-vahdat-ai-infrastructure.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Sequoia Capital (Amin Vahdat)</dd></div>
+        <div><dt>Published</dt><dd>October 6, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=bGph8GwB3Sk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Sequoia Capital &middot; AI infrastructure &middot; TPUs &middot; data centers &middot; power</p>
+        <h2>Google's AI Infrastructure Chief, Amin Vahdat, on the Physics &amp; Economics of Frontier AI</h2>
+        <div>
+        <p class="dek">Sequoia Capital sat down with Amin Vahdat, who has led Google's AI infrastructure since late last year, for "Google's AI Infrastructure Chief, Amin Vahdat, on the Physics &amp; Economics of Frontier AI." The conversation runs the full stack, from how an AI data center differs from a conventional one to what a frontier supercomputer might look like in 2036.</p>
+        <p>Vahdat starts with the building itself. A traditional data center is a 25 to 30 year asset designed to stay flexible across many generations of hardware. An AI data center is increasingly purpose built and co-designed with the machines that go inside, because the power profile is so extreme. A storage rack might draw 10 to 40 kilowatts, while a single accelerator rack already draws hundreds of kilowatts and could pass a megawatt. A building shaped for one simply cannot serve the other well.</p>
+        <p>The metric he trusts is goodput per watt: not the theoretical peak a chip can hit, but the useful work actually delivered once failures, recoveries, and software flaws are counted. At 100,000 accelerators working in lockstep, something fails multiple times a day, possibly multiple times an hour. The causes form a long tail across hardware, networking, and software, so the team's accountability is measured in answered questions, not peak benchmarks.</p>
+        <p>That discipline drives a startling capacity target. Google aims to roughly double its effective serving capacity, meaning its ability to generate tokens, about every six months. Most of that gain, he says, comes from model and software improvements rather than new silicon, though hardware still delivers a twofold or better yearly multiplier underneath everything else.</p>
+        <p>The TPU story is a study in betting against the bitter lesson. Google began building custom silicon in 2013, when conventional wisdom said specialization never wins. The first chip handled inference, the second added training, and then the transformer arrived and reshaped the program entirely. This year Google split the line in two: an 8I chip specialized for serving and an 8T chip for training, justified because inference is now projected to be 30 to 60 percent of the market over the hardware's life. Crucially, each chip can still do the other's job, which preserves flexibility if the mix shifts.</p>
+        <p>He declines to just burn the transformer into silicon. The argument is that the underlying primitives, very large matrix multiply units plus a handful of supporting operations, have barely changed since the first TPU and have carried many generations of model architectures. Specialize to a workload that lasts months and the window to intercept it has already closed.</p>
+        <p>Co-design, he argues, is where the large wins hide. A fully portable stack that runs on anyone's hardware, network, and software leaves perhaps 10 to 20 percent, sometimes twofold, on the table at each layer, and those losses multiply. Google co-designs shoulder to shoulder with DeepMind, occasionally delaying a tape-out by a week or two when a model idea is worth intercepting, and now uses Gemini to help design the hardware future Geminis will run on.</p>
+        <p>Agentic workloads are reshaping the demand picture. Long-horizon agents remove the human pause between requests, so interaction times fall from seconds to milliseconds, and the orchestration work lands on ordinary CPUs, which now need to sit near the accelerators along with memory and storage. That complicates building design, since accelerator racks, CPU racks, and disk racks each want different density, networking, and power.</p>
+        <p>On networking, he describes optical circuit switching, which Google has used for about 15 years: tiny mirrors steer light between ports without converting it to electrical signals, letting the network reshape itself and letting a failed accelerator rack be swapped for a spare in milliseconds, no new fiber required.</p>
+        <p>Power is the constraint he calls most fundamental. Google prefers staying on the grid, co-planning gigawatt-scale sites with utilities years ahead and covering the infrastructure costs itself, because sharing a large grid beats building two gigawatts of private redundancy. Where utility power arrives late, local generation can bridge the gap and even feed energy back during the hottest weeks of the year.</p>
+        <p>Old hardware does not retire quietly. Vahdat says TPUs from seven and eight years ago still run at full utilization, with replacement happening at the pod level on roughly a six-year depreciation schedule, while dedicated serving clusters get built worldwide rather than relying on yesterday's training sites. He also presses the case for open standards: JAX is Google's preferred framework, but PyTorch models run on TPUs too, in the same spirit that let IP win the protocol wars.</p>
+        <p>Two closing notes. Orbital data centers, which Google is genuinely pursuing as a moonshot, trade abundant sunlight for hard problems in cooling and repair. And by 2036, he guesses, the frontier machine is a tightly integrated, possibly multi-megawatt rack with a small bundle of fiber, wheeled in and plugged into water, power, and network, or perhaps launched into orbit.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>if most capacity gains now come from models and software, how long can that compounding continue before the returns shift back to silicon?</li>
+        <li>when inference demand is spread across the whole planet in smaller, mixed clusters, how much of the co-design advantage survives outside the giant training sites?</li>
+        <li>will power procurement, not compute, end up deciding which companies get to train frontier models at all?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in a full transcript made from this video's own audio, which I downloaded and transcribed locally with faster-whisper (11,172 words). The video's caption track could not be retrieved because YouTube's subtitle endpoint returned a rate-limit error, so no caption file was used. No alternate or tested title for the video was visible in the metadata I could reach. Quotes are brief and paraphrase carries the rest.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-10-06.html" data-route="index">All summaries</a>
+        <a class="next" href="#iltb-huberman-frontier-neurotechnology">Why Every AI Lab Will Become a Biotech Company | Andrew Huberman &rarr;</a>
+      </nav>
+    </section>
+
+    
+
+        <section class="article-view" id="iltb-huberman-frontier-neurotechnology" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-06.html" data-route="index">&larr; October 6, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Why Every AI Lab Will Become a Biotech Company | Andrew Huberman &mdash; October 6, 2026 <span class="dur">&middot; 4:25</span></p>
+        <audio controls preload="none" src="../podcasts/iltb-huberman-frontier-neurotechnology.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/iltb-huberman-frontier-neurotechnology.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="iltb-huberman-frontier-neurotechnology" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="iltb-huberman-frontier-neurotechnology"></div>
+        <div class="episode-download"><a href="../podcasts/iltb-huberman-frontier-neurotechnology.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Invest Like the Best (Andrew Huberman)</dd></div>
+        <div><dt>Published</dt><dd>October 6, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=_QSX3BF9UX0" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Invest Like the Best &middot; neurotechnology &middot; AI labs &middot; brain states</p>
+        <h2>Why Every AI Lab Will Become a Biotech Company | Andrew Huberman</h2>
+        <div>
+        <p class="dek">Invest Like the Best, hosted by Patrick O'Shaughnessy, sits down with Andrew Huberman, the Stanford neuroscientist behind the Huberman Lab podcast and the book Protocols. The conversation starts with energy as the hidden bottleneck for high performers and ends with Huberman's prediction that the biggest AI companies are, at their core, becoming brain companies.</p>
+        <p>The opening stretch is about self-knowledge. Huberman argues that people should honestly assess how much sleep they personally need instead of copying outliers who thrive on four or five hours, and that what looks like boundless energy in others often comes with an inability to switch off at night. Early in a career or a company, he says, the goal is simply to get a great deal done without breaking yourself; recovery and optimization come later.</p>
+        <p>That leads to the skill he calls downshifting: falling asleep on demand. He breaks it into three trainable pieces: quieting thought by shifting attention to pure sensation, slowing the heart through long exhales, and losing track of where your limbs are in space. Rocking works on babies and adults for the same reason, he notes, and an experimental eye mask from an MIT-linked team coaxes the slow eye movements that help the brain let go of body position. Devices like that, seven to twelve months out by his estimate, point to a bigger shift: technology that steers brain states directly, first in sleep, then in waking life.</p>
+        <p>He is blunt about the state of public health advice, calling the discourse a theatrics-driven mess with a near-zero bar for entry. His forecast is a downturn in optimization culture, followed by a wave of seriously trained scientists and physicians doing public education well. His book, he says, was his way of writing down what he actually knows for certain and moving on.</p>
+        <p>The centerpiece claim explains the episode's title. Reading from the brain, through electrodes, imaging, or wearables, has been neuroscience's project for decades. The new project is writing to it non-invasively, with ultrasound or similar tools, at high spatial and temporal precision, and with graded control rather than a simple on or off switch. Anyone who thinks Meta, OpenAI, Anthropic, and Elon Musk's Neuralink are only language-model companies, he says, will be surprised: "Every single one of those is going to be a biotech company." AI enters the picture as the titration layer, learning which stimulation pattern produces which state in a given person and adjusting in real time.</p>
+        <p>He contrasts that precision with today's blunt tools. Drugs mostly raise or lower the brain's firing threshold everywhere at once, which is why they work and why they carry side effects. Vagal stimulation for depression shows what targeted input can do, and he expects small under-the-skin implants, about as invasive as a piercing, to tempt a large share of entrepreneurs within about a year. Peptides, in his telling, matter less than implantables.</p>
+        <p>The honest limit, he says, is the model of the brain itself. The sensory periphery and deep circuits for hunger, anger, and appetite are well understood, which is why GLP-1 drugs work. Memory and thought are not. He describes animal studies where reactivating the exact neurons tagged during learning, in any order or all at once, produces the same behavior, a result that quietly undermines the textbook idea that firing sequence is everything. The same neurons also serve many behaviors, so writing to the brain carries real cross-talk risk even as it gets easier.</p>
+        <p>From there the talk runs to gene editing, embryo screening, and the CRISPR babies case, which he treats as proof that these technologies spread whether or not anyone approves them in public. His own excitement, though, is narrower: he wants neuroscience to define waking brain states properly, the way sleep stages are defined, so that future tools can deliberately produce the right state for focus, learning, or calm. He also predicts the health space goes quiet around 2027 and 2028 as the field resets.</p>
+        <p>The closing answer, to the show's traditional question about the kindest thing anyone has done for him, goes back to graduate school. His advisor, Barbara Chapman, essentially told him to leave the fashionable lab and follow the work he was sneaking off to do at night. His phrasing of her lesson: "Success is determined by how precisely you match your genuine curiosity to the work that you do."</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>If the temporal order of neuron firing matters far less than textbooks claim, what should replace sequence as the working model of memory, and how much of the read-and-write neurotechnology roadmap depends on the answer?</li>
+        <li>When stimulation devices can dial motivation or calm up and down on demand, who sets the safeguards, and what stops self-experimentation from outrunning them the way it has outrun other blunt tools?</li>
+        <li>Huberman says the technologists now leading brain exploration came from outside neuroscience. What do academic labs still uniquely contribute, and does the field's center of gravity move to the AI labs for good?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full official podcast audio of the identical episode: Invest Like the Best EP.494, &ldquo;Andrew Huberman - The Frontier of Neurotechnology,&rdquo; published October 6, 2026, downloaded from the show's official RSS feed and transcribed locally (14,329 words). The same episode was uploaded to the Invest Like the Best YouTube channel under the title &ldquo;Why Every AI Lab Will Become a Biotech Company | Andrew Huberman&rdquo;; the show's Colossus episode page titles it &ldquo;Reading and Writing the Brain.&rdquo; YouTube's own caption and audio endpoints were bot-walled from this network, so the video's caption track could not be used; no tested or alternate YouTube title beyond the published one was visible. Guest and host identities are as given in the episode description and audio.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#sequoia-amin-vahdat-ai-infrastructure">&larr; Google's AI Infrastructure Chief, Amin Vahdat, on the Physics &amp; Economics of Frontier AI</a>
+        <a class="to-index" href="2026-10-06.html" data-route="index">All summaries</a>
+        <a class="next" href="#a16z-kevin-mandia-cybersecurity">Building Cyber Defense for the Agentic Era &rarr;</a>
+      </nav>
+    </section>
+
+    
+
+        <section class="article-view" id="a16z-kevin-mandia-cybersecurity" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-06.html" data-route="index">&larr; October 6, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Building Cyber Defense for the Agentic Era &mdash; October 6, 2026 <span class="dur">&middot; 4:50</span></p>
+        <audio controls preload="none" src="../podcasts/a16z-kevin-mandia-cybersecurity.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/a16z-kevin-mandia-cybersecurity.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="a16z-kevin-mandia-cybersecurity" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="a16z-kevin-mandia-cybersecurity"></div>
+        <div class="episode-download"><a href="../podcasts/a16z-kevin-mandia-cybersecurity.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>The a16z Show (Kevin Mandia)</dd></div>
+        <div><dt>Published</dt><dd>October 6, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=cJsHel27Z6M" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">The a16z Show &middot; cybersecurity &middot; AI agents &middot; Armadin</p>
+        <h2>Building Cyber Defense for the Agentic Era</h2>
+        <div>
+        <p class="dek">Kevin Mandia spent three decades in cybersecurity and built Mandiant, the incident response firm that Google ultimately absorbed. On this episode of The a16z Show, a16z General Partner David George asks him why he came back to start Armadin, and Mandia's answer is simple: he did not want to sit out the AI shift after thirty years watching the field change. He met Armadin's founders, David Slater, Travis Lanham, and Evan Peña, and concluded the talent was generational and the timing unavoidable. In his words, everything he did before is finished, and everything ahead is new.</p>
+        <p>The core of the conversation is how AI changes offense. A human intruder, Mandia says, is selective by necessity: limited people and time force one path through a network, moved along step by step. AI attackers are different in kind. They operate at a scale and speed humans cannot match, probing thousands of paths at once, and they betray themselves today mainly by being sloppy, noisy, and occasionally illogical, revisiting doors they already opened. Nation states have historically attacked like a sniper round, deep and narrow against a small set of targets. AI turns that into something more like a drone swarm: louder, less surgical, but far more comprehensive, and harder to attribute. Mandia argues the result democratizes attack skill, letting far less technical actors look far more capable, and he warns that today's open models are already good enough for this. Criminal use, he expects, will surge once attackers can rent compute anonymously.</p>
+        <p>Armadin's answer is to build the best offense in the world and aim it at its own customers. Mandia frames it as a sports problem: a great defense only exists if a great practice offense pushes it, the way the 2000 Baltimore Ravens defense was sharpened by the offense across from it. The company's first act is offensive. Swarms of agents map a customer's entire network, every service, route, and asset, building a metadata twin of the attacker's view. From there the system polls cheaply for change, a new app, a changed route, an updated service, and attacks the change, so testing is continuous rather than an annual event. When a new vulnerability drops over a weekend, the company can check whether it is actually exploitable inside a customer before real attackers get there.</p>
+        <p>That approach, he argues, makes traditional penetration testing obsolete. Legacy scanning tools mostly list known weaknesses and hygiene problems, producing long reports full of findings that may not matter. Armadin instead carries the exploit through, to remote code execution or data access, so a finding is proven rather than suspected, and the agents find logic flaws in custom applications that scanners miss entirely. The proof point he returns to: since January 2026, Armadin has found more than ninety previously unknown vulnerabilities at customer sites, all in production systems at Fortune 500 companies, discovered from outside the network with no source code access. The last few, he notes, were found by the AI agents themselves rather than by the human operators steering them.</p>
+        <p>The second act is defense. Finding risk is not enough, so the company is building a defensive layer that takes what the offense learns and pushes compensating controls into the platforms customers already run, naming CrowdStrike, Palo Alto Networks, and Fortinet as partners in that direction. Mandia compares it to field dressing in war: stop the bleeding first, hospital later. He is blunt that humans cannot stay in the detect-and-respond loop. Once an autonomous intruder is inside, it spreads at a speed he likens to a popped balloon, so prevention, detection, and response all have to collapse toward machine speed, with autonomous security as every security chief's true north.</p>
+        <p>He is equally blunt that the industry is only at the edge of this. Both attackers and defenders feel a near-term desperation, he says, and large enterprises are running war rooms to close exposures. He points to Anthropic's Mythos moment as the marketing shock that woke boards up, and to the Hugging Face incident as a case of a capable team underestimating what its own models could do. Securing offensive agents, in his telling, is itself a craft: Armadin wraps its attacking systems in hypervisors, proxies, classifiers that watch every prompt in and out, deterministic rules that forbid certain actions, and complete logs of everything an agent does, because domain expertise, not just model skill, is what catches the failure modes.</p>
+        <p>His internal testing offers a sobering benchmark. The team built twenty full attack chains that experienced human operators had carried out at real victim sites, and no model, open or closed, completed more than eight. Open and closed models ended in roughly the same place; the closed ones were faster, and cost was the main difference. Capability in this domain, he concludes, is compressing.</p>
+        <p>The last section is about building a company at this speed. Mandiant was self-funded, profitable, and nearly competition-free because nobody believed its founding premise that breaches were inevitable. Armadin cannot work that way: it needs venture funding, a go-to-market machine built ahead of the technology, and sales teams retrained weekly because the product changes every two weeks. In a market crowded with founders, Mandia says differentiation no longer comes from marketing noise. It comes from one loop: get a customer, make that customer happy, repeat. Everyone at the company sits in one room because distributed teams move too slowly for him.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>If open and closed models alike stall at the same eight of twenty kill chains today, what breaks first when that ceiling lifts, and will defenders or attackers notice sooner?</li>
+        <li>How much autonomy can defense safely take before a machine-speed compensating control does damage of its own, and who answers for it?</li>
+        <li>As attribution blurs and anonymous compute spreads, what replaces the old assumption that professionals can tell a nation state from a criminal gang from a machine?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English auto-generated caption track of the video itself, downloaded from the video's own caption data (about 9,900 words) and read in full. No RSS transcript or third-party text was used. The video's feed surfaces a tested alternate title, "The Biggest Shift in Cybersecurity in 30 Years"; the published title used here is "Building Cyber Defense for the Agentic Era."</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#iltb-huberman-frontier-neurotechnology">&larr; Why Every AI Lab Will Become a Biotech Company | Andrew Huberman</a>
+        <a class="to-index" href="2026-10-06.html" data-route="index">All summaries</a>
+        <a class="next" href="#next-endeavor-cancer-treatments">Can AI Find Cancer Treatments We’re Missing? | The Next Endeavor 2026 &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="next-endeavor-cancer-treatments" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-06.html" data-route="index">&larr; October 6, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Can AI Find Cancer Treatments We’re Missing? | The Next Endeavor 2026 &mdash; October 6, 2026 <span class="dur">&middot; 2:50</span></p>
+        <audio controls preload="none" src="../podcasts/next-endeavor-cancer-treatments.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/next-endeavor-cancer-treatments.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="next-endeavor-cancer-treatments" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="next-endeavor-cancer-treatments"></div>
+        <div class="episode-download"><a href="../podcasts/next-endeavor-cancer-treatments.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Imagination in Action (Ulrike Hoffmann-Burchardi)</dd></div>
+        <div><dt>Published</dt><dd>October 6, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=5N_Ka0_EAzk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Imagination in Action &middot; AI &middot; oncology &middot; drug discovery</p>
+        <h2>Can AI Find Cancer Treatments We’re Missing? | The Next Endeavor 2026</h2>
+        <div>
+        <p class="dek">At the Imagination in Action Silicon Valley AI Summit, moderator Ulrike Hoffmann-Burchardi sat down with ConcertAI Vice Chairman Jeff Elton and Cartography Biosciences CEO Kevin Parker to explore how AI can unlock treatments for cancers medicine currently cannot help.</p>
+        <p>Kevin Parker framed the opportunity as finding new targets, not just better drugs. He argued that drug discovery crowds a handful of known targets while most cancer patients lack good options. Cartography's early-stage colon cancer program targets tumors precisely to spare healthy tissue and uses single-cell data to spot underappreciated targets worth drugging. AI-designed drugs currently fail at the same rate as traditional ones, he said, because failures usually stem from wrong biology, wrong patient populations, or both. Fixing that would mean doubling or tripling success rates, from a few percent toward 10 to 20 percent.</p>
+        <p>Jeff Elton, whose ConcertAI works with hundreds of health systems and dozens of pharma companies, emphasized AI's strength at predicting the next informative experiment. He described building digital twins of narrow patient populations to pick lead series, identify likely responders, and design trials with fewer patients and faster signals. Causal, dynamic models of biological systems matter because clinical and biological data don't map onto each other directly. AI biological systems outperform frontier models, which can only train on what's already known.</p>
+        <p>On bottlenecks, both pointed to human tissue access and biological expertise as the binding constraints, not compute. ConcertAI agents operate inside a walled environment and never break out. The audience heard that crowded targets, cautious funding, and a wave of lower-cost Chinese Phase 1 programs are reshaping Western biotech incentives.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>How quickly can tissue-access programs scale enough to feed the models both speakers say are starved for human data?</li>
+        <li>Will digital-twin data actually shorten trial timelines with regulators, or mainly improve sponsor decisions?</li>
+        <li>Does the funding model ever flip toward exploration, or does crowding persist even as AI lowers early-stage costs?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the video's own audio, transcribed locally with faster-whisper (6,453 words). YouTube's caption endpoint returned HTTP 429 and was not retried. No alternate or tested title was visible in the reachable metadata.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#a16z-kevin-mandia-cybersecurity">&larr; Building Cyber Defense for the Agentic Era</a>
+        <a class="to-index" href="2026-10-06.html" data-route="index">All summaries</a>
+        <a class="next" href="#svg-daron-acemoglu-stay-valuable">Nobel Economist: How to Stay Valuable as AI Changes Work | Daron Acemoglu &rarr;</a>
+      </nav>
+    </section>
+
+<section class="article-view" id="svg-daron-acemoglu-stay-valuable" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-06.html" data-route="index">&larr; October 6, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Nobel Economist: How to Stay Valuable as AI Changes Work | Daron Acemoglu &mdash; October 6, 2026 <span class="dur">&middot; 4:06</span></p>
+        <audio controls preload="none" src="../podcasts/svg-daron-acemoglu-stay-valuable.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/svg-daron-acemoglu-stay-valuable.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="svg-daron-acemoglu-stay-valuable" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="svg-daron-acemoglu-stay-valuable"></div>
+        <div class="episode-download"><a href="../podcasts/svg-daron-acemoglu-stay-valuable.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Silicon Valley Girl (Daron Acemoglu)</dd></div>
+        <div><dt>Published</dt><dd>October 6, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=0lsasYuzhL4" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Silicon Valley Girl &middot; AI &middot; economics &middot; future of work</p>
+        <h2>Nobel Economist: How to Stay Valuable as AI Changes Work | Daron Acemoglu</h2>
+        <div>
+        <p class="dek">On the Silicon Valley Girl podcast, host Marina Mogilko interviews Daron Acemoglu, an MIT economist and 2024 Nobel laureate in Economic Sciences, about where AI is actually heading and what keeps people valuable as it spreads.</p>
+        <p>Acemoglu's starting point is that AI's economic impact is real but still muted, and likely to arrive more slowly than the loudest forecasts suggest. Years ago he estimated that only a small share of tasks were fully automatable and that the technology would add roughly one percent to U.S. GDP over a decade. With recent advances in agentic AI he would nudge that share a bit higher now, but he stresses that automation is hard to integrate into organizations, and that diffusion of a general purpose technology takes complementary investment and time.</p>
+        <p>He explains why progress has been fastest in coding: code, like chess or math, comes with a ground truth, since a program either runs or it does not, which makes feedback loops clean. Customer service is the opposite case: expectations shift, requests are personal, and gray areas dominate, which is why efforts to automate it fully have been slow and often painful in practice. The bottleneck, in his telling, is not model capability. Existing models could already power far better applications, especially tools that make nurses, teachers, and electricians more effective. The United States, he argues, over-invests in foundation models while under-investing in applications and in the engineering work of embedding AI into production. Chinese manufacturers such as Foxconn and BYD, by contrast, throw large numbers of engineers at getting robotics and AI onto the factory floor.</p>
+        <p>His central theme is what he calls pro-worker AI. Automation on its own, he says, will not deliver the full productivity gains, and if it is all we do, it eliminates jobs without creating the new, well-paid, high-productivity work that has historically carried shared prosperity. For a business owner, he frames the choice arithmetically: automating a small slice of jobs at half cost usually loses to making the whole workforce a few percent more productive, because experienced workers hold tacit knowledge, customer context, and the data that good applications are built from. The companies remembered a century later, he notes, are the ones that imagined new markets and tasks, not the ones that merely cut costs.</p>
+        <p>On education, he thinks university remains worthwhile, though he has never believed everyone should go, and he flags the signaling value of elite degrees. More worryingly, he sees evidence that generative AI, rolled into schools without guardrails, has made learning harder in middle and high school, leaving students less prepared. His advice to students is direct: study math, physics, economics, and engineering; strong foundations are what make human creativity possible, and creativity is precisely what the next decade will demand. He also urges flexibility and nonlinear careers, learning to work alongside AI without delegating away the thinking itself, and a renewed sense of civic responsibility, which he sees as essential infrastructure for a democratic society in the AI era.</p>
+        <p>Asked where the money is, Acemoglu doubts that foundation models will earn the trillions now being wagered on them, since open models will keep improving and diffusion bottlenecks will bite. The edge, he argues, sits with high-quality data and with creative applications that fill a niche; workers themselves are the source of much of that data and should be compensated for generating it.</p>
+        <p>He closes by naming the risk that worries him most: not machine superintelligence, but loss of control, a future in which workers, students, and parents lose agency over their own lives as a handful of companies steer the technology. Steering AI, he insists, is too important to leave to a few people, however well-meaning they are.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>If applications, not stronger models, are the bottleneck, what would actually persuade tech companies and investors to redirect talent toward tools for nurses, teachers, and the trades?</li>
+        <li>How should we measure AI's productivity impact when so much of it shows up as unmeasured quality changes?</li>
+        <li>What would it take for workers and the public to gain a real voice in how AI is steered, rather than leaving those choices to a few frontier labs?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in a full transcript of the video's own audio (7,253 words), transcribed locally with faster-whisper after YouTube's caption endpoints returned bot-wall errors and the podcast's RSS feed had not yet published this episode. The channel's uploads listing also shows an alternate tested title for this video, "Nobel Economist: Where to Look for AI Opportunities Beyond the Hype."</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#next-endeavor-cancer-treatments">&larr; Can AI Find Cancer Treatments We’re Missing? | The Next Endeavor 2026</a>
+        <a class="to-index" href="2026-10-06.html" data-route="index">All summaries</a>
+        <a class="next" href="#isenberg-13-businesses-age-of-ai">13 Businesses for the Age of AI &rarr;</a>
+      </nav>
+    </section>
+
+        <section class="article-view" id="isenberg-13-businesses-age-of-ai" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-06.html" data-route="index">&larr; October 6, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">13 Businesses for the Age of AI &mdash; October 6, 2026 <span class="dur">&middot; 3:40</span></p>
+        <audio controls preload="none" src="../podcasts/isenberg-13-businesses-age-of-ai.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/isenberg-13-businesses-age-of-ai.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="isenberg-13-businesses-age-of-ai" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="isenberg-13-businesses-age-of-ai"></div>
+        <div class="episode-download"><a href="../podcasts/isenberg-13-businesses-age-of-ai.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>The Startup Ideas Podcast (Greg Isenberg)</dd></div>
+        <div><dt>Published</dt><dd>October 6, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=bQPU6UJ4iCw" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">The Startup Ideas Podcast &middot; AI &middot; startups &middot; agents</p>
+        <h2>13 Businesses for the Age of AI</h2>
+        <div>
+        <p class="dek">On The Startup Ideas Podcast, Greg Isenberg's "13 Businesses for the Age of AI" (published October 6, 2026) is a solo episode with a simple premise: when agents can build and run generic software almost for free, the durable value moves to businesses that agents cannot easily copy. Isenberg is not predicting doom. He rejects the idea of a permanent underclass, but argues that owning the right assets puts a person in a much better position, and he offers his list of 13 as a map of where to build next.</p>
+        <p>He starts with AI-native service firms, where agents do most of the delivery work and a human reviews the exceptions. His example is a bookkeeping firm for one type of client: agents prepare the books, a person checks the odd cases, and the client pays for finished books rather than hours. Because the labor is mostly automated, margins are high and few clients are needed. Next come offline businesses, things people pay to do together in a room, such as Othership's communal sauna clubs. Agents can run the admin, he notes, but the room and the experience are the product. Since real estate is expensive, he advises starting with the cheapest possible first version, the food truck version of the idea, before committing to a full location.</p>
+        <p>Distribution is third. Reaching people keeps getting more expensive: clicks that cost about five cents in 2009 now run one to five dollars. So he favors building organic audiences first, then community, then the product they ask for, a sequence he calls the audience, community, product funnel. Fourth are proprietary data sets. Models need data they do not already have, companies that gather and sell such data to the big labs are commanding large valuations, and he expects a long gold rush in acquiring useful information that a person cannot simply ask a chatbot for.</p>
+        <p>Fifth are domain-specific harnesses. A model, in his analogy, is only the engine of a car. The harness is everything around it: the tools it can call, the workflow rules, the memory, and the checks. A harness turns a general model into a system that understands one industry, such as freight brokerage. He calls harnesses the new wrapper, since many of the wrappers that survived did so by growing tools, rules, and memory around the model, with legal software like Harvey as his example.</p>
+        <p>Sixth is robotics and physical AI, which he thinks is closer than people assume. His example is Osmo, which sells window cleaning as a service to building owners using robots. You do not have to build the robots to take part; buying units, renting them out, or selling them are also positions. Seventh, physical products with a fan following: niche hardware that obsessive customers happily overpay for, like Fellow's coffee gear or anti-scroll phones from the Minimal Company. AI design tools now make very narrow niches practical to prototype and produce.</p>
+        <p>Eighth, compute and energy: every agent needs chips, electricity, and cooling, so owning scarce inputs is a strong place to stand, and he points to Crusoe's recent multibillion-dollar raise as a sign of the demand. Ninth, health, longevity, and care. Older adults are underserved by builders, care services are short-staffed, and longevity has become a cultural niche waiting for more specific offerings. Tenth, marketplaces and social networks. Getting buyers and sellers to show up at the same time is more art than science, but if liquidity holds, the moat is real, and personal agents will want access to those markets.</p>
+        <p>Eleventh, real assets: physical space the new economy still needs, like small industrial workshops rented to local trades. Twelfth, vertical agents, one agent given a recurring job inside one industry, such as handling purchasing for independent restaurants. Thirteenth, security, in both senses: software that controls what agents can access and keeps sensitive workflows safe, and physical security services for people who feel less safe. His closing point is restrained. He is not saying these are the only way to survive. He is saying this is the map he would pay attention to, and that owning a piece of these businesses is where the leverage now sits.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>If data sets and harnesses are both gold rushes, how long do those margins last once the big labs build or buy the same data and tooling themselves?</li>
+        <li>For offline businesses, what does a cheap first version look like in high-rent cities, and how many experience businesses can one neighborhood actually support?</li>
+        <li>Once personal agents shop and negotiate on our behalf, who ends up owning the customer relationship: the marketplace, or the agent?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the video's own English caption track (4,163 words), fetched from the caption endpoint for this exact upload and converted to plain text. The published title on the page is "13 Businesses for the Age of AI"; no tested alternate title was visible on the page or channel listing checked.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#svg-daron-acemoglu-stay-valuable">&larr; Nobel Economist: How to Stay Valuable as AI Changes Work | Daron Acemoglu</a>
+        <a class="to-index" href="2026-10-06.html" data-route="index">All summaries</a>
+        <a class="next" href="#pragmatic-engineer-state-of-tech-2026">The state of the tech industry in 2026 - LDX3 New York &rarr;</a>
+      </nav>
+    </section>
+
+        <section class="article-view" id="pragmatic-engineer-state-of-tech-2026" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-06.html" data-route="index">&larr; October 6, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">The state of the tech industry in 2026 - LDX3 New York &mdash; October 6, 2026 <span class="dur">&middot; 5:06</span></p>
+        <audio controls preload="none" src="../podcasts/pragmatic-engineer-state-of-tech-2026.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/pragmatic-engineer-state-of-tech-2026.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="pragmatic-engineer-state-of-tech-2026" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="pragmatic-engineer-state-of-tech-2026"></div>
+        <div class="episode-download"><a href="../podcasts/pragmatic-engineer-state-of-tech-2026.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>The Pragmatic Engineer (Gergely Orosz)</dd></div>
+        <div><dt>Published</dt><dd>October 6, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Ru99FGJ_yuE" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">The Pragmatic Engineer &middot; LDX3 New York &middot; tech industry &middot; AI labs &middot; engineering leadership</p>
+        <h2>The state of the tech industry in 2026 - LDX3 New York</h2>
+        <div>
+        <p class="dek">The Pragmatic Engineer, Gergely Orosz's channel, published "The state of the tech industry in 2026 - LDX3 New York", the recording of his keynote at the LDX3 engineering leadership conference in New York, given on 15 September 2026 to an audience of more than 2,000 senior engineering leaders. Orosz says he spent the preceding months inside the headquarters of OpenAI, Anthropic, Cursor, and Ramp, and in long conversations with people at Uber, Linear, Cockroach Labs, and elsewhere, and the talk is his attempt at a snapshot of the industry right now. He organizes it in four parts: what has changed, what has not, what has broken, and what comes next.</p>
+        <p>The change section is the longest, and its headline is that hand-written code is disappearing. Orosz dates the shift to January 2026, when the newest models paired with good agent harnesses became good enough that engineers simply switched; startups he talks to now report that nearly all of their code is AI generated, with humans prompting and editing rather than typing. Working with many agents in parallel has become normal practice: Boris Cherny at Anthropic runs five local agent sessions plus five to ten on the web, and engineers at Linear and Cockroach Labs describe juggling five to ten concurrent work streams as a matter of routine. The heavyweight IDE is fading in response: the last major VS Code fork shipped in November, OpenAI decided against forking one for Codex, JetBrains is pivoting toward an agent harness, and Cursor's own team told him its IDE is now a legacy enterprise product that is shrinking.</p>
+        <p>Every serious tech company, meanwhile, is building its own agent harness, and developer work increasingly starts inside Slack by tagging a bot. Orosz treats the "agentic software factory" as a real, operating thing rather than a slogan, pointing to OpenAI's production-monitoring agents that raise their own pull requests. Big migrations have collapsed from years to weeks or months: Anthropic moved Zig to Rust, OpenAI's Python-to-Rust API migration is months from done under full production load, Airbnb and Asana rewrote large test suites in weeks, and Uber's JUnit 4-to-5 migration took four months across millions of lines. Fresh Linear data shows agent-created tickets have passed human-created ones on the platform for the first time, and GitHub data shows agent-written pull requests up nearly tenfold between January and August 2026. Costs, after blowing through budgets in the spring, are being wrestled flat through open models and smarter routing. Engineering specializations are dissolving, projects are shrinking to one or two engineers who each run several agents, teams keep getting smaller, and junior hiring keeps sliding.</p>
+        <p>Against all that motion, Orosz argues the fundamentals held. Teams remain the unit of work: Anthropic and OpenAI still run two-pizza teams that own software and on-call, because people take vacations, hold each other accountable, and raise the bar in ways a pair of humans with agents does not replicate. Planning still matters for complex infrastructure work, and building the wrong thing is still waste. Testing has kept its share of the effort: on the Bun team inside Anthropic, AI writes the code and the tests, in roughly the same ratio as before. Two rumors get flat pushback: non-engineers are not shipping production code anywhere he looked, and old software wisdom is being rediscovered, since engineers like Matt Pocock find that classic concepts such as deep modules give agents better instructions.</p>
+        <p>The broken section is where the talk darkens. Code volume has exploded past the industry's reviewing capacity: pull requests doubled in two months, GitHub's own infrastructure has strained, and code review has quietly become theater, with engineers rubber-stamping changes they cannot possibly read; Ramp and others are formally dropping review requirements for non-critical code. Software quality is visibly slipping across everyday products. Infrastructure is strained too, with a CPU shortage on top of the known GPU and memory ones: server lead times have stretched from one or two weeks to six months, and some cloud regions will not take new reservations. Focus has broken as well, since the productivity edge from running parallel agents has become the baseline expectation, leaving engineers with more work and more context-switching than before AI. And engineering leadership itself is cracking: leaders are quitting or taking breaks under unrealistic founder expectations, shrinking teams that need fewer managers, worthless startup equity, and burnout, while fractional CTO work booms in the metro hubs and AI labs skim off top leaders with pay few can match.</p>
+        <p>For what comes next, Orosz expects development to move into cloud agents and harnesses, even among local-development loyalists, because the cloud is faster, roomier, and better tooled. He predicts engineers will stop reading most code, with evals folded into CI/CD and agents embedded in deployment, observability, and incident response; a wave of cheap migrations and rewrites; AI fluency screening becoming a baseline in hiring; and company-level agent systems, built backward from business outcomes, replacing one-off personal automations. When the ability to write code is cheap, he argues, following Titus Winters, wisdom and persuasion are what remains scarce, so engineers with deep domain knowledge get more valuable, not less. His closing advice to leaders is to stay hands-on, ship to production, build the agent infrastructure for their own teams, and keep learning rather than delegating the learning away.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>If code review is effectively dead and engineers will soon stop reading code altogether, what replaces review as the industry's trust mechanism, and how long until a serious failure forces the issue?</li>
+        <li>When teams keep shrinking and one or two engineers run whole projects, what happens to the manager career ladder and to the leaders now stepping away?</li>
+        <li>If parallel agents have simply raised the baseline so engineers feel busier than before AI, is the productivity gain real, or mostly a transfer of effort?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English auto-caption track (en-orig) of this exact YouTube video (29:39 runtime), retrieved from the video's own player and converted to text (5,680 words). No third-party summary was used. The talk was delivered on 15 September 2026; the video was uploaded on October 6, 2026.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#isenberg-13-businesses-age-of-ai">&larr; 13 Businesses for the Age of AI</a>
+        <a class="to-index" href="2026-10-06.html" data-route="index">All summaries</a>
+        <a class="next" href="#claude-building-secure-agents">Building secure agents for knowledge work &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="claude-building-secure-agents" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-06.html" data-route="index">&larr; October 6, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Building secure agents for knowledge work &mdash; October 6, 2026 <span class="dur">&middot; 3:38</span></p>
+        <audio controls preload="none" src="../podcasts/claude-building-secure-agents.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/claude-building-secure-agents.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="claude-building-secure-agents" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="claude-building-secure-agents"></div>
+        <div class="episode-download"><a href="../podcasts/claude-building-secure-agents.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Claude (Anthropic)</dd></div>
+        <div><dt>Published</dt><dd>October 6, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=z7cNbsr3b5s" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Claude &middot; Anthropic &middot; Every &middot; agents &middot; knowledge work &middot; security</p>
+        <h2>Building secure agents for knowledge work</h2>
+        <div>
+        <p class="dek">On the Claude YouTube channel, Katelyn Lesse, who leads platform engineering at Anthropic, sat down with Every co-founder and CEO Dan Shipper and Every's head of platform, Willie Williams. The conversation centers on the Every Agent, the AI coworker Every built on Claude Managed Agents to bring agentic ways of working to the rest of a company, not just its engineers.</p>
+        <p>The starting point is that work itself is being rebuilt. Shipper argues that benchmarks measure whether a model could take a job away, while the more useful question is whether a person can extend what they are able to do. Engineering got there first because code has verifiable answers, and he expects the same pattern to reach other knowledge work, only more slowly, because judging quality in open-ended tasks is harder.</p>
+        <p>Every is a media and technology company selling a subscription for staying current with AI: a newsletter, courses, and model reviews on the education side, and now software on the equipment side. The Every Agent grew out of the company's own experiments. A wave of individual agents on Mac minis died off because they were too hard to maintain, and the team converged on one shared company agent living in Slack. Shipper calls the keenest internal adopters "AI ambassadors": people whose personal setups transform their own work but who cannot persuade coworkers by explaining. Prompting in public, inside the chat tool everyone already uses, lets those people demonstrate instead.</p>
+        <p>The examples stay deliberately ordinary. Every ran its benefits open enrollment through the agent, which knew the plan documents and each employee's situation and could recommend a fit, replacing dozens of private one-off chats. For editorial work, the team turned roughly thirty thousand of editor-in-chief Kate's past edits into a skill. Anyone can ask the agent for a "Kate pass" on a draft, it leaves suggested edits in the document, and whatever extra corrections Kate still makes are fed back into the skill so it improves. The point, Shipper says, is that an expert's taste becomes a reusable system rather than a queue of requests: "My time is taken up all day by having people ask me to do things for them that only I can do," as he frames the problem, and an agent like this scales the expert instead of the hours.</p>
+        <p>Evaluation gets the same treatment. Every's published model reviews began as manual vibe checks: staff test a new model on their real workflows and report their taste. That is slow, so the team started capturing real tasks and turning likes and dislikes into explicit checks, almost like unit tests for work (is a headline in sentence case, for instance). Run against their own tasks, those checks become a personal benchmark that measures what they actually care about rather than what a public leaderboard measures.</p>
+        <p>On form factor, Williams explains that the company moved from one agent per person, spread across surfaces, to a single shared agent because improvements pooled in one place compound: better skills and better guidance from many people make one agent stronger for everyone, and Slack is simply where collaborative work already happens, with none of the copy-paste shuttle between private chats.</p>
+        <p>The technical case for Claude Managed Agents is mostly about not owning infrastructure. Every tried running its own agent stack and found sandbox orchestration and everything around it consumed the team. Managed Agents gave them sandboxes, memory, and session control, which freed them to work on interaction design instead. Williams values being able to spin up an isolated copy of the production setup, memories and all, to test conversational edge cases and token costs without touching the live agent. Shipper adds that the line between model and harness has blurred: when a new model ships with breaking changes in its prompting guide, the managed harness absorbs them, and adopting the model becomes a one-line change.</p>
+        <p>Security follows from that isolation. Because the team controls sandboxes, tool calls, and which memories attach to a request, they can decide who gets access to what. On identity, the agent behaves as its own participant inside Slack, carrying a per-person picture of who is asking and what that person may see, and when it goes out through a tool to fetch something, it acts on that person's behalf. Williams describes the goal as something close to how a sensible human colleague would behave.</p>
+        <p>Improvement over time is framed as a hiring problem. Shipper compares benchmark scores to SAT results: useful for direction, useless once every candidate aces them. What you actually want is a reference check and a work trial. A model starting at a company is like a bright new graduate on day one; the aim is a system where it compounds knowledge of how you work, so day ten is better than day one, and where you can prove that with gathered cases of good and bad work. The next big product step is exactly that: letting anyone build a small personal benchmark out of their own taste, use it to compare models, and spread the resulting skills across the organization. Alongside that, Shipper is experimenting with a desktop computer-use helper the Slack agent can delegate to when a task needs hands on his own machine, which he sees as complementary to working alone in tools like Claude Code: some work is public and collaborative, some is solo, and people will move between the two.</p>
+        <p>Personality is the open design frontier. An agent in a social space has to learn norms a one-on-one assistant never faces: when to interject, when to connect ideas across threads, how extroverted to be. Every wants its agent to feel like a person who works at Every, and Shipper asks Anthropic for more control knobs there, alongside his plea not to forget knowledge workers while frontier gains land in math and biology, since speed, cost, and legibility of answers still gate daily usefulness.</p>
+        <p>His closing take cuts against the displacement framing: the more his team uses agents, the more work they find. Automating part of the system moves where a person works in it rather than finishing the work, and each cleared horizon opens another. The lighter moments make the same point sideways: the agent tracks beers the CEO owes people and resurfaces the debts at apt moments, and one employee's all-caps announcement style has become a skill the whole company borrows.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>When a shared agent acts on each employee's behalf with per-person access, who is accountable when it crosses a line a human colleague would have caught, and how should that be logged or reviewed?</li>
+        <li>Can personal, taste-based benchmarks stay honest once people know their everyday work is being scored, or does measurement change the behavior it is meant to capture?</li>
+        <li>As agents gain social norms for when to speak up in shared channels, who sets those norms: the platform, the company, or the team being interrupted?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English caption track of the video itself (auto-generated captions fetched from the video's own caption track, 6,636 words, covering the complete conversation). No separate podcast version was needed. The title above is the video's published title as shown on the Claude channel; no alternate or tested title was visible on the watch page or the channel listing.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#pragmatic-engineer-state-of-tech-2026">&larr; The state of the tech industry in 2026 - LDX3 New York</a>
+        <a class="to-index" href="2026-10-06.html" data-route="index">All summaries</a>
+        <a class="next" href="#berman-mistral-le-chonk">Mistral is BACK! (Le Chonk) &rarr;</a>
+      </nav>
+    </section>
+
+        <section class="article-view" id="berman-mistral-le-chonk" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-06.html" data-route="index">&larr; October 6, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Mistral is BACK! (Le Chonk) &mdash; October 6, 2026 <span class="dur">&middot; 2:31</span></p>
+        <audio controls preload="none" src="../podcasts/berman-mistral-le-chonk.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/berman-mistral-le-chonk.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="berman-mistral-le-chonk" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="berman-mistral-le-chonk"></div>
+        <div class="episode-download"><a href="../podcasts/berman-mistral-le-chonk.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><p>Matthew Berman's latest video looks at Mistral Large 4, the large open-weight model from the French lab Mistral, and asks whether the company is back in the frontier conversation.</p><p>The claim he keeps returning to is provenance. He stresses that this model was trained from scratch in Europe on a few thousand Nvidia Grace Blackwell GPUs in Mistral's own data centers, and that it is not a post-trained remix of an existing Chinese base model. For a lab selling sovereignty as much as capability, that distinction matters to his argument.</p><p>On benchmarks, his read is mixed, and he says so. The model sits near the top of the open-weight field on some coding, agent, and cybersecurity charts, but on the all-models leaderboard he shows, it lands near the bottom of the pack, and its half-million-token context window is half the size that has become standard. Where it earns praise from him is speed and price: it serves tokens quickly, in company he considers respectable, and it is cheap to run.</p><p>His hands-on segment is the most cautious part of the video. Dropping the model into an agent coding harness took debugging before it behaved, and he is blunt that ordinary users will not put up with that kind of friction. The closed frontier, as he sees it, keeps widening its lead in raw quality even as open models win on control.</p><p>Where he lands is economic rather than tribal. For teams with the expertise to self-host at scale, open weights still offer ownership, privacy, and cost advantages that an API cannot match; for everyone else, the frontier labs currently offer more capability with far less work. He closes by congratulating Mistral and treating the release as healthy competition.</p><h3 class="open-q">Open questions</h3><ol><li>The weights are promised soon but are not out yet. Do they arrive on schedule, and do independent runs reproduce the published numbers?</li><li>Can a half-million-token context window compete at a moment when a million tokens has become the expected standard?</li><li>If the closed labs keep getting better, faster, and cheaper at the same time, how long does the self-hosting advantage actually hold?</li></ol><p class="source-note"><strong>Source note.</strong> grounded in the video's own full English caption transcript (the en-orig auto-caption track, 3,302 words, retrieved through YouTube's android player client after the webpage route hit a bot wall and was not retried). Metadata checked against the video page: published by Matthew Berman on October 6, 2026, runtime 21 minutes and 29 seconds. No alternate or tested title was visible on the watch page or channel listing. Benchmark standings and model figures are as the video itself states them.</p><p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p></div>
+        <div><dt>Published</dt><dd>October 6, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Hu1JOK6aXsI" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Matthew Berman &middot; Mistral &middot; AI models &middot; model releases</p>
+        <h2>Mistral is BACK! (Le Chonk)</h2>
+        <div>
+        <p class="dek">On the Claude YouTube channel, Katelyn Lesse, who leads platform engineering at Anthropic, sat down with Every co-founder and CEO Dan Shipper and Every's head of platform, Willie Williams. The conversation centers on the Every Agent, the AI coworker Every built on Claude Managed Agents to bring agentic ways of working to the rest of a company, not just its engineers.</p>
+        <p>The starting point is that work itself is being rebuilt. Shipper argues that benchmarks measure whether a model could take a job away, while the more useful question is whether a person can extend what they are able to do. Engineering got there first because code has verifiable answers, and he expects the same pattern to reach other knowledge work, only more slowly, because judging quality in open-ended tasks is harder.</p>
+        <p>Every is a media and technology company selling a subscription for staying current with AI: a newsletter, courses, and model reviews on the education side, and now software on the equipment side. The Every Agent grew out of the company's own experiments. A wave of individual agents on Mac minis died off because they were too hard to maintain, and the team converged on one shared company agent living in Slack. Shipper calls the keenest internal adopters "AI ambassadors": people whose personal setups transform their own work but who cannot persuade coworkers by explaining. Prompting in public, inside the chat tool everyone already uses, lets those people demonstrate instead.</p>
+        <p>The examples stay deliberately ordinary. Every ran its benefits open enrollment through the agent, which knew the plan documents and each employee's situation and could recommend a fit, replacing dozens of private one-off chats. For editorial work, the team turned roughly thirty thousand of editor-in-chief Kate's past edits into a skill. Anyone can ask the agent for a "Kate pass" on a draft, it leaves suggested edits in the document, and whatever extra corrections Kate still makes are fed back into the skill so it improves. The point, Shipper says, is that an expert's taste becomes a reusable system rather than a queue of requests: "My time is taken up all day by having people ask me to do things for them that only I can do," as he frames the problem, and an agent like this scales the expert instead of the hours.</p>
+        <p>Evaluation gets the same treatment. Every's published model reviews began as manual vibe checks: staff test a new model on their real workflows and report their taste. That is slow, so the team started capturing real tasks and turning likes and dislikes into explicit checks, almost like unit tests for work (is a headline in sentence case, for instance). Run against their own tasks, those checks become a personal benchmark that measures what they actually care about rather than what a public leaderboard measures.</p>
+        <p>On form factor, Williams explains that the company moved from one agent per person, spread across surfaces, to a single shared agent because improvements pooled in one place compound: better skills and better guidance from many people make one agent stronger for everyone, and Slack is simply where collaborative work already happens, with none of the copy-paste shuttle between private chats.</p>
+        <p>The technical case for Claude Managed Agents is mostly about not owning infrastructure. Every tried running its own agent stack and found sandbox orchestration and everything around it consumed the team. Managed Agents gave them sandboxes, memory, and session control, which freed them to work on interaction design instead. Williams values being able to spin up an isolated copy of the production setup, memories and all, to test conversational edge cases and token costs without touching the live agent. Shipper adds that the line between model and harness has blurred: when a new model ships with breaking changes in its prompting guide, the managed harness absorbs them, and adopting the model becomes a one-line change.</p>
+        <p>Security follows from that isolation. Because the team controls sandboxes, tool calls, and which memories attach to a request, they can decide who gets access to what. On identity, the agent behaves as its own participant inside Slack, carrying a per-person picture of who is asking and what that person may see, and when it goes out through a tool to fetch something, it acts on that person's behalf. Williams describes the goal as something close to how a sensible human colleague would behave.</p>
+        <p>Improvement over time is framed as a hiring problem. Shipper compares benchmark scores to SAT results: useful for direction, useless once every candidate aces them. What you actually want is a reference check and a work trial. A model starting at a company is like a bright new graduate on day one; the aim is a system where it compounds knowledge of how you work, so day ten is better than day one, and where you can prove that with gathered cases of good and bad work. The next big product step is exactly that: letting anyone build a small personal benchmark out of their own taste, use it to compare models, and spread the resulting skills across the organization. Alongside that, Shipper is experimenting with a desktop computer-use helper the Slack agent can delegate to when a task needs hands on his own machine, which he sees as complementary to working alone in tools like Claude Code: some work is public and collaborative, some is solo, and people will move between the two.</p>
+        <p>Personality is the open design frontier. An agent in a social space has to learn norms a one-on-one assistant never faces: when to interject, when to connect ideas across threads, how extroverted to be. Every wants its agent to feel like a person who works at Every, and Shipper asks Anthropic for more control knobs there, alongside his plea not to forget knowledge workers while frontier gains land in math and biology, since speed, cost, and legibility of answers still gate daily usefulness.</p>
+        <p>His closing take cuts against the displacement framing: the more his team uses agents, the more work they find. Automating part of the system moves where a person works in it rather than finishing the work, and each cleared horizon opens another. The lighter moments make the same point sideways: the agent tracks beers the CEO owes people and resurfaces the debts at apt moments, and one employee's all-caps announcement style has become a skill the whole company borrows.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>When a shared agent acts on each employee's behalf with per-person access, who is accountable when it crosses a line a human colleague would have caught, and how should that be logged or reviewed?</li>
+        <li>Can personal, taste-based benchmarks stay honest once people know their everyday work is being scored, or does measurement change the behavior it is meant to capture?</li>
+        <li>As agents gain social norms for when to speak up in shared channels, who sets those norms: the platform, the company, or the team being interrupted?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English caption track of the video itself (auto-generated captions fetched from the video's own caption track, 6,636 words, covering the complete conversation). No separate podcast version was needed. The title above is the video's published title as shown on the Claude channel; no alternate or tested title was visible on the watch page or the channel listing.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#claude-building-secure-agents">&larr; Building secure agents for knowledge work</a>
+        <a class="to-index" href="2026-10-06.html" data-route="index">All summaries</a>
+        <a class="next" href="#wes-roth-openai-secret-model-math">OpenAI's secret model just BROKE math... &rarr;</a>
+      </nav>
+    </section>
+
+    <section class="article-view" id="wes-roth-openai-secret-model-math" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-06.html" data-route="index">&larr; October 6, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">OpenAI's secret model just BROKE math... &mdash; October 6, 2026 <span class="dur">&middot; 2:46</span></p>
+        <audio controls preload="none" src="../podcasts/wes-roth-openai-secret-model-math.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/wes-roth-openai-secret-model-math.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="wes-roth-openai-secret-model-math" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="wes-roth-openai-secret-model-math"></div>
+        <div class="episode-download"><a href="../podcasts/wes-roth-openai-secret-model-math.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Wes Roth</dd></div>
+        <div><dt>Published</dt><dd>October 6, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=fTGIV3e8dTU" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Wes Roth &middot; OpenAI &middot; mathematics &middot; AI models</p>
+        <h2>OpenAI's secret model just BROKE math...</h2>
+        <div>
+        <p class="dek"><strong>Wes Roth</strong>, on his YouTube channel, walks through what he presents as an outsized release: OpenAI has published 722 mathematical manuscripts generated by an unreleased internal model.</p>
+        <p>He stresses the pace first. By his tally, the lab put out a small batch of results in August, well over a hundred across September, and now this hundreds-strong drop early in October. Roth reads that pattern as a steep compounding curve, and he says math may have shifted from a slow artisanal pursuit toward something closer to an industrial process.</p>
+        <p>He points out how wide the batch is said to be: seventeen subject areas, ranging from prime numbers to plasma physics and quantum circuits. No single human, he notes, sits at the frontier of more than a couple of those.</p>
+        <p>He then highlights what he calls partial progress on difficult territory. A result connected to the distribution of primes narrowed an important boundary, though it is not the full conjecture. Another area received what is described as a complete formula for a broad class of problems. Other work fills in missing cases supporting a long-standing prediction about families of equations.</p>
+        <p>The prize-sized problems themselves remain unresolved. Roth frames the development as pressure building around those targets rather than a checkout at the prize window.</p>
+        <p>His core argument turns to checking. Hundreds of specialists, perhaps around a thousand worldwide, might be able to review even one of these manuscripts, and many would need weeks. Machine-checkable proofs help, but the center of gravity shifts from "can we prove it" toward "can we check it, and can we understand it."</p>
+        <p>He extends the argument: math landed first because it is verifiable. Other fields without that binary check, such as medicine, could face a slower, riskier version of the same flood of discoveries.</p>
+        <p>He also raises a human-cost question, partly through Scott Aaronson's notion of keeping generations of people who genuinely understand frontier math. If the only human job becomes checking model output, the training pipeline could dry up even as results accelerate.</p>
+        <p>Roth also notes institutional backlash: the description links an open letter from Fields Medalists criticizing how quickly such results were released.</p>
+        <p>The episode ends with a classroom joke about a professor turned plumber who derives a circle's area the hard way.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>How much of the 722-paper release remains correct after expert and machine verification, and what does that rate imply about the model's reasoning?</li>
+        <li>Can the human community keep people who understand frontier mathematics, or does industrial-scale generation make "verifier" the only durable math job?</li>
+        <li>When similar output hits fields without a binary truth check, such as drug discovery, what safer workflow replaces proof checking?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> Grounded in the full English caption track (en-orig, json3, 4,288 words) from the video's own caption stream, retrieved through the YouTube android player client after the public watch-page routes returned a bot-wall response; those blocked routes were not retried. The published title is exact as shown on YouTube; no alternate or tested title was visible on the watch page or channel listing checked. The video's full description points readers to a manuscript repository and to related OpenAI and DeepMind posts, plus the Aaronson and Fields Medalist links noted above.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#berman-mistral-le-chonk">&larr; Mistral is BACK! (Le Chonk)</a>
+        <a class="to-index" href="2026-10-06.html" data-route="index">All summaries</a>
+        <a class="next" href="#alexander-openai-math-372">OpenAI releases 372 families of major math results obtained using AI! &rarr;</a>
+      </nav>
+    </section>
+
+    <section class="article-view" id="alexander-openai-math-372" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-06.html" data-route="index">&larr; October 6, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">OpenAI releases 372 families of major math results obtained using AI! &mdash; October 6, 2026 <span class="dur">&middot; 2:58</span></p>
+        <audio controls preload="none" src="../podcasts/alexander-openai-math-372.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/alexander-openai-math-372.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="alexander-openai-math-372" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">👍</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">👎</button></div>
+        <div class="listen-state listen-state-article" data-slug="alexander-openai-math-372"></div>
+        <div class="episode-download"><a href="../podcasts/alexander-openai-math-372.mp3" download>Download MP3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Dr. Samuel Allen Alexander</dd></div>
+        <div><dt>Published</dt><dd>October 6, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=jQ3ejiLdMug" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Dr. Samuel Allen Alexander &middot; OpenAI &middot; mathematics &middot; Lean verification</p>
+        <h2>OpenAI releases 372 families of major math results obtained using AI!</h2>
+        <div>
+        <p class="dek"><strong>Dr. Samuel Allen Alexander</strong>, a mathematician and philosopher, reads through OpenAI&#x27;s newest mathematics announcement in real time, and his reaction is disbelief shading into euphoria. OpenAI had earlier told the public it was holding &quot;over a hundred&quot; major mathematical results produced by an internal frontier model. The actual release, he says, dwarfs that number: 372 result families, collected as 722 manuscripts in a GitHub repository rather than a journal. He calls the day historic and argues that the earlier hundred figure was an understatement.</p>
+        <p>The release mechanics matter to him nearly as much as the results. OpenAI says it consulted the Institute for Advanced Study&#x27;s independent advisory group on mathematics and AI about how such results should be released, and Alexander applauds a lab going to the mathematical community for release practices instead of inventing its own. He is equally pleased that the collection lives on GitHub, a choice he reads as another step in the decline of academic journal gatekeeping. The repository includes protocols for revisions and citations, extra details on how the results were obtained, summaries of the model&#x27;s reasoning on ten problems, and partial formalizations of the proofs in Lean, the computer-checkable proof language.</p>
+        <p>That last point becomes his central argument about why mathematics is the beachhead for AI progress. Because Lean lets a machine check a proof mechanically, mathematics can be verified and trained against at a scale that fields without a mechanical checker cannot match. He contrasts this with a field like anthropology, where no automatic test exists for whether a generated claim is right. On the disclosed compute figures, he notes the average result cost roughly three hours of ChatGPT Pro tier thinking, and he marvels at the exchange rate: work that might have taken a human mathematician decades or centuries, done in an afternoon.</p>
+        <p>Then he scrolls the result list and keeps finding landmarks. One entry gives a negative answer to Hilbert&#x27;s tenth problem over the rationals: no algorithm can decide whether an arbitrary integer polynomial has a rational zero. As a logician he rates this among the biggest open problems in his field, and says it alone would have made the day historic. Other entries resolve the quasi Riemann hypothesis, showing every Dirichlet L-function is zero free where the real part of the input exceeds seven eighths, and uniformly ruling out Landau Siegel zeros. Another proves the Birch and Swinnerton-Dyer leading term formula for elliptic curves whose Selmer group has small co-rank, together with Goldfeld&#x27;s conjecture on rank densities for quadratic twists. The irrationality of Catalan&#x27;s constant is settled. Deligne Drinfeld type results on the Grothendieck Teichmüller Lie algebra and a corrected Elliott conjecture round out the selection he samples.</p>
+        <p>He is careful, though, to separate what is machine checked from what is not. Some headline entries carry Lean verification, others do not, and for the unverified ones he allows that some could simply be wrong. He wonders aloud how OpenAI chose which results to include, and how many of the unformalized ones will survive scrutiny. He also corrects the rumors he arrived with: the Hodge conjecture and the full Birch and Swinnerton-Dyer conjecture are not in the release, or OpenAI would be trumpeting them. What is in the release is still, in his telling, a field entering its golden age faster than anyone can read.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>How many of the result families that lack Lean formalization will survive independent checking, and will OpenAI&#x27;s include-or-exclude threshold become public?</li>
+        <li>Will giant releases on GitHub, bypassing journals entirely, become the normal way major AI-produced science is published?</li>
+        <li>If a frontier model can clear open problems at this rate, what is left for human mathematicians to be, beyond verifiers and curators?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in a full transcript of the video&#x27;s own audio, transcribed locally with faster-whisper after the caption endpoint returned a 429 and was not retried. Everything above is paraphrased from that transcript. Upload date October 7, 2026 (UTC) per the watch page metadata; the video runs 20:38. No tested or alternate title was visible on the watch page.</p>
+        <p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#wes-roth-openai-secret-model-math">&larr; OpenAI's secret model just BROKE math...</a>
+        <a class="to-index" href="2026-10-06.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+
+        <footer>
+      <span>Summaries dated October 6, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "sequoia-amin-vahdat-ai-infrastructure": "Google's AI Infrastructure Chief, Amin Vahdat, on the Physics & Economics of Frontier AI",
+      "iltb-huberman-frontier-neurotechnology": "Why Every AI Lab Will Become a Biotech Company | Andrew Huberman",
+      "a16z-kevin-mandia-cybersecurity": "Building Cyber Defense for the Agentic Era",
+      "next-endeavor-cancer-treatments": "Can AI Find Cancer Treatments We’re Missing? | The Next Endeavor 2026",
+      "svg-daron-acemoglu-stay-valuable": "Nobel Economist: How to Stay Valuable as AI Changes Work | Daron Acemoglu",
+      "isenberg-13-businesses-age-of-ai": "13 Businesses for the Age of AI",
+      "pragmatic-engineer-state-of-tech-2026": "The state of the tech industry in 2026 - LDX3 New York",
+      "claude-building-secure-agents": "Building secure agents for knowledge work",
+      "berman-mistral-le-chonk": "Mistral is BACK! (Le Chonk)",
+      "wes-roth-openai-secret-model-math": "OpenAI's secret model just BROKE math...",
+      "alexander-openai-math-372": "OpenAI releases 372 families of major math results obtained using AI!"
+      };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="../podcasts/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+</body>
+</html>
