@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Saturday &middot; October 17, 2026</p>
-        <h1>19 summaries, distilled.</h1>
+        <h1>20 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -426,6 +426,7 @@
         <a class="card" href="#aidotengineer-agent-banned-from-resy"><span class="num">17</span><span><span class="card-title">An AI Agent Got Its User Banned From Resy — Keycard, JPMorgan Chase &amp; AAuth</span><span class="card-byline">AI Engineer &middot; Allie Howe, Ian Livingstone, Michael Davis, Dick Hardt</span></span><span class="card-dur">6:22</span><span class="listen-state" data-slug="aidotengineer-agent-banned-from-resy"></span></a>
         <a class="card" href="#lowleveltv-tested-viral-reverse-engineering-repo"><span class="num">18</span><span><span class="card-title">I Tested The Viral Reverse Engineering Repo</span><span class="card-byline">Low Level</span></span><span class="card-dur">4:15</span><span class="listen-state" data-slug="lowleveltv-tested-viral-reverse-engineering-repo"></span></a>
         <a class="card" href="#theo-testing-gemini-4"><span class="num">19</span><span><span class="card-title">So I&#x27;ve been testing Gemini 4...</span><span class="card-byline">Theo - t3.gg</span></span><span class="card-dur">6:24</span><span class="listen-state" data-slug="theo-testing-gemini-4"></span></a>
+        <a class="card" href="#theo-anthropic-rebuilt-git"><span class="num">20</span><span><span class="card-title">Anthropic Rebuilt Git (yes really)</span><span class="card-byline">Theo - t3.gg</span></span><span class="card-dur">7:23</span><span class="listen-state" data-slug="theo-anthropic-rebuilt-git"></span></a>
         </div>
       </nav>
     </section>
@@ -1296,6 +1297,51 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#lowleveltv-tested-viral-reverse-engineering-repo" data-route="article">&larr; Low Level &middot; I Tested The Viral Reverse Engineering Repo</a>
         <a class="to-index" href="2026-10-17.html" data-route="index">All summaries</a>
+        <a class="next" href="#theo-anthropic-rebuilt-git" data-route="article">Theo - t3.gg &middot; Anthropic Rebuilt Git (yes really) &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="theo-anthropic-rebuilt-git" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-17.html" data-route="index">&larr; October 17, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Anthropic Rebuilt Git (yes really) &mdash; October 17, 2026 <span class="dur">&middot; 7:23</span></p>
+        <audio controls preload="none" src="../podcasts/theo-anthropic-rebuilt-git.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/theo-anthropic-rebuilt-git.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="theo-anthropic-rebuilt-git" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="theo-anthropic-rebuilt-git"></div>
+        <div class="episode-download"><a href="../podcasts/theo-anthropic-rebuilt-git.mp3" download>Download theo-anthropic-rebuilt-git.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Theo - t3.gg</dd></div>
+        <div><dt>Published</dt><dd>October 17, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=hiI0Vk4NgeY" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Theo - t3.gg &middot; Scion source control &middot; Anthropic engineering</p>
+        <h2>Anthropic Rebuilt Git (yes really)</h2>
+        <div>
+<p>On Theo - t3.gg, Theo Browne reads through Anthropic&#x27;s engineering post &quot;Redesigning source control at Anthropic&quot; in a video titled &quot;Anthropic Rebuilt Git (yes really).&quot; The post explains how Anthropic replaced Git with an in-house version control system called Scion, and migrated its entire monorepo to it in five months. The trigger was volume: in May, Anthropic averaged around 2,500 code changes merged per day, and by September it was over 30,000 per day, including 30,401 changes merged on September 9 alone. Coding itself is no longer the bottleneck at Anthropic, Browne notes. The bottleneck is developer infrastructure that was built for human scale.</p>
+<p>His own complaints frame the problem. Git was designed for a world where code was expensive and humans reviewed, approved, and controlled every change, and GitHub, which Browne calls slow and miserable, adds its own reliability problems on top: he cites external estimates of as much as 7 percent downtime across parts of the platform, and releases of his own that were blocked because Actions failed or a page would not load. Anthropic&#x27;s version of the same wall is scale. The history of its main branch alone is almost 100 gigabytes, a compressed working copy is over 25 gigabytes, and its systems perform on the order of 25 million code checkouts per day for CI alone, before developer environments, agent sandboxes, and research jobs are counted. Fetched the native Git way, that would amount to roughly 600 petabytes of traffic a day. Anthropic tried the standard workarounds, shallow clones, sparse checkouts, promiser remotes, and several hundred internal Git mirrors, but the mirrors kept falling further behind the tip of main as merge rates climbed.</p>
+<p>The observation that unlocked the redesign, as Browne tells it, is that Anthropic was already using Git as a centralized system with one authoritative copy, while nearly all of its clients were agents and jobs that are online by definition, since a model served from a data center cannot be reached offline anyway. The properties that make Git excellent for distributed offline work were actively undermining its ability to scale. Nor is the move unprecedented: Google built Piper, Meta built its Mercurial based Sapling for stacked diffs and giant checkouts, and Anthropic employs many ex Google and ex Meta engineers who worked on exactly these problems.</p>
+<p>Scion&#x27;s design follows from that observation. Clients are assumed to be always online and fetch data from an always reachable server when they need it. The client and server are deliberately asymmetric: the server answers questions about file history and blame, creates commits, and performs merges and rebases, while the client keeps only a bounded local object cache, lays out the working copy, and watches for file changes. Every query the client can make is also exposed as an API, so CI jobs and internal tools often need no local repository at all, which is what makes Anthropic&#x27;s automated bisect and revert pipelines practical at this scale. And the whole service is horizontally scalable: the repository&#x27;s data is distributed across servers, every component scales independently, and there is no materialized copy of the repo anywhere, no pack files, and no repository maintenance to run.</p>
+<p>The unit of work is a changeset. Where a Git commit points to a whole tree, a changeset lists the files that changed relative to its first parent, with content addressed pointers to the compressed file contents held in blob storage. Changesets are created on the server and are available everywhere instantly, and commits, rebases, and merges all happen server side, so there is nothing to push. Commits are cheap, incremental, and lock free, and their cost scales with the size of the change rather than the size of the repo. Branches and tags are discouraged, since global state that every server must agree on is exactly what breaks at this speed. Because a changeset only records what changed, Scion computes everything else, blame structures, path history, skip lists over the commit graph, as derived data through one recursive mechanism, and can choose to compute each kind eagerly or lazily, or add new kinds later without changing the client. The working copy is optional and sparse by design: checkouts contain only the directories requested, virtualized checkouts materialize files on demand, and many jobs skip the checkout entirely and work over the API.</p>
+<p>The serving path mirrors that philosophy. Clients talk through a per node daemon holding a snapshot based cache, backed by regional caches, backed by the authoritative servers, and every tier answers identical requests, with cache hit rates above 99 percent at each tier. Anthropic says the footprint is 200 times smaller than its previous Git mirroring infrastructure in CPU and memory, and that CI and research jobs now check out code in seconds rather than minutes. Everyday commands sped up sharply: in developer environments, status runs 207 times faster and pulls 25 times faster, and in agent environments, creating a new worktree is 84 times faster. A team of seven people built Scion, the Antique code review surface, and about half a dozen related systems, and completed the migration in five months while merge volume grew tenfold. Browne&#x27;s favorite detail is that Claude did much of the building: an internal model rewrote the team&#x27;s hand written Git to Scion ingestion pipeline and produced a version using 20 times less memory that ran four times faster.</p>
+<p>The human role changed rather than vanished. Anthropic&#x27;s engineers say they now review the intent of a change instead of every line, and that much of their value lies in telling Claude no: agents will violate core constraints to satisfy a pattern, brute force a lookup instead of asking the code review tool, or overengineer a system in response to adversarial review feedback. Operations changed shape too. The team runs Claude based watchers, nicknamed superfans, that obsess over the health of single components in Slack channels and catch subtle problems traditional alerts miss. A classic merge queue turned out to make no sense when hundreds of changes can land while tests are still running, so Anthropic invested in post merge and pre deploy automated testing instead, and lets Claude repair the occasional conflict between concurrent changes, usually faster than a human could spot it. Browne also calibrates Anthropic&#x27;s story against his own much smaller operation: in a single late night session he merged more than 50 pull requests for T3 Code, and his CI has spent almost a thousand hours, about 42 days, simply waiting for Git checkouts.</p>
+<p>Anthropic is careful about the limits. Scion is not presented as a replacement for Git in general use, and the company is not offering it to others: it only makes sense for enormous monorepos run by tens of thousands of engineers or swarms of agents, it diverges enough from Git that adopting it means migrating the whole development life cycle, and its companion review, search, and CI components are highly bespoke. The post is instead an argument that the ideas can flow back into Git itself, through smarter server architectures, comprehensive server side APIs that forges might standardize, and negotiation and sparse features that compose better. Browne&#x27;s closing theme is broader than source control: because models can now build credible replacements quickly, the switching costs that once protected incumbent tools have collapsed, and more companies will reinvent the specific pieces of infrastructure that slow them down. He ends by promising to fight the urge to build his own Git clone.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Scion&#x27;s design trades Git&#x27;s offline, every clone is complete guarantee for one authoritative, always on service. Anthropic reports far better uptime than its Git setup, but what is the failure story when the source control service itself is the thing that goes down at 30,000 merges a day?</li>
+<li>Anthropic says the right move is to carry Scion&#x27;s ideas back into Git servers and forge APIs rather than release Scion itself. Will GitHub, GitLab, and the Git project actually standardize server side source control APIs, or will every large AI lab quietly end up maintaining its own private system?</li>
+<li>If engineers increasingly review intent instead of code and spend their judgment telling models no, how do teams grow the next generation of engineers with the deep system understanding that role depends on, when the models write nearly all of the code?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s full English automatic caption track, fetched via the Android player client (clientVersion 21.02.35, Pixel 8 profile) from the track address in the player response, in srv3 format: 1,446 caption segments, 9,861 words, spanning the full 48 minute 5 second runtime, saved as transcript.txt in the build record. The video has no manually uploaded caption track, so the automatic track is the only caption source. Player metadata (title, channel Theo - t3.gg, and length) was confirmed identically across the Android 21.02.35, Android 20.10.38, and iOS player clients; the web embedded client returned an error and the web client returned the video as unplayable. The player-served title used here, &quot;Anthropic Rebuilt Git (yes really),&quot; is identical to the channel-listing title shown in the screenshot that commissioned this card, so there is no title variant to disclose. The automatic track renders a few terms loosely, including the sponsor read and some product names; where its spellings differed from the video description and the Anthropic post it discusses, the summary follows the description and the post. The video also contains a sponsor segment for Infinite Red; the summary concentrates on the source control story, which is the video&#x27;s subject. Summary written in my own words; the conversation was not reproduced.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#theo-testing-gemini-4" data-route="article">&larr; Theo - t3.gg &middot; So I've been testing Gemini 4...</a>
+        <a class="to-index" href="2026-10-17.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -1325,7 +1371,8 @@
       "a16z-production-systems-ai-next-hurdle": "Why AI Can Write Code But Can’t Keep It Running (Yet)",
       "aidotengineer-agent-banned-from-resy": "An AI Agent Got Its User Banned From Resy — Keycard, JPMorgan Chase & AAuth",
       "lowleveltv-tested-viral-reverse-engineering-repo": "I Tested The Viral Reverse Engineering Repo",
-      "theo-testing-gemini-4": "So I've been testing Gemini 4..."
+      "theo-testing-gemini-4": "So I've been testing Gemini 4...",
+      "theo-anthropic-rebuilt-git": "Anthropic Rebuilt Git (yes really)"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
