@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - September 30, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    </style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Wednesday &middot; September 30, 2026</p>
+        <h1>Eight summaries, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards"><a class="card" href="#dhh-rails-world-2026-keynote"><span class="num">01</span><span><span class="card-title">Rails World 2026 Opening Keynote - DHH</span><span class="card-byline">Ruby on Rails</span></span><span class="card-dur">7:06</span></a><a class="card" href="#how-i-ai-dev-day-2026"><span class="num">02</span><span><span class="card-title">OpenAI Dev Day 2026: The releases that actually matter</span><span class="card-byline">How I AI</span></span><span class="card-dur">4:51</span></a><a class="card" href="#sourcery-physical-limits-chips"><span class="num">03</span><span><span class="card-title">We&#x27;re Reaching the Physical Limits of Chips</span><span class="card-byline">Sourcery with Molly O&#x27;Shea</span></span><span class="card-dur">3:31</span></a><a class="card" href="#nate-jones-opus-55-good-again"><span class="num">04</span><span><span class="card-title">Opus 5.5 Is Good Again. My Proof Cost 50 Cents.</span><span class="card-byline">AI News &amp; Strategy Daily | Nate B Jones</span></span><span class="card-dur">4:15</span></a><a class="card" href="#sam-witteveen-devday-builders"><span class="num">05</span><span><span class="card-title">OpenAI DevDay - What Actually Matters for Builders</span><span class="card-byline">Sam Witteveen</span></span><span class="card-dur">4:39</span></a><a class="card" href="#greg-brockman-silicon-valley-girl"><span class="num">06</span><span><span class="card-title">OpenAI Co-Founder: Start Building With AI Before You Feel Ready | Greg Brockman</span><span class="card-byline">Silicon Valley Girl</span></span><span class="card-dur">6:11</span></a><a class="card" href="#decoded-genius-dhh-inevitable"><span class="num">07</span><span><span class="card-title">Tech Genius Reveals Why The AI Revolution is Inevitable | David Heinemeier Hansson</span><span class="card-byline">Decoded Genius</span></span><span class="card-dur">5:54</span></a><a class="card" href="#allin-jake-paul-chainsmokers"><span class="num">08</span><span><span class="card-title">Jake Paul &amp; The Chainsmokers: Turning Fame into Funds, Jake Enters Politics? &amp; Venture Bubble Signs</span><span class="card-byline">All-In Podcast</span></span><span class="card-dur">7:44</span></a>
+      </div>
+      </nav>
+    </section>
+
+    <section class="article-view" id="dhh-rails-world-2026-keynote" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-30.html" data-route="index">&larr; September 30, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Rails World 2026 Opening Keynote - DHH — September 30, 2026 <span class="dur">&middot; 7:06</span></p>
+        <audio controls preload="none" src="../podcasts/dhh-rails-world-2026-keynote.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/dhh-rails-world-2026-keynote.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Ruby on Rails</dd></div>
+        <div><dt>Published</dt><dd>September 23, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=vDjW_dRyKXY" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; programming</p>
+        <h2>Rails World 2026 Opening Keynote - DHH</h2>
+        <p class="dek">The Ruby on Rails channel&#x27;s "Rails World 2026 Opening Keynote - DHH" is DHH&#x27;s hour-long opening address from Rails World 2026 in Austin, delivered in front of a room of Rails programmers. He diagnoses himself with "AI euphoria" rather than the AI psychosis his critics might prescribe, and spends the next hour making the case that this is the most exciting thing computers have ever done, with receipts from 37signals to back it up.</p>
+        <div>
+        <p>His framing is history. He opens with portrait painters in the eighteenth century, where a master painter spent months on a single commissioned portrait, then traces the long arc of the camera: its arrival around 1840, the Kodak Brownie in 1900 putting a picture in reach for about a dollar, the painters pivoting to cubism and impressionism, then a long plateau until camera phones made photography frictionless and the world started taking two trillion photos a year. Technology moves in fits and starts, he argues, and the point is that the old craft did not die. It found a new home.</p>
+        <p>The story has a personal hook he clearly loves. The Danish portrait painter in it, Laurits Tuxen, is his great-great-grandfather, and the woman in the pink dress in the painting is his great-grandmother Yvonne. Tuxen embraced having his own portrait taken by the very technology that had ended his old profession. DHH is holding that up as the model he wants for programmers now.</p>
+        <p>His date for software&#x27;s Kodak Brownie moment is November 24, 2025, when Opus 4.5 arrived. There was a trough of disillusionment from February through May 2026, when new models felt like steps backward. Then Fable 5 and Mythos landed in June, GPT-6 Astra in September, and DeepSeek-4-1 Flash a week later broke the idea that frontier intelligence belongs to a few American companies. The old debate over the 10x programmer is settled, he says, and the live question now is whether the gap between programmers with these tools and those without them is a hundred times or a thousand times.</p>
+        <p>Then it gets concrete. A couple of weeks ago, 37signals went pencils down on hand-written code. Writing code by hand is now an exceptional state there, treated like a bug showing up in Sentry, a sign the machine is broken. He polled the room: about five hands went up for still writing material amounts of code by hand every week. Basecamp 5 was the trial run. In the spring, designers vibe-coded the finishing features and the architecture came back looking, in his words, like Swiss cheese. The team concluded the technology was not ready. Wrong conclusion, he says now. Give it five minutes and you get Fable, and everything works as intended.</p>
+        <p>The new work is HEY Next, a new version of his email service, and the first decision was to stop making it a web app. A week into the effort, six high-fidelity native applications were already on stage being demoed. He points to Shopify&#x27;s tiny team rewriting the Shop app as native proof this is coming for every web app that was only a web app because a small team could not afford better. The backend goes further. He hates Rust and says so at length, but the agent-written Rust backend uses ninety-nine percent less CPU and ninety-five percent less memory, and his back-of-the-envelope math says HEY&#x27;s peak traffic could be served on a single Raspberry Pi. The division of labor is simple: he tells the agent what to do, the agent writes the Rust, he never looks at it.</p>
+        <p>Where does that leave Ruby and Rails? The web still matters for apps that cannot ask anyone to install anything, and Rails is well positioned because convention over configuration maps directly to token efficiency. Agent evals run by Evil Martians for the Rails Foundation saturated the first benchmark at ninety-five percent, so they had to build a harder one. His practical advice is to not be overly prescriptive, keep a beginner&#x27;s mind, and give every app a command line interface, because agents operate through interfaces, not screens. The HEY CLI lets him search by concept instead of keyword, and it found a five-year-old email about sneakers and a podcast that no keyword search ever could.</p>
+        <p>The personal numbers are the knockout. Across twenty-one years he wrote about thirty thousand lines of production Ruby a year. In August, he wrote a hundred and fifty thousand lines in one month. And there is, he says, a programming language he likes better than Ruby. It is called English. Writing programs in English turned out to be a tremendously satisfying experience.</p>
+        <p>Then comes the line that defines the keynote. He has retired from being a professional programmer, probably around March. He does not mean it as an eulogy. He spent a quarter of a century chiseling code by hand and loved every minute of it, and he wants everyone to look back on that era with joy rather than regret. It is simply over as an economically productive enterprise, and on the other side is a new career as a professional maker of things.</p>
+        <p>He takes the same rethink to software architecture. Abstractions were invented to avoid repeating ourselves, but the price of repetition has fallen near zero, so the choke points that abstractions create no longer buy what they used to. Nobody has the blueprint yet, he admits, and the audience is invited to help draw it.</p>
+        <p>Omarchy, his Linux setup, gets its own victory lap. Twenty million dollars raised. Anoush from AMD installed it on a laptop in thirty-five seconds. In the lab, a full operating system install is down to nine seconds. And this very talk was built in Hype, new presentation software he wrote that week, built on Markdown, with a binary of half a megabyte. Every optimization is now within reach, he says, because an agent can work on it overnight.</p>
+        <p>He gives the skeptics their due, briefly. Security is the one legitimate concern he names, with a recent Rails image-library vulnerability as the example, and HotCell as one defensive effort. Then he treats the rest as prediction error. No economist can call the stock market six months out, so they do not know what a paradigm shift looks like either. He retells the ATM story: the nineteen fifties panic that thirty thousand bank tellers would be out of work in eighteen months, followed by the Jevons paradox punchline that teller employment actually grew. His prescription is P(bloom) over P(doom). If you are sad about it up front and it turns out wonderful, what a waste of time.</p>
+        <p>The closer is the case for total optimism. Agent Luther, he says, will disintermediate the cleric class the way Martin Luther did, and make programmers of everyone. Kids trying a kids version of Omarchy are not stressed about unlearning five hundred layers of habit. Take the white pill, lean in with gusto, and be happy about the future, because the rational choice, he insists, is to be happy about it. The future, in his words, is galactically awesome.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>If writing code by hand is no longer an economically productive enterprise, what becomes of the craft knowledge and taste that hand-written code used to teach?</li>
+        <li>HEY&#x27;s rewrite bets that native apps are now cheap to build and maintain; what happens when six native apps drift apart and the team has to reason about behavior it never wrote?</li>
+        <li>Security is named as the one legitimate worry while everything else is treated as prediction error; is P(bloom) a strategy, or just a bet that the ATM analogy holds at a scale no prior technology has matched?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> Grounded on the full YouTube caption track of "Rails World 2026 Opening Keynote - DHH" (Ruby on Rails channel, 26.4K subscribers, posted September 23, 2026, duration 1:03:07, https://www.youtube.com/watch?v=vDjW_dRyKXY), pulled on September 30, 2026 at about 4:00 AM PDT. YouTube&#x27;s native "Show transcript" panel would not load after repeated attempts and the legacy caption endpoint returned empty, so the transcript was pulled via a Tactiq transcript mirror of the same underlying YouTube caption data, timestamped segments from 0:00:07 to 1:02:55 of the 1:03:07 video, continuous, verbatim. Caption mishearings corrected in drafting: codecs to Codex, chatbt and Chad GPT to ChatGPT, Grockbots to Grokbot, Tuxen to Tuxen, and assorted proper-name spellings. Nothing beyond what the transcript contains has been added.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="to-index" href="2026-09-30.html" data-route="index">All summaries</a>
+        <a class="next" href="#how-i-ai-dev-day-2026">OpenAI Dev Day 2026: The releases that actually matter &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="how-i-ai-dev-day-2026" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-30.html" data-route="index">&larr; September 30, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">OpenAI Dev Day 2026: The releases that actually matter — September 30, 2026 <span class="dur">&middot; 4:51</span></p>
+        <audio controls preload="none" src="../podcasts/how-i-ai-dev-day-2026.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/how-i-ai-dev-day-2026.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>How I AI</dd></div>
+        <div><dt>Published</dt><dd>September 29, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=pJNM1z9l5mU" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; industry</p>
+        <h2>OpenAI Dev Day 2026: The releases that actually matter</h2>
+        <p class="dek">This is a summary of the How I AI episode "OpenAI Dev Day 2026: The releases that actually matter," posted September 29, 2026. Claire Vo spent the day in San Francisco at OpenAI&#x27;s Dev Day, from the keynote through the afternoon, and got early access to several of the releases. Her framing is simple: the good news is that OpenAI released a lot of stuff, and the bad news is that OpenAI released a lot of stuff, so this episode picks out what she thinks actually deserves your attention.</p>
+        <div>
+        <p>The big release of the morning is Dots. A Dot is an always-on, long-running agent that works for you across ChatGPT, Codex, its own cloud computer, your local computer, and your phone, through text or a real phone call, and even inside Slack. Right now each user gets a single Dot, available on Pro, Business, and Enterprise plans. Vo&#x27;s own Dot is named Ba, a pink blob with glasses and googly eyes. Dots are positioned as a replica or delegate of you, a master thread that can kick off Codex threads and chat threads to do work on your behalf.</p>
+        <p>Vo&#x27;s early take on Dots is that the bones are good. It found the right shoes while shopping for her, coded well for her, and reminded her proactively about her kids&#x27; swim class schedule. But the user experience has rough edges, and the information architecture is confusing: it is not clear what a Dot thread is versus a chat thread versus a Codex thread. She is not doing a full Dots review yet, partly because OpenAI is clearly still building it out by the hour, and partly because her own habits lean toward Grok bots for work, where she hires micro-agents for specific jobs rather than one agent to rule them all. She finds Muse&#x27;s experience a little more consumer-friendly and approachable.</p>
+        <p>The release she calls underhyped is Spaces: a place in ChatGPT where humans and agents collaborate on documents, artifacts, and slides, with proper sharing, permissions, and data controls built in. Her Dot made her a space called "your personal scratch pad" for shared to-dos, and she sees this as what enterprises have been waiting for: an AI-native collaboration surface with governance. She also notes the parallel with her own earlier project, a shared notebook where all her agents could collaborate on her to-do list.</p>
+        <p>Related to Spaces is the Sites update. Sites is OpenAI&#x27;s built-in website and app builder, and it now lets you bundle connectors and plugins into a deployed site. Her example: a custom dashboard pulling from your Snowflake connector, where a teammate who logs in sees the report through their own connector, and data they lack access to stays behind the controls. She calls this OpenAI&#x27;s answer to the number one enterprise problem she hears about: what to do with the flood of vibecoded internal tools and prototypes. The open competition here is between Claude artifacts and OpenAI sites for the enterprise source of truth.</p>
+        <p>On models, OpenAI released GPT-6.1 Sol, described as near-Astra intelligence at Sol speed and price: $2 per million input tokens and $10 per million output tokens, versus $10 and $50 for Astra. More interesting to Vo is the Decisions API, OpenAI&#x27;s competitor to constrained-decision models like "little Jeff," except this one has vision. She built a demo that scanned 100 frames of a 40-minute episode in under 10 seconds to find thumbnails where neither guest was making an awkward face, a job she says the vision-less Jeff could never do, plus the classic hot-dog demo at 100% confidence in under a second. The Decisions API is not released yet; she plans a head-to-head against Jeff when it ships.</p>
+        <p>The release she most wants, though she admits she cannot really afford it, is Astra ultrafast. Models in Codex can run in normal, fast, or ultrafast mode, where ultrafast runs about eight times as fast at six times the cost. Her two demos show why she cares: The Other Pencil, a collaborative sketch pad where Astra draws SVGs behind her strokes in near real time, and Little Starship, a 3D app where prompts render new scenes live, from a bathroom with a rubber ducky to a tropical island to a zero-gravity float party. Thirty minutes of her kids playing Little Starship cost her about $97. Latency is still a little slow for true real-time, but she calls it magical.</p>
+        <p>Around the edges, the keynote also covered the Agents API with computer use, the Codex developer primitives, plugin updates with rumored monetization for plugin builders, and a new Pro 500 plan. Her what-to-try-first advice: give Dots a whirl and report back, look at Spaces and Sites if your company struggles with AI collaboration, and pay attention to the models, because a developer who builds both with and on these models finds the Decisions API and ultrafast genuinely exciting.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>Will Spaces become the enterprise source of truth for AI-generated work, or will companies keep their collaboration in Slack, Google Drive, and Dropbox? Vo is watching adoption closely, and the push and pull between OpenAI-hosted documents and existing platforms is unresolved.</li>
+        <li>When the Decisions API actually ships, will vision make it the missing piece in AI architecture that Vo expects, or will the simpler Jeff-style models keep winning on cost and simplicity? The promised head-to-head evaluation has not happened yet.</li>
+        <li>What will frontier intelligence at near real-time speed actually enable once the price comes down? Vo&#x27;s demos point at new kinds of products, but a thirty-minute demo costing about $97 shows how far the economics still have to go.</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded on the full YouTube caption track of the episode, pulled September 30, 2026. YouTube&#x27;s native "Show transcript" panel would not load after repeated attempts, so the captions were read through Tactiq&#x27;s YouTube-transcript tool, which renders the same underlying YouTube caption data with timestamps, every segment verbatim. The video is 24:19, posted September 29, 2026, by the How I AI channel (120K subscribers, @howiaipodcast). View counts and details are as of September 30, 2026.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#dhh-rails-world-2026-keynote">&larr; Rails World 2026 Opening Keynote - DHH</a>
+        <a class="to-index" href="2026-09-30.html" data-route="index">All summaries</a>
+        <a class="next" href="#sourcery-physical-limits-chips">We&#x27;re Reaching the Physical Limits of Chips &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="sourcery-physical-limits-chips" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-30.html" data-route="index">&larr; September 30, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">We&#x27;re Reaching the Physical Limits of Chips — September 30, 2026 <span class="dur">&middot; 3:31</span></p>
+        <audio controls preload="none" src="../podcasts/sourcery-physical-limits-chips.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/sourcery-physical-limits-chips.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Sourcery with Molly O&#x27;Shea</dd></div>
+        <div><dt>Published</dt><dd>September 30, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=6-q_8T_m5GM" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; hardware</p>
+        <h2>We&#x27;re Reaching the Physical Limits of Chips</h2>
+        <p class="dek">This is a summary of the Sourcery with Molly O&#x27;Shea episode "We&#x27;re Reaching the Physical Limits of Chips," posted September 30, 2026. Molly O&#x27;Shea sits down with Steven Latre, VP of AI at imec and a Thema board member, and Adam Chambers of Strike Capital, to talk about what comes after the GPU.</p>
+        <div>
+        <p>Latre starts by explaining imec, which he calls the most unknown hidden gem in semiconductors. It is a research institute in Belgium that works at the very earliest stage of chip building, with a clean room facility nobody else in the world has. The biggest chip providers come to imec first to design the next generation chip, a process that takes five to ten years, and then take the designs home to commercialize. Latre says almost no chip in the world today has not been touched by imec in some way. The institute has been driving the chip roadmap for forty years.</p>
+        <p>His core claim is that Moore&#x27;s Law is plateauing. Transistors have shrunk to about one nanometer deep, roughly one hundred thousand times smaller than a human hair, and he says we are at the end of physics of what we can still do. The era ahead, in his view, will require hardware that is far more inventive than anything of the last ten to twenty years if chips are to keep getting faster.</p>
+        <p>Chambers maps the bottlenecks from an investor&#x27;s seat. GPUs are very good at training, he says, but the binding constraint is now in the inference layer: power and energy, memory, cooling, and data transfer. Getting useful memory to a GPU as fast as possible, with more bandwidth and lower latency, is the most interesting territory, and he expects liquid cooling to move closer and closer to the chip over the next five to ten years, with a lot of the value going to the manufacturing side.</p>
+        <p>Memory is already the number one component that is broken. Only three companies in the world produce memory, Micron, SK Hynix, and Samsung, together holding about ninety five percent of the market. Hyperscalers have taken over much of their inventory, and prices for the memory part of the chip have risen seven hundred percent this year. Chambers frames this as a hardware era renaissance, with fantastic chip margins while software gets eaten by AI.</p>
+        <p>Latre pushes back on the idea that the pyramid has flipped. He calls today&#x27;s software market immature: the last four or five years of AI were tremendous in software, but large language models are still a brute force approach, and the value extracted is limited. New software evolutions tied much closer to hardware will follow, and the value will grow there too. On the flood of new chip startups, he says demand looks endless and the real bottleneck is manufacturing, not the number of companies. Every company can bring a different unique design, and more diverse algorithms will need more diverse hardware beyond GPUs.</p>
+        <p>He is also blunt that models will not keep getting bigger. The newest open-source models already carry more parameters than the human brain, yet the chip needed to fuel such a model is roughly a million times less efficient than the brain. He says the era of going from one hundred seventy five billion parameters to ten trillion is going to stop, and companies are already abandoning the scaling hypothesis to solve memory bottlenecks instead.</p>
+        <p>The technology both guests are most excited about is photonics. Moving data as light instead of through copper attacks three bottlenecks at once: energy, cooling, and data transfer. Today photonics sits between clusters as linear pluggable optics, but Chambers expects optical components to move closer to the actual GPU within five years, toward co-packaged optics. Latre calls it the killer technology that will enable the chips of the future, and points to the human brain&#x27;s three-dimensional structure as proof of what efficient data movement can do.</p>
+        <p>For hottest takes, Latre predicts that in five to ten years we will laugh at how old fashioned AI was today, the way people now laugh at dialup internet tones. He expects an actual software revolution to follow. Chambers says he is biased, but his take is to recruit and invest in people who combine a European academic and technical background with American business sense.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>Will photonics really reach co-packaged optics within five years, or will the optical-to-electrical conversion bottleneck keep it at the cluster edge? The timeline decides who captures the value in AI infrastructure.</li>
+        <li>If the scaling hypothesis is truly over, where does AI value accrue next: in hardware, in software tied closely to hardware, or in entirely new model architectures? Latre expects a software revolution, but neither guest describes what it looks like.</li>
+        <li>Is the memory crunch a cyclical supply story or a structural constraint? Three producers hold ninety five percent of the market and prices are up seven hundred percent this year, yet neither guest lays out what the relief valve is.</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded on the full YouTube caption track of the episode, pulled September 30, 2026 from YouTube&#x27;s native "Show transcript" panel, every segment verbatim. The video is auto-dubbed, so the captions contain dub artifacts that were corrected for this summary: "IMC" for imec, "Stephen" for Steven Latre, "sorcery" for Sourcery, and "tema foundaries" for Thema foundries. The video is 13:40, posted September 30, 2026, by the Sourcery with Molly O&#x27;Shea channel. View counts and details are as of September 30, 2026.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#how-i-ai-dev-day-2026">&larr; OpenAI Dev Day 2026: The releases that actually matter</a>
+        <a class="to-index" href="2026-09-30.html" data-route="index">All summaries</a>
+        <a class="next" href="#nate-jones-opus-55-good-again">Opus 5.5 Is Good Again. My Proof Cost 50 Cents. &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="nate-jones-opus-55-good-again" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-30.html" data-route="index">&larr; September 30, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Opus 5.5 Is Good Again. My Proof Cost 50 Cents. — September 30, 2026 <span class="dur">&middot; 4:15</span></p>
+        <audio controls preload="none" src="../podcasts/nate-jones-opus-55-good-again.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/nate-jones-opus-55-good-again.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>AI News &amp; Strategy Daily | Nate B Jones</dd></div>
+        <div><dt>Published</dt><dd>September 30, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=osZZjdMZVvA" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models</p>
+        <h2>Opus 5.5 Is Good Again. My Proof Cost 50 Cents.</h2>
+        <p class="dek">On his channel AI News &amp; Strategy Daily, Nate B. Jones opens this episode with a claim he can measure: Opus 5.5 makes him want to give Claude more work, because the writing is easier to steer and the model finishes tasks on far fewer tokens. He proves it the fun way. He had Opus 5.5 turn his beanie-hat logo into a working 514-piece Lego model, complete with a 63-page instruction booklet, 58 build steps, a parts list, a geometric connection checker, and an LDR file that verifies the bricks can physically connect.</p>
+        <div>
+        <p>The token bill for the whole build was 89 million tokens. That cost him about one percent of his weekly usage, roughly 50 cents of the subscription he is actually paying for. At API pricing, the same work would have run at least 44 dollars. Jones&#x27;s thesis is that this is the metric that matters for the model race. Not benchmark scores, but cost per finished task: how many reads, attempts, re-explanations, and churned outputs it takes to get the whole job done.</p>
+        <p>Opus 5.5&#x27;s list pricing helps: 4 dollars per million input tokens and 20 per million output, 20 percent below Opus 5 and 60 percent below Fable 5.1. Anthropic says typical workloads cost around 40 percent less, and Jones finds that plausible. Others agree: GitHub and Lovable report fewer steps, Spotify reports cheaper and faster runs, and individual users are saying the same on X. He cautions that 40 percent cheaper does not mean 40 percent fewer tokens, since input, output, cache, and context all bill at different rates. You have to measure the full job, not just the first pretty screenshot.</p>
+        <p>The second pillar is writing. Jones says Opus 5.5 feels like Opus 4.6 again, the release everyone loved, but with far more intelligence behind it. After 4.7, 4.8, and Fable made steering harder, he sees community frustration reflected everywhere, from Brahm Cohen&#x27;s widely read article on Claude&#x27;s argumentative behavior to Anthropic&#x27;s own GitHub issue tracker. His definition of good AI writing is that it preserves your intent. A revision that shortens your paragraph by deleting the argument that made it worth reading is AI slop, no matter how polished it sounds. Opus 5.5, he finds, takes direction cleanly and gets there fast.</p>
+        <p>For long-running work, he offers a rule: give the model clear stop conditions. Anthropic&#x27;s announcement cites Sean Hanks at Cleo leaving Opus 5.5 on an engineering task across six repos unattended for 18 hours. Jones ran his own overnight jobs and found the same thing. Opus 5.5 loves to keep going, so defining the universe and the definition of done up front keeps it from burning tokens modeling worlds you never asked for.</p>
+        <p>The larger story is that AI is building AI. Anthropic says that since May, Claude has authored more than 80 percent of the code being merged into its own codebase, and OpenAI describes researchers using agents to write code and run experiments. Jones connects the dots: users report what makes a model hard to work with, and the people fixing it now have AI tools that let them investigate and ship fixes fast. Major releases are arriving roughly every 18 days. The consumer feedback loop has become the product roadmap.</p>
+        <p>His practical advice is to build a real assignment test. When a new model drops, rerun a task you have run before with the same starting point and the same prompt, track total tokens and weekly usage against API pricing, and keep the failures in your notes too. That is how he decided to move a 90-some element design project to Opus 5.5. The test, not the leaderboard, told him where the work should go.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>Does the task-efficiency gain hold evenly across task types, or is it concentrated in visual and coding work while research or reasoning workloads lag behind?</li>
+        <li>If the labs keep using AI to accelerate their own development, can release cycles compress much further before users lose the ability to test each new model on their real work?</li>
+        <li>Can cost per task ever become a shared benchmark, or is it inherently personal, since no two users&#x27; tasks, correction styles, and subscription plans are alike?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded on the full transcript of "Opus 5.5 Is Good Again. My Proof Cost 50 Cents." from the channel AI News &amp; Strategy Daily (Nate B. Jones), pulled 2026-09-30 ~10:38 AM PDT from YouTube&#x27;s native "Show transcript" panel (timestamps enabled), covering the full 24:32 video across its 12 chapters. No fallback source was needed. One correction of the record: the submitted screenshot showed a truncated title ("Opus 5.5 vs The Rest..."); the actual YouTube title differs and is used here. Minor caption typos were lightly normalized in the saved transcript file.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#sourcery-physical-limits-chips">&larr; We&#x27;re Reaching the Physical Limits of Chips</a>
+        <a class="to-index" href="2026-09-30.html" data-route="index">All summaries</a>
+        <a class="next" href="#sam-witteveen-devday-builders">OpenAI DevDay - What Actually Matters for Builders &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="sam-witteveen-devday-builders" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-30.html" data-route="index">&larr; September 30, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">OpenAI DevDay - What Actually Matters for Builders — September 30, 2026 <span class="dur">&middot; 4:39</span></p>
+        <audio controls preload="none" src="../podcasts/sam-witteveen-devday-builders.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/sam-witteveen-devday-builders.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Sam Witteveen</dd></div>
+        <div><dt>Published</dt><dd>September 30, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=n-xAzWZCq6w" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; industry</p>
+        <h2>OpenAI DevDay - What Actually Matters for Builders</h2>
+        <p class="dek">This is a summary of the Sam Witteveen episode "OpenAI DevDay - What Actually Matters for Builders," posted September 30, 2026. Witteveen walks through OpenAI&#x27;s Dev Day announcements with an honest builder&#x27;s take. He finds some genuinely interesting releases here, and he thinks the event is worth attention not just for what was announced, but for what it reveals about how the frontier labs are thinking.</p>
+        <div>
+        <p>The biggest news is Dots. A Dot is an always-on agent that lives inside ChatGPT and Codex, with its own computer in the cloud, its own browser, and the ability to write and test code for you. You can text it or call it, add it to Slack, and it works with the plugins and connectors already attached to your account. It is powered by Astra, OpenAI&#x27;s top model, and the pitch is that you give it responsibility rather than tasks: it sits on top of your incoming bug reports, your fixes, and your testing, and manages and monitors things proactively. Witteveen sees this as OpenAI&#x27;s first serious move into personal agents, clearly learning from Muse, Open Claw, Hermes, and the startup Instinct. He notes that OpenAI hired the creator of Open Claw rather than buying the project.</p>
+        <p>The usage model is the interesting part. Your Dot is included in your plan: talking to it does not consume your token usage, but anything it does on your behalf does. Witteveen thinks this will be a big win for people who never tried Open Claw or Hermes, and he speculates that a Dot could be a large part of OpenAI&#x27;s rumored hardware product: a desk device you talk to for free, and you only pay when it goes off and does work for you. His open question is what the proactiveness actually amounts to: a real shift in how agents behave, or cron jobs under the hood.</p>
+        <p>For developers, the headline announcements are the Agents API and the Decisions API. The Agents API is OpenAI&#x27;s managed agent runtime: hosting, memory, multi-agent controls, and now computer use. It looks like the same stack that powers Codex and Dots, and Witteveen reads it partly as a response to Anthropic&#x27;s managed agents, an OpenAI-stamped runtime for building vertical agents for insurance claims, contract review, and the like. The Decisions API is a Luna model for constrained decisions, the same idea the Jev-style classifiers made popular: you hand it a predefined set of options and it picks one. The difference is that OpenAI&#x27;s launches with image support, so it can do things a vision-less classifier never could. Witteveen expects it to become an easy choice for organizations that do not want to run another company&#x27;s model on their own infrastructure.</p>
+        <p>The model news is GPT-6.1 Sol: near-Astra intelligence at Sol speed and price, two dollars per million input tokens and ten dollars per million output tokens, an eighty percent saving versus Astra. The detail Witteveen loves most is the caching discount: ninety-five percent off cached input, which matters enormously because agents reread the same system prompts and files over and over. He mentions a recent run of his own that burned two hundred fifty million tokens on Opus 5.5, of which ninety-six percent were already cached, so the real price was nothing like the headline number. For agent workloads, he argues, the cache price is the real price, and Sol 6.1 will become the default.</p>
+        <p>Codex got its own set of updates: Linux support, multiple folders per project, a phone client, and the cloud version that lets you start a task on your phone, pick it up in the browser, and leave it running, including the demo that rewrote an entire backend in Rust and walked away. Voice is coming to the app and the CLI, not just dictation but bidirectional audio, though the on-stage demo had hiccups. There is also security tooling that scans your codebase for vulnerabilities and prepares fixes for you to review.</p>
+        <p>Ultrafast mode pushes Astra to much higher speed at a much higher price, claimed at around three hundred tokens per second. Witteveen guesses it is the Cerebras-backed version, and he is not convinced people will pay the premium unless latency is the product, as in live editing or interactive demos. Pairing it with Sol 6.1 would land near the old normal-speed Astra price, which might make it a sensible tier. The pricing gets controversial with the new Pro 500 plan: five hundred dollars a month with roughly twenty-five times the usage of Plus and ultrafast access in ChatGPT and Codex, with usage carrying over into partner apps. At the same time, the reopened Pro 200 plan quietly halved its multiplier, from twenty times Plus down to ten. Witteveen reads the pricing as a clear steer: if you want the top models, you will pay a lot.</p>
+        <p>The third act of the keynote was about helping builders find customers. Altman was candid that OpenAI has had mixed results here, from ChatGPT plugins to GPTs to the GPT store to apps in ChatGPT, none of which really took off. The new pieces are sign in with ChatGPT, which lets users spend their own plan tokens inside your app, plugin extensions with full apps from Figma and Adobe running inside ChatGPT and Codex, and an OpenAI marketplace with partners like Code Rabbit, Notion, and B10. Witteveen likes the login idea because it lets a developer ship a free core product without footing the inference bill, but he is skeptical about how ChatGPT will decide which plugin to recommend mid-conversation, and he bets the open-models-in-the-marketplace move is one Claude will never copy.</p>
+        <p>His overall take: a genuinely interesting event, with the Agents API likely to see heavy enterprise use, and Dots the one to watch. His test is simple: three months from now, are ten million people using it every day, or did it just get bolted onto the site.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>Is a Dot&#x27;s proactiveness a real shift in agent behavior, or a bundle of scheduled jobs with a nicer voice? Witteveen&#x27;s adoption test decides it: ten million daily users in three months, or another bolted-on feature.</li>
+        <li>Will the Decisions API&#x27;s vision support make it the standard choice for constrained classification, or will simpler, cheaper open options keep winning for teams that just need a fast pick from a fixed set of choices? The head-to-head against the Jeff-style models has not happened yet.</li>
+        <li>Does sign in with ChatGPT become the login button of the agent era, or will Claude and Gemini force every site to offer a row of assistant logins and split the advantage? The Facebook-login analogy only works if one player wins.</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded on the full YouTube caption track of the episode, pulled September 30, 2026. YouTube&#x27;s native "Show transcript" panel was opened with timestamps enabled; to capture the complete verbatim text, the captions were read through Tactiq&#x27;s YouTube-transcript tool, which renders the same underlying YouTube caption data with timestamps, and one ambiguous line was cross-verified against the panel itself. The transcript preserves auto-caption artifacts (misspellings such as "codeex," "ultraast," "chatbt," and "Samman"), which were corrected in drafting this summary. The video is 18:46, posted September 30, 2026, by the Sam Witteveen channel (134K subscribers), at https://www.youtube.com/watch?v=n-xAzWZCq6w. View counts and details are as of September 30, 2026.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#nate-jones-opus-55-good-again">&larr; Opus 5.5 Is Good Again. My Proof Cost 50 Cents.</a>
+        <a class="to-index" href="2026-09-30.html" data-route="index">All summaries</a>
+        <a class="next" href="#greg-brockman-silicon-valley-girl">OpenAI Co-Founder: Start Building With AI Before You Feel Ready | Greg Brockman &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="greg-brockman-silicon-valley-girl" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-30.html" data-route="index">&larr; September 30, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">OpenAI Co-Founder: Start Building With AI Before You Feel Ready | Greg Brockman — September 30, 2026 <span class="dur">&middot; 6:11</span></p>
+        <audio controls preload="none" src="../podcasts/greg-brockman-silicon-valley-girl.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/greg-brockman-silicon-valley-girl.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Silicon Valley Girl</dd></div>
+        <div><dt>Published</dt><dd>September 30, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=qy8Gr27yLMk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; industry</p>
+        <h2>OpenAI Co-Founder: Start Building With AI Before You Feel Ready | Greg Brockman</h2>
+        <p class="dek">This is a summary of the Silicon Valley Girl episode "OpenAI Co-Founder: Start Building With AI Before You Feel Ready | Greg Brockman," posted September 30, 2026. The host interviews OpenAI co-founder Greg Brockman about what to build in the age of AI agents, and his headline prediction is a massive renaissance of entrepreneurship arriving in full swing within the next one to two years.</p>
+        <div>
+        <p>Brockman&#x27;s argument is that starting a small business has never been easier. ChatGPT puts PhD level intelligence and world class business advice in everyone&#x27;s pocket for free, and he says OpenAI is already seeing many small businesses start because people feel safe with ChatGPT in hand. A Nobel laureate in economics recently told him the same thing from the other direction: we have extremely powerful AI models, but we lack the applications.</p>
+        <p>The scale numbers he cites are striking. ChatGPT now has 1.2 billion weekly active users, and roughly 300 million people use it every week for health information. OpenAI&#x27;s internal bar for a power user is someone who uses chat for three different things. Getting people to those three use cases, he says, is the big challenge, because an AI that can do everything leaves people unsure what to ask it to do.</p>
+        <p>His product vision is an AI that stops waiting and starts suggesting. Instead of buttons, sliders, and model pickers, he wants a conversational partner that knows what it can do and volunteers. His example is concrete: the assistant notices an email you have been avoiding, does the research, drafts the reply, and asks for your approval. He says this exact thing happened to him right before the interview started.</p>
+        <p>On coding, Brockman is blunt. The models now write better software than anyone he knows, and he no longer writes code himself. He directs the AI and gives feedback and guidance. He points to Astra, which he says is now skilled at Blender and 3D modeling, and tells the story of a friend who wanted a guest house: Astra produced the CAD plans, the friend showed them to a contractor, and it is now being built.</p>
+        <p>The host demos her own AI built podcast prep app, which takes the guest, the duration, and her success metric of YouTube views, then does background research, suggests topics, and drafts questions, titles, and thumbnails. She asks Brockman whether she is being ambitious enough with AI. His answer: the answer is always no, because there is always more to do.</p>
+        <p>Small business owners get a long segment. Brockman says many of them do not know what AI can do for them, and tells the story of an antique watch shop owner with no website. Talking to ChatGPT voice, the owner built one, then realized every watch had its own story, and the site came alive in a way that is normally out of reach for most people. His framing: if you had the world&#x27;s best programmer on payroll, what would you build. Now you can.</p>
+        <p>The most newsworthy stretch is about Dots, which Brockman says OpenAI just released. Dots is a personal, cloud based agent powered by GPT-6 Astra, running across form factors, and he is visibly excited about it. He describes three levels of a morning briefing agent. The first gives you information you could have scrolled through yourself. The second tells you what is still pending, like unanswered Slack messages ranked against your priorities. The third does genuinely advanced research and briefs you on what deserves your focus. The next step is the brief agent: it calls people, talks to your colleagues and outside partners, lines everything up, and comes back needing only your approval on a purchase order. With Dots, he says, the technology for that is here.</p>
+        <p>He also shares how OpenAI measures AI&#x27;s internal impact: token usage correlated against lines of code, commits, and pull requests, plus published blog posts. The most telling metric, he says, is what happens during an internal outage. People say they cannot do their job after two hours without the models, which is remarkable for tools that did not exist six months earlier. The finance team is fully AI reliant with much faster book closing, and one comms staffer organizes events for dozens of journalists, seating charts and dietary needs included, because Codex handles the background work.</p>
+        <p>His advice on tokens cuts against frugality. The blind token maxing era was misguided, but if you are not trying to optimize tokens, productivity rises with token count, and the most efficient users do incredible things. On science, he points to the Navier-Stokes Millennium problem: ten thousand agents worked for days on massive compute and produced genuinely new knowledge for humanity.</p>
+        <p>His rule for getting started with agents is the rule of five. Start small, do the task manually a few times until you understand the process, and automate once you have done it about five times. The blank page, deciding where to start, is the hardest problem in AI use. And his one hour weekend plan: sign up at chat.openai.com, start with a small task, set up connectors, and text with it. The old code agent lived on your laptop and stopped when you closed the lid. The promised AI has its own cloud computer and keeps working.</p>
+        <p>On what not to build, he warns startups away from building on workarounds for model limitations, since those get wiped out as models improve. Build on what gets better as models get smarter. Each capability level creates its own interface: chat arrived with GPT-4, the coding agent era began in late 2025 and took software creation from twenty percent to eighty percent AI done, and now the personal agent era is starting.</p>
+        <p>Looking ahead, Brockman expects AI to keep surprising us. He imagines unsolved math problems solvable in everyone&#x27;s hands, breakthroughs in medicine and drug discovery, and AIs that genuinely work in your interests, with every company running its own. The shared goal, he says, should be infrastructure that is reliable and transparent and actually lifts humanity.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>If Dots is the personal agent era&#x27;s defining product, what does the winning third party experience on top of it look like, and who builds it before OpenAI does?</li>
+        <li>Brockman says the answer to "am I ambitious enough with AI" is always no. What would a genuinely ambitious use of agents look like for a one person business this year, beyond the morning briefing everyone talks about?</li>
+        <li>As enterprise and consumer software blur and tiny teams do far more, what happens to the middle: the agencies, integrators, and tools that sold labor by the hour?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded on the full transcript of the episode, pulled September 30, 2026. YouTube&#x27;s "Show transcript" button never appeared on the watch page across three attempts, so the transcript was retrieved via the tactiq.io YouTube transcript mirror. Note that the only caption track YouTube exposes for this video is the auto-generated Bengali translation of the English audio (the video is auto-dubbed), so the transcript was read in Bengali and translated into English in drafting this summary. No English caption track was available. The video is 30:14, posted September 30, 2026, by the Silicon Valley Girl channel (1.59M subscribers), at https://www.youtube.com/watch?v=qy8Gr27yLMk. View counts and details are as of September 30, 2026.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#sam-witteveen-devday-builders">&larr; OpenAI DevDay - What Actually Matters for Builders</a>
+        <a class="to-index" href="2026-09-30.html" data-route="index">All summaries</a>
+        <a class="next" href="#decoded-genius-dhh-inevitable">Tech Genius Reveals Why The AI Revolution is Inevitable | David Heinemeier Hansson &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="decoded-genius-dhh-inevitable" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-30.html" data-route="index">&larr; September 30, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Tech Genius Reveals Why The AI Revolution is Inevitable | David Heinemeier Hansson — September 30, 2026 <span class="dur">&middot; 5:54</span></p>
+        <audio controls preload="none" src="../podcasts/decoded-genius-dhh-inevitable.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/decoded-genius-dhh-inevitable.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Decoded Genius</dd></div>
+        <div><dt>Published</dt><dd>September 30, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=nNx1D54wVEM" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; business</p>
+        <h2>Tech Genius Reveals Why The AI Revolution is Inevitable | David Heinemeier Hansson</h2>
+        <p class="dek">This is a summary of the Decoded Genius episode &quot;Tech Genius Reveals Why The AI Revolution is Inevitable | David Heinemeier Hansson,&quot; posted September 30, 2026. The host interviews David Heinemeier Hansson, creator of Ruby on Rails and co-founder of 37signals, in a two-hour conversation spanning his late-2025 flip to agent-driven coding, the bootstrap playbook behind Basecamp, his one-off Jeff Bezos investment, the Apple App Store fight, and a Stoic case for optimism about AI.</p>
+        <div>
+        <p>The headline turn of the interview is how completely Hansson has gone AI-pilled since December. He was still hand-writing essentially all of his code a year ago, annoyed by autocomplete tools that interrupted his train of thought like someone finishing his sentences. Then agent harnesses like OpenCode, Pi, Codex, and Claude got good enough within a single week that he flipped 180 degrees. Every new piece of code he writes now starts as a prompt. The feedback loop is what converted him: agents return reviewable work in seven minutes, not the two weeks a human team needs, and the code started looking like his own.</p>
+        <p>He is equally blunt about what this means for working programmers. Programmers who loved only the mechanics of turning requirements into code, and never cared about the outcomes on either end, are already being squeezed, and he sympathizes with their sense of loss. But he learned to code because he wanted the programs, not because he wanted to type them out, so agents feel like a bionic arm: a superhuman extension rather than surrender. His warning to the newly empowered is the opposite of the usual one. When implementation is no longer the bottleneck, unlimited capacity becomes the worst curse you could get. Every great designer has to kill their darlings, and he uses the original Star Wars trilogy, made with cardboard and no computers, as the great example of constraints producing something purer than the hundred-times-bigger-budget sequels.</p>
+        <p>That constraint philosophy is the through-line of the 37signals story. Seven people, four products, launching something new every year while Basecamp compounded into hundreds of millions in lifetime revenue. Hansson argues big teams do not produce ten times the output with ten times the people; communication overhead can easily make them half as fast. He also turns the AI abundance argument back on founders: a $20-a-month Claude subscription now lets an idea person validate a business without money or engineering skill, which is wonderful, but it also means a hundred times more competition and no more room for mediocre products with weak distribution. His pick for what matters most is distribution. A mediocre product with great distribution can still win; a great product nobody hears about cannot.</p>
+        <p>On money, he walks through the Jeff Bezos secondary in full: 37signals never took venture money into the business because it never needed it, and when Bezos reached out after reading their book Getting Real, they slid across a ludicrous term sheet to make him go away. Millions for no control, no timeline, no guaranteed exit. Bezos said yes, got his money back many times over, and the founders could thereafter turn down every lavish VC offer without flinching. His current investing view is that raising for a pure software play now is roughly as bad as the dot-com bust: the AI joker is in play, nobody can project SaaS revenue fifteen years out, and the 2021 valuations were likely the all-time peak for pure software.</p>
+        <p>The philosophical spine of the interview is his answer to extinction-level worry. Progress cannot be voted away, he argues: America banning AI would not stop China, any more than horse-drawn carriage drivers could stop the Model T. He runs through the doomsday archive, nuclear fear, climate alarm, and settles on the Stoic question of what is actually inside his control. Focus there, do the best work you can, and choose to like the outcome, because daily dread about an uncontrollable future is a recipe for neither happiness nor prosperity. The host pushes back hard on that, citing extinction-level risk from a handful of labs and pointing to their families, and Hansson concedes the scenario deserves seriousness while arguing it is less immediate than the nuclear threat that kept two leaders&#x27; fingers on a button for decades.</p>
+        <p>The closing stretch is looser and more personal. On the founder-grind question he answers &quot;Absolutely not&quot;: no 16-hour days are required, he has run a roughly 40-hour average across 25 years, and productivity follows a power law where his ten most productive hours matter far more than the last ten. Basecamp itself started on ten hours a week while he was in school. On lifestyle businesses he is unapologetic, calling it a compliment, and he defends the FU-money thesis that knowing your number buys the freedom to say no. The cloud exit gets its numbers: 37signals cut its spend from $3.2 million a year to about $800,000, and he claims over $2 million a year goes straight to the bottom line, shared with staff. The 2020 Apple fight gets the origin story: refusing Apple&#x27;s 30 percent cut on Hey.com turned into a $20 million equivalent marketing campaign that delivered 30,000 customers in two weeks, and the 2021 no-politics-at-work memo cost them about 30 percent of the staff. He closes with his car history, a yellow Lamborghini bought after Bezos&#x27;s wire, two Le Mans starts, and his favorite, a Pagani Zonda, plus his final recommendation for founders: read &quot;The Guide to the Good Life,&quot; the Stoicism introduction he found in a bookstore in Sydney.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>Hansson says unlimited implementation capacity is a curse and founders must kill their darlings harder than ever. What does product discipline actually look like when a one-person team can build ten competing features before lunch?</li>
+        <li>If distribution is now the decisive edge and &quot;build something great, they&#x27;ll come&quot; has never been less true, what is a repeatable way for a bootstrapped team to earn attention in a market this crowded?</li>
+        <li>Hansson chooses optimism because progress cannot be stopped anyway. But if extinction-level risk from a handful of frontier labs is real, who bears the duty to act on it, and what would serious action even look like for someone outside those labs?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded on the full transcript of the episode, pulled September 30, 2026 via the tactiq.io YouTube transcript mirror (00:00:00 through 02:01:29, matching the 2:01:30 video duration). One title detail: the commission screenshot showed the title as &quot;WARNING: We&#x27;re Not Ready for The A...&quot; and the page&#x27;s metadata still read &quot;WARNING: We&#x27;re Not Ready for The AI Revolution&quot; earlier that day, while the live watch page title was the longer &quot;Tech Genius Reveals Why The AI Revolution is Inevitable | David Heinemeier Hansson.&quot; The channel had only one ~2h1m upload that day, confirming it is the same video; the title changed after the screenshot. The video is at https://www.youtube.com/watch?v=nNx1D54wVEM, posted September 30, 2026 by the Decoded Genius channel (20.7K subscribers). View counts and details are as of September 30, 2026.*
+
+Built by Muse: [muse.ai](https://muse.ai)</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#greg-brockman-silicon-valley-girl">&larr; OpenAI Co-Founder: Start Building With AI Before You Feel Ready | Greg Brockman</a>
+        <a class="to-index" href="2026-09-30.html" data-route="index">All summaries</a>
+        <a class="next" href="#allin-jake-paul-chainsmokers">Jake Paul &amp; The Chainsmokers: Turning Fame into Funds, Jake Enters Politics? &amp; Venture Bubble Signs &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="allin-jake-paul-chainsmokers" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-30.html" data-route="index">&larr; September 30, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Jake Paul &amp; The Chainsmokers: Turning Fame into Funds, Jake Enters Politics? &amp; Venture Bubble Signs &mdash; September 30, 2026 <span class="dur">&middot; 7:44</span></p>
+        <audio controls preload="none" src="../podcasts/allin-jake-paul-chainsmokers.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/allin-jake-paul-chainsmokers.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>All-In Podcast</dd></div>
+        <div><dt>Published</dt><dd>September 30, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=uzV45QvPKtU" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">VC &middot; entertainment</p>
+        <h2>Jake Paul &amp; The Chainsmokers: Turning Fame into Funds, Jake Enters Politics? &amp; Venture Bubble Signs</h2>
+        <p class="dek">This is a summary of the All-In Podcast episode &quot;Jake Paul &amp; The Chainsmokers: Turning Fame into Funds, Jake Enters Politics? &amp; Venture Bubble Signs,&quot; recorded at the All-In Summit 2026 and posted September 30, 2026. The four hosts, Chamath Palihapitiya, Jason Calacanis, David Sacks, and David Friedberg, sit down first with Jake Paul and then with Alex and Drew of The Chainsmokers, tracing one arc from two directions: how fame becomes a business flywheel, and how that flywheel is now pointed at venture capital.</p>
+        <div>
+        <p>Jake Paul opens with his origin story, which is really a business parable. He and the other top 20 Vine stars told Vine it had to pay them a million dollars each per year or they would all stop posting. Vine refused and died within months while the creators migrated to YouTube, Facebook, and Snapchat. Paul calls the modern clickbait incentive trap &#x27;the YouTuber disease,&#x27; creators saying absurd things daily for press, and he argues platform moderation cannot be solved by one platform alone, since viewership would just move to Twitch, Kick, or X. It is, he says, the same coordination problem as the AI race between the US, Russia, and China.</p>
+        <p>From there he walks through the creator playbook he has lived: content creator, then sponsorships, then your own products, and finally, with cash flow, owning assets. He visited Silicon Valley as a kid, toured Google, Twitter, and Uber, started angel investing at 18, and built Team 10, a social media label that blew more than 20 creators up to millions of followers. Boxing came from a dare against two UK brothers, a knockout in Manchester, and a cold calculation: he had a hundred million followers watching every fight while normal boxers build their records in obscurity. That became Most Valuable Promotions, which now represents around 400 fighters across boxing and MMA and has merged with the PFL. His pitch against the UFC is a margin story: the UFC pays fighters roughly 15 percent of revenue while other professional leagues pay around 50 percent, so the fighters are furious, the big fights are not getting made, and there is room for a Coke to the UFC&#x27;s Pepsi.</p>
+        <p>His investing arm is the anti-fund, with a hundred million dollars raised, already deployed, and a next fund being raised while deployment continues. The thesis is the attention economy: capital is a commodity, but attention is a differentiator, and bringing attention to a company and its cap table is something founders genuinely want. He holds angel positions in OpenAI, Cognition, and SpaceX, was in the room for OpenAI&#x27;s thinking around a Sora social app, and granted the company his name, image, and likeness rights. He hates the label &#x27;celebrity investor&#x27; and wants to be judged against Sequoia on DPI and IRR over the next five years. Asked where the 40-year-old Jake Paul ends up, he answers &#x27;politics,&#x27; arguing the future people in office will have built-in followings they can speak to directly, citing Trump as the first example of an audience converting into office.</p>
+        <p>The Chainsmokers half is the musician version of the same arc. Alex and Drew met through a friend of a friend around 2011, after Alex&#x27;s first incarnation of the group fell apart and Drew was finishing school at Syracuse. They grew through remixes and old-school growth hacking: Alex tracked down every college kid writing for every blog feeding the Hypemachine chart and sent them funny, hyper-personalized emails, and within a year they had dozens of number ones on the site. Fourteen years later they are 25 times platinum with a decade-long Vegas residency. They are blunt that the economics have changed: some 300,000 songs are uploaded to Spotify every day, and for them the real business is live performance, especially DJ sets, which have vastly better economics than arena tours.</p>
+        <p>Their fund, Mantis, formalized what started as celebrity deal access. They write Series A checks in cyber, AI, deep tech, and health tech, deliberately not leading rounds, calling themselves the sixth man of the year on the team. What surprised them is how much founders value their operating experience: they ran a real business in one of the hardest industries, and they open doors for go-to-market, brand, and distribution that most VCs cannot. They love being underestimated, and their advice to other famous people is sharp: pay off your mortgage first, because venture is the last frontier, long-duration and illiquid, the top 5 percent of companies generate 90 percent of the returns, and the work is relentless. Fame, they say, both helps and hurts.</p>
+        <p>The hosts take the conversation up a level on venture itself. Chamath&#x27;s thesis is that consistent DPI cuts through all noise, because investors have extremely short memories for everything except returns. He tells the story of introducing 21 angels to Uber&#x27;s Travis Kalanick and watching 19 say no, and of his Robinhood seed position, where he has never sold a single share and bought more at nine dollars on the public market. The group debates follow-on strategy, holding up Founders Fund&#x27;s practice of forcing 25 percent of a fund into the single best company as the model of conviction, and they argue about growth funds versus SPVs as companies stay private longer. The sharpest warning comes on pricing: double and triple tranche deals where the second-tranche investor pays two to three times the initial valuation with no change in underlying performance. That, they agree, is what bubble behavior looks like, and it is when you take a note.</p>
+        <h3 class="open-q">Open questions</h3>
+        <ol>
+        <li>Paul says capital is a commodity and attention is the real differentiator. How durable is that edge once every founder has access to the same distribution tools and every celebrity has a fund?</li>
+        <li>The hosts say the top five percent of companies generate ninety percent of returns, yet they also argue for concentrating 25 percent of a fund in a single winner. How do you size conviction without turning a portfolio into a single bet?</li>
+        <li>If a unicorn should mean a billion in revenue rather than a paper valuation, what would re-pricing the AI boom on revenue multiples do to the current crop of mega-rounds?</li>
+        </ol>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded on the full transcript of the episode (00:00:00 through 00:52:46, matching the 52:48 runtime). No English caption track exists for the YouTube video; the caption menu lists only auto-generated translation tracks (e.g. Arabic, Bangla), so per the transcript rule this piece is instead grounded on the podcast-RSS twin of the identical episode, published September 30, 2026 with 52:48.7 of audio under the same title, downloaded and locally transcribed with faster-whisper. Transcriber artifacts in proper names were cleaned against the episode context; nothing was added that the transcript does not support. The video is at https://www.youtube.com/watch?v=uzV45QvPKtU, published September 30, 2026 by the All-In Podcast channel (1.15M subscribers). View counts and details are as of September 30, 2026.*
+
+Built by Muse: [muse.ai](https://muse.ai)</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#decoded-genius-dhh-inevitable">&larr; Tech Genius Reveals Why The AI Revolution is Inevitable | David Heinemeier Hansson</a>
+        <a class="to-index" href="2026-09-30.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated September 30, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "dhh-rails-world-2026-keynote": "Rails World 2026 Opening Keynote - DHH",
+      "how-i-ai-dev-day-2026": "OpenAI Dev Day 2026: The releases that actually matter",
+      "sourcery-physical-limits-chips": "We're Reaching the Physical Limits of Chips",
+      "nate-jones-opus-55-good-again": "Opus 5.5 Is Good Again. My Proof Cost 50 Cents.",
+      "sam-witteveen-devday-builders": "OpenAI DevDay - What Actually Matters for Builders",
+      "greg-brockman-silicon-valley-girl": "OpenAI Co-Founder: Start Building With AI Before You Feel Ready | Greg Brockman",
+      "decoded-genius-dhh-inevitable": "Tech Genius Reveals Why The AI Revolution is Inevitable | David Heinemeier Hansson",
+      "allin-jake-paul-chainsmokers": "Jake Paul & The Chainsmokers: Turning Fame into Funds, Jake Enters Politics? & Venture Bubble Signs"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+</body>
+</html>

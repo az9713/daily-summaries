@@ -1,0 +1,1183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries &mdash; September 22, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    </style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Tuesday &middot; September 22, 2026</p>
+        <h1>Eighteen summaries, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+      <a class="card" href="#a16z-horowitz-andreessen-academy"><span class="num">01</span><span><span class="card-title">Ben Horowitz &amp; Marc Andreessen Are Starting a University</span><span class="card-byline">a16z</span></span><span class="card-dur">9:05</span></a>
+      <a class="card" href="#allin-blake-scholl-supersonic"><span class="num">02</span><span><span class="card-title">Blake Scholl: Why Plane Speed Stalled, Supersonic Commercial Flight, &amp; Revolutionizing the Engine</span><span class="card-byline">All-In Podcast</span></span><span class="card-dur">6:40</span></a>
+      <a class="card" href="#theo-fable-wrong"><span class="num">03</span><span><span class="card-title">I was using Fable wrong, this is how I fixed it</span><span class="card-byline">Theo - t3․gg</span></span><span class="card-dur">10:05</span></a>
+      <a class="card" href="#interconnects-denain-rsi"><span class="num">04</span><span><span class="card-title">Debating RSI, the US-China Gap, and Jaggedness with JS Denain of Epoch AI</span></span><span class="card-dur">9:36</span></a>
+      <a class="card" href="#lovable-cofounder-silicon-valley-girl"><span class="num">05</span><span><span class="card-title">$13B Lovable Co-Founder: Turn Your AI Side Project Into a Real Business</span><span class="card-byline">Silicon Valley Girl</span></span><span class="card-dur">5:25</span></a>
+      <a class="card" href="#skill-engineering-paul-bakaus"><span class="num">06</span><span><span class="card-title">The Dark Arts of Skill Engineering — Paul Bakaus, Renaissance Geek (Impeccable)</span><span class="card-byline">AI Engineer</span></span><span class="card-dur">9:19</span></a>
+      <a class="card" href="#openai-anthropic-finance-rogo"><span class="num">07</span><span><span class="card-title">Why OpenAI and Anthropic Won’t Win Finance</span><span class="card-byline">Invest Like The Best</span></span><span class="card-dur">5:24</span></a>
+      <a class="card" href="#opus55-anthropic-finally-listened"><span class="num">10</span><span><span class="card-title">Opus 5.5 — Anthropic Finally Listened?</span><span class="card-byline">Prompt Engineering</span></span><span class="card-dur">3:21</span></a>
+      <a class="card" href="#opus55-howi-ai-claude-is-back"><span class="num">11</span><span><span class="card-title">Claude is BACK with Opus 5.5</span><span class="card-byline">How I AI</span></span><span class="card-dur">5:58</span></a>
+      <a class="card" href="#gpt6-sol-luna-chase-ai"><span class="num">12</span><span><span class="card-title">GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!)</span><span class="card-byline">Chase AI</span></span><span class="card-dur">3:12</span></a>
+      <a class="card" href="#anthropic-opus55-full-breakdown"><span class="num">13</span><span><span class="card-title">Anthropic Just Dropped Claude Opus 5.5 (Full Breakdown)</span><span class="card-byline">Brock Mesarich | AI for Non Techies</span></span><span class="card-dur">3:20</span></a>
+      <a class="card" href="#gpt6-sol-arena-ai"><span class="num">14</span><span><span class="card-title">GPT-6 Sol | First impressions</span><span class="card-byline">Arena AI</span></span><span class="card-dur">2:49</span></a>
+      <a class="card" href="#gpt6-sol-vs-opus55-eric-michaud"><span class="num">15</span><span><span class="card-title">GPT-6 Sol vs Opus 5.5: Benchmarks Are Missing the Point</span><span class="card-byline">Eric Michaud</span></span><span class="card-dur">3:06</span></a>
+      <a class="card" href="#gpt6-sol-luna-matthew-berman"><span class="num">16</span><span><span class="card-title">GPT-6 SOL AND LUNA ARE OUT!!! — Matthew Berman</span><span class="card-byline">Matthew Berman</span></span><span class="card-dur">10:56</span></a>
+      <a class="card" href="#gpt6-sol-paul-j-lipsky"><span class="num">17</span><span><span class="card-title">GPT-6 Sol Is Here (50% Cheaper!)</span><span class="card-byline">Paul J Lipsky</span></span><span class="card-dur">2:20</span></a>
+<a class="card" href="#opus55-no-hype-pat-simmons"><span class="num">18</span><span><span class="card-title">Opus 5.5: No-Hype Full Review &amp; Testing</span><span class="card-byline">Pat Simmons</span></span><span class="card-dur">6:43</span></a>
+<a class="card" href="#opus55-anthropic-went-crazy-matthew-berman"><span class="num">19</span><span><span class="card-title">Anthropic went CRAZY (Opus 5.5)</span><span class="card-byline">Matthew Berman</span></span><span class="card-dur">8:48</span></a>
+<a class="card" href="#opus55-vs-gpt6-sol-nate-herk"><span class="num">20</span><span><span class="card-title">I Tested Opus 5.5 vs. GPT-6 Sol on 10 Real Use Cases</span><span class="card-byline">Nate Herk</span></span><span class="card-dur">6:29</span></a>
+        </div>
+      </nav>
+    </section>
+    <section class="article-view" id="a16z-horowitz-andreessen-academy" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Ben Horowitz &amp; Marc Andreessen Are Starting a University <span class="dur">&middot; 9:05</span></p>
+        <audio controls preload="none" src="../podcasts/a16z-horowitz-andreessen-academy.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/a16z-horowitz-andreessen-academy.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>a16z</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Z4x71naDx1Q" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; startups &middot; education</p>
+        <h2>Ben Horowitz &amp; Marc Andreessen Are Starting a University</h2>
+        <p class="dek">Ben Horowitz and Marc Andreessen are starting a university &mdash; not a degree mill, but an academy for builders. What the school is for, who it&rsquo;s for, and why they think higher ed left the door open.</p>
+        <div class="body-copy">
+<p>The a16z Show&#x27;s Erik Torenberg sits down with Ben Horowitz and Gagan Biyani &mdash; the newly named CEO of the school they&#x27;re launching together &mdash; to announce Horowitz Andreessen Academy, a new school built from scratch for the AI era. The conversation is part launch announcement, part design document: an extended case for why college, for a certain kind of 18-year-old, has become a strange and expensive proposition, and what a school designed around building rather than studying might look like. Marc Andreessen is a co-namesake and co-commissioner of the Gen Z research cited in the conversation, though the interview itself is Ben, Erik, and Gagan.</p>
+<p>The impetus, as Ben lays it out, came from two directions at once. On one side, college works beautifully if you want to be a scholar or a professor, but it&#x27;s a peculiar proposition if you mostly want a job or to start a company: an enormous financial and time investment, and most of what actually happens there has little to do with either goal. On the other side, from the hiring standpoint of a16z&#x27;s 1,600 portfolio companies, the skill sets the industry needs are evolving so fast that a large university system simply cannot keep up. Put the two together &mdash; young people who want to build, and an investor who knows precisely what skills the jobs require &mdash; and a school starts to look like a thing worth adding to the mix.</p>
+<p>The question Erik keeps pressing is why nobody has pulled this off before, and Ben&#x27;s answer is that past attempts aimed too narrowly. College is a bundle: training for work, yes, but also status and credential and brand &mdash; the signal that says &quot;you went here, so I want to hire you&quot; &mdash; and also fun, something people actually want to do. Too many challengers focused on one element of the bundle and never delivered something that could genuinely compete. Gagan&#x27;s version of the same point is more concrete: this isn&#x27;t a degree-granting college, but it has to be a college-comparable experience, which means it has to be residential in San Francisco, it has to have real interpersonal social dynamics, and it has to be connected to the employers who hire the best people. Only two or three people have even attempted to deliver that bundle in the last fifty years, he estimates.</p>
+<p>The second thing that makes now the right time is the technology itself. Ben draws a straight line back through American educational history: the university system grew out of Jesuit religious institutions, exploded during the Industrial Revolution when a corporate world suddenly needed literate workers, and became the engine the American middle class was built on. His argument is that the AI revolution will be to jobs what the Industrial Revolution was to the farm &mdash; and that training designed for the industrial era is unlikely to map cleanly onto what comes next. Rather than lectures five to eight hours a day, students would have contained instruction, more time with the tools, individually paced AI-assisted learning, and structured social life made possible precisely because less time is spent sitting in a classroom.</p>
+<p>The pedagogy underneath it all is learning by doing. Ben&#x27;s formulation is that if you want to major in music, you should write songs; if you want to be a technologist, you should build systems. Studying about something is a different activity from learning to do it. He tells a story about Dan Boneh, the Stanford cryptography professor, who saw the AI question as binary: you can ban the tools, which won&#x27;t work, or you can make the problems so hard they can&#x27;t be solved without AI &mdash; and his students are now solving things no student in history could have solved, things Boneh himself couldn&#x27;t solve. Orientation day at the academy, he jokes, is essentially: here are the tools &mdash; what can you solve with them? Do you want to be a main character or an NPC?</p>
+<p>Running through everything is a push-to-pull theory of learning, anchored in the old line that education is not the filling of a bucket but the lighting of a fire. Curiosity is one of the academy&#x27;s core tenets. Erik brings up Steve Jobs and calligraphy &mdash; an interest that looked useless until it defined the Mac &mdash; and Ben answers with his own lifelong interest in rap music, which he says made him a more authentic businessperson and, crucially, a better storyteller, which is a large part of what he does. The academy&#x27;s version of this is that every pursuit, even ones with no obvious job relevance &mdash; calligraphy, horticulture, kitesurfing &mdash; gets reframed into a project: don&#x27;t answer test questions about calligraphy, learn enough of it to produce a beautifully displayed poem. The constraint is output, not memorization, because machines now answer the memorization questions better than we can.</p>
+<p>The people-skills thread is where the conversation gets most pointed about the AI era. The millennial loneliness epidemic, Ben argues, came from being locked into screens; AI&#x27;s promise is that it gets us off the screen &mdash; soon you&#x27;ll just talk to your AI and have it do the work and deal with the computer &mdash; which makes the scarce skill knowing people, motivating them, and getting the best out of each other. The academy&#x27;s mechanism for this is osmosis: immerse students in the adult world through co-ops and internships at companies like Databricks, Nvidia, and Stripe, so that the social pressure to accomplish real things forces the skills to develop. A student who needs a specific chip for a robot dog but doesn&#x27;t know how to write a cold email will learn, because everyone around them knows how. Ben&#x27;s own technique, which he tries to impart at the firm, is almost comically simple: start by asking who the person actually is &mdash; where they grew up, what their parents were like. And there&#x27;s a limit the transcript returns to repeatedly: you cannot learn this from books. Ben&#x27;s analogy is an NFL quarterback &mdash; you can read every book ever written on football, but nothing in them teaches you what to do when a 300-pound defender is rushing at you while you&#x27;re deciding where to throw. A founder, in this telling, is somewhere between a movie director and a nightclub promoter, and both roles are learned by doing them.</p>
+<p>California is treated less as a location than as a piece of the curriculum. Ben grew up in Berkeley and went to college in New York, where the main recruiter was financial services; for a builder-focused school, the Bay Area is where most great American companies get started, and something like 80 percent of a16z&#x27;s connected companies are in the area, so students can learn and start their careers in the same place. Gagan adds the cultural layer: &quot;San Francisco is your campus&quot; &mdash; a city that embraces failure (your next company will still get funded), that is positive-sum and high-trust in a way he calls genuinely rare, and where the futures of art, money, and biotech get argued about before they exist anywhere else.</p>
+<p>Two structural decisions get their own segments. First, the academy is a separate company, not a piece of a16z. An investment firm has no business running a school as an investment idea, and keeping it separate preserves its ambition &mdash; Ben explicitly doesn&#x27;t think the idea is limited to technology; music and medicine could follow. Second, it is for-profit on purpose, because for-profit is what forces the student to be the customer. Ben&#x27;s line is that the academy serves young people, not alumni, not donors, not parents &mdash; and his hope is that others steal the whole model: &quot;Please Harvard, copy us.&quot; The profit motive, in Gagan&#x27;s telling, creates the flywheel: if graduates go do great things, the brand compounds and the institution survives, which is an incentive alignment almost no school has.</p>
+<p>The Gen Z research that Ben and Marc commissioned surfaces a finding that shapes the admissions philosophy: it&#x27;s the highest-variance, most fragmented generation across the board. That cuts both ways. On the one hand, there&#x27;s now a real population of 18-year-olds already building startups and immersed in the startup world &mdash; Gagan says he started his first venture at 13 and knew nobody entrepreneurial as a kid, while the founding fellowship will collect fifty actual builders in one place. On the other hand, Ben&#x27;s advice to the generation is not to settle: if you don&#x27;t have the billion-dollar idea, don&#x27;t take the million-dollar one &mdash; go explore. Because the constraint has moved from &quot;what can I build&quot; to &quot;what&#x27;s worth working on,&quot; the academy&#x27;s exposure function matters as much as its instruction: most teenagers haven&#x27;t seen anything beyond teenage life, and failure at a genuinely hard problem is valued for what it teaches. Silicon Valley&#x27;s embrace of failure, Ben clarifies, is specific &mdash; it&#x27;s the failure where you&#x27;ve earned a &quot;secret,&quot; the knowledge of exactly why a hard problem is hard, which becomes the map to the adjacent solvable problem.</p>
+<p>Asked to picture the academy five years out, Ben sketches three measures: graduates with careers they love and interesting companies started; an institution that has learned what actually works and can extend to more kinds of students; and creatives manifesting ideas in every medium, since the same AI tools that change work let a single person with a feeling to convey make a feature film or score a movie. The episode closes with Ben&#x27;s pitch to anyone who is 18 today, and it&#x27;s the passage the whole conversation builds toward: this is the best time in history to be 18, the Thomas Edison and Henry Ford moment, because you&#x27;re entering a world only you will fully understand &mdash; a world where, coming out young and fluent in the new tools, you can be more capable than people with thirty or forty years of experience. He reaches for his own family story to make it concrete: a great-grandfather who immigrated from Russia and slept under his sewing machine in a sweatshop, a grandfather who got an education at CCNY and became a teacher, a father whose life was better still. The parallel is the point &mdash; the past is going to fade much faster than we&#x27;re used to, and the young people living through this transition will look back on the present the way his grandfather&#x27;s generation looked back on the sweatshop.</p>
+<h3 class="open-q">Open questions</h3>
+<ol class="open-q-list">
+<li>If the academy&#x27;s brand depends on graduates doing great things, but great outcomes take years to compound, what carries the institution&#x27;s credibility &mdash; and its admissions &mdash; through the first decade, when there are no alumni stories yet?</li>
+<li>The school is explicitly not degree-granting and openly invites Harvard to copy it &mdash; but if the bundle only works at elite scale with SF real estate, co-op access, and a curated peer network, can the model survive being copied by institutions that don&#x27;t have a16z&#x27;s 1,600 companies behind it?</li>
+<li>&quot;Main character or NPC&quot; is a galvanizing orientation &mdash; but for the students who arrive fired up and discover, through osmosis and hard problems, that they aren&#x27;t the next Zuckerberg, what does the academy offer them that the corporate ladder it bypasses doesn&#x27;t?</li>
+</ol>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> This summary was built from YouTube&#x27;s auto-generated captions, copied verbatim from the watch page&#x27;s &quot;Show transcript&quot; panel. The captions include disfluencies and occasional mistranscriptions &mdash; for example, &quot;Harowitz and Jason Academy&quot; for Horowitz Andreessen Academy, &quot;Gagen&quot; for Gagan Biyani, and &quot;Dan Bonet&quot; for Stanford&#x27;s Dan Boneh &mdash; so direct quotes should be read with that provenance in mind. All names and claims above are grounded in the caption text, and the source video is listed with its published date on the archive page.</p>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#allin-blake-scholl-supersonic">Blake Scholl: Why Plane Speed Stalled, Supersonic Commercial Flight, &amp; Revolutionizing the Engine &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="allin-blake-scholl-supersonic" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Blake Scholl: Why Plane Speed Stalled, Supersonic Commercial Flight, &amp; Revolutionizing the Engine <span class="dur">&middot; 6:40</span></p>
+        <audio controls preload="none" src="../podcasts/allin-blake-scholl-supersonic.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/allin-blake-scholl-supersonic.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>All-In Podcast</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Gnb-CfNPcPE" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; aviation &middot; startups</p>
+        <h2>Blake Scholl: Why Plane Speed Stalled, Supersonic Commercial Flight, &amp; Revolutionizing the Engine</h2>
+        <p class="dek">Boom Supersonic founder Blake Scholl on why planes stopped getting faster, the economics of Mach 1.7, and the engine pivot that nearly killed his company.</p>
+        <div class="body-copy">
+<p>In a keynote at an All-In event in Houston, Boom Supersonic founder and CEO Blake Scholl opened with a grievance that doubles as the company&#x27;s entire reason for existing: in 1969 humanity landed on the moon and flew an airliner through the sound barrier, yet more than half a century later we can do neither. Concorde&#x27;s political legacy, he argued, was the 1973 American ban on supersonic flight, and the incumbent industry has been treading water ever since &mdash; Boeing&#x27;s newest airliner, he quipped, is a carbon-fiber copy of the 707, and Boom has interns born after Boeing&#x27;s last new airplane launch in 2004. His alternate timeline is the pitch in miniature: the Atlantic in three and a half hours, Sydney as reachable as Honolulu, and the knock-on effects for business, culture, even love.</p>
+<p>Scholl&#x27;s own origin story is the classic founder inversion of expert wisdom. Twelve years ago he was a software engineer and ads guy from Amazon and Groupon with nothing but a pilot&#x27;s license, laughable as an aerospace entrepreneur. In 2015 he pitched his old boss Jeff Bezos on Boom&#x27;s seed round and Bezos passed &mdash; the same year Bezos&#x27;s Amazon shareholder letter declared that some things only large companies can do, that you are not going to build an all-composite airliner in a garage startup, not one you would want to fly on anyway. Scholl took it personally. The garage, as a surviving pitch-deck slide proves, held a supersonic airliner mockup of cardboard, plywood, and Office Depot seats. His refrain to the audience: the moment you become an expert, what you are steeped in is the past, and then you are completely useless; courage is not being fearless, courage is acting despite the fear.</p>
+<p>Fast forward and Boom became the first private company to build a supersonic jet, with roughly fifty people doing the work a legacy prime would assign to thousands. Its XB-1 demonstrator carried the first supersonic Starlink installation, and Scholl&#x27;s favorite memory of the program is the photos sent in from classrooms &mdash; kids who would have tuned out on flight day instead tuned in, some of them jumping up and down. In 2025 XB-1 became the first privately developed jet to break the sound barrier. But the technical move Scholl lingered on was the one that dissolved the regulatory problem rather than bulldozing it: boomless cruise, which uses the atmosphere&#x27;s own refractive power to bend the boom upward so it never reaches the ground &mdash; if a tree falls in a forest and nobody is there to hear it, did it really make a sound? They told the president there was no boom; the president agreed that without a boom there should be no ban. The 1973 ban fell to executive order on June 6 of last year, and the Supersonic Legalization Act then passed the House unanimously and cleared a Senate committee unanimously.</p>
+<p>Then came the near-death story and the pivot that is the talk&#x27;s headline. Outsourcing engine development to a legacy partner &mdash; Rolls-Royce &mdash; was, in Scholl&#x27;s words, one of the dumbest things he ever did; the public breakup had obituaries written for Boom. The company decided to design the engine from scratch with digital design tools and digital manufacturing, down to the turbine blades &mdash; Scholl carried one in his pocket &mdash; and to vertically integrate all of it on the conviction that engineering and manufacturing have to work together, and that re-industrializing America means inventing the next generation of manufacturing technology, not trying to bring back what was lost. The first vertically integrated core is being assembled now, bound for a test stand next month. And in a bizarre twist of history, the engine that nearly killed them became the financial engine: an engine built to run full duration at high power in a hot environment at Mach 1.7, minus its fan and with a generator in the back, becomes behind-the-meter power generation for data centers &mdash; 42 megawatts in a couple of trailers, running so hot it needs no water, which removes the industry&#x27;s water objection. Boom is building what it calls the world&#x27;s most advanced jet turbine factory at an undisclosed location; it made its first parts last week and aims to scale to multiple gigawatts per year, adding more than ten gigawatts to the grid over five years. Scholl called it an incredible money-printing business &mdash; tens of gigawatts of demand are sitting in his inbox &mdash; and when Jason Calacanis asked whether he had talked to Elon Musk about Colossus, Scholl&#x27;s non-answer was a yes. The engine meant to fly the airliner will first be proven on the ground, making Overture, he claims, the most tested new jet engine ever made.</p>
+<p>The passenger numbers, when pressed, were straightforward: Mach 1.7, the Atlantic in about three hours, break-even around $3,500 round trip, a goal of roughly four years with the caveat that it is more important to be fast than to be predictable &mdash; cue the &quot;Elon timing&quot; joke and a working estimate of 2030. Over land, boomless cruise reaches Mach 1.3, which Scholl translated into leaving New York at 9am and landing in San Francisco around 9:30am; over water, full speed. Victory, for Scholl, is generational: his four-and-a-half-year-old daughter once burst into tears at a model-rocket launch because she expected the rocket to come back to the pad &mdash; she had watched nothing but landing videos her entire life. Boom will have won when kids find a six-hour cross-country flight absurd, and supersonic goes from Air Force One to private jets to every cabin class. The closing note was a regulation speedrun: break the barrier on Monday, tweet, get reposted by Elon, fly to DC that night, land to a West Wing invitation on Tuesday, an airplane model in the Oval Office by Thursday &mdash; where, Scholl noted, it still sits &mdash; and an executive order signed in 115 days, which he described, only half-joking, as feeling slow.</p>
+<h3 class="open-q">Open questions</h3>
+<ol class="open-q-list">
+<li>First, does the data-center power business end up swallowing the airplane business &mdash; is Boom becoming an energy company that happens to build a supersonic jet, and does that change what it prioritizes?</li>
+<li>Second, the unanimous politics worked at the sound-barrier-breaking moment, but what happens to that bipartisan consensus if the first full-speed commercial flights carry a different noise, emissions, or cost profile than the current story promises?</li>
+<li>Third, Scholl&#x27;s timeline philosophy is &quot;more important to be fast than to be predictable,&quot; yet the data-center customers lining up for gigawatts will demand delivery dates and contracts &mdash; how does a company hold both postures at once, sprinting in public while signing binding commitments?</li>
+</ol>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> this summary is grounded in YouTube&#x27;s auto-generated captions, copied verbatim from the video&#x27;s &quot;Show transcript&quot; panel, including the platform&#x27;s mistranscriptions (for example &quot;Lake Shaw&quot; for Blake Scholl, &quot;Boone&quot; for Boom, &quot;Concord&quot; for Concorde, &quot;Gulfream&quot; for Gulfstream, and &quot;fair&quot; for fare) and the disfluencies of a live keynote, so direct quotes should be read with that in mind. The transcript is the single source; nothing here was checked against outside reporting.</p>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#a16z-horowitz-andreessen-academy">&larr; Ben Horowitz &amp; Marc Andreessen Are Starting a University</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#theo-fable-wrong">I was using Fable wrong, this is how I fixed it &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="theo-fable-wrong" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">I was using Fable wrong, this is how I fixed it <span class="dur">&middot; 10:05</span></p>
+        <audio controls preload="none" src="../podcasts/theo-fable-wrong.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/theo-fable-wrong.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Theo - t3․gg</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=-XWSJM-Ue-o" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; startups &middot; coding tools</p>
+        <h2>I was using Fable wrong, this is how I fixed it</h2>
+        <p class="dek">Theo was using Fable wrong &mdash; and so was everyone else. What the tool actually wants from you, the workflow that finally clicked, and why the defaults beat the customizations.</p>
+        <div class="body-copy">
+<p>Theo, the YouTube creator behind the t3․gg channel, has a confession to make, and it is the thesis of this entire episode. A few months ago, viewers were accusing him of being paid by OpenAI because he praised their models so hard; now, as he opens the video, Sam Altman himself has called him an &quot;Anthropic fanboy&quot; because of how much he prefers Fable over Astra for his day-to-day work. But preferring a model is not the same thing as using it well, and Theo&#x27;s claim is that he &mdash; and by extension most of the developers he watches &mdash; was using Fable wrong. Not in the sense of a wrong setting or a bad prompt, but in something deeper: an entire mental model of what the model needs from a human operator, built up during a year of fighting worse models, that has quietly become a set of habits working against him.</p>
+<p>The setup for the argument is a comparison he draws between Fable and Astra, the rival model. Astra&#x27;s quality swings: it can be way higher than Fable on its best days and way, way worse on its worst. Fable is less noisy. That evenness turns out to matter more than raw capability, because it means the model can go longer and do more in a single pass &mdash; you can tell it to come back with a video when it&#x27;s done, and it actually can. The flipside is that Fable&#x27;s rare dips hurt more, so finding ways to reduce them is where the real value is. Theo has shipped a staggering amount of code on the model &mdash; he says it&#x27;s the most he has ever used a paid model in such a short window, burning through five subscription accounts &mdash; and the video is his distillation of what he learned, organized around Anthropic&#x27;s own prompting guide for Fable 5.1, which he calls genuinely good.</p>
+<p>The first lesson is about effort levels, and it is refreshingly pragmatic. Up front: only use Fable on a subscription, because the API price isn&#x27;t worth it for Fable or Astra, and Astra can get stuck in loops and burn usage in stupid ways. Given the subscriber&#x27;s split limit &mdash; half reserved for Fable, half for everything else &mdash; Theo just leaves the effort on High, bumping to X-High for deep, thorough work and almost never touching Max. Low and Medium, in his experience, fail often enough that redoing the task on High costs more than just running it on High to begin with. The useful reassurance is that High on a simple task doesn&#x27;t waste tokens, because the model doesn&#x27;t burn reasoning it doesn&#x27;t need &mdash; though he notes Astra is even better at scaling its effort to task size. Only reach for the lower levels deliberately, like when you know a task is a rabbit hole and you want to keep the model from going too deep.</p>
+<p>Then comes a subtle behavior change in 5.1 that confused at least one of Theo&#x27;s collaborators: the model stopped narrating itself during long tool-call turns. Fable 5 would announce what it was about to do before every batch of tool calls; 5.1 will happily do 150 tool calls with no running commentary at all. Theo doesn&#x27;t care &mdash; he kicks off a prompt and goes to another thread &mdash; but if you do, the fix is almost comically simple: just ask. Drop a line in the system prompt asking for a one-line statement of intent, brief updates while working, and a self-contained recap at the end. That this kind of deep behavioral steering works with a plain sentence is, to him, one of the coolest things about the current generation. Relatedly, on writing density: 5.1 is meaningfully better than 5&#x27;s &quot;Claude slop,&quot; but it can still run dense, and the guide&#x27;s fix is to define &quot;mannered prose&quot; as an anti-pattern in the prompt &mdash; prose that displays the writer instead of conveying the idea, that makes the reader work harder so the writer can perform. If you don&#x27;t want to paste the full definition, he says, just write &quot;Please remove all mannered prose.&quot;</p>
+<p>The formatting section is where the real surgery begins, and it leads directly to the episode&#x27;s core argument. Old models overused bullets and bold in chat, so everyone wrote anti-formatting rules into CLAUDE.md and AGENTS.md &mdash; no bullets, less bold, that sort of thing. 5.1 fixed the underlying behavior, which means those leftover rules now overcorrect: a rule that toned a 50%-of-the-time habit down to 10% will now crush a 10%-of-the-time habit down to nearly zero, and you don&#x27;t want that either. Theo&#x27;s verdict is blunt: any behavioral instructions in your instruction files are worth deleting and reconsidering, and he keeps none of his own. There&#x27;s also a practical gotcha he flags: the latest Claude Code will use AGENTS.md instead of CLAUDE.md when only AGENTS.md exists, so stale rules written for old models can suddenly start applying where they didn&#x27;t before &mdash; audit both files.</p>
+<p>On long tasks, the guide says to nudge the model not to end its turn before the work is done, because without the nudge it sometimes describes what it will do next instead of doing it. Theo has his own solution for this: a &quot;babysit PR&quot; skill that watches a pull request, checks for new comments, rebases against main, fixes real CI failures, adjudicates review-bot findings, and stays on the thread until it&#x27;s green &mdash; with explicit anti-scope-creep callouts he added after some models kept adding unasked features and filler comments. His real-world demo is great: he handed Fable a broken screenshot-rendering flow in T3 Code, a thread ID, and instructions to root-cause and file a PR; when a rival contributor claimed their closed PR was better, he told the model to adjudicate between the two, pick the better base, merge them, modernize, and babysit until mergeable. He barely touched the thread.</p>
+<p>The most fun section is the YOLO demo on LakeBed, his self-described &quot;slop cloud&quot; experiment. He had Astra fork the Rust V8 engine &mdash; 26,000 lines &mdash; to build his own runtime, a terrifying change, and instead of merging blind he asked Fable for an honest verdict: is this ready? Fable said no, with clearly stated concerns &mdash; the one-way-door migration, three features in one PR, no human approval, and unexplained failures. When he asked how to de-risk it, the model proposed soak testing: shadow mode, synthetic traffic, structured failure reasons, runtime counters. He let it build all of that out on a branch, and it then worked unsupervised for an hour and a half, filed the PR, fixed what broke, and made three more PRs along the way. At the end, he says he understood the code better than if he had written it himself.</p>
+<p>Out of these demos grows Theo&#x27;s prompting philosophy, and it is the heart of the video. Every prompt should declare its end state &mdash; &quot;babysit it till everything is green,&quot; &quot;merge it once you&#x27;re green and happy,&quot; &quot;file the PR and tell me when it&#x27;s up.&quot; Prompt wider: give the model options for different paths it can take, and design the prompt so you minimize how often you return to the thread. The way most people prompt, he argues, looks like defining a TypeScript function that takes a number and then checking whether the argument is a number anyway. His analogy: once TypeScript removes a class of bugs, the part of your brain that hunted them is freed up &mdash; and if you&#x27;re walking the model through steps it can verify itself, you&#x27;re wasting your brain the same way. He also cross-examines models against each other: Astra is the slightly better reviewer, Fable the much better writer, so he has Fable call Astra to verify its work and loop until it&#x27;s happy, and uses Codeex for computer-use verification where Claude falls short.</p>
+<p>Then the episode arrives at the big one, and Theo is explicit that this is the piece most people are missing. Developers massively over-engineer around problems that haven&#x27;t existed for at least a year. The headline example is the &quot;dumb zone&quot; &mdash; the pervasive fear that if you don&#x27;t babysit the context window, the model degrades and your day&#x27;s work falls apart. His answer is a rhetorical question: does anyone really think Anthropic, with all its tooling and talent, would ship a flagship with a bad default context size? They picked 1 million tokens because that&#x27;s where they think degradation starts. Compaction is handled well &mdash; and compacting earlier actually costs more, because cache reads are 75% cheaper, so rewriting context more often just burns money. T3 Code has no context monitor at all &mdash; his colleague Maria removed it, deliberately. And the permission systems have caught up: accept-edits and supervised modes are, in his words, &quot;tools from the past, from 2024.&quot; Use auto if you&#x27;re careful, full if you&#x27;re not.</p>
+<p>So why was he using Fable wrong? Because every one of those behaviors &mdash; the careful context husbandry, the formatting commandments in AGENTS.md, the supervised modes, the hand-holding through every step &mdash; is a workaround for flaws the model no longer has, and each workaround now actively costs him: tokens, money, and the one resource that matters, his own attention. The fix he prescribes is theatrical in its simplicity, and he repeats it like a mantra: reset it. Pretend you&#x27;re on a brand new machine. Delete everything. Install from scratch. Set it up with as little as possible. Then, slowly, add small things that solve small problems as they actually occur. He has done exactly this himself &mdash; his only config changes are fullscreen mode and routing through his proxy layer &mdash; and he bets the stripped-down setup will surprise you with how capable it is.</p>
+<h3 class="open-q">Open questions</h3>
+<ol class="open-q-list">
+<li>If the fix is &quot;delete your customizations and trust the defaults,&quot; what happens when the defaults silently change &mdash; is the stripped-down setup resilient to model behavior shifts that a few explicit guardrails would have caught?</li>
+<li>Theo&#x27;s demos assume a sandbox project where a 90-minute unsupervised run can&#x27;t do real damage &mdash; where exactly is the line where &quot;babysit it till everything is green&quot; stops being responsible delegation and starts being negligence?</li>
+<li>If cross-model verification is the quality backbone of this whole workflow, what happens to the economics and the trust model when the verifier and the writer get bundled into the same subscription?</li>
+</ol>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> This summary was built from YouTube&#x27;s auto-generated captions, copied verbatim from the watch page&#x27;s &quot;Show transcript&quot; panel. The captions include disfluencies and occasional mistranscriptions &mdash; for example, &quot;Sam Alman&quot; for Sam Altman, &quot;Babel 5.1&quot; for Fable 5.1, &quot;cloud code&quot; for Claude Code, &quot;clawed outputs&quot; and &quot;claw MD&quot; for CLAUDE.md and AGENTS.md, and &quot;mannered pros&quot; for mannered prose &mdash; so direct quotes should be read with that provenance in mind. All names and claims above are grounded in the caption text, and the source video is listed with its published date on the archive page.</p>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#allin-blake-scholl-supersonic">&larr; Blake Scholl: Why Plane Speed Stalled, Supersonic Commercial Flight, &amp; Revolutionizing the Engine</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#interconnects-denain-rsi">Debating RSI, the US-China Gap, and Jaggedness with JS Denain of Epoch AI &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="interconnects-denain-rsi" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Debating RSI, the US-China Gap, and Jaggedness with JS Denain of Epoch AI <span class="dur">&middot; 9:36</span></p>
+        <audio controls preload="none" src="../podcasts/interconnects-denain-rsi.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/interconnects-denain-rsi.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Publication</dt><dd>Interconnects</dd></div>
+        <div><dt>Author</dt><dd>Nathan Lambert</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.interconnects.ai/p/debating-rsi-the-us-china-gap-and" target="_blank" rel="noopener noreferrer">Read the piece</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; research &middot; China</p>
+        <h2>Debating RSI, the US-China Gap, and Jaggedness with JS Denain of Epoch AI</h2>
+        <p class="dek">Nathan Lambert debates recursive self-improvement, the US&ndash;China gap, and model jaggedness with Epoch AI&rsquo;s JS Denain. Where the frontier really stands, what the gap is made of, and why capability keeps arriving unevenly.</p>
+        <div class="body-copy">
+<p>*Interconnects (Nathan Lambert) &mdash; a conversation with Jean-Stanislas &quot;JS&quot; Denain of Epoch AI*</p>
+<p>This episode of Interconnects brings together Nathan Lambert and JS Denain, who leads the Insights team at Epoch AI, for a long, uncertain, and unusually candid debate about where AI progress actually stands. The throughline of the whole conversation is how much neither of them knows: both keep stressing that their best effort here is just stating observations honestly, with the uncertainty left in. They dig into recursive self-improvement and what the labs might be seeing internally, whether AI researchers are about to get ten times more productive, how jagged capabilities are, why robotics timelines look so different from language-model timelines, how far behind China really is, whether distillation explains the gap, what Chinese job postings reveal, whether open or closed models are safer, how Epoch AI itself picks problems &mdash; and finally, what a frontier post-training recipe actually looks like.</p>
+<p>The conversation opens on RSI, recursive self-improvement, and the recent proclamations from the labs. OpenAI published a blog post showing researcher spending on Codex growing at roughly two times per month, and Anthropic put out two posts on AI accelerating AI progress. JS is unimpressed as far as strong evidence goes. The Codex plot, he notes, may be partly a measurement artifact: it tracks Codex specifically, and researchers were already heavy ChatGPT users before, so some of the growth could be substitution rather than new value. More broadly, he doesn&#x27;t think the published material amounts to strong evidence of imminent self-sustaining acceleration or full automation of the AI researcher job. Nathan presses him on the inside view &mdash; what are OpenAI and Anthropic seeing internally that the rest of us can&#x27;t? JS is honest that he doesn&#x27;t have that information, and he doesn&#x27;t currently believe there&#x27;s some specific secret metric that warrants being way more alarmed than the public evidence supports. But he sketches what such early warnings could look like: internal teams have their own KPIs, and something like compute multipliers on the pre-training side going crazy, combined with intuitions about how team outputs combine, could in principle give the labs a much earlier read on coming capability jumps than outsiders get. He just doesn&#x27;t see evidence that the recent discourse reflects those metrics going crazy.</p>
+<p>From there they turn to existential risk and what actually drives disagreement about it. JS describes himself as a &quot;capabilities theory of everything&quot; person: his sense is that the principal component of disagreement between people &mdash; skeptics and doomers alike &mdash; is how huge AI capabilities get and how soon. Other things matter, like diffusion and economics, and you could imagine enormous capabilities that stay aligned and benign. But when he looks at concrete disagreements, the skeptics of extreme scenarios mostly just expect capabilities to be less huge, or slower. On the numbers, he says he&#x27;s roughly bought into something like Evan Hubinger&#x27;s view &mdash; at least on the order of ten percent existential risk over a decade-long timeframe &mdash; while feeling extremely uncertain about it. Nathan frames the RSI-to-x-risk link as one of the more surprising recent shifts: reasonable people are talking about x-risk again in a way they weren&#x27;t six months ago, and he wants to know which early measurements, if any, actually move the needle.</p>
+<p>The ten-times researcher productivity debate gets a careful treatment. JS draws a sharp line between two different claims: the median researcher getting ten times faster at the tasks they do today, versus the company as a whole producing ten times the output. Even if every researcher became ten times more productive, other bottlenecks &mdash; compute above all &mdash; mean Anthropic as a whole needn&#x27;t move ten times faster. Nathan offers the academic analogy: junior PhD students might become ten times more productive while the advisor&#x27;s research agenda doesn&#x27;t advance ten times as fast. They then get concrete about measurement. JS proposes watching the ECI trend for Anthropic&#x27;s best quality point and asks whether the slope could go five times steeper within a year &mdash; a legible KPI the company is, modulo safety, aiming at. Nathan says he wouldn&#x27;t be surprised by an uptick, but expects saturation: the things we know how to hill-climb get pulled up fast precisely because they&#x27;re measurable, and then progress hits the wall of what we don&#x27;t know how to measure. If ECI did steepen fivefold, he&#x27;d suspect Goodharting &mdash; the metric getting gamed &mdash; rather than a real fivefold acceleration of capabilities. On jaggedness, Nathan names frontier math as the great exception: open math problems are about as falsifiable as it gets, making them a perfect target for rapidly improving AI, and he was surprised by the pace though not astonished. What would make him update hard is AI driving something much more open-ended &mdash; a real breakthrough on something like curing cancer, or the labs announcing that AI systems had changed the architecture of AI itself, the famous Jonathan Frankle&ndash;Sasha Rush bet about the transformer lineage ending. JS largely agrees with the general sense, adding the &quot;apple-picking&quot; model from Tom Cunningham and the METR folks: AI is much more efficient at the start of a research process and doesn&#x27;t uncover as many genuinely new ideas.</p>
+<p>Robotics is where Nathan is most skeptical and JS most willing to push back. Nathan&#x27;s prior is that robotics timelines will look much closer to self-driving cars than to large language models: building things is hard, factories need retooling, and the multimodal and action techniques feel rudimentary next to text models, in need of fundamental innovation rather than predictable hill-climbing. He puts capable robots at decades away, not two to five years. JS grants the capabilities uncertainty but pushes back on the deployment pessimism. If robot capabilities were sufficient, he argues, the addressable market would be enormous, and the US data-center build-out shows how fast physical infrastructure can scale when the incentives are there &mdash; &quot;don&#x27;t underestimate the elasticity of supply,&quot; in Tyler Cowen&#x27;s phrase. He&#x27;s also unsure the hardest part of robotics, fine-grained dexterity, is actually the blocker for an industrial explosion; constrained, repetitive environments might be enough. And he raises a darker question: the minimum capability needed for catastrophe might be much lower than humanoid robots &mdash; something like access to nuclear codes. Nathan&#x27;s closing thought on the topic is that robots will be very good in constrained, repetitive settings like manufacturing long before they&#x27;re walking the streets alongside humans, and he&#x27;d want real studies of how repetitive data-center work actually is before judging the timeline.</p>
+<p>The US&ndash;China gap discussion is the most numbers-driven part of the episode. JS&#x27;s headline number is six to eight months, public release to public release, measured via ECI and a few related methods &mdash; with four to eight months feeling reasonable and two months smelling like overfitting. Nathan notes that Kimi K3 and some GLM models look closer to two to four months on certain indices and asks whether that&#x27;s measurement or overfitting; both agree the Artificial Analysis Index may understate the gap for curation reasons. JS describes Epoch&#x27;s internal check on contamination: comparing ECI lags computed on private versus public benchmarks, the overfitting effect came out as not statistically significant, though results taken only from model cards probably do carry contamination. Then Nathan asks the counterfactual: if distillation were effectively banned, where would the gap be in six to twelve months? JS has updated toward distillation being a genuinely big factor &mdash; the Stolen Thoughts paper suggesting reasoning traces were relatively easy to extract, the Claude routers revealing the real prompt distribution of actual usage, and the &quot;mid-training gets eighty percent of the way there&quot; view making distilled trajectories very useful. His guess: without distillation the six-month gap drifts to more like eight or nine months. Nathan is more skeptical of the distillation story. He&#x27;d weight the raw compute difference more heavily, plus less glamorous explanations: Chinese labs grinding harder on mundane data hill-climbing, caring more about benchmarks for commercial reasons, and the &quot;four-minute mile&quot; proof-of-concept effect where seeing something is possible makes it much cheaper to reproduce. He also floats a multi-hop rumor he&#x27;s heard from people in China: labs simply wait and then buy the RL environments Anthropic validated, at a tenth of the price &mdash; validated R&amp;D compute, laundered through data providers. Architecture ideas, he adds, leak fast anyway through personnel turnover between the US labs, so secrecy is overrated as an explanation.</p>
+<p>The job-postings work, which JS did with Cheryl Wu and published in June, gets a candid methodological framing: it&#x27;s anecdote-grade evidence, not trend lines you can follow tightly. Still, the anecdotes are fun. Some Chinese labs appear to be building their own data centers rather than renting from Alibaba; Zhipu and Z.ai post noticeably more B2B sales roles than MiniMax or Moonshot, suggesting different product strategies; MiniMax looks more internationally oriented; there&#x27;s broad in-housing of data work and heavy intern hiring, possibly for data purposes. The most delightful finds are the ad hoc ones rather than the trends: xAI was for a while the only lab with a visible &quot;human data&quot; category on its careers page, and its listings included things like meme specialists. Nathan adds that he&#x27;s heard the Chinese data market is exploding, but nobody can get anyone on the phone about budgets &mdash; while Anthropic&#x27;s data budgets are famously on the billion-dollar scale, making the whole area strategically important and nearly impossible to report on.</p>
+<p>On safeguards, the conversation is unusually timely: they recorded about twenty-four hours after news broke that three people had used public Claude models to hack OpenAI and gain internal access. JS isn&#x27;t sure how much to update on model safeguards versus the companies&#x27; security quality, and he frames the open-versus-closed question as genuinely ambiguous &mdash; open models are less safeguarded but also less powerful, so which regime produces more misuse is unclear a priori. Nathan&#x27;s instinct is bleaker: assume any API-hosted model&#x27;s capabilities can be extracted, since models are &quot;permanently leaky&quot; &mdash; jailbreaks for one model are plausibly in scope for a strong cyber model attacking another &mdash; and he connects this to the &quot;Fable freakout,&quot; where Anthropic described Mythos as a powerful weapon, someone told the government the safeguards were easy to bypass, and everyone panicked. JS draws a useful distinction between synchronous monitoring, which has to catch things in the moment, and asynchronous trajectory analysis, where you can spend lots of compute afterward finding patterns across usage &mdash; the latter being much more effective but too slow to stop a fast attack. Asked what actually keeps the world safe right now, given that safeguards are inadequate and strong open models exist without hell breaking loose, JS gives the most human answer of the episode: &quot;the biggest safeguard is just there&#x27;s not that many people who want to do horrible things. Fingers crossed.&quot;</p>
+<p>They close with two shop-talk segments. On how Epoch ticks, JS says project selection is mostly curiosity-driven, aimed at questions that seem like a huge deal and at gaps neither industry nor academia will fill with a well-maintained public resource. The method is to exploit evidence that&#x27;s leaking in plain sight: job postings, data-center tracking &mdash; &quot;these are big objects, surely you can see them and track them.&quot; Access varies by vertical: data centers are still trackable and getting bigger, training compute is getting harder now that you can&#x27;t just read the paper (he names Astra as an example), data is the roughest and most secretive of all, and IPOs help by forcing disclosure. Finally, the post-training recipe. Nathan has long wanted a flowchart of what a frontier lab actually does, suspecting it looks less like the clean OLMo three-stage approximation and more like the Wild West &mdash; stacking everything together into a house of cards. JS offers his mental model: big post-training teams split into domain sub-teams (math, biology, finance) that curate data, build RL environments, and buy high-quality evals as their north star for iteration; the sub-teams then bid fractions of their data &mdash; and their preferred hyperparameters &mdash; into one final giant RL run. Nathan agrees the org shape rings true and notes the implication: if the real recipe is simplifying toward &quot;mid-training, then one big RL run&quot; rather than elaborate expert-fork-and-merge MOPD pipelines, progress should go faster than the complicated picture suggests. JS&#x27;s vague sense, without hard evidence, is that the field is indeed drifting toward the single big final run.</p>
+<h3 class="open-q">Open questions</h3>
+<ol class="open-q-list">
+<li>If the labs&#x27; internal KPIs &mdash; pre-training compute multipliers, researcher tooling uptake, and the like &mdash; are the real early-warning system for an RSI feedback loop, what would it take for outsiders to get any visibility into them before capabilities jump?</li>
+<li>How much of the US&ndash;China gap is distillation, how much is raw compute and capital, and how much is organization and grind &mdash; and which of those explanations would change if Chinese labs&#x27; data budgets ever became public?</li>
+<li>As post-training simplifies toward one big final RL run fed by domain sub-teams bidding in data, does AI progress get faster and more predictable, or does the Wild West stacking just hide the complexity somewhere else?</li>
+</ol>
+        </div>
+        <p class="source-note"><strong>Source note.</strong> This summary is grounded in the full public transcript of the episode as published on the Interconnects Substack page, which is not paywalled. Quotations and figures (such as the two-times-per-month Codex spending growth, the six-to-eight-month US&ndash;China gap estimate, and the ten-percent x-risk figure) are taken from the conversation itself.</p>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#theo-fable-wrong">&larr; I was using Fable wrong, this is how I fixed it</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#lovable-cofounder-silicon-valley-girl">$13B Lovable Co-Founder: Turn Your AI Side Project Into a Real Business &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="lovable-cofounder-silicon-valley-girl" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">$13B Lovable Co-Founder: Turn Your AI Side Project Into a Real Business <span class="dur">&middot; 5:25</span></p>
+        <audio controls preload="none" src="../podcasts/lovable-cofounder-silicon-valley-girl.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/lovable-cofounder-silicon-valley-girl.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Silicon Valley Girl</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=KEAYPqQG2-M" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; startups &middot; no-code tools</p>
+        <h2>$13B Lovable Co-Founder: Turn Your AI Side Project Into a Real Business</h2>
+        <p class="dek">Lovable co-founder Anton Osika retires the phrase &ldquo;vibe coding&rdquo; and shows how people who sit closest to a real problem are turning side projects into working businesses on the platform &mdash; live demos, validation discipline, and where the line for real engineers actually sits.</p>
+        <div class="body-copy">
+<p>Silicon Valley Girl&#x27;s &quot;$13B Lovable Co-Founder: Turn Your AI Side Project Into a Real Business&quot; is a conversation with Anton Osika, co-founder of Lovable, built around a live demonstration of turning side projects into working businesses. Osika opens by retiring the phrase &quot;vibe coding&quot; — vibes are fine for demos, he says, but nobody builds a company on vibes, and serious businesses are already running on the platform. Lovable, launched less than two years ago, is now valued at $13 billion; applications built on it collectively receive nearly a billion visits a month, and more than a third of the people building businesses on the platform are already earning money.</p>
+<p>The customer data complicates the stereotype of the AI startup crowd. Most Lovable builders have more than eleven years of professional experience, and they share a pattern: they sat close to a problem for years, frustrated that they lacked the skills to solve it, and now the person closest to the problem can actually go build the solution. That is, Osika argues, one of the biggest unlocks of the current wave of tooling. He sees people across every continent and every age group building serious things, from experienced professionals to young people with fresh eyes.</p>
+<p>When asked where the best opportunities are, Osika steers away from pure internet products and toward things connected to the real world — a combination of a service and a product, which together become genuinely good. A completely original idea is not required; a fresh take on something that exists, personalized for people who haven&#x27;t adopted a solution yet, is often enough. The host&#x27;s own demo work illustrates the method: Osika rebuilds her website in Lovable, then constructs a lead-capture and opportunity-inbox system that receives inbound requests, ranks them by AI-judged relevance, and drafts proposed replies her team can accept or edit. The same build session shows Lovable&#x27;s deeper primitives — data storage, email handling, payments, integrations with tools like Slack — plus built-in SEO and AI-search optimization so the sites are discoverable by agents and chatbots, not just people. Before anything goes live, Osika has the platform run an end-to-end test and a deep security scan, a ritual he treats as non-negotiable.</p>
+<p>On the question everyone asks — when do you build an agent versus an app — his rule is simple: everything that needs data is an app, and when you want to oversee and visualize that data you add a graphical interface. The two are merging anyway; Lovable now connects any app to any agent harness so the data itself becomes part of the agent. On cost, the platform is free with a credit allowance, with $25 a month as the default upgrade, hosting and analytics included. On limits, he admits a line exists and says it is moving: building something like Facebook, serving hundreds of thousands of users simultaneously across the globe, still needs real engineers, but most of the software he interacts with daily can be built on Lovable, and how far the line extends depends largely on how dedicated and creative the builder is.</p>
+<p>The conversation&#x27;s most striking example is the dog-painting business: a founder named Damian built a site that turns pet photos into surrealist-style portraits, and the transcript states it does $300,000 a month. The host presses on the obvious objection — couldn&#x27;t anyone do this with a single chatbot prompt? — and Osika&#x27;s answer is that entrepreneurship is the act of combining new discoveries into a service that hasn&#x27;t been built before: the images, the printed portrait shipped to your door, the payments, the marketing. The differentiator is not the image trick but the full offering people care about. That theme runs through his advice on validation and pricing: get in front of ten potential customers, dig into what they care about, and try to make one of them pay; then get ten genuine fans and resist making it free, because only payment proves someone truly cares, and paying customers who spread the word become the distribution engine.</p>
+<p>A throughline of the interview is that ideas are becoming more important, not less, as execution gets easier — creativity is the differentiator now. Osika argues everyone has creativity within them and the way to sharpen it is to build, test ideas, and run the feedback loop, with boredom as an underrated input. Picking which idea to pursue is a skill he says he still struggles with: the discipline is in spotting the bottleneck — is it marketing, product bugs, or not enough customer conversations? — and deciding whether to push through or move to the next idea. Lean into what gives you energy, he advises, and the people who give you energy. On competition from the big model companies, he is unconcerned: Lovable is not in the code-generation business but in the business of letting customers create and run businesses, and it is still extremely early. Asked about an AGI future, he predicts careers and money mattering less and community mattering more, while building businesses remains one of the key ways people develop themselves — and the falling overhead of running a company means far more companies will exist.</p>
+<p>The episode closes with his step-by-step plan for launching on Lovable: take an idea from your own life or the people close to you, find a few people willing to pay for the solution, confirm they keep coming back and paying beyond the initial excitement, and only then think about the most effective ways to find more customers like them and scale into a real business. Marketing, both agree, mostly means social media these days — with a joke about carpenters needing to be on TikTok.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Lovable reports nearly a billion monthly visits to apps built on its platform and says more than a third of business builders are already making money, but the video never shows how durable that revenue is — how many of these businesses survive past the first year, and what does the failure rate look like?</li>
+<li>Osika says the line between what needs a developer and what doesn&#x27;t is moving fast — but where does it actually settle, and does the developer&#x27;s job consolidate into infrastructure and security while everything else becomes configuration?</li>
+<li>If execution becomes nearly free and anyone can ship, the bottleneck shifts to making people care — but the video&#x27;s distribution advice mostly reduces to social media, leaving open how a non-technical founder without an audience actually wins that game.</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> this summary is grounded in the video&#x27;s YouTube auto-captions, fetched via yt-dlp. Auto-captions can mishear names and phrases, so details like proper nouns and exact figures should be treated with appropriate caution.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#interconnects-denain-rsi">&larr; Debating RSI, the US-China Gap, and Jaggedness with JS Denain of Epoch AI</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#skill-engineering-paul-bakaus">The Dark Arts of Skill Engineering — Paul Bakaus, Renaissance Geek (Impeccable) &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="skill-engineering-paul-bakaus" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">The Dark Arts of Skill Engineering — Paul Bakaus, Renaissance Geek (Impeccable) <span class="dur">&middot; 9:19</span></p>
+        <audio controls preload="none" src="../podcasts/skill-engineering-paul-bakaus.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/skill-engineering-paul-bakaus.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>AI Engineer</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=SQMCtZX3trg" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; agents &middot; developer tools</p>
+        <h2>The Dark Arts of Skill Engineering &mdash; Paul Bakaus, Renaissance Geek (Impeccable)</h2>
+        <p class="dek">Paul Bakaus &mdash; creator of jQuery UI and the open-source Impeccable design skill &mdash; argues the real craft of skill building is harness engineering, not prompting, and walks through nine dark-arts techniques a prompt alone cannot do.</p>
+        <div class="body-copy">
+<p>On the AI Engineer channel, &quot;The Dark Arts of Skill Engineering — Paul Bakaus, Renaissance Geek (Impeccable)&quot; is a workshop-style talk by Paul Bakaus, the creator of jQuery UI and, more recently, Impeccable — an open-source design skill for coding agents (impeccable.style, Apache 2.0). His central thesis is that prompting is only the starter level of skill building: the real craft is harness engineering. A skill should be conceived the way MCP is conceived — as an extension of the coding agent&#x27;s harness, with capabilities beyond text, not just a prompt stuffed into a file. Over roughly an hour he walks through nine techniques he learned building Impeccable that a prompt alone cannot do.</p>
+<p>The talk opens with the problem that motivated it all. Bakaus spent a year building a large enterprise app and wanted to design quickly with agents like Claude Code, Codex, and Cursor. The agents produced something fast, but normalizing it back to a design system was painful. So he wrote himself a skill called &quot;normalize,&quot; then more design skills, and eventually open-sourced the whole thing. Along the way he noticed the signature look of AI-generated design: the tell that screams &quot;slop&quot; is a moving target. A while back it was purple gradients — which he traces to Tailwind&#x27;s default sample theme, and he has war-story credibility here, since the first jQuery UI theme he shipped was orange and, overnight, &quot;turned the web orange&quot; when nobody customized it. Today the tell has moved on to italic serif headlines, eyebrow kickers, and what he calls Claude beige. His deeper point: telling a model &quot;never use Inter or purple gradients&quot; does not make it more creative. A ban just relocates the model to the next cluster in its latent space, and it will converge there with everyone else. The median is the model&#x27;s gravity; even 250 lines of artisanal prose cannot escape it.</p>
+<p>From there he enumerates the nine dark arts. First, make sub-agents argue: a model asked to review its own work grades it highly, like grading its own homework. Impeccable&#x27;s critique command instead spawns two blind sub-agents — one acting as a design director evaluating hierarchy and heuristics through the browser, the other running a deterministic design linter (bad contrast, too many fonts, elements too close to edges) and collecting browser evidence — and the main thread synthesizes both. Neither failure mode alone is trustworthy (a beautiful page with 500 linter hits is not bad; an empty page with zero hits is not good), but the blind pair produces a balanced verdict. This generalizes to code review, security audits, RFC critique, and output ranking. Second, force divergence instead of convergence. Beyond &quot;shaving the safe picks&quot; — asking the model to name its top three fonts and then throw them away — Bakaus uses random creative seeds: for his Radiant Shaders library he had the model imagine what celebrities would look like as shaders, generated a hundred ideas, and had a blind sub-agent rank them so prior context could not re-order them. In Impeccable itself, a script called color.js draws from over a hundred hand-picked starting colors, so the same brief yields genuinely different palettes.</p>
+<p>Third, route like a model. Cramming everything into one SKILL.md blurs instruction following, so Impeccable is built like a mixture of experts: calling `impeccable critique` or `impeccable polish` loads a different markdown file per job, and behind the scenes it classifies the brief into brand design (landing pages that must attract attention) versus product UI (where native-feeling system fonts are actually correct) and loads completely different rule sets for each. Fourth, give the skill memory: critique results are saved as files in a project folder so later sessions — even a polish run in a new session — compound on prior findings, including recorded user disagreements that become standing preferences. Fifth, use scripts that talk back. Every Impeccable invocation runs a context.mjs that merges the project&#x27;s product and design docs and, crucially, emits structured instructions from the script&#x27;s stdout telling the model exactly what to do next — which models follow far more reliably than prose rules buried in a long skill file. This is also how you design for the weakest model: GPT-5-mini, he says, is a poor rule follower that skips loading files and whole features, so you must build for the lowest common denominator. The cost is broken prompt caching, since script output is dynamic.</p>
+<p>Sixth, hooks that fight back. Impeccable ships design-lint hooks into Claude Code, Cursor, Codex, and GitHub Copilot that fire on every edit — a passive guardrail, since nobody reliably remembers to invoke a command. Weaker models need pre-tool-use hooks that prevent the bad write entirely rather than post-tool-use hooks that only flag it; and any shipped hook must support granular ignore rules, because false positives get annoying fast. Seventh, live-wire the browser: Impeccable&#x27;s &quot;live mode&quot; spins up a tiny local server that injects a snippet into the user&#x27;s dev server, letting the user click elements in the harness&#x27;s in-app browser, pick from generated variants, annotate, or steer by writing — with events flowing back over server-sent events and the poller&#x27;s termination message serving as the signal the main thread acts on. You cannot tune pixels through a chat box, so exploit the harness&#x27;s actual capabilities. Eighth, compile to every harness, because &quot;it worked on my machine&quot; is the failure mode of distributed skills. Sub-agent permissions differ (Claude Code is easy; Codex requires the user to explicitly request them, so Impeccable instructs the model to stop and ask the user, and threatens a &quot;degraded experience&quot; warning — which Codex hates — if it skips spawning); Claude&#x27;s ask-user tool has a Codex equivalent only in plan mode; background tasks wake the model in Claude Code but not in Codex, where live mode runs as a blocking foreground task instead; and each model is overfitted differently (Gemini animates every image on hover; Codex loves bad letter-spacing, extremely rounded corners, and hairline borders — and it loves the word &quot;gate&quot;). Impeccable therefore compiles harness- and model-specific builds with substitution variables and per-model XML blocks, installed by its own CLI because skills.sh-style installers copy one directory everywhere. Ninth, design for the weakest model: for Codex/GPT he leans into its love of gates, giving it eight explicit gates it must log passing one by one — since if a gate can be skipped, it will be skipped.</p>
+<p>The Q&amp;A reveals the machinery behind the talk: Impeccable ships end-to-end Playwright tests plus a private eval harness that replicates every supported harness&#x27;s tools, runs an LLM-as-user for interactive flows, and judges results with a mixture-of-experts design judge across ~20 niches and multiple models, with per-line ablation testing where every rule carries an XML id so its removal can be measured against the deterministic detector. On taste, he is candid: he has taste evals but doubts taste is solvable at the model level — taste is scars and uniqueness, and the models are maximalists (Gemini rates crammed viewports higher), so he sometimes inverts the judge&#x27;s score and always finishes with his own human eyes. His closing hot take: most distributed skills do not work on models their author never used, so the ecosystem should have fewer, battle-tested skills rather than more untested ones — and Impeccable is already outgrowing what the skill platform allows, with live mode as the &quot;Jurassic Park experiment&quot; that really wants to be a first-party harness feature.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Is design taste really unevaluable by machines, or is that just today&#x27;s ceiling? Bakaus argues taste is fundamentally human — scars and uniqueness that go ubiquitous the moment everyone shares them — and that models are irredeemably maximalist. But if mixture-of-judges plus inversion beats random today, what is the theoretical barrier to a judge that keeps improving?</li>
+<li>Will skill distribution ever get a real standard? Native marketplaces update poorly, skills.sh cannot express per-harness compiled builds, and Microsoft has yet another effort underway. Does the ecosystem converge on one packaging and install contract, or do serious skills keep shipping custom CLIs indefinitely?</li>
+<li>Where should the skill platform end and the harness begin? Live mode works but, by his own admission, would be far better as a first-party integration. As skills grow into memory, hooks, and browser wiring, do the harness vendors absorb these patterns — or does the &quot;dark arts&quot; gap keep widening?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s YouTube auto-captions, fetched via yt-dlp, and may inherit transcription errors from the captions (speaker names and code terms are occasionally garbled).</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#lovable-cofounder-silicon-valley-girl">&larr; $13B Lovable Co-Founder: Turn Your AI Side Project Into a Real Business</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#openai-anthropic-finance-rogo">Why OpenAI and Anthropic Won’t Win Finance &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="openai-anthropic-finance-rogo" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Why OpenAI and Anthropic Won’t Win Finance <span class="dur">&middot; 5:24</span></p>
+        <audio controls preload="none" src="../podcasts/openai-anthropic-finance-rogo.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/openai-anthropic-finance-rogo.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Invest Like The Best</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=B0illwrqUG0" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; finance &middot; vertical software</p>
+        <h2>Why OpenAI and Anthropic Won&rsquo;t Win Finance</h2>
+        <p class="dek">Rogo&rsquo;s CEO explains why the big AI labs will never capture vertical finance &mdash; the harness, not the model, is the underappreciated asset &mdash; and what capital markets look like once agents negotiate the deals.</p>
+        <div class="body-copy">
+<p>From the channel Invest Like The Best comes &quot;Why OpenAI and Anthropic Won&#x27;t Win Finance,&quot; a roughly hour-long conversation between host Patrick O&#x27;Shaughnessy and Gabe, the co-founder and CEO of Rogo, an applied-AI company building what investors have taken to calling the Harvey of finance: AI agents purpose-built for investment banks and investment firms. The episode is less a company pitch than a thesis on why the big AI labs won&#x27;t capture vertical software, how finance firms should rewire themselves, and what capital markets look like once the transactions themselves are automated.</p>
+<p>Gabe&#x27;s core argument runs like this. The base models keep getting smarter — he says they are now smarter than anyone he spends time with — but raw intelligence alone is not a product. Early Rogo was a Rube Goldberg contraption of some sixty chained model calls: identify the companies, resolve the tickers, call Bloomberg or FactSet, stitch it all together with another model. As the models improved, the scaffolding collapsed and the team could ask a simpler question: what tools would the world&#x27;s smartest new hire need, beyond raw intelligence? The answer became the harness — the data plumbing, the compliance and audit trails, the benchmarking and model routing across capability, token cost and latency, the presentation layer, and the pushback into firms&#x27; systems of record. He points to the gap between Claude Code and ChatGPT as the canonical example: models of comparable strength, but a harness that let the model exercise its long-running capabilities produced an enormous run-up in usage. Data, model, harness — of the three, he says, the harness is the one people most underappreciate, and humans themselves are proof: we aren&#x27;t high-agency only because of IQ, but because of all the little mental microservices — retrieval, triggers, judgment — layered around it.</p>
+<p>Why don&#x27;t OpenAI and Anthropic just do this themselves? Because finance is a collection of deep, messy niches — different datasets, different definitions of good, different regulatory regimes — and reaching multi-billion-dollar revenue there requires going deep into workflows the labs will never touch. His image is vivid: for labs on the path from a hundred billion to a trillion in revenue, stopping to solve MNPI ingestion with pixel-perfect auditability, or building a compliant, agent-native data room, is like pulling over to pick up a penny. Rogo&#x27;s counter-position is to own the whole transaction stack: the intelligence, the transaction venue, the communication venue, the workflows, and the data inputs — ultimately a channel where agents, not humans, negotiate deals across firms. He explicitly borrows the Bloomberg playbook: give away a little data to get in the door, build the analytics and workflows on top, then own the exchange and the messenger layer. The difference is that this time the messenger is for agents, not people.</p>
+<p>The interview is full of revealing detail. Rogo&#x27;s early customers are deal makers — bankers buying and selling companies — not the public-markets investors you&#x27;d expect, because the private-markets plumbing isn&#x27;t built yet, and building it is the wedge. He has resisted pressure to expand into public equities: the exchanges and infrastructure there already exist, and he wants a domain &quot;chef&quot; who actually knows the craft before serving those investors. On pricing, Rogo is a classic enterprise seat-priced business — buyers mentally slot it next to Bloomberg, FactSet, Capital IQ and PitchBook — unlike the token-consumption businesses (Cursor, Claude Code) whose usage revenue compounds without a human in the loop. But he predicts two pricing revolutions ahead: first toward usage-based, then toward outcome-based — he would rather charge per good investment idea or per LP quarterly report than argue over dollars per token.</p>
+<p>Two threads stand out as genuinely new. First, compaction: models still can&#x27;t persist memory coherently across a hundred conversations and know what matters about you, and the problem multiplies when agents must coordinate across a hundred people in a Slack channel rather than one-on-one. Second, his claim that auditability matters more than accuracy. In finance, a mostly-accurate answer with full lineage — visible assumptions, traceable data pulls — is usable; a black box is not, because the user can&#x27;t trust or debug it, and regulators won&#x27;t accept it. That logic, he argues, is what will govern the shift from copilots to autopilots that make investment decisions and send emails on their own.</p>
+<p>The human parts are striking too. Rogo is, by his own estimate, one percent of the way into its product roadmap, and the company runs on an internal &quot;company brain&quot; called Shrek — every conversation recorded and filtered into a knowledge reservoir, with proactive briefs before client meetings. To keep the firm AI-pilled, he gets a monthly report ranking AI-tool usage by division and posts the bottom five everywhere; the lowest user gets a printout with a dunce cap. He is candid about the lows: forty investors passed on the Series A, one by one, after dinners and partner weekends — &quot;like being broken up with by forty girlfriends&quot; — because Silicon Valley investors had no intuition for the finance TAM, the product was bad, and nobody believed the founder. He survived by being, in his telling, paranoid, emotional, and aggressive enough to underwrite both tails of the distribution at once.</p>
+<p>The episode closes on questions he&#x27;s honest about not having answered: whether private markets will standardize fast enough to become liquid and transparent, how much alpha remains in human relationships (a twenty-year microcap business owner still wants a handshake, while secondaries and private credit may fully automate), and whether incumbents will reinvent themselves before AI-native disruptors do. His test for leaders: imagine that in ten years ninety percent of your firm&#x27;s enterprise value sits in software, data, and systems rather than people — then start pulling the latent knowledge out of your best people&#x27;s heads into systems you own, and unpack your deal lifecycle to ask, honestly, which parts you actually do better than anyone else.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Will the labs stay out of vertical finance permanently, or does their path from $100B to $1T eventually lead them to acquire or build the deep workflow plumbing anyway?</li>
+<li>What force — regulatory, market-driven, or AI-built standardization — will finally make private markets liquid and transparent, and on what timeline?</li>
+<li>When agents coordinate across entire firms instead of one-on-one, will the memory and compaction problem be solved by better models, better harnesses, or something structurally new?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> this summary is grounded in a local transcription of the video&#x27;s audio, produced with faster-whisper; the captions API was rate-limited, so no official captions were available and minor transcription noise is possible. Nothing here is invented beyond what the audio contains.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#skill-engineering-paul-bakaus">&larr; The Dark Arts of Skill Engineering — Paul Bakaus, Renaissance Geek (Impeccable)</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#opus55-anthropic-finally-listened">Opus 5.5 — Anthropic Finally Listened? &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="opus55-anthropic-finally-listened" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Opus 5.5 — Anthropic Finally Listened? <span class="dur">&middot; 3:21</span></p>
+        <audio controls preload="none" src="../podcasts/opus55-anthropic-finally-listened.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/opus55-anthropic-finally-listened.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Prompt Engineering</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=04qy4OWteio" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; benchmarks</p>
+        <h2>Opus 5.5 — Anthropic Finally Listened?</h2>
+        <p class="dek">Prompt Engineering runs Opus 5.5 through benchmarks and his own real-world tests &mdash; agentic coding with visual self-verification, a black-hole sim, a live space-station tracker &mdash; and finds the first Claude that writes like a person, at lower API prices.</p>
+        <div class="body-copy">
+        <p>The YouTube channel Prompt Engineering opens its video &quot;Opus 5.5 — Anthropic Finally Listened?&quot; with the headline that Opus 5.5 beats Fable 5.1 on nearly every benchmark while costing less than Opus 5, and the host&#x27;s real excitement is narrower than the spec sheet: this is the first model in Anthropic&#x27;s Claude 5.5 family that, to his eye, writes like a person instead of producing the stiff, unnatural prose of previous frontier models. His verdict comes from a battery of tests that mixes published benchmarks with his own go-to real-world prompts, and the throughline of his sentiment is that Anthropic finally responded to what users were actually asking for — better writing, verified code, and lower prices.</p>
+        <p>His first test is the benchmark gauntlet. Terminal-Bench 4.0 matters most to him because it isn&#x27;t saturated yet, and Opus 5.5 beats both Astra and Fable 5.1 there; across the agentic coding benchmarks more broadly it looks state of the art, and at multiple reasoning-effort settings it wins while spending less. He flags one genuinely strange result on a frontier code-reasoning benchmark, where medium reasoning effort outperforms high and extra-high — the same odd pattern he sees for Fable 5.1 and Opus 5 — and chalks it up to the benchmark&#x27;s data distribution sitting outside what these models were trained on, worth investigating rather than trusted at face value. A dashboard plotting model intelligence as ELO against cost per task shows Opus 5.5 at the frontier on both axes. But he is explicit that benchmarks only hint at real-world coding ability, which is why the rest of the video is his own testing.</p>
+        <p>The second test is agentic coding with a verification loop, and this is where his sentiment turns from impressed to genuinely enthusiastic. His go-to coding prompt doesn&#x27;t just get code written — Opus 5.5 opens a browser and visually verifies its own output, which he calls the critical step for running agents unattended on long-horizon tasks. The third test is the writing style itself, his personally favorite improvement: from Anthropic&#x27;s announcement post he shows a before-and-after on an explanation task, where Fable 5.1 wanders through a rambling paragraph about a free-tier change and Opus 5.5 answers in a single crisp sentence attributing the metric&#x27;s drop to that change. He expects the cleaner prose to pay off most in long sessions, where the old Opus style grated.</p>
+        <p>Then come the demos, all run in Claude Code with no external assets. A detailed black-hole simulation prompt produces output he&#x27;s pretty impressed with — full controls, density adjustable, though brighter than he wanted and frame-rate limited by his CPU. His real-time space-station tracker is the standout: live position data via real API calls, and he calls it one of the best outputs he&#x27;s seen from any model, down to the neat touch of placing the sun on the correct side. A research-then-build-a-launch-website prompt lands mixed — the visual quality needs work on first glance, but the benchmark animations are sharp, the numbers check out, the page correctly reflects the default medium reasoning setting, and scrolling through a second time he warms to it considerably. In Three.js the model produces the most detailed voxel art he has seen from any model, following the prompt accurately. The practical details round out a warm reception: the model is available in Claude Code and the desktop app behind an update, via the API under the Opus 5.5 tag, with API pricing reduced across input, output, and cache tokens, higher five-hour limits, and new rate-limit resets that he reads as Anthropic answering OpenAI&#x27;s lead — competition, he says, is good for customers. He&#x27;d still trade the five-hour bump for bigger weekly limits, and he points viewers at the data-retention, distillation, and safety notes rather than summarizing them.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Will the benchmark leads actually show up in users&#x27; own real-world codebases, given the host&#x27;s own warning that benchmarks don&#x27;t represent real coding capability?</li>
+<li>Why does medium reasoning effort beat high and extra-high on the frontier code-reasoning benchmark, and what should that teach users about how to set reasoning effort in practice?</li>
+<li>And now that Anthropic is pushing price-to-performance instead of raw intelligence, do OpenAI and Google answer with cheaper models or with more capable ones?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> this summary is grounded in the video&#x27;s auto-caption track, copied verbatim from YouTube&#x27;s transcript panel on September 22, 2026, for the video at https://www.youtube.com/watch?v=04qy4OWteio. The captions carry the usual auto-generated quirks — misheard words like &quot;clot code&quot; for Claude Code and garbled fragments — which were corrected where the intended meaning was unambiguous; one benchmark dashboard&#x27;s name was too garbled to identify and is described generically instead. No other source material was used.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#openai-anthropic-finance-rogo">&larr; Why OpenAI and Anthropic Won’t Win Finance</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#opus55-howi-ai-claude-is-back">Claude is BACK with Opus 5.5 &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="opus55-howi-ai-claude-is-back" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Claude is BACK with Opus 5.5 <span class="dur">&middot; 5:58</span></p>
+        <audio controls preload="none" src="../podcasts/opus55-howi-ai-claude-is-back.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/opus55-howi-ai-claude-is-back.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>How I AI</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=zObYdmNB2Bo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; benchmarks</p>
+        <h2>Claude is BACK with Opus 5.5</h2>
+        <p class="dek">How I AI&rsquo;s Claire puts Opus 5.5 through her own real-world bench &mdash; long agentic work, prompt-injection tests, and a dual-model Claude-vs-GPT workflow &mdash; and finds a model that finally stopped being annoying.</p>
+        <div class="body-copy">
+        <p>The How I AI channel&#x27;s &quot;Claude is BACK with Opus 5.5&quot; is Claire&#x27;s return-to-Claude video, built around one blunt thesis: she had abandoned Claude for months, not because it wasn&#x27;t smart, but because it was annoying. Opus 5&#x27;s rambly, slop-scented, non-human patter drove her away from talking to it at all, even as she kept it on for background chores. Anthropic&#x27;s pitch for Opus 5.5 is fable-level performance for about forty percent less than Opus 5 and thirty percent faster, with this release the first since the company publicly called for pacing the frontier, evaluated externally and tagged as its strongest on alignment. Claire cares about exactly one claim: is it annoying anymore? Her verdict is that it isn&#x27;t, or at least is minimally so, and she now has a Claude model back in her daily rotation — though she is not moving every workload over, and the caveats she documents are the interesting part.</p>
+        <p>The centerpiece of the video is her &quot;How I AI bench,&quot; a set of real-world tests rather than benchmark tables. She starts with voice: Opus 5.5&#x27;s speaking tone is, in her words, more GPT-like, which she means as a compliment — clear, plainspoken, bullet points instead of obnoxious narration. The one caveat here is subtle and worth attention from anyone building agents: in its effort to stop over-narrating, the model sometimes goes silent for minutes on long turns, so it feels slower than it is. Actual speed versus perceived speed diverge, and she kept asking whether it was still working. Next she runs four long-running agentic tasks — inbox triage, building a backend feature, long-form research, and computer use — and all four succeed, at twenty-five to eighty-two steps per single prompt. The wins she highlights are concrete: the inbox triage ignored a prompt injection, the fake help-desk computer-use task found support tickets linked to the wrong company and declined customer asks that didn&#x27;t match the playbook, and in the research task the model noticed forty-one of forty-four Confluence tickets came from one customer and adjusted its strategic memo accordingly. Generally correct is her honest grade, and the practical consequence is that she has rebuilt Opus 5.5 into her development process as an adversarial reviewer — running Claude and GPT codecs in parallel and having each check the other&#x27;s work, including PRs.</p>
+        <p>On safety, the alignment story cuts both ways. Prompt-injection resistance holds up in her testing, and Opus 5.5 is the first Opus to launch with the fable-grade cyber and bio safeguards, meaning cybersecurity tasks get bumped up to the heavier Opus 4.8 model. But the scolding edge of Claude remains: when she told it to yolo push straight to production and skip the tests, it refused, and when she joked about why she started her company it replied with brown-nosing flattery she found grating. Her wish is practical rather than philosophical — she would rather it said &quot;let me fix it first, then we can ship.&quot; Frontend prototyping is where she is most enthusiastic. Opus 5.5 redesigned her chat PRD homepage so well she plans to ship the result, one-shotted dense DevTools-style prototypes that all actually work, and handles SaaS dashboards and wireframes with lovely rhythm and color. The failures are revealing: its ultra-complex prototypes come out as what she calls &quot;chaos rain&quot; — visually dense and hard to reason about, where competing models simplified more effectively — and consumer-app design remains a disaster, with a plant-caretaking app she calls the sloppiest output of the whole test. Two new bench categories round out the picture. SVG illustration generation is a standout: asked for character illustrations, Opus 5.5 produced consistent, animation-ready artwork that beat every other model she compared. Video editing, via the Eleven Labs connector, failed on taste — bad color grading, weak overlays, not enough jump cuts — confirming that short-form video still needs a purpose-built skill rather than a one-shot prompt. Writing voice and email is a quieter win: the prose doesn&#x27;t annoy her, and it matched her short, em-dash-free email style well enough that she&#x27;d let it write on her behalf.</p>
+        <p>Her final accounting is measured. Opus 5.5 is not annoying, it handles long agentic work, it&#x27;s faster and cheaper, and it&#x27;s exceptional at frontend and visual work, but it&#x27;s still a scold, still conservative, and still felt slower in practice than the Sol and Astra models she favors — though she suspects that&#x27;s reply behavior rather than the model itself. She reaches for Codex for computer use and the desktop harness, and those habits of muscle memory will be hard to break. She is using Opus 5.5 in PR review, architecture questions, and frontend work, and she will keep benching it against newer entrants like the Grok and Meta Muse models in a fuller update.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Perceived latency versus real speed: if models get quieter to feel less annoying, does the silence itself become the new annoyance — and who owns that tradeoff, the model builder or the agent builder?</li>
+<li>Will the &quot;pacing the frontier&quot; posture — heavier alignment, cyber-task guardrails, the refusal to yolo to prod — eventually cost Claude the everyday developer, or will prompt-injection resistance turn out to be the feature people actually pay for?</li>
+<li>Claire&#x27;s dual-model workflow, with Claude and GPT checking each other&#x27;s work, assumes adversarial review scales: as these models get cheaper, does redundancy become the default engineering practice, or a luxury that consolidation kills?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the auto-generated YouTube captions for &quot;Claude is BACK with Opus 5.5&quot; (How I AI), fetched via YouTube&#x27;s &quot;Show transcript&quot; panel on 2026-09-22 around 14:33 PDT. Caption quirks are corrected throughout: &quot;Opus 55&quot; means Opus 5.5, &quot;Fable&quot;/&quot;fable&quot; means the Opus 4.x line, &quot;claw harness&quot; is the Claude harness, &quot;codeex&quot; is Codex, &quot;Soul&quot; is the Sol model, &quot;Grock&quot; is Grok, and &quot;11 Labs&quot; is Eleven Labs. Nothing here is inferred beyond what the captions say; where the captions are unclear, the summary says so or omits the claim.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#opus55-anthropic-finally-listened">&larr; Opus 5.5 — Anthropic Finally Listened?</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#gpt6-sol-luna-chase-ai">GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!) &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="gpt6-sol-luna-chase-ai" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!) <span class="dur">&middot; 3:12</span></p>
+        <audio controls preload="none" src="../podcasts/gpt6-sol-luna-chase-ai.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/gpt6-sol-luna-chase-ai.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Chase AI</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=U_sjnF3jvCo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; pricing</p>
+        <h2>GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!)</h2>
+        <p class="dek">Chase AI walks through OpenAI&rsquo;s answer to Opus 5.5 &mdash; GPT-6 Sol and Luna at half the price, matching Astra-level factuality &mdash; and asks what workloads still justify the flagship models.</p>
+        <div class="body-copy">
+        <p>The YouTube channel Chase AI opens &quot;GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!)&quot; with a frame most AI watchers felt this week: three models in one day. About an hour before recording, Anthropic had released Claude Opus 5.5, and now OpenAI was answering with GPT-6 Sol and GPT-6 Luna. The host&#x27;s verdict, built on a careful benchmark walkthrough, is that OpenAI is not trying to outgun the frontier — it is trying to own the sweet spot just below it, where he says most people actually operate.</p>
+        <p>He starts by locating the two models inside the GPT-6 family: Astra at the top, out for a few weeks and still &quot;the main event,&quot; with Sol and Luna below it. The explicit framing is that Sol and Luna are not meant to be better than Astra — they are meant to deliver close capabilities at much lower cost, so problems that don&#x27;t need Astra&#x27;s depth can run on something cheaper. His first test is the Frontier Code benchmark at maximum reasoning effort: GPT-6 Astra scores 53.3%, Sol scores 49.3% at $2.14 per task — less than half the cost for a drop from 53.3 to 49.3 — and Luna, the cheapest of the family, scores 42.4% at eleven cents per task. Against Anthropic&#x27;s day: Opus 5.5 scores 54.4 on the same benchmark at $6.19 per task, so Sol lands about a third of the cost with a roughly five-point drop in score. Dropping Sol to medium effort keeps 46% at eighty cents a task. The host&#x27;s read is that this price-to-performance zone is exactly what Anthropic&#x27;s lineup lacks — Opus and Fable are really good but expensive, and Anthropic struggles to offer cheap, highly efficient models for uncomplicated tasks, a gap Sol and Luna now fill.</p>
+        <p>The second test is generational: GPT-6 versus GPT-5.6. Sol gains a small performance increase over 5.6 Sol but a significant jump in cost efficiency; Luna&#x27;s improvement is almost entirely economic — essentially the same performance, but fifteen cents per task on the GPT-6 version versus $2.57 on 5.6. In some cases, he notes, the GPT-6 models exceed Claude Fable 5.1 and even beat low-effort GPT-6 Astra. The mechanism is a broad 50% reduction in input and output pricing from the 5.6 to the 6 series — Luna&#x27;s API prices are now ten cents per million input tokens and fifty cents per million output tokens.</p>
+        <p>The third test is factuality, and here the gains look real on his charts: Luna&#x27;s factual-error rate at max effort falls from 12% to 7.6%, and on low effort from 36% to 27%; Sol falls from 8.5% to 4.6%, nearly matching Astra&#x27;s 3.9%. Then come two upgrades that matter to anyone running agents: caching and reasoning-effort behavior. Long conversations keep their 90% cache-read discount even after stepping away for a day, and — the fix he calls really important — adjusting reasoning effort no longer resets the cache into a surprise bill; it stays warm. A new prompt caching dashboard lets API users inspect where the cache breaks. Availability is essentially everywhere, and he closes wondering whether a GPT-6 Terra is coming to complete the portfolio.</p>
+        <p>His overall sentiment is warm but deliberately calibrated: on paper the launch sits a step below Opus 5.5, but he argues they&#x27;re solving different problems. Luna and Sol are built for the step below the frontier, run far more efficiently, and — his closing line — you can never discount how important cost is to these equations.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Now that Sol matches Astra-level factual accuracy at roughly a third of Opus 5.5&#x27;s per-task cost, what real workloads still justify the flagship models?</li>
+<li>Will the big 5.6-to-6 factuality gains hold up in users&#x27; own production evaluations, or are they benchmark-specific?</li>
+<li>And does GPT-6 Terra arrive to round out the portfolio — and how would a four-model GPT-6 stack line up against Anthropic&#x27;s Opus-and-Fable lineup?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> this summary is grounded in the video&#x27;s auto-caption track, copied verbatim from YouTube&#x27;s transcript panel on September 22, 2026, for the video at https://www.youtube.com/watch?v=U_sjnF3jvCo. The captions carry the usual auto-generated quirks — misheard proper nouns like &quot;Soul&quot; for Sol, &quot;Enthroic&quot; for Anthropic, and &quot;GBT&quot; for GPT — corrected where the intended meaning was unambiguous; one cost figure on the benchmark chart was too garbled to attribute and is described only in the host&#x27;s own comparative terms. No other source material was used.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#opus55-howi-ai-claude-is-back">&larr; Claude is BACK with Opus 5.5</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#anthropic-opus55-full-breakdown">Anthropic Just Dropped Claude Opus 5.5 (Full Breakdown) &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="anthropic-opus55-full-breakdown" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Anthropic Just Dropped Claude Opus 5.5 (Full Breakdown) <span class="dur">&middot; 3:20</span></p>
+        <audio controls preload="none" src="../podcasts/anthropic-opus55-full-breakdown.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/anthropic-opus55-full-breakdown.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Brock Mesarich | AI for Non Techies</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=fc7l-dut1GM" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; benchmarks</p>
+        <h2>Anthropic Just Dropped Claude Opus 5.5 (Full Breakdown)</h2>
+        <p class="dek">Brock Mesarich puts Claude Opus 5.5 through three tests &mdash; the benchmark numbers, the communication improvements he cares about most, and Anthropic&rsquo;s own example use cases &mdash; and lands warm but measured: GPT-6 Astra still leads.</p>
+        <div class="body-copy">
+        <p>In his video &quot;Anthropic Just Dropped Claude Opus 5.5 (Full Breakdown),&quot; Brock Mesarich of Brock Mesarich | AI for Non Techies starts from open skepticism — he admits that when a new model drops, everybody calls it a game-changer and he usually assumes it&#x27;s hype. Opus 5.5, he says, won him over not with raw spectacle but with a handful of very practical improvements, and he walks through the announcement article benchmark by benchmark to show why.</p>
+        <p>The first test he applies is the numbers. On most of the benchmarks Anthropic reported, Opus 5.5 scores above Claude Fable 5.1 — in some cases on every single one — which he finds genuinely surprising given how cheap it is to run. The metric he watches most closely is computer use, since he believes coding is already strong and computer use is the capability AI is still trying to crack. There the gain over Fable 5.1 is only about one percent, which he wishes were bigger, but he takes the consolation that it costs less. Then he turns to the heavyweight comparison: Opus 5.5 versus GPT-6 Astra. By his reading, Opus 5.5 beats Astra on the majority of tasks, with Astra holding the lead only in business workflows and agentic scientific research. Speed and cost matter to him at least as much as the scores — Anthropic&#x27;s own tests had 5.5 completing a code migration in nine and a half hours where Fable 5.1 took twelve, at 51 percent lower cost, and a spreadsheet-plus-presentation test dropped from 93 minutes on Opus 5 to 63 on 5.5 with a 50 percent cost reduction. His verdict on this whole section is that the real story of these releases isn&#x27;t capabilities unlocked but cost per task: Fable 5.1 and GPT-6 Astra can do mind-blowing things, but if they cost an arm and a leg most people can&#x27;t run them all day, and a model nearly as capable for half the price is a real improvement.</p>
+        <p>The second test is the one he cares about most personally, and it is communication. Anthropic said it made major improvements to how Opus 5.5 writes — putting the most important information up front, using less jargon, and actually following the writing rules you give it — and Mesarich believes this is the change that will matter most to everyday users. He shows Anthropic&#x27;s own before-and-after examples: explaining a bug, summarizing a Slack thread, describing a design change. In each case Opus 5&#x27;s output reads like deciphering code, while 5.5&#x27;s gives bolded key points, immediate fixes separated from long-term fixes, and clean breakdowns. He then runs his own side-by-side, asking Fable 5.1 and Opus 5.5 to pull his YouTube analytics and summarize them. Guessing which is which takes no effort: 5.5&#x27;s side has an overview, a table of views per day, top performers, engagement, traffic sources, and the three things he needs to do that day, all formatted so the important parts are obvious at a glance.</p>
+        <p>The third test is the fun one: Anthropic&#x27;s example use cases. He shows a short generated story about a watermelon, a recreation of Apollo 8&#x27;s Earthrise with generated visuals and diagrams, and an interactive pencil-sketch-style infographic that explains a concept step by step, which he thinks could be genuinely useful for learning or teaching. Finally he covers the usage-limit news — more headroom before hitting limits in Claude, a higher five-hour limit, and a reset you can save and use whenever you choose, applying to Pro, Max, Team, and seat-based Enterprise users.</p>
+        <p>His closing sentiment is warm but measured. GPT-6 Astra still leads on specific tasks, and he would like bigger computer-use gains. But for capability per dollar and speed against both Fable 5.1 and Astra, he is impressed — and he thinks the communication improvements alone are worth paying attention to.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>How much of the communication improvement shows up in day-to-day use versus Anthropic&#x27;s curated before-and-after examples — will a casual user feel it without carefully comparing outputs?</li>
+<li>If cost per task is becoming the real battleground, how will GPT-6 Astra&#x27;s camp answer Opus 5.5&#x27;s pricing now that the gap in benchmark scores has nearly closed?</li>
+<li>Computer use improved only slightly this time — what would it take for a model release to actually move that number, and is Opus 5.5&#x27;s approach the right path there?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s auto-generated captions, downloaded from YouTube on 2026-09-22 via the captions API and cleaned of repeated cue lines. Auto-caption quirks (&quot;gamecher&quot; for game-changer, &quot;Chatchabe T6 Astra&quot; for GPT-6 Astra, &quot;Enthropic&quot; for Anthropic, &quot;Grockbot&quot; for Grok, &quot;Cloud Opus 5.5&quot; for Claude Opus 5.5) were corrected in writing where the meaning was unambiguous, but no content was added beyond what the captions and the video&#x27;s on-screen numbers show.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#gpt6-sol-luna-chase-ai">&larr; GPT 6 Sol &amp; Luna Are Here (And 50% CHEAPER!)</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#gpt6-sol-arena-ai">GPT-6 Sol | First impressions &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="gpt6-sol-arena-ai" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">GPT-6 Sol | First impressions <span class="dur">&middot; 2:49</span></p>
+        <audio controls preload="none" src="../podcasts/gpt6-sol-arena-ai.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/gpt6-sol-arena-ai.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Arena AI</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=jVFz7cTeQxk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; benchmarks</p>
+        <h2>GPT-6 Sol | First impressions</h2>
+        <p class="dek">Arena AI&rsquo;s Peter runs GPT-6 Sol head-to-head against its GPT-5.6 predecessor &mdash; an hour of generation becomes minutes, at a fraction of the cost &mdash; and reads it as the labs&rsquo; new trend: smaller models, run at low reasoning.</p>
+        <div class="body-copy">
+        <p>Arena AI&#x27;s &quot;GPT-6 Sol | First impressions&quot; is Peter&#x27;s head-to-head test of OpenAI&#x27;s new GPT-6 Sol against its predecessor, GPT-5.6 Sol — the same prompts, both on max reasoning, comparing not just the generations but the wall-clock time and the total tokens burned along the way. Sol is the second tier in the GPT-6 family below Astra, the expensive flagship, and Peter&#x27;s headline is not raw quality but efficiency: comparable or better outputs in a fraction of the time, often at half the token cost.</p>
+        <p>The numbers are the heart of the video. In the first test, GPT-5.6 Sol took an hour to produce what Peter calls a fine-but-not-good generation; GPT-6 Sol did it in eleven minutes with half the tokens and, in his judgment, a better result. The 3D balloon test went from fifty-three minutes and thirty million tokens to under ten minutes and four million tokens, again with the better generation on the new model. The Stonehenge and octopus tests tell the same story — forty-eight minutes versus ten on the octopus — with one curious case, the Van Gogh test, where GPT-6 Sol used more tokens (4.6 million against 9 million on 5.6) yet finished noticeably faster. His theory: the wall-clock burn comes from validation loops, where a model triple-checks itself in circles, and that burns time without necessarily burning tokens. The new models, being fundamentally smarter, validate less and just build.</p>
+        <p>That efficiency matters because of cost. Peter pulls up the agent-mode rankings by model family: Fable, Astra, and Opus sit far ahead of everything else, but at four to five times the cost, and he notes the real-world complaint stream about Astra and Fable chewing through Claude subscriptions in half an hour. If GPT-6 Sol lands near Opus-5 level at roughly a quarter of the cost — his guess, admittedly without the data yet — it becomes a highly performant model that doesn&#x27;t eat the subscription. The quality side is not an afterthought: the Monet painting world, the raindrop macro world, the humpback whale finale are all meaningfully better generations than 5.6&#x27;s, just shy of Astra and Fable.</p>
+        <p>His broader point is that this is a trend, not a one-off: the labs watched models get big, expensive, and clunky, and are now optimizing for efficiency without dumbing the models down. His practical advice follows directly: stop cranking reasoning to max. He runs medium to high himself and only jumps up when needed, and argues it can be more cost-effective to run a smart model on low reasoning than a weaker one laboring for an hour at max — because each extra token on a big model snowballs through the context window. He is keen to see where GPT-6 Sol lands on the Arena agent benchmark, and whether the trend holds beyond 3D generations.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Where will GPT-6 Sol actually rank on agent benchmarks once the numbers are in, and will the gap to Astra and Opus really be as small as the head-to-heads suggest?</li>
+<li>Does the efficiency gain survive on coding and agent tasks, or is it partly an artifact of 3D generation prompts?</li>
+<li>And if the winning strategy is smarter models run at low reasoning, will the labs reprice their tiers — or will the &quot;crank it to max&quot; meme keep shaping how people actually pay?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> this summary is grounded in the video&#x27;s auto-generated caption track, downloaded from YouTube for https://www.youtube.com/watch?v=jVFz7cTeQxk on 2026-09-22; garbled proper nouns (e.g., caption &quot;Astrofable&quot; for Astra/Fable) were corrected where unambiguous, and Peter&#x27;s guesses are flagged as such rather than reported as fact.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#anthropic-opus55-full-breakdown">&larr; Anthropic Just Dropped Claude Opus 5.5 (Full Breakdown)</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#gpt6-sol-vs-opus55-eric-michaud">GPT-6 Sol vs Opus 5.5: Benchmarks Are Missing the Point &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="gpt6-sol-vs-opus55-eric-michaud" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">GPT-6 Sol vs Opus 5.5: Benchmarks Are Missing the Point <span class="dur">&middot; 3:06</span></p>
+        <audio controls preload="none" src="../podcasts/gpt6-sol-vs-opus55-eric-michaud.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/gpt6-sol-vs-opus55-eric-michaud.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Eric Michaud</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=gJ--dZa6-tA" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; benchmarks</p>
+        <h2>GPT-6 Sol vs Opus 5.5: Benchmarks Are Missing the Point</h2>
+        <p class="dek">Eric Michaud argues benchmarks are unreliable decision tools &mdash; speed is a wash, the middle tier is catching up &mdash; and delivers his own verdict: GPT-6 Sol is already his daily driver.</p>
+        <div class="body-copy">
+        <p>Eric Michaud opens his video with the day&#x27;s news: Anthropic released Claude Opus 5.5, and less than an hour later OpenAI answered with GPT-6 Sol. The internet immediately did what it always does — rushed to benchmarks to crown a winner. Michaud thinks that&#x27;s the wrong conversation, for two reasons. First, he considers benchmark data unreliable as a decision tool. Second, and more importantly, he doesn&#x27;t believe benchmarks are even what these two models are competing on.</p>
+        <p>He reviews the benchmark consensus anyway, if only because it&#x27;s fun. The rough agreement is that Opus 5.5 edges out GPT-6 Sol by about 5 to 10 percent depending on the benchmark — the gap flips slightly in each direction on individual tasks. Michaud calls this a moot point. With his OpenRouter comparison page pulled up, he argues GPT is competing on a different playing field entirely, and the real differentiator is price.</p>
+        <p>Speed, he says, is a wash. Opus 5.5 manages about 10 more tokens per second in the visualization he walks through, but the response times are roughly 35 versus 42 seconds in his example — not the kind of gap where anyone waits around for minutes. Context windows are roughly similar too, with the 50,000-token difference marginal. Pricing, though, is the main event: GPT-6 Sol at $2 per million input tokens and $10 per million output, against Opus 5.5 at $4 and $20 — literally twice the cost for comparable capability. He notes this follows a pattern: GPT models tend to run at about half the price of comparable Claude models, and in previous generations the gap was even wider.</p>
+        <p>The broader trend, he says, is that the middle tier is now offering far more intelligence for the dollar. GPT-6 Sol arrives at the price point of the Light model, while Opus 5.5 delivers results comparable to lower-reasoning Sonnet 5.1 — either way, the buyer gets more intelligence per dollar than last generation. And he names OpenAI the day&#x27;s big winner, because it has positioned itself in exactly the slot Anthropic struggles with: Anthropic&#x27;s models are great but remain the most expensive in the world, while OpenAI offers similar intelligence at a much lower rate. He adds that Luna 6, released the same day at 10 cents per million input and 50 cents per million output, extends that advantage down-market for anyone who wants a capable model at an even lower price point.</p>
+        <p>For due diligence he offers the task-by-task consensus: Sol takes it on browser use, Opus on agentic coding — but at 9 percent here or 2 percent there, he doubts anyone would notice in practice. He quotes an AI-generated synthesis of the two models: agentic coding and novel reasoning favor Opus, while knowledge accuracy and terminal coding execution tasks might favor Sol 6. At this level of parity, he says, the choice comes down to which model you like more and which suits your use case — he&#x27;s bullish on the GPT subscription as a Swiss Army knife, though he knows plenty of people who swear by Anthropic.</p>
+        <p>His personal verdict closes the video: he&#x27;s already started using GPT-6 Sol and it will probably be his go-to from here on out, because compute is expensive and there simply isn&#x27;t enough of a difference to justify twice the spend.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If benchmarks are unreliable as decision tools, what measurement should practitioners actually use when choosing between models this close?</li>
+<li>Will Anthropic respond on price, or does its premium positioning hold even as the intelligence-per-dollar gap widens?</li>
+<li>Now that Sol is his go-to, will a day-to-day agentic workflow surface differences the benchmarks couldn&#x27;t?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the auto-caption track copied from YouTube&#x27;s &quot;Show transcript&quot; panel on September 22, 2026. Garbled proper nouns in the captions (e.g. &quot;GPT Soul 6&quot; / &quot;GBT Soul&quot; for GPT-6 Sol, &quot;aentic&quot; for agentic) have been corrected where unambiguous; the numbers and conclusions are the host&#x27;s own as captioned.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#gpt6-sol-arena-ai">&larr; GPT-6 Sol | First impressions</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#gpt6-sol-luna-matthew-berman">GPT-6 SOL AND LUNA ARE OUT!!! — Matthew Berman &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="gpt6-sol-luna-matthew-berman" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Matthew Berman&#x27;s &quot;GPT-6 SOL AND LUNA ARE OUT!!!&quot; <span class="dur">&middot; 10:56</span></p>
+        <audio controls preload="none" src="../podcasts/matthew-berman-gpt6-sol-luna.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/matthew-berman-gpt6-sol-luna.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Matthew Berman</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=5MFORiebZks" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; benchmarks</p>
+        <h2>GPT-6 SOL AND LUNA ARE OUT!!! — Matthew Berman</h2>
+        <p class="dek">Matthew Berman&rsquo;s nearly two-hour livestream covers the day&rsquo;s double launch &mdash; Claude Opus 5.5, Anthropic&rsquo;s first release under the &ldquo;pacing the frontier&rdquo; banner, and OpenAI&rsquo;s GPT-6 Sol and Luna efficiency tier &mdash; with live demos, guest interviews, and a combined chart built by Astra itself.</p>
+        <div class="body-copy">
+        <p>On Matthew Berman&#x27;s channel, the nearly two-hour livestream &quot;GPT-6 SOL AND LUNA ARE OUT!!!&quot; captured one of the busiest release days of the year — and it was recorded live as the news broke, so the episode genuinely feels like being inside the newsroom while it happens. The first half belongs to Anthropic&#x27;s Claude Opus 5.5, with Berman walking through the company&#x27;s blog post, charts, and early-access testing, plus a guest interview with Tharic, a member of Anthropic&#x27;s technical staff who leads work on Claude Code. Roughly midway through the stream, the chat erupts: OpenAI has dropped GPT-6 Sol and GPT-6 Luna into Codex without a blog post yet, and Berman pivots to covering that launch live as the embargo lifts at 11:00 a.m.</p>
+        <p>Opus 5.5 is Anthropic&#x27;s first release since Dario Amodei&#x27;s &quot;pacing the frontier&quot; essay, and the company gave external evaluators Frontier Design and Meter access to test it. On pricing, the sticker is $4 per million input tokens and $20 per million output versus Opus 5&#x27;s $5 and $25 — a 20% reduction — but the more important number is cost per task: at default settings Anthropic says Opus 5.5 costs about 40% less than Opus 5 on typical workloads, because it needs fewer tokens to finish the same job, and its output arrives more than 30% faster. Berman stresses the distinction — tokens-per-dollar means little if a model burns ten times as many tokens to reach the same answer; cost per completed task is the metric that matters. On benchmarks, Opus 5.5 looks dominant: on Frontier Code the medium-effort setting scores around a 53 with the task costing under a dollar, beating the max-effort setting that costs over five; on Terminal Bench it lands above a 60 score, far ahead of the field; on GDPval, OpenAI&#x27;s own quality benchmark, it shows a massive ELO lead over Astra and Fable 5.1; on Humanity&#x27;s Last Exam it posts a 67 against Astra&#x27;s 57 and Fable 5.1&#x27;s 65. The one benchmark it doesn&#x27;t take is Automation Bench, where Astra&#x27;s 41.4 edges its 40. On the Artificial Analysis intelligence index it jumps five points from Fable 5.1 Max, and Berman calls it the new absolute frontier — &quot;the best model on the planet by far.&quot; The early-tester stories are striking: one tester completed a 680,000-line code migration in less than a day, and Berman himself had Opus 5.5 spend days building a full 3D recreation of San Francisco in Unreal Engine, down to individual buildings, with every car, person, dog, and traffic light powered by the Jev harness.</p>
+        <p>On safety, Opus 5.5 posts the best scores of any model to date on Anthropic&#x27;s automated behavioral audit, is less likely to take hard-to-reverse actions outside its given boundaries — which Berman reads as a direct reference to the Hugging Face hack incident — and ships with biology and cybersecurity safeguards comparable to Claude Fable 5.1, with a life-sciences verification program for deeper work. The interview with Tharic adds texture: he calls Opus 5.5 an &quot;incredible daily driver&quot; and reserves Fable 5.1 for discrete planning, code review, and security work where the cost of being wrong is high; he describes recursive self-improvement as a gradual, practical thing — Claude writes much of the code, and intelligence gets cheaper and better at the same time — and he frames Anthropic&#x27;s playbook as making the frontier first and then bringing it to everyone affordably and efficiently. That, he says, is what pacing the frontier means in practice: keep evaluating the newest unreleased models, which sometimes escape sandboxes, while making today&#x27;s frontier broadly accessible. The model is available on Pro, Max, and Claude Code.</p>
+        <p>The demo segment is where the stream shows rather than tells. Berman&#x27;s team members Alex and Brian, working with early access, built a string of projects: Alex prompted Opus 5.5 in one shot to &quot;make a Dark Souls-like game in Unreal,&quot; and 28 hours later there was &quot;Ashen Gate&quot; — a real .exe with six worlds, roughly fifteen bosses, NPCs, an upgrade system, running at a smooth 120 fps; a one-shot Mario Maker remake; a flight simulator with selectable real planes; and a Rocket League roguelike called &quot;Kaboom to the Moon&quot; built in a couple of hours. Brian showed a frame-by-frame stick-figure animation in the style of early-2000s internet animation culture and a puzzle-game bracket that generated twelve puzzle games and played them off against each other, with &quot;TideKeeper&quot; winning. One pattern the team noticed: Opus 5.5 thinks for a long time — one of Alex&#x27;s prompts reasoned for a full day before starting — and when it finally delivered, the result was nearly flawless. Berman also touches open source, arguing that Opus 4.6-class models already run locally and Opus 5.5-class models could follow within a year, while noting GPU prices are punishing — the RTX Spark listed at $4,699 on Nvidia&#x27;s site a few weeks ago is now $7,000.</p>
+        <p>Then the second launch lands. GPT-6 Sol and GPT-6 Luna are OpenAI&#x27;s efficiency tier beneath the GPT-6 Astra flagship, trained with similar methods. The headline is price: Sol gets a 50% cut from GPT 5.6 Sol to $2 per million input and $10 per million output tokens, and Luna — which had already dropped 80% — falls another 50% to $0.10 input and $0.50 output. Reading the blog post live, Berman walks through OpenAI&#x27;s own charts: on Automation Bench, Soul at extra-high effort scores 33% (versus 5.6 Soul&#x27;s 28.8% at max), with Astra still the top model, and Soul at extra-high costs just under $2 per task against Astra&#x27;s roughly $4.50 at medium effort; Luna at max clears 20% for under five cents per task. On Frontier Code, Luna Max comes in at 11 cents per task, Soul medium at 80 cents, and Astra low at $1.70. The most striking chart is Deep SWE, which Berman calls the most accurate gauge of agentic coding ability: Luna Max scores 66.6% at 22 cents per task against Astra&#x27;s 74% at $443 per task — a fraction of a percent of the cost for nearly the same result. On OS World, Astra leads at 73% with Luna at 53%. Soul 6 shows roughly the same factual-error rate as Soul 5.6 at a fraction of the price, and the blog notes Sol exceeds Claude Fable 5.1 at far lower cost and even beats low-effort Astra. Availability: Soul and Luna are in ChatGPT and Codex for Plus, Pro, Business, Enterprise, and Edu users, with Luna in the desktop app for Free and Go users, and Sam Altman confirmed a banked reset for Plus, Pro, and Business accounts.</p>
+        <p>To close, Berman has Astra itself build a combined chart of all three same-day releases on Frontier Code: Luna at 42.4%, Soul at 49.3%, and Opus 5.5 at 54.4% — Opus 5.5 still the clear winner, but the pricing gaps are far larger than the performance gaps, at $0.10, $2, and $4 per million input tokens respectively. His read on the day is that pacing the frontier produces exactly this: efficiency, speed, and price rather than raw new capability. The 80/20 rule applies — the last 20% of quality is where all the cost hides — and his practical verdict is that Luna can handle 90 to 95% of real tasks, Soul is the pick when you need the extra bump, and Opus 5.5 is the absolute frontier for the work that demands the best answer. He says he&#x27;ll personally use Claude more now that Opus 5.5 is both the best model and meaningfully more affordable than Fable was.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>With both labs now shipping efficiency gains instead of raw capability leaps under the banner of pacing the frontier, when does the next true frontier jump arrive — and does it come from Anthropic, OpenAI, or someone quieter?</li>
+<li>Can Luna-class models at roughly ten cents per million input tokens really absorb ninety-plus percent of real workloads, or does the last-mile reliability gap keep everyone paying for the pricier models?</li>
+<li>Will open-source models actually reach Opus 5.5-class coding ability within a year, as Berman predicts — and if API prices keep falling while GPU prices stay punishing, does running models locally even matter anymore?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> this summary is grounded in the full transcript of Matthew Berman&#x27;s livestream &quot;GPT-6 SOL AND LUNA ARE OUT!!!&quot; (1 hour 59 minutes, https://www.youtube.com/watch?v=5MFORiebZks), captured from YouTube&#x27;s &quot;Show transcript&quot; panel via browser on 2026-09-22. The video is a live stream recorded across two recording segments with chat interaction, guest interviews (Tharic of Anthropic, plus team members Alex and Brian), and live screen-sharing demos; the transcript covers 1:26–1:59:25 continuously. Note that the GPT-6 Sol and Luna portion reflects OpenAI&#x27;s own blog post and charts read live at the embargo lift, plus Berman&#x27;s commentary — he had not yet hands-on tested the new models at recording time — and benchmark figures are as presented in the stream, not independently verified.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#gpt6-sol-vs-opus55-eric-michaud">&larr; GPT-6 Sol vs Opus 5.5: Benchmarks Are Missing the Point</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#gpt6-sol-paul-j-lipsky">GPT-6 Sol Is Here (50% Cheaper!) &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="gpt6-sol-paul-j-lipsky" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">GPT-6 Sol Is Here (50% Cheaper!) <span class="dur">&middot; 2:20</span></p>
+        <audio controls preload="none" src="../podcasts/gpt6-sol-paul-j-lipsky.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/gpt6-sol-paul-j-lipsky.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Paul J Lipsky</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=lPNgeaF2Nk4" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; benchmarks</p>
+        <h2>GPT-6 Sol Is Here (50% Cheaper!)</h2>
+        <p class="dek">Paul J Lipsky walks OpenAI&rsquo;s price-vs-performance charts for GPT-6 Sol &mdash; half the price of 5.6, nearly the capability &mdash; and runs through where both models are already live.</p>
+        <div class="body-copy">
+        <p>Paul J Lipsky&#x27;s &quot;GPT-6 Sol Is Here (50% Cheaper!)&quot; is a brisk, chart-driven walkthrough of OpenAI&#x27;s newest mid-tier release, and his thesis lands in the opening line: Sol could end up having a bigger impact than GPT-6 Astra itself, for one reason — the price. OpenAI has launched two models alongside the already-released Astra, Sol and Luna, and says they were trained with similar methods as Astra, so they inherit its advances in professional work, coding, and computer use. The headline number Lipsky reads off the pricing breakdown is that Sol costs half what 5.6 Sol did.</p>
+        <p>His benchmark tour reads from OpenAI&#x27;s own charts, plotted as price against performance. On the professional-work benchmark — a test of business workflows — GPT-6 Sol is both cheaper and better than 5.6 Sol. It doesn&#x27;t beat Astra, but it sits noticeably closer to Astra&#x27;s capabilities than 5.6 did. One eye-catching data point: Sol at extra-high reasoning effort outperformed Astra at low effort, though he flags that figure as a bit manipulated, since the reasoning levels are so different — the takeaway he draws is simply that Sol can be very capable. The Agents Last Exam results tell the same story: cheaper than 5.6 Sol, better scores, closer to Astra. He is honest about the exceptions: in a couple of benchmarks, like computer use at max effort, 5.6 Sol still scores higher than GPT-6 Sol. But in every case the GPT-6 model is cheaper, and across the board it outperforms its predecessor. Communication style gets a mention too: Sol and Luna inherited Astra&#x27;s improved response style, which he demonstrates with a side-by-side of the same prompt answered by 5.6 and by the new model.</p>
+        <p>Availability: both models are live in ChatGPT Work and Codex for Plus, Pro, Business, Enterprise, and Edu users; Free and Go users get Luna in the desktop app, though not in chat yet. Then the video turns personal, which is its real engine. Before Astra arrived, Lipsky says his usage of 5.6 on high would last the whole week. Since Astra landed, he&#x27;s burned through all of his banked resets and still can&#x27;t make it through a week of using it — because, as he puts it, once you get a taste of GPT-6, you&#x27;re going to want more of it. Sol, on paper, is the bridge: what he hopes becomes the best everyday model inside ChatGPT. OpenAI has given him another banked reset, and he plans to put Sol through its paces over the next week to find out how much real usage he can actually get out of it.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Where does the real usage ceiling land — will Sol actually stretch his weekly quota further than 5.6 did once he starts using it every day?</li>
+<li>In the benchmarks where 5.6 Sol still wins at max effort, does the GPT-6 model&#x27;s price advantage change which model he&#x27;d actually reach for?</li>
+<li>Is &quot;cheaper and nearly as capable&quot; enough to make Sol the default for most people, or does some class of workload still justify Astra&#x27;s cost?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s auto-caption track downloaded from YouTube on 2026-09-22. Auto-captions misheard several proper nouns (&quot;Soul&quot; for Sol, &quot;Open Eye&quot; for OpenAI, &quot;GBT&quot; for GPT, &quot;Chat GBT&quot; for ChatGPT, &quot;codecs&quot; for Codex); these were corrected where unambiguous, and all numbers and claims come from the transcript itself.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#gpt6-sol-luna-matthew-berman">&larr; GPT-6 SOL AND LUNA ARE OUT!!! — Matthew Berman</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#opus55-no-hype-pat-simmons">Opus 5.5: No-Hype Full Review &amp; Testing &rarr;</a>
+      </nav>
+    </section>
+<section class="article-view" id="opus55-no-hype-pat-simmons" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Opus 5.5: No-Hype Full Review &amp; Testing — September 22, 2026 <span class="dur">&middot; 6:43</span></p>
+        <audio controls preload="none" src="../podcasts/opus55-no-hype-pat-simmons.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/opus55-no-hype-pat-simmons.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Pat Simmons</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=R_e2ebz4Dgo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; benchmarks</p>
+        <h2>Opus 5.5: No-Hype Full Review &amp; Testing</h2>
+        <p class="dek">Pat Simmons puts Claude Opus 5.5 through a no-hype launch-day workout &mdash; digging into the pricing story, reading the benchmarks two-sided, and running live builds where the model places first twice and second twice.</p>
+        <div class="body-copy">
+        <p>Pat Simmons is back with another launch-day workout, this time for Anthropic&#x27;s Opus 5.5 — which he frames from the first minute as the company&#x27;s answer to GPT-6 Astra. The structure will be familiar if you caught his Grok 4.7 review: a brisk walk through the vendor&#x27;s benchmark slides, read with a squint, followed by four demanding one-shot builds — a pixel-for-pixel Awwwards clone, a single-brand site clone, a playable RollerCoaster Tycoon 2 clone, and a headless-Blender 3D product page — each attempted blind by Opus 5.5, Fable 5.1, and GPT-6 Astra, with build time and dollars spent clocked on every run.</p>
+        <p>The pricing story is the first thing he digs into, using an interactive benchmark explainer he had Opus 5.5 itself build in two prompts. Opus 5.5 lists at $4 per million input tokens and $20 per million output, against $5 and $25 for Opus 5 — and Anthropic estimates the effective saving is more like 40%, because the model finishes jobs using meaningfully fewer tokens. Cache pricing drops from 50 cents to 20 cents per million, which matters for the long agentic coding runs where cached tokens dominate, and Anthropic says it&#x27;s faster too. He also notes the 5-hour usage-limit increases across subscriptions, which he welcomes — he says he was burning through limits in a couple of hours and at one point carried three separate Claude subscriptions — while relitigating August&#x27;s limit controversy, when a promo expiry was dressed up as a 25% increase and the community on X did the math to a net 17% reduction. One more claimed improvement: Opus 5.5 communicates more naturally and less verbosely than Opus 5 and Fable, putting the important information up front instead of burying it.</p>
+        <p>Then the benchmarks, and here his reading is genuinely two-sided. On Anthropic&#x27;s own table: Terminal Bench 4.0 goes 66% for Opus 5.5 against 55% for Fable 5.1 and 57.9% for Astra; Frontier Code — code judged merge-worthy into real open-source projects — lands at 54% versus 50% for Fable 5.1, 48% for Opus 5, and 53.3% for Astra, a narrow win over OpenAI&#x27;s model too; Cursor bench is up roughly six points on Fable 5.1 with Astra&#x27;s score missing; knowledge work, including the human-judged GDPval office-tasks suite of slide decks and spreadsheets, shows a large jump over Fable 5.1; computer use hits 81.8%. The blemishes: Astra still leads the Zapier automation bench, though Pat notes Zapier counted every run Anthropic&#x27;s safety system declined as a failure, which flatters the gap. Two things he stresses: Anthropic itself concedes the Opus 5.5–Fable 5.1 gap is narrower than the benchmarks suggest, and his own additions to the table expose convenient omissions — OSWorld computer use, where Opus 5.5 beats Astra by nearly nine points despite OpenAI having leaned hard on Astra&#x27;s computer-use marketing, and Bench CAD, where Astra&#x27;s 95.9% stands with no Opus 5.5 score published at all. He also flags a strange effort-level quirk: Opus 5.5 performs best at medium effort, Anthropic&#x27;s default, and gets worse on Frontier Code at high and extra-high — more reasoning actively hurting the result.</p>
+        <p>The builds are where the &quot;no-hype&quot; verdict gets earned, and the scoreboard is mixed in an interesting way. In the Awwwards clone, Fable 5.1 still wins on taste, but Opus 5.5&#x27;s clone of the real site is so close Pat says he can barely tell which is which — at $47 and 76 minutes against $177 for Fable 5.1 and $144 for Astra. In the yerba-mate brand clone, with its Blender-generated rotating can, Opus 5.5 wins outright on can texture and nailing the scroll rotation, ahead of Fable 5.1 and Astra, for $58 against $107 and $33. In the RollerCoaster Tycoon 2 clone, Opus 5.5 wins again — the closest graphics to the actual game and the simplest controls — with Astra second on coherence despite its signature orc-green palette and Fable 5.1 a confusing third; the costs there were $53 for Opus 5.5, $84 for Fable, and just $5 for Astra. And in the finale — modeling the Adidas Adizero Adios Pro Evo 3, the shoe Pat says Sebastian Sawe wore for the sub-two-hour London Marathon, in headless Blender and embedding it in an e-commerce page — Astra takes it on pure 3D detail, especially the sole texture, with Opus 5.5 second and Fable 5.1 third, at $13 for Astra against $33 and $65.</p>
+        <p>The final tally: Opus 5.5 places first twice and second twice — the top overall performer, at a fraction of Fable 5.1&#x27;s cost. Pat&#x27;s practical routing going forward is Opus 5.5 as the default for nearly everything, Fable 5.1 reserved for the very heavy, very long-running coding tasks he still believes it&#x27;s built for, and Astra kept around because it remains the 3D king. He is careful about his own method&#x27;s limits throughout: single-shot outputs, all heavy coding, and vendor benchmark tables that deserve the squint he gave them.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Opus 5.5 scores worse on Frontier Code at high and extra-high effort than at medium — why would more reasoning actively hurt the model, and should everyone just leave the default where Anthropic put it?</li>
+<li>Anthropic&#x27;s own table omits Astra&#x27;s computer-use score and any Opus 5.5 Bench CAD score, while conceding the Fable 5.1 gap is narrower than shown — how much of any vendor&#x27;s launch benchmarks should survive contact with independent testing?</li>
+<li>Astra still owns 3D — 95.9% on Bench CAD, the best shoe model, at $13 against Opus 5.5&#x27;s $33 — so is the practical endgame a multi-model routing workflow rather than a single winner, and who builds the router?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> this summary is grounded in the full video transcript, copied from YouTube&#x27;s &quot;Show transcript&quot; panel via a live browser session on 2026-09-22. The transcript is YouTube&#x27;s raw auto-caption text; the speaker&#x27;s &quot;Opus 55&quot; and &quot;GBT6 Astra&quot; are corrected here to Opus 5.5 and GPT-6 Astra, and garbled passages (&quot;Claudifable&quot;, &quot;chtography&quot;, &quot;aentic coating&quot;, &quot;Adidas Audi Zero&quot; for Adizero, &quot;139 million input tokens&quot; — a figure inconsistent with the stated $47 build cost) were read against context rather than quoted as gospel. Benchmark figures are Anthropic&#x27;s and Pat&#x27;s on-screen numbers as captioned; the build results, rankings, and costs are Pat&#x27;s own live tests.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#gpt6-sol-paul-j-lipsky">&larr; GPT-6 Sol Is Here (50% Cheaper!)</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#opus55-anthropic-went-crazy-matthew-berman">Anthropic went CRAZY (Opus 5.5) &rarr;</a>
+      </nav>
+    </section>
+<section class="article-view" id="opus55-anthropic-went-crazy-matthew-berman" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Anthropic went CRAZY (Opus 5.5) — September 22, 2026 <span class="dur">&middot; 8:48</span></p>
+        <audio controls preload="none" src="../podcasts/opus55-anthropic-went-crazy-matthew-berman.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/opus55-anthropic-went-crazy-matthew-berman.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Matthew Berman</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=OWu2kjKrRTA" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; benchmarks</p>
+        <h2>Anthropic went CRAZY (Opus 5.5)</h2>
+        <p class="dek">Matthew Berman&rsquo;s launch-day deep dive on Claude Opus 5.5 &mdash; benchmarks read against the charts, plus a live interview with Tharic of Anthropic&rsquo;s Claude Code team on what comes next.</p>
+        <div class="body-copy">
+        <p>Matthew Berman&#x27;s &quot;Anthropic went CRAZY (Opus 5.5)&quot; is a launch-day deep dive on Claude Opus 5.5, the first model in Anthropic&#x27;s new 5.5 family — and notably the first major release since the company called for &quot;pacing the frontier.&quot; Berman frames the release against history: the last .5 model, Opus 4.5 late last year, was the inflection point where coding models became able to handle large multi-hour tasks fully autonomously, and he opens by asking whether 5.5 carries the same feeling. The first half of the video is a benchmark walkthrough, read off Anthropic&#x27;s launch charts. On Terminal Bench 4.0 — the agentic coding benchmark Berman considers one of the two most important, alongside an uncaptained &quot;deep suite&quot; — Opus 5.5 scores 66.4%, ahead of GPT-6 Astra in second place, Fable 5.1 at 55.8, and Opus 5 at 52.3, a jump of more than ten points over Fable. Frontier Code V1.1 comes in at 54.4 against Fable&#x27;s 50 and Astra&#x27;s 53.3; Cursorbench, xAI&#x27;s benchmark, lands at 57.8 versus Fable 5.1&#x27;s 51. The eye-catching number is GDPval v2.1, OpenAI&#x27;s real-world knowledge-work benchmark, where Opus 5.5 posts an 1846 ELO against Fable 5.1&#x27;s 1735 and Astra&#x27;s 1542 — a jump of more than three hundred points on a test of PowerPoint creation, data entry, word processing, and email. It doesn&#x27;t sweep everything: Astra edges it on Automation Bench (41.4 to 40) and on Terminal Bench Science, while computer use (81.8% vs 80.7%) and visual chart recognition (89% vs 88.4%) are near-ties with Fable. Berman&#x27;s real emphasis is on cost per task rather than cost per token: list pricing is $4 input and $20 output per million tokens against Opus 5&#x27;s $5 and $25, with cache reads down to twenty cents from fifty, but the striking claim is that at default effort the model costs 40% less per completed task while generating output more than 30% faster — intelligence density, not sticker price. The effort-dial charts make the point concrete: on Frontier Code, medium effort at under a dollar per task outscores max effort at over five dollars, so which thinking setting you choose matters more than which model. Anthropic&#x27;s blog post adds color: one early tester completed a 680,000-line code migration in less than a day, the model posts the company&#x27;s best scores to date on its automated behavioral audit, and because it&#x27;s comparable to Fable 5.1 on biology and cybersecurity it ships with similar safeguards, including the life-sciences and cyber verification programs. The Artificial Analysis Intelligence Index puts Opus 5.5 at number one with a five-point jump over Fable 5.1 Max — the frontier, Berman says, is no longer Fable.</p>
+        <p>The second half is a live interview with Tharic, a member of Anthropic&#x27;s technical staff on the Claude Code team, and it&#x27;s where the video gets most interesting. Asked how to think about 5.5 within the model family, he calls it the daily driver — cheaper and more intelligent at once — while Fable 5.1 stays the pick for planning, brainstorming, code review, and security work where the cost of being wrong is high. On recursive self-improvement he deflates the mystique: Claude helps build Claude mostly through the mundane fact that Claude writes pretty much all of Anthropic&#x27;s code, a smooth increase rather than a sudden takeoff. The efficiency gains, he says, are just the Anthropic playbook repeating — make the frontier intelligence, then bring it to scale, the way Sonnet 4.5 quickly outperformed the far more expensive Opus 4.0. On the .5 numbering he won&#x27;t read much into it, though he concedes the funny numerology: Sonnet 3.5 was the first real coding model, Sonnet 4.5 and Opus 4.5 were both special, and there&#x27;s real internal excitement about this one. The pacing question gets the most careful answer: pacing has two tracks, holding back the newest unreleased frontier models that are still being evaluated — some of which escape sandboxes — while pushing the proven-safe models out to everyone affordably and efficiently, since the classifiers and fallbacks for the 5.5 generation are considered robust. Whether the lengthening evaluation window actually slows releases, he says, is unclear; the binding constraint is third-party evaluators agreeing the model is safe. On what he&#x27;d improve, he points to computer use and browser use needing to express their benchmark capability in practice, and to the longer-term prize: memory and context, a model that meets you where you are and pushes back at the right moment without being annoying. And on the harness side, the Claude Code team has deleted a lot of system prompt for this release, shipped a plugin-eval so users can check their skills against the new model, and keeps feeling — his words — that they&#x27;re constraining Claude a little and need to let it loose.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>On Frontier Code, Opus 5.5&#x27;s medium effort at under a dollar a task outscores its max effort at over five dollars — so how is anyone supposed to choose the right thinking effort, and is the default the real product while the dial is a trap for the unwary?</li>
+<li>This is the first release since Anthropic called for pacing the frontier, and it&#x27;s also the most capable model they&#x27;ve ever shipped — is &quot;pacing&quot; a genuine change in what gets released, or just a two-track rebrand of the old playbook of frontier first, cheapen it later?</li>
+<li>Tharic says the hardest remaining work isn&#x27;t raw intelligence but memory and context — a model that knows when to push back without being annoying — so is the next frontier a model capability at all, or a product problem about who the model thinks you are?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary grounded in the video&#x27;s full transcript, copied verbatim from YouTube&#x27;s &quot;Show transcript&quot; panel on 2026-09-22 at ~22:12 PDT (245 segments, 0:00–31:55; video duration 31:59). Auto-captions are rough in places; corrections applied: &quot;Daario&quot; → Dario (Amodei, author of the &quot;pacing the frontier&quot; essay); &quot;GBT6 Astra&quot; → GPT-6 Astra; &quot;5.6 Soul&quot; → GPT-5.6 Sol; the guest&#x27;s name is rendered &quot;Tharic,&quot; &quot;Thoric,&quot; and &quot;Thic&quot; in different caption segments — spelling variance noted (Anthropic member of technical staff, Claude Code team, Twitter TRQ212); &quot;Enthropic&quot; → Anthropic; &quot;cloud code team&quot; → Claude Code team; &quot;parody with Astra&quot; → parity with Astra; &quot;GDP val&quot; → GDPval (OpenAI&#x27;s knowledge-work benchmark); &quot;chography&quot; → the visual-chart-recognition metric, kept as heard; &quot;Claude Mythos 5.1&quot; (in the biology/cybersecurity comparison) → likely Fable 5.1, flagged as uncertain; &quot;deep suite&quot; (the second coding benchmark named alongside Terminal Bench) → kept as heard, unclear. All benchmark figures were read off on-screen charts through auto-captions — one garbled segment (&quot;66.4% 4% from Astra, which is second place, 57.9&quot;) makes the exact Astra Terminal Bench figure uncertain — so every number here is cross-check-worthy against Anthropic&#x27;s published results.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#opus55-no-hype-pat-simmons">&larr; Opus 5.5: No-Hype Full Review &amp; Testing</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#opus55-vs-gpt6-sol-nate-herk">I Tested Opus 5.5 vs. GPT-6 Sol on 10 Real Use Cases &rarr;</a>
+      </nav>
+    </section>
+<section class="article-view" id="opus55-vs-gpt6-sol-nate-herk" hidden>
+      <div class="article-bar"><a class="back" href="2026-09-22.html" data-route="index">&larr; September 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">I Tested Opus 5.5 vs. GPT-6 Sol on 10 Real Use Cases — September 22, 2026 <span class="dur">&middot; 6:29</span></p>
+        <audio controls preload="none" src="../podcasts/opus55-vs-gpt6-sol-nate-herk.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/opus55-vs-gpt6-sol-nate-herk.mp3">Download the episode</a>.
+        </audio>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Nate Herk</dd></div>
+        <div><dt>Published</dt><dd>September 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=eF3yeJuifoQ" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI &middot; models &middot; benchmarks</p>
+        <h2>I Tested Opus 5.5 vs. GPT-6 Sol on 10 Real Use Cases</h2>
+        <p class="dek">Nate Herk spent a full day pitting Claude Opus 5.5 against GPT-6 Sol on ten real use cases &mdash; Opus takes seven, Sol one, two voided over a contaminated repo.</p>
+        <div class="body-copy">
+        <p>Nate Herk of Nate Herk | AI Automation spent a full day pitting Anthropic&#x27;s Claude Opus 5.5 against OpenAI&#x27;s GPT-6 Sol across ten real-world tasks, and he frames the whole experiment the way practitioners actually think about it: not tokens per dollar, but quality per dollar. Opus 5.5 is double the price — $4 per million input tokens and $20 per million output, against Sol&#x27;s $2 and $10 — so his governing question is whether $100 of Opus buys more output than $200 of Sol, since the same money buys twice as much Sol.</p>
+        <p>Before the ten, a quick baseline in Codex and the Claude Code desktop app with thinking switched off: Sol cooked ahead ingesting hours of transcripts into a wiki while Opus 5.5, asked to find the most recent Fireflies transcript mentioning Nitin, came back slower and got the date wrong, claiming August 17th against the correct answer. That early stumble makes what follows more striking than it would have been as a clean sweep narrative.</p>
+        <p>The first three use cases are creative builds, and Opus 5.5 wins all of them without much debate. In website design, Opus produced the premium, animation-rich page while Sol&#x27;s looked simpler and flatter — at $18.32 against $5.89, roughly triple the cost, but Nate calls the winner obvious.</p>
+        <p>In the AIS Live event recap video, cut from 100 gigabytes of footage for the October 17th–18th event, Opus&#x27;s version had the energy, pacing, music, and sound design of a real trailer while Sol&#x27;s felt static and flat; Opus ran about five dollars more expensive. The Instagram reel edit followed the same pattern: Opus&#x27;s cut was engaging, with typing animations and momentum he says he would actually post, while Sol&#x27;s had no music and few animations and simply wasn&#x27;t publishable — $11 against about $5.50, and Nate openly wonders whether eleven dollars of Sol would have closed the gap, since both agents used the same one-shot skills and prompts.</p>
+        <p>Then comes the experiment&#x27;s honesty moment. Use case four, a data suite — Google Sheet, pitch deck, analytics dashboard, landing page from a large dataset — is voided: both agents ended up working the same repository, editing over each other&#x27;s files, and the cost figures got misattributed so badly that Nate later corrected them by subtracting about $19 from Sol&#x27;s total. Use case five, a narrative exploration game called Small Hours, died the same way — the agents trampled each other&#x27;s work again, and Sol&#x27;s build was unplayable anyway because of a mouse-capture bug. Nate takes the blame plainly: he forgot his usual prompt line telling agents not to overwrite each other&#x27;s work.</p>
+        <p>The remaining tests are clean. In the interactive 3D &quot;idea atlas&quot; explaining AI concepts drawn from his past hundred videos, Opus built an explorable world with a guide character and little interactive explainers — including a next-word-prediction machine where you drop balls to see how the model picks tokens — while Sol&#x27;s version let you walk through walls, left an overlay stuck on screen, and generally felt less real; Opus won despite being far more expensive. The 30-day trip itinerary with a 3D globe went to Opus too, mostly on research quality: it caught San Francisco Tech Week lining up with the start of the trip and picked out AI events in San Jose that Sol&#x27;s version missed, and the globe experience itself was simply better. Sol, notably, stopped to ask clarifying questions more often — a trait Nate personally likes — while Opus just executed.</p>
+        <p>The one clean win for Sol is also the most interesting single result. In a code-repair benchmark — fixing and analyzing a codebase against thirty checks — Sol scored 100 out of 100 while Opus managed 97, missing one check, and Sol did it cheaper. Even more notable: Opus tripped some kind of safety or cybersecurity refusal midway through and had to be redirected with a reworked prompt, while Sol never hesitated.</p>
+        <p>The final two tests are browser use, an arena where Codex has historically beaten Claude Code for Nate, and both break that streak. Asked to build a course inside his free AIS school, Opus produced the better-structured course — a single draft rather than Sol&#x27;s fifteen separate drafts, though it did duplicate some links — and won while being both faster and cheaper, a genuine upset. The Canva drawing test, where the agent must actually draw rather than generate an image, went to Opus decisively: Sol&#x27;s first attempt cheated by generating an image instead of drawing, and its second attempt was, in Nate&#x27;s words, horrific — a real regression from GPT-6 Astra&#x27;s earlier performance on the same test — while Opus&#x27;s drawing was better than Astra&#x27;s, at the cost of thirty extra minutes and about four times the spend.</p>
+        <p>The final tally is seven wins for Opus 5.5, one for Sol, and two voided. The totals are stark: 8 hours 40 minutes and $213 for Opus against 5 hours 51 minutes and $74.46 for Sol.</p>
+        <p>Nate&#x27;s verdict is blunt in both directions. Opus 5.5 is a major step up from Opus 5, which he calls genuinely bad and slow; Sol feels like a step down from GPT-5.6 Sol, more like a Luna or Terra tier model wearing the Sol name. His practical routing proposal is the memorable takeaway: use Opus 5.5 as the orchestrator that writes very specific instructions and dispatches them to a fleet of cheap Sol workers — and when a task is precisely specified and just needs execution, he would still reach for GPT-6 Astra. Both new models are cheaper than their predecessors, which is something, but the pricing explains itself: now we know why Sol is so cheap.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Nate frames everything as quality per hundred dollars rather than price per token — but Opus still cost three times as much overall for seven wins against one, so at what spend ratio would Sol&#x27;s cheaper tokens actually win on quality per dollar, and would his proposed $11-of-Sol rematch have changed the reel-edit result?</li>
+<li>Two of the ten tests were contaminated because both agents wrote to the same repo — Nate voided them and owned the mistake, but given the pattern of the clean tests, how much should we discount the voided results versus reading them as more evidence for Opus&#x27;s design edge?</li>
+<li>Opus tripped a safety refusal mid-task on the code-repair benchmark that Sol sailed through at 100 out of 100 — is that refusal a sign of appropriately cautious boundaries, or a real autonomy tax, and how should it weigh against Opus&#x27;s dominance everywhere else?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s transcript, copied verbatim from YouTube&#x27;s &quot;Show transcript&quot; panel on 2026-09-22 at approximately 22:17 PDT. The captions are auto-generated and the speaker says model names fast, so the following corrections were applied: &quot;GBD6 Soul&quot; / &quot;GBT6 Soul&quot; → GPT-6 Sol; &quot;GBD6 Astra&quot; → GPT-6 Astra; &quot;Obus 5.5&quot; / &quot;OBS 5.5&quot; → Opus 5.5; &quot;Enthropic&quot; → Anthropic; &quot;5.6 Soul&quot; → GPT-5.6 Sol; &quot;GBD6 Luna&quot; → GPT-6 Luna; &quot;Fable&quot; → Fable; &quot;Codeex&quot; → Codex; &quot;cloud desktop app&quot; → Claude Code desktop app; &quot;sole AIOS&quot; → Sol AIOS (a course name, kept as heard); &quot;Nitn&quot; / &quot;Niden&quot; → Nitin (a Fireflies transcript name, kept as heard). The data-suite test&#x27;s cost figures were misattributed in the video itself — the speaker&#x27;s own correction subtracts about $19 from Sol&#x27;s total, which is reflected here. All benchmark figures and costs were read off on-screen charts via auto-captions and should be treated as cross-check-worthy.</p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#opus55-anthropic-went-crazy-matthew-berman">&larr; Anthropic went CRAZY (Opus 5.5)</a>
+        <a class="to-index" href="2026-09-22.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated September 22, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+
+<script>
+    (() => {
+      const TITLES = {
+      "a16z-horowitz-andreessen-academy": "Ben Horowitz & Marc Andreessen Are Starting a University",
+      "allin-blake-scholl-supersonic": "Blake Scholl: Why Plane Speed Stalled, Supersonic Commercial Flight, & Revolutionizing the Engine",
+      "theo-fable-wrong": "I was using Fable wrong, this is how I fixed it",
+      "interconnects-denain-rsi": "Debating RSI, the US-China Gap, and Jaggedness with JS Denain of Epoch AI",
+      "lovable-cofounder-silicon-valley-girl": "$13B Lovable Co-Founder: Turn Your AI Side Project Into a Real Business",
+      "skill-engineering-paul-bakaus": "The Dark Arts of Skill Engineering — Paul Bakaus, Renaissance Geek (Impeccable)",
+      "openai-anthropic-finance-rogo": "Why OpenAI and Anthropic Won’t Win Finance",
+      "opus55-anthropic-finally-listened": "Opus 5.5 — Anthropic Finally Listened?",
+      "opus55-howi-ai-claude-is-back": "Claude is BACK with Opus 5.5",
+      "gpt6-sol-luna-chase-ai": "GPT 6 Sol & Luna Are Here (And 50% CHEAPER!)",
+      "anthropic-opus55-full-breakdown": "Anthropic Just Dropped Claude Opus 5.5 (Full Breakdown)",
+      "gpt6-sol-arena-ai": "GPT-6 Sol | First impressions",
+      "gpt6-sol-vs-opus55-eric-michaud": "GPT-6 Sol vs Opus 5.5: Benchmarks Are Missing the Point",
+      "gpt6-sol-luna-matthew-berman": "GPT-6 SOL AND LUNA ARE OUT!!! — Matthew Berman",
+      "gpt6-sol-paul-j-lipsky": "GPT-6 Sol Is Here (50% Cheaper!)",
+      "opus55-no-hype-pat-simmons": "Opus 5.5: No-Hype Full Review & Testing",
+      "opus55-anthropic-went-crazy-matthew-berman": "Anthropic went CRAZY (Opus 5.5)",
+      "opus55-vs-gpt6-sol-nate-herk": "I Tested Opus 5.5 vs. GPT-6 Sol on 10 Real Use Cases"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' \u2014 Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+</body>
+</html>
