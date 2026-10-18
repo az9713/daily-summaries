@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Sunday &middot; October 18, 2026</p>
-        <h1>2 summaries, distilled.</h1>
+        <h1>3 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -409,6 +409,7 @@
         <div class="cards">
         <a class="card" href="#lennys-podcast-emmanuel-ameisen-models"><span class="num">01</span><span><span class="card-title">A mind-expanding conversation on how models actually work | Emmanuel Ameisen (Anthropic)</span><span class="card-byline">Lenny's Podcast &middot; Lenny Rachitsky, Emmanuel Ameisen</span></span><span class="card-dur">7:58</span><span class="listen-state" data-slug="lennys-podcast-emmanuel-ameisen-models"></span></a>
         <a class="card" href="#davidsenra-kurt-macalpine-corient"><span class="num">02</span><span><span class="card-title">Managing $525 Billion by Rethinking Wealth Management | Kurt MacAlpine, Corient</span><span class="card-byline">David Senra &middot; Kurt MacAlpine</span></span><span class="card-dur">8:41</span><span class="listen-state" data-slug="davidsenra-kurt-macalpine-corient"></span></a>
+        <a class="card" href="#quantumdigest-claude-mythos-5-quantum-circuits"><span class="num">03</span><span><span class="card-title">Claude Mythos 5 Just Designed Superior Quantum Circuits</span><span class="card-byline">The Quantum Digest</span></span><span class="card-dur">4:33</span><span class="listen-state" data-slug="quantumdigest-claude-mythos-5-quantum-circuits"></span></a>
         </div>
       </nav>
     </section>
@@ -504,6 +505,51 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#lennys-podcast-emmanuel-ameisen-models" data-route="article">&larr; Lenny's Podcast &middot; A mind-expanding conversation on how models actually work | Emmanuel Ameisen (Anthropic)</a>
         <a class="to-index" href="2026-10-18.html" data-route="index">All summaries</a>
+        <a class="next" href="#quantumdigest-claude-mythos-5-quantum-circuits" data-route="article">The Quantum Digest &middot; Claude Mythos 5 Just Designed Superior Quantum Circuits &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="quantumdigest-claude-mythos-5-quantum-circuits" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-18.html" data-route="index">&larr; October 18, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Claude Mythos 5 Just Designed Superior Quantum Circuits &mdash; October 18, 2026 <span class="dur">&middot; 4:33</span></p>
+        <audio controls preload="none" src="../podcasts/quantumdigest-claude-mythos-5-quantum-circuits.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/quantumdigest-claude-mythos-5-quantum-circuits.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="quantumdigest-claude-mythos-5-quantum-circuits" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="quantumdigest-claude-mythos-5-quantum-circuits"></div>
+        <div class="episode-download"><a href="../podcasts/quantumdigest-claude-mythos-5-quantum-circuits.mp3" download>Download quantumdigest-claude-mythos-5-quantum-circuits.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>The Quantum Digest</dd></div>
+        <div><dt>Published</dt><dd>October 18, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=3ULfXsAZ40g" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">The Quantum Digest &middot; Claude Mythos 5 &middot; Quantum circuits</p>
+        <h2>Claude Mythos 5 Just Designed Superior Quantum Circuits</h2>
+        <div>
+<p>The Quantum Digest reports on a paper released on October 16 by Anthropic and a team of Harvard physicists, in which a model called Claude Mythos 5 was set to designing quantum circuits. According to the video, the model&#x27;s designs beat the previous best on seven of eight tasks under the paper&#x27;s scoring, some by more than ten times. The eighth task produced a different kind of result, and the video argues that the headline version of the story misses a catch.</p>
+<p>Circuit design matters because today&#x27;s quantum computers are small and fragile. The video frames progress as coming two ways: build bigger machines, or design algorithms that need less from the machines that exist. The second route has done heavy lifting before. Simulating the core of the enzyme bacteria use to pull nitrogen from the air was estimated in 2017 at around 50 trillion expensive quantum operations, and smarter circuit designs have since cut that figure to about 340 million, a 150,000 fold drop that took researchers roughly eight years.</p>
+<p>The setup the video describes is spare. For each task, the model received a plain English description of what the circuit had to do and no hints about how to do it. It wrote the circuit as Python code, and a separate checker program confirmed the design worked and scored it, using expensive operations multiplied by qubits, with lower being better. The model read its score, revised, and resubmitted with no human in between. It also ran several different approaches and let the strongest ones borrow tricks from each other, which the video compares to natural selection for code.</p>
+<p>The eighth task is point addition, a core step in quantum arithmetic with a path toward the elliptic curve cryptography that secures much of the internet. Most of its cost sits in one division like step in wrap-around arithmetic. A fast classical shortcut for that step, called div steps, had never been made to work in a quantum circuit for this kind of math, and the video explains why: a quantum circuit cannot throw away its scratch work, because every step has to be reversible, and div steps makes a choice at every step that a quantum version would have to remember. The model&#x27;s workaround, per the video, was to store few of the choices and work them out again from the numbers left behind. The authors believe this is a first, though the video notes it did not come easily. Early attempts passed small test numbers and broke at full size, so the model switched tactics and, in the video&#x27;s telling, proved some new mathematics and backed it with formal proof, all in a single run of 153 hours. Against the previous design that used the fewest qubits, one version of its circuit uses about 12 percent more qubits but 17 times fewer expensive operations.</p>
+<p>That comparison is also the catch. Another design from 2026 traded the other way, spending more qubits to cut operations, and against that one the model&#x27;s design uses about 35 percent fewer qubits but roughly twice the operations. On the paper&#x27;s own score, the video says, that rival design still wins, so the model landed in between: a new trade-off, not a knockout, which is why the result is seven for eight. The video is also clear that nothing is broken by this. The result makes one piece of a hypothetical attack cheaper on paper, and carrying it out would still require a massive error-corrected quantum computer that does not exist yet.</p>
+<p>The other large result concerns DQI, an algorithm the video calls one of the strongest candidates for a big quantum speedup on certain optimization problems, whose expensive part is a decoder. Citing estimates from Google researchers, the video says one such problem would take about three months on a top supercomputer, versus roughly an hour on a future quantum machine, with most of that hour spent decoding. The model swapped in a decoding method that runs the same steps every time, which suits quantum circuits better, then simulated 400 million decodings and found that while the worst case needed 665 qubits of memory, nearly every run fit in 19. It built for 19 and accepted about one failure in ten thousand, which the algorithm can tolerate, and the video says the decoder came out 12 times cheaper.</p>
+<p>The rest of the scorecard, as the video reports it, holds up as well: 39 times better on a bell curve function used in chemistry, 32 times on an angle calculation inside a famous equation solving algorithm, almost eight times on a step in simulating the strong nuclear force, and about four times on a step in simulating an iron sulfur molecule. The video adds its own caveats. Early on, the model behaved like a nervous perfectionist, triple checking solid results and sticking to familiar methods until the team pushed it to think bigger. The approach also only works on circuits a regular computer can check, and the paper is a preprint, not peer reviewed.</p>
+<p>The video closes on the team&#x27;s larger ambition: aim the same loop at the whole stack, from algorithm to hardware, and design an entire error-corrected quantum computer around one problem. Set against the chemistry improvement that took the field about eight years, a design produced in a 153 hour run is the video&#x27;s argument that useful quantum computing could arrive sooner than hardware progress alone would suggest.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>The method depends on a classical checker that can verify and score each design. How much of quantum circuit design sits beyond the reach of problems small enough to check that way?</li>
+<li>On point addition, the model&#x27;s circuit is a new trade-off rather than a win on the paper&#x27;s own score. Can follow-up work, human or AI, beat the rival 2026 design on qubits and operations at the same time?</li>
+<li>The results come from a preprint by the model&#x27;s maker and its collaborators, not yet peer reviewed. What do independent researchers find when they reproduce the runs and re-score the circuits?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s full English automatic caption track, fetched via the Android YouTube player client (clientVersion 21.02.35, Pixel 8 profile) from the track address in the saved player response, in srv3 and json3 formats: 140 caption lines, 897 words, with the last caption ending at 260.5 seconds against a stated runtime of 258 seconds, saved verbatim as transcript.txt in the build record. The English track is automatic speech recognition (kind: asr); the other 19 tracks are automatic translations and no manually uploaded track exists. The player-served title, &quot;Claude Mythos 5 Just Designed Superior Quantum Circuits,&quot; was confirmed identically across the Android 21.02.35, Android 20.10.38, and iOS player clients, and it matches the listing title, so no title variant needs disclosing. The Quantum Digest is a news channel reporting claims made by others. The results summarized here come from an October 2026 paper by Anthropic and a team of Harvard physicists, which the video reports and its description summarizes, and the DQI timing comparison rests on estimates the video attributes to Google researchers. This summary attributes those claims to the video and the paper&#x27;s authors rather than treating them as established fact, and the video itself notes the paper is a preprint that has not been peer reviewed. The captions garble a few words, rendering Claude once as &quot;Cloud&quot; and mangling the name attached to a previous point addition design, so this summary refers to that design without a name. Summary written in my own words; the video was not reproduced.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#davidsenra-kurt-macalpine-corient" data-route="article">&larr; David Senra &middot; Managing $525 Billion by Rethinking Wealth Management | Kurt MacAlpine, Corient</a>
+        <a class="to-index" href="2026-10-18.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -516,7 +562,8 @@
     (() => {
       const TITLES = {
       "lennys-podcast-emmanuel-ameisen-models": "A mind-expanding conversation on how models actually work | Emmanuel Ameisen (Anthropic)",
-      "davidsenra-kurt-macalpine-corient": "Managing $525 Billion by Rethinking Wealth Management | Kurt MacAlpine, Corient"
+      "davidsenra-kurt-macalpine-corient": "Managing $525 Billion by Rethinking Wealth Management | Kurt MacAlpine, Corient",
+      "quantumdigest-claude-mythos-5-quantum-circuits": "Claude Mythos 5 Just Designed Superior Quantum Circuits"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
