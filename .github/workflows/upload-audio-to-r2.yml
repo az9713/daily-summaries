@@ -1,0 +1,42 @@
+name: Upload podcasts to R2
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/slack-session-imx86j
+    paths:
+      - .github/workflows/upload-audio-to-r2.yml
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install rclone
+        run: curl -fsSL https://rclone.org/install.sh | sudo bash
+
+      - name: Sync podcasts/ to R2
+        env:
+          RCLONE_CONFIG_R2_TYPE: s3
+          RCLONE_CONFIG_R2_PROVIDER: Cloudflare
+          RCLONE_CONFIG_R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          RCLONE_CONFIG_R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          RCLONE_CONFIG_R2_ENDPOINT: https://ba8e293763e83a39916cca364978940f.r2.cloudflarestorage.com
+          RCLONE_CONFIG_R2_ACL: private
+        run: |
+          rclone copy ./podcasts r2:daily-summaries-audio \
+            --header-upload "Cache-Control: public, max-age=31536000, immutable" \
+            --transfers=16 --checkers=16 --fast-list --progress
+          echo "---- Verifying counts ----"
+          LOCAL=$(find ./podcasts -type f -name '*.mp3' | wc -l)
+          REMOTE=$(rclone lsf r2:daily-summaries-audio --include '*.mp3' | wc -l)
+          echo "Local mp3 files: $LOCAL"
+          echo "Remote mp3 files: $REMOTE"
+          if [ "$LOCAL" != "$REMOTE" ]; then
+            echo "::error::Count mismatch — local $LOCAL vs remote $REMOTE"
+            exit 1
+          fi
+          echo "Success: all $REMOTE mp3 files present in R2."
