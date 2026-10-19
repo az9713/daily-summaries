@@ -2,6 +2,8 @@
 
 A daily-built archive of summaries and podcasts.
 
+> **New here?** Read the illustrated explainer of how this site works (why audio is served from Cloudflare R2, how the automated pipeline keeps the repo lean): **https://az9713.github.io/daily-summaries/docs/pipeline-explainer.html**
+
 ## Live site
 
 https://az9713.github.io/daily-summaries/
@@ -34,4 +36,6 @@ and automatically:
 The `upload-audio-to-r2.yml` workflow is a manual (`workflow_dispatch`) full
 re-sync of everything in `podcasts/` to R2. R2 credentials are stored in the
 `R2_ACCESS_KEY_ID` and `R2_SECRET_ACCESS_KEY` repository secrets.
+
+For a full illustrated walkthrough of how this fits together, see the pipeline explainer: https://az9713.github.io/daily-summaries/docs/pipeline-explainer.html
 
