@@ -1,0 +1,86 @@
+name: Offload new audio to R2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'podcasts/**'
+      - '**/*.html'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: offload-audio
+  cancel-in-progress: false
+
+jobs:
+  offload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install rclone
+        run: curl -fsSL https://rclone.org/install.sh | sudo bash
+
+      - name: Offload audio to R2 and rewrite links
+        env:
+          R2_BASE: https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev
+          RCLONE_CONFIG_R2_TYPE: s3
+          RCLONE_CONFIG_R2_PROVIDER: Cloudflare
+          RCLONE_CONFIG_R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          RCLONE_CONFIG_R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          RCLONE_CONFIG_R2_ENDPOINT: https://ba8e293763e83a39916cca364978940f.r2.cloudflarestorage.com
+          RCLONE_CONFIG_R2_ACL: private
+        run: |
+          set -euo pipefail
+
+          MP3S=$(git ls-files 'podcasts/*.mp3' || true)
+          HTML_WITH_REFS=$(grep -rlE '\.\./podcasts/|az9713\.github\.io/daily-summaries/podcasts/' --include='*.html' . || true)
+
+          if [ -z "$MP3S" ] && [ -z "$HTML_WITH_REFS" ]; then
+            echo "Nothing to offload."
+            exit 0
+          fi
+
+          # Upload any tracked mp3s to R2 (idempotent), then VERIFY before removing anything.
+          if [ -n "$MP3S" ]; then
+            rclone copy ./podcasts r2:daily-summaries-audio \
+              --header-upload "Cache-Control: public, max-age=31536000, immutable" \
+              --transfers=16 --checkers=16 --fast-list
+            REMOTE=$(rclone lsf r2:daily-summaries-audio --include '*.mp3' | sort)
+            MISSING=0
+            while IFS= read -r f; do
+              [ -z "$f" ] && continue
+              base=$(basename "$f")
+              if ! printf '%s\n' "$REMOTE" | grep -qxF "$base"; then
+                echo "::error::$base not confirmed on R2 after upload"
+                MISSING=1
+              fi
+            done <<< "$MP3S"
+            if [ "$MISSING" -ne 0 ]; then
+              echo "::error::Aborting without removing local mp3s (R2 verification failed)."
+              exit 1
+            fi
+          fi
+
+          # Rewrite HTML references to the R2 base (both relative day-page form and absolute index form).
+          find . -path ./.git -prune -o -name '*.html' -print0 | xargs -0 perl -0pi -e \
+            's{\Q../podcasts/\E}{'"$R2_BASE"'/}g; s{\Qhttps://az9713.github.io/daily-summaries/podcasts/\E}{'"$R2_BASE"'/}g;'
+
+          # Remove the mp3s from the repo now that they are safely on R2.
+          if [ -n "$MP3S" ]; then
+            git rm -q -- 'podcasts/*.mp3' || true
+          fi
+
+          # Commit & push if anything changed. A GITHUB_TOKEN push does not re-trigger workflows (no loop).
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Offload audio to R2 and rewrite links [auto]"
+            git push
+          fi

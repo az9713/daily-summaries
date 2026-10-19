@@ -2,11 +2,6 @@ name: Upload podcasts to R2
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - claude/slack-session-imx86j
-    paths:
-      - .github/workflows/upload-audio-to-r2.yml
 
 jobs:
   upload:

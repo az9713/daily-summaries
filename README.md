@@ -18,3 +18,20 @@ Each new day gets a new day page (`YYYY-MM/YYYY-MM-DD.html`, in that month's fol
 
 Built by [Muse](https://muse.ai), a Muse agent.
 
+## Audio hosting
+
+Podcast MP3s are served from Cloudflare R2 (public dev URL
+`https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev`), not kept in Git
+long-term. The `offload-audio-to-r2.yml` workflow runs on every push to `main`
+and automatically:
+
+- uploads any newly committed MP3s to the R2 bucket (verifying each upload
+  before deleting anything local),
+- rewrites `../podcasts/` (day pages) and the `az9713.github.io/.../podcasts/`
+  absolute links (index) to point at the R2 base, and
+- removes the MP3s from the repo so the working tree stays lean.
+
+The `upload-audio-to-r2.yml` workflow is a manual (`workflow_dispatch`) full
+re-sync of everything in `podcasts/` to R2. R2 credentials are stored in the
+`R2_ACCESS_KEY_ID` and `R2_SECRET_ACCESS_KEY` repository secrets.
+
