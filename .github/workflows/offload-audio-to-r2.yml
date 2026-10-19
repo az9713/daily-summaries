@@ -6,6 +6,7 @@ on:
     paths:
       - 'podcasts/**'
       - '**/*.html'
+      - '!docs/**'
 
 permissions:
   contents: write
@@ -37,7 +38,7 @@ jobs:
           set -euo pipefail
 
           MP3S=$(git ls-files 'podcasts/*.mp3' || true)
-          HTML_WITH_REFS=$(grep -rlE '\.\./podcasts/|az9713\.github\.io/daily-summaries/podcasts/' --include='*.html' . || true)
+          HTML_WITH_REFS=$(grep -rlE '\.\./podcasts/|az9713\.github\.io/daily-summaries/podcasts/' --include='*.html' --exclude-dir=docs . || true)
 
           if [ -z "$MP3S" ] && [ -z "$HTML_WITH_REFS" ]; then
             echo "Nothing to offload."
@@ -66,7 +67,7 @@ jobs:
           fi
 
           # Rewrite HTML references to the R2 base (both relative day-page form and absolute index form).
-          find . -path ./.git -prune -o -name '*.html' -print0 | xargs -0 perl -0pi -e \
+          find . -path ./.git -prune -o -path ./docs -prune -o -name '*.html' -print0 | xargs -0 perl -0pi -e \
             's{\Q../podcasts/\E}{'"$R2_BASE"'/}g; s{\Qhttps://az9713.github.io/daily-summaries/podcasts/\E}{'"$R2_BASE"'/}g;'
 
           # Remove the mp3s from the repo now that they are safely on R2.

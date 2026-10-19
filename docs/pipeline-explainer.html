@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The daily-summaries audio pipeline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== Design tokens: a cool neutral ground, amber for the R2/audio hop, blue for text/Git ===== */
+:root{
+  --bg:#f5f7f9; --surface:#ffffff; --surface-2:#eef1f5; --ink:#1b2130; --muted:#58637a;
+  --border:#d8dee7; --accent:#cc7a28; --accent-soft:rgba(204,122,40,.13);
+  --git:#2c6c9e; --git-soft:rgba(44,108,158,.12);
+  --good:#2e8255; --warn:#b4821b; --crit:#bd4438;
+  --shadow:0 1px 2px rgba(20,30,50,.06), 0 6px 20px rgba(20,30,50,.06);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --bg:#0e1320; --surface:#141b2a; --surface-2:#1b2336; --ink:#e7ecf5; --muted:#9aa6bd;
+  --border:#293450; --accent:#eca85c; --accent-soft:rgba(236,168,92,.15);
+  --git:#63a9dd; --git-soft:rgba(99,169,221,.15);
+  --good:#58c08a; --warn:#e0b25a; --crit:#e2766b;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 26px rgba(0,0,0,.35);
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0e1320; --surface:#141b2a; --surface-2:#1b2336; --ink:#e7ecf5; --muted:#9aa6bd;
+  --border:#293450; --accent:#eca85c; --accent-soft:rgba(236,168,92,.15);
+  --git:#63a9dd; --git-soft:rgba(99,169,221,.15);
+  --good:#58c08a; --warn:#e0b25a; --crit:#e2766b;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 26px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:"IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size:16px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:880px; margin:0 auto; padding:0 max(18px, env(safe-area-inset-left,0px)) 80px max(18px, env(safe-area-inset-right,0px));}
+h1,h2,h3{font-family:"Fraunces", Georgia, serif; line-height:1.15; text-wrap:balance; font-weight:600;}
+h1{font-size:2.15rem; margin:0 0 .3em;}
+h2{font-size:1.5rem; margin:2.6em 0 .1em;}
+h3{font-size:1.12rem; font-family:"IBM Plex Sans",system-ui,sans-serif; font-weight:600; margin:1.6em 0 .2em;}
+p{margin:.7em 0;}
+a{color:var(--git);}
+code,.mono{font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.9em;}
+code{background:var(--surface-2); padding:.08em .38em; border-radius:5px; border:1px solid var(--border);}
+.lede{font-size:1.18rem; color:var(--ink);}
+.eyebrow{font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:600; font-family:"IBM Plex Sans",sans-serif;}
+.muted{color:var(--muted);}
+/* header */
+header.hero{padding:46px 0 10px;}
+.topbar{display:flex; justify-content:space-between; align-items:center; gap:12px; padding-top:22px;}
+.badge-repo{font-family:"IBM Plex Mono",monospace; font-size:.82rem; color:var(--muted); background:var(--surface); border:1px solid var(--border); padding:4px 10px; border-radius:999px;}
+.toggle{cursor:pointer; border:1px solid var(--border); background:var(--surface); color:var(--ink); border-radius:999px; padding:6px 13px; font:inherit; font-size:.8rem; display:inline-flex; gap:7px; align-items:center;}
+.toggle:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+/* cards / figures */
+figure{margin:1.4em 0; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px 18px 12px; box-shadow:var(--shadow);}
+figure svg{width:100%; height:auto; display:block;}
+figcaption{color:var(--muted); font-size:.9rem; margin-top:10px; text-align:left;}
+.legend{display:flex; flex-wrap:wrap; gap:14px 20px; margin-top:12px; font-size:.85rem; color:var(--muted);}
+.legend span{display:inline-flex; align-items:center; gap:7px;}
+.swatch{width:12px; height:12px; border-radius:50%; display:inline-block;}
+.swatch.mp3{background:var(--accent);} .swatch.html{background:var(--git);}
+.swatch.line{width:22px; height:0; border-top:2px dashed var(--muted); border-radius:0;}
+/* SVG shared classes */
+.node rect{fill:var(--surface); stroke:var(--border); stroke-width:1.3;}
+.node .hl{fill:var(--accent-soft); stroke:var(--accent); stroke-width:2;}
+.node .hlg{fill:var(--git-soft); stroke:var(--git); stroke-width:1.6;}
+.n-name{fill:var(--ink); font:600 13px "IBM Plex Sans",sans-serif;}
+.n-sub{fill:var(--muted); font:400 11.5px "IBM Plex Mono",monospace;}
+.edge{fill:none; stroke:var(--muted); stroke-width:1.6;}
+.edge.dashed{stroke-dasharray:5 4;}
+.edge.accent{stroke:var(--accent); stroke-width:2;}
+.edge.git{stroke:var(--git); stroke-width:2;}
+.edge.good{stroke:var(--good); stroke-width:2;}
+.edge.crit{stroke:var(--crit); stroke-width:2; stroke-dasharray:5 4;}
+.elabel{fill:var(--muted); font:500 12px "IBM Plex Sans",sans-serif;}
+.elabel.b{fill:var(--ink);}
+.dot{opacity:0;}
+.dot-mp3{fill:var(--accent);} .dot-html{fill:var(--git);} .dot-good{fill:var(--good);} .dot-crit{fill:var(--crit);} .dot-git{fill:var(--git);}
+.route{fill:none; stroke:none;}
+/* tables */
+.tablewrap{overflow-x:auto; margin:1.2em 0;}
+table{border-collapse:collapse; width:100%; min-width:560px; font-size:.93rem;}
+th,td{text-align:left; vertical-align:top; padding:10px 12px; border-bottom:1px solid var(--border);}
+th{font-family:"IBM Plex Sans",sans-serif; font-weight:600; color:var(--ink); background:var(--surface-2); font-size:.82rem; letter-spacing:.02em;}
+tbody tr:hover{background:var(--surface);}
+.pill{display:inline-block; font-size:.72rem; font-weight:600; padding:2px 9px; border-radius:999px; white-space:nowrap;}
+.pill.secret{background:var(--crit); color:#fff;}
+.pill.public{background:var(--git-soft); color:var(--git); border:1px solid var(--git);}
+/* cast grid */
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin:1.2em 0;}
+.cast{background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow);}
+.cast h3{margin:.1em 0 .25em; font-size:1.02rem;}
+.cast .role{color:var(--accent); font-size:.78rem; font-weight:600; text-transform:uppercase; letter-spacing:.06em;}
+.cast .analogy{color:var(--muted); font-size:.9rem; margin-top:.5em; border-top:1px dashed var(--border); padding-top:.5em;}
+/* bloat */
+.bloat{display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:end; margin-top:6px;}
+.bloat .col{text-align:center;}
+.bar{position:relative; height:190px; width:72%; margin:0 auto 10px; background:var(--surface-2); border:1px solid var(--border); border-radius:10px; overflow:hidden; display:flex; align-items:flex-end;}
+.fill{width:100%; border-radius:0 0 9px 9px;}
+.fill.before{background:linear-gradient(var(--crit), #e0a24a); height:94%; animation:grow 7s ease-in-out infinite;}
+.fill.after{background:linear-gradient(var(--good), #7fd0a6); height:5%;}
+@keyframes grow{0%{height:62%} 55%{height:94%} 60%{height:94%} 70%{height:10%} 100%{height:10%}}
+.bval{font-family:"IBM Plex Mono",monospace; font-weight:500; font-size:1.05rem;}
+.blabel{font-size:.85rem; color:var(--muted);}
+/* journey */
+ol.journey{list-style:none; counter-reset:step; padding:0; margin:1.2em 0; display:grid; gap:10px;}
+ol.journey li{counter-increment:step; display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:start; background:var(--surface); border:1px solid var(--border); border-radius:11px; padding:12px 15px; box-shadow:var(--shadow);}
+ol.journey li::before{content:counter(step); grid-row:1/3; width:34px; height:34px; border-radius:50%; background:var(--surface-2); color:var(--muted); border:1px solid var(--border); display:grid; place-items:center; font-family:"IBM Plex Mono",monospace; font-weight:500; font-size:1rem; animation:pulse 11s linear infinite;}
+ol.journey li:nth-child(1)::before{animation-delay:0s} ol.journey li:nth-child(2)::before{animation-delay:1.1s}
+ol.journey li:nth-child(3)::before{animation-delay:2.2s} ol.journey li:nth-child(4)::before{animation-delay:3.3s}
+ol.journey li:nth-child(5)::before{animation-delay:4.4s} ol.journey li:nth-child(6)::before{animation-delay:5.5s}
+ol.journey li:nth-child(7)::before{animation-delay:6.6s} ol.journey li:nth-child(8)::before{animation-delay:7.7s}
+ol.journey li:nth-child(9)::before{animation-delay:8.8s} ol.journey li:nth-child(10)::before{animation-delay:9.9s}
+@keyframes pulse{0%,9%,100%{background:var(--surface-2); color:var(--muted); border-color:var(--border); box-shadow:none} 2%,6%{background:var(--accent); color:#fff; border-color:var(--accent); box-shadow:0 0 0 5px var(--accent-soft)}}
+.jt{font-weight:600;}
+/* Q&A */
+.qa{background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--accent); border-radius:10px; padding:4px 16px; margin:12px 0; box-shadow:var(--shadow);}
+.qa summary{cursor:pointer; font-weight:600; padding:12px 0; list-style:none;}
+.qa summary::-webkit-details-marker{display:none;}
+.qa summary::before{content:"?"; display:inline-grid; place-items:center; width:22px; height:22px; margin-right:10px; border-radius:50%; background:var(--accent-soft); color:var(--accent); font-size:.85rem; vertical-align:-4px;}
+.qa[open] summary::before{content:"\2713"; background:var(--good); color:#fff;}
+.qa .a{padding:0 0 12px 32px; color:var(--ink);}
+.qa .a p{margin:.4em 0;}
+/* glossary */
+dl.gloss{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; margin:1.2em 0;}
+dl.gloss div{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:12px 15px;}
+dl.gloss dt{font-weight:600; font-family:"IBM Plex Mono",monospace; font-size:.92rem; color:var(--accent);}
+dl.gloss dd{margin:.3em 0 0; font-size:.92rem; color:var(--muted);}
+hr{border:none; border-top:1px solid var(--border); margin:2.4em 0;}
+.foot{color:var(--muted); font-size:.85rem; margin-top:30px;}
+@media (max-width:560px){
+  .bloat{grid-template-columns:1fr 1fr; gap:12px}
+  h1{font-size:1.8rem}
+}
+/* ===== accessibility: respect reduced motion ===== */
+@media (prefers-reduced-motion:reduce){
+  .fill.before{animation:none; height:94%;}
+  ol.journey li::before{animation:none; background:var(--accent); color:#fff; border-color:var(--accent);}
+  .dot{opacity:0 !important;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="topbar">
+  <span class="badge-repo">az9713/daily-summaries</span>
+  <button class="toggle" id="themeBtn" aria-label="Switch colour theme">
+    <span id="themeIcon">&#9681;</span><span id="themeLabel">Theme</span>
+  </button>
+</div>
+
+<header class="hero">
+  <div class="eyebrow">How the plumbing works</div>
+  <h1>The daily-summaries audio pipeline</h1>
+  <p class="lede">Git is superb at tracking text and hopeless at storing audio. So this system keeps the HTML summaries in GitHub where they belong, moves every podcast MP3 to Cloudflare R2, and leaves the web pages to simply <strong>point</strong> at the audio there. Below is the whole story: the problem, every component, where GitHub and Cloudflare actually meet, every credential decoded, the life of one episode, and the questions you didn&rsquo;t know to ask.</p>
+</header>
+
+<hr>
+
+<!-- ================= PROBLEM ================= -->
+<h2>The problem: Git was never built to store audio</h2>
+<p>The website is a GitHub repository of HTML pages, served for free by GitHub Pages at <code>az9713.github.io/daily-summaries</code>. Each day it also produces one podcast MP3 per summary &mdash; and those MP3s were being committed straight into Git alongside the HTML.</p>
+<p>Here is the trap. Git keeps <strong>every version of every file, forever</strong> &mdash; complete history is its entire purpose. For text it does this cheaply, storing only the differences between versions. But Git cannot diff two binary files like MP3s, so each time an audio file changes it stores a whole fresh copy, permanently. Audio is already compressed, so it never shrinks further either.</p>
+<p>That compounds daily. The repo&rsquo;s hidden <code>.git</code> store had swollen to roughly <strong>950&nbsp;MB</strong> with no ceiling in sight. Every clone gets slower, forever, and GitHub Pages carries soft limits on size and bandwidth that this would eventually hit. You also cannot simply &ldquo;delete&rdquo; a file out of Git history &mdash; removing it means rewriting history.</p>
+
+<figure>
+  <div class="bloat">
+    <div class="col">
+      <div class="bar"><div class="fill before"></div></div>
+      <div class="bval" style="color:var(--crit)">~950 MB</div>
+      <div class="blabel">Before: every MP3 kept forever in <code>.git</code>, growing daily</div>
+    </div>
+    <div class="col">
+      <div class="bar"><div class="fill after"></div></div>
+      <div class="bval" style="color:var(--good)">~4.5 MB</div>
+      <div class="blabel">After the purge: the local clone&rsquo;s <code>.git</code> dropped from ~950&nbsp;MB to ~4.5&nbsp;MB. (GitHub&rsquo;s <em>billed</em> repo size lags until garbage-collection.)</div>
+    </div>
+  </div>
+  <figcaption>The idea in one picture: lift the heavy audio out of version control and let storage built for files hold it instead.</figcaption>
+</figure>
+
+<p>The fix is the single idea that makes everything else make sense: <strong>keep the text (HTML) in Git, which is what Git is good at, and move the big audio files to storage built for serving files &mdash; with the web pages just pointing at them.</strong></p>
+
+<!-- ================= PIPELINE ================= -->
+<h2>How the pipeline fits together</h2>
+<p>Muse only ever pushes to the repo&rsquo;s <code>main</code> branch; everything after that is automatic. Watch the dots: the amber one is an MP3 being carried off to Cloudflare R2, the blue one is the HTML page staying inside GitHub on its way to the reader.</p>
+
+<figure>
+  <svg viewBox="0 0 720 560" role="img" aria-label="Pipeline: Muse pushes HTML and MP3 to the GitHub repo. A GitHub Actions janitor uploads the MP3 to Cloudflare R2 and commits the rewritten page back. GitHub Pages serves the HTML, and the visitor's browser loads HTML from Pages and streams audio from R2.">
+    <defs>
+      <marker id="a1" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6 z" fill="var(--muted)"/></marker>
+      <marker id="a1a" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6 z" fill="var(--accent)"/></marker>
+    </defs>
+    <!-- hidden particle routes -->
+    <path id="r-mp3" class="route" d="M360 60 L360 235 L190 235 L190 430"/>
+    <path id="r-html" class="route" d="M360 60 L360 235 L540 235 L540 460"/>
+    <path id="r-audio" class="route" d="M300 445 L440 460"/>
+    <!-- visible edges -->
+    <g>
+      <path class="edge" d="M360 88 V140" marker-end="url(#a1)"/>
+      <path class="edge" d="M320 198 V235 H190 V268" marker-end="url(#a1)"/>
+      <path class="edge" d="M400 198 V235 H540 V268" marker-end="url(#a1)"/>
+      <path class="edge" d="M190 330 V392" marker-end="url(#a1)"/>
+      <path class="edge" d="M540 330 V422" marker-end="url(#a1)"/>
+      <path class="edge accent" d="M300 445 H438" marker-end="url(#a1a)"/>
+      <path class="edge dashed" d="M80 300 H40 V170 H258" marker-end="url(#a1)"/>
+    </g>
+    <!-- edge labels -->
+    <text class="elabel" x="368" y="118">git push</text>
+    <text class="elabel" x="250" y="228" text-anchor="middle">push triggers it</text>
+    <text class="elabel" x="470" y="228" text-anchor="middle">serves main</text>
+    <text class="elabel" x="198" y="360">rclone uploads MP3</text>
+    <text class="elabel" x="198" y="376">(S3 over HTTPS)</text>
+    <text class="elabel" x="548" y="382">HTML page</text>
+    <text class="elabel b" x="312" y="438">audio &middot; range requests</text>
+    <text class="elabel" x="46" y="246">commit back</text>
+    <text class="elabel" x="46" y="262">no re-trigger</text>
+    <!-- nodes -->
+    <g class="node">
+      <rect x="260" y="32" width="200" height="56" rx="9"/>
+      <text class="n-name" x="360" y="58" text-anchor="middle">Muse agent (muse.ai)</text>
+      <text class="n-sub" x="360" y="76" text-anchor="middle">writes HTML + MP3s</text>
+    </g>
+    <g class="node">
+      <rect x="260" y="140" width="200" height="56" rx="9"/>
+      <text class="n-name" x="360" y="166" text-anchor="middle">GitHub repo &mdash; main</text>
+      <text class="n-sub" x="360" y="184" text-anchor="middle">source of truth: text</text>
+    </g>
+    <g class="node">
+      <rect x="80" y="268" width="220" height="62" rx="9"/>
+      <text class="n-name" x="190" y="294" text-anchor="middle">GitHub Actions janitor</text>
+      <text class="n-sub" x="190" y="312" text-anchor="middle">offload-audio-to-r2.yml</text>
+    </g>
+    <g class="node">
+      <rect x="450" y="268" width="180" height="62" rx="9"/>
+      <text class="n-name" x="540" y="294" text-anchor="middle">GitHub Pages</text>
+      <text class="n-sub" x="540" y="312" text-anchor="middle">serves the live site</text>
+    </g>
+    <g class="node">
+      <rect x="80" y="392" width="220" height="74" rx="9" class="hl"/>
+      <text class="n-name" x="190" y="418" text-anchor="middle">Cloudflare R2</text>
+      <text class="n-sub" x="190" y="436" text-anchor="middle">object storage bucket</text>
+      <text class="n-sub" x="190" y="454" text-anchor="middle">daily-summaries-audio</text>
+    </g>
+    <g class="node">
+      <rect x="440" y="422" width="200" height="74" rx="9"/>
+      <text class="n-name" x="540" y="448" text-anchor="middle">Visitor&rsquo;s browser</text>
+      <text class="n-sub" x="540" y="466" text-anchor="middle">HTML from Pages</text>
+      <text class="n-sub" x="540" y="484" text-anchor="middle">audio from R2</text>
+    </g>
+    <!-- particles -->
+    <circle class="dot dot-mp3" r="5.5"><animateMotion dur="4.6s" begin="indefinite" repeatCount="indefinite" rotate="auto"><mpath href="#r-mp3" xlink:href="#r-mp3"/></animateMotion></circle>
+    <circle class="dot dot-mp3" r="5.5"><animateMotion dur="4.6s" begin="indefinite" repeatCount="indefinite" rotate="auto"><mpath href="#r-mp3" xlink:href="#r-mp3"/></animateMotion></circle>
+    <circle class="dot dot-html" r="5.5"><animateMotion dur="4.6s" begin="indefinite" repeatCount="indefinite" rotate="auto"><mpath href="#r-html" xlink:href="#r-html"/></animateMotion></circle>
+    <circle class="dot dot-html" r="5.5"><animateMotion dur="4.6s" begin="indefinite" repeatCount="indefinite" rotate="auto"><mpath href="#r-html" xlink:href="#r-html"/></animateMotion></circle>
+    <circle class="dot dot-mp3" r="5"><animateMotion dur="2.4s" begin="indefinite" repeatCount="indefinite" rotate="auto"><mpath href="#r-audio" xlink:href="#r-audio"/></animateMotion></circle>
+  </svg>
+  <div class="legend">
+    <span><i class="swatch mp3"></i> MP3 / audio bytes (headed to or served from R2)</span>
+    <span><i class="swatch html"></i> the HTML page (stays inside GitHub)</span>
+    <span><i class="swatch line"></i> the janitor&rsquo;s commit back to <code>main</code></span>
+  </div>
+  <figcaption>The highlighted box &mdash; audio landing on Cloudflare R2 &mdash; is the whole point. Nothing heavy stays in Git.</figcaption>
+</figure>
+
+<!-- ================= CAST ================= -->
+<h2>The cast of characters</h2>
+<p>Each tool does one job. The analogy on each card is the fastest way to remember which.</p>
+<div class="grid">
+  <div class="cast"><div class="role">Source of truth</div><h3>GitHub repo</h3><p>Holds the site&rsquo;s text and code &mdash; the HTML pages.</p><div class="analogy">The filing cabinet of documents.</div></div>
+  <div class="cast"><div class="role">Web hosting</div><h3>GitHub Pages</h3><p>Free static hosting that turns the repo&rsquo;s HTML into the live public website.</p><div class="analogy">The storefront window that displays the documents.</div></div>
+  <div class="cast"><div class="role">Upstream author</div><h3>Muse agent (muse.ai)</h3><p>The robot that, every day, writes the HTML summaries (with local <code>../podcasts/x.mp3</code> links) and the MP3s, then git-pushes them. It knows nothing about Cloudflare.</p><div class="analogy">A journalist who files stories and audio to the cabinet, then goes home.</div></div>
+  <div class="cast"><div class="role">Object storage</div><h3>Cloudflare R2</h3><p>A cheap, effectively unlimited &ldquo;hard drive on the internet&rdquo; that holds the MP3s and serves them to listeners. Chosen for <strong>zero egress (bandwidth) fees</strong> and HTTP <strong>range requests</strong>, which audio scrubbing needs.</p><div class="analogy">A loading dock for heavy freight, next to the cabinet.</div></div>
+  <div class="cast"><div class="role">The container</div><h3>R2 bucket</h3><p>The specific folder inside R2 for this project&rsquo;s audio: <code>daily-summaries-audio</code>.</p><div class="analogy">One labelled bay on the loading dock.</div></div>
+  <div class="cast"><div class="role">Public address</div><h3>R2 public URL</h3><p>The web address any file in the bucket is fetched from: <code>pub-&hellip;.r2.dev/episode.mp3</code>. This &ldquo;development&rdquo; URL is rate-limited for low traffic; a custom domain is the production upgrade.</p><div class="analogy">The street address written on the dock.</div></div>
+  <div class="cast"><div class="role">Automation</div><h3>GitHub Actions</h3><p>GitHub&rsquo;s built-in automation. A workflow (a YAML recipe) lives in <code>.github/workflows/</code>; on an event like a push, GitHub spins up a throwaway Linux VM and runs the recipe&rsquo;s steps, then discards it.</p><div class="analogy">A robot assistant that wakes on a doorbell, runs a checklist, and vanishes.</div></div>
+  <div class="cast"><div class="role">The two recipes</div><h3>Our workflows</h3><p><code>offload-audio-to-r2.yml</code> is the &ldquo;janitor,&rdquo; running automatically on every push. <code>upload-audio-to-r2.yml</code> is a manual &ldquo;re-sync everything&rdquo; button.</p><div class="analogy">The daily cleaner, and a big reset switch.</div></div>
+  <div class="cast"><div class="role">The mover</div><h3>rclone</h3><p>A command-line file-copy tool that runs inside the Action and does the actual uploading to R2 using the S3 protocol.</p><div class="analogy">The forklift the robot drives to move freight to the dock.</div></div>
+</div>
+
+<!-- ================= HOW THEY TALK ================= -->
+<h2>How GitHub actually &ldquo;talks to&rdquo; Cloudflare</h2>
+<p>A common misconception is that there is some partnership or direct company-to-company link between GitHub and Cloudflare. There isn&rsquo;t. What actually happens is humble:</p>
+<p>A <strong>program</strong> (rclone), running on a GitHub Actions virtual machine, makes ordinary HTTPS network calls to Cloudflare R2&rsquo;s S3 endpoint, presenting the S3 credentials to prove it is allowed. GitHub-the-company and Cloudflare-the-company don&rsquo;t know about each other. They are just two services, and our little script holds keys to both.</p>
+
+<figure>
+  <svg viewBox="0 0 720 250" role="img" aria-label="Two separate trust relationships: the Actions runner uses GITHUB_TOKEN to push to the GitHub repo, and rclone uses S3 keys to read and write the Cloudflare R2 bucket.">
+    <defs>
+      <marker id="a2g" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6 z" fill="var(--git)"/></marker>
+      <marker id="a2a" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6 z" fill="var(--accent)"/></marker>
+    </defs>
+    <path id="r-tok" class="route" d="M258 120 L222 120"/>
+    <path id="r-s3" class="route" d="M462 120 L498 120"/>
+    <path class="edge git" d="M258 112 H224" marker-end="url(#a2g)"/>
+    <path class="edge accent" d="M462 112 H496" marker-end="url(#a2a)"/>
+    <text class="elabel b" x="60" y="86" >GITHUB_TOKEN</text>
+    <text class="elabel" x="60" y="102">auto, per run</text>
+    <text class="elabel b" x="528" y="86">S3 keys</text>
+    <text class="elabel" x="528" y="102">Access Key ID + Secret</text>
+    <text class="elabel" x="130" y="176" text-anchor="middle">proves: may push commits</text>
+    <text class="elabel" x="590" y="176" text-anchor="middle">proves: may read/write</text>
+    <text class="elabel" x="590" y="192" text-anchor="middle">this one bucket</text>
+    <g class="node">
+      <rect x="40" y="92" width="180" height="56" rx="9"/>
+      <text class="n-name" x="130" y="118" text-anchor="middle">GitHub repo</text>
+      <text class="n-sub" x="130" y="136" text-anchor="middle">main branch</text>
+    </g>
+    <g class="node">
+      <rect x="260" y="88" width="200" height="64" rx="9" class="hlg"/>
+      <text class="n-name" x="360" y="114" text-anchor="middle">GitHub Actions runner</text>
+      <text class="n-sub" x="360" y="132" text-anchor="middle">rclone runs here</text>
+    </g>
+    <g class="node">
+      <rect x="500" y="92" width="190" height="56" rx="9" class="hl"/>
+      <text class="n-name" x="595" y="118" text-anchor="middle">Cloudflare R2 bucket</text>
+      <text class="n-sub" x="595" y="136" text-anchor="middle">daily-summaries-audio</text>
+    </g>
+    <circle class="dot dot-git" r="5"><animateMotion dur="2.6s" begin="indefinite" repeatCount="indefinite"><mpath href="#r-tok" xlink:href="#r-tok"/></animateMotion></circle>
+    <circle class="dot dot-mp3" r="5"><animateMotion dur="2.6s" begin="indefinite" repeatCount="indefinite"><mpath href="#r-s3" xlink:href="#r-s3"/></animateMotion></circle>
+  </svg>
+  <figcaption>Two separate trust relationships, each proving a different thing to a different system. The runner in the middle is the only place that holds both sets of keys.</figcaption>
+</figure>
+
+<!-- ================= KEYS ================= -->
+<h2>The keys, decoded</h2>
+<p>It feels like there are too many credentials. The confusion is that several different-looking strings each prove a different thing to a different system. None of their <em>values</em> appear here.</p>
+<div class="tablewrap">
+<table>
+  <thead><tr><th>Credential</th><th>Who creates it</th><th>What it proves</th><th>Where it lives</th><th>Secret?</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Cloudflare account login</strong><br><span class="muted">(email + password)</span></td><td>You, the human</td><td>That you are you, signing in to Cloudflare. Used by no automation.</td><td>In your head / password manager</td><td><span class="pill secret">Secret</span></td></tr>
+    <tr><td><strong>R2 API Token</strong> &rarr; <code>Token value</code> <span class="muted">(cfat_&hellip;)</span></td><td>You, in Cloudflare</td><td>Access to Cloudflare&rsquo;s own API. <strong>We did not use this one</strong> &mdash; it is the red herring that trips people up.</td><td>Shown once at creation; discarded</td><td><span class="pill secret">Secret</span></td></tr>
+    <tr><td><strong>Access Key ID</strong><br><span class="muted">(part of the R2 token)</span></td><td>Cloudflare, with the token</td><td>Effectively the <strong>username</strong> for S3-style access to the bucket.</td><td>GitHub secret <code>R2_ACCESS_KEY_ID</code></td><td><span class="pill secret">Secret</span></td></tr>
+    <tr><td><strong>Secret Access Key</strong><br><span class="muted">(part of the R2 token)</span></td><td>Cloudflare, with the token</td><td>Effectively the <strong>password</strong> for S3-style access. Shown only once.</td><td>GitHub secret <code>R2_SECRET_ACCESS_KEY</code></td><td><span class="pill secret">Secret</span></td></tr>
+    <tr><td><strong>Account ID</strong></td><td>Cloudflare (it is just your account number)</td><td>Which account. It is part of the S3 endpoint URL <code>&lt;account-id&gt;.r2.cloudflarestorage.com</code>.</td><td>In the workflow / endpoint URL</td><td><span class="pill public">Public</span></td></tr>
+    <tr><td><strong>GitHub repository secrets</strong><br><code>R2_ACCESS_KEY_ID</code>, <code>R2_SECRET_ACCESS_KEY</code></td><td>You, pasting into GitHub</td><td>A secure <em>place</em> &mdash; an encrypted vault &mdash; so the Action can use the S3 pair at runtime without it appearing in code or logs (GitHub masks it). Not new keys.</td><td>GitHub &rarr; Settings &rarr; Secrets</td><td><span class="pill secret">Secret</span></td></tr>
+    <tr><td><strong>GITHUB_TOKEN</strong></td><td>GitHub, automatically, each run</td><td>That the running Action may push commits back to this repo. Fresh every run, then thrown away. Crucially, a push made with it does <strong>not</strong> re-trigger workflows &mdash; this prevents an infinite loop.</td><td>Injected into the Action; never stored by us</td><td><span class="pill secret">Secret</span></td></tr>
+  </tbody>
+</table>
+</div>
+<p>rclone uses only the <strong>Access Key ID + Secret Access Key</strong> pair (the &ldquo;S3 credentials&rdquo;). That token can be scoped to one bucket with read/write only, and given an expiry: we first used a 24-hour token for a one-off, then a non-expiring one for the permanent pipeline.</p>
+<p><strong>Why so many?</strong> Separation of concerns and least privilege. Each credential proves a different thing to a different system, and scoping plus expiry limit the damage if any one leaks. It is not redundancy &mdash; it is layered security.</p>
+
+<!-- ================= LOOP PREVENTION ================= -->
+<h2>Why the robot doesn&rsquo;t loop forever</h2>
+<p>The janitor&rsquo;s last act is to commit the rewritten HTML back to <code>main</code>. A push normally wakes the janitor &mdash; so why doesn&rsquo;t this one start it again, and again, forever? Because GitHub deliberately does not re-trigger workflows for pushes made with the automatic <code>GITHUB_TOKEN</code>.</p>
+
+<figure>
+  <svg viewBox="0 0 720 250" role="img" aria-label="A normal push from Muse or a person triggers the workflow. A push made by the janitor with GITHUB_TOKEN hits a barrier and does not re-trigger, so the loop is broken.">
+    <defs>
+      <marker id="a3g" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6 z" fill="var(--good)"/></marker>
+      <marker id="a3c" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6 z" fill="var(--crit)"/></marker>
+    </defs>
+    <path id="r-ok" class="route" d="M262 70 L452 70"/>
+    <path id="r-no" class="route" d="M262 178 L352 178"/>
+    <path class="edge good" d="M262 70 H450" marker-end="url(#a3g)"/>
+    <path class="edge crit" d="M262 178 H350"/>
+    <text class="elabel" x="356" y="162" text-anchor="middle">triggers</text>
+    <text class="elabel b" x="372" y="150" text-anchor="start">blocked here</text>
+    <!-- barrier -->
+    <rect x="356" y="150" width="8" height="56" rx="2" fill="var(--crit)"/>
+    <text x="360" y="222" text-anchor="middle" fill="var(--crit)" style="font:600 13px 'IBM Plex Sans',sans-serif">&#10005; no re-trigger</text>
+    <g class="node">
+      <rect x="40" y="44" width="222" height="54" rx="9"/>
+      <text class="n-name" x="151" y="68" text-anchor="middle">Push from Muse / a person</text>
+      <text class="n-sub" x="151" y="86" text-anchor="middle">a normal commit</text>
+    </g>
+    <g class="node">
+      <rect x="452" y="44" width="230" height="54" rx="9" class="hlg"/>
+      <text class="n-name" x="567" y="68" text-anchor="middle">GitHub Actions starts</text>
+      <text class="n-sub" x="567" y="86" text-anchor="middle">the janitor runs</text>
+    </g>
+    <g class="node">
+      <rect x="40" y="152" width="222" height="54" rx="9"/>
+      <text class="n-name" x="151" y="176" text-anchor="middle">Push by the janitor</text>
+      <text class="n-sub" x="151" y="194" text-anchor="middle">uses GITHUB_TOKEN</text>
+    </g>
+    <g class="node">
+      <rect x="452" y="152" width="230" height="54" rx="9"/>
+      <text class="n-name" x="567" y="176" text-anchor="middle">Actions stays asleep</text>
+      <text class="n-sub" x="567" y="194" text-anchor="middle">loop prevented</text>
+    </g>
+    <circle class="dot dot-good" r="5"><animateMotion dur="2.8s" begin="indefinite" repeatCount="indefinite"><mpath href="#r-ok" xlink:href="#r-ok"/></animateMotion></circle>
+    <circle class="dot dot-crit" r="5"><animateMotion dur="2.8s" begin="indefinite" repeatCount="indefinite"><mpath href="#r-no" xlink:href="#r-no"/></animateMotion></circle>
+  </svg>
+  <figcaption>Same repo, two kinds of push. Only a human/Muse push restarts the janitor; the janitor&rsquo;s own <code>GITHUB_TOKEN</code> commit hits the barrier and goes no further.</figcaption>
+</figure>
+
+<!-- ================= JOURNEY ================= -->
+<h2>The journey of one episode</h2>
+<p>End to end, from the moment Muse files a new summary to the moment a listener hits play. (The step numbers light up in sequence.)</p>
+<ol class="journey">
+  <li><span class="jt">Muse writes and pushes.</span> A new summary&rsquo;s HTML (with a <code>../podcasts/new.mp3</code> link) and the <code>new.mp3</code> file are git-pushed to <code>main</code>.</li>
+  <li><span class="jt">The doorbell rings.</span> That push starts the <code>offload-audio-to-r2</code> janitor in GitHub Actions.</li>
+  <li><span class="jt">A throwaway VM boots.</span> GitHub spins up a fresh Linux machine, checks out the repo, and installs rclone.</li>
+  <li><span class="jt">rclone uploads the audio.</span> Using the S3 credentials from the GitHub secrets vault, it copies <code>new.mp3</code> to the R2 bucket over HTTPS.</li>
+  <li><span class="jt">It verifies the upload.</span> The workflow confirms the file is actually on R2 before touching anything else.</li>
+  <li><span class="jt">It rewrites the page.</span> <code>../podcasts/new.mp3</code> becomes <code>https://pub-&hellip;.r2.dev/new.mp3</code> (and it fixes the JS player&rsquo;s selector so progress tracking keeps working).</li>
+  <li><span class="jt">It removes the local copy.</span> <code>git rm new.mp3</code> &mdash; the file is safely on R2 now.</li>
+  <li><span class="jt">It commits back.</span> The change is pushed to GitHub using the throwaway <code>GITHUB_TOKEN</code>. This push does <strong>not</strong> re-trigger the janitor, so there is no loop.</li>
+  <li><span class="jt">Pages rebuilds.</span> GitHub Pages regenerates and serves the updated HTML.</li>
+  <li><span class="jt">A visitor presses play.</span> Their browser loads the HTML from Pages and streams the audio from R2&rsquo;s <code>pub-&hellip;.r2.dev</code> URL, which supports range requests so seeking works. They notice nothing different &mdash; that is success.</li>
+</ol>
+
+<!-- ================= UNKNOWN UNKNOWNS ================= -->
+<h2>Things you didn&rsquo;t know to ask</h2>
+
+<details class="qa"><summary>Will this cost money?</summary><div class="a"><p>The R2 free tier is 10&nbsp;GB of storage, <strong>zero</strong> egress (bandwidth) fees, and generous operation limits. This project (~1&nbsp;GB) should cost <strong>$0</strong>. A card is on file but is not charged unless you blow past the free tier. Keep an eye on the R2 usage meter.</p></div></details>
+
+<details class="qa"><summary>What if a workflow run fails (R2 down, bad token)?</summary><div class="a"><p>The episode simply stays un-offloaded: the MP3 remains in the repo and its link stays local, so the <strong>site still works</strong> &mdash; Pages serves the file directly. The next successful push self-heals it. Failures are safe, not site-breaking.</p></div></details>
+
+<details class="qa"><summary>Is the audio public to the whole world?</summary><div class="a"><p>Yes &mdash; anyone with the URL can download it. That is fine here, because the audio is already public on the site. But do <strong>not</strong> put private files in a public bucket.</p></div></details>
+
+<details class="qa"><summary>How dangerous is the non-expiring token?</summary><div class="a"><p>It is convenient but must be guarded. If you delete or rotate it in Cloudflare, the pipeline breaks until you update the two GitHub secrets. If it ever leaks, someone could read and write <strong>only this one bucket</strong> &mdash; that is the entire blast radius, by design.</p></div></details>
+
+<details class="qa"><summary>Could a malicious pull request steal the secrets?</summary><div class="a"><p>GitHub does <strong>not</strong> pass repository secrets to workflows triggered by forked pull requests &mdash; a built-in protection. Just keep the repo&rsquo;s own workflows trustworthy.</p></div></details>
+
+<details class="qa"><summary>Why is the repo still big after all this?</summary><div class="a"><p>History still holds the old audio blobs until GitHub garbage-collects them, so the billed repo size may lag. GitHub Support can force a cleanup.</p></div></details>
+
+<details class="qa"><summary>Could Muse ever undo the janitor&rsquo;s work?</summary><div class="a"><p>If Muse ever <strong>force-pushes</strong>, it could clobber the janitor&rsquo;s commit or resurrect old blobs. Normal (non-force) pushes are protected by Git&rsquo;s fast-forward rule, so in everyday use this is safe.</p></div></details>
+
+<details class="qa"><summary>Is the pub-&hellip;.r2.dev URL production-grade?</summary><div class="a"><p>No. It is a rate-limited &ldquo;development&rdquo; URL. If traffic grows, attach a custom domain to the bucket for a real CDN.</p></div></details>
+
+<details class="qa"><summary>What else could break a run?</summary><div class="a"><p>The workflow fetches the rclone installer from rclone.org on each run; if that is ever down, a run fails &mdash; safely, as above. It could be pinned to a fixed version later.</p></div></details>
+
+<details class="qa"><summary>Do I need to understand all of Cloudflare?</summary><div class="a"><p>No. Cloudflare is a big company (CDN, DNS, security). We use only its R2 storage product and the bucket&rsquo;s public URL. You can ignore the rest.</p></div></details>
+
+<details class="qa"><summary>Is there one chore left?</summary><div class="a"><p>Yes. Because Muse commits MP3s before the janitor strips them, full Git history still creeps a few MB a day and needs an occasional manual purge &mdash; <strong>unless</strong> Muse is repointed to push to a staging branch. Then <code>main</code> never sees a raw MP3 and history stays flat forever. That is the one open upgrade.</p></div></details>
+
+<!-- ================= GLOSSARY ================= -->
+<h2>Glossary</h2>
+<dl class="gloss">
+  <div><dt>bucket</dt><dd>A named container inside object storage that holds files, like a top-level folder. Ours is <code>daily-summaries-audio</code>.</dd></div>
+  <div><dt>egress</dt><dd>Data leaving a service to the outside world (downloads). Most clouds bill for it; R2 charges <strong>zero</strong> egress fees.</dd></div>
+  <div><dt>range request</dt><dd>An HTTP request for just part of a file. It lets a browser jump to the middle of audio without downloading all of it &mdash; essential for seeking.</dd></div>
+  <div><dt>object storage</dt><dd>Storage that holds whole files (&ldquo;objects&rdquo;) addressed by name over HTTP, built for serving files cheaply at scale &mdash; unlike a code repository.</dd></div>
+  <div><dt>CI/CD</dt><dd>Continuous Integration / Continuous Delivery: automation that runs on each change. GitHub Actions is our CI/CD.</dd></div>
+  <div><dt>YAML</dt><dd>A plain-text format for configuration, written with indentation. Our workflows are YAML files in <code>.github/workflows/</code>.</dd></div>
+  <div><dt>S3 protocol</dt><dd>The de-facto standard API for object storage, created by Amazon. R2 speaks it, so standard tools like rclone work unchanged.</dd></div>
+  <div><dt>static site</dt><dd>A website made of pre-built files (HTML, CSS, JS) with no server-side app. GitHub Pages serves exactly this.</dd></div>
+</dl>
+
+<hr>
+<p class="foot">A self-contained explainer for <code>az9713/daily-summaries</code>. No secret values appear on this page. Motion pauses automatically if your system prefers reduced motion; use the Theme button to switch light and dark.</p>
+
+</div>
+
+<script>
+(function(){
+  // Theme toggle
+  var root=document.documentElement, btn=document.getElementById('themeBtn'),
+      icon=document.getElementById('themeIcon'), label=document.getElementById('themeLabel');
+  function sysDark(){return window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches;}
+  function apply(t){
+    root.setAttribute('data-theme',t);
+    var dark=(t==='dark');
+    icon.innerHTML = dark ? '&#9680;' : '&#9681;';
+    label.textContent = dark ? 'Dark' : 'Light';
+  }
+  apply(sysDark()?'dark':'light');
+  btn.addEventListener('click',function(){
+    apply(root.getAttribute('data-theme')==='dark'?'light':'dark');
+  });
+
+  // Start SMIL particle animations only when motion is allowed
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(!reduce){
+    var dots = document.querySelectorAll('.dot');
+    for(var i=0;i<dots.length;i++){ dots[i].style.opacity='1'; }
+    var motions = document.querySelectorAll('animateMotion');
+    // gentle staggering within each diagram
+    var delays = {};
+    for(var j=0;j<motions.length;j++){
+      var m = motions[j];
+      var pid = (m.querySelector('mpath').getAttribute('href')||'').toString();
+      delays[pid] = (delays[pid]||0);
+      try{
+        if(m.beginElementAt){ m.beginElementAt(delays[pid]); }
+        else if(m.beginElement){ m.beginElement(); }
+      }catch(e){ try{ m.beginElement(); }catch(e2){} }
+      delays[pid] += (pid==='#r-mp3'||pid==='#r-html') ? 2.3 : 1.3;
+    }
+  }
+})();
+</script>
+</body>
+</html>
