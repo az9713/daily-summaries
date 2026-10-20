@@ -401,13 +401,14 @@
     <header class="masthead">
       <div>
         <p class="date">Tuesday &middot; October 20, 2026</p>
-        <h1>1 summary, distilled.</h1>
+        <h1>2 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
       <nav aria-label="Summaries">
         <div class="cards">
         <a class="card" href="#blackstone-hoge-moderna-ai-healthcare"><span class="num">01</span><span><span class="card-title">Moderna’s Dr. Stephen Hoge on AI and the Future of Healthcare</span><span class="card-byline">Blackstone &middot; Christine Anderson, Stephen Hoge</span></span><span class="card-dur">5:23</span><span class="listen-state" data-slug="blackstone-hoge-moderna-ai-healthcare"></span></a>
+        <a class="card" href="#sam-witteveen-meta-muse-spark-open"><span class="num">02</span><span><span class="card-title">Meta&#x27;s New Models &amp; Agent</span><span class="card-byline">Sam Witteveen</span></span><span class="card-dur">4:18</span><span class="listen-state" data-slug="sam-witteveen-meta-muse-spark-open"></span></a>
         </div>
       </nav>
     </section>
@@ -456,6 +457,52 @@
       <nav class="article-nav" aria-label="More summaries">
         <span class="spacer"></span>
         <a class="to-index" href="2026-10-20.html" data-route="index">All summaries</a>
+        <a class="next" href="#sam-witteveen-meta-muse-spark-open" data-route="article">Sam Witteveen &middot; Meta&#x27;s New Models &amp; Agent &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="sam-witteveen-meta-muse-spark-open" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-20.html" data-route="index">&larr; October 20, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Meta&#x27;s New Models &amp; Agent &mdash; October 20, 2026 <span class="dur">&middot; 4:18</span></p>
+        <audio controls preload="none" src="../podcasts/sam-witteveen-meta-muse-spark-open.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/sam-witteveen-meta-muse-spark-open.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="sam-witteveen-meta-muse-spark-open" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="sam-witteveen-meta-muse-spark-open"></div>
+        <div class="episode-download"><a href="../podcasts/sam-witteveen-meta-muse-spark-open.mp3" download>Download sam-witteveen-meta-muse-spark-open.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Sam Witteveen</dd></div>
+        <div><dt>Published</dt><dd>October 20, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=aKVfjG7_R4g" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Sam Witteveen &middot; Meta models &middot; Muse Spark</p>
+        <h2>Meta&#x27;s New Models &amp; Agent</h2>
+        <div>
+<p>On Sam Witteveen&#x27;s YouTube channel, the video &quot;Meta&#x27;s New Models &amp; Agent&quot; sets out to untangle a crowded week of releases from Meta: an open weights model called Muse Spark Open, two closed frontier models named Muse Wonder and Muse Wonder Full, and a personal agent app that may matter more than any of them. Witteveen&#x27;s verdict up front is that the open model largely lives up to Meta&#x27;s billing, even though it is not the strongest open model in the world.</p>
+<p>Muse Spark Open is a mixture of experts model with 816 billion parameters in total and 42 billion active per token, a one million token context window, and native multimodality: it takes in text, images, video and audio, and returns text. Meta pitches it as a general purpose model for coding and agentic work, and calls it the most capable US open weights model to date. The claim is carefully worded. On the Artificial Analysis Intelligence Index it scores 39, while the top of the open field is Chinese: MiMo 2.6 Pro at 46, GLM 5.3 at 45, Kimi K3 at 44, and Qwen 3.8 just above it at 40. Witteveen still thinks it is worth trying, because Meta trains on different data than the Chinese labs and may generalize differently than the benchmark order suggests.</p>
+<p>The other recent US open release is Beam, from Reflection, whose weights reached Hugging Face the Friday before. Beam is smaller, 501 billion parameters with 23 billion active, and it is built for token efficiency, but it scores 30 on the same index, and Spark Open wins most of the benchmarks both companies published, including tool use on MCP Atlas, 89 to 79, though Beam edges Terminal-Bench, 80 to 76. Witteveen stresses that the comparison is not entirely fair, because Beam is fully Apache 2.0 licensed while Spark Open sits under Meta&#x27;s own Muse license. That license is fine for most users, but a product must display &quot;Built with Muse Spark Open,&quot; and a model as a service business earning more than 20 million dollars a year needs a separate agreement with Meta. His summary: Spark Open is the more capable model, Beam is the smaller, cheaper and cleaner licensed one.</p>
+<p>Running Spark Open yourself is mostly theoretical. Meta worked with Apple on a reference setup of two M5 Ultra Mac Studios with 512 gigabytes of memory each, which Apple measured at about 25 tokens per second, and Witteveen notes the hardware would cost a fortune and likely not arrive until January or February. There is an NVFP4 checkpoint of around 530 gigabytes and a 2-bit checkpoint from Unsloth of around 300 gigabytes, but for most people the realistic route is a hosted provider. The model was on OpenRouter from day one, offered by Modal, Together AI, Nebius, Fireworks and Baseten, all at $1.25 per million input tokens and $4.25 out. Meta itself does not host it.</p>
+<p>The closed models show where Spark Open really sits. Three days before the open release, Meta launched Muse Wonder and Muse Wonder Full. On the Artificial Analysis index, Wonder scores 52 and Wonder Full 56, against 58 for Claude Opus 5.5, while the mid tier closed model, Muse Spark 1.3, scores 48. Many people, Witteveen included, had hoped Spark 1.3 would be the model opened up. Instead the open model trails it by nine points and trails Meta&#x27;s best by seventeen. Access is uneven. Spark 1.3 is on Meta&#x27;s API and OpenRouter at the same $1.25 and $4.25, with a much cheaper tier at ten cents in and twenty cents out on which Meta trains on your prompts and outputs, a deal Witteveen notes the Chinese labs pioneered. Wonder is on Meta&#x27;s API and OpenRouter at $4 in and $20 out, the same price as Opus 5.5. Wonder Full is on no API at all, available only inside Meta&#x27;s Muse product on its $50 and $200 a month plans, which Witteveen calls a bit rich: the lab makes large claims for a model nobody can test independently.</p>
+<p>The benchmark picture has an odd wrinkle. On LM Arena, Meta ran Wonder through more than 5,000 real agent sessions and it placed only twelfth in the Agent Arena, despite ranking second on the text leaderboard. Yet agents are exactly where Meta is winning in the market. Its Muse personal agent app launched in the US on September 8, passed 2.5 million downloads within a couple of weeks, and reached number one on the Apple App Store. The app reads email, makes bookings, fills in forms, can pay and negotiate on a user&#x27;s behalf, and gives each user an isolated virtual machine, with free, $20 and $100 monthly tiers. One catch: the app does not run on Spark Open. It runs on a customized version of Spark, and exactly which version, with which fine tuning, is not public.</p>
+<p>The most useful part of the video may be how that agent was built, drawn from Alexandr Wang&#x27;s account on David Senra&#x27;s podcast. The effort began in February, when Wang and Nat Friedman spent weeks living with OpenClaw agents and concluded the magic was real but the reliability was not. Seven months of work followed, from a team of under 200 people across model and product. The team listed more than 100 behaviors and capabilities the ideal personal agent needed, put each one in a spreadsheet row with its own set of evals, and tracked them red and green. Each row had a launch blocking threshold and a higher &quot;good&quot; threshold; at one stage about 80 percent of rows were green, and the team decided that was not good enough. The first checkpoint green on every row was a specifically trained version of Spark 1.3. Witteveen recommends the method to anyone building an agent: start with 20 behaviors if 100 is too many, write the evals, and do not ship until every row passes.</p>
+<p>His own demos put the open and closed models side by side on OpenRouter. On an SVG drawing test, Wonder&#x27;s output was passable and Spark Open&#x27;s weaker, though he suspects labs now overfit that test. The clearer difference is in the thinking. Wonder shows very little of it, 55 tokens on the drawing task, which looks like a rephrasing of the prompt, while Spark Open thinks at length in the open, and its long form output is erratic: the same essay prompt returned about 4,900 words once and 1,800 words another time. Its retrieval question answering was decent, and on basic function calling tests both models scored ten out of ten. On harder agentic tests, Spark Open managed seven out of eight and handled broken tools and distractors well, but it used far more tool calls than Wonder, which scored eight out of eight in a handful of calls. Witteveen thinks that inefficiency may explain the Agent Arena result. Neither model impressed him at building websites.</p>
+<p>His closing judgment is about who this model is for. Few will run an 816 billion parameter model locally, so the real audience is companies that would otherwise reach for Qwen but want a US model, including firms that, as he puts it, do not want to admit in production that they use Chinese models for political reasons. Meta&#x27;s multilingual training data, stronger in European and Southeast Asian languages that Chinese models often handle poorly, is another draw. The larger signal is that Meta is back in the open game: Glimmer, its 30 billion parameter Apache licensed model, shipped in August, and when Mark Zuckerberg said Meta would open the Muse Spark weights, the release followed two months later, even if it was not the 1.3 version people wanted. Witteveen hopes the next open release reaches the Spark 1.3 level, and that an open model from Meta every three months or so would be great for the whole ecosystem.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Muse Spark Open trails Meta&#x27;s own closed Spark 1.3 by nine points and Wonder Full by seventeen. Will Meta keep narrowing that gap with regular open releases, or does the split settle into a permanent two tier strategy where the open model is always a generation behind?</li>
+<li>Wonder Full has no API, so none of its benchmark claims can be checked by anyone outside Meta. How long will buyers accept frontier claims they cannot test, and does a model that lives only inside a subscription app still count as a frontier release?</li>
+<li>The eval spreadsheet method shipped the personal agent with the most momentum in its category. Can a small team without Meta&#x27;s compute, data and 200 people replicate it, starting from twenty behaviors, and get the same reliability, or does the method only work at lab scale?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English caption track of the video (automatic speech recognition captions, the video&#x27;s only English track), fetched through the Android player client (21.02.35, Pixel 8 profile) in srv3 and json3 formats: 4,199 words, with captions covering the full 22 minute 46 second runtime, saved as transcript.txt in the build record. The player served title is &quot;Meta&#x27;s New Models &amp; Agent,&quot; identical across the Android and iOS player responses, and it is the title used here. The video is a solo presentation by Sam Witteveen with no guest; the host is Witteveen himself. Where the captions garble names, the summary follows the spellings in the video&#x27;s own description and linked sources: the captions render Muse Wonder as &quot;Wanda&quot; in places, Kimi K3 as &quot;Kimmy K3,&quot; and OpenClaw as &quot;open-claw.&quot; Figures quoted, including benchmark scores, parameter counts, prices and download numbers, are the ones stated in the video and its description. Summary written in my own words; the video was not reproduced.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#blackstone-hoge-moderna-ai-healthcare" data-route="article">&larr; Blackstone &middot; Moderna’s Dr. Stephen Hoge on AI and the Future of Healthcare</a>
+        <a class="to-index" href="2026-10-20.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -467,7 +514,8 @@
   <script>
     (() => {
       const TITLES = {
-      "blackstone-hoge-moderna-ai-healthcare": "Moderna’s Dr. Stephen Hoge on AI and the Future of Healthcare"
+      "blackstone-hoge-moderna-ai-healthcare": "Moderna’s Dr. Stephen Hoge on AI and the Future of Healthcare",
+      "sam-witteveen-meta-muse-spark-open": "Meta's New Models & Agent"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
