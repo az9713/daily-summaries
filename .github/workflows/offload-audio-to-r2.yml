@@ -1,6 +1,7 @@
 name: Offload new audio to R2
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
@@ -83,5 +84,20 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "Offload audio to R2 and rewrite links [auto]"
-            git push
+            # The publisher often lands its next commit while this run is still
+            # uploading, which makes a bare push fail non-fast-forward and marks
+            # the whole run failed. Rebase onto the latest main and retry instead.
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:main; then
+                break
+              fi
+              if [ "$attempt" -eq 5 ]; then
+                echo "::error::Push failed after 5 attempts."
+                exit 1
+              fi
+              echo "Push rejected (attempt $attempt); rebasing onto latest main and retrying."
+              git fetch origin main
+              git rebase origin/main
+              sleep 5
+            done
           fi
