@@ -39,3 +39,5 @@ re-sync of everything in `podcasts/` to R2. R2 credentials are stored in the
 
 For a full illustrated walkthrough of how this fits together, see the pipeline explainer: https://az9713.github.io/daily-summaries/docs/pipeline-explainer.html
 
+
+<!-- pages deploy trigger 2026-10-22 -->
