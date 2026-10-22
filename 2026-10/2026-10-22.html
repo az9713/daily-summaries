@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; October 22, 2026</p>
-        <h1>10 summaries, distilled.</h1>
+        <h1>11 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -417,6 +417,7 @@
         <a class="card" href="#natebjones-goodfire-essay-ai-understandable"><span class="num">08</span><span><span class="card-title">I Read Goodfire&#x27;s New Essay. AI May Be Far Easier To Understand Than We Thought.</span><span class="card-byline">Nate B. Jones</span></span><span class="card-dur">7:27</span><span class="listen-state" data-slug="natebjones-goodfire-essay-ai-understandable"></span></a>
         <a class="card" href="#a16z-frontier-ideas-wants-to-fund"><span class="num">09</span><span><span class="card-title">The Frontier Ideas a16z Wants to Fund Now | Marc Andreessen, Ben Horowitz &amp; Chris Dixon</span><span class="card-byline">a16z &middot; Marc Andreessen, Ben Horowitz, Chris Dixon</span></span><span class="card-dur">7:22</span><span class="listen-state" data-slug="a16z-frontier-ideas-wants-to-fund"></span></a>
         <a class="card" href="#peteryang-internet-hacked-secure-accounts"><span class="num">10</span><span><span class="card-title">The Internet Is Being Hacked. 6 Steps to Secure Your Accounts Now</span><span class="card-byline">Peter Yang</span></span><span class="card-dur">4:07</span><span class="listen-state" data-slug="peteryang-internet-hacked-secure-accounts"></span></a>
+        <a class="card" href="#lowlevel-php-situation"><span class="num">11</span><span><span class="card-title">php</span><span class="card-byline">Low Level</span></span><span class="card-dur">4:14</span><span class="listen-state" data-slug="lowlevel-php-situation"></span></a>
         </div>
       </nav>
     </section>
@@ -903,6 +904,54 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#a16z-frontier-ideas-wants-to-fund" data-route="article">&larr; a16z &middot; The Frontier Ideas a16z Wants to Fund Now | Marc Andreessen, Ben Horowitz & Chris Dixon</a>
         <a class="to-index" href="2026-10-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#lowlevel-php-situation" data-route="article">Low Level &middot; php &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="lowlevel-php-situation" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-22.html" data-route="index">&larr; October 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">php &mdash; October 22, 2026 <span class="dur">&middot; 4:14</span></p>
+        <audio controls preload="none" src="../podcasts/lowlevel-php-situation.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/lowlevel-php-situation.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="lowlevel-php-situation" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="lowlevel-php-situation"></div>
+        <div class="episode-download"><a href="../podcasts/lowlevel-php-situation.mp3" download>Download lowlevel-php-situation.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Low Level</dd></div>
+        <div><dt>Published</dt><dd>October 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=QRABrn606LE" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Low Level &middot; PHP runtime vulnerability</p>
+        <h2>php</h2>
+        <div>
+<p>On Low Level, the video served to the player under the one-word title &quot;php&quot; is an emergency explainer about a vulnerability in the PHP runtime itself. Recording from Las Vegas, where he is attending SentinelOne&#x27;s OneCon, the host calls it the worst-case scenario for the infrastructure of the web, and spends twelve minutes walking through what broke, how it was found, and why he thinks more bugs like it are coming.</p>
+<p>The first thing he clears up is the target. This is not a flaw in a PHP plugin, and not a flaw in phpMyAdmin. It is in the interpreter layer that parses incoming requests and hands them to your code, the part that runs before any PHP script executes. A bug in how that layer handles a request can mean remote code execution for an unauthenticated attacker, and he says two separate vulnerabilities here enable exactly that.</p>
+<p>PHP matters at this scale because of everything built on it. He lists Laravel, Nextcloud, phpMyAdmin, Joomla, Drupal, and every WordPress site as PHP back ends. A bug in the language runtime is, in his framing, the gold standard of a supply chain failure: something deep in your stack that you do not control turns out to be broken, and every platform above it inherits the problem.</p>
+<p>The bug class is use-after-free, the classic hazard of manually managed memory: a program frees a block of memory and then keeps using a pointer to it, so another part of the program can move into that space and be misread. He credits the primary finder as the researcher LCFR, and points viewers to the technical write-up at calif.io, which he calls the best account of the exploit.</p>
+<p>The discovery story is the part he finds most significant. Researchers first found one instance by forcing PHP&#x27;s memory allocator to fail during a POST request, an out-of-memory error in an internal hash table that left cleanup half done. They then wrote that failure pattern down in a skill file for a large language model, essentially saying: here are the two states that must never coexist if a use-after-free is to be impossible, now go find where they coexist. The model quickly surfaced the same pattern in a different corner of PHP, the session upload progress code that handles file uploads.</p>
+<p>That second instance is the one he explains in detail, because it needs no cooperation from the site&#x27;s own code: the upload handling runs before your script does. In the first of two requests, the attacker starts a session and begins a file upload, so PHP sets up session globals that point into the request. The multipart parsing then fails in a way that is fatal but does not crash, the allocator bails out mid-work, and the session is freed while the session global still points at it. In the second request, the attacker finishes the upload, and PHP reads and then writes into that freed session value.</p>
+<p>To make the leap from a dangling pointer to code execution intuitive, he uses the example from his courses: two data structures, a cat and a dog, each holding a name and a pointer to a speak function, but laid out in opposite order. Lay one over the other in the same memory and a write meant for a name lands on a function pointer. Real exploitation through arbitrary read and write is far more involved, he concedes, but that overlay is the general idea.</p>
+<p>The disclosure, he says, was orderly at first: a small group knew, the bug sat under embargo while a fix was prepared, and PHP shipped the patch. What happened around it was less orderly. Word got out, and crowds of people began pointing language models at the PHP codebase at once. Since recording began, he has also seen posts claiming the patch is incomplete: one researcher compiled the patched PHP with AddressSanitizer, exercised the same code path, and still got a violation, a double free, and another researcher is quoted calling the security patch incomplete and in need of further validation. He is careful to say he is reading social media posts and that it may be misinformation, but he passes the warning along.</p>
+<p>His explanation for why these bugs are surfacing now is about tooling. Fuzzers, the tools he has written professionally, are good at spatial bugs: buffer overflows, integer underflows, out-of-bounds reads and writes, because they explore a program&#x27;s execution tree looking for coverage. A use-after-free is a temporal bug. It needs two different states of the program to occur in sequence, one of them a failure in the middle of fallible work, and fuzzers are not built to construct that pairing. A language model can simply be handed the invariant and asked where it breaks. His prediction follows directly: expect many more use-after-free findings, and, with the whole world now aiming models at PHP, likely more pre-auth remote code execution bugs falling out of the woodwork.</p>
+<p>Asked whether Rust would fix it, he answers yes without much hedging. This is a reference counting failure on a global pointer used two ways, one of them after it was freed, and Rust&#x27;s borrow checker is designed to make that impossible at compile time. He is not calling for PHP to be rewritten, citing the drift problems that would create, but he names the irony plainly.</p>
+<p>He closes with the week around the bug: an Indian certificate authority, eMudra, had eight certificates invalidated after a private key problem, and a GitLab vulnerability rated CVSS 10 dropped while he was recording. His sign-off is the practical summary of the whole video: it is vulnerability season, so patch your boxes.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Is the shipped PHP patch actually incomplete, as the AddressSanitizer reports he cites suggest, and if so, how much of the PHP-powered web is exposed right now?</li>
+<li>If language models make temporal bugs like use-after-free cheap to find, which other decades-old C codebases underneath the web get audited next, and by whom?</li>
+<li>Does the long-term answer look like rewriting runtimes in memory-safe languages, or like permanent, model-assisted auditing of the unsafe code already in place?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> grounded in the full English ASR caption track of this Low Level video on YouTube (video QRABrn606LE), fetched in srv3 format through the Android YouTube player client and saved verbatim to transcript.txt. The title is served inconsistently across YouTube surfaces, apparently a title test or retitle in progress: the player API and the watch page&#x27;s document title serve the one-word title &quot;php&quot;, which this card uses; the watch page metadata and search results carry &quot;if you use php, turn it off&quot;; and the commissioning feed screenshot showed &quot;php situation is insane&quot;. Where the captions garble names, the summary follows the video&#x27;s own description: the write-up is at calif.io/php2shell (the captions render it as &quot;Khif&quot;) and the credited researcher is LCFR (LCFR_hax). Patch version numbers spoken in the video are rendered unclearly by the captions and are not quoted. The video also contains a self-promotion segment for his podcast The Lowdown, his newsletter The Most Significant Bit, and Low Level Academy, which the summary passes over.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#peteryang-internet-hacked-secure-accounts" data-route="article">&larr; Peter Yang &middot; The Internet Is Being Hacked. 6 Steps to Secure Your Accounts Now</a>
+        <a class="to-index" href="2026-10-22.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -923,7 +972,8 @@
       "yc-magic-patterns-ceo-reviews-startup-websites": "Magic Patterns CEO Reviews Startup Websites",
       "natebjones-goodfire-essay-ai-understandable": "I Read Goodfire's New Essay. AI May Be Far Easier To Understand Than We Thought.",
       "a16z-frontier-ideas-wants-to-fund": "The Frontier Ideas a16z Wants to Fund Now | Marc Andreessen, Ben Horowitz & Chris Dixon",
-      "peteryang-internet-hacked-secure-accounts": "The Internet Is Being Hacked. 6 Steps to Secure Your Accounts Now"
+      "peteryang-internet-hacked-secure-accounts": "The Internet Is Being Hacked. 6 Steps to Secure Your Accounts Now",
+      "lowlevel-php-situation": "php"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
