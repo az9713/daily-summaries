@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; October 22, 2026</p>
-        <h1>5 summaries, distilled.</h1>
+        <h1>6 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -412,6 +412,7 @@
         <a class="card" href="#mts-ben-woodington-brain-implants"><span class="num">03</span><span><span class="card-title">AI-Powered Brain Implants Will Treat Brain Cancer | Ben Woodington</span><span class="card-byline">MTS &middot; Ben Woodington</span></span><span class="card-dur">5:48</span><span class="listen-state" data-slug="mts-ben-woodington-brain-implants"></span></a>
         <a class="card" href="#dwarkesh-chips-2045"><span class="num">04</span><span><span class="card-title">What will computer chips look like in 2045?</span><span class="card-byline">Dwarkesh Patel &middot; Intel fab tour</span></span><span class="card-dur">9:02</span><span class="listen-state" data-slug="dwarkesh-chips-2045"></span></a>
         <a class="card" href="#latent-space-sokhal-recommendation-engine-traders"><span class="num">05</span><span><span class="card-title">The Recommendation Engine for Commodity Traders — Anekha Sokhal, Moshi</span><span class="card-byline">Latent Space &middot; Anekha Sokhal</span></span><span class="card-dur">5:13</span><span class="listen-state" data-slug="latent-space-sokhal-recommendation-engine-traders"></span></a>
+        <a class="card" href="#latent-space-bernhardsson-ai-compute-rectangles"><span class="num">06</span><span><span class="card-title">Why AI Compute Comes in Rectangles — Erik Bernhardsson, Modal</span><span class="card-byline">Latent Space &middot; Erik Bernhardsson</span></span><span class="card-dur">7:11</span><span class="listen-state" data-slug="latent-space-bernhardsson-ai-compute-rectangles"></span></a>
         </div>
       </nav>
     </section>
@@ -650,6 +651,54 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#dwarkesh-chips-2045" data-route="article">&larr; Dwarkesh Patel &middot; What will computer chips look like in 2045?</a>
         <a class="to-index" href="2026-10-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#latent-space-bernhardsson-ai-compute-rectangles" data-route="article">Latent Space &middot; Why AI Compute Comes in Rectangles — Erik Bernhardsson, Modal &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="latent-space-bernhardsson-ai-compute-rectangles" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-22.html" data-route="index">&larr; October 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Why AI Compute Comes in Rectangles — Erik Bernhardsson, Modal &mdash; October 22, 2026 <span class="dur">&middot; 7:11</span></p>
+        <audio controls preload="none" src="../podcasts/latent-space-bernhardsson-ai-compute-rectangles.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/latent-space-bernhardsson-ai-compute-rectangles.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="latent-space-bernhardsson-ai-compute-rectangles" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="latent-space-bernhardsson-ai-compute-rectangles"></div>
+        <div class="episode-download"><a href="../podcasts/latent-space-bernhardsson-ai-compute-rectangles.mp3" download>Download latent-space-bernhardsson-ai-compute-rectangles.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Latent Space</dd></div>
+        <div><dt>Published</dt><dd>October 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=e-56iKSx1X4" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Latent Space &middot; Erik Bernhardsson &middot; GPU compute and infrastructure</p>
+        <h2>Why AI Compute Comes in Rectangles — Erik Bernhardsson, Modal</h2>
+        <div>
+<p>On Latent Space, the episode &quot;Why AI Compute Comes in Rectangles&quot; is a wide-ranging conversation with Erik Bernhardsson, the founder and chief executive of Modal, returning to the show roughly two years after his last appearance. He says the company has grown at least fiftyfold in revenue and usage over that stretch. Modal rents out GPU compute and storage behind a software layer, and its customers include Decagon, Suno, Runway, and Cognition.</p>
+<p>Bernhardsson came to infrastructure by way of music. At Spotify he built the recommendation system behind features like Discover Weekly, and he released Luigi, an open source workflow orchestration tool. After five years as chief technology officer at the mortgage company Better, he took time off in 2021 and started hacking on the tool he had always wanted: a way to run code in the cloud without fighting the tooling. Modal was the third thing he built in that period, and he self-funded it past its first employees before raising a seed round in early 2022.</p>
+<p>The takeoff, when it came, was abrupt. Revenue went from about a hundred dollars in November 2022 to roughly thirty thousand dollars in January 2023, driven by Stable Diffusion workloads; a single New York customer briefly accounted for most of it before Suno arrived and the base diversified. His broader thesis is that each technology era outgrows its tools. Kubernetes and Docker were built for steady backend traffic on cheap CPUs, not for bursty workloads on scarce, expensive GPUs with very large models to load. So Modal rebuilt the layer underneath: its own file system, container runtime, CPU and GPU snapshotting, autoscaler, and scheduler.</p>
+<p>The title&#x27;s rectangle is a complaint about how GPU capacity is sold. Most of it now trades as a three-year block that starts three to six months in the future, a flat rectangle, while real demand rises and falls across the day and bursts unpredictably. Modal&#x27;s answer is to aggregate thousands of customers whose demand smooths out in total, then sell flexibility on top of rigid supply. The median sandbox on Modal, he says, lives for about eight seconds.</p>
+<p>Getting the underlying capacity has become a business of its own. Modal began on hyperscaler spot capacity, and until late last year most of its fleet was spot or one-year reservations. Now it works with almost twenty-five clouds, signs three-year deals with meaningful prepayments, runs a procurement desk of about four people, and keeps a team of roughly ten engineers managing bare metal around the world, down to bad drives and GPUs falling off the bus. Modal rents all of its hardware rather than owning it, and Bernhardsson is ambivalent about changing that: renting is capital efficient, while owning means funding very expensive assets and taking the risk of buying at the top. Hardware prices, he notes, behave like gravity in the long run. They go down.</p>
+<p>He tells the cautionary version of that story through the Hunt brothers, who tried to corner the silver market and failed spectacularly. Modal buys aggressively, but sized to its demand growth rather than to corner supply, because the bad scenario is correlated: prices fall, utilization falls, and the resale market for spare capacity vanishes at the same time. He thinks the scarcity rent in today&#x27;s market flows mostly to Nvidia and to whoever owns capacity, and he notes that neoclouds have scaled so fast by pre-selling multi-year contracts to big labs and then financing the hardware against those contracts. Nvidia, he speculates, also prefers a diversified buyer base, which leaves smaller, quirkier blocks of capacity, thirty-two nodes in Armenia or a hundred twenty-eight in Indonesia, available to a buyer like Modal willing to vet them with spec sheets and acceptance tests.</p>
+<p>On hardware diversity, he admits he has predicted a year of non-Nvidia accelerators for years and been wrong every time, but he offers 2027 as the latest candidate, pointing to improving AMD parts, Google&#x27;s TPUs, Amazon&#x27;s Trainium effort, and inference specialists like Cerebras and Groq. He finds hybrid setups especially interesting, where one chip handles the prefill stage of inference and another the decode. The deeper bottlenecks, he concedes, may sit further down the chain at TSMC and ASML.</p>
+<p>Modal&#x27;s two products split the business. Functions, the serverless core launched in 2021, brings in about two-thirds of revenue, mostly inference. Sandboxes, launched in 2023 so that model-generated code has somewhere safe to run, were nearly shut down two years later, then exploded as models learned to generate whole applications; vibe coding companies, background agent deployments, and reinforcement learning labs now make sandboxes about a third of revenue. Anthropic&#x27;s managed agents can use Modal as a bring-your-own sandbox. His longer bet is on snapshotting, forking, and near-instant start and stop, so that a test suite, for example, could run every test in its own sandbox instead of sharding sequentially, a gain he frames through Amdahl&#x27;s law: the benefit only appears once the overhead of starting and stopping gets small enough.</p>
+<p>The conversation also covers the Hugging Face incident, in which agents exploited a vulnerable application that happened to be deployed on Modal and used it as a springboard. His position is that an app on Modal being hacked is not Modal being hacked, any more than an app on AWS being hacked is AWS being hacked, but he draws a defaults lesson from S3, which became harder to make public after years of accidental leaks. Modal now also points agents at its own systems and asks them to try to escape the sandbox, an escape room exercise he says has so far found nothing.</p>
+<p>Elsewhere, he says fine-tuning has lost much of its point because open models like Kimi, GLM, and DeepSeek now work well off the shelf, which pushes Modal&#x27;s interest toward post-training and reinforcement learning products. He is bullish on mid-size training, which he calls underserved next to the hundred-thousand-GPU headline runs, on batch jobs such as a customer transcribing five thousand years of audio, and on low-latency voice. He also argues there is a structural reason inference providers should exist apart from model builders: demand shifts to whichever lab shipped the best model most recently, and an independent provider can reallocate GPUs between models without anyone having to ask.</p>
+<p>The company&#x27;s shape is changing with its scale. Forward deployed engineers grew from four to about twenty-four this year, and Bernhardsson is clear their findings should be turned into product so the role is not needed for the same problem twice. Modal hires no product managers, treats code review as optional while investing heavily in continuous integration and deployment, and still has no chief financial officer, which he jokes may end the internal free-for-all on model tokens. He remains a cloud maximalist who quotes bring-your-own-cloud prices high enough that nobody has yet said yes. His stated priorities are the capacity problem and its financial complexity, guessing the next building blocks before the world knows it needs them, and culture, as headcount passes two hundred and heads toward perhaps seven hundred next year. The GPUs, he observes, cost far more than the people do.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If GPU prices follow gravity and fall, who is left holding the loss on three-year prepaid capacity, and does Modal&#x27;s rent-don&#x27;t-own stance survive contact with a market where owning the scarce asset was the winning trade?</li>
+<li>Will 2027 actually be the year non-Nvidia accelerators break through, and if the binding bottleneck sits at TSMC and ASML anyway, does chip diversity change anyone&#x27;s pricing power?</li>
+<li>Can sandbox computing really become one ephemeral environment per command, with snapshotting in between, or does the overhead Bernhardsson describes keep agents working inside longer-lived dev boxes?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> grounded in the full English auto-generated caption track of this Latent Space episode on YouTube (video e-56iKSx1X4), fetched in srv3 format through the Android YouTube player client and saved verbatim to transcript.txt. The player-served title matches the listing title exactly, so there is no title variant to disclose. The caption track renders the guest&#x27;s surname several ways, including &quot;Burn Hartson&quot;; this summary uses the published title&#x27;s spelling, Erik Bernhardsson, throughout. Figures such as revenue milestones, cloud counts, and headcount are Bernhardsson&#x27;s own statements in the conversation.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#latent-space-sokhal-recommendation-engine-traders" data-route="article">&larr; Latent Space &middot; The Recommendation Engine for Commodity Traders &mdash; Anekha Sokhal, Moshi</a>
+        <a class="to-index" href="2026-10-22.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -665,7 +714,8 @@
       "bigthink-siegel-three-ways-universe-ends": "Cosmology’s oldest question: How the universe will end | Ethan Siegel",
       "mts-ben-woodington-brain-implants": "AI-Powered Brain Implants Will Treat Brain Cancer | Ben Woodington",
       "dwarkesh-chips-2045": "What will computer chips look like in 2045?",
-      "latent-space-sokhal-recommendation-engine-traders": "The Recommendation Engine for Commodity Traders — Anekha Sokhal, Moshi"
+      "latent-space-sokhal-recommendation-engine-traders": "The Recommendation Engine for Commodity Traders — Anekha Sokhal, Moshi",
+      "latent-space-bernhardsson-ai-compute-rectangles": "Why AI Compute Comes in Rectangles — Erik Bernhardsson, Modal"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
