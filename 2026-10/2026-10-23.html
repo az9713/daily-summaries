@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - October 23, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Friday &middot; October 23, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#semianalysis-asml-hybrid-bonding-tool-patents"><span class="num">01</span><span><span class="card-title">Ep. 040 - ASML Is Building a Hybrid Bonding Tool, and We Have the Patents (AI Supply Chain)</span><span class="card-byline">SemiAnalysis &middot; Sherry Zhang</span></span><span class="card-dur">6:16</span><span class="listen-state" data-slug="semianalysis-asml-hybrid-bonding-tool-patents"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="semianalysis-asml-hybrid-bonding-tool-patents" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-23.html" data-route="index">&larr; October 23, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Ep. 040 - ASML Is Building a Hybrid Bonding Tool, and We Have the Patents (AI Supply Chain) &mdash; October 23, 2026 <span class="dur">&middot; 6:16</span></p>
+        <audio controls preload="none" src="../podcasts/semianalysis-asml-hybrid-bonding-tool-patents.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/semianalysis-asml-hybrid-bonding-tool-patents.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="semianalysis-asml-hybrid-bonding-tool-patents" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="semianalysis-asml-hybrid-bonding-tool-patents"></div>
+        <div class="episode-download"><a href="../podcasts/semianalysis-asml-hybrid-bonding-tool-patents.mp3" download>Download semianalysis-asml-hybrid-bonding-tool-patents.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>SemiAnalysis</dd></div>
+        <div><dt>Published</dt><dd>October 23, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=4WCasOsS5-4" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">SemiAnalysis &middot; Sherry Zhang &middot; ASML hybrid bonding patents</p>
+        <h2>Ep. 040 - ASML Is Building a Hybrid Bonding Tool, and We Have the Patents (AI Supply Chain)</h2>
+        <div>
+<p>On SemiAnalysis, the episode &quot;Ep. 040 - ASML Is Building a Hybrid Bonding Tool, and We Have the Patents (AI Supply Chain)&quot; is an edition of the SemiAnalysis Weekly podcast in which Jordan talks with his colleagues Sherry Zhang and Howie about a SemiAnalysis article built on ASML patent filings. ASML has not announced any hybrid bonding tool. The team found the filings after a tip from a poster on Twitter who had spotted the pattern in 2025 filings, and their conclusion is that ASML is developing a die to wafer hybrid bonder that works very differently from anything on the market, though it is still several years away.</p>
+<p>To set the scene, Howie explains what today&#x27;s tools do. In a conventional die to wafer system, of the kind Besi sells, a base wafer sits still while a pick and place arm carries each top die to it, aligns it, and sets it down on the bond pads. The actual bond forms later, during an anneal. Around that placement step sit preparation and measurement steps that the episode does not dwell on, but the placement tool is the heart of the process.</p>
+<p>ASML&#x27;s patent design inverts almost all of that. Each die stays seated on its own holder on a conveyor track, a carousel the team traced to a track supplier ASML appears to be working with, and the die rides the track through station after station: measurement, plasma activation, and finally bonding. At the bonding station it is the wafer that moves, rising up to meet the die on its carrier rather than the die being carried down to the wafer. Because the die never leaves its holder, the system measures however the die happens to be sitting and compensates for that orientation later, at the moment of bonding.</p>
+<p>The point of the design is to import ASML&#x27;s front end strengths into a back end process. Lithography demands sub nanometer overlay control, roughly an order of magnitude finer than what pick and place tools were built for, and hybrid bonding pitches keep shrinking, so the number of signals per square millimeter between two stacked dies keeps climbing. Coming from that background, ASML has no overlay problem to solve. Its problem is the reverse: how to deliver its measurement and wafer stage handling inside a machine where the dies move on a track and everything else has to come to them.</p>
+<p>Die to wafer bonding is also simply the harder version of the technology. Wafer to wafer bonding joins two whole wafers at once, while die to wafer placement carries tighter alignment requirements, and the industry still lacks mature tools that deliver the needed accuracy and throughput together. The filings point mostly at die to wafer, and the team reasons that ASML, which aims to be the most advanced entrant in any market it enters, could be building both kinds of tool, with die to wafer moving ahead first.</p>
+<p>The design raises hard questions, and the episode spends real time on two: alignment and cleanliness. Alignment means compensating in six degrees of freedom, including tilt, so the wafer meets each die exactly where its bond pads are. Cleanliness may be harder still. Hybrid bonding joins two extremely flat, particle free surfaces, and a single particle trapped between them can lift the silicon and spoil bonding across a whole area. On a track several meters long, with dies travelling openly between stations, keeping a die clean from the moment it is prepared to the moment it bonds is an unsolved problem, and the non standard form factor also means ASML will likely need co design agreements with the companies that supply the surrounding process steps. Alignment accuracy and cleanliness together set the bonding yield, and yield plus throughput is what a tool is ultimately bought for.</p>
+<p>The episode then revisits a claim from a SemiAnalysis article of February 2024: HBM will not adopt hybrid bonding before 2029, if at all. The team&#x27;s reasoning is that hybrid bonding&#x27;s real home is logic, where it lets designers split functional units across two layers with far more, and far shorter, connections between them than side by side placement allows. For memory the benefit is narrower, essentially stacking density, perhaps fifty percent more gigabytes in the best case within the fixed thickness of an HBM stack. Against that stand much higher process costs than the reflow and thermal compression bonding memory makers use today, while customers are currently asking for fewer layers at a given performance and bandwidth, not more. The economics do not work yet, so high volume HBM adoption stays a 2029 or later story. The team also cautions that ASML&#x27;s own 2024 roadmap, which shows hybrid bonding spreading across NAND and DRAM, deserves a pinch of salt: ASML benefits from optimistic adoption forecasts, and its past High NA density projections were far beyond anything the industry has reached.</p>
+<p>China gets a long segment, because hybrid bonding matters more there than anywhere else. Constrained in the process technology it can buy, China can use stacking as another avenue of scaling: more silicon, run at lower voltage, with the layers wired densely together. Huawei&#x27;s newest phone is the working example, the first phone to ship a hybrid bonded chip, with high speed units packed closer together and memory cells moved to the bottom die, lifting clock speed to 2.7 gigahertz without raising voltage or power. Chinese data center roadmaps go further, targeting fully hybrid bonded accelerator designs, and even three layer stacks, by 2030. Because more layers at lower yield means more tools per good chip, demand compounds. Chinese equipment makers are building their own bonding capability through acquisitions and investment, and Sherry argues that export controls are more likely to accelerate that domestic supply chain effort, which is increasingly coordinated between tool makers and fabs, than to slow it. The design software is splitting too: the fine grained partitioning that logic folding requires is already being pushed hard in China, while Western design tools never had to solve it.</p>
+<p>The last topic looks like a detour but follows the same theme of ASML reshaping the ecosystem around its tools. High NA EUV&#x27;s anamorphic lens squeezes the mask pattern unevenly and halves the maximum die size, to roughly 400 square millimeters against about 850 today. ASML is working with TSMC, Intel Foundry, and Samsung on a larger photomask, moving from the 6 inch format to a double length one of about 11.2 inches, which restores the full reticle at High NA and improves throughput. Since ASML prices on value, higher throughput also supports higher tool prices. But everything around the mask, blanks, carriers, pellicles, inspection, and repair, has to be rebuilt for the larger format, a shift the team compares to the industry&#x27;s move from 8 inch to 12 inch wafers, and one that needs early commitment from the whole supply chain.</p>
+<p>What ASML still has to prove about the bonding tool itself stays behind the SemiAnalysis paywall, and the episode closes by pointing listeners to the research and the wafer fab equipment model. The near term deliverable is more modest and more fun: a teardown of that Huawei phone.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Can ASML&#x27;s conveyor design hold its measurement accuracy and keep dies clean across several meters of open track well enough to match the bonding yield of the chamber tools it would replace?</li>
+<li>If stacking lets China keep raising performance per watt without leading edge lithography, does that narrow the gap export controls were meant to protect, or does China&#x27;s dependence on foreign bonding tools in the meantime widen it?</li>
+<li>What would have to change in memory economics, layer counts, price, or thermal limits, for HBM makers to pay hybrid bonding&#x27;s premium before 2029 after all?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English auto-generated caption track of the YouTube video (6,394 words, fetched in srv3 format via the Android YouTube player client, version 21.02.35, on the first attempt, no bot-wall), saved verbatim as transcript.txt in the build directory. The player-served title and channel match the listing exactly, so no title variant needed disclosing. The auto-generated captions garble several names and terms (Besi, ASML, Naura and AMEC, AMD&#x27;s 3D V-Cache, among others); the summary uses the standard published spellings. The guest surnames and the host&#x27;s surname come from the episode&#x27;s listing information, as the conversation itself uses first names. Sponsor segments in the runtime are not part of the conversation summarized.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-10-23.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated October 23, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "semianalysis-asml-hybrid-bonding-tool-patents": "Ep. 040 - ASML Is Building a Hybrid Bonding Tool, and We Have the Patents (AI Supply Chain)"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+</body>
+</html>
