@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; October 22, 2026</p>
-        <h1>17 summaries, distilled.</h1>
+        <h1>18 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -424,6 +424,7 @@
         <a class="card" href="#grok-spacexsi-bain-boardrooms-sdlc"><span class="num">15</span><span><span class="card-title">SpaceXSI x Bain: What boardrooms are asking about the SI SDLC</span><span class="card-byline">Grok &middot; Mike, SpaceXSI; Purna, Bain & Company</span></span><span class="card-dur">9:59</span><span class="listen-state" data-slug="grok-spacexsi-bain-boardrooms-sdlc"></span></a>
         <a class="card" href="#lonsdale-5-ai-experts-predict-next-decade"><span class="num">16</span><span><span class="card-title">5 AI Experts Predict the Next Decade</span><span class="card-byline">Joe Lonsdale Clips</span></span><span class="card-dur">10:08</span><span class="listen-state" data-slug="lonsdale-5-ai-experts-predict-next-decade"></span></a>
         <a class="card" href="#quera-lukin-neutral-atom-quantum-computing"><span class="num">17</span><span><span class="card-title">Prof. Mikhail Lukin on the Rise of Neutral-Atom Quantum Computing | QuEra</span><span class="card-byline">QuEra Computing &middot; Mikhail Lukin</span></span><span class="card-dur">2:56</span><span class="listen-state" data-slug="quera-lukin-neutral-atom-quantum-computing"></span></a>
+        <a class="card" href="#senior-engineers-coding-agents-prod-infrastructure"><span class="num">18</span><span><span class="card-title">How Senior Engineers Use Coding Agents On Prod Infrastructure</span><span class="card-byline">Beyond Coding &middot; Kerim Satirli</span></span><span class="card-dur">5:13</span><span class="listen-state" data-slug="senior-engineers-coding-agents-prod-infrastructure"></span></a>
         </div>
       </nav>
     </section>
@@ -1240,6 +1241,52 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#lonsdale-5-ai-experts-predict-next-decade" data-route="article">&larr; Joe Lonsdale Clips &middot; 5 AI Experts Predict the Next Decade</a>
         <a class="to-index" href="2026-10-22.html" data-route="index">All summaries</a>
+        <a class="next" href="#senior-engineers-coding-agents-prod-infrastructure" data-route="article">Beyond Coding &middot; How Senior Engineers Use Coding Agents On Prod Infrastructure &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="senior-engineers-coding-agents-prod-infrastructure" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-22.html" data-route="index">&larr; October 22, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">How Senior Engineers Use Coding Agents On Prod Infrastructure &mdash; October 22, 2026 <span class="dur">&middot; 5:13</span></p>
+        <audio controls preload="none" src="../podcasts/senior-engineers-coding-agents-prod-infrastructure.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/senior-engineers-coding-agents-prod-infrastructure.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="senior-engineers-coding-agents-prod-infrastructure" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="senior-engineers-coding-agents-prod-infrastructure"></div>
+        <div class="episode-download"><a href="../podcasts/senior-engineers-coding-agents-prod-infrastructure.mp3" download>Download senior-engineers-coding-agents-prod-infrastructure.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Beyond Coding</dd></div>
+        <div><dt>Published</dt><dd>October 22, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=LaFpcqAJeQE" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Beyond Coding &middot; Kerim Satirli &middot; Coding agents in production</p>
+        <h2>How Senior Engineers Use Coding Agents On Prod Infrastructure</h2>
+        <div>
+<p>On Beyond Coding, the episode &quot;How Senior Engineers Use Coding Agents On Prod Infrastructure&quot; is a conversation with Kerim Satirli, a senior developer advocate at HashiCorp, an IBM company, about what changes when coding agents are pointed at real production infrastructure instead of weekend prototypes.</p>
+<p>He opens with a warning about prompt rules. Telling an agent to make no mistakes is a polite request, not a guarantee, and telling it not to delete the cluster is not a hard line either. If the agent receives both instructions and they conflict, which one should it follow? His answer is to step away from the nondeterministic part: treat agents as a fancy CI and CD pipeline, run their work through code quality tools and verification, and let deterministic checks decide what is safe to proceed.</p>
+<p>His instincts come from years with Terraform. Early in his career he watched colleagues fix a broken content management system provisioning setup by sending a pull request to the open source provider, and it was merged the next day. Providers later became their own repositories, which made that fix-it-yourself loop much easier. The scale is now enormous: he cites the AWS provider at eight billion downloads and Azure at two billion. The deeper lesson he took is to favor tools that are API first, because anything without an API cannot be codified, verified, or handed to an agent.</p>
+<p>Agents have changed how he handles provider upgrades. He describes himself as a lazy engineer who used to sit on a two-month-old provider release rather than spend time testing a new one. Now his agent tests an upgrade against his specs first. When a recent Cloudflare provider release kept reporting a change diff for a DNS resource that should not have changed, the agent searched the web, found the matching GitHub issue, and reported back with a recommendation to hold off. A week later the next version had the same problem, so they parked it for a month. He argues the safety level went up, because an unexpected result now gets investigated instead of shrugged at and re-applied.</p>
+<p>The open source picture is less comfortable. HashiCorp sees a growing stream of clearly AI-generated pull requests to its providers, and while a bug fix is welcome, the maintenance burden shifts to the maintainers, who have to keep any merged contribution running. He cites one maintainer who received 1,400 pull requests in a single week, and notes that if each one burns five minutes of CI time, the compute alone is substantial, quite apart from the missing tests in many of them. Some projects have shut down external contributions entirely over this, and curl&#x27;s Daniel Stenberg has written extensively about the strain. Many projects now publish a stance on AI contributions, but usually as prose in a readme rather than a hard, agent-readable definition of what must be true before a pull request is even considered. His own position is simple: if an agent operates in your name, its work is your responsibility.</p>
+<p>This is where his idea of the software factory comes in. Roughly half the engineers he knows are building some personal harness around their agents, and he compares it to woodworking, where a proper craftsperson builds their own jigs and tools. A factory channels agents and humans into an agreed way of working: the organization&#x27;s language, its API conventions, documentation in markdown and never in Confluence. Without those constraints, an agent might cheerfully build the whole project in a language nobody on the team wants to maintain.</p>
+<p>The scarce resource, he argues, is human attention. Agents love to write documentation and tests, but a human operator reads at human speed, and a morning report nobody can digest slows every decision down. So he writes specs for his automation: run the tests, and if they pass, say nothing. Fix minor and patch-level problems quietly, and put anything riskier on his list with an assessment attached. His team&#x27;s setup follows the same pattern: sprint to the finish line, but do not cross it until a human says go. Most Terraform runs apply automatically, because otherwise the human stays the blocker, but a small deterministic check at the end flags destructive changes, such as destroying a Kubernetes cluster, and asks him to decide. He gets only a few such interruptions a day, and the list is tuned over time: a backup bucket should never be deleted automatically, while a DNS record can be restored cheaply if something goes wrong.</p>
+<p>That leads him to spec-driven development. He is a fan of the new specification kits, GitHub&#x27;s Spec Kit being the biggest, because they force the thinking into the architecture phase before any code is written. Software engineering used to work that way, he says, more like constructing a building, where you need to know the second floor can rest on the first. With typing speed no longer the limit, the craft moves to intent and design. The hard part now is the road from a cheap prototype to something that meets a team&#x27;s quality bar and can actually ship to a customer.</p>
+<p>He closes on how personal software is becoming. Everyone&#x27;s factory reflects its owner&#x27;s way of working, and generic software that anyone can rebuild should not expect the market to adopt it. His advice to people building for others is to scratch their own itch first: Terraform and Vagrant were built because their creators needed them, and the wider need followed from that.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If prompt instructions are only requests, which operations in an agent pipeline deserve true hard lines, and who should decide where they sit?</li>
+<li>As AI-generated pull requests keep growing, will agent-readable contribution rules become standard for open source projects, or will more of them simply close the door to outside contributions?</li>
+<li>If every engineer builds a personal software factory tuned to their own habits, what happens to the shared tooling and conventions that teams used to hold in common?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> grounded in the full English caption track of this Beyond Coding video on YouTube (video LaFpcqAJeQE), fetched in srv3 format through the Android YouTube player client and saved verbatim to transcript.txt. The player-served title matches the listing title exactly, so there is no title variant to disclose. The summary relies only on what is stated in the conversation; one project name mentioned in the open source discussion is indistinct in the audio and is not relied on here.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#quera-lukin-neutral-atom-quantum-computing" data-route="article">&larr; QuEra Computing &middot; Prof. Mikhail Lukin on the Rise of Neutral-Atom Quantum Computing | QuEra</a>
+        <a class="to-index" href="2026-10-22.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -1267,7 +1314,8 @@
       "interesting-times-white-house-ai-science": "Inside the White House’s Push For More A.I. | Interesting Times",
       "grok-spacexsi-bain-boardrooms-sdlc": "SpaceXSI x Bain: What boardrooms are asking about the SI SDLC",
       "lonsdale-5-ai-experts-predict-next-decade": "5 AI Experts Predict the Next Decade",
-      "quera-lukin-neutral-atom-quantum-computing": "Prof. Mikhail Lukin on the Rise of Neutral-Atom Quantum Computing | QuEra"
+      "quera-lukin-neutral-atom-quantum-computing": "Prof. Mikhail Lukin on the Rise of Neutral-Atom Quantum Computing | QuEra",
+      "senior-engineers-coding-agents-prod-infrastructure": "How Senior Engineers Use Coding Agents On Prod Infrastructure"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
