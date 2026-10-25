@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Saturday &middot; October 24, 2026</p>
-        <h1>11 summaries, distilled.</h1>
+        <h1>12 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -418,6 +418,7 @@
         <a class="card" href="#mts-joel-de-la-garza-system-shutdowns"><span class="num">09</span><span><span class="card-title">System Shutdowns Are Coming in the Next Year | Joel de la Garza</span><span class="card-byline">MTS · Joel de la Garza</span></span><span class="card-dur">4:24</span><span class="listen-state" data-slug="mts-joel-de-la-garza-system-shutdowns"></span></a>
         <a class="card" href="#semidoped-sean-park-rf-over-plastic"><span class="num">10</span><span><span class="card-title">RF Over Plastic Is a Third Option Between Copper and Optics: Point2&#x27;s Sean Park</span><span class="card-byline">Semi Doped · Sean Park</span></span><span class="card-dur">5:28</span><span class="listen-state" data-slug="semidoped-sean-park-rf-over-plastic"></span></a>
         <a class="card" href="#caspa-semiconductor-industry-outlook-panel"><span class="num">11</span><span><span class="card-title">Semiconductor Industry Outlook Panel | CASPA 2026 CEO Summit</span><span class="card-byline">CASPA · Dylan Patel, Stacy Rasgon</span></span><span class="card-dur">6:55</span><span class="listen-state" data-slug="caspa-semiconductor-industry-outlook-panel"></span></a>
+        <a class="card" href="#betterstack-worst-week-cybersecurity"><span class="num">12</span><span><span class="card-title">The Worst Week in Cybersecurity History?</span><span class="card-byline">Better Stack</span></span><span class="card-dur">4:59</span><span class="listen-state" data-slug="betterstack-worst-week-cybersecurity"></span></a>
         </div>
       </nav>
     </section>
@@ -931,6 +932,53 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#semidoped-sean-park-rf-over-plastic" data-route="article">&larr; Semi Doped</a>
         <a class="to-index" href="2026-10-24.html" data-route="index">All summaries</a>
+        <a class="next" href="#betterstack-worst-week-cybersecurity" data-route="article">Better Stack &middot; The Worst Week in Cybersecurity History? &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="betterstack-worst-week-cybersecurity" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-24.html" data-route="index">&larr; October 24, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">The Worst Week in Cybersecurity History? &mdash; October 24, 2026 <span class="dur">&middot; 4:59</span></p>
+        <audio controls preload="none" src="../podcasts/betterstack-worst-week-cybersecurity.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/betterstack-worst-week-cybersecurity.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="betterstack-worst-week-cybersecurity" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="betterstack-worst-week-cybersecurity"></div>
+        <div class="episode-download"><a href="../podcasts/betterstack-worst-week-cybersecurity.mp3" download>Download betterstack-worst-week-cybersecurity.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Better Stack</dd></div>
+        <div><dt>Published</dt><dd>October 24, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=sZaMmVUmq-I" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI-driven vulnerability discovery</p>
+        <h2>The Worst Week in Cybersecurity History?</h2>
+        <div>
+<p>On Better Stack, &quot;The Worst Week in Cybersecurity History?&quot; is host Andras&#x27;s roundup of a week when AI-driven bug discovery seemed to arrive all at once. It opens with an accident. On October 22, Trend Micro&#x27;s Zero Day Initiative sent a batch of Linux kernel vulnerability reports to the wrong mailing list: instead of the private security list, where bugs stay quiet until a fix is ready, they landed on the public Linux kernel mailing list for anyone in the world to read.</p>
+<p>Greg Kroah-Hartman, effectively the kernel&#x27;s second in command, replied to each report asking why it had been sent to the public list. None of the bugs was patched yet, although some had fixes queued. The two worst are both rated 9.0 out of 10 for severity, and both sit in the kernel&#x27;s SMB code: a remote code execution flaw in SMB Direct caused by an integer underflow, and a race condition in KSMBD, the SMB server built into the kernel. The rest of the batch is local privilege escalation flaws in the networking stack and the VMware graphics driver, plus an information leak in the NVMe target code.</p>
+<p>SMB, the protocol behind shared drives and network storage, is dangerous territory for bugs because an SMB server&#x27;s whole job is accepting data from other machines over the network. A flaw there can be reachable by someone who has never logged into the machine at all. Andras notes the precedent: the WannaCry ransomware outbreak in 2017 spread through exactly this kind of bug in Windows.</p>
+<p>The leak was probably a simple addressing mistake, but it fits where the kernel project is already heading. In March, maintainer Willy Tarreau said the regular security lists had gone from two or three reports a week to five to ten a day. In May, Linus Torvalds called the volume almost entirely unmanageable, with different people running the same AI tools over the same code and filing the same bugs. One of this week&#x27;s leaked flaws had in fact been reported by someone else a week earlier. The kernel&#x27;s own documentation now says AI-found bugs should be reported publicly, because, as Torvalds puts it, they are pretty much by definition not secret. Whether Zero Day Initiative used AI to find these particular bugs is not known.</p>
+<p>The kernel story was only one item in a crowded week. The PHP flaw at the center of what the security community has started calling Black October pushed governments and companies to pull websites offline. There was also the eMudhra certificate mess, a GitLab flaw rated 10 out of 10 and dating back to 2014, a remote code execution fix in Node.js, and an Axios report about unauthorized AI agents showing up inside US bank accounts.</p>
+<p>Andras&#x27;s framing is that Black October has so far been a disclosure wave rather than an attack wave. Many of the bugs were found weeks or months ago and simply went public in the same few days. OpenAI says that, to its knowledge, AI found the PHP flaws before attackers did, and most organizations appear to have patched in time.</p>
+<p>The deeper story is what he calls the patch wave, a term the UK&#x27;s National Cyber Security Centre used in a warning back in May. Every company and project carries years of technical debt, and AI is now good enough to dig through all of it at once, so urgent updates arrive in surges instead of a steady trickle. Internal documents reported by ProPublica describe Anthropic&#x27;s Mythos model finding 90 critical and 141 important bugs in SharePoint alone in April, faster than Microsoft could fix them. Microsoft&#x27;s July Patch Tuesday then shipped fixes for more than 600 bugs. Google&#x27;s Chrome 149 and 150 releases fixed 1,072 security bugs between them, more than the previous 23 Chrome releases combined, and one sandbox escape among them had been sitting in the code for over 13 years. Google is now testing security updates twice a week.</p>
+<p>That flips the bottleneck. Finding bugs used to be the slow, expensive part; now it is cheap, and the hard part is triaging, fixing, and shipping patches fast enough, which is precisely what is straining the kernel&#x27;s security list. It is also why AI companies have begun funding security audits of open source projects, including the OpenAI-funded audit that turned up the PHP flaw. The catch is that attackers have access to the same models, and every published patch shows them exactly which code changed, so the window between a fix going out and an exploit appearing keeps shrinking.</p>
+<p>A second front is opening around AI agents themselves. The bank story matters, Andras argues, because banks cannot always tell whether an agent operating inside a customer&#x27;s account is acting for that customer or doing something else. Most are moving toward letting agents read account information without letting them take actions.</p>
+<p>There is a hopeful counterweight. Google&#x27;s Chrome security team told Wired that for a mature product, new findings start to drop off once most of the bugs AI can find have been fixed, so the flood may settle, at least for software that keeps up. The practical advice is to treat patching as a continuous process: have an update-by-default policy, start with whatever is exposed to the internet, automate updates where possible, and plan to replace anything that can no longer be patched. For this week specifically: update PHP, watch for the kernel&#x27;s SMB fixes, unload KSMBD if you do not use it, and update GitLab and Node.js while you are at it.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If discovery is now cheap and the bottleneck is triage and patching, who pays for that work in the open source projects everything else depends on?</li>
+<li>Will public-by-default handling of AI-found bugs hold up once attackers are mining the same disclosures and patches in real time, or does the fix-to-exploit window shrink until quiet embargoes return?</li>
+<li>As AI agents gain access to bank accounts and other sensitive systems, how will institutions tell an agent acting for its customer from one doing something else, and is read-only access a stable answer?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full English auto-generated caption track of the video (the original-language ASR track in srv3 form), fetched with yt-dlp after the Android, iOS, and web-embedded player clients all refused with login-required errors. The player-served title is &quot;The Worst Week in Cybersecurity History?&quot;; the listing in the commissioning screenshot read &quot;AI Broke Cybersecurity This Week (Bla…&quot;, and the player title is used here, with the variant disclosed. The captions garble a few names, which are normalized to their published spellings: Phoronix (heard as &quot;For Honor&quot;) and Anthropic&#x27;s Mythos model (heard as &quot;Prophecy&#x27;s Mythos&quot;). Bug counts and severity figures are the video&#x27;s own, as reported there, including the ProPublica-reported SharePoint figures and the Chrome totals.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#caspa-semiconductor-industry-outlook-panel" data-route="article">&larr; CASPA</a>
+        <a class="to-index" href="2026-10-24.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -952,7 +1000,8 @@
       "20vc-naveen-rao-inference-10trn-market": "Inference Will Be $10TRN Market: What No One Sees | Software Investors are F***ed | Naveen Rao",
       "mts-joel-de-la-garza-system-shutdowns": "System Shutdowns Are Coming in the Next Year | Joel de la Garza",
       "semidoped-sean-park-rf-over-plastic": "RF Over Plastic Is a Third Option Between Copper and Optics: Point2's Sean Park",
-      "caspa-semiconductor-industry-outlook-panel": "Semiconductor Industry Outlook Panel | CASPA 2026 CEO Summit"
+      "caspa-semiconductor-industry-outlook-panel": "Semiconductor Industry Outlook Panel | CASPA 2026 CEO Summit",
+      "betterstack-worst-week-cybersecurity": "The Worst Week in Cybersecurity History?"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
