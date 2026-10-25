@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Saturday &middot; October 24, 2026</p>
-        <h1>6 summaries, distilled.</h1>
+        <h1>7 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -413,6 +413,7 @@
         <a class="card" href="#yc-open-model-tokens-not-same"><span class="num">04</span><span><span class="card-title">Why Inference Matters 12x More Than Training | YC Paper Club</span><span class="card-byline">Y Combinator &middot; Dan Fu, Jeff Morgan, Joe Fioti, Lianmin Zheng</span></span><span class="card-dur">9:38</span><span class="listen-state" data-slug="yc-open-model-tokens-not-same"></span></a>
         <a class="card" href="#sourcery-parag-agrawal-next-web"><span class="num">05</span><span><span class="card-title">AI Agents Could Drive 10,000x More Web Activity | Former Twitter CEO</span><span class="card-byline">Sourcery with Molly O'Shea &middot; Parag Agrawal</span></span><span class="card-dur">6:07</span><span class="listen-state" data-slug="sourcery-parag-agrawal-next-web"></span></a>
         <a class="card" href="#mckinsey-what-is-forward-deployed-engineer"><span class="num">06</span><span><span class="card-title">What Is a Forward-Deployed Engineer?</span><span class="card-byline">McKinsey &amp; Company</span></span><span class="card-dur">5:24</span><span class="listen-state" data-slug="mckinsey-what-is-forward-deployed-engineer"></span></a>
+        <a class="card" href="#natebjones-black-october-ai-keys"><span class="num">07</span><span><span class="card-title">Black October Isn&#x27;t Just A PHP Bug. Attackers Want Your AI Keys.</span><span class="card-byline">AI News &amp; Strategy Daily | Nate B Jones</span></span><span class="card-dur">6:29</span><span class="listen-state" data-slug="natebjones-black-october-ai-keys"></span></a>
         </div>
       </nav>
     </section>
@@ -686,6 +687,53 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#sourcery-parag-agrawal-next-web" data-route="article">&larr; Sourcery with Molly O'Shea</a>
         <a class="to-index" href="2026-10-24.html" data-route="index">All summaries</a>
+        <a class="next" href="#natebjones-black-october-ai-keys" data-route="article">AI News &amp; Strategy Daily | Nate B Jones &middot; Black October Isn&#x27;t Just A PHP Bug. Attackers Want Your AI Keys. &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="natebjones-black-october-ai-keys" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-24.html" data-route="index">&larr; October 24, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Black October Isn&#x27;t Just A PHP Bug. Attackers Want Your AI Keys. &mdash; October 24, 2026 <span class="dur">&middot; 6:29</span></p>
+        <audio controls preload="none" src="../podcasts/natebjones-black-october-ai-keys.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/natebjones-black-october-ai-keys.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="natebjones-black-october-ai-keys" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="natebjones-black-october-ai-keys"></div>
+        <div class="episode-download"><a href="../podcasts/natebjones-black-october-ai-keys.mp3" download>Download natebjones-black-october-ai-keys.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>AI News &amp; Strategy Daily | Nate B Jones</dd></div>
+        <div><dt>Published</dt><dd>October 24, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=qDYe2eTl_D4" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Black October and AI key theft</p>
+        <h2>Black October Isn&#x27;t Just A PHP Bug. Attackers Want Your AI Keys.</h2>
+        <div>
+<p>On AI News &amp; Strategy Daily, Nate B. Jones argues that the wildest week in cybersecurity he can remember adds up to a turning point he calls Black October. His core claim is that AI tokens now behave like cash. Anyone who has pasted an AI key into an app is exposed: a stolen key lets an attacker run models on the victim&#x27;s account, or sell that access on, while the victim gets the bill. The defense, he says, is not to hold back. It is to put the strongest available intelligence on the defending side.</p>
+<p>The week&#x27;s centerpiece is PHP, the software underneath a large share of the web, including much of WordPress. On October 21, PHP released fixes for two critical vulnerabilities. Under Apache&#x27;s mod_php setup, an attacker could get code running ahead of a website&#x27;s own application code, effectively hijacking the platform before the site&#x27;s defenses start. Security agencies in the UK and Europe responded by telling organizations to isolate or take down affected systems they could not patch quickly, a step Jones describes as close to a nuclear option: governments telling businesses to interrupt themselves because the layer underneath is unsafe.</p>
+<p>A second incident shows how fragile the internet&#x27;s trust chain is. The certificate issuer eMudhra, whose certificates help browsers decide whether a site is genuine, had eight private keys that were trivially weak. Security researcher Scott Helme recovered them in less than a second, and one supposedly secret key, which should run to hundreds of digits, was the number four. Because eMudhra sat in the chain of automatically trusted root issuers, one company&#x27;s mistake could cascade across the internet. Jones notes that Helme used Claude to recover the keys with a single prompt. Mozilla, Cloudflare, and Vercel moved within hours to shield the sites behind their platforms, acting as a front line for site owners who had not yet patched.</p>
+<p>The offensive side is industrializing too. Microsoft has documented a China-aligned group using an AI agent framework to target hundreds of organizations, mostly failing, but in some cases reaching privileged cloud access within a couple of hours. One vector is the proxy attack, where credentials customers previously trusted are turned against other surfaces. Jones&#x27;s explanation for the surge is structural. An agent can read unfamiliar code, notice something suspicious, write a test, run it, find its first explanation wrong, and keep going, and it never gets tired. Offense and defense are that same loop, which is why he warns that safeguards designed to restrain offensive models are tripping up defenders during emergencies, and why he urges companies to secure access to the strongest defensive models now rather than save money on weaker ones.</p>
+<p>Two forces make the old timetable impossible. First, attacks have become cheap: a target company should assume it faces not a large state operation but one person running a fleet of agents. Second, maintenance lags. PHP&#x27;s maintainers had seen signs of one flaw back in 2024, but the fix carried compatibility risks, demanded scarce expert time, and stalled in trade-off discussions. AI removes the time those two-year deliberations used to assume. The scale of what is surfacing is large: Jones cites Anthropic reporting more than 29,000 candidate vulnerabilities from six months of scanning important software projects, with about 6,000 reviewed so far, and raises the possibility of millions of undiscovered weaknesses across everyday software.</p>
+<p>The key theft risk is concrete, not theoretical. LiteLLM, a popular tool that connects applications to AI models, disclosed in October that a release contained credential-stealing malware, after an earlier compromise in March. Jones walks through an illustrative investigation: a gateway built on LiteLLM, a source repository that reads clean, a gateway someone has already upgraded. The trap is that the official source tag was clean while the distributed release carried malicious files, so reading the code does not establish what actually ran. The real question is which code executed, and in his scenario a build job that ran hours earlier held an identity able to retrieve production provider keys, so the exposure survives after the malicious process is gone. His test for choosing a defensive model follows from that: give candidate models the same evidence and tools inside a reproduced incident whose answer is known, and see which one digs past the clean repository to the build record and the keys it could reach.</p>
+<p>The same week showed the pattern at small-company scale. On October 21, the founder of a small AI startup took his own service offline for several hours after warnings that the company&#x27;s Anthropic and Stripe keys had been compromised, as part of a breach at the hosting provider Railway. Jones praises the move: stopping the service let the founder regain control and document what happened for customers who had incomplete information. He pairs that praise with a demand for transparency. Companies hit by a breach owe customers a clear account of what was exposed, whether access has stopped, and what to do next, not a reassurance that everything is fine.</p>
+<p>Jones also warns that the defensive tools can wound their owners. LiteLLM reports cases where Claude Code placed a user&#x27;s GitHub credential into a response that could end up in logs, and he describes websites that ask visiting agents to declare themselves, a request some agents answer by altering the URL they post in ways that can leak personal information such as an email address. His answer is defense in depth and a measure of paranoia, including asking your own AI to audit your setup.</p>
+<p>The longer-term fix, he argues, is shrinking what attackers can reach before the next bug arrives. He cites Anthropic work across 25 projects that found almost 500 opportunities to reduce exposed code and unsafe configuration interactions, including an OpenSSH case where complicated signature-handling code could be reached before authentication even when the algorithm was disabled, code then removed in OpenSSH 10.6. Patching faster is necessary but not sufficient; systems also need their chained weaknesses understood and cut down in advance. The spending has already started: Jones notes Bank of America took a charge of a couple of hundred million dollars in the last quarter to hire cyber defenders.</p>
+<p>For individuals, the episode closes with five actions. Update browsers, phones, operating systems, and apps, and finish the restart so updates take effect. Audit the connected-app settings on important accounts, starting with email and files, and remove or narrow anything unused. Review browser extensions and restrict their site access where the browser allows it. Use a password manager with a unique password per account, turn on multifactor authentication, and agree on a family voice passphrase against voice fakes. When a breach notice arrives, act on it: change exposed passwords, revoke affected app connections, check with credit bureaus if identity data may be involved, and, for developers, rotate API secrets. A companion Substack post carries the full LiteLLM investigation as a test bed, two copyable audit prompts, and talk tracks for the board, the CFO, engineering, and vendors.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If a single individual with a fleet of agents can now mount attacks that once took a state-sized team, what level of defensive spending and model access becomes the baseline expectation for an ordinary company, and who bears that cost for small firms?</li>
+<li>Safeguards meant to restrain offensive AI keep tripping up defenders mid-incident, by this account. Where should the line sit so that the strongest models are available for defense without making the same capability freely available for attack?</li>
+<li>Jones argues the real fix is reducing exposed code and chained configuration weaknesses before bugs are found. Can that proactive shrinking keep pace with agents surfacing candidate vulnerabilities by the tens of thousands, or does the backlog grow faster than it can be cut?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the video&#x27;s full YouTube ASR caption track (English, srv3), fetched with yt-dlp and saved as transcript.txt in the build directory (4,161 words). This is a different video from the Oct 23 Equity Podcast piece on the same Black October topic; it was built as its own card from its own transcript. ASR spellings were normalized to the published forms where the caption was clearly wrong (eMudhra for &quot;Emudra&quot;, LiteLLM for &quot;Light LLM&quot;, Scott Helme for &quot;Scott Helm&quot;, Vercel for &quot;Verscell&quot;, Mozilla for &quot;Misilla&quot;, Anthropic for &quot;Enthropic&quot;); figures such as the 29,000 candidate vulnerabilities and the Bank of America charge are the video&#x27;s own cited numbers, reported here as the video states them.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#mckinsey-what-is-forward-deployed-engineer" data-route="article">&larr; McKinsey &amp; Company</a>
+        <a class="to-index" href="2026-10-24.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -702,7 +750,8 @@
       "willphillips-24hrs-yc-startup-108m": "24hrs Inside a YC Startup That Raised $108M to Solve a Major Enterprise AI Bottleneck",
       "yc-open-model-tokens-not-same": "Why Inference Matters 12x More Than Training | YC Paper Club",
       "sourcery-parag-agrawal-next-web": "AI Agents Could Drive 10,000x More Web Activity | Former Twitter CEO",
-      "mckinsey-what-is-forward-deployed-engineer": "What Is a Forward-Deployed Engineer?"
+      "mckinsey-what-is-forward-deployed-engineer": "What Is a Forward-Deployed Engineer?",
+      "natebjones-black-october-ai-keys": "Black October Isn't Just A PHP Bug. Attackers Want Your AI Keys."
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
