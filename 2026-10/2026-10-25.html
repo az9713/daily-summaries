@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - October 25, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Sunday &middot; October 25, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#lennys-podcast-rob-snyder-product-market-fit"><span class="num">01</span><span><span class="card-title">How to find product-market fit (but, actually) | Rob Snyder (Author, The Power of Pull)</span><span class="card-byline">Lenny's Podcast &middot; Lenny Rachitsky, Rob Snyder</span></span><span class="card-dur">12:41</span><span class="listen-state" data-slug="lennys-podcast-rob-snyder-product-market-fit"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="lennys-podcast-rob-snyder-product-market-fit" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-25.html" data-route="index">&larr; October 25, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">How to find product-market fit (but, actually) | Rob Snyder (Author, The Power of Pull) &mdash; October 25, 2026 <span class="dur">&middot; 12:41</span></p>
+        <audio controls preload="none" src="../podcasts/lennys-podcast-rob-snyder-product-market-fit.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/lennys-podcast-rob-snyder-product-market-fit.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="lennys-podcast-rob-snyder-product-market-fit" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="lennys-podcast-rob-snyder-product-market-fit"></div>
+        <div class="episode-download"><a href="../podcasts/lennys-podcast-rob-snyder-product-market-fit.mp3" download>Download lennys-podcast-rob-snyder-product-market-fit.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Lenny's Podcast</dd></div>
+        <div><dt>Published</dt><dd>October 25, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=19qrLchbQEc" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Lenny's Podcast &middot; Rob Snyder &middot; The PULL framework for product-market fit</p>
+        <h2>How to find product-market fit (but, actually) | Rob Snyder (Author, The Power of Pull)</h2>
+        <div>
+<p>On Lenny&#x27;s Podcast, the episode &quot;How to find product-market fit (but, actually) | Rob Snyder (Author, The Power of Pull)&quot; is a long conversation between host Lenny Rachitsky and Rob Snyder, whose book and framework grew out of his own bruising years as a founder. Snyder has since helped roughly fifty startups go from zero to over a million dollars in annual revenue, and his whole approach can be stated in one line: stop trying to convince people to want your product, and instead find the people who are already trying to pull it out of your hands.</p>
+<p>His origin story explains the conviction. As a founder he did everything the standard advice prescribes. He found hair-on-fire pain points, offered a differentiated solution with real value, and had design partners using the product every day, and still spent two years smashing into a wall, pivoting without understanding why. A later, almost accidental pivot took off, and he concluded that pain points and value propositions were never the thing that makes someone buy. What makes someone buy is a priority: a project they are actively trying to get done right now that their existing options cannot get done.</p>
+<p>That is the pull framework, and it is an acronym. P is a project on someone&#x27;s to-do list, something like hiring more employees rather than buying recruitment software. U is unavoidable: the project has to happen now, for some concrete reason, not eventually. The first L is the list of options the person has already considered for getting the project done, which might be doing it themselves, hiring someone, or using tools already on the market. The second L is the limitations of those options, the reasons none of them are good enough. Snyder is emphatic that all four have to be present at once. Find a project without the unavoidable, and people will complain and not buy. Find the project and the urgency but with options that are good enough, and they will simply do it themselves.</p>
+<p>His favorite worked example is Jump, an AI notetaker for financial advisors. The project on every advisor&#x27;s list is minimizing the time spent taking client meeting notes and entering them into a CRM. It is unavoidable because the notes are legally required, with real regulatory exposure if they are skipped. The options advisors had tried, generic AI notetakers, were limited in a specific way: they did not integrate with advisor CRMs, and it was unclear whether they complied with SEC rules. So when Jump showed up built exactly for that gap, advisors ripped it out of the founders&#x27; hands, after the same founders had spent eighteen months hitting their heads against the wall. The contrast case is insurance agents, who have the identical project but no unavoidable, since nothing requires them to log meeting notes at all. Same product, same project, no pull.</p>
+<p>Two refinements matter. First, pull is a property of a person, not a company. You are never selling to SpaceX; you are selling to the head of legal at SpaceX, who has a specific project stuck on her to-do list. Second, the test of pull is behavioral. A person with pull behaves as if it would be weird not to buy: they ask how to get started and whether the product exists yet. Everyone else is, in Snyder&#x27;s terms, weird to buy, and they will say enthusiastic, complimentary things that sound encouraging and mean nothing. Pull, crucially, exists before you arrive and independent of you. You cannot manufacture it by persuading harder. You can only go find it, which he describes as liberating, because it replaces self-blame with a search problem.</p>
+<p>For coming up with ideas, his advice is to earn the insight firsthand rather than brainstorm product concepts, which he admits tend to sound unhinged on paper. One friend had no product idea at all, only a wish to serve small businesses, so he shadowed industry after industry, riding along with solar panel installers before landing on independent physical therapists, spending days watching over their shoulders and even considering buying a franchise to see the books. The pull only became visible by observation: a specific cost the therapists were trying to cut and could not cut with the options available. Across the fifty or so companies Snyder has worked with, he estimates about ten percent of the ideas came from the founder&#x27;s own experience and ninety percent from going to get firsthand experience. Solving your own problem qualifies, with a catch: it only counts if you honestly would have paid someone to solve it for you, the way Emily at Clearly AI, formerly a security engineer at AWS, would have paid for the thing she ended up building. Sara Blakely tearing the feet off her pantyhose because she needed them gone before an event is his consumer-side example.</p>
+<p>Once you have an insight, you turn it into a pull hypothesis, written in a fixed template: there is a project on your to-do list, it is unavoidable right now for this reason, the options you have looked into are these, and they fall short in this way. Then you show it to the person, ideally on two slides, one stating what you heard and asking whether you have it roughly right, and one sketching how you could help. What you are watching for is what he calls a pull-shaped action: they try to buy, asking how it works and how to move forward now, rather than leaning back with praise and a request for more information to review later. And you check that it repeats, talking to a handful of similar people, so you are not building a company for an audience of one.</p>
+<p>When a conversation lands lukewarm, which is most of the time, he throws what he calls the Hail Mary: is there anything on your to-do list that you would pay me to do right now? It sounds like a surrender and works like a probe. One company trying to sell an applicant tracking system to governments heard, after the Hail Mary, that what the buyer would actually pay for was help with job descriptions, and that became their first contract and the seed of a fast-growing company. Snyder, a self-described mega introvert, says the question also reframes selling itself: you are not pressuring anyone, you are simply checking whether they are stuck on something you might help with. If they are not, you have learned something cheaply.</p>
+<p>The traps he warns about are building first, heads down, because you believe people have to see the thing to get it, which delays the cold wind of reality for months, and design partners. He has yet to see a design partnership help. In his telling, design partners agree to your vision, give you generous feedback, play at being Steve Jobs, and never buy, because people who genuinely have something urgent to get done do not want to co-design your product. They want it done.</p>
+<p>Getting the first calls is its own craft. His target is two to three customer conversations a day, and his cold outreach is deliberately not a pitch. He calls it founder magic: one or two sentences saying something true and interesting about you, with no value proposition attached. One startup&#x27;s entire message was that Snoop Dogg had invested in them and they thought the recipient might find that interesting too. Others have used dropping out of a PhD, having been Sam Altman&#x27;s chief of staff, or having worked at the family plumbing company in high school, matched to who the customer is. He has not seen AI personalization work at this stage, because it tends to tell people things they already know about themselves and reads as machine-written. On LinkedIn he suggests adding a hundred or more people a week and messaging those who accept; his benchmarks are that thirty to forty percent should accept, a good share of those should reply, and most replies should be an easy yes. If your numbers fall well short, the message or your profile is the problem.</p>
+<p>The call itself runs about thirty minutes and has two steps, discovery and then a small conceptual pitch. His opening question is disarming: why did you take this call with me today? Often the answer fills in the whole pull framework unprompted. Then he sets an agenda with the customer and asks permission to ask a few questions about their context, which earns him the right to run discovery without it feeling like an interrogation. The discovery questions carry the framework inside them: is there anything you are trying to do that you have been unable to do with your existing tools, methods, or team? The two frightening follow-ups are whether it is actually okay to leave the project undone for now, and whether the options they have already looked into are, in fact, good enough. Hearing yes to either saves you from spending years pushing something nobody needs. Once pull is established, the pitch stays small: restate what they are looking for in plain terms and let them pull more detail out of you. His cadence is roughly five calls, then stop and ask honestly whether any pull appeared and what was learned. The mindset throughout is selling to learn, not selling to push, and the feeling of pushing, of having to convince, is itself the red flag.</p>
+<p>On quality bars, he rejects the idea that a product must be ten times better than the incumbent. If a customer&#x27;s options cannot get the job done at all and yours can, you are not slightly better, you are infinitely better, because you unblock them. The popular reading of Linear beating Jira on craft only works, in his analysis, if some users were actually blocked by Jira&#x27;s experience; he tried the better-experience play himself in HR software and failed, because the buyers there simply did not care how dated their systems looked. The stronger the pull, the faster everything moves: he has watched enterprise deals close in two weeks that would once have taken eighteen months.</p>
+<p>Closing, when there is pull, is mostly concept, plan, and project management. One founder who heard a Hail Mary answer from a pharma executive about slow market research went away with no slides at all, mocked up a rough version of the thing within days, got feedback, and moved to price. Price itself is bounded by the framework: the value of getting the project done, or the cost of the current alternatives, such as what the customer already pays consultants each year. Early on he cares more about testing willingness to transact than willingness to pay, and when a big number is needed he floats it as a case study for the buyer to react to, noting that others have landed anywhere from a modest project fee to a million dollars, and asking how they are thinking about it. What he will not do is give the product away in a design partnership, which converts someone who needs a problem solved now into someone helping you build, a negative signal to exactly the customers you want. You may sell something service-shaped at first, delivered partly by humans while the product is built behind it, which validates the pull while you learn what to automate. For larger deals, his project management trick is to ask the champion when the project must be showing results by, then work backwards from that date, turning it into a forcing function for every step in between.</p>
+<p>If the first batch of calls finds no pull, the loop repeats: review the calls, salvage what the Hail Marys surfaced, form a new hypothesis, and run five more calls. Getting it right the first time has happened to him once or twice. His break-glass option is what he calls goblin mode, doing unreasonable things to get in front of customers right now, like flying to a conference that starts tomorrow or, in the case of the dental staffing company Tiro, having the founder&#x27;s parents go door to door to dental offices. Staying stuck, he argues, is the worst outcome, and time in the zero-to-one pain cave is the thing to minimize.</p>
+<p>What happens after the sale surprised him most. Every customer, he says, is guaranteed to churn until they cross some threshold after which it would be weird for them to leave, and all of delivery is about finding that threshold and building a bullet train that gets every customer to it. For Slack the indicator was a volume of messages sent early on. For his own restaurant retention software, it was the customer receiving, within the first two weeks, a warning that an employee was about to quit which they then prevented; after that moment they told their friends and never left. So he advises delivering firsthand as well, and continually asking what would make this customer weird to churn. When churn is rampant instead, the pattern is diagnostic: one horizontal AI workflows product losing almost everyone discovered that freight forwarders kept using it for one specific workflow, and pivoted the entire company into a premium product for that niche.</p>
+<p>All of this folds into his final model, the case study factory. A customer with pull who gets unblocked and stays is, structurally, a case study: they were trying to do something, their options fell short for a specific reason, and you offered the thing that got it done. So a startup, in his model, is not a pile of functions but a machine for repeating one case study indefinitely, with three stations: pipeline, which gets people talking to you; sales, which turns them into customers; and delivery, which makes them weird to churn. Founders who see the factory can borrow the theory of constraints from manufacturing and ask which single station is the bottleneck right now, then put everything into that one until it moves. The case study also becomes the sales tool, since you can show a prospect the story and ask whether it is relevant to them, and a disqualification tool when it plainly is not. His summary line: we do not make software here, we make case studies. The customers he is hunting throughout are what he calls hell yes customers, people who are weird not to buy before the sale and weird to churn after it, and the job is simply to find more people who resemble them.</p>
+<p>The framework is not only for startups. He is helping established companies launch second products whose founders are running the same play against existing customers, selling features before building them, and he notes that at one mature company every product idea that worked originated in a sales call where a customer asked, in effect, could you also do this other thing for us, while every whiteboarded idea failed. His closing image is a metal detector on a beach. The framework does not guarantee treasure where you are standing, but it beats searching the sand with a spoon.</p>
+<p>In the lightning round, his most recommended books are Christopher Alexander&#x27;s four-volume The Nature of Order, his comfort rewatches are the most recent Pride and Prejudice and The Penguins of Madagascar, the AI product he reaches for is Muse, and his motto is that life is what you make of it. His tarpit idea is entering a space with a clear winner and no theory of how you would be different, the founder&#x27;s version of assuming a modestly better product is enough. As he puts it, you could offer him a printer for his house that was a hundred times better and he would not buy it, because he is not blocked.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>The framework says pull cannot be created, only found. How should a founder distinguish, in practice, between a market where no pull exists yet and one where pull exists but their outreach or hypothesis is simply pointed at the wrong person?</li>
+<li>Snyder&#x27;s benchmarks for cold outreach, and the five-call check-in, come from B2B software. Do the same numbers hold for founders selling into slower, relationship-driven industries, or does the loop need different calibration there?</li>
+<li>The case study factory model assumes one repeatable case study is the goal. How does a company know when repeating the case study is leaving a larger adjacent opportunity unbuilt, and when should it deliberately start a second factory?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s full English auto-generated caption track (17,235 words), saved verbatim as transcript.txt in the build directory. The yt-dlp caption route was rate-limited (HTTP 429) and both Android player clients returned login-required, so the track was fetched as an srv3 caption file through the iOS YouTube player client, where playability was OK. Sponsor segments (WorkOS and DX) appear in the transcript and are not summarized. The episode&#x27;s search-index and newsletter title is &quot;An 86-minute guide to finding PMF | Rob Snyder (Author, The Power of Pull)&quot;; the summary uses the watch page&#x27;s own title, &quot;How to find product-market fit (but, actually) | Rob Snyder (Author, The Power of Pull)&quot;, as given in the commission. A few figures in the captions are garbled in the usual ASR way (percentages and the Slack retention threshold among them) and are rendered here in the hedged form the captions support.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-10-25.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated October 25, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "lennys-podcast-rob-snyder-product-market-fit": "How to find product-market fit (but, actually) | Rob Snyder (Author, The Power of Pull)"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+</body>
+</html>
