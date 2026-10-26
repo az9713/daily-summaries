@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - October 26, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Monday &middot; October 26, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#diaryofaceo-mark-cuban-fear-bigger-danger"><span class="num">01</span><span><span class="card-title">Mark Cuban: The Brutal Truth About The Next Market Crash!</span><span class="card-byline">The Diary Of A CEO &middot; Mark Cuban</span></span><span class="card-dur">8:29</span><span class="listen-state" data-slug="diaryofaceo-mark-cuban-fear-bigger-danger"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="diaryofaceo-mark-cuban-fear-bigger-danger" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-26.html" data-route="index">&larr; October 26, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Mark Cuban: The Brutal Truth About The Next Market Crash! &mdash; October 26, 2026 <span class="dur">&middot; 8:29</span></p>
+        <audio controls preload="none" src="../podcasts/diaryofaceo-mark-cuban-fear-bigger-danger.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/diaryofaceo-mark-cuban-fear-bigger-danger.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="diaryofaceo-mark-cuban-fear-bigger-danger" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="diaryofaceo-mark-cuban-fear-bigger-danger"></div>
+        <div class="episode-download"><a href="../podcasts/diaryofaceo-mark-cuban-fear-bigger-danger.mp3" download>Download diaryofaceo-mark-cuban-fear-bigger-danger.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>The Diary Of A CEO (Mark Cuban)</dd></div>
+        <div><dt>Published</dt><dd>October 26, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=6VTSAs4Rsck" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">The Diary Of A CEO &middot; Mark Cuban &middot; Fear, preparation, and the next crash</p>
+        <h2>Mark Cuban: The Brutal Truth About The Next Market Crash!</h2>
+        <div>
+<p>On The Diary Of A CEO, the episode &quot;Mark Cuban: The Brutal Truth About The Next Market Crash!&quot; is a ninety-minute conversation between host Steven Bartlett and the billionaire investor and former Dallas Mavericks majority owner. It moves from Cuban&#x27;s Pittsburgh childhood and his start as a door-to-door salesman to his sharpest current claims: that AI is not actually smart, that the AI buildout is being financed with dangerous amounts of debt, and that what frightened people do about AI worries him more than the technology itself.</p>
+<p>Cuban grew up blue collar. His father did car upholstery and never earned more than $40,000 a year, and his mother worked odd jobs. His father&#x27;s refrains stayed with him: you do not live in the world you were born into, and today is the youngest you will ever be. Whatever hustle the young Cuban had going, his father backed it, and he credits that support, and the example of a father who made friends everywhere he went, more than any formal training.</p>
+<p>Selling came first. At nine or ten he was repackaging baseball cards and reselling them at a markup, and at twelve he went door to door selling garbage bags his father&#x27;s poker buddy supplied at $3 a box, which he sold for $6. Door-to-door selling, he says, catapulted him more than anything, because it teaches you to handle objections and hear no without folding. His principles of selling are plain: care about the customer, know your product, and help people reach their own goals rather than talking them into something against their interest. No business, he notes, has ever succeeded without sales.</p>
+<p>His first company, MicroSolutions, began after he was fired from a software store job for leaving to pick up a $1,500 commission check his boss had told him not to fetch. He was broke, sleeping on the floor of an apartment shared with five roommates, and he treated each month of survival as a win. The company was profitable every single month of its eight years, and it sold for $5 million, of which he netted $2 million. Against the usual founder mythology, he argues that most young people hold two misconceptions: that you have to raise money, and that big sales numbers matter more than being profitable. The realistic prize, he says, is not billions but the few million to $100 million that a far larger number of people actually reach.</p>
+<p>The path there, in his telling, is focus. Having three ideas does not triple your odds, it divides you. You find the one thing you can be great at, and greatness follows where you spend your time rather than where your passion points. He was passionate about baseball and basketball and it got him nowhere. His advice to people who feel trapped in a job is unglamorous: do not hunt for the perfect job, just get a job, get genuinely good at it, and be brutally honest with yourself about what you are bad at, because doors open for people who are demonstrably good at something. He reaches for a book he read in high school, Why Men Rebel, for the darker side of the same point: when people&#x27;s aspirations sit far above the lives they feel they are living, frustration curdles into rebellion.</p>
+<p>What looked like sacrifice in his twenties, he calls deferring immediate gratification. He taught himself software by staying in the store overnight and reading manuals until, as he puts it, the only person who understood a program better than him was the person who wrote it, and everyone else was at best tied with him for second. He applies the identical method to each new AI model today. His lodestar, borrowed from basketball coach Bobby Knight, is that everyone has the will to win but only those with the will to prepare actually do. Preparation, though, is invisible: nobody posts the hours spent reading manuals, and he blames recommendation algorithms, and the get-rich-quick schemes they fed his own teenage son, for teaching a generation to expect the trophy without the work.</p>
+<p>He bought the Mavericks, he admits, not on any long horizon but because it sounded fun and posed an intellectual challenge: could he turn the worst professional sports franchise of the previous decade into a winner? He paid $285 million in 2000 and sold his majority stake in 2023 for a $4.3 billion valuation, keeping 27 percent. The rebuild was cultural before it was tactical. He assigned every player a dedicated development coach recruited from former Mavericks, bought a team plane so seven-footers would not fold into commercial seats, added nutrition staff, and hired his old statistics professor Wayne Winston as the NBA&#x27;s first full-time analytics hire. The team went from 9 wins and 23 losses when he arrived to winning 31 of its remaining 50 games that season, and won the championship in 2011, an experience he remembers less for his own elation than for the city&#x27;s communal joy. He sold, he says, because the business had drifted from basketball to valuations and real estate, and because his children&#x27;s remaining years at home had become the scarcer asset.</p>
+<p>On AI, Cuban is simultaneously an enthusiast and a dissenter. The technology dwarfs everything else he has seen, and he calls it a democratizer of information: anyone with a phone now sits in front of every library and every expert. The world&#x27;s problem, he argues, is cognitive dissonance, the discomfort of a technology that threatens jobs and identities, which most people relieve by denial. Wherever there is change there is opportunity, and most people simply will not do the work of learning it.</p>
+<p>His headline claim is that AI is not smart. It is predictive, not deterministic: ask four models the same question and you get four different answers, and nudge the wording and the same model changes its mind. It does not know the consequences of its actions and has no inherent ethics. Given a phone full of AI and a seeing-eye dog at a busy intersection, he would trust the dog. A two-year-old in a high chair understands that pushing a sippy cup off the tray brings a parent running, and he does not believe AI will ever figure that out. Smart, in his definition, means aggregating inputs, knowing where to find them, and above all identifying which problem to solve, in real time, with your senses. What would change his mind is intelligence on minimal resources: a system that asks and solves hard questions without mountains of GPUs, the way a brilliant kid from the worst circumstances figures things out with nothing.</p>
+<p>He uses the tools heavily himself. Around twenty-five agents run on his phone, and for Cost Plus Drugs they watch the big healthcare conglomerates he is fighting, flagging lawsuits and contract bids and drafting public-records requests he could never have staffed before. Work he might once have given an intern now gets done, and the leverage frees him for higher-level hires and, he notes, let him read a nonfiction book for the first time in twenty-five years. His children, now 17, 20 and 23, get one instruction: learn agents, because the person who does will be far more productive than the person who does not. The human edge, he says, is judgment: integrating what the models return, deciding what is right, and then selling it.</p>
+<p>On security he is similarly deflationary. Asked whether AI attackers invented anything new, security people tell him no: the models run the same checklists every defender has, just in every possible combination, at brute-force scale. The same brute force is available to the defense. He is not a doomer. What actually frightens him is what people do out of fear and misunderstanding of AI, a reaction he expects to include protest and refusal, communities that opt out of the technology entirely, and adversarial tricks that make systems misbehave. He also warns researchers that publishing or patenting everything now hands it straight to every model, which is pushing valuable knowledge toward trade secrecy and fragmenting what each model knows.</p>
+<p>The market, he says flatly, is in a bubble, though not the 2000 kind. Everything now trades like a meme stock, Bitcoin, Micron, Google and Apple included, priced like baseball cards on what the next buyer might pay rather than on the value of future cash flows: a company can beat earnings by a penny and fall 18 percent. He does not know what bursts it. Some giants will survive a crash the way Amazon and Dell did and become worth trillions, but he cannot name the winners in advance. His own posture is patience: keep cash, buy a little for fun, and wait, because the real money is made in bear markets, as his COVID buying showed.</p>
+<p>The debt underneath the boom is his deeper worry. Progress, he argues, should mean less power doing more, yet the industry is doing the opposite, and the gap is being filled with borrowing. Hyperscalers are borrowing more than they make, Nvidia is effectively subsidizing half the industry, and the United States already pays a trillion dollars a year in interest, with the ten-year rate around 5.2 percent. If rates climb toward 6, 8 or 10 percent, something gets crowded out and something gives. He cites Ray Dalio&#x27;s view that the US and UK are late in a debt cycle of decline, concedes pain is coming even if America figures it out, and describes his own defense plainly: money spread across countries, less invested than usual, and time spent watching. He calls the overbuilt data centers of this era future pickleball courts, a metaphor for capacity built for a demand that arrives in a different shape than the lenders assumed.</p>
+<p>Asked whether business requires ruthlessness, he says no, and counts his own early style as his biggest mistake: at MicroSolutions he yelled and screamed until his later partner Todd Wagner told him people were afraid of him and it was counterproductive. Being nice got him further. He is equally blunt about his weaknesses. He is bad at details, so his partners, at MicroSolutions, at Broadcast.com and now at Cost Plus Drugs, have always been detail people who complement him. He is a bad judge of hires, because the salesman in him believes he can make anyone work, so his companies hire slow and fire fast. Money, he insists, does not change who you are: if you are miserable poor you will likely be miserable rich. Fame, which arrived with Shark Tank and the 2011 championship, was harder to carry than wealth. What money really bought him was control of his own time, the thing his parents never had. The day he sold MicroSolutions he took off his watch and resolved to live on his own schedule, and a lifetime airline pass financed a season of pure enjoyment before Broadcast.com, started at 37 and sold to Yahoo four years later for $5.7 billion in stock, made him a billionaire on paper.</p>
+<p>Family runs underneath all of it. A letter from his younger brother Brian, read aloud in the conversation, recalls July 2005, the lowest moment of Brian&#x27;s life, when Mark and their brother Jeff got him into rehab; he has been sober since. Both parents are gone now, his father in 2017 and his mother in 2022, and feeling his own mortality, he says, is what pulled him out of Shark Tank and out of the Mavericks while his kids were still at home. He regrets the small events he missed while telling himself they were too young to remember. His favorite word in the world, he says, is dad.</p>
+<p>His remaining mission is Cost Plus Drugs and the American healthcare system behind it. Three big companies dominate the industry, and because most employer health plans are self-insured, employers themselves carry the cost and can change who administers it. So he goes door to door with CEOs, selling the switch the way he sold garbage bags, and he stood beside President Trump for a related initiative without hesitation: anything that makes people healthier and saves them money is fine by him. In the show&#x27;s closing tradition, asked for the hardest question he was not asked, he answers that the family questions are the hardest ones. Bartlett closes by telling him the conversation proved a person can be very successful and still a good, happy, positive person, and Cuban, laughing, tells him not to go too far.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Cuban&#x27;s test for real machine intelligence is solving hard problems with minimal resources, but he offers no benchmark or judge for it. What evidence, measurable today, would actually settle whether a system understands consequences or is only predicting well?</li>
+<li>He holds two views at once: AI debt could break the market when rates rise, and the crash will mint the next Amazon. For a listener without his cash reserves, what concrete rule follows from that, and when does patience become simply missing the winners?</li>
+<li>His career advice is to take any job and become demonstrably great at one thing, while his own companies now route entry-level work to agents. Which first jobs still give a beginner the reps that made him, and what replaces them where they are gone?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s full English auto-generated caption track (19,176 words, running the video&#x27;s full 5,493 seconds to the closing outro), saved verbatim as transcript.txt in the build directory. The track was fetched as srv3 and json3 caption files through the Android 21.02.35 YouTube player client, where playability was OK; the yt-dlp route was bot-walled (HTTP 429 and a sign-in demand) and was not needed. The title used here, &quot;Mark Cuban: The Brutal Truth About The Next Market Crash!&quot;, is the player-served title, verified character for character on the Android 21.02.35, Android 20.10.38 and iOS player clients and in the oEmbed response. It is not the variant carried in the commission (&quot;Mark Cuban: What People Do Out Of Fear Is The Bigger Danger!&quot;), and Simon&#x27;s screenshot showed the player title in truncated feed form (&quot;Mark Cuban: The Brutal Truth About The Next Ma...&quot;); the player-served title governs, per the standing rule. Mid-roll sponsor reads inside the caption track (Cometeer Coffee, T-Mobile and LinkedIn) are excluded from the summary. The captions render a few names and products loosely, so published spellings are used throughout.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-10-26.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated October 26, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "diaryofaceo-mark-cuban-fear-bigger-danger": "Mark Cuban: The Brutal Truth About The Next Market Crash!"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+</body>
+</html>
