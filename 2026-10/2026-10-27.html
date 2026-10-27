@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - October 27, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Tuesday &middot; October 27, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#investlikethebest-free-intelligence-wont-change"><span class="num">01</span><span><span class="card-title">Why Free Intelligence Won’t Change Everything</span><span class="card-byline">Invest Like The Best &middot; Patrick O'Shaughnessy, Cliff Sosin</span></span><span class="card-dur">8:06</span><span class="listen-state" data-slug="investlikethebest-free-intelligence-wont-change"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="investlikethebest-free-intelligence-wont-change" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-27.html" data-route="index">&larr; October 27, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Why Free Intelligence Won’t Change Everything &mdash; October 27, 2026 <span class="dur">&middot; 8:06</span></p>
+        <audio controls preload="none" src="../podcasts/investlikethebest-free-intelligence-wont-change.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/investlikethebest-free-intelligence-wont-change.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="investlikethebest-free-intelligence-wont-change" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="investlikethebest-free-intelligence-wont-change"></div>
+        <div class="episode-download"><a href="../podcasts/investlikethebest-free-intelligence-wont-change.mp3" download>Download investlikethebest-free-intelligence-wont-change.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Invest Like The Best</dd></div>
+        <div><dt>Published</dt><dd>October 27, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=EH6DsNT455M" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Invest Like The Best &middot; Cliff Sosin &middot; Free intelligence and what stays scarce</p>
+        <h2>Why Free Intelligence Won’t Change Everything</h2>
+        <div>
+<p>On Invest Like The Best, the episode &quot;Why Free Intelligence Won’t Change Everything&quot; is a conversation between host Patrick O&#x27;Shaughnessy and investor Cliff Sosin. Sosin begins by holding two stories at once. Token use could explode for years and make everyone in the buildout a fortune, or the cost per token could collapse so quickly that we discover we have wildly overbuilt. He can tell both stories with equal certainty, and the rest of the conversation is his framework for deciding what survives either way.</p>
+<p>His central claim is that intelligence itself is widely misunderstood. People picture it as an unbounded quantity, rising like the height of a tree from amoeba to monkey to Einstein and then zooming off toward God. Sosin says it is better pictured as a ratio, like the roundness of a ball. Intelligence is a gadget for making predictions: we hold a thin scattering of facts about a complex universe and interpolate between them. In tidy domains such as mathematics, that interpolation can approach perfection. Most of the interesting questions, though, live in complex dynamic systems, and there the trick fails.</p>
+<p>The founding story of chaos theory makes the point. A researcher reran an early weather model and got a completely different forecast within days, and eventually traced the divergence to initial conditions that a technician had rounded at one fewer decimal place. Tiny errors compound through every step of such a system, which is why no amount of intelligence can simply think its way to the future of the weather, of groups of people interacting, or of cream mixing into coffee. Past a certain point, better answers require new information, and new information means experiments, and experiments mean touching reality, which takes time. One corollary is that intelligence gets turned toward reducing its own cost, so very good intelligence becomes nearly free, and good-enough intelligence turns out to cover most of the questions people actually need answered.</p>
+<p>Sosin&#x27;s investing rule follows directly: assume everyone has superb intelligence, and ask what is left. What is left are the complements to intelligence: proprietary data, attention, emotional attachment, physical proximity, scale, and, a little cynically, regulatory capture. The mirror image also matters. Many software products are crystallized intelligence, hardened projections of thinking that a general-purpose model can simply reproduce. And many businesses quietly profit from customer lethargy: the depositor who never chases a better rate because thinking about it costs more than it pays. Agents do not get lethargic. They optimize continuously, and that prospect alone reprices a large part of the economy.</p>
+<p>Meta is his model owner of complements. Its core business, he says, is now personalized TV. In a deliberately reductionist view, the company takes in about $250 billion a year and spends roughly the same, and nearly all of that spending buys intelligence: data centers, inference, and very smart people writing algorithms and code. If the price of intelligence falls steeply over the next five years, that cost base deflates, while what Meta actually owns, enormous data and enormous attention, is untouched by cheap intelligence. Creators make better content, recommendations improve, ads target and convert better. Grindr makes the same point at small scale: a company with data and attention whose ambitions have been capped by a small team, the sort of business that could become far more if it suddenly had ten thousand of Google&#x27;s best engineers for five years.</p>
+<p>On the frontier labs, Sosin describes models climbing a stack of tasks, with each layer they saturate commoditizing behind them, since nobody sensible pays frontier prices to run a customer service chatbot. Demand for intelligence looks diamond-shaped to him: it widens through very good intelligence and then narrows, because truly elite intelligence is needed only rarely, and some of the grandest prizes, like curing cancer, require experiments rather than more IQ points. Even a lab that becomes the low-cost producer of good-enough intelligence has won a deflating commodity market, which may not be a large prize.</p>
+<p>He is equally skeptical of the Jevons paradox argument that cheaper intelligence must mean endlessly more spending on it. Jevons, he says, describes one stretch of a U-shaped curve. Moving information used to be expensive; as the cost collapsed, traffic and the market grew for a long time, and then the market shrank even as costs kept falling. Cogent Communications routes a large share of all internet traffic and is worth only a few billion dollars. Nor can models manufacture unlimited new questions on their own. They will first harvest the insights already latent in the scientific literature, connections across papers that no human had cross-read, and that harvest will be wonderful. After it, the bottleneck is designing and running experiments. Automated laboratories and robotics close that loop, and he calls the idea super great, but the loop has speed limits: an experiment that requires breeding mice still takes as long as mice take.</p>
+<p>He has deliberately stayed ignorant of the supply-side buildout, because forecasting inference demand and inference cost within orders of magnitude looks impossible, and value accrues only at bottlenecks in the chain. The flood of brilliant people into the buildout proves less than it seems, since no huge infrastructure buildout of an important technology ever happens without strong price signals and great talent; the causality may run backwards. Capital cycles like this one end in overbuilding, with long lead times and a winner&#x27;s curse for whoever stops last. He would rather own the equilibrium that follows than bet on which railroad tycoon wins: the consumer brands that come after the railroads, not the railroads. He also stresses that consumer demand for AI is genuinely price-sensitive. He generates custom video explainers for his daughter&#x27;s math homework because they are nearly free, and would not pay five dollars apiece for them.</p>
+<p>America&#x27;s ability to redeploy roughly 3 percent of GDP into a speculative venture almost overnight strikes him as deep innovation in itself, and strikingly clean next to the fraud of the railroad era. His pet theory for American dominance starts with self-selection: emigrating was dangerous, risk tolerance is partly heritable, and the culture and institutions that grew from that population, sensible bankruptcy law, venture capital, tolerance of failure, keep reinforcing one another. On interest rates, part of the story is simple arithmetic: a society building for the future has to pay people to consume less today, and the plumber building a data center is not producing today&#x27;s consumption. And he doubts that agents will replace price itself, which he calls a miracle, a signal wrapped in an incentive.</p>
+<p>Agents will, however, change how prices behave. Decisions sit on a spectrum. At one end is an FDIC-insured deposit rate, which he would delegate to an agent entirely; at the other is choosing a favorite sweater, where judgment cannot be delegated. Waste collection sits near the delegable end: agents can negotiate switching street by street, the low-cost producer gains density and gets cheaper still, and prices that once crept up once a year start moving daily. Aggregation economics also weakens when an agent reads every search result instead of the first one, and cheap coordination may permit full-stack businesses, pet care running from food to hospitals to insurance, that today&#x27;s complexity forbids. Whether aggregate margins rise or fall under all this, he can argue both ways.</p>
+<p>For investors themselves, he expects a freestyle chess era: humans working with models beat either one alone, because people still hold knowledge of the world that never made it into the training data. AI will encroach from short time horizons upward, and one day adding human judgment to a model&#x27;s forecast may look like second-guessing the seven-day weather forecast. O&#x27;Shaughnessy describes a friend who picks the stocks himself but hands portfolio construction to an AI harness, and is drastically outperforming his own sizing. Sosin, whose portfolio holds roughly five positions with about 80 percent in Carvana and a small stake in Meta, jokes that he must be underweight: it should perhaps be 90. His defense of concentration is that diversification research is written for people seeking average results, and that owners of truly differentiated businesses, the early Walmarts and Home Depots, were never diversified, though he concedes the history books suffer survivorship bias.</p>
+<p>His operating advice to the companies he owns starts with vibe coding for everyone, the board and the chief executive included; Carvana calls its hackathons pizza parties, and the point is to reset what people believe can be done. Next the chief executive demands read-only agent access to every system in the company, anything a person could look up becoming available in a prompt. Write access and change processes follow, permission by permission, percolating downward. Each step sounds like a bullet point and is years of impossibly hard work, so the real question for any incumbent is whether its business is good enough to buy that time before a clean-sheet competitor meets it halfway. It is the best time ever to start a company, he says, until tomorrow, though enduring economics still require a wedge, and the great outcomes tend to be the ones that look as if they make no sense.</p>
+<p>On inequality he has two hands again: cheap intelligence smokes the economy&#x27;s small rent-takers, the niche software charging every bowling alley, and compresses the rents of the professional class, which flattens outcomes; or it multiplies the reach of the smart and ambitious, which steepens them. Education is where he lands most firmly. Personal intelligence is not made useless by infinite machine intelligence, because directing a model takes crystallized knowledge of your own: you cannot have a deep conversation about a stochastic process you have never heard of. So children should learn the foundations away from the models, multiplication before matrix multiplication, not because they will compute by hand but because they must understand what the model is doing well enough to direct it. And schools should get far more ambitious at the same time, setting work a hundred times harder, done with models at full stretch, and making students defend the result and own it.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If demand for intelligence is really diamond-shaped, vast for the good-enough kind and thin for the elite kind, what return can the frontier labs earn on the largest capital buildout in history, and who absorbs the overbuild if the cost per token collapses first?</li>
+<li>Sosin argues that agents erase the customer lethargy many businesses quietly monetize. How much of today&#x27;s corporate margin is rent on inattention, and what happens to prices and margins when agents renegotiate everything, every day?</li>
+<li>The freestyle chess era in investing rests on humans holding knowledge the models lack. How would anyone know that era has ended, and what is the investor&#x27;s job the day after it does?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s full English auto-generated caption track (15,013 words, running the video&#x27;s full 4,287 seconds), saved verbatim as transcript.txt in the build directory. The track was fetched as an srv3 caption file through the Android 21.02.35 YouTube player client, where playability was OK; the endpoint returned the srv3 form for the json3 request as well. The title used here is the player-served title, verified character for character on the Android 21.02.35, Android 20.10.38 and iOS player clients, and it matches the oEmbed title; there is no variant to disclose. The host and guest, Patrick O&#x27;Shaughnessy and Cliff Sosin, are identified from the video&#x27;s published description. The caption track includes sponsor reads (Ramp, WorkOS, Rogo, Vanta and Ridgeline), which are advertising rather than conversation and are excluded from this summary. The captions render several names and terms loosely, including &quot;Jevans&quot; and &quot;Jeb&#x27;s&quot; for the Jevons paradox, &quot;coent&quot; for Cogent Communications, &quot;Grinder&quot; for Grindr, &quot;Carvon&quot; for Carvana and &quot;Fastel&quot; for Fastenal, so published spellings are used throughout.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-10-27.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated October 27, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "investlikethebest-free-intelligence-wont-change": "Why Free Intelligence Won’t Change Everything"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+</body>
+</html>
