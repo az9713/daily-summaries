@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Monday &middot; October 26, 2026</p>
-        <h1>9 summaries, distilled.</h1>
+        <h1>10 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -416,6 +416,7 @@
         <a class="card" href="#20vc-satya-nadella-own-intelligence"><span class="num">07</span><span><span class="card-title">Satya Nadella: Whether to Trust Frontier Models | Why Companies Need to Own Their Own Intelligence</span><span class="card-byline">20VC with Harry Stebbings &middot; Satya Nadella</span></span><span class="card-dur">6:38</span><span class="listen-state" data-slug="20vc-satya-nadella-own-intelligence"></span></a>
         <a class="card" href="#yc-new-full-stack-designer"><span class="num">08</span><span><span class="card-title">The New Full-Stack Designer</span><span class="card-byline">Y Combinator &middot; Aaron Epstein, Marvin Schwaibold</span></span><span class="card-dur">6:51</span><span class="listen-state" data-slug="yc-new-full-stack-designer"></span></a>
         <a class="card" href="#adem-chatgpt-kls-conjecture-proof"><span class="num">09</span><span><span class="card-title">ChatGPT Found Most of the Ideas. A 31-Year-Old Problem Just Fell.</span><span class="card-byline">Adem B10</span></span><span class="card-dur">4:57</span><span class="listen-state" data-slug="adem-chatgpt-kls-conjecture-proof"></span></a>
+        <a class="card" href="#latent-space-quigley-minos-eval"><span class="num">10</span><span><span class="card-title">An Eval for AI Scientists That Knows the Answer Key - Ian Quigley, Leash Bio</span><span class="card-byline">Latent Space &middot; Ian Quigley</span></span><span class="card-dur">3:48</span><span class="listen-state" data-slug="latent-space-quigley-minos-eval"></span></a>
         </div>
       </nav>
     </section>
@@ -859,6 +860,50 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#yc-new-full-stack-designer" data-route="article">&larr; Y Combinator</a>
         <a class="to-index" href="2026-10-26.html" data-route="index">All summaries</a>
+        <a class="next" href="#latent-space-quigley-minos-eval" data-route="article">Latent Space &middot; An Eval for AI Scientists That Knows the Answer Key - Ian Quigley, Leash Bio &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="latent-space-quigley-minos-eval" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-26.html" data-route="index">&larr; October 26, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">An Eval for AI Scientists That Knows the Answer Key - Ian Quigley, Leash Bio &mdash; October 26, 2026 <span class="dur">&middot; 3:48</span></p>
+        <audio controls preload="none" src="../podcasts/latent-space-quigley-minos-eval.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/latent-space-quigley-minos-eval.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="latent-space-quigley-minos-eval" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="latent-space-quigley-minos-eval"></div>
+        <div class="episode-download"><a href="../podcasts/latent-space-quigley-minos-eval.mp3" download>Download latent-space-quigley-minos-eval.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Latent Space (Ian Quigley)</dd></div>
+        <div><dt>Published</dt><dd>October 26, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=vhPCo-8K78U" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">The Minos eval for AI scientists</p>
+        <h2>An Eval for AI Scientists That Knows the Answer Key - Ian Quigley, Leash Bio</h2>
+        <div>
+<p>On Latent Space, the episode &quot;An Eval for AI Scientists That Knows the Answer Key - Ian Quigley, Leash Bio&quot; is a follow-up conversation with Ian Quigley, cofounder of Leash Bio. When Quigley last appeared on the show, he described Leash&#x27;s DNA-encoded libraries, which screen millions of compounds against thousands of proteins in a single high-throughput pass. This time he returns with what that data has become: Minos, a framework of pre-measured experimental worlds that AI agents can explore, released alongside a paper, a dataset and a few dozen of the worlds themselves.</p>
+<p>The flagship task inside these worlds is structure-activity relationship work, the everyday medicinal chemistry question of how to change a molecule so it binds better to a target protein. An agent is handed a catalog, told the target, and given a budget of one hundred molecules. It states its hypotheses in plain language, spends its budget testing them against results Leash has already measured, and adjusts. Because every measurement already exists, Leash has been able to run about ninety thousand of these rollouts.</p>
+<p>What makes the setup an eval rather than just a sandbox is that Leash knows the answer key. The team measured the entire landscape of each world, so it knows the best binder that exists in it, not just the best one an agent happened to find. That lets Quigley grade decision making itself: agents that give up early, agents that keep retesting the same molecules despite a limited budget, agents whose picks contradict their own stated hypotheses. The clearest pattern is about leaving. Stronger models abandon unproductive neighborhoods of the landscape quickly, while weaker ones keep making small, hopeful changes to molecules that were never going to work.</p>
+<p>The results separate models cleanly across families, and Quigley says the agent rankings look a little like the ARC-AGI 2 plots, with a cluster of weak performers and a few clear leaders. Open models trail the frontier, though at least one small DeepSeek model held up respectably. A year ago none of this was possible at all: frontier models could not even convert a molecule&#x27;s SMILES string, the one-dimensional text notation for chemical structure, between its equivalent forms. Leash began fine-tuning models to read SMILES last summer, and by around February the frontier models could work with chemistry in a meaningful way, which Quigley reads as evidence that they internalize something about molecular structure. When the molecule information is removed from an agent&#x27;s context, its decisions get measurably worse.</p>
+<p>Quigley frames the whole approach as a lab in the loop with amortized latency. A conventional lab in the loop can never be counterfactually dense, because each experiment takes time and money, so every rollout forces fresh choices. Leash measures once and can then replay that world for effectively unlimited rollouts at almost no marginal cost. The trade is freedom: an agent inside a Minos world can only choose among things Leash actually measured, unlike approaches that run each experiment live during the rollout and can attempt nearly anything, one slow step at a time.</p>
+<p>The scale is still growing. Leash has screened about a thousand proteins against a couple of chemical libraries since it started, and currently produces about two new environments a day, with a plan to reach twenty a day. Alongside the paper, the company is releasing a few dozen worlds and many thousands of agent transcripts, and Quigley encourages people to read the transcripts directly, because the agents write out plausible medicinal chemistry narratives, and the failure modes are visible in them. Medicinal chemists who have reviewed the reasoning, he says, find those narratives credible.</p>
+<p>What he cannot yet answer is whether any of this transfers. A training recipe that improves decisions inside pre-measured worlds might teach a general skill, how to spend a limited experimental budget, when to stay and when to walk away, that carries into new biology, or it might only teach agents to play these particular worlds well. Leash has not used a classical optimization baseline such as a Bayesian search, on the theory that the landscape is too spiky and high-dimensional for one to work, and the team is now adding more structural tool calls to the agents&#x27; repertoire. The eval can tell, precisely, how well an agent did against a known best answer. Whether that predicts good science where nobody knows the best answer is the question the release is really asking.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Minos grades an agent against the best molecule Leash already knows exists in a world. Real discovery has no answer key, so what evidence would show that a high Minos score predicts good decisions in live experiments, rather than skill at a replayed game?</li>
+<li>Agents inside these worlds can only choose among molecules Leash chose to measure. Does that restriction teach the discipline of a real budget, or does it quietly cap what agents can discover at the boundaries of yesterday&#x27;s library design?</li>
+<li>The strongest signal in the results is behavioral: good models abandon bad neighborhoods early. Is that a general decision skill that training could instill directly, and if so, would it survive contact with problems where the feedback is slow, noisy and expensive?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s full English auto-generated caption track (3,293 words, running the video&#x27;s full 994 seconds to the closing exchange), saved verbatim as transcript.txt in the build directory. The track was fetched as srv3 and json3 caption files through the Android 21.02.35 YouTube player client, where playability was OK. The title used here, &quot;An Eval for AI Scientists That Knows the Answer Key - Ian Quigley, Leash Bio&quot;, is the player-served title, verified identical on the Android 21.02.35, Android 20.10.38 and iOS player clients, and the channel is Latent Space. The framework&#x27;s name, Minos, and the release details come from the video&#x27;s own published description; the name is never spoken in the episode itself. The caption track renders the show&#x27;s name in the introduction as &quot;Lab and Space Science&quot;, renders the hosts&#x27; names as &quot;Brandon and RJ&quot;, and renders several model names and the release&#x27;s package format loosely, so published spellings are used where they are known and those details are otherwise described generically rather than guessed.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#adem-chatgpt-kls-conjecture-proof" data-route="article">&larr; Adem B10</a>
+        <a class="to-index" href="2026-10-26.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -878,7 +923,8 @@
       "sourcery-2b-ai-startup-simulating-humans": "The $2B AI Startup Simulating Human Behavior with 85% Accuracy",
       "20vc-satya-nadella-own-intelligence": "Satya Nadella: Whether to Trust Frontier Models | Why Companies Need to Own Their Own Intelligence",
       "yc-new-full-stack-designer": "The New Full-Stack Designer",
-      "adem-chatgpt-kls-conjecture-proof": "ChatGPT Found Most of the Ideas. A 31-Year-Old Problem Just Fell."
+      "adem-chatgpt-kls-conjecture-proof": "ChatGPT Found Most of the Ideas. A 31-Year-Old Problem Just Fell.",
+      "latent-space-quigley-minos-eval": "An Eval for AI Scientists That Knows the Answer Key - Ian Quigley, Leash Bio"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
