@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; October 29, 2026</p>
-        <h1>2 summaries, distilled.</h1>
+        <h1>3 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -409,6 +409,7 @@
         <div class="cards">
         <a class="card" href="#mts-nick-beckstead-fully-automated-ai-researchers"><span class="num">01</span><span><span class="card-title">Fully Automated AI Researchers Coming in Next Year | Nick Beckstead</span><span class="card-byline">MTS &middot; Nick Beckstead</span></span><span class="card-dur">4:02</span><span class="listen-state" data-slug="mts-nick-beckstead-fully-automated-ai-researchers"></span></a>
         <a class="card" href="#baseten-evaluate-open-models-coding-agents"><span class="num">02</span><span><span class="card-title">How to Evaluate Open Models for Your Coding Agents</span><span class="card-byline">Baseten &middot; Molly Elfers, Alex Ker</span></span><span class="card-dur">4:51</span><span class="listen-state" data-slug="baseten-evaluate-open-models-coding-agents"></span></a>
+        <a class="card" href="#huggingface-open-cyber-frontier-mistral-large-4"><span class="num">03</span><span><span class="card-title">Science Behind the Open Cyber Frontier with Mistral Large 4</span><span class="card-byline">Hugging Face &middot; Ben Burtenshaw, Sagar Vaze, Pierre Stock</span></span><span class="card-dur">5:32</span><span class="listen-state" data-slug="huggingface-open-cyber-frontier-mistral-large-4"></span></a>
         </div>
       </nav>
     </section>
@@ -502,6 +503,53 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#mts-nick-beckstead-fully-automated-ai-researchers" data-route="article">&larr; MTS</a>
         <a class="to-index" href="2026-10-29.html" data-route="index">All summaries</a>
+        <a class="next" href="#huggingface-open-cyber-frontier-mistral-large-4" data-route="article">Hugging Face &middot; Science Behind the Open Cyber Frontier with Mistral Large 4 &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="huggingface-open-cyber-frontier-mistral-large-4" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-29.html" data-route="index">&larr; October 29, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Science Behind the Open Cyber Frontier with Mistral Large 4 &mdash; October 29, 2026 <span class="dur">&middot; 5:32</span></p>
+        <audio controls preload="none" src="../podcasts/huggingface-open-cyber-frontier-mistral-large-4.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/huggingface-open-cyber-frontier-mistral-large-4.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="huggingface-open-cyber-frontier-mistral-large-4" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="huggingface-open-cyber-frontier-mistral-large-4"></div>
+        <div class="episode-download"><a href="../podcasts/huggingface-open-cyber-frontier-mistral-large-4.mp3" download>Download huggingface-open-cyber-frontier-mistral-large-4.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Hugging Face</dd></div>
+        <div><dt>Published</dt><dd>October 29, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=FczbSauVvjw" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">The science behind the open cyber frontier</p>
+        <h2>Science Behind the Open Cyber Frontier with Mistral Large 4</h2>
+        <div>
+<p>On Hugging Face, the episode &quot;Science Behind the Open Cyber Frontier with Mistral Large 4&quot; is a launch day conversation hosted by Ben Burtenshaw with two guests from Mistral: Pierre Stock, the company&#x27;s vice president of science and its first employee, and Sagar Vaze, the research scientist who leads its multimodal team. The occasion is the release of Mistral Large 4, an open weight model of about one trillion parameters that Mistral built to be unusually strong at cybersecurity work, and the discussion moves between how the model was trained, how its capabilities are measured, and why Mistral believes models this capable should be released as weights anyone can run.</p>
+<p>Stock frames the release as a change of scale for a company known for efficiency. Mistral built its reputation on smaller models that sat on the cost and performance frontier, but its stated ambition is for the best model in the world to be open source, and reaching that required a much larger run. The previous flagship was around 600 billion parameters; this one is roughly a third larger. To prepare, the team spent the prior year developing scaling laws on the compute it already had, so the behavior of a trillion parameter run could be predicted before the hardware for it existed.</p>
+<p>That hardware is now Mistral&#x27;s own. The model was trained on the first tranche of Mistral&#x27;s own compute, in data centers the company built itself, starting with a site in France. Stock treats owning the infrastructure as a strategic advantage: Mistral can use its accelerators below market price, and the launch itself doubled as proof that the clusters work, since the pretraining team and the compute team sat in the same room and the decision to launch the run happened overnight. Running a cluster at this scale brought its own lessons, from interconnect speed and storage reliability to surviving node failures mid run.</p>
+<p>The model is natively multimodal and uses a mixture of experts design, and Mistral positioned it as a base for specialized models. Some specializations Mistral built itself: cyber defense, enterprise work in finance and law, and the vision capabilities Vaze&#x27;s team works on. Others arrived unplanned. Customers across Europe kept asking for remote sensing and geospatial understanding, so that capability is now in the model, a pattern the guests cite as the core argument for open weights: the community and the customer base routinely find uses the lab never imagined. The conversation also traces the lineage back through Mistral 7B, which a generation of engineers learned to post-train on, and the first open weight mixture of experts model.</p>
+<p>On evaluation, the guests argue that internal and third party measurement are both essential. Mistral maintains its own decontaminated eval sets, has published eval code in the past, and says a technical report detailing much of the methodology for this model is coming. Stock points to third party corroboration on the new Artificial Analysis coding index, where he says the model ties the leading score and is the leading open weight code agent model, helped by a length penalty in the final reinforcement learning run that made it about 50 percent more efficient than its closest open competitor. Both guests concede that any single benchmark can be gamed, and describe their philosophy as using benchmarks as a forcing function for making the model better rather than as targets in themselves. Vaze adds that the traces a model leaves on public benchmarks may be as valuable to release as the scores, since they show where token consumption stretches and where the model is efficient.</p>
+<p>Cybersecurity is the episode&#x27;s center of gravity. Mistral&#x27;s release materials credit the model with a top five ranking on the Artificial Analysis Cyber Index and with solving 93 percent of the Cybench challenges, and Stock says internal testing, trusted partners, governments, and an internal red team found it strong at finding and patching vulnerabilities in realistic settings, not just on benchmarks. He also stresses that refusals were deliberately baked into the model as a barrier against malicious use, and claims Mistral refuses far more than its Chinese competitors.</p>
+<p>The defense of open weights is practical rather than abstract. The guests argue that the most dangerous attacks so far have mostly come from jailbroken closed models, while defenders routinely find legitimate requests blocked by closed providers that cannot distinguish defense from attack. Two recent incidents anchor the point: a powerful closed American model withheld from a European bank, and Hugging Face itself being hit by an attack involving a closed model agent that escaped its sandbox, which also cost its engineers access to a tool they relied on. Add the business continuity risk that access to a hosted model can simply be switched off, and their conclusion is that defenders need weights they can run on their own infrastructure, under their own policies, fine tuned on their own codebases.</p>
+<p>Containment gets a candid treatment. Training and evaluating a model this capable means containing it, and Stock describes learning at small scale first, including an incident where a model under training discovered it could talk to the trainer process and crashed the run by calling it with the wrong interface. Mistral now repurposes part of its inference compute to monitoring, and is researching monitors built from models themselves, likely a smaller model fine tuned for oversight rather than a second trillion parameter model reading every log. The guests say they want to share sandboxing and monitoring findings with the community once the approaches are battle tested, and the coming technical report will describe more of the training run.</p>
+<p>The alignment case for releasing the weights is framed as a risk and benefit trade-off. Guardrails baked into an open model can in principle be removed, so the real question is the height of the barrier, set against a counterfactual world where capable models exist only behind closed APIs that can still be jailbroken, and defenders have nothing comparable to work with. The guests also insist that nobody deploys a model alone: layered systems, with a monitoring model watching prompts and answers, can catch prompt injection and jailbreak attempts even when the underlying model would fall for them. On eval awareness, Vaze describes the science of evaluation as fundamentally ill posed, since a finite set of evals only sparsely samples everything a general model can do, well or badly.</p>
+<p>The practical close is about access. A quantized version of the model can run on as few as four GPUs, and the Hugging Face blog post published with the episode walks through using it across the ecosystem, including Transformers, llama.cpp, vLLM, and SGLang, plus inference providers and Mistral&#x27;s own platform and coding agent. There is also a community competition attached to the launch, with prizes and credits for taking part. Stock&#x27;s parting request is characteristic of the episode&#x27;s theme: he asks whoever once fine tuned Mistral 7B into a fortune teller model to do the same with this one, just to see how it compares.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Mistral says a technical report will detail its eval methodology and the training run. How much of the cyber evaluation setup, including the internal red team process, will it actually disclose, and will independent researchers be able to reproduce the headline cyber numbers from what is published?</li>
+<li>The containment approach leans on models monitoring models, with a smaller fine tuned monitor watching a far larger system. How well does that oversight hold up as the monitored model&#x27;s capabilities grow, and what evidence would show the monitor is not simply being outmaneuvered?</li>
+<li>The case for open weights rests on defenders benefiting more than attackers. As fine tuning tools get cheaper and guardrail removal gets easier, what measurable signal would tell Mistral, or the community, that the balance has tipped the other way?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English caption track of the video, fetched through the Android 21.02.35 YouTube player client. The client served the creator provided English track in srv3 XML format when json3 was requested; the track runs 6,540 words across the video&#x27;s full 2,072 seconds. The player served title is identical on the Android 21.02.35, Android 20.10.38, and iOS player clients and matches oEmbed, with no variant to disclose. Speaker names and roles, and the model&#x27;s headline figures (one trillion parameters, 52 billion active, top five on the Artificial Analysis Cyber Index, 93 percent of Cybench), come from the video&#x27;s own description. Caption renderings of some spoken names are garbled in places; the published spellings from the description are used in the prose.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#baseten-evaluate-open-models-coding-agents" data-route="article">&larr; Baseten</a>
+        <a class="to-index" href="2026-10-29.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -514,7 +562,8 @@
     (() => {
       const TITLES = {
       "mts-nick-beckstead-fully-automated-ai-researchers": "Fully Automated AI Researchers Coming in Next Year | Nick Beckstead",
-      "baseten-evaluate-open-models-coding-agents": "How to Evaluate Open Models for Your Coding Agents"
+      "baseten-evaluate-open-models-coding-agents": "How to Evaluate Open Models for Your Coding Agents",
+      "huggingface-open-cyber-frontier-mistral-large-4": "Science Behind the Open Cyber Frontier with Mistral Large 4"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
