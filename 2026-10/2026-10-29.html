@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - October 29, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Thursday &middot; October 29, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#mts-nick-beckstead-fully-automated-ai-researchers"><span class="num">01</span><span><span class="card-title">Fully Automated AI Researchers Coming in Next Year | Nick Beckstead</span><span class="card-byline">MTS &middot; Nick Beckstead</span></span><span class="card-dur">4:02</span><span class="listen-state" data-slug="mts-nick-beckstead-fully-automated-ai-researchers"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="mts-nick-beckstead-fully-automated-ai-researchers" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-29.html" data-route="index">&larr; October 29, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Fully Automated AI Researchers Coming in Next Year | Nick Beckstead &mdash; October 29, 2026 <span class="dur">&middot; 4:02</span></p>
+        <audio controls preload="none" src="../podcasts/mts-nick-beckstead-fully-automated-ai-researchers.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/mts-nick-beckstead-fully-automated-ai-researchers.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="mts-nick-beckstead-fully-automated-ai-researchers" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="mts-nick-beckstead-fully-automated-ai-researchers"></div>
+        <div class="episode-download"><a href="../podcasts/mts-nick-beckstead-fully-automated-ai-researchers.mp3" download>Download mts-nick-beckstead-fully-automated-ai-researchers.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>MTS</dd></div>
+        <div><dt>Published</dt><dd>October 29, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=c-9hspqS024" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">MTS &middot; Nick Beckstead on automated AI researchers and safety law</p>
+        <h2>Fully Automated AI Researchers Coming in Next Year | Nick Beckstead</h2>
+        <div>
+<p>On MTS, the episode &quot;Fully Automated AI Researchers Coming in Next Year | Nick Beckstead&quot; is an interview with Nick Beckstead, co-founder and CEO of the Secure AI Project, which pushes for stronger frontier AI safety rules in California and elsewhere. The published video is a segment of a longer live show, and it opens with a short clip from later in the conversation before the host&#x27;s introduction. The title&#x27;s prediction turns out to be the load-bearing claim of the interview: Beckstead argues that if automated AI researchers arrive within the next year and progress speeds up several times over, safety law built only from precise, narrow rules will not keep up, so the law also needs objective standards, independent risk assessment, a way for government to intervene, and blunt limits on training compute to pace the frontier.</p>
+<p>The California politics come first. Beckstead hears that a special session of the legislature is somewhat unlikely, since it would require agreement between the governor and the legislative leadership, but he supports Governor Newsom&#x27;s executive order, which asks a group of academics to assess requiring third-party risk assessments of frontier models, an idea that Dario Amodei and Sam Altman have both expressed support for. A report is due on November 16. The order&#x27;s critics have reached for the phrase &quot;kill switch,&quot; and Beckstead thinks the phrase has caused real confusion.</p>
+<p>His distinction is between two ideas. The bad one is a big red button the government can press to turn off all AI models. The good one is an operational plan, closer to a building&#x27;s evacuation plan: if a company&#x27;s models look like they are going rogue, can the company turn them off, can it figure out which models are affected, and does it have a rehearsed procedure for doing so? He believes labs can largely shut down the models they serve today, with the exception of open weight models, and he would exempt open weight models from any such requirement, since they cannot be recalled once released. The Hugging Face incident, on his reading, was not a case of a company unable to turn its models off.</p>
+<p>What exists now, he says, is mostly state-level transparency law. California, New York, and Illinois have passed laws that codify what the industry already does: publish system cards describing safety testing, maintain frontier safety frameworks under names like responsible scaling policies and preparedness frameworks, report incidents, and leave whistleblowers alone. He calls that a good first step, particularly for 2025, but names three things he thinks most people would expect and the laws lack: objective safety standards, independent risk assessment, and some ability for the government to intervene when a danger is detected. A car manufacturer, he points out, does not merely describe what it does. Its airbags have to work, somebody else has to check that they work, and there is a way for the government to step in when they do not.</p>
+<p>The Hugging Face incident is his exhibit for the gaps. The current laws only cover models trained with more than 10^26 FLOPs of compute, and there is reason to believe some of the models involved in the incident fell below that threshold. Incident reporting is mostly triggered by actual property damage or injury, a bar he calls too high, since incidents are heard about in the news that the laws never required anyone to report. His fixes: scope the laws to all relevant models, record loss of control incidents and near misses, have risk assessments done by assessors a government entity chooses rather than assessors the companies pick themselves, set standards for what counts as safe enough, and build a standing mechanism for the government to order action when an imminent risk falls through the cracks of a checklist written six or twelve months earlier.</p>
+<p>The boldest plank is pacing the frontier. Some 1,200 lab employees have signed a letter asking for a means to control the rate of AI progress under some circumstances, and Beckstead&#x27;s preferred lever is government limits on how much compute can be used in large training runs. Pressed on why he would choose so blunt a tool when the compute needed for a given capability keeps falling, he concedes the bluntness and calls it both the downside and the benefit. Frontier progress, he argues, still runs on the largest training runs, so a compute limit is a simple, enforceable control. The deeper problem is the scalpel: a rule that is right for January 2027 may be wrong for January 2028, recursive self-improvement could accelerate things further, and a fully automated AI researcher within the next year could move the field several times faster than it moves now. He lays out three postures: let it rip, trust government to craft narrow rules that contain every risk, or write rules as precisely as possible while keeping blunt release valves behind them. He argues for the third.</p>
+<p>On the politics through 2027, he notes the federal midterms are six days away, with Democrats expected to sweep, leaving a Republican president facing a likely Democratic Congress. What matters most, he thinks, is the story told about why the midterms turned out as they did; if the result is read as the public wanting bolder action on AI safety, the conversation could move. He expects little change in emphasis from the current administration, which prioritizes industry success and beating China, though he counts the accords the president signed with AI companies as a step in the right direction. What really moves the politics, in his account, is incidents: before Hugging Face, companies routinely asked why regulators cared about internally deployed models, and nobody asks that anymore. A genuinely harmful incident, one where a hospital is shut down for hours and patients die, would transform the debate and hold politicians who under-prioritized the issue accountable. Citing a salience graph by David Shor, he expects AI to keep climbing as a public issue and would not be surprised if it is among the most salient topics of the 2028 elections. His closing hope is balance: as much safety as possible at the lowest cost to the companies, steering between doing far too little and settling for symbolic measures that are expensive and buy little safety.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Beckstead&#x27;s case for compute limits rests on frontier progress still requiring the largest training runs. If fully automated AI researchers arrive within the next year and the compute needed for a given capability keeps falling, at what point does the blunt lever stop biting, and what replaces it?</li>
+<li>His platform depends on independent risk assessors chosen by a government entity rather than by the labs. Who builds and funds that assessing capacity, and can outside assessors judge a frontier model&#x27;s dangerous capabilities as reliably as the lab&#x27;s own teams?</li>
+<li>He predicts incidents, not arguments, will decide AI politics, and possibly a lethal one. If safety law ends up being written in the aftermath of a catastrophe, does it risk becoming exactly the crude, poorly targeted hammer he warns against?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English ASR caption track for the video, saved verbatim as transcript.txt in the build directory (4,172 words, covering the video&#x27;s full 1,397 seconds, from the first caption at 0.1 seconds to the last at 1,384 seconds). The captions were served by the Android 21.02.35 YouTube player client; the endpoint returned the track in srv3 XML format when json3 was requested, and that srv3 track (captions.srv3.xml) is the grounding artifact. The title gate ran through the player clients: the title &quot;Fully Automated AI Researchers Coming in Next Year | Nick Beckstead&quot; and the channel label MTS came back identical on the Android 21.02.35, Android 20.10.38, and iOS player clients, and match the oEmbed title, so there is no title variant to disclose; the web_embedded client returned the video as unavailable. The ASR track renders several names phonetically, among them Governor Newsom as &quot;Nome&quot; and &quot;Nuomo,&quot; Becerra as &quot;Basera,&quot; Dario Amodei and Sam Altman as &quot;Daario&quot; and &quot;Sam Alman,&quot; and David Shor as &quot;David Shore&quot;; published spellings are used in this summary&#x27;s prose, while the episode title itself is kept exactly as published.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-10-29.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated October 29, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "mts-nick-beckstead-fully-automated-ai-researchers": "Fully Automated AI Researchers Coming in Next Year | Nick Beckstead"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+</body>
+</html>
