@@ -401,13 +401,14 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; October 29, 2026</p>
-        <h1>1 summary, distilled.</h1>
+        <h1>2 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
       <nav aria-label="Summaries">
         <div class="cards">
         <a class="card" href="#mts-nick-beckstead-fully-automated-ai-researchers"><span class="num">01</span><span><span class="card-title">Fully Automated AI Researchers Coming in Next Year | Nick Beckstead</span><span class="card-byline">MTS &middot; Nick Beckstead</span></span><span class="card-dur">4:02</span><span class="listen-state" data-slug="mts-nick-beckstead-fully-automated-ai-researchers"></span></a>
+        <a class="card" href="#baseten-evaluate-open-models-coding-agents"><span class="num">02</span><span><span class="card-title">How to Evaluate Open Models for Your Coding Agents</span><span class="card-byline">Baseten &middot; Molly Elfers, Alex Ker</span></span><span class="card-dur">4:51</span><span class="listen-state" data-slug="baseten-evaluate-open-models-coding-agents"></span></a>
         </div>
       </nav>
     </section>
@@ -453,6 +454,54 @@
       <nav class="article-nav" aria-label="More summaries">
         <span class="spacer"></span>
         <a class="to-index" href="2026-10-29.html" data-route="index">All summaries</a>
+        <a class="next" href="#baseten-evaluate-open-models-coding-agents" data-route="article">Baseten &middot; How to Evaluate Open Models for Your Coding Agents &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="baseten-evaluate-open-models-coding-agents" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-29.html" data-route="index">&larr; October 29, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">How to Evaluate Open Models for Your Coding Agents &mdash; October 29, 2026 <span class="dur">&middot; 4:51</span></p>
+        <audio controls preload="none" src="../podcasts/baseten-evaluate-open-models-coding-agents.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/baseten-evaluate-open-models-coding-agents.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="baseten-evaluate-open-models-coding-agents" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="baseten-evaluate-open-models-coding-agents"></div>
+        <div class="episode-download"><a href="../podcasts/baseten-evaluate-open-models-coding-agents.mp3" download>Download baseten-evaluate-open-models-coding-agents.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Baseten</dd></div>
+        <div><dt>Published</dt><dd>October 29, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=2ytlRcUzgpM" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Evaluating open models for coding agents</p>
+        <h2>How to Evaluate Open Models for Your Coding Agents</h2>
+        <div>
+<p>On Baseten, the webinar &quot;How to Evaluate Open Models for Your Coding Agents&quot; pairs Molly Elfers, a solutions architect who works with the company&#x27;s most strategic customers, with Alex Ker, who works across growth and engineering and manages Baseten&#x27;s open source harnesses and integrations. Elfers says she pushed for the session herself, calling it a 101 guide for teams that want to dip their toes into evaluating open models for coding agents. The format is a presentation with slides, followed by audience questions at the end.</p>
+<p>The starting point is how fast adoption has moved. Citing OpenRouter routing data, Ker says open models have climbed from about 30 percent of usage in November 2025 to about 71 percent now. Agent spend, he argues, has gone from a rounding error a year ago to one of the fastest growing line items in engineering budgets, and that shift creates three competing pressures inside a company. Finance teams ask why they are paying frontier prices for a simple linter run or a small bug fix. Individual engineers care about the opposite end: whether the agent helps them ship high quality code quickly, with the least accumulated technical debt. Engineering leaders sit between the two, and what they need, Ker says, is evaluations that measure their own workload rather than someone else&#x27;s benchmark.</p>
+<p>Cost is only part of the pull. Ker points to flexibility in a market where new open and closed models arrive constantly, and to the option of fine-tuning or post-training open weights for a company&#x27;s own product, something a closed provider does not allow. Elfers adds that teams she works with regularly ask to try the newest open release the day it drops, and do not want to be locked in to a single provider.</p>
+<p>The talk&#x27;s framing idea is a move from what Ker calls token maxing to fleet engineering. A year or so ago, teams bragged about token leaderboards, treating billions of tokens burned as a rough proxy for productivity. Mature teams instead map specific workloads to specific models and judge them on task based return: cost per successful task, reliability, and time per task. Fleet engineering is the end state of that progression, where requests are routed to the right level of intelligence and the whole setup is governed with gateways, observability, and automated evals that test each new model release against the team&#x27;s real workload.</p>
+<p>That routing starts by breaking engineering work into tasks. Open models, Ker notes, are not used only for code generation; teams also run them on debugging, code review, frontend and backend work, and small fast classifier models can sit in the routing layer itself. The right task mix for a pilot, Elfers says, depends on which team is participating, since a frontend team&#x27;s day looks nothing like an infrastructure team&#x27;s.</p>
+<p>Before choosing models, the presenters walk through the metrics engineers actually feel. Time to first token matters because a developer is sitting there waiting for a sign of life from the agent. End to end latency matters more for long running background work. Throughput drives how much volume the GPUs can process, and cache hit rate matters unusually much for coding, because every agent carries a system prompt and a rate around 90 percent is normal for these workloads. Asked which metric engineers complain about first, Ker says his answer changed recently: with fast flash models now generating at 500 to 1,000 tokens per second, engineers have come to prize end to end latency, because a task that finishes in front of them beats one they have to check back on in twenty minutes.</p>
+<p>Every choice is a trade among cost, quality, and performance. Small tickets and bug fixes are where smaller flash models save the most money. Long horizon tasks and net new work with no examples to copy are where the quality bar justifies a top tier model, with Ker and Elfers pointing to Kimi K3 and the just launched Kimi K3.1 as examples. To shortlist candidates, they recommend an aggregator such as Artificial Analysis, which plots cost per task against success on coding tasks; the models worth testing sit on the Pareto frontier in the top left of that chart, where DeepSeek&#x27;s latest flash release currently sits. They also describe a structural shift: the old high, medium, and low intelligence tiers are giving way to two categories, long horizon models for complex work and flash models for everything else.</p>
+<p>Two warnings follow. The first is the Jevons paradox: as token prices fall, teams do not spend less, they use more, so the presenters advise tracking cost per task and setting monthly budgets rather than celebrating a cheaper token. The second is that the inference provider itself changes the results, especially cache hit rates, so the same model can perform differently depending on where it runs.</p>
+<p>The core of the talk is Alex Ker&#x27;s pilot design, and its first rule is restraint: keep the harness your team already uses, whether that is Claude Code, Codex, Cursor, or an internal tool, and change only the model, so the measurements stay clean. Run the pilot for a few weeks with enough engineers to draw conclusions. Then collect 30 to 50 canonical tasks, meaning real pull requests your team has already merged, together with their ticket descriptions. In a sandboxed environment, have each candidate model attempt the same tasks, grade the results with a panel of frontier models acting as judges by weighted vote, and back that up with the codebase&#x27;s own unit tests. Because model output varies, run each task seven to ten times to reduce variance. The two numbers to watch above all others are cost per successful task, which blends price and quality into one figure, and wall clock time per successful task.</p>
+<p>A pilot is not the end of the work. The presenters recommend refining the benchmark with fresh tasks, mining the failures to find harness fixes such as system prompt changes or different tool choices, and surveying engineers for the qualities numbers miss, like hallucination rate and concision. In their sample survey, engineers favored open models for speed and conciseness and split on the rest, which matches what Elfers sees with customers: the outcome is rarely one model or the other, but a mix, open by default with a frontier tail for the hardest work.</p>
+<p>In the closing questions, Ker recommends open harnesses such as OpenCode and the minimal Pi harness for open models, and the two announce Baseten products aimed at the switching problem: a gateway called Grid, launching the following week, that can power tools like Claude Desktop with open models, and B10 Switch, a free open source local app that points existing clients at Baseten hosted open models. Asked for a typical cost saving per successful task, Elfers declines to give a number, saying it varies too much by workload; the point of the framework, she says, is to let each team measure its own.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>The pilot recipe leans on merged pull requests as canonical tasks, but does a benchmark built from yesterday&#x27;s tickets keep predicting well as a team&#x27;s codebase and task mix drift?</li>
+<li>If most engineering work really is no longer frontier, at what point does the frontier tail shrink to a small set of tasks, and who inside a company owns the call on which tasks those are?</li>
+<li>The Jevons warning says cheaper tokens tend to raise total spend; can cost per successful task stay flat, or fall, once engineers get used to agents that answer almost instantly?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English automatic caption track of the video, fetched through the Android YouTube player client (a json3 track was requested and the endpoint served the srv3 format), covering the video&#x27;s full 2,858 seconds with 7,647 words of transcript. The caption track renders some names phonetically, including &quot;Base Ten&quot; for Baseten, &quot;Kimmy&quot; and &quot;Kimiko&quot; for Kimi, and &quot;Cloud Code&quot; for Claude Code; the published spellings are used in the prose above. Speaker surnames and roles are taken from the video&#x27;s own description, where the caption track gives only a first name for Alex Ker.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#mts-nick-beckstead-fully-automated-ai-researchers" data-route="article">&larr; MTS</a>
+        <a class="to-index" href="2026-10-29.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -464,7 +513,8 @@
   <script>
     (() => {
       const TITLES = {
-      "mts-nick-beckstead-fully-automated-ai-researchers": "Fully Automated AI Researchers Coming in Next Year | Nick Beckstead"
+      "mts-nick-beckstead-fully-automated-ai-researchers": "Fully Automated AI Researchers Coming in Next Year | Nick Beckstead",
+      "baseten-evaluate-open-models-coding-agents": "How to Evaluate Open Models for Your Coding Agents"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
