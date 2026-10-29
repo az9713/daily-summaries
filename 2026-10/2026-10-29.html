@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; October 29, 2026</p>
-        <h1>3 summaries, distilled.</h1>
+        <h1>4 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -410,6 +410,7 @@
         <a class="card" href="#mts-nick-beckstead-fully-automated-ai-researchers"><span class="num">01</span><span><span class="card-title">Fully Automated AI Researchers Coming in Next Year | Nick Beckstead</span><span class="card-byline">MTS &middot; Nick Beckstead</span></span><span class="card-dur">4:02</span><span class="listen-state" data-slug="mts-nick-beckstead-fully-automated-ai-researchers"></span></a>
         <a class="card" href="#baseten-evaluate-open-models-coding-agents"><span class="num">02</span><span><span class="card-title">How to Evaluate Open Models for Your Coding Agents</span><span class="card-byline">Baseten &middot; Molly Elfers, Alex Ker</span></span><span class="card-dur">4:51</span><span class="listen-state" data-slug="baseten-evaluate-open-models-coding-agents"></span></a>
         <a class="card" href="#huggingface-open-cyber-frontier-mistral-large-4"><span class="num">03</span><span><span class="card-title">Science Behind the Open Cyber Frontier with Mistral Large 4</span><span class="card-byline">Hugging Face &middot; Ben Burtenshaw, Sagar Vaze, Pierre Stock</span></span><span class="card-dur">5:32</span><span class="listen-state" data-slug="huggingface-open-cyber-frontier-mistral-large-4"></span></a>
+        <a class="card" href="#lowlevel-reverse-engineering-proves-what-we-suspected"><span class="num">04</span><span><span class="card-title">Reverse Engineering Proves What We Suspected All Along..</span><span class="card-byline">Low Level</span></span><span class="card-dur">3:44</span><span class="listen-state" data-slug="lowlevel-reverse-engineering-proves-what-we-suspected"></span></a>
         </div>
       </nav>
     </section>
@@ -550,6 +551,49 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#baseten-evaluate-open-models-coding-agents" data-route="article">&larr; Baseten</a>
         <a class="to-index" href="2026-10-29.html" data-route="index">All summaries</a>
+        <a class="next" href="#lowlevel-reverse-engineering-proves-what-we-suspected" data-route="article">Low Level &middot; Reverse Engineering Proves What We Suspected All Along.. &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="lowlevel-reverse-engineering-proves-what-we-suspected" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-29.html" data-route="index">&larr; October 29, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Reverse Engineering Proves What We Suspected All Along.. &mdash; October 29, 2026 <span class="dur">&middot; 3:44</span></p>
+        <audio controls preload="none" src="../podcasts/lowlevel-reverse-engineering-proves-what-we-suspected.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/lowlevel-reverse-engineering-proves-what-we-suspected.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="lowlevel-reverse-engineering-proves-what-we-suspected" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="lowlevel-reverse-engineering-proves-what-we-suspected"></div>
+        <div class="episode-download"><a href="../podcasts/lowlevel-reverse-engineering-proves-what-we-suspected.mp3" download>Download lowlevel-reverse-engineering-proves-what-we-suspected.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Low Level</dd></div>
+        <div><dt>Published</dt><dd>October 29, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=7h7FYGF7tuQ" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Reverse engineering proves what we suspected</p>
+        <h2>Reverse Engineering Proves What We Suspected All Along..</h2>
+        <div>
+<p>On Low Level, the video &quot;Reverse Engineering Proves What We Suspected All Along..&quot; argues that AI has quietly handed ordinary hardware owners a new power: the ability to open up their own devices and prove what those devices are really doing. The host&#x27;s starting point is the long-running suspicion that smart TVs spy on their owners, a suspicion manufacturers such as LG have strongly denied even as one investigation claimed that over 216 million TVs spy on viewers and record audio. For years, he says, those claims were hard to back up, because reverse engineering firmware took rare skill. A project called Reverse Engineer Anything, a wrapper around tools such as IDA and Ghidra that works through AI and MCP servers, has put the practice in vogue, and he says anyone can now reverse engineer anything.</p>
+<p>His clearest exhibit is a Samsung TV. A researcher who goes by log4j wanted to inspect his own set, but Samsung ships its firmware encrypted, so the downloaded blob is useless without the bootloader that decrypts it during updates. Using AI to automate black-box exploitation, essentially throwing candidate exploits at software whose internals are unknown, he found a vulnerability, got a root shell on the TV, and pulled the decrypted firmware out of flash memory. What he found inside, on the host&#x27;s telling, is telemetry that counts dog barks and baby cries, gathered by a microphone that listens all the time so the TV can feed targeted advertising. If a TV has no microphone of its own, the code can reportedly reach out to connected Bluetooth devices and a soundbar to listen through them instead.</p>
+<p>The host concedes the listening itself is half advertised. Samsung promotes pet care and family care features on its 2025 Vision AI TVs, but he doubts any buyer reads that as constant listening in the living room. He adds a second claim: the TVs supposedly watch the screen while you watch YouTube, note which ads you skip, process that with a neural network on the device, and use it to aim more advertising at you. He calls the result a dystopian advertising world, and credits AI with making the discovery practical, while noting the researcher was skilled enough that AI mainly made the process smoother.</p>
+<p>Two smaller stories carry the same theme. A hobbyist with a device he thought was dead spotted six pads that looked like a debug port, hooked it up, and let AI work on it; the AI reverse engineered the sensor and wrote a Home Assistant integration that brought the device back into service. Another man only wanted to remote control his own DJI Romo robot vacuum. In reverse engineering the DJI cloud protocol with Claude Code, he found he could not only drive his own robot but also control and read data from a sea of other people&#x27;s robots all around the world, which raises the question of what the manufacturer itself can do with that access.</p>
+<p>The video&#x27;s middle is a sponsor segment for CodeRabbit Secure, an AI code review tool, which the host ran over his own project, Advent of Pwn. The deep scan mapped the project&#x27;s attack surface, its entry points and trust boundaries, and found a real bug: in the project&#x27;s terminal interface service, the lipgloss library accepts a terminal width and height sent over SSH, and because those values were never bounded, an attacker could make the SSH daemon consume an arbitrary amount of memory, a remote denial of service. The recommended fix is to clamp or reject the dimensions before storing them.</p>
+<p>The closing argument is about who gets to do this work. The host says he has seen reports that OpenAI&#x27;s models refuse reverse engineering requests, and he dislikes models making moral decisions about what counts as malicious or defensive activity on the user&#x27;s behalf. His workaround is to run an open weight model, GLM 5.3, through Ollama&#x27;s cloud, hosted on US or European servers, and he cites an Anthropic report that spoke well of the model&#x27;s ability at this kind of task. He grants that AI found vulnerabilities cut both ways, pointing to a vulnerability affecting all versions of PHP that an AI helped find and a researcher reported before anyone exploited it at scale. In the long run, he argues, giving everyone these tools lets defenders defend at the speed attackers attack, and that is a net good. He expects an arms race as vendors respond, urges anyone interested to also learn how assembly works, and rests on one fact he thinks vendors cannot engineer away: the firmware runs on a device sitting in your house, so determined owners will keep extracting the truth of what is going on inside it.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>The Samsung findings rest on one researcher&#x27;s work on one TV line. How much of it generalizes across Samsung&#x27;s range and to other brands, and will anyone independently replicate the dog bark and baby cry telemetry claim?</li>
+<li>The host treats model refusals as vendors making moral decisions for users, but the same AI help that rooted a TV also surfaced fleet-wide control of DJI vacuums. Where should frontier labs draw the refusal line so defensive research stays easy and mass exploitation does not?</li>
+<li>If AI keeps lowering the cost of finding flaws in shipped firmware, how will vendors respond: faster patching and disclosure programs, or more encryption and locked bootloaders that also shut out the owners the host is celebrating?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English ASR caption track for the video, saved verbatim as transcript.txt in the build directory (2,663 words, covering the video&#x27;s full 718 seconds, with the last caption starting at 715.9 seconds). The captions were served by the Android 21.02.35 YouTube player client; the endpoint returned the track in srv3 XML format when json3 was requested, and that srv3 track (captions.srv3.xml) is the grounding artifact. The title gate ran through the player clients: the title &quot;Reverse Engineering Proves What We Suspected All Along..&quot; and the channel label Low Level came back identical on the Android 21.02.35, Android 20.10.38, and iOS player clients, and match the oEmbed title, so there is no title variant to disclose; the web_embedded client returned the video as unavailable. The ASR track renders several names phonetically, among them Ghidra as &quot;Gedra,&quot; Temu as &quot;T-Moon,&quot; Claude Code as &quot;clawed code,&quot; and Advent of Pwn as &quot;Advent of Pone&quot;; published spellings are used in this summary&#x27;s prose. The Samsung researcher is rendered &quot;Logj&quot; in the captions; the video&#x27;s own description links to x.com/log4j, so log4j is used here.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#huggingface-open-cyber-frontier-mistral-large-4" data-route="article">&larr; Hugging Face</a>
+        <a class="to-index" href="2026-10-29.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -563,7 +607,8 @@
       const TITLES = {
       "mts-nick-beckstead-fully-automated-ai-researchers": "Fully Automated AI Researchers Coming in Next Year | Nick Beckstead",
       "baseten-evaluate-open-models-coding-agents": "How to Evaluate Open Models for Your Coding Agents",
-      "huggingface-open-cyber-frontier-mistral-large-4": "Science Behind the Open Cyber Frontier with Mistral Large 4"
+      "huggingface-open-cyber-frontier-mistral-large-4": "Science Behind the Open Cyber Frontier with Mistral Large 4",
+      "lowlevel-reverse-engineering-proves-what-we-suspected": "Reverse Engineering Proves What We Suspected All Along.."
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
