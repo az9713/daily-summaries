@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; October 29, 2026</p>
-        <h1>6 summaries, distilled.</h1>
+        <h1>7 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -413,6 +413,7 @@
         <a class="card" href="#lowlevel-reverse-engineering-proves-what-we-suspected"><span class="num">04</span><span><span class="card-title">Reverse Engineering Proves What We Suspected All Along..</span><span class="card-byline">Low Level</span></span><span class="card-dur">3:44</span><span class="listen-state" data-slug="lowlevel-reverse-engineering-proves-what-we-suspected"></span></a>
         <a class="card" href="#a16z-build-next-spacex-or-tesla"><span class="num">05</span><span><span class="card-title">How to Build the Next SpaceX or Tesla</span><span class="card-byline">a16z &middot; Elena Burger, Erin Price-Wright, Connor Love</span></span><span class="card-dur">5:15</span><span class="listen-state" data-slug="a16z-build-next-spacex-or-tesla"></span></a>
         <a class="card" href="#madpodcast-state-of-ai-2026-nathan-benaich"><span class="num">06</span><span><span class="card-title">State of AI 2026: The Biggest Stories of the Year (and AGI in 2027?), with Nathan Benaich</span><span class="card-byline">The MAD Podcast with Matt Turck &middot; Matt Turck, Nathan Benaich</span></span><span class="card-dur">6:12</span><span class="listen-state" data-slug="madpodcast-state-of-ai-2026-nathan-benaich"></span></a>
+        <a class="card" href="#aiengineer-revolut-cut-ai-coding-costs-abitbol"><span class="num">07</span><span><span class="card-title">How Revolut Cut AI Coding Costs 90% With Self-Hosted Open Models - David Abitbol, Revolut</span><span class="card-byline">AI Engineer &middot; David Abitbol</span></span><span class="card-dur">4:29</span><span class="listen-state" data-slug="aiengineer-revolut-cut-ai-coding-costs-abitbol"></span></a>
         </div>
       </nav>
     </section>
@@ -692,6 +693,50 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#a16z-build-next-spacex-or-tesla" data-route="article">&larr; a16z</a>
         <a class="to-index" href="2026-10-29.html" data-route="index">All summaries</a>
+        <a class="next" href="#aiengineer-revolut-cut-ai-coding-costs-abitbol" data-route="article">AI Engineer &middot; How Revolut Cut AI Coding Costs 90% With Self-Hosted Open Models - David Abitbol, Revolut &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="aiengineer-revolut-cut-ai-coding-costs-abitbol" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-29.html" data-route="index">&larr; October 29, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">How Revolut Cut AI Coding Costs 90% With Self-Hosted Open Models - David Abitbol, Revolut &mdash; October 29, 2026 <span class="dur">&middot; 4:29</span></p>
+        <audio controls preload="none" src="../podcasts/aiengineer-revolut-cut-ai-coding-costs-abitbol.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/aiengineer-revolut-cut-ai-coding-costs-abitbol.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="aiengineer-revolut-cut-ai-coding-costs-abitbol" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="aiengineer-revolut-cut-ai-coding-costs-abitbol"></div>
+        <div class="episode-download"><a href="../podcasts/aiengineer-revolut-cut-ai-coding-costs-abitbol.mp3" download>Download aiengineer-revolut-cut-ai-coding-costs-abitbol.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>AI Engineer</dd></div>
+        <div><dt>Published</dt><dd>October 29, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Ok6QdZHCcI8" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">How Revolut cut AI coding costs</p>
+        <h2>How Revolut Cut AI Coding Costs 90% With Self-Hosted Open Models - David Abitbol, Revolut</h2>
+        <div>
+<p>On AI Engineer, the talk &quot;How Revolut Cut AI Coding Costs 90% With Self-Hosted Open Models - David Abitbol, Revolut&quot; is a conference presentation by David Abitbol, who leads AI operations at Revolut. His subject is how Revolut moved the everyday coding work of its roughly 2,000 engineers onto GLM, an open model the company hosts itself on its own GPUs, and cut its AI coding bill to about a tenth of what it had been paying the frontier labs. The talk is unusually concrete: GPU counts, latency targets, quantization choices, and the compliance argument that let a regulated bank do this at all.</p>
+<p>Abitbol begins with scale and with data. Revolut is a European digital bank with 80 million customers in 45 markets, the most downloaded financial app in Europe for the past year, and, as of July, Europe&#x27;s largest private company. He then shows a year of measurements from a sample of 2,000 engineers, tracking lead time, the days from picking up a feature to merging it, against coding time in hours. Gemini came first, in January 2025, the first tool engineers could use with private company data, and it improved lead time by about 10 percent and coding time by about 20 percent, mostly by ending trips to Stack Overflow and documentation. Claude Code followed in February 2025, but Revolut was deeply skeptical about cost: engineers were spending anywhere from a thousand to ten thousand dollars a month with little visible return, so the tool launched under strict budget limits and its early impact was small.</p>
+<p>The turning point came in April 2026, when Revolut started self-hosting GLM, the open model family it favors for coding. Coding time improved by about 60 percent and lead time by about 70 percent, a far larger effect than the hosted tools had produced. Abitbol&#x27;s explanation is that the bottleneck in engineering was never typing code. Once tokens are effectively unlimited, engineers stop hoarding them for the hardest task or the end of the quarter and instead spend them freely on the surrounding drudgery, digging through inboxes, Jira, and Confluence. Self-hosting also changed the economics of the bill itself: pricing is flat, with no end-of-month bill shock. The frontier services, Claude Code, Codex, and Gemini, remain in use, but as the exception rather than the default.</p>
+<p>The serving setup is compact. Roughly 56 Nvidia B200 GPUs host GLM, a model of about 800 billion parameters, for all 2,000 engineers. The metric Abitbol watches is time to first token: the aim is under 3 seconds, and once it passes 5 seconds his Slack inbox blows up. Throughput matters less than people assume. About 200 tokens per second feels fine interactively, because engineers now run tasks in parallel and check in when a task finishes rather than watching the stream, and anyone who connects after 5 p.m., when the GPUs are idle, can get 800 tokens per second. The blended cost of a self-hosted token works out to 30 cents per million, and the total invoice is a tenth of the earlier Anthropic and OpenAI spend.</p>
+<p>None of that performance comes free. Simply loading weights onto GPUs gives terrible results, Abitbol warns, and the gains came from months of tuning on the same hardware: between April and August, still on 56 GPUs, requests per second rose from about 3 to over 7 while time to first token fell from over 10 seconds to about 1.6 seconds, an 88 percent performance improvement against 76 percent more demand. His parameter advice is blunt. Long context is a scam: a million tokens can be served, but 256K is what coding actually needs. On Blackwell GPUs, run nothing higher than FP4, ideally NVFP4, which saves roughly 40 percent of GPU footprint compared with FP8 at no precision cost. Tensor parallelism may need to go to TP8 rather than TP4 to leave room for the KV cache, the cache hit rate on coding traffic has to stay above 90 percent, and speculative decoding and prefill tuning are worth the effort.</p>
+<p>The production compromises are pragmatic. GLM is text-only, and Abitbol says he would make that trade every time: take the smarter model and solve vision separately, with a local router sending image tasks to a hosted vision model such as Gemini Flash, which Revolut&#x27;s UI designers already use heavily. Every self-hosted endpoint speaks an OpenAI-compatible API, so engineers can point the coding harnesses they already use at Revolut&#x27;s own models.</p>
+<p>His closing message is aimed at CIOs worried about running a Chinese open model. You are not calling an inference endpoint in China, he points out; you download the weights and run them on US-based infrastructure, which dissolves most of the data-sharing concern. Revolut is an EU-regulated bank under a strict compliance regime, and the arrangement that works is to treat coding tools as assistants rather than autonomous agents, with a human always in the loop. A sandbox enforces that guarantee, with approval rules that can allow a harmless operation while blocking a risky one, and it also protects the company from rogue internal use. Data stays inside the US, EU, UK, and Israel equivalency framework, inference providers run with zero data retention by default, and strong OpenTelemetry logging means that if an incident ever happens, the team can go deep into the logs to reconstruct it.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>The economics rest on heavy tuning of one model family on a fixed fleet of about 56 GPUs. If headcount grows or engineers run more agents in parallel, does the 30 cents per million tokens hold, or does protecting the latency target force a GPU build-out that eats the savings?</li>
+<li>Abitbol keeps the frontier models as the exception. Who decides which work is important enough to leave the flat-rate open model, and does that exception quietly grow as frontier models pull ahead in capability?</li>
+<li>The compliance case rests on a human always being in the loop inside a sandbox. As coding agents take on longer and more autonomous tasks, at what point does a regulator stop accepting that framing, and what has to change when it does?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English ASR caption track for the video, saved verbatim as transcript.txt in the build directory (1,797 words, covering the video&#x27;s full 707 seconds, from the first caption at 1.3 seconds to the last at 700.9 seconds). The captions were served by the Android 21.02.35 YouTube player client; the endpoint returned the track in srv3 XML format when json3 was requested, and that srv3 track (captions.srv3.xml) is the grounding artifact. The title gate ran through the player clients: the title &quot;How Revolut Cut AI Coding Costs 90% With Self-Hosted Open Models - David Abitbol, Revolut&quot; and the channel label AI Engineer came back identical on the Android 21.02.35, Android 20.10.38, and iOS player clients, and match the oEmbed title, so there is no title variant to disclose; the web_embedded client returned the video as unavailable. The ASR track renders Claude Code as &quot;Cloud Code&quot; throughout, renders the GLM version inconsistently, and garbles several product names in the serving and setup sections; published spellings are used in this summary&#x27;s prose, while the talk title itself is kept exactly as published.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#madpodcast-state-of-ai-2026-nathan-benaich" data-route="article">&larr; The MAD Podcast with Matt Turck</a>
+        <a class="to-index" href="2026-10-29.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -708,7 +753,8 @@
       "huggingface-open-cyber-frontier-mistral-large-4": "Science Behind the Open Cyber Frontier with Mistral Large 4",
       "lowlevel-reverse-engineering-proves-what-we-suspected": "Reverse Engineering Proves What We Suspected All Along..",
       "a16z-build-next-spacex-or-tesla": "How to Build the Next SpaceX or Tesla",
-      "madpodcast-state-of-ai-2026-nathan-benaich": "State of AI 2026: The Biggest Stories of the Year (and AGI in 2027?), with Nathan Benaich"
+      "madpodcast-state-of-ai-2026-nathan-benaich": "State of AI 2026: The Biggest Stories of the Year (and AGI in 2027?), with Nathan Benaich",
+      "aiengineer-revolut-cut-ai-coding-costs-abitbol": "How Revolut Cut AI Coding Costs 90% With Self-Hosted Open Models - David Abitbol, Revolut"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
