@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Friday &middot; October 30, 2026</p>
-        <h1>16 summaries, distilled.</h1>
+        <h1>17 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -423,6 +423,7 @@
         <a class="card" href="#a16z-ai-small-law-firms-billion-dollar"><span class="num">06</span><span><span class="card-title">Why AI Could Turn Small Law Firms Into Billion-Dollar Businesses</span><span class="card-byline">a16z &middot; Jay Madheswaran, Alex Rampell</span></span><span class="card-dur">5:39</span><span class="listen-state" data-slug="a16z-ai-small-law-firms-billion-dollar"></span></a>
         <a class="card" href="#siliconvalleygirl-harvard-professor-mba-ai"><span class="num">06</span><span><span class="card-title">Harvard Professor: What Every MBA Student Now Learns About AI</span><span class="card-byline">Silicon Valley Girl &middot; Karim Lakhani</span></span><span class="card-dur">5:42</span><span class="listen-state" data-slug="siliconvalleygirl-harvard-professor-mba-ai"></span></a>
         <a class="card" href="#yuvalnoahharari-ai-hacking-code-of-civilization"><span class="num">06</span><span><span class="card-title">AI is hacking the code of civilization | Yuval Noah Harari</span><span class="card-byline">Yuval Noah Harari</span></span><span class="card-dur">4:15</span><span class="listen-state" data-slug="yuvalnoahharari-ai-hacking-code-of-civilization"></span></a>
+        <a class="card" href="#turingpost-model-learns-read-without-tokenizer"><span class="num">06</span><span><span class="card-title">This AI Model Learns to Read Without a Tokenizer</span><span class="card-byline">Turing Post TV</span></span><span class="card-dur">6:50</span><span class="listen-state" data-slug="turingpost-model-learns-read-without-tokenizer"></span></a>
         </div>
       </nav>
     </section>
@@ -1172,6 +1173,61 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#siliconvalleygirl-harvard-professor-mba-ai" data-route="article">&larr; Silicon Valley Girl</a>
         <a class="to-index" href="2026-10-30.html" data-route="index">All summaries</a>
+        <a class="next" href="#turingpost-model-learns-read-without-tokenizer" data-route="article">Turing Post TV &middot; This AI Model Learns to Read Without a Tokenizer &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="turingpost-model-learns-read-without-tokenizer" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-30.html" data-route="index">&larr; October 30, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">This AI Model Learns to Read Without a Tokenizer &mdash; October 30, 2026 <span class="dur">&middot; 6:50</span></p>
+        <audio controls preload="none" src="../podcasts/turingpost-model-learns-read-without-tokenizer.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/turingpost-model-learns-read-without-tokenizer.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="turingpost-model-learns-read-without-tokenizer" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="turingpost-model-learns-read-without-tokenizer"></div>
+        <div class="episode-download"><a href="../podcasts/turingpost-model-learns-read-without-tokenizer.mp3" download>Download turingpost-model-learns-read-without-tokenizer.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Turing Post TV</dd></div>
+        <div><dt>Published</dt><dd>October 30, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Q9mGVb_T_Tk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">An AI model that reads without a tokenizer</p>
+        <h2>This AI Model Learns to Read Without a Tokenizer</h2>
+        <div>
+<p>On Turing Post TV, the episode &quot;This AI Model Learns to Read Without a Tokenizer&quot; opens with a small demonstration. Cartesia showed its new model a completely made-up word. The first time the word appeared, the model split it into several pieces. As the word kept appearing, the model began grouping more of it together. There was no retraining, and nobody had added the word to a dictionary. The grouping adapted as the model read.</p>
+<p>That is a break with how nearly every language model works today. Before a model sees any text, a separate program called a tokenizer breaks the text into pieces, and each piece gets an ID number the model can work with. Tokens are a compromise. A book broken into single characters makes an enormous sequence, while a vocabulary of whole words would be huge and would still miss new names and typos. Common strings become larger pieces, and unfamiliar ones can still be broken down.</p>
+<p>The influential method behind this is byte pair encoding. In 1994, engineer Philip Gage described a way to compress data by replacing frequently repeated pairs with shorter symbols. In 2016, Rico Sennrich, Barry Haddow, and Alexander Birch adapted the idea for neural machine translation: a system might not know a rare word, but it could work with smaller pieces of it. The method builds a vocabulary by repeatedly merging the pairs that recur most often, and it became a foundation of modern language models.</p>
+<p>The catch is that the splitting decision happens before the model starts thinking, and it is invisible. A byte pair encoding tokenizer learns its vocabulary from data, but it is trained separately from the language model, and its vocabulary and merging rules are then fixed. Many systems also add a pre-tokenizer, a set of human-written rules that decide where certain splits can happen first. Some rules, for example, split long numbers into groups of up to three digits before the merging even starts.</p>
+<p>That design works well for English prose and other well-represented languages, and it strains elsewhere. Code is full of custom variable names the tokenizer has never seen. In underrepresented languages, words get chopped into excessive fragments, which bloats the sequence, burns through the context window faster, and raises the bill wherever providers charge per token. Processing raw bytes directly does not magically fix data distribution, but it stops the tokenizer from dictating the penalty up front.</p>
+<p>Bytes bring their own problem, though. In the UTF-8 encoding, English letters usually take one byte each while other characters can take several, and feeding a large model one byte at a time makes sequences much longer and asks it to do its most expensive computation on every byte. Researchers were working on this before Cartesia. In late 2024, Meta introduced the Byte Latent Transformer, which grouped bytes into larger patches with boundaries that could change depending on how predictable the text was.</p>
+<p>Then, in 2025, Sukjun Hwang, Brandon Wang, and Albert Gu introduced hierarchical networks, or H-Nets, and Cartesia has now shared results from a newer version. A small encoder reads the raw bytes first. A learned module then decides on the fly how to group those representations into dynamic chunks, so the main transformer runs across a much shorter compressed sequence. On the other side, a byte-level decoder unpacks everything to predict the next byte, and a bypass carries fine-grained detail directly around the main transformer so subtle character patterns do not get lost. The smaller networks do extra work on every byte, but the savings in the central model balance that out.</p>
+<p>Crucially, these chunks are not static dictionary entries. Their boundaries shift with context, and backpropagation tunes the chunking logic alongside the rest of the model, which is what end-to-end means here. When researchers say tokenizer-free, they do not mean the model processes text without structure. It still breaks data into units. It just learns those boundaries itself instead of inheriting human rules, and in H-Net the chunking hierarchy can nest across multiple levels.</p>
+<p>That is what the made-up word was showing. As it recurred, the model grouped it into fewer chunks, and it showed similar behavior with recurring patterns and names in code. The episode calls this in-context tokenization. The model&#x27;s parameters stay fixed; instead, the context it has already read changes where the boundaries fall. Standard models use context to pick the next token. Here, context actively reshapes the tokens themselves.</p>
+<p>Benjamin Minixhofer pointed out that Meta&#x27;s earlier byte model had already demonstrated a form of context-dependent grouping, and Albert Gu, Cartesia&#x27;s chief scientist, agreed. There is also a practical connection: Minixhofer and colleagues recently published work on retrofitting existing models such as Qwen and OLMo to operate over raw bytes through lightweight post-training. If that route holds up, the field may not have to retrain massive models from scratch to bring them into the byte-level world.</p>
+<p>The headline result is a data efficiency claim. Cartesia says its larger H-Net matched SmolLM3, an open model with a published training recipe, on the average of six selected language benchmarks, using roughly one tenth of the training data. SmolLM3 had trained on about 11 trillion tokens; the H-Net reached a similar average after text equivalent to about 1 trillion of those tokens, and the training computation was close to the same ratio, because processing less data also meant using much less compute.</p>
+<p>The episode keeps the caveats in view. The H-Net has more parameters, 3.67 billion against SmolLM3&#x27;s 3.08 billion. Cartesia replicated only the first phase of SmolLM3&#x27;s training recipe, not the full schedule. And matching an average across six benchmarks does not mean matching performance on every single task. In more controlled comparisons across model sizes, Cartesia reported about 22 percent less training computation to reach the same prediction loss on held-out data, with larger gains on some evaluations and programming languages.</p>
+<p>One finding cuts against intuition. You might assume the best way to process text is to compress it into the fewest possible pieces, since shorter sequences mean cheaper attention and faster processing. Yet in Cartesia&#x27;s experiments, a tokenizer that compressed text more aggressively performed worse than one guided by specific pre-tokenization rules about where to split. A 2024 paper had already made the point in its title: tokenization is more than compression. Raw compression can create arbitrary, unnatural boundaries that blur the underlying patterns in code or language. A short sequence saves compute, but how the information is divided determines what the model can learn from it.</p>
+<p>Cartesia also found that models with similar prediction scores on familiar text could differ on other evaluations, so one training score does not tell you how well what was learned will transfer. Their hypothesis is that learned dynamic chunks give the main network more coherent semantic units while the bypass preserves the fine details. Their experiments point that way, though with a qualification: because the system optimizes purely to predict the next byte, its internal groupings follow mathematics, not human linguistics, and the effective representations can look strange to us.</p>
+<p>The episode&#x27;s final act leaves text behind entirely. Cartesia trained a separate H-Net on the genomes of bacteria and archaea with a simple task, predicting the next DNA letter. The model had no formal training in human genetics. When researchers showed it a human gene completely outside its training data, many of the boundaries it had learned lined up with the starts of codons, the three-letter groups that specify amino acids, at least within the protein-coding part of the example. Outside that coding region, it grouped the sequence differently.</p>
+<p>The episode is careful about what this shows. It is a single visualization, not proof that the model understands human genetics. Still, it points to a larger principle: meaningful chunks in text might look like words or ideas, in DNA they can track the sequences that code for a protein, and in audio they might capture acoustic primitives or recurring syllables. Audio remains an active research frontier, but the concept is the same throughout. Let the data dictate its own units.</p>
+<p>Gu frames the ambition as a question: if we cannot build language models that learn end to end from bytes, how will we handle the rest of the world&#x27;s data, which we understand even less? He connects this to Richard Sutton&#x27;s bitter lesson, the pattern in which general methods that learn from data and use computation overtake approaches built on detailed human assumptions. The episode adds its own reality check. Bytes are not a law of nature; they are another human-engineered standard. The researchers stepped down one rung on the abstraction ladder, and human choices still shaped the foundation.</p>
+<p>One more gap is worth noting. The original H-Net code and weights are public, but Cartesia has not yet released the full newer version, a concern Minixhofer raised, because other researchers cannot inspect and test it at larger scale until it appears. The episode closes on the question the work leaves behind. We have spent years asking how much information a model can process. Perhaps we should also ask who decides which pieces of that information belong together.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Cartesia&#x27;s case rests on matching a benchmark average with far less data, but the same experiments show that scores on familiar text do not predict transfer to other evaluations. What evidence, beyond averages, would settle whether learned dynamic chunks are genuinely better than a fixed tokenizer?</li>
+<li>Retrofitting existing models to work over bytes looks promising, but will a lightly post-trained model match one trained end to end from the start, or is the chunking something a model has to grow up with?</li>
+<li>The DNA result is one striking visualization. What would it take, in DNA, audio, or other data whose natural units nobody knows, to show that a model has found real structure rather than a pattern that merely looks meaningful?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Grounded in the full English automatic caption track for this video, fetched through the Android 21.02.35 YouTube player client. A json3 response was requested and the endpoint served the track as srv3 timedtext XML instead; that srv3 file (captions.srv3.xml) is the grounding artifact. The track holds 2,116 words; the video runs 859 seconds and the captions cover it from the first caption at 0.1 seconds to the last starting at 857.4 seconds. The player-served title and channel were identical on the Android 21.02.35, Android 20.10.38 and iOS player clients and matched the oEmbed title and author exactly, so there is no title variant to disclose. The automatic captions render several names and terms phonetically, among them Cartesia as &quot;Cartisia&quot; and &quot;Cortisia&quot;, byte pair encoding as &quot;bite pair encoding&quot;, Sukjun Hwang as &quot;Sujin Wang&quot;, Albert Gu as &quot;Albert Goo&quot;, SmolLM3 as &quot;small LM3&quot;, the Byte Latent Transformer as the &quot;bite laden transformer&quot;, Benjamin Minixhofer in several forms, Sutton&#x27;s bitter lesson as &quot;Soden&#x27;s Peter lesson&quot;, and archaea as &quot;araya&quot;; the published spellings, taken from the episode title and the video&#x27;s own description and links, are used in this summary.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#yuvalnoahharari-ai-hacking-code-of-civilization" data-route="article">&larr; Yuval Noah Harari</a>
+        <a class="to-index" href="2026-10-30.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -1198,7 +1254,8 @@
       "ademb10-openai-half-million-problem-no-one-can-read": "OpenAI Says It Solved Half a $1M Problem. No One Can Read It.",
       "a16z-ai-small-law-firms-billion-dollar": "Why AI Could Turn Small Law Firms Into Billion-Dollar Businesses",
       "siliconvalleygirl-harvard-professor-mba-ai": "Harvard Professor: What Every MBA Student Now Learns About AI",
-      "yuvalnoahharari-ai-hacking-code-of-civilization": "AI is hacking the code of civilization | Yuval Noah Harari"
+      "yuvalnoahharari-ai-hacking-code-of-civilization": "AI is hacking the code of civilization | Yuval Noah Harari",
+      "turingpost-model-learns-read-without-tokenizer": "This AI Model Learns to Read Without a Tokenizer"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
