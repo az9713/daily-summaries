@@ -401,13 +401,14 @@
     <header class="masthead">
       <div>
         <p class="date">Friday &middot; October 30, 2026</p>
-        <h1>1 summary, distilled.</h1>
+        <h1>2 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
       <nav aria-label="Summaries">
         <div class="cards">
         <a class="card" href="#peterman-atoms-cto-brian-attwell"><span class="num">01</span><span><span class="card-title">Atoms CTO: What He Learned Working At Amazon and Google | Brian Attwell</span><span class="card-byline">Ryan Peterman &middot; Brian Attwell</span></span><span class="card-dur">3:29</span><span class="listen-state" data-slug="peterman-atoms-cto-brian-attwell"></span></a>
+        <a class="card" href="#samwitteveen-zgx-fury-local-ai-team"><span class="num">02</span><span><span class="card-title">ZGX Fury - Local AI for a Whole Team</span><span class="card-byline">Sam Witteveen</span></span><span class="card-dur">3:17</span><span class="listen-state" data-slug="samwitteveen-zgx-fury-local-ai-team"></span></a>
         </div>
       </nav>
     </section>
@@ -451,6 +452,48 @@
       <nav class="article-nav" aria-label="More summaries">
         <span class="spacer"></span>
         <a class="to-index" href="2026-10-30.html" data-route="index">All summaries</a>
+        <a class="next" href="#samwitteveen-zgx-fury-local-ai-team" data-route="article">Sam Witteveen &middot; ZGX Fury - Local AI for a Whole Team &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="samwitteveen-zgx-fury-local-ai-team" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-30.html" data-route="index">&larr; October 30, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">ZGX Fury - Local AI for a Whole Team &mdash; October 30, 2026 <span class="dur">&middot; 3:17</span></p>
+        <audio controls preload="none" src="../podcasts/samwitteveen-zgx-fury-local-ai-team.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/samwitteveen-zgx-fury-local-ai-team.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="samwitteveen-zgx-fury-local-ai-team" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="samwitteveen-zgx-fury-local-ai-team"></div>
+        <div class="episode-download"><a href="../podcasts/samwitteveen-zgx-fury-local-ai-team.mp3" download>Download samwitteveen-zgx-fury-local-ai-team.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Sam Witteveen</dd></div>
+        <div><dt>Published</dt><dd>October 30, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=lEFFa0Z5BIE" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">the ZGX Fury local AI station for teams</p>
+        <h2>ZGX Fury - Local AI for a Whole Team</h2>
+        <div>
+<p>On Sam Witteveen, the episode &quot;ZGX Fury - Local AI for a Whole Team&quot; is a hands-on look at the HP ZGX Fury G1N AI Station, HP&#x27;s version of NVIDIA&#x27;s DGX Station, which Witteveen frames as the bigger brother of the desktop DGX Spark. HP sponsored the video and shipped him a loaner unit halfway across the world so he could run his own tests. His central claim is a change of unit: where the Spark or the ZGX Nano sits on one person&#x27;s desk and serves one person, the Fury sits beside the desk and is built to serve a whole team at once.</p>
+<p>The hardware is data center silicon in a tower. Inside is NVIDIA&#x27;s GB300 chip, the Blackwell Ultra part from the GB300 NVL72 racks, paired with a 72-core Grace CPU, good for 20 petaflops of AI compute at FP4. Memory is the real headline: 748 gigabytes shared between CPU and GPU, of which 252 gigabytes is HBM running at 7.1 terabytes per second. Witteveen contrasts that with the usual local AI choice between unified memory in quantity and a discrete workstation card that is faster but capped near 96 gigabytes per card; NVIDIA&#x27;s fastest professional card, the RTX Pro 6000, moves data at 1.8 terabytes per second. The Fury, he argues, refuses the trade-off, offering server-class capacity and bandwidth in one box. Two 400 gigabit per second network ports let owners link multiple units together, the machine is liquid cooled, and HP designed it to rack-mount with proper airflow as well as stand beside a desk.</p>
+<p>HP&#x27;s customization is the differentiator he keeps returning to. He says the Fury is the only DGX Station whose maker was allowed to customize what ships on the box. That includes HP Z Runtime, or ZRT, a command line toolkit: setup, serve a named model, and the tool downloads the weights from Hugging Face, configures them for vLLM, and exposes a shareable endpoint, with monitoring, benchmarking for time to first token and throughput under concurrent users, and a quick chat mode for testing. A companion HP Z Toolkit extension brings the box into VS Code. The Fury also ships with Ubuntu but is, he says, the first GB300 station certified for Red Hat Enterprise Linux, the operating system most data center clusters actually run.</p>
+<p>The serving numbers come from his own load tests and one partner optimization. In aggregate across many streams he saw over 3,000 tokens per second; in a RAG test with 16 concurrent users on a large Qwen model the box held well over 1,300 tokens per second with the fans not yet kicked in, and simulating 64 users at once it still delivered per-user generation in the high 80s to around 90 tokens per second, passing half a million output tokens in minutes. Separately, Infinity AI used its auto research system to tune a quantization of NVIDIA&#x27;s Nemotron 3 Super specifically for the GB300, and HP ships that build with the machine; on identical hardware it doubles the number of people the box can serve at once and doubles overall token throughput without slowing individual responses.</p>
+<p>The pitch closes on the year agentic work changed the shape of demand. Teams no longer just chat with one model; they run an orchestrator model with sub-agent models, embedding, image, and video models, plus sandboxes and tools on the many CPU cores, all at the same time, and all without a per-token API bill. HP&#x27;s tagline, quoted in the video, is &quot;shareable on-prem AI, scale without token cost.&quot; Witteveen adds the control argument: because the box is on-prem, data never leaves the building, which he presents as a requirement rather than a preference in healthcare, government, and manufacturing, and a cybersecurity team chooses its own model and guardrails instead of depending on a closed provider that can refuse a request or quietly change its rules. His verdict is that the Fury is out of reach for most individuals but delivers state-of-the-art on-prem AI for an enterprise or a team, and because it runs the same stack as the big NVIDIA systems, work prototyped on it scales up without a rewrite. A follow-up video will test how many models, including multimodal image and video models, it can run at once.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>The Fury&#x27;s case rests on one shared box beating a Spark on every desk, but the video shows throughput tests rather than a team working through a normal week. How do latency and fairness hold up when inference, fine-tuning, and agent jobs from many people collide unpredictably on the same memory and compute?</li>
+<li>Infinity AI&#x27;s tuned Nemotron build doubles concurrent users and throughput on identical hardware. How much of that gain is specific to that one model and quantization, and can the same auto research treatment be repeated for the other models a team would actually want to serve?</li>
+<li>The control argument assumes an open model on your own hardware stays capable enough for sensitive work like security research. If frontier closed models pull further ahead, at what capability gap does the on-prem argument start to lose to the API, guardrails and all?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s creator-provided English caption track (en-US), saved as transcript.txt in the build directory (2,631 words, covering the video&#x27;s full 837 seconds, with the last caption starting at 836 seconds). The captions were served by the Android 21.02.35 YouTube player client; the endpoint returned the track in srv3 XML format when json3 was requested, and that srv3 file (captions.srv3.xml) is the grounding artifact. The English ASR track (2,657 words) was fetched as a cross-check and agrees in substance. The title gate ran through the player clients: the title &quot;ZGX Fury - Local AI for a Whole Team&quot; and the channel label Sam Witteveen came back identical on the Android 21.02.35, Android 20.10.38, and iOS player clients, and match the oEmbed title and author, so there is no title variant to disclose; the web_embedded client returned the video as unavailable. The video is sponsored by HP and the unit tested was an HP loaner, as stated in the video itself.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#peterman-atoms-cto-brian-attwell" data-route="article">&larr; Ryan Peterman</a>
+        <a class="to-index" href="2026-10-30.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -462,7 +505,8 @@
   <script>
     (() => {
       const TITLES = {
-      "peterman-atoms-cto-brian-attwell": "Atoms CTO: What He Learned Working At Amazon and Google | Brian Attwell"
+      "peterman-atoms-cto-brian-attwell": "Atoms CTO: What He Learned Working At Amazon and Google | Brian Attwell",
+      "samwitteveen-zgx-fury-local-ai-team": "ZGX Fury - Local AI for a Whole Team"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
