@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; October 29, 2026</p>
-        <h1>18 summaries, distilled.</h1>
+        <h1>19 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -425,6 +425,7 @@
         <a class="card" href="#cnbc-altman-magouyrk-full-discussion"><span class="num">16</span><span><span class="card-title">Watch the full discussion between OpenAI CEO Sam Altman and Oracle co-CEO Clay Magouyrk</span><span class="card-byline">CNBC Television &middot; Sam Altman, Clay Magouyrk</span></span><span class="card-dur">3:50</span><span class="listen-state" data-slug="cnbc-altman-magouyrk-full-discussion"></span></a>
         <a class="card" href="#allin-whoop-will-ahmed-health-data-moat"><span class="num">17</span><span><span class="card-title">WHOOP CEO, Will Ahmed: 50B Hours of Health Data, a 4 Million Member Data Moat, &amp; the FDA Fight</span><span class="card-byline">All-In Podcast &middot; Will Ahmed</span></span><span class="card-dur">4:23</span><span class="listen-state" data-slug="allin-whoop-will-ahmed-health-data-moat"></span></a>
         <a class="card" href="#turing-discovery-solo-physics-nobel"><span class="num">18</span><span><span class="card-title">Discovery So Massive, First Solo Physics Nobel in 30+ Years</span><span class="card-byline">Turing &middot; Francis Halzen</span></span><span class="card-dur">6:02</span><span class="listen-state" data-slug="turing-discovery-solo-physics-nobel"></span></a>
+        <a class="card" href="#arena-unit-economics-ai-ido-rosen"><span class="num">19</span><span><span class="card-title">The Unit Economics of AI: What It Really Takes to Deploy LLMs at Scale | Ido Rosen of Amazon SDO</span><span class="card-byline">Arena &middot; Ido Rosen</span></span><span class="card-dur">5:14</span><span class="listen-state" data-slug="arena-unit-economics-ai-ido-rosen"></span></a>
         </div>
       </nav>
     </section>
@@ -1263,6 +1264,52 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#allin-whoop-will-ahmed-health-data-moat" data-route="article">&larr; All-In Podcast</a>
         <a class="to-index" href="2026-10-29.html" data-route="index">All summaries</a>
+        <a class="next" href="#arena-unit-economics-ai-ido-rosen" data-route="article">Arena &middot; The Unit Economics of AI: What It Really Takes to Deploy LLMs at Scale | Ido Rosen of Amazon SDO &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="arena-unit-economics-ai-ido-rosen" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-29.html" data-route="index">&larr; October 29, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">The Unit Economics of AI: What It Really Takes to Deploy LLMs at Scale | Ido Rosen of Amazon SDO &mdash; October 29, 2026 <span class="dur">&middot; 5:14</span></p>
+        <audio controls preload="none" src="../podcasts/arena-unit-economics-ai-ido-rosen.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/arena-unit-economics-ai-ido-rosen.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="arena-unit-economics-ai-ido-rosen" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="arena-unit-economics-ai-ido-rosen"></div>
+        <div class="episode-download"><a href="../podcasts/arena-unit-economics-ai-ido-rosen.mp3" download>Download arena-unit-economics-ai-ido-rosen.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Arena</dd></div>
+        <div><dt>Published</dt><dd>October 29, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=PpnL6uY6mNI" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">the unit economics of AI at scale</p>
+        <h2>The Unit Economics of AI: What It Really Takes to Deploy LLMs at Scale | Ido Rosen of Amazon SDO</h2>
+        <div>
+<p>On Arena, the episode &quot;The Unit Economics of AI: What It Really Takes to Deploy LLMs at Scale | Ido Rosen of Amazon SDO&quot; is a conversation with Ido Rosen, who works on applying AI across Amazon in the company&#x27;s SDO organization. Rosen splits his time between investigating science and engineering questions and working with teams in stores, ads, and other organizations on the practical side of putting agents and other machine learning models into production. The talk runs about 38 minutes and keeps returning to one theme: what a model costs to run, measured against what it earns, decides where AI actually gets deployed.</p>
+<p>Rosen starts with how deep AI already runs beneath the surface. The deepest penetration of machine learning in industry, he argues, has already happened, because so much of the internet people touch every day is driven by embedding models, collaborative filtering, and, more recently, transformer models reused for jobs that have no chat interface at all. The ambient customer experiences that no one thinks of as AI experiences are the ones that impress him most. Agents, by contrast, have barely arrived in ordinary life, and he offers a personal yardstick for that gap: count the seconds of your day spent waiting for an LLM to think.</p>
+<p>The reason agents stay hidden is that engineering teams work hard to conceal the waiting. Product recommendations and similar experiences can be precomputed before a customer shows up, although precomputation gets expensive when you do not know who arrives next. Every customer experience, Rosen says, sits on a simplex of quality, cost, and latency, and the trade-offs among the three have to be intentional. A shopping search that took ten seconds to load would drive users away, so many real deployments carry a latency budget as tight as a hundred milliseconds, and that budget severely limits what a deployed system can look like and forces teams to get creative.</p>
+<p>His central complaint is that surprisingly few teams consider unit economics up front. Using a shopping catalog as the example, he points to the head, torso, and tail of the sales distribution: you can spend far more inference on the products that sell the most, and for a product that sells zero units, the return on any inference spend is approximately zero because the numerator is zero. Inference economics are punishing for a low margin business and quite reasonable for a high margin one, which is why, he argues, agents are appearing first where margins are high, either because they replace a very expensive process or because they grow a high margin business. His summary measure is return on tokens.</p>
+<p>The cheap end of the model market is genuinely improving, in his view, and it is now funny to call a 1.5 or 4 billion parameter model small. The gains, though, come from fairly boring places: better representations, engineering tricks, and quantization, all of which raise the useful work extracted from each unit of compute. What ultimately matters, he says, is useful compute per unit energy, not intermediate measures like tokens. For task performance, most real deployments he sees rely on narrowly post-trained models, fine-tuned with supervised training or reinforcement learning for one specific job, a lineage he traces back to adding a few layers on top of BERT to build a price prediction model with the economist Viktor Chernozhukov.</p>
+<p>Asked why so many builders report doing little more than prompt engineering and eyeballing outputs, Rosen agrees that is the common level, and says it is enough for well understood jobs like coding help and document summarization. Sophisticated methods become necessary only when a new constraint appears, like driving a browser at scale for less than a penny per website. He jokes that Amazon&#x27;s leadership principle &quot;invent and simplify&quot; should really be &quot;simplify and invent.&quot;</p>
+<p>The conversation then turns to evaluation, a natural topic given the host. Rosen is disappointed that so few open source frameworks tie model selection to an end to end business reward, such as whether a chat actually changed what a customer bought, measured the way a website change would be measured in an A/B test. He is also skeptical of LLM as judge methods for quantitative tasks, because judges carry a self-preferential bias that grows as training data fills with synthetic text from the same models. Where a ground truth or an adversarial test exists, he wants that instead: in stock trading, the only judge that matters is a simulated profit and loss number. Drawing on a decade in high frequency trading before Amazon, he argues that many settings could be reframed as auctions with a scoring function, where candidate models effectively bid for a task and the scoring function is hard to game. He expects model choice to become multipolar, with labs specializing, rather than today&#x27;s habit of checking Arena and Artificial Analysis and picking a favorite.</p>
+<p>On the industry&#x27;s future, Rosen applies the same unit economics lens to the labs themselves. If a lab&#x27;s business is selling tokens through an API, its inference margin is roughly price minus compute cost, times quantity, and that margin is its free cash flow. The hard question is what happens when a permissively licensed open weights model sits, on average, about six months behind the frontier: every use case the frontier model once charged a premium for can, six months later, be served at close to compute cost by self-hosting. He frames the industry&#x27;s future as two competing bets, one that the value of intelligence keeps rising exponentially and one that it plateaus, and notes that nature offers a cautionary parallel, since brain complexity did not exponentiate either. His expectation is a Pareto frontier world in which players specialize by environment, across coding, search, video generation, and other arenas.</p>
+<p>He closes on jagged capability. Returns to AI are spiky and asymmetric: a false negative from a model reading an MRI is dangerous in a way a mediocre recommendation is not, and every industry has an exhaustion point that nobody has mapped yet, software engineering included, where he believes demand for engineers will grow. But his final advice is to skip the speculation about spikes and go back to the arithmetic: for any industry, take its addressable market, model what competition does to prices, and the honest size of the opportunity appears. The marketing of multi-trillion dollar markets, he suggests, mostly skips that step.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Rosen says the right evaluation for most deployments is an end to end business reward, like units sold after a chat, yet few frameworks support it. What would it take for business outcome evals, rather than benchmark scores and LLM judges, to become the default way teams choose models?</li>
+<li>If open weights models really do settle about six months behind the frontier, how long can the frontier labs sustain a large inference premium before customers decide that waiting half a year and self-hosting is the rational move?</li>
+<li>Rosen argues agents are landing first in high margin work because the return on tokens is positive there. Which low margin, high volume experiences, if any, could still justify agent level inference costs, and what would have to change in price or latency to make them work?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full creator-provided English caption track for the video (the en-US track), saved verbatim as transcript.txt in the build directory (6,056 words, covering the video&#x27;s full 2,265 seconds, from the first caption at 0.0 seconds to the last ending at 2,260.1 seconds), and cross-checked against the English ASR track (6,692 words). The captions were served by the Android 21.02.35 YouTube player client; the endpoint returned the track in srv3 XML format when json3 was requested, and that srv3 track (captions.srv3.xml) is the grounding artifact. The title gate ran through the player clients: the title &quot;The Unit Economics of AI: What It Really Takes to Deploy LLMs at Scale | Ido Rosen of Amazon SDO&quot; and the channel name Arena came back identical on the Android 21.02.35, Android 20.10.38, and iOS player clients, and match the oEmbed title and author, so there is no title variant to disclose; the web_embedded client returned an error saying the video is unavailable.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#turing-discovery-solo-physics-nobel" data-route="article">&larr; Turing</a>
+        <a class="to-index" href="2026-10-29.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -1291,7 +1338,8 @@
       "thebuilders-mustafa-suleyman-end-of-human-jobs": "Mustafa Suleyman: The End of Human Jobs, the Rise of AI, and the Future of Humanity",
       "cnbc-altman-magouyrk-full-discussion": "Watch the full discussion between OpenAI CEO Sam Altman and Oracle co-CEO Clay Magouyrk",
       "allin-whoop-will-ahmed-health-data-moat": "WHOOP CEO, Will Ahmed: 50B Hours of Health Data, a 4 Million Member Data Moat, & the FDA Fight",
-      "turing-discovery-solo-physics-nobel": "Discovery So Massive, First Solo Physics Nobel in 30+ Years"
+      "turing-discovery-solo-physics-nobel": "Discovery So Massive, First Solo Physics Nobel in 30+ Years",
+      "arena-unit-economics-ai-ido-rosen": "The Unit Economics of AI: What It Really Takes to Deploy LLMs at Scale | Ido Rosen of Amazon SDO"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
