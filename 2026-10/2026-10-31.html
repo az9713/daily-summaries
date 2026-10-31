@@ -401,13 +401,14 @@
     <header class="masthead">
       <div>
         <p class="date">Saturday &middot; October 31, 2026</p>
-        <h1>1 summary, distilled.</h1>
+        <h1>2 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
       <nav aria-label="Summaries">
         <div class="cards">
         <a class="card" href="#natebjones-agent-shopping"><span class="num">01</span><span><span class="card-title">Muse, Dots, and Duet Want To Shop For You. The Internet Is Still Deciding Whether To Let Them In.</span><span class="card-byline">AI News & Strategy Daily | Nate B Jones</span></span><span class="card-dur">7:53</span><span class="listen-state" data-slug="natebjones-agent-shopping"></span></a>
+        <a class="card" href="#latentspace-aman-singh-arca-long-horizon-finance"><span class="num">02</span><span><span class="card-title">Using Agents for Long-Horizon Financial Work — Aman Singh, Arca</span><span class="card-byline">Latent Space &middot; Aman Singh</span></span><span class="card-dur">6:42</span><span class="listen-state" data-slug="latentspace-aman-singh-arca-long-horizon-finance"></span></a>
         </div>
       </nav>
     </section>
@@ -460,6 +461,56 @@
       <nav class="article-nav" aria-label="More summaries">
         <span class="spacer"></span>
         <a class="to-index" href="2026-10-31.html" data-route="index">All summaries</a>
+        <a class="next" href="#latentspace-aman-singh-arca-long-horizon-finance" data-route="article">Latent Space &middot; Using Agents for Long-Horizon Financial Work — Aman Singh, Arca &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="latentspace-aman-singh-arca-long-horizon-finance" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-31.html" data-route="index">&larr; October 31, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Using Agents for Long-Horizon Financial Work — Aman Singh, Arca &mdash; October 31, 2026 <span class="dur">&middot; 6:42</span></p>
+        <audio controls preload="none" src="../podcasts/latentspace-aman-singh-arca-long-horizon-finance.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/latentspace-aman-singh-arca-long-horizon-finance.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="latentspace-aman-singh-arca-long-horizon-finance" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="latentspace-aman-singh-arca-long-horizon-finance"></div>
+        <div class="episode-download"><a href="../podcasts/latentspace-aman-singh-arca-long-horizon-finance.mp3" download>Download latentspace-aman-singh-arca-long-horizon-finance.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Latent Space</dd></div>
+        <div><dt>Published</dt><dd>October 31, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=KM3VQZKjpiY" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Agents for long-horizon financial work at Arca</p>
+        <h2>Using Agents for Long-Horizon Financial Work — Aman Singh, Arca</h2>
+        <div>
+<p>On Latent Space, the episode &quot;Using Agents for Long-Horizon Financial Work — Aman Singh, Arca&quot; was recorded at the AI Engineer New York conference, where the show&#x27;s head of editorial, Richard MacManus, talks with Aman Singh, who leads the AI platform team at Arca. Arca is an AI native wealth management firm that recently raised $64 million, and Singh explains how agents run much of the firm&#x27;s work behind the human advisors its clients actually deal with.</p>
+<p>Arca offers financial advice and planning, tax planning, insurance, and estate planning, for clients ranging from people who just sold a business to technology executives planning early retirement to small families buying a first home. Singh is explicit that the role of AI at Arca is not to replace the advisor but to replace the work around the advisor. Clients never interface with the AI directly. What they experience is a level of service the industry could not previously deliver, provided through a human advisor, while machinery behind each client constantly tracks what the market is doing, how it affects that client, and what else is going on in their life.</p>
+<p>The agents run on frontier models from Anthropic and OpenAI, with Claude the primary model today. Arca has cycled through providers over the years, from Gemini to OpenAI to Anthropic, and Singh says the decisions are guided by internal benchmarks for the capabilities the harness has to express, not by public leaderboards: a recent model that external benchmarks praised proved too slow and too costly on Arca&#x27;s own tests. The firm built its own harness and keeps it model agnostic on principle, so it never depends on one provider. Inside the harness, models are tiered by task complexity. A tax analysis gets the heaviest tier, background activity runs on a lower tier, and none of this is visible to the advisors, who simply use the product while the routing decisions happen underneath.</p>
+<p>His central example is a client&#x27;s tax bill, a piece of work that spans ten days. When the client emails about the bill, agents take on the analysis: where the client&#x27;s money is allocated today, and what the most optimal way is to liquidate some of it to produce $100,000. That analysis is fully automated. Executing it is not. Arca has a deep integration with its custodian, with APIs that could move money, but strict guardrails keep a human in the loop for anything that moves money, liquidates assets, or communicates directly with clients. The agents instead pull in the right person at the right moment and hand them a plan they can review and adjust.</p>
+<p>Work that runs for days needs memory that survives between touches. Signals arrive constantly: a reply on an email thread goes back to the same agent following that thread, while a fresh signal, such as a phone call, wakes a fresh agent that has to work out what the signal means. What makes that possible is a per-client memory system tracking what is happening right now, what is being serviced, who owns what, what has already happened, what needs to happen in the next couple of days, and what is being tracked for the long term. A reflection process, which Singh describes as a kind of dreaming, updates those memories, so a newly woken agent can see that a big tax bill is being executed and place its signal in that context.</p>
+<p>Safety is built as deterministic restrictions that take decisions out of the agent&#x27;s hands. Simple record keeping tools the agent can execute itself, but every tool call that writes data also gets checked by fast verification models, and inbound emails, documents, and phone calls are screened at the edges because they are targets for prompt injection. When data leaves the system, in a web search or even a calendar invite, deterministic checks look for known personal information and a consensus of small models checks that no exfiltration is being attempted. The principle, Singh says, is to constrain at the edges of capability and not earlier.</p>
+<p>Compliance shapes the design as much as safety does. The industry cares about outcomes, but compliance cares about auditability, so every action an agent takes produces a change log recording what changed, who changed it, from which part of the system, and when. The same logging applies to human actions in the interface, and it doubles as an input to the agents, since a change a person makes can inform the agent that it happened.</p>
+<p>The line Singh is known for is that at Arca agents prompt people more than people prompt agents. In a ten day process with multiple actors, the person needed at step seven does not need to know about it yet; the agents, using their long memory and daily reflection on the state of the world, pull in the right person when a signal implies they are needed. This works, he argues, because Arca is not a software vendor. It is the firm itself, so it can standardize how the work happens and operationalize both the industry&#x27;s context and its own principles of how work should be done.</p>
+<p>That is also why he is wary of depending on managed agent products from the labs. He is bullish on their models, but a managed agent&#x27;s core asset is how it persists memory and operational knowledge, and handing that layer to a provider means handing off the firm&#x27;s intelligence and the control needed to tailor it. Anthropic&#x27;s move into financial services strikes him as validating rather than threatening, because there is a difference between a services firm that has access to AI tools and a firm built to be AI native. In the first kind, users prompt the agents to produce work. At Arca the service is proactive and runs around the clock.</p>
+<p>The agent itself never sits inside the sandbox. It offloads computation there: code it writes is translated into a strict format the backend expects, the code is thrown away, and guardrails are applied to the format before it reaches the backend. Through that mechanism agents can query and aggregate client data and produce artifacts, such as a PDF financial plan, inside the sandbox. The moment an artifact is produced, verifiers run on it. Deterministic checks catch things like a raw account number appearing in the document, and fast models check for content that would make it non-compliant, such as promising returns. Singh argues this can make compliance better than human review, because the checking is tireless.</p>
+<p>A separate layer watches the models&#x27; facts. Models working with financial data are confident in what they know, and will happily run an analysis on last year&#x27;s tax brackets. So decision models in the harness detect when the model is about to make a recommendation or take an action requiring financial rigor, and nudge it to use Arca&#x27;s knowledge base of verified facts about the world as it is today, or to search the web. Trading, though, stays entirely human. Agents propose trades; experts decide whether the trade is right and execute it, and there is no autonomous trading to recover from when an execution fails.</p>
+<p>The system also learns from its own staff. Every edit or cancellation by a staff member comes with a reason and becomes an evaluation. That feedback is stored alongside the trace of the agent that produced the work, and every night a meta agent runs over real traces from the field and suggests changes to the harness: a misleading tool, an error, a gap in the knowledge base. A human engineer still approves any prompt change before it ships, because agents left alone make sweeping, badly generalizing prompt edits. The knowledge base itself is a first class feature of the product, curated and edited by the firm&#x27;s experts; agents cite it as they work, and when knowledge turns out to be wrong, that surfaces through trace analysis and gets fixed at the source.</p>
+<p>His closing example is a prospect who was not yet a client. The man was paying another advisor $1,500 and finding him unresponsive. Arca&#x27;s agents read his documents and statements, analyzed his goals and his current arrangement, and found fees he was being charged that he did not know about. They also surfaced that the advisor was not a fiduciary, and so was not obliged to act in his interests. Singh points to the same machinery producing quieter wins at scale, such as flagging a deadline a client is about to miss or a required minimum distribution they are at risk of skipping, the kind of tracking that is hard for humans to sustain across every client but is default behavior for the agents.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Arca&#x27;s guardrails keep humans in control of money movement and client communication while agents handle everything around those moments. As agent platforms automate more of the orchestration, which of those human checkpoints genuinely hold, and who gets to decide when a step is safe to hand over?</li>
+<li>A meta agent already reviews real traces nightly and proposes harness changes, but a human still approves every prompt change because agents generalize badly. What evidence would justify trusting that improvement loop end to end?</li>
+<li>Singh&#x27;s distinction between an AI native firm and a firm with AI tools rests on proactivity and owning the memory layer. How much of that advantage survives once the model labs sell comparable proactive machinery to every incumbent firm?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s full English caption track, fetched through the Android player client. A json3 response was requested and the endpoint served srv3 timedtext instead, so that srv3 file (captions.srv3.xml in the build folder) is the grounding artifact. The track holds 4,875 words, with captions running from 0.0 seconds to 1564.4 seconds of the 1,565 second video. The player-served title and channel were identical on the Android 21.02.35, Android 20.10.38, and iOS player clients and matched oEmbed; the web_embedded client returned an error and served no details. The video carries only an automatic caption track, and a few names in it are rendered phonetically and could not be confirmed against the published title or description: a model is rendered as &quot;Luna&quot;, a mid-tier model label as &quot;Sonic&quot;, a decision model product as &quot;Jev&quot;, and the word &quot;why&quot; in &quot;comes with a why&quot; as &quot;a Y&quot;. Those items are described generically in this summary rather than named. There were no sponsor segments in the interview.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#natebjones-agent-shopping" data-route="article">&larr; AI News & Strategy Daily | Nate B Jones</a>
+        <a class="to-index" href="2026-10-31.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -471,7 +522,8 @@
   <script>
     (() => {
       const TITLES = {
-      "natebjones-agent-shopping": "Muse, Dots, and Duet Want To Shop For You. The Internet Is Still Deciding Whether To Let Them In."
+      "natebjones-agent-shopping": "Muse, Dots, and Duet Want To Shop For You. The Internet Is Still Deciding Whether To Let Them In.",
+      "latentspace-aman-singh-arca-long-horizon-finance": "Using Agents for Long-Horizon Financial Work — Aman Singh, Arca"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
