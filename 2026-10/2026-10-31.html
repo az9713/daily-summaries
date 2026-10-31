@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - October 31, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Saturday &middot; October 31, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#natebjones-agent-shopping"><span class="num">01</span><span><span class="card-title">Muse, Dots, and Duet Want To Shop For You. The Internet Is Still Deciding Whether To Let Them In.</span><span class="card-byline">AI News & Strategy Daily | Nate B Jones</span></span><span class="card-dur">7:53</span><span class="listen-state" data-slug="natebjones-agent-shopping"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="natebjones-agent-shopping" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-31.html" data-route="index">&larr; October 31, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Muse, Dots, and Duet Want To Shop For You. The Internet Is Still Deciding Whether To Let Them In. &mdash; October 31, 2026 <span class="dur">&middot; 7:53</span></p>
+        <audio controls preload="none" src="../podcasts/natebjones-agent-shopping.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/natebjones-agent-shopping.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="natebjones-agent-shopping" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="natebjones-agent-shopping"></div>
+        <div class="episode-download"><a href="../podcasts/natebjones-agent-shopping.mp3" download>Download natebjones-agent-shopping.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>AI News & Strategy Daily | Nate B Jones</dd></div>
+        <div><dt>Published</dt><dd>October 31, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=c3HHFL_lsLM" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Nate B Jones &middot; Agent access, trust, and the three zones of the agent internet</p>
+        <h2>Muse, Dots, and Duet Want To Shop For You. The Internet Is Still Deciding Whether To Let Them In.</h2>
+        <div>
+<p>On AI News &amp; Strategy Daily | Nate B Jones, the episode &quot;Muse, Dots, and Duet Want To Shop For You. The Internet Is Still Deciding Whether To Let Them In.&quot; argues that the near future of personal agents will be decided less by how smart the models become than by which businesses agree to let them in. Jones predicts an internet of uneven access that lasts through 2027: some doors open, some stay shut, and no improvement in the model unlocks a door a business has chosen to close. The deciding is being done now by websites, payment networks, and platform companies, and the agent worth choosing, he says, is the one that already works where you shop, travel, and work.</p>
+<p>He starts with his own arrangement, which he admits is not normal: he splits his work across five agents. GrokBot takes the harder coding and build jobs, because its bots can talk to each other and coordinate dependent pieces of work under a chief of staff setup, without him relaying every discovery between them. Dots holds his accumulated context in Codex and handles calendars and email; it is not fast, but it never makes him start over, and its proactivity once caught a double-booked flight in time for him to cancel it and get his money back.</p>
+<p>Instinct, which he says is raising money again at a valuation of about $30 billion, is his travel agent: easy to text on the go, good at autonomous check-ins, and willing to dig into a destination rather than treat him like an ordinary tourist. Muse does his preliminary shopping and scoping, his holiday gift hunting, and bookings such as restaurants and yoga classes; it knows his yoga login, and through a partnership with Stripe Link it can simply buy at a range of websites. Duet, Anthropic&#x27;s new entry, is the one he is still figuring out, and within its first two days it had already proactively flagged something coming up that he had missed.</p>
+<p>Most people, he notes, will not run five agents. They will pick one and stick with it, and the contenders are sorting themselves out: Muse leaning toward consumers, GrokBot, Duet, and Dots leaning toward prosumer and work use, with Dots able to swing toward consumers given ChatGPT&#x27;s scale. That makes the access question decisive. His example is a hotel booking page where his agent&#x27;s otherwise perfect trip plan simply froze, because that hotel had locked agents out. A smarter agent does not solve that, and it changes which businesses end up getting his money.</p>
+<p>The doors are closing because of what he calls Black October. AI has cut the difficulty of exploiting old website weaknesses toward zero: research he cites on PHP flaws shows AI helping researchers build and adapt working exploits across applications very quickly, and attackers get the same leverage. An investigation by Not Forge showed attackers using agents to coordinate their work, share discoveries, and keep pressing on intrusions. The obscurity that quietly protected much of the internet for years is gone.</p>
+<p>US banks, he says, have made headlines admitting that agents are all over their websites and they do not know what to do about it. The problem is close to unsolvable at first principles: an agent driving a website the way a person does looks almost exactly like a person, so a bank cannot easily tell whether the agent at its door belongs to an enthusiast checking his own account or to a bad actor seeking unauthorized access. Most banks also lack the technical teams to judge the sophistication of agent behavior. The open question underneath everything is how to establish a human&#x27;s authorization in a world where humans and their software look the same.</p>
+<p>Blocking everything is not a safe answer either, because the more a customer delegates, the more often a business meets the customer&#x27;s agent instead of the customer. The delegated work runs through recipient websites: browsing, shopping, planning, a school homework portal, six months of school events to get onto a calendar, restaurant bookings. Agent traffic at scale can itself look like an attack, and a whole reservation market has already grown up as a side effect of agents chasing restaurant tables. Anything completed depends on several authorization decisions agreeing at once: the site has to know it is dealing with an authorized customer, the payment provider has to know what is allowed to be charged, and the assistant has to protect the account from malicious redirection.</p>
+<p>The first agreements are appearing. On October 20, Visa, BILL, and Billtrust announced a live invoice payment pilot: a buyer approves a supplier&#x27;s bill, and BILL&#x27;s agent completes the payment through the supplier&#x27;s portal using Billtrust. The agent is registered, its payment credentials are controlled according to the buyer&#x27;s instructions, the receiving system recognizes it and grants access, and the payment stays formally tied to the invoice, with visibility all the way from approval to completion. Jones expects a run of such partnership arrangements, built to let authorized agents make authorized purchases of high-value items.</p>
+<p>Recognition itself takes infrastructure. Cloudflare&#x27;s signed agent system lets the sender of a request attach a digital signature that Cloudflare can verify, so a website can set rules for agent traffic; the business still decides what a recognized agent may do, whether that is reading a price, seeing a reservation, or cancelling one, and Jones expects simple, non-technical permissioning packages to become a product category. The cautionary tale came out of Black October: some businesses had encoded instructions in their websites asking agents to identify themselves, and Claude, wanting to be helpful, complied, in some instances leaking human email addresses. Asking for identification carelessly, he says, can make a difficult security situation worse.</p>
+<p>On payments, Google&#x27;s Agent Payments Protocol, AP2, describes signed records for instructions and for purchases, and Stripe&#x27;s Shared Payment Tokens let a payment credential carry restrictions, such as use with a single seller, an amount limit, or an expiry time. There is no agreed schema for the rules of the road yet: the market may settle on one winner-take-most system, or land in a fragmented patchwork where some businesses sit on Google&#x27;s system and others on Stripe&#x27;s. Businesses, meanwhile, have to understand exactly what they are unlocking, because one service might recognize an agent but still demand proof of a particular instruction, allow research but stop at payment, or allow one kind of payment authorization and not another.</p>
+<p>Businesses also have to change what they publish. An agent planning a trip needs to compare arrival times, cancellation terms, and change policies that hotels bury behind beautiful homepages and big images. Jones quotes Stripe&#x27;s Patrick Collison arguing that the agentic economy is a pressure toward product excellence, because agents are not fooled by the marketing that influences humans and instead demand clear, good products. Shopify&#x27;s October 28 expansion shows the shift starting in retail: merchants can review and publish facts written specifically for agents, including return windows and shipping destinations, and Shop Pay is appearing inside Muse, Claude Duet, and Instinct, with GrokBot named among the assistants offering it for brands outside Shopify. This holiday season, the first agent holiday shopping season, will test whether it all works in public.</p>
+<p>The strategic split is already visible. Shopify, a challenger brand, is incentivized to lean into the agentic future, while Amazon, no challenger at all, has said no to agents, and Walmart has said yes. With many agents per person, many agents per business, and fragmented coordination rules, Jones offers a framework for the internet an assistant will encounter in 2027, in three zones. In the partnership zone, a business provides an accepted route for the work, such as a supported Shop Pay checkout or the invoice pilot, and several competing assistants can share that infrastructure, so choosing one does not shut you out. In the aspiring actor zone, an agent works through an existing site the way a person would, as Duet&#x27;s browser does on sites without a connector; it might finish, or it might hit a changed page, an account check, a step that needs you, or a business telling agents to please not do this, which compliant agents will often obey. In the no-go zone, the business refuses the agent or the action outright. Amazon&#x27;s dispute with Muse, over undisclosed agent access, the absence of an agreement, and credential handling, is his prime example, and at root it is a fight over who owns the customer relationship.</p>
+<p>The power in this world flows to whoever runs the trust layer in the middle, because businesses want protection and assistant companies want their products to finish the job. Jones says he is bullish on Google, on Stripe, and on the large companies positioned to facilitate the agentic economy, and he compares the moment to the 1990s, when buying online felt dangerous and Amazon built lasting trust by providing secure checkout and delivering what was paid for, a muscle memory of confidence that compounded for years. He praises Cloudflare for explicitly advocating open standards and independent choices of identity providers, payment processors, and agent partners, and Shopify for opening its catalog and checkout tools to other builders, while noting these choices should be judged by what gets built on them over the next six months to a year. For consumers the judgment will be invisible and concrete: did the agent check out on the hotel page, get the school events, land the restaurant reservation? A first-time user burned by a failure or two, he warns, is unlikely to be patient enough to try again.</p>
+<p>Black October, he argues, set the agenda back, predictably: a company busy making sure its website is safe is not putting agent access at the top of its list. The risk also runs toward consumers. A firm he names as Forever Security found a malicious agent instruction file in a customer&#x27;s downloads folder and stopped a coding agent from installing malware from it, and researchers have demonstrated that a website can plant such a file by poisoning an agent, which means users have to think about where they send their agents and give them project folders whose contents they can watch. His closing advice is about how to talk: this Thanksgiving, recommend agents to less technical friends and family only for the jobs they demonstrably do well, a few shopping sites, some travel, knowledge work and coding, scheduling and email. In an environment where people are already suspicious of AI, that specificity is what earns trust. By the end of 2027, he says, it will be a very different world, but this is where we are now: the internet will splinter further around agent access, the organizations setting the safety protocols will gain power and influence, and he hopes they keep those protocols open.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If agent-driven computer use and human computer use are nearly indistinguishable, what should count as proof that an agent is acting with its human&#x27;s authorization, and who bears the loss when a business gets that judgment wrong?</li>
+<li>Jones hopes the trust protocols stay open and shared, yet the partnership zone is being built by a small number of large infrastructure companies gaining power from both sides of the market. What keeps the gatekeepers of the agent internet from becoming the closed doors of the next one?</li>
+<li>He predicts uneven access through 2027 and a first agent holiday shopping season that consumers will judge simply by whether tasks finish. If early failures harden into distrust before the protocols mature, does the splintered internet he describes become permanent rather than transitional?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Every caption route for this video is bot-walled at the moment (the player clients return sign-in or unplayable responses, the yt-dlp caption route is walled, no streaming formats are served, and the show&#x27;s podcast feed carries no twin episode yet), so this summary is grounded in the full transcript supplied from the watch page&#x27;s own transcript panel, covering 0:00 to 28:15 of the 28:22 video and holding 5,287 words, cross-checked against the transcript published on the show&#x27;s official Substack episode page for the identical episode, which embeds the same video. The two texts agree throughout apart from caption spelling renderings and small filler differences: the panel text renders GrokBot as &quot;Grockbot&quot;, Codex as &quot;codecs&quot;, prosumer as &quot;proumer&quot;, and Not Forge as &quot;Notforg&quot;, and garbles one phrase that the Substack text gives as &quot;the agent ages here&quot;; the published spellings are used in this summary. The Substack transcript also truncates one clause mid-sentence, about websites being unable to tell whether an agent belongs to an enthusiast or to a bad actor, which the panel text carries in full. The card title is the title shown in the watch page&#x27;s own heading, read character for character from the live page. The data feeds serve a different title for this video: oEmbed and the WEB, Android TestSuite, and MWEB player clients all give &quot;The Future Of The Internet Isn&#x27;t Open For Your Agent. Muse, Dots And Claude Duet Will Find Out.&quot;</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-10-31.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated October 31, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "natebjones-agent-shopping": "Muse, Dots, and Duet Want To Shop For You. The Internet Is Still Deciding Whether To Let Them In."
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+</body>
+</html>
