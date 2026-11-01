@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Saturday &middot; October 31, 2026</p>
-        <h1>5 summaries, distilled.</h1>
+        <h1>6 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -412,6 +412,7 @@
         <a class="card" href="#mts-sam-rodriques-new-drugs-2031"><span class="num">03</span><span><span class="card-title">AI Will Build Totally New Drugs by 2031 | Sam Rodriques</span><span class="card-byline">MTS &middot; Sam Rodriques</span></span><span class="card-dur">4:00</span><span class="listen-state" data-slug="mts-sam-rodriques-new-drugs-2031"></span></a>
         <a class="card" href="#mts-ian-weinberg-local-ai-takeover"><span class="num">04</span><span><span class="card-title">Local AI Will Take Over Within One Year | Ian Weinberg</span><span class="card-byline">MTS &middot; Ian Weinberg</span></span><span class="card-dur">3:53</span><span class="listen-state" data-slug="mts-ian-weinberg-local-ai-takeover"></span></a>
         <a class="card" href="#mts-allison-okamura-humanoid-robots-home-care"><span class="num">05</span><span><span class="card-title">Humanoid Robots Are Decades Away From Home Care | Allison Okamura</span><span class="card-byline">MTS &middot; Allison Okamura</span></span><span class="card-dur">4:39</span><span class="listen-state" data-slug="mts-allison-okamura-humanoid-robots-home-care"></span></a>
+        <a class="card" href="#mts-alexander-barry-rocky-road-cyber"><span class="num">06</span><span><span class="card-title">Expect a Rocky Road for Cyber Over Next Year | Alexander Barry</span><span class="card-byline">MTS &middot; Alexander Barry</span></span><span class="card-dur">6:18</span><span class="listen-state" data-slug="mts-alexander-barry-rocky-road-cyber"></span></a>
         </div>
       </nav>
     </section>
@@ -649,6 +650,52 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#mts-ian-weinberg-local-ai-takeover" data-route="article">&larr; MTS</a>
         <a class="to-index" href="2026-10-31.html" data-route="index">All summaries</a>
+        <a class="next" href="#mts-alexander-barry-rocky-road-cyber" data-route="article">MTS &middot; Expect a Rocky Road for Cyber Over Next Year | Alexander Barry &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="mts-alexander-barry-rocky-road-cyber" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-31.html" data-route="index">&larr; October 31, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Expect a Rocky Road for Cyber Over Next Year | Alexander Barry &mdash; October 31, 2026 <span class="dur">&middot; 6:18</span></p>
+        <audio controls preload="none" src="../podcasts/mts-alexander-barry-rocky-road-cyber.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/mts-alexander-barry-rocky-road-cyber.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="mts-alexander-barry-rocky-road-cyber" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="mts-alexander-barry-rocky-road-cyber"></div>
+        <div class="episode-download"><a href="../podcasts/mts-alexander-barry-rocky-road-cyber.mp3" download>Download mts-alexander-barry-rocky-road-cyber.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>MTS</dd></div>
+        <div><dt>Published</dt><dd>October 31, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=6TefM-MW2Gg" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI-driven cyber offense, the patch gap, and a rocky year ahead</p>
+        <h2>Expect a Rocky Road for Cyber Over Next Year | Alexander Barry</h2>
+        <div>
+<p>On MTS, the episode &quot;Expect a Rocky Road for Cyber Over Next Year | Alexander Barry&quot; features Alexander Barry of Epoch AI, where he heads capabilities tracking. Epoch had published a report the day before the recording on how AI can turn security fixes into working exploits before users receive an update, and the host set the conversation against a reported theft of more than six billion dollars from Binance the previous day, attributed to North Korea.</p>
+<p>Barry explains that the report started with a question about widely available models. Frontier labs restrict their strongest systems, so Epoch wanted to know what open weight models, which anyone can download, can do in cyber offense. The team expected a tidy trend: perhaps today&#x27;s open models could compromise web browsers that were two or three years out of date, with the reachable age shrinking over time. Instead, the answer came back as zero days. The browser the model could compromise was the current one.</p>
+<p>Working with a minimal setup, the open weight model GLM 5.3 built a website that, if visited in the then current version of Firefox, could read files from the visitor&#x27;s computer. Files include browser cookies, which carry the authentication details that keep people logged in to websites, and they can also include crypto keys and API keys with real money behind them. Epoch was deliberately recreating what a relatively unsophisticated actor could do, not what a professional team could do.</p>
+<p>The route in was the patch gap. Mozilla&#x27;s security fixes land in Firefox&#x27;s public development code before they ship in a stable release, and the model could read a fix, work out what flaw it closed, and build the exploit from there. That leaves the vulnerability exposed for the week or few weeks the fix waits to reach users. Human exploit writers used to give defenders a cushion, because turning a known flaw into a working exploit took them a week or two. Epoch gave the model up to two days, and in the fastest case it finished in about twelve hours.</p>
+<p>That speed is what changes the picture for ordinary users. An update prompt that gets dismissed is now a live risk rather than a theoretical one, and Barry advises keeping software current and thinking twice about keeping software around that will predictably go stale. Software makers cannot simply defend their way out, either: the attack begins from fixes the maker has already written, so unless fixes reach users faster, or stay hidden until they do, the maker is in effect announcing a working vulnerability and a deadline.</p>
+<p>Cost points the same way. Epoch spent more than one hundred thousand dollars on the Firefox side of the project, but much of that bought extreme precautions, with everything run offline and in sandboxes so no third party could be harmed. The marginal cost of attacking one more Firefox version inside its vulnerable window was about one thousand dollars, and an attacker who skips the precautions pays less. Barry&#x27;s worry is the falling skill floor: expert exploit writers usually had attractive legal options, while the much broader class of people who can now attempt this may not.</p>
+<p>Chrome held up better in Epoch&#x27;s testing. The team could compromise Chrome&#x27;s renderer, the inner process that displays pages, but could not escape the sandbox around it, which is the step that turns a page compromise into access to the machine. Firefox had a small class of sandbox flaws that allowed escape for the narrower purpose of reading files, and the models kept finding the same few of them. Mozilla has patched those flaws, and from Firefox 159.0, released the Tuesday before the recording, GLM 5.3 can no longer repeat the trick. Barry credits Chrome&#x27;s history of trading performance and compatibility for security, jokes about its memory use included, and stresses that both browsers are exceptionally hardened software and that Mozilla was excellent to work with.</p>
+<p>Closed source software is not a lasting refuge. Models are getting better at decompiling shipped binaries, and comparing an old binary with a new one can reveal which change was a security patch. The frontier is also moving: Kimi K3.1 Pro, released around the report, posts benchmark results suggesting another substantial advance, possibly the first open weight model near the Mythos preview tier for exploit development. Epoch has not tested it yet, because the team is waiting for the weights, expected early in November, and Barry notes that even a genuine jump usually takes time to diffuse into real attacks.</p>
+<p>His forecast is the source of the episode&#x27;s title. The next month should look much like the present, but over the next year he is comparatively pessimistic. The internet was built on deeply insecure software, all the way down, and the world got away with it for a few decades. Patching a lot of software is plausible; every bank, every hospital, and every local water company patching all of theirs is not. Software with no bugs at all may arrive eventually, but before then, he expects a rocky road.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If publishing a fix now hands attackers a starting point, how should open development change: faster release trains, hidden fixes, or something else, and who pays for the change?</li>
+<li>Epoch has not yet tested Kimi K3.1 Pro, and its benchmark claims are thin. What will independent testing show once the weights are out, and how long does the diffusion delay Barry describes actually last?</li>
+<li>Barry doubts the long tail of banks, hospitals, and utilities can patch everything they run. What, if anything, protects the organisations least able to keep up?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s full English caption track, fetched through the Android 21.02.35 player client. Only an automatic (ASR) caption track exists for this video; a json3 response was requested and the endpoint served srv3 timedtext instead, so that srv3 file (captions.srv3.xml in the build folder) is the grounding artifact. The track holds 4,269 words, with captions running from 0.0 seconds to 1297.1 seconds of the 1,309 second video, the remainder being the closing sponsor credits. The player-served title and channel were identical on the Android 21.02.35, Android 20.10.38, and iOS player clients and matched oEmbed exactly; the web_embedded client returned an error and served no details, so it could not be checked. The automatic captions render the guest&#x27;s surname once as &quot;Berry&quot; in the host&#x27;s spoken introduction; the published title and thumbnail spell it &quot;Barry&quot;, and this summary follows the published spelling. The captions also render the model name Kimi as &quot;Kimiko&quot; and &quot;Kimmy&quot;, and Mythos once as &quot;Methuselahs&quot;; the published spellings are used here. Sponsor segments (a Lovable read in the middle of the episode and the closing sponsor block) are not summarised.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#mts-allison-okamura-humanoid-robots-home-care" data-route="article">&larr; MTS</a>
+        <a class="to-index" href="2026-10-31.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -664,7 +711,8 @@
       "latentspace-aman-singh-arca-long-horizon-finance": "Using Agents for Long-Horizon Financial Work — Aman Singh, Arca",
       "mts-sam-rodriques-new-drugs-2031": "AI Will Build Totally New Drugs by 2031 | Sam Rodriques",
       "mts-ian-weinberg-local-ai-takeover": "Local AI Will Take Over Within One Year | Ian Weinberg",
-      "mts-allison-okamura-humanoid-robots-home-care": "Humanoid Robots Are Decades Away From Home Care | Allison Okamura"
+      "mts-allison-okamura-humanoid-robots-home-care": "Humanoid Robots Are Decades Away From Home Care | Allison Okamura",
+      "mts-alexander-barry-rocky-road-cyber": "Expect a Rocky Road for Cyber Over Next Year | Alexander Barry"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
