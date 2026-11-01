@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Saturday &middot; October 31, 2026</p>
-        <h1>6 summaries, distilled.</h1>
+        <h1>7 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -413,6 +413,7 @@
         <a class="card" href="#mts-ian-weinberg-local-ai-takeover"><span class="num">04</span><span><span class="card-title">Local AI Will Take Over Within One Year | Ian Weinberg</span><span class="card-byline">MTS &middot; Ian Weinberg</span></span><span class="card-dur">3:53</span><span class="listen-state" data-slug="mts-ian-weinberg-local-ai-takeover"></span></a>
         <a class="card" href="#mts-allison-okamura-humanoid-robots-home-care"><span class="num">05</span><span><span class="card-title">Humanoid Robots Are Decades Away From Home Care | Allison Okamura</span><span class="card-byline">MTS &middot; Allison Okamura</span></span><span class="card-dur">4:39</span><span class="listen-state" data-slug="mts-allison-okamura-humanoid-robots-home-care"></span></a>
         <a class="card" href="#mts-alexander-barry-rocky-road-cyber"><span class="num">06</span><span><span class="card-title">Expect a Rocky Road for Cyber Over Next Year | Alexander Barry</span><span class="card-byline">MTS &middot; Alexander Barry</span></span><span class="card-dur">6:18</span><span class="listen-state" data-slug="mts-alexander-barry-rocky-road-cyber"></span></a>
+        <a class="card" href="#mts-tudor-achim-c-code-verification"><span class="num">07</span><span><span class="card-title">One Bug Fixes Most C Code Vulnerabilities | Tudor Achim</span><span class="card-byline">MTS &middot; Tudor Achim</span></span><span class="card-dur">4:13</span><span class="listen-state" data-slug="mts-tudor-achim-c-code-verification"></span></a>
         </div>
       </nav>
     </section>
@@ -696,6 +697,53 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#mts-allison-okamura-humanoid-robots-home-care" data-route="article">&larr; MTS</a>
         <a class="to-index" href="2026-10-31.html" data-route="index">All summaries</a>
+        <a class="next" href="#mts-tudor-achim-c-code-verification" data-route="article">MTS &middot; One Bug Fixes Most C Code Vulnerabilities | Tudor Achim &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="mts-tudor-achim-c-code-verification" hidden>
+      <div class="article-bar"><a class="back" href="2026-10-31.html" data-route="index">&larr; October 31, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">One Bug Fixes Most C Code Vulnerabilities | Tudor Achim &mdash; October 31, 2026 <span class="dur">&middot; 4:13</span></p>
+        <audio controls preload="none" src="../podcasts/mts-tudor-achim-c-code-verification.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/mts-tudor-achim-c-code-verification.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="mts-tudor-achim-c-code-verification" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="mts-tudor-achim-c-code-verification"></div>
+        <div class="episode-download"><a href="../podcasts/mts-tudor-achim-c-code-verification.mp3" download>Download mts-tudor-achim-c-code-verification.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>MTS</dd></div>
+        <div><dt>Published</dt><dd>October 31, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=FSsg2i4yF_Y" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Formal verification for C code and chip design</p>
+        <h2>One Bug Fixes Most C Code Vulnerabilities | Tudor Achim</h2>
+        <div>
+<p>On MTS, the episode &quot;One Bug Fixes Most C Code Vulnerabilities | Tudor Achim&quot; is a conversation with Tudor Achim, the co-founder and CEO of Harmonic. Harmonic&#x27;s Aristotle system made its name proving mathematics, and this week the company expanded it to verifying C code and chip designs. Achim says Aristotle is, to his knowledge, the first generally available product that can verify C code and hardware designs at very large scale, and he frames the timing as urgent: everyone seems to be getting hacked all the time, because humans wrote a lot of code with a lot of problems.</p>
+<p>Verification, as he explains it, is the reasoning a programmer does in their head, except written out where a computer can check it. A programmer stepping through code holds assumptions about the input and works out what the code can and cannot do; verification makes a computer produce that logic explicitly, in a formal language, and has another program check every step. The bridge to existing software is compilation: if ordinary code can be compiled into Lean, the interactive theorem prover he calls the best of its kind, then ordinary software becomes verifiable too, and that translation is what Aristotle does.</p>
+<p>He is careful about what verification does not do. Verified code run with a weak password still gets hacked, because verification only guarantees that code does what it says it does. But a large share of real exploits in security sensitive C code chain together memory exploits: writing to memory the programmer does not own, or using data after the permission to use it has expired. Those memory errors are then combined with privilege escalation and other bad behaviour. Remove that first class of issues entirely, he argues, and you cut off a lot of attack chains at their first link.</p>
+<p>The concrete example he reaches for is Heartbleed, the OpenSSL flaw, which he calls a classic memory safety issue that Aristotle would have caught before it shipped. Harmonic has also found security problems in very popular open source systems and is working with their maintainers to fix them, cases where he says hacks were prevented. Asked about a major crypto exchange theft reported the previous day, he declines to speculate, saying nobody outside the company yet knows exactly what happened.</p>
+<p>The deeper contrast he draws is between finding bugs and proving their absence. For forty years, software engineering has mostly gotten better at finding bugs, and today&#x27;s most powerful AI systems still do that job: they search. The trouble is that a search never tells you when you are done, because running the finder longer might always turn up one more bug. For defined classes of error, such as memory safety and certain privilege escalation issues, formal verification instead gives a check mark: every bug in the class has been analysed and proven not to exist. The checking itself is done by a small, deterministic program that verifies the reasoning step by step, not by another AI whose judgement has to be trusted.</p>
+<p>Making C and Verilog verifiable meant, in his phrase, playing on hard mode. The method is to build a precise mathematical model of each primitive step: what it means to access memory, to add, to write, to read from a device, and then chain those models into a pure mathematical description of the whole program, at which point verifying it is a math problem of the kind AI systems are trained to solve. The difficulty is in the details, since parts of C and Verilog do not even have a formal account of what a language feature means.</p>
+<p>Asked what was hardest to build, he lists four requirements that a verification product has to meet at once. It must be correct, since proving something false is the worst possible outcome. It must be capable, scaling past toy examples to an entire chip. It must be fast, because once design partners get used to the tool they demand low latency. And it must keep cost reasonable while doing all of that.</p>
+<p>Not all code needs this treatment. If the worst outcome for your software is restarting a web server, he says, the return on verification may not be there, and verifying binary code is an expensive way to check. He expects companies to choose different levels of assurance, producing a spectrum of products rather than a binary of verified and unverified. Verification becomes essential where failure costs more than a restart: software in airplanes, anything that can endanger human life, finances, or cybersecurity, and chip design, where a single failed tape out can cost hundreds of millions of dollars paid to TSMC.</p>
+<p>Governments are part of the picture. Achim confirms Harmonic works with governments, and specifically with democracies, on critical infrastructure. The software running the electric grid and air traffic control, he says, was never designed to withstand sustained attack by capable AI, and fixing it in an airtight way is a question of when, not if. He borrows an analogy he credits to a secretary of defense: the cyber risk is like discovering that every bridge in America was built with defective concrete that cracks over time. Society would not defer replacing those bridges, and he rates the infrastructure software problem at about that scale, with the saving grace that the software fix is far easier logistically than replacing bridges.</p>
+<p>He expects visible progress quickly. Formal verification lets teams rewrite old code and prove the new version behaves the same as the old one while being memory safe, which makes the giant rewrites hardening requires actually feasible, and he thinks a lot of problems will be addressed within the next year. The discovery rate for vulnerabilities is, in his words, unbelievable at the moment, and the security chiefs he talks to understand the risk and are moving. His closing argument is about offence: five years ago it took a very special human to find a memory safety bug, but AI now makes such bugs easy to find, so leaving them in place is an unforced error. Whatever tool does it, he wants all of the world&#x27;s safety critical code verified.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Aristotle&#x27;s guarantees rest on mathematical models of C and Verilog that Harmonic built itself, in languages whose semantics are only partly formalised. Who checks those models, and how would an error in the model surface before an attacker finds the gap it hides?</li>
+<li>Achim expects a spectrum of assurance rather than universal verification. For software in planes, grids, and hospitals, who sets the required level: regulators, insurers, courts, or the market, and does skipping verification eventually count as negligence?</li>
+<li>He predicts a lot of critical code problems will be addressed within a year because verification makes safe rewrites provable. What evidence would confirm that, and will AI driven bug finding, which improves on the same curve, stay ahead of the defence?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English ASR caption track for the video (4,021 words, first caption at 0.0s and the last caption starting at 1,240.0s of the video&#x27;s 1,253 seconds). json3 was requested through the Android 21.02.35 YouTube player client and the endpoint served the track in srv3 XML instead; that srv3 file, saved in the build directory, is the grounding artifact. The player-served title used here, &quot;One Bug Fixes Most C Code Vulnerabilities | Tudor Achim,&quot; and the channel name MTS are identical on the Android 21.02.35, Android 20.10.38, and iOS player clients and match the oEmbed title and author; the web_embedded client returned an error saying the video is unavailable and served no details. The ASR captions render the guest&#x27;s name in the spoken introduction as &quot;Tudor Akeem&quot; and render Aristotle once as &quot;Iris&quot;; this summary uses the published spellings, Tudor Achim and Aristotle, as they appear in the episode title and description. Sponsor reads, including a mid-episode read for Lovable and the closing sponsor block, appear in the video and are not summarised.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#mts-alexander-barry-rocky-road-cyber" data-route="article">&larr; MTS</a>
+        <a class="to-index" href="2026-10-31.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -712,7 +760,8 @@
       "mts-sam-rodriques-new-drugs-2031": "AI Will Build Totally New Drugs by 2031 | Sam Rodriques",
       "mts-ian-weinberg-local-ai-takeover": "Local AI Will Take Over Within One Year | Ian Weinberg",
       "mts-allison-okamura-humanoid-robots-home-care": "Humanoid Robots Are Decades Away From Home Care | Allison Okamura",
-      "mts-alexander-barry-rocky-road-cyber": "Expect a Rocky Road for Cyber Over Next Year | Alexander Barry"
+      "mts-alexander-barry-rocky-road-cyber": "Expect a Rocky Road for Cyber Over Next Year | Alexander Barry",
+      "mts-tudor-achim-c-code-verification": "One Bug Fixes Most C Code Vulnerabilities | Tudor Achim"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
