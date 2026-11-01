@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Sunday &middot; November 1, 2026</p>
-        <h1>2 summaries, distilled.</h1>
+        <h1>3 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -409,6 +409,7 @@
         <div class="cards">
         <a class="card" href="#pomp-jordi-visser-bitcoin-biggest-crypto-hack"><span class="num">01</span><span><span class="card-title">Bitcoin Survives Biggest Crypto Hack In History?!</span><span class="card-byline">Anthony Pompliano &middot; Jordi Visser</span></span><span class="card-dur">9:41</span><span class="listen-state" data-slug="pomp-jordi-visser-bitcoin-biggest-crypto-hack"></span></a>
         <a class="card" href="#lennys-podcast-hector-serrano-paid-ugc"><span class="num">02</span><span><span class="card-title">86 minutes of paid-UGC alpha | Hector Serrano (Wispr Flow)</span><span class="card-byline">Lenny's Podcast &middot; Hector Serrano</span></span><span class="card-dur">9:45</span><span class="listen-state" data-slug="lennys-podcast-hector-serrano-paid-ugc"></span></a>
+        <a class="card" href="#ai-engineer-yijia-liang-office-for-ai-agents"><span class="num">03</span><span><span class="card-title">Why We Rebuilt Microsoft Office From Scratch for AI Agents - Yijia Liang, Compound AI</span><span class="card-byline">AI Engineer &middot; Yijia Liang</span></span><span class="card-dur">5:22</span><span class="listen-state" data-slug="ai-engineer-yijia-liang-office-for-ai-agents"></span></a>
         </div>
       </nav>
     </section>
@@ -517,6 +518,55 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#pomp-jordi-visser-bitcoin-biggest-crypto-hack" data-route="article">&larr; Anthony Pompliano</a>
         <a class="to-index" href="2026-11-01.html" data-route="index">All summaries</a>
+        <a class="next" href="#ai-engineer-yijia-liang-office-for-ai-agents" data-route="article">AI Engineer &middot; Why We Rebuilt Microsoft Office From Scratch for AI Agents - Yijia Liang, Compound AI &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="ai-engineer-yijia-liang-office-for-ai-agents" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-01.html" data-route="index">&larr; November 1, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Why We Rebuilt Microsoft Office From Scratch for AI Agents - Yijia Liang, Compound AI &mdash; November 1, 2026 <span class="dur">&middot; 5:22</span></p>
+        <audio controls preload="none" src="../podcasts/ai-engineer-yijia-liang-office-for-ai-agents.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/ai-engineer-yijia-liang-office-for-ai-agents.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="ai-engineer-yijia-liang-office-for-ai-agents" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="ai-engineer-yijia-liang-office-for-ai-agents"></div>
+        <div class="episode-download"><a href="../podcasts/ai-engineer-yijia-liang-office-for-ai-agents.mp3" download>Download ai-engineer-yijia-liang-office-for-ai-agents.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>AI Engineer</dd></div>
+        <div><dt>Published</dt><dd>November 1, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=v0UkV5qS9E4" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Rebuilding Office for AI agents, with Yijia Liang of Compound AI</p>
+        <h2>Why We Rebuilt Microsoft Office From Scratch for AI Agents - Yijia Liang, Compound AI</h2>
+        <div>
+<p>On AI Engineer, the talk &quot;Why We Rebuilt Microsoft Office From Scratch for AI Agents&quot; is given by Yijia Liang of Compound AI. Liang spent about three years as a vice president at Coatue, working on late stage private software investments, and says he spent far too much of that time in Excel and PowerPoint. He left to build tools that would replace his old job, and the talk is his account of what it takes to make AI agents genuinely useful inside institutional finance.</p>
+<p>He opens with a puzzle. Personal agents have taken off in the last three months, and Compound&#x27;s internal answer for why has three parts. Background agents have become reliable enough to delegate to, so a task like booking a flight actually gets done. The agents are proactive, doing things without being asked. And they are integrated with the context that matters to a person: email, drive, and calendar.</p>
+<p>Almost none of that transfers directly to a buy side firm, he argues. The finance equivalent of booking a restaurant table is turning a data room into a full set of investment committee models, slides, and memos, a process that normally takes four weeks of iteration and review and would need to compress into a few days. Proactivity is a liability when a managing director does not want an agent running around burning tokens without soliciting input. And the context is not an inbox. It can be a data room of 15,000 files, or a SharePoint and Box archive holding petabytes of unstructured data collected over a firm&#x27;s forty year history.</p>
+<p>Compound&#x27;s response has three parts of its own: make the agents multiplayer, rebuild the office software they work in, and build machinery for searching that context.</p>
+<p>Multiplayer comes first because deal work is team work. Liang points out that Claude and ChatGPT deployments inside institutions today are single player. One person produces an output in a plugin or a web app, then downloads the file and circulates it by email or Teams to get feedback. Compound instead gives every agent it creates a built in inbox, on the theory that institutional finance runs through Outlook and long email chains, and the agent should be a participant in those threads rather than a tool one person visits.</p>
+<p>Designing email for agents turned out to be nontrivial. There is an authentication problem: everyone on a thread has to have read and write access to the agent, which matters at firms where every deal sits under an NDA and privacy is paramount. There is also a behaviour problem. If several people reply in quick succession, a teammate would not fire back a separate acknowledgement to each one, so the agents bake in latency to feel human and avoid spamming the group.</p>
+<p>The second piece is the radical one. To run many long tasks in parallel, Compound evaluated the desktop plugins for Excel, PowerPoint, and Word, computer use agents driving virtual machines, and a range of existing engines, from open source packages like openpyxl to commercial products. None of them were good enough. With coding agents driving the cost of software down, the company decided to rebuild Office from scratch, running agents in loops against a simple objective: recreate Office in full fidelity, using Office itself as the judge. Liang puts the totals at 1.5 trillion input and output tokens and over 8 million lines of code across the project.</p>
+<p>Excel shows the method. The team started from IronCalc, an open source spreadsheet engine, benchmarked against real files drawn from public corpora and their own work, and let agents iterate against the real product as an oracle. Eight hundred thousand lines of Rust later, they had a replica he describes as one for one and considerably faster than Excel itself. The same loop approach produced PowerPoint and Word equivalents, with Rust based renderers checking that what Compound shows on screen is pixel for pixel what a downloaded Office file will show. That parity matters, he says, because firms only trust what they can download and send.</p>
+<p>Owning the engine also buys speed and a different way of working. Desktop Office is bound to one machine&#x27;s CPU, while a headless engine can run tasks in parallel and recalculate a twenty megabyte workbook four times faster. The talk&#x27;s own slide deck was built inside Compound: Liang generated a first draft, then left comments on the formatting throughout, drawing on what he had learned about good slides at Coatue, and let the agent apply them. A five person team, he claims, can work through a hundred page deck in an afternoon this way. Owning the stack also means owning the write, render, check, and fix loop. A library like openpyxl offers no render to check formatting against, so an agent using it is guessing. Compound&#x27;s engine can render its own output and iterate on it.</p>
+<p>The third piece is context, which he splits into breadth and depth. For breadth, the model is borrowed from coding agents: swarms of agents read files directly, a lead agent slices the directory, and the swarm reports back with findings that are grounded in citations to the source documents, so an analyst can trace every number. Indexing everything into a vector database is reserved for narrow cases. For depth, the example is a thirty megabyte model with two million formulas and five sensitivity tables that takes five minutes to recalculate. Driving that through code libraries forces the model to read the workbook as printed out code, which is slow and expensive. Because Compound owns the Excel engine, it can lay the model out in a compact form the model can process, and expose a richer set of tools over it.</p>
+<p>The goal of all three pieces is to move humans up a level. Instead of hunting for files and reminding the model how things should be done, analysts should spend their time imparting judgment: how a firm models a deal, how its materials should look. That, he says, is what expands the set of tasks that can run on autopilot. Spreading comps is already there with off the shelf tools. Drafting a fifty page investment committee presentation, or building a model exactly the way a particular private equity investor wants it, still sits in copilot territory, where people want to stay embedded in the process.</p>
+<p>He closes with an analogy to coding. Finance today, he says, resembles the moment Opus 4.5 launched last December, when developers stopped using AI to generate the next line and started delegating whole ambitious tasks, trusting the output because the checks and tests around it were sufficient. His claim is that the tooling described in the talk is what finance needs to reach the same point, where a team can drop in a data room, trust the outputs, and look at ten times as many deals. Enterprise agents are coming to finance, he concludes, and the adoption curve is at an inflection point.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>The rebuild bet rests on coding agents having made a faithful Office clone cheap to produce. If the cost of software keeps falling, what stops a rival, or Microsoft itself, from reproducing the same headless engine, and where does Compound&#x27;s advantage live then?</li>
+<li>Finance only trusts what it can download and send, and Liang&#x27;s parity argument answers that with pixel perfect rendering. What level of checking is enough before a firm lets an agent&#x27;s model or deck reach an investment committee without a human rebuilding it first?</li>
+<li>Multiplayer agents join email threads under strict access rules, but threads get forwarded and firms work under overlapping NDAs. How are an agent&#x27;s permissions and memory supposed to behave when the membership of a conversation changes mid deal?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English ASR caption track for the video (2,902 words, first caption at 1.3 seconds and the last caption ending at 940.5 seconds of the video&#x27;s 944 seconds), fetched from the Android 21.02.35 player client; the timedtext request was served in srv3 format, and that srv3 file, saved in the build directory, is the grounding artifact. The player-served title used here, &quot;Why We Rebuilt Microsoft Office From Scratch for AI Agents - Yijia Liang, Compound AI&quot;, and the channel name AI Engineer are identical on the Android 21.02.35, Android 20.10.38, and iOS 20.01.4 player clients and match the oEmbed title and author. The web_embedded player client returned an error saying the video is unavailable, and yt-dlp and the watch page were bot-walled, so no listing variant could be cross-checked. The ASR captions render the open source spreadsheet engine as &quot;Iron Calc&quot;, which this summary spells IronCalc per the project&#x27;s own materials, render openpyxl in one place as &quot;Open PyExcel&quot;, and render the personal agent product Liang asks the audience about as &quot;Muser Instinct&quot;; that product&#x27;s published spelling could not be verified from the video, so the summary refers to personal agents generically rather than naming it. Figures such as the token counts, lines of code, and speed claims are Liang&#x27;s own, as stated in the talk and its description.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#lennys-podcast-hector-serrano-paid-ugc" data-route="article">&larr; Lenny's Podcast</a>
+        <a class="to-index" href="2026-11-01.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -529,7 +579,8 @@
     (() => {
       const TITLES = {
       "pomp-jordi-visser-bitcoin-biggest-crypto-hack": "Bitcoin Survives Biggest Crypto Hack In History?!",
-      "lennys-podcast-hector-serrano-paid-ugc": "86 minutes of paid-UGC alpha | Hector Serrano (Wispr Flow)"
+      "lennys-podcast-hector-serrano-paid-ugc": "86 minutes of paid-UGC alpha | Hector Serrano (Wispr Flow)",
+      "ai-engineer-yijia-liang-office-for-ai-agents": "Why We Rebuilt Microsoft Office From Scratch for AI Agents - Yijia Liang, Compound AI"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
