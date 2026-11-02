@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Monday &middot; November 2, 2026</p>
-        <h1>14 summaries, distilled.</h1>
+        <h1>15 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -421,6 +421,7 @@
         <a class="card" href="#mts-daniel-king-space-data-centers"><span class="num">12</span><span><span class="card-title">Space Data Centers Cost Competitive by Early 2030s | Daniel King</span><span class="card-byline">MTS</span></span><span class="card-dur">4:13</span><span class="listen-state" data-slug="mts-daniel-king-space-data-centers"></span></a>
         <a class="card" href="#a16z-robotics-company-more-than-ai-model"><span class="num">13</span><span><span class="card-title">What iPhone Packaging Reveals About the Robotics Opportunity</span><span class="card-byline">a16z</span></span><span class="card-dur">7:46</span><span class="listen-state" data-slug="a16z-robotics-company-more-than-ai-model"></span></a>
         <a class="card" href="#kaiexplains-what-ai-runs-at-every-vram-size"><span class="num">14</span><span><span class="card-title">What AI You Can Run at Every VRAM Size, From 16GB to 1TB</span><span class="card-byline">Kai Explains</span></span><span class="card-dur">11:32</span><span class="listen-state" data-slug="kaiexplains-what-ai-runs-at-every-vram-size"></span></a>
+        <a class="card" href="#yc-blacksmith-infrastructure-ai-coding-era"><span class="num">15</span><span><span class="card-title">The $1B Company Fixing AI’s Software Bottleneck</span><span class="card-byline">Y Combinator</span></span><span class="card-dur">4:54</span><span class="listen-state" data-slug="yc-blacksmith-infrastructure-ai-coding-era"></span></a>
         </div>
       </nav>
     </section>
@@ -1083,6 +1084,52 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#a16z-robotics-company-more-than-ai-model" data-route="article">&larr; a16z</a>
         <a class="to-index" href="2026-11-02.html" data-route="index">All summaries</a>
+        <a class="next" href="#yc-blacksmith-infrastructure-ai-coding-era" data-route="article">Y Combinator &middot; The $1B Company Fixing AI’s Software Bottleneck &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="yc-blacksmith-infrastructure-ai-coding-era" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-02.html" data-route="index">&larr; November 2, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">The $1B Company Fixing AI’s Software Bottleneck &mdash; November 2, 2026 <span class="dur">&middot; 4:54</span></p>
+        <audio controls preload="none" src="../podcasts/yc-blacksmith-infrastructure-ai-coding-era.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/yc-blacksmith-infrastructure-ai-coding-era.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="yc-blacksmith-infrastructure-ai-coding-era" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="yc-blacksmith-infrastructure-ai-coding-era"></div>
+        <div class="episode-download"><a href="../podcasts/yc-blacksmith-infrastructure-ai-coding-era.mp3" download>Download yc-blacksmith-infrastructure-ai-coding-era.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Y Combinator</dd></div>
+        <div><dt>Published</dt><dd>November 2, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=NVzgt2AEvDg" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Y Combinator &middot; Blacksmith and the software bottleneck in the AI coding era</p>
+        <h2>The $1B Company Fixing AI’s Software Bottleneck</h2>
+        <div>
+<p>On Y Combinator, the video &quot;The $1B Company Fixing AI’s Software Bottleneck&quot; is a profile of Blacksmith, a startup that builds infrastructure to run continuous integration, the battery of checks developers run on every piece of new code to make sure nothing is broken. The company says the bottleneck in software has moved. Agentic coding tools mean developers are writing far more code than ever, but writing code faster is useless if it cannot ship at the same speed, and validating it usually means waiting on CI.</p>
+<p>The company has grown twentyfold in the last year and recently raised a Series C of about 66 million dollars at a billion dollar valuation, led by Sequoia.</p>
+<p>The founders were outsiders. The three of them were friends from undergrad in Toronto, and none of them had written a CI pipeline before. One of them, who went to the University of Waterloo because so many founders came from there, says his co-founders were database engineers and he worked on search infrastructure. Blacksmith was his second application to YC. He argues that being outsiders helped: they were, in his words, naive enough in the right way not to kill a good idea before it met the market.</p>
+<p>Their central observation is that the shape of a CI workload is unusual. CI jobs resemble desktop applications, video games in particular, far more than typical cloud workloads. They care less about running many threads of execution at once and much more about one single thread running as fast as possible. The hyperscalers, AWS, GCP and Azure, are built for the opposite shape, and the founders argue that mismatch is the source of the pain. So Blacksmith set out to build a cloud that is extremely good at running CI. At first the team rented servers from a German data center company known for hosting Minecraft and Call of Duty game servers. As the scale grew, it began owning more of the stack, and it now works in agreements measured in megawatts of power rather than individual machines.</p>
+<p>An early investor says he backed the company twice, leading its first round out of Y Combinator and then its Series A a few months later, and joined the board. What caught his attention was the gaming hardware: he had never seen anyone try to run CI on gaming CPUs, let alone buy a hundred of the machines and rack them in one place to compile code.</p>
+<p>Much of the speed comes from caching. A large part of making CI fast is skipping work that has already been done, and Blacksmith&#x27;s particular craft is keeping cache artifacts physically close to the compute nodes that need them. Customers can move all of their CI over in one click, and the company landed five and six figure contracts with no sales team at all. One recent customer, LangChain, had been running CI on GCP, where its developers routinely waited 15 to 20 minutes just to acquire compute before a job could start. On Blacksmith, which effectively exposes an infinite pool of compute, that wait fell to 10 to 15 seconds. Winning the first 200 customers was still extremely hard: the founders asked friends at other companies to try it, collected logo rights to build credibility, and personally called outbound to CTOs and platform engineers.</p>
+<p>The operation behind this is small. The team is 30 people, 12 of them engineers, up from about five people running a cluster of a couple of hundred servers. An engineering leader credits a few standing decisions: a lot of bespoke software to manage the fleet, bespoke observability at every layer of the stack, and a ruthless refusal to grow the product&#x27;s surface area faster than the team, whatever individual customers ask for. The company is also spending on visibility, rolling out a marketing campaign across San Francisco and New York that takes over 15 New York subway stations and wraps a subway train in its bright yellow color.</p>
+<p>Demand is the standing problem. Every time a new large language model drops, CI usage spikes as teams rush to test against it and ship more code, and machines take time to order and install, so the team leans on better job placement algorithms, tighter packing of jobs onto machines, and more efficient network topologies. There has been at least one hard lesson: right after the Series B announcement early in the summer, a power surge in Phoenix took out both the primary and backup cooling systems in one of the biggest data centers Blacksmith operates, and customers saw longer job startup times during the outage. The founders say it underscored why the fleet has to be geographically distributed.</p>
+<p>The next product push follows from the same bottleneck. Blacksmith is working on autonomous QA, gathering artifacts such as screenshots and video snippets that give developers evidence a change works, on the theory that nobody shipping this much code will have time to check everything by hand. The stated ambition is to let developers ship software as close as possible to their speed of thought.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Can a purpose-built CI cloud keep capacity ahead of demand when every major model release triggers a usage spike, given how long servers take to order, install and cool?</li>
+<li>Will the hyperscalers eventually answer with hardware tuned for fast single-threaded CI work, or is the mismatch between their cloud shape and the CI workload structural enough to protect Blacksmith?</li>
+<li>Will evidence gathered by autonomous QA, screenshots and video snippets, actually earn developers&#x27; trust at scale, or does human review simply become the next bottleneck as agent-written code keeps growing?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s full auto-generated caption track (English, original language). The Android 21.02.35 player client returned playability OK with the caption track, as did the Android 20.10.38 and iOS clients; the web_embedded client returned an error saying the video is unavailable. The track was fetched in srv3 format (the endpoint returned srv3 XML for both the json3 and srv3 requests), holds 1,695 words, and runs from 0 seconds to 545 seconds of the 553-second video; it is saved in the build directory as captions-en-orig.srv3, with the extracted text in transcript.txt. The player-served title used here, &quot;The $1B Company Fixing AI’s Software Bottleneck&quot;, is identical across the Android and iOS player responses and the oEmbed response. The channel&#x27;s uploads listing, and the screenshot Simon commissioned from, show a different title, &quot;Infrastructure for the AI Coding Era&quot;, so the two titles are in circulation for the same video; the player-served one is used here. The captions render the lead investor&#x27;s name as &quot;Seoia&quot;; this summary uses the published spelling, Sequoia. The raise figures match the TechCrunch headline in the commissioning screenshot (Series C of 66 million dollars, valuation up 17 times in 13 months). The speakers are not named in the captions, so the founders and the investor are described by role rather than named here.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#kaiexplains-what-ai-runs-at-every-vram-size" data-route="article">&larr; Kai Explains</a>
+        <a class="to-index" href="2026-11-02.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -1107,7 +1154,8 @@
       "citadel-alfred-lin-konstantine-buhler-next-big-bet": "Next Big Bet: Alfred Lin & Konstantine Buhler, Partners at Sequoia, on the Next Wave of Innovation",
       "mts-daniel-king-space-data-centers": "Space Data Centers Cost Competitive by Early 2030s | Daniel King",
       "a16z-robotics-company-more-than-ai-model": "What iPhone Packaging Reveals About the Robotics Opportunity",
-      "kaiexplains-what-ai-runs-at-every-vram-size": "What AI You Can Run at Every VRAM Size, From 16GB to 1TB"
+      "kaiexplains-what-ai-runs-at-every-vram-size": "What AI You Can Run at Every VRAM Size, From 16GB to 1TB",
+      "yc-blacksmith-infrastructure-ai-coding-era": "The $1B Company Fixing AI’s Software Bottleneck"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
