@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - November 2, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Monday &middot; November 2, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#sourcery-shardul-shah-agent-to-agent-war"><span class="num">01</span><span><span class="card-title">Why Index Ventures Is Willing to Pay More for the Best Startups</span><span class="card-byline">Sourcery with Molly O'Shea &middot; Shardul Shah</span></span><span class="card-dur">7:43</span><span class="listen-state" data-slug="sourcery-shardul-shah-agent-to-agent-war"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="sourcery-shardul-shah-agent-to-agent-war" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-02.html" data-route="index">&larr; November 2, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Why Index Ventures Is Willing to Pay More for the Best Startups &mdash; November 2, 2026 <span class="dur">&middot; 7:43</span></p>
+        <audio controls preload="none" src="../podcasts/sourcery-shardul-shah-agent-to-agent-war.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/sourcery-shardul-shah-agent-to-agent-war.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="sourcery-shardul-shah-agent-to-agent-war" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="sourcery-shardul-shah-agent-to-agent-war"></div>
+        <div class="episode-download"><a href="../podcasts/sourcery-shardul-shah-agent-to-agent-war.mp3" download>Download sourcery-shardul-shah-agent-to-agent-war.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Sourcery with Molly O'Shea</dd></div>
+        <div><dt>Published</dt><dd>November 2, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=9Vq63dnCfMU" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Sourcery with Molly O'Shea &middot; Index Ventures, taste, and the agent-to-agent era</p>
+        <h2>Why Index Ventures Is Willing to Pay More for the Best Startups</h2>
+        <div>
+<p>On Sourcery with Molly O&#x27;Shea, the episode &quot;Why Index Ventures Is Willing to Pay More for the Best Startups&quot; is a conversation with Shardul Shah, a partner at Index Ventures, recorded in the firm&#x27;s New York office. Shah first interned at Index in 2004 and returned in 2008. The firm he describes has grown from three people thirty years ago to ninety-three today, with about 17 billion dollars under management by Bloomberg&#x27;s last report, and his central claim is that its edge is taste at a moment when the rest of venture is industrializing around patterns, numbers, and scale.</p>
+<p>The firm&#x27;s winners are spread unusually widely. Shah is proudest not of any single deal but of how many partners, across generations, are attached to outlier outcomes, which he says is rare in an industry where returns usually concentrate in a couple of star partners and succession gets hard. The hall of fame he lists runs from Revolut, probably the largest technology company ever built out of Europe, through Datadog, Wiz, Adyen, Robinhood, Figma, ClickHouse, and Roblox.</p>
+<p>Wiz is his case study in how Index actually invests. The firm backed the company before a business plan existed, on Shah&#x27;s birthday, with no market, no business model, and no metrics to analyze. What he had instead was a decade of knowledge of the founders, Assaf Rappaport, Roy Reznik, and Ami Luttwak, from serving on the board of their earlier company, flaws and idiosyncrasies included. Index went on to invest more than 250 million dollars in Wiz over time, and Wiz became the fastest growing company he had seen and, in the sale to Google, the largest technology acquisition of all time.</p>
+<p>On valuations, Shah is blunt: he does not think about price sensitivity. As a University of Chicago economics student, he argues from supply and demand. Private markets are still small relative to the world&#x27;s capital, more money will flow in, and bigger outcomes will chase a finite set of companies, so prices are high and will go higher. Index&#x27;s recurring sin of omission, he says, is being cute on price, with GitHub among the mistakes. If the firm is within about 25 percent of the winning price, it should simply go; being two times off is the point to stop and ask what someone else believes that Index does not.</p>
+<p>What he looks for in founders is deliberately not a checklist. Pattern matching, he argues, is what industrialized venture does, and it is not a craft. He listens instead for defining moments in a person&#x27;s life, the things that determine motivation, grit, and ambition, and he prizes duality: founders who are imaginative and creative while also detail oriented and operationally excellent. That combination, he says, produces the adaptability that matters when model capabilities change every few months and yesterday&#x27;s durable advantage can stop being durable tomorrow. In an abundant, exuberant market, he adds, founders can confuse revenue with a durable business model, and part of the investor&#x27;s art is telling the difference.</p>
+<p>AI comes up as both threat and tool. Shah cites the line attributed to Marc Andreessen that venture capital may be the last industry left once AI has taken over everything else, because relationships, taste, and judgment can persist. Index is still transforming its own business with AI, and he frames the security landscape his portfolio sells into as an era of agent-to-agent war. On the question hanging over Wiz, whether it sold too early, he notes that a fellow early backer has said so publicly, but his own view is that public market security companies are approaching a trillion dollars of combined value, the category is permanent, and the players will evolve. He points to Seven AI, backed alongside Greylock, as a company positioned to rewrite the foundations of security and converge budgets that used to be separate.</p>
+<p>Competition, for Index, is mostly an internal matter. The firm is humble by disposition, puts founders in the spotlight, and rarely gives interviews, but Shah says the returns have ended the underdog era: &quot;We&#x27;re no longer an underdog.&quot; The hardest part of winning a deal is not price but conviction, finding the partner who genuinely connects with a founder and can find belief in them. Index runs as an equal partnership with little ego about who led what, and its investment committees are built to feel like the relationship a founder will actually get: thirty to forty-five minutes of presentation, the same again of deliberation, and a fast decision, with the quorum scaling from about three people on a million dollar check to six or more on one above a hundred million.</p>
+<p>His advice to founders runs through two stories. The first is about expression. A year or so after joining the board of Cartesia, the voice AI company, he gave its founder Karan Goel the conventional advice to do fewer things and burn the boats. Goel ignored him, proved him wrong, and taught Shah that when founders are supported and seen for who they are, the rest, compute, focus, hiring, tends to take care of itself. The second is about refusal. The first blog post Shah ever wrote was on learning to say no, aimed at the Wiz founders&#x27; earlier company; years later those founders said no to a first acquisition offer from Google, which created enormous value, and yes to the second.</p>
+<p>The next wave of AI founders, in his telling, arrived without any thematic screen. Index did not set out to back founders under twenty-six, yet it backed Joon Sung Park at Simile, Parag Agrawal at Parallel, and the team at Flapping Airplanes, in each case forming belief in the person before the business existed. Flapping Airplanes gets his most extravagant praise: a vertically integrated company built by what he calls the greatest army of under twenty-three-year-olds, whose technology has drawn intense interest from key industry players, and which he is confident will break some world records in the next couple of months. He would not say which records.</p>
+<p>On capital, Index writes checks from about a million dollars to more than a hundred million across its seed, venture, and growth funds, with no strict line between compute hungry companies and the rest. Shah&#x27;s own style with founders asking how much to raise is Socratic rather than prescriptive. The one finding he volunteers cuts against his economist training: the higher the price and the more capital a company raises, the easier it recruits, a luxury product effect in which a high price signals scarcity and creates demand, defying the arithmetic that says employees should prefer a lower option price. On concentration, Index still holds thirty to thirty-five investments in a venture portfolio, and Shah argues follow-through matters more than check size; a small investment where the firm fails to be the most impactful investor erodes performance more than a large one. Fund cycles, meanwhile, have compressed from roughly two and a half years as pacing accelerated across the industry over the last twelve months.</p>
+<p>Exits get the same unsentimental treatment. Index thinks carefully about DPI, actual cash returned, and about not getting high on its own supply. The IPO window cannot be timed, a lesson he associates with the New York Stock Exchange, but M&amp;A has genuinely accelerated, with Wiz, Cursor, and World Labs among the deals and private-to-private transactions joining in. The hardest moment is a founder holding a real offer and deciding whether to stay independent, and that, he says, is where being the most influential investor earns its keep, because there is no truth to consult. Bloomberg has reported an 11x DPI on Index&#x27;s 2012 fund against an industry average of 1.5x, and a 5.1x DPI on its 780 million dollar 2015 growth fund. Shah waves the numbers off: he claims not to remember how much the firm invested in a company or what it owns, and says he is prouder of three decades of consistent top decile performance than of any single fund.</p>
+<p>The conversation closes on people rather than portfolios. Asked who he spends his time with, Shah names his wife, Poonam, who has known him since middle school. When he pitches her an idea at home, she ignores the content and reads how he feels, and he calls her the shadow investment committee of Index. What he looks forward to is unglamorous: the team&#x27;s judgment calls, its mistakes, and the next couple of decades of supporting entrepreneurs.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If prices in private markets only rise from here, as Shah argues, what discipline replaces price as the check on venture returns, and does Index&#x27;s taste based approach survive a prolonged downturn in which conviction is expensive to hold?</li>
+<li>Will Flapping Airplanes actually break the world records Shah predicts in the next couple of months, and what does it mean for seed stage investing if a team of founders under twenty-three got backed before they knew what they were building?</li>
+<li>As cybersecurity consolidates around a few platform companies in an era of agent-to-agent attacks, can a challenger like Seven AI really rewrite the category&#x27;s foundations, or does Wiz&#x27;s sale mark the point where the independents stop winning?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in a full local transcription of the identical episode&#x27;s official podcast audio (7,162 words across 593 segments, the first segment at 0.0 seconds and the last ending at 2,658.3 seconds of the audio&#x27;s 2,661.5 seconds), produced with faster-whisper from the Sourcery podcast RSS feed after the YouTube caption routes failed: the Android 21.02.35, Android 20.10.38, and iOS player clients all returned a sign-in bot wall, the web_embedded client returned an error saying the video is unavailable, and the yt-dlp timedtext caption download returned HTTP 429 and was not retried. The podcast edition&#x27;s identity was verified as this exact episode before transcription: its description links to this video, its duration is 44:21, matching the video, and its guest and topics match. The audio was transcribed in two chunks of about twenty-two minutes with the base.en model under heavy parallel load on this machine; the transcript and segment files are saved in the build directory. The title used here is the one the watch page and the channel&#x27;s video listing both serve. Two variants exist: the oEmbed response and the podcast edition carry the episode as &quot;Inside $17B Index Ventures: Anthropic, Wiz, Datadog &amp; the Future of AI&quot;, and the commissioning screenshot showed a title beginning &quot;&quot;We&#x27;re in an Era of Agent-to-Agent War.&quot; In&quot; before truncation; the quoted phrase is Shah&#x27;s own line from the episode&#x27;s opening minutes. The transcription renders Wiz as &quot;whiz&quot;, Index&#x27;s assets under management as &quot;ALM&quot;, Adyen as &quot;Adian&quot;, Cartesia as &quot;Cartesha&quot;, Simile as &quot;Simley&quot;, Parag Agrawal as &quot;Perog&quot;, Karan Goel as &quot;Karin&quot;, Marc Andreessen as &quot;Mark Andreas&quot;, and Shardul Shah&#x27;s first name in several garbled forms; this summary uses the published spellings throughout. Sponsor reads in the episode, for Brex, Harvey, Zone, Mercor, VCX, Public, and Deel, are not summarised.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-11-02.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated November 2, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "sourcery-shardul-shah-agent-to-agent-war": "Why Index Ventures Is Willing to Pay More for the Best Startups"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+</body>
+</html>
