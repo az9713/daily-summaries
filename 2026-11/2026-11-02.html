@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Monday &middot; November 2, 2026</p>
-        <h1>5 summaries, distilled.</h1>
+        <h1>6 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -412,6 +412,7 @@
         <a class="card" href="#how-i-ai-figma-pm-os"><span class="num">03</span><span><span class="card-title">Inside Figma’s PM OS: skills, agents, and Auto XP</span><span class="card-byline">How I AI &middot; Ezra Mechaber</span></span><span class="card-dur">4:48</span><span class="listen-state" data-slug="how-i-ai-figma-pm-os"></span></a>
         <a class="card" href="#peterman-stephen-toub-port-codebase-rust"><span class="num">04</span><span><span class="card-title">Microsoft Distinguished Eng: Why And How To Port Your Entire Codebase to Rust | Stephen Toub</span><span class="card-byline">The Peterman Pod &middot; Stephen Toub</span></span><span class="card-dur">10:10</span><span class="listen-state" data-slug="peterman-stephen-toub-port-codebase-rust"></span></a>
         <a class="card" href="#mts-antonio-garcia-martinez-ai-agents-ecommerce"><span class="num">05</span><span><span class="card-title">AI Agents Will Run Global E-Commerce in 2 Years | Antonio GM</span><span class="card-byline">MTS &middot; Antonio García Martínez</span></span><span class="card-dur">5:29</span><span class="listen-state" data-slug="mts-antonio-garcia-martinez-ai-agents-ecommerce"></span></a>
+        <a class="card" href="#indydevdan-tiny-software-factories"><span class="num">06</span><span><span class="card-title">Tiny Software Factories: Agentic Engineering DONE WRONG</span><span class="card-byline">IndyDevDan</span></span><span class="card-dur">5:29</span><span class="listen-state" data-slug="indydevdan-tiny-software-factories"></span></a>
         </div>
       </nav>
     </section>
@@ -651,6 +652,51 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#peterman-stephen-toub-port-codebase-rust" data-route="article">&larr; The Peterman Pod</a>
         <a class="to-index" href="2026-11-02.html" data-route="index">All summaries</a>
+        <a class="next" href="#indydevdan-tiny-software-factories" data-route="article">IndyDevDan &middot; Tiny Software Factories: Agentic Engineering DONE WRONG &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="indydevdan-tiny-software-factories" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-02.html" data-route="index">&larr; November 2, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Tiny Software Factories: Agentic Engineering DONE WRONG &mdash; November 2, 2026 <span class="dur">&middot; 5:29</span></p>
+        <audio controls preload="none" src="../podcasts/indydevdan-tiny-software-factories.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/indydevdan-tiny-software-factories.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="indydevdan-tiny-software-factories" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="indydevdan-tiny-software-factories"></div>
+        <div class="episode-download"><a href="../podcasts/indydevdan-tiny-software-factories.mp3" download>Download indydevdan-tiny-software-factories.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>IndyDevDan</dd></div>
+        <div><dt>Published</dt><dd>November 2, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=1v7ldJiyH-Y" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">IndyDevDan &middot; Tiny Software Factories lesson one, agentic engineering done wrong on purpose</p>
+        <h2>Tiny Software Factories: Agentic Engineering DONE WRONG</h2>
+        <div>
+<p>On IndyDevDan, the video &quot;Tiny Software Factories: Agentic Engineering DONE WRONG&quot; is lesson one of a crash course miniseries called Tiny Software Factories. The premise is deliberately upside down: this lesson teaches agentic engineering done wrong, on purpose. Dan walks through a set of patterns he openly calls dark patterns and anti-patterns, techniques that will not scale, offered in exchange for speed. His pitch is that you move fast, break things, fix them, and ship.</p>
+<p>He is careful to frame the bargain. Tiny Software Factories is a highly compressed, lossy version of a much larger body of agentic engineering lessons, focused on what he calls near-the-loop work. His separate, more advanced material covers out-of-the-loop engineering, where fully autonomous systems operate without you. This course is the opposite end: a useful local maximum for getting results at all costs, blitzscaling applied to agentic engineering. The anti-patterns are meant to take you from zero to value at the cost of almost everything except getting the job done.</p>
+<p>A tiny software factory, by his definition, is a software factory built to solve one specific problem, where a proactive agent works around the clock in a durable environment with you near the loop instead of in it. Each part of that definition is a recurring theme: one problem, a proactive agent, around the clock, a durable environment, and a human who gives feedback, makes decisions, and approves work the agent has already done rather than prompting it step by step. In the loop, you prompt. Near the loop, you respond. He argues that you and he are the bottleneck, and that 80 percent or more of the work being done by hand right now could run without us, given the right system. The feedback a near-the-loop human gives becomes a data flywheel that improves the factory with each signal.</p>
+<p>Three more properties make the design valuable to him. It is rapidly deployable: with one meta skill and one command you can mount a new factory next to a codebase, point it at a repo, drop it in a sandbox, and go from zero to a working agentic system in minutes. It is extensible by design, because every prompt, tool, hotkey, extension, and theme is accessible to you and to the agent, so you can specialize it to the problem at hand. And its agent is durable and proactive: it starts working before you wake up, and when you check in, the work is waiting for your review. It does not wait for you to work. It works for you, then waits.</p>
+<p>The course proceeds through a feature map with four factory levels, each feature rated mainly on the value it returns for the effort it takes to unlock. The tour starts with the empty factory, a fully built template that has every feature needed to specialize but no specialization yet. In the browser demo, the empty factory has lists of pages on the left, a durable agent on the right that is always on and one message away, and the focus in the center, where pages and markdown artifacts are what you and the agent actually work on. He has the agent generate starter pages explaining the basics of Python, TypeScript, and Rust into nested folders to show the factory operating.</p>
+<p>The centerpiece idea is agent access parity: everything you can do in the interface, your agent can do through a matching tool. He demonstrates it by having the agent modify itself, disabling all of its coding tools and raising its own thinking level to maximum, then confirms in the settings that the changes took. That is reflection for agents, he says, and he flags the obvious risk: the capability is dangerous if not controlled properly, so the useful limit on self-modification is one you set.</p>
+<p>Parity rests on what he calls the core four: context, model, prompt, and tools. You do not truly own your agent, he argues, if you do not control all four. The demo&#x27;s settings show auto-compaction at 200K tokens with forced compaction at 500K, model selection and thinking level broken into tiers so you use the right model for the job at the right cost and speed trade-off, an engineered system prompt, and the full tool list. Underneath, the agent is built on an extensible harness, a composition of stacked capability layers, including a factory harness, coding tools, a page harness, an image generation harness, and factory controls, all customizable in later lessons. The interface itself is customizable down to themes, navbars, hotkeys, and animations, and because of parity the agent can restyle it on request. He calls this liquid software: meant to be changed.</p>
+<p>The final feature in this lesson is cron prompts, scheduled prompts the agent runs while you are away, each just a name, a schedule, and a prompt. In the demo he adds a cron that fires every minute and adds a new file to each programming language folder, breaking down one new concept each time, and the factory duly produces material on Python context managers, TypeScript utility types, and Rust lifetimes. He closes the app to make the point: the factory is durable, so the cron keeps running whether or not he is watching. The video ends mid-sentence, teasing the next feature, the one that turns the empty factory into a specialized one.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>The whole method knowingly trades correctness for speed, using patterns its own teacher says will not scale. What tells a builder that a given factory has outgrown the anti-patterns, and is there a migration path from a tiny software factory to the out-of-the-loop discipline, or do you throw the factory away and rebuild?</li>
+<li>Agent access parity lets an agent reconfigure itself, up to disabling its own coding tools. What guardrails, beyond a limit the owner sets, keep that self-modification useful rather than quietly destructive?</li>
+<li>A cron-driven factory accumulates work product around the clock, in the demo a new explainer file every minute. Who or what curates that growing pile, so a factory does not fill with plausible material nobody has checked?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English ASR caption track for the video (3,340 words; the first caption starts at 0.2 seconds and the last caption event ends at about 1,108.5 seconds of the video&#x27;s 1,116 seconds), fetched through yt-dlp from the Android player client after the default timedtext request was rate-limited (HTTP 429) and the iOS player client demanded sign-in. The json3 caption file is saved in the build directory and is the grounding artifact. The player-served title used here, &quot;Tiny Software Factories: Agentic Engineering DONE WRONG&quot;, and the channel name IndyDevDan match the channel&#x27;s uploads listing and the player&#x27;s metadata. The ASR captions garble several of Dan&#x27;s terms, rendering &quot;agent access parity&quot; as &quot;agent access parody&quot;, &quot;cron prompts&quot; as &quot;Chron prompts&quot;, and &quot;tiny software factory&quot; twice as &quot;Chinese software factory&quot;; this summary uses the intended terms throughout. The video itself ends mid-sentence as it teases the next lesson&#x27;s feature, and the summary reports that ending as it stands. The claim that 80 percent or more of current manual work could run unattended is Dan&#x27;s own figure, as stated in the video.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#mts-antonio-garcia-martinez-ai-agents-ecommerce" data-route="article">&larr; MTS</a>
+        <a class="to-index" href="2026-11-02.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -666,7 +712,8 @@
       "lowleveltv-this-number-broke-the-internet": "This Number Broke the Internet Last Week (twice...)",
       "how-i-ai-figma-pm-os": "Inside Figma’s PM OS: skills, agents, and Auto XP",
       "peterman-stephen-toub-port-codebase-rust": "Microsoft Distinguished Eng: Why And How To Port Your Entire Codebase to Rust | Stephen Toub",
-      "mts-antonio-garcia-martinez-ai-agents-ecommerce": "AI Agents Will Run Global E-Commerce in 2 Years | Antonio GM"
+      "mts-antonio-garcia-martinez-ai-agents-ecommerce": "AI Agents Will Run Global E-Commerce in 2 Years | Antonio GM",
+      "indydevdan-tiny-software-factories": "Tiny Software Factories: Agentic Engineering DONE WRONG"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
