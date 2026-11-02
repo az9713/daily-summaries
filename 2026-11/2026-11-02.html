@@ -401,13 +401,14 @@
     <header class="masthead">
       <div>
         <p class="date">Monday &middot; November 2, 2026</p>
-        <h1>1 summary, distilled.</h1>
+        <h1>2 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
       <nav aria-label="Summaries">
         <div class="cards">
         <a class="card" href="#sourcery-shardul-shah-agent-to-agent-war"><span class="num">01</span><span><span class="card-title">Why Index Ventures Is Willing to Pay More for the Best Startups</span><span class="card-byline">Sourcery with Molly O'Shea &middot; Shardul Shah</span></span><span class="card-dur">7:43</span><span class="listen-state" data-slug="sourcery-shardul-shah-agent-to-agent-war"></span></a>
+        <a class="card" href="#lowleveltv-this-number-broke-the-internet"><span class="num">02</span><span><span class="card-title">This Number Broke the Internet Last Week (twice...)</span><span class="card-byline">Low Level</span></span><span class="card-dur">4:59</span><span class="listen-state" data-slug="lowleveltv-this-number-broke-the-internet"></span></a>
         </div>
       </nav>
     </section>
@@ -458,6 +459,51 @@
       <nav class="article-nav" aria-label="More summaries">
         <span class="spacer"></span>
         <a class="to-index" href="2026-11-02.html" data-route="index">All summaries</a>
+        <a class="next" href="#lowleveltv-this-number-broke-the-internet" data-route="article">Low Level &middot; This Number Broke the Internet Last Week (twice...) &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="lowleveltv-this-number-broke-the-internet" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-02.html" data-route="index">&larr; November 2, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">This Number Broke the Internet Last Week (twice...) &mdash; November 2, 2026 <span class="dur">&middot; 4:59</span></p>
+        <audio controls preload="none" src="../podcasts/lowleveltv-this-number-broke-the-internet.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/lowleveltv-this-number-broke-the-internet.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="lowleveltv-this-number-broke-the-internet" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="lowleveltv-this-number-broke-the-internet"></div>
+        <div class="episode-download"><a href="../podcasts/lowleveltv-this-number-broke-the-internet.mp3" download>Download lowleveltv-this-number-broke-the-internet.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Low Level</dd></div>
+        <div><dt>Published</dt><dd>November 2, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=m4gx5YoRYfM" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">The xkcd random number, come true twice in one week</p>
+        <h2>This Number Broke the Internet Last Week (twice...)</h2>
+        <div>
+<p>On Low Level, the video &quot;This Number Broke the Internet Last Week (twice...)&quot; opens with a comic that turned out to be a prophecy. The xkcd strip shows a function that is supposed to return a random number and instead returns four every time, its comment explaining that four was chosen by a fair dice roll and is therefore guaranteed to be random. In the space of about a week, the number four turned up as the actual cryptographic secret in two completely unrelated incidents, one at a certificate authority and one inside an embedded web server, and the host walks through both.</p>
+<p>First he lays out the trust chain the first incident breaks. When a browser connects to a site over HTTPS, the site presents a certificate, the certificate is signed by an intermediate authority, and the intermediate is trusted because a root certificate authority stands behind it. The chain has to stop somewhere, so the root is simply trusted by agreement. Those root keys are created in formal key generation ceremonies, watched by independent observers, and locked inside hardware security modules so that ideally no one ever sees them again.</p>
+<p>The root in this story is eMudhra. Its private key material had room for 384 bits of randomness, but, by the rumor the host relays, a flaw in the script used to issue certificates left the keys with a single byte of entropy instead. The hardware module went on to issue eight intermediate certificates whose private keys were the numbers 4, 56, 66, 115, 155, 156, 230 and 237.</p>
+<p>Whoever knows an intermediate&#x27;s private key can issue a certificate for any site at all and sit in the middle of the connection. The victim&#x27;s session still looks fully encrypted, padlock and all, but the attacker in the middle can read what passes through, so a person logging in to a Google service could hand their password straight to an impostor while everything on screen looks secure.</p>
+<p>eMudhra has since dropped out of the TLS business, blaming what it called social media amplification, and the host notes that the TLS line was only about one percent of its revenue anyway. The harder problem is revocation. Browsers and modern operating systems update their certificate revocation lists and can stop trusting the compromised chain, but an embedded router that never downloads those lists keeps the root on board and will trust the bad intermediates indefinitely. A test site exists that tries to connect through the compromised chain so people can check their own setup; it passed for him, refusing the connection. He flags one worrying exception: as of October 28, the developer tools Apple ships with macOS, including Git, Curl and Python 3, still trusted the compromised certificates.</p>
+<p>The second four is a separate accident that happens to share the digit. A post he read announced three critical vulnerabilities in the GoAhead web server, software embedded in hundreds of millions of IoT, firewall, operational technology and military devices, Palo Alto&#x27;s among them, in the TLS traffic that uses Diffie-Hellman ephemeral ciphers.</p>
+<p>Diffie-Hellman is the trick that lets two parties build a shared secret over a public channel: they agree openly on a very large prime and a generator, each adds a private value, and the math leaves both sides holding the same secret. In the setup code for the encryption library, the size of the generator was passed where the size of the prime belonged. That one mix-up capped the prime at a single byte instead of 256 bytes, and with so small a prime the possible shared secrets collapse to roughly ten or twelve values. The secret the math settled on was four.</p>
+<p>He closes with the joke the industry is telling on itself: four has become a meme in security circles, and any company using five as its private key is sweating. His verdict is that neither incident needed a mastermind. A certificate authority made a mistake, some developers made a mistake, and there is no real fix beyond not making them.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>How many embedded devices still trust the eMudhra root and its compromised intermediates, and is there any realistic way to reach devices that never fetch revocation lists?</li>
+<li>Will the compromised intermediates keep being trusted by toolchains like the macOS developer tools he names, and how long does full distrust of a root actually take to propagate?</li>
+<li>How many other embedded TLS setups pass the wrong size for a Diffie-Hellman parameter, and would routine review or fuzzing of crypto configuration code catch the next one before it ships in hundreds of millions of devices?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s full auto-generated caption track (English, original language), fetched with yt-dlp in srv3 format after every direct player route failed: the Android 21.02.35, Android 20.10.38 and iOS 20.01.4 player clients all returned a sign-in bot wall (LOGIN_REQUIRED), and the web_embedded client returned an error saying the video is unavailable. The track holds 2,600 words, with captions running from 0.3 seconds to 754 seconds of the 752-second video and no gap longer than ten seconds; it is saved as transcript.txt in the build directory. The title and channel name used here are identical across the oEmbed response, the yt-dlp video metadata and the channel&#x27;s own uploads listing; the commissioning screenshot showed the title cut off after &quot;Last Week&quot;. The captions render the certificate authority&#x27;s name as &quot;Immudhra&quot; and &quot;I madra&quot;; this summary uses the published spelling, eMudhra. A sponsor read for Wiz Code appears in the middle of the video and is not summarised.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#sourcery-shardul-shah-agent-to-agent-war" data-route="article">&larr; Sourcery with Molly O'Shea</a>
+        <a class="to-index" href="2026-11-02.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -469,7 +515,8 @@
   <script>
     (() => {
       const TITLES = {
-      "sourcery-shardul-shah-agent-to-agent-war": "Why Index Ventures Is Willing to Pay More for the Best Startups"
+      "sourcery-shardul-shah-agent-to-agent-war": "Why Index Ventures Is Willing to Pay More for the Best Startups",
+      "lowleveltv-this-number-broke-the-internet": "This Number Broke the Internet Last Week (twice...)"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
