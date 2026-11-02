@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Monday &middot; November 2, 2026</p>
-        <h1>2 summaries, distilled.</h1>
+        <h1>3 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -409,6 +409,7 @@
         <div class="cards">
         <a class="card" href="#sourcery-shardul-shah-agent-to-agent-war"><span class="num">01</span><span><span class="card-title">Why Index Ventures Is Willing to Pay More for the Best Startups</span><span class="card-byline">Sourcery with Molly O'Shea &middot; Shardul Shah</span></span><span class="card-dur">7:43</span><span class="listen-state" data-slug="sourcery-shardul-shah-agent-to-agent-war"></span></a>
         <a class="card" href="#lowleveltv-this-number-broke-the-internet"><span class="num">02</span><span><span class="card-title">This Number Broke the Internet Last Week (twice...)</span><span class="card-byline">Low Level</span></span><span class="card-dur">4:59</span><span class="listen-state" data-slug="lowleveltv-this-number-broke-the-internet"></span></a>
+        <a class="card" href="#how-i-ai-figma-pm-os"><span class="num">03</span><span><span class="card-title">Inside Figma’s PM OS: skills, agents, and Auto XP</span><span class="card-byline">How I AI &middot; Ezra Mechaber</span></span><span class="card-dur">4:48</span><span class="listen-state" data-slug="how-i-ai-figma-pm-os"></span></a>
         </div>
       </nav>
     </section>
@@ -504,6 +505,57 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#sourcery-shardul-shah-agent-to-agent-war" data-route="article">&larr; Sourcery with Molly O'Shea</a>
         <a class="to-index" href="2026-11-02.html" data-route="index">All summaries</a>
+        <a class="next" href="#how-i-ai-figma-pm-os" data-route="article">How I AI &middot; Inside Figma’s PM OS: skills, agents, and Auto XP &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="how-i-ai-figma-pm-os" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-02.html" data-route="index">&larr; November 2, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Inside Figma’s PM OS: skills, agents, and Auto XP &mdash; November 2, 2026 <span class="dur">&middot; 4:48</span></p>
+        <audio controls preload="none" src="../podcasts/how-i-ai-figma-pm-os.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/how-i-ai-figma-pm-os.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="how-i-ai-figma-pm-os" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="how-i-ai-figma-pm-os"></div>
+        <div class="episode-download"><a href="../podcasts/how-i-ai-figma-pm-os.mp3" download>Download how-i-ai-figma-pm-os.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>How I AI</dd></div>
+        <div><dt>Published</dt><dd>November 2, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=ztt8irafLMQ" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">How I AI &middot; Figma's PM OS, a bug bashing agent, and AutoXP</p>
+        <h2>Inside Figma’s PM OS: skills, agents, and Auto XP</h2>
+        <div>
+<p>On How I AI, the episode &quot;Inside Figma’s PM OS: skills, agents, and Auto XP&quot; is a conversation between host Claire Vo and Ezra Mechaber, a growth product manager at Figma. Mechaber walks through PM OS, the shared system of AI skills he helped build for Figma&#x27;s product managers, and then shows two further automations: a bug bashing agent and AutoXP, an automated growth PM that runs experiments on its own.</p>
+<p>Mechaber says his goal is to be lazy in the right places. When he joined Figma a couple of years ago, he expected to find AI in use everywhere and felt behind. Instead, almost nobody outside engineering was using the tools to get real work done. He began by automating his own productivity, found that the arrival of Claude Code made terminal work newly interesting, and noticed that the PMs around him were curious but not doing the same.</p>
+<p>The push to spread it came from Yuki, Figma&#x27;s chief product officer at the time, who asked what it would take to get every PM at the company comfortable with AI. Working with two fellow PMs, Jen and Lawrence, Mechaber turned his personal setup into something reusable. The starting point was the jobs a PM does badly or not at all: looping the support team in at the right moment on a launch, keeping meeting notes, and simply knowing who owns what inside a company of about two thousand people.</p>
+<p>PM OS itself is deliberately plain. It is a repo, not a product. It holds an agent file that tells the assistant how to behave, a memory file about the individual PM, a set of skills that say when to fire and what to do, and a few command hooks, including one that checks on startup whether a newer version of PM OS exists so that sixty to seventy PMs stay roughly in sync. Each PM&#x27;s own workspace is a private sub repo inside the shared parent repo, so people can write back privately, an arrangement Mechaber describes as making GitHub work for PMs who had never touched GitHub before.</p>
+<p>The catalog grew fast and then shrank. A small Slack channel of three people produced a burst of skills, and a spring offsite where every Figma PM installed the system, used it, and roasted it whittled the list down. The count now stands at thirty one skills, and Mechaber says he keeps removing skills as the models improve enough to no longer need them.</p>
+<p>The skills he relies on most are unglamorous. One knows the org: who works on a given team, who owns a given area, and who should be added as a reviewer on a doc, so a PM does not have to remember that their designer or their engineering manager belongs on it. Another, a What&#x27;s Up skill he runs about six times a day, pulls together his Slack channels and projects and reports what he owes people, which decisions are outstanding, and how his live experiments are doing. A detailed spec skill walks through how the codebase works for anyone who wants to do a piece of work the thorough way.</p>
+<p>Other favorites are more generative. A build artifact skill turns work into small HTML pages using templates he likes, published through an internal hosting tool, and a FigJam builder produces workshop templates quickly through Figma&#x27;s own MCP connection. A coaching skill is the one he praises most warmly: loaded with the career ladder and the feedback he has collected about a person, it listens to a management problem and answers from memory, sometimes reminding him that he misunderstood someone before and understood them better after a conversation.</p>
+<p>There is no usage telemetry, by choice. Mechaber says he did not want anyone to feel watched, wanted the project to stay fun, and had no time, since the work was a side project. Feedback came instead from a public Slack channel, and adoption spread on its own: engineering managers began using the system and asking for help doing the same for engineering knowledge work, and the data science team built what amounts to a fork of it.</p>
+<p>The interface has moved on. PM OS began in the terminal, then gained a local web front end because long writing is hard to read in monospace type. Mechaber now works in Codex full time, largely because its browser use has become so strong. Among other things, he has it book his desk in the New York office, where desks are not permanent, on a schedule one day out.</p>
+<p>That same diligence powers his bug bashing. Before a launch, his team writes a FigJam file that explains how to test: which account to use, which path to follow, which actions to take, and what to look for. Mechaber takes one test account for himself and gives a second to the agent, which follows the directions far more carefully than he does and writes its findings back onto the FigJam board. In the last month it caught two things human testers had missed: a text box that broke when a thousand emojis were pasted into it, and a grammar fault in a seat request flow, where the wording shown depended on a team name and needed the other form of the indefinite article for names starting with the wrong letter.</p>
+<p>AutoXP is the most ambitious piece. As a growth PM, Mechaber calls wasting traffic the biggest sin in his job: traffic that is not running toward some experiment is traffic thrown away. AutoXP is his attempt to automate himself out of that job, a small growth PM that runs and runs. It works through a set of Cursor automations triggered from its own Slack channel, where it can also talk to itself. A person can point it at a surface, such as the settings page, and tell it to see what it can do, or it can run on a loop.</p>
+<p>Once pointed, AutoXP triggers a data science agent to find drop off in the funnel and check for shifts in the audience mix, a user experience writing agent to draft copy, and an engineering agent to pick up the change as a pull request, with every step reported back into the same Slack thread. The single human checkpoint comes before launch, when a reviewer looks at the data findings, the hypothesis, the copy, and the code all at once. When an experiment ends, a webhook wakes AutoXP to analyze the results using judgment Mechaber has written down from his own years in the job: whether to explore further or exploit what worked, and whether the result counts as a win or a loss. It then starts iterating on the next round. He is candid that the practice is still catching up with the theory, but one engineer has taken it far: five experiments are live right now that nobody has reviewed in detail, on surfaces the team would never have spent time on, and AutoXP found a large win on its very first experiment.</p>
+<p>The last demo is a real time writing assistant built on Jev, a small, fast, inexpensive model that answers pointed questions about a piece of text and returns something close to a score, a true or false, or a choice among options. Mechaber set it to run every time he stops typing. It looks for the blanks writers leave, such as a TK marker or an unfinished thought, and for claims that need support, then searches a library of source material to fill the blank or back the claim with an actual quote. The prototype was inspired by a writing app called Marker, and Mechaber says Jev, which was also built for search and document retrieval, spent about two weeks taking over every meeting he was in after it appeared.</p>
+<p>The lightning round covers his personal agents, including Instinct, which reaches him by text message and files pothole reports for him as he cycles his kids around Brooklyn, and a closing exchange on how to treat an AI that disappoints. Mechaber says he does not yell at his. When the output is bad, he argues, the odds are high that he gave poor instructions or poisoned the context, and the fix is to start a fresh conversation rather than shout at the old one.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>PM OS spread without telemetry, carried by a public channel and word of mouth. As the models absorb more of what the skills encode, how would Figma know which of the remaining thirty one skills still earn their place?</li>
+<li>AutoXP&#x27;s design allows exactly one human checkpoint, before launch. If its first experiment produced a large win, what evidence should be required before a company lets an automated growth PM spend real traffic with even less review?</li>
+<li>The writing assistant fills blanks and supports claims from a library the writer controls. When it supplies a quote or a number mid draft, whose job is it to check that the source actually says what the draft now claims?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English ASR caption track for the video (8,284 words, first caption at 0.0 seconds and the last caption ending at 2,549.3 seconds of the video&#x27;s 2,550 seconds), fetched via yt-dlp as the en-orig srv3 track; that srv3 file, saved in the build directory, is the grounding artifact. All direct player clients were bot-walled (Android 21.02.35 and 20.10.38 and iOS 20.01.4 all returned LOGIN_REQUIRED, and web_embedded returned an error saying the video is unavailable), so the caption track came from the yt-dlp fetch instead. The title used here, &quot;Inside Figma’s PM OS: skills, agents, and Auto XP&quot;, and the channel name How I AI are identical on the channel&#x27;s RSS feed, the oEmbed response, and the yt-dlp metadata. The ASR captions render the guest&#x27;s surname as &quot;McCabe&quot; and Figma as &quot;Sigma&quot;, and render the model Jev as &quot;Jeff&quot; or &quot;Jeb&quot;; this summary uses the published spellings Ezra Mechaber, Figma, and Jev, taken from the episode description and the show&#x27;s own materials. AutoXP is spelled as one word in the episode description, while the title writes it as &quot;Auto XP&quot;. Figures such as the thirty one skills, the sixty to seventy PMs, and the five live experiments are Mechaber&#x27;s own, as stated in the episode.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#lowleveltv-this-number-broke-the-internet" data-route="article">&larr; Low Level</a>
+        <a class="to-index" href="2026-11-02.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -516,7 +568,8 @@
     (() => {
       const TITLES = {
       "sourcery-shardul-shah-agent-to-agent-war": "Why Index Ventures Is Willing to Pay More for the Best Startups",
-      "lowleveltv-this-number-broke-the-internet": "This Number Broke the Internet Last Week (twice...)"
+      "lowleveltv-this-number-broke-the-internet": "This Number Broke the Internet Last Week (twice...)",
+      "how-i-ai-figma-pm-os": "Inside Figma’s PM OS: skills, agents, and Auto XP"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
