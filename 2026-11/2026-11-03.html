@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Tuesday &middot; November 3, 2026</p>
-        <h1>6 summaries, distilled.</h1>
+        <h1>7 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -413,6 +413,7 @@
         <a class="card" href="#mts-luke-alvoeiro-autonomous-software-factories"><span class="num">04</span><span><span class="card-title">Autonomous Software Factories Arrive by 2031 | Luke Alvoeiro</span><span class="card-byline">MTS</span></span><span class="card-dur">4:07</span><span class="listen-state" data-slug="mts-luke-alvoeiro-autonomous-software-factories"></span></a>
         <a class="card" href="#blackstone-eric-glyman-ramp-ai-adoption"><span class="num">05</span><span><span class="card-title">Ramp Co-Founder and Co-CEO Eric Glyman on AI Adoption, Jobs, and Token Spend</span><span class="card-byline">Blackstone</span></span><span class="card-dur">4:54</span><span class="listen-state" data-slug="blackstone-eric-glyman-ramp-ai-adoption"></span></a>
         <a class="card" href="#sair-terence-tao-math-2"><span class="num">06</span><span><span class="card-title">Terence Tao: Math 2.0</span><span class="card-byline">SAIR</span></span><span class="card-dur">6:18</span><span class="listen-state" data-slug="sair-terence-tao-math-2"></span></a>
+        <a class="card" href="#semianalysis-gdpx-benchmark-frontier-ai"><span class="num">07</span><span><span class="card-title">Ep. 042 - GDPx: The Benchmark for Frontier AI</span><span class="card-byline">SemiAnalysis</span></span><span class="card-dur">5:20</span><span class="listen-state" data-slug="semianalysis-gdpx-benchmark-frontier-ai"></span></a>
         </div>
       </nav>
     </section>
@@ -688,6 +689,52 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#blackstone-eric-glyman-ramp-ai-adoption" data-route="article">&larr; Blackstone</a>
         <a class="to-index" href="2026-11-03.html" data-route="index">All summaries</a>
+        <a class="next" href="#semianalysis-gdpx-benchmark-frontier-ai" data-route="article">SemiAnalysis &middot; Ep. 042 - GDPx: The Benchmark for Frontier AI &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="semianalysis-gdpx-benchmark-frontier-ai" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-03.html" data-route="index">&larr; November 3, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Ep. 042 - GDPx: The Benchmark for Frontier AI &mdash; November 3, 2026 <span class="dur">&middot; 5:20</span></p>
+        <audio controls preload="none" src="../podcasts/semianalysis-gdpx-benchmark-frontier-ai.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/semianalysis-gdpx-benchmark-frontier-ai.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="semianalysis-gdpx-benchmark-frontier-ai" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="semianalysis-gdpx-benchmark-frontier-ai"></div>
+        <div class="episode-download"><a href="../podcasts/semianalysis-gdpx-benchmark-frontier-ai.mp3" download>Download semianalysis-gdpx-benchmark-frontier-ai.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>SemiAnalysis</dd></div>
+        <div><dt>Published</dt><dd>November 3, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=WPV3F4Gt1hQ" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Dylan Patel, SemiAnalysis, and the GDPx benchmark</p>
+        <h2>Ep. 042 - GDPx: The Benchmark for Frontier AI</h2>
+        <div>
+<p>On SemiAnalysis, the podcast episode &quot;Ep. 042 - GDPx: The Benchmark for Frontier AI&quot; is a conversation hosted by Jordan Nanos with Andrew Megalaa and Max Kan, the two builders of GDPx, a new benchmark from the firm&#x27;s tokenomics team. The benchmark had launched the previous Sunday, and the three talk through why it exists, how its tasks were made, what the first results say about the frontier models, and where the project goes next.</p>
+<p>The launch itself was a scramble. The tasks were only finalized on the Thursday night before launch, because the team was still iterating with its data partners on flagged problems, and the date was self-imposed: the team was fairly confident new OpenAI and Anthropic flagships were arriving that week, and a benchmark that did not include them would look stale on arrival. The final leaderboard was unknown until a few hours before publishing. Partners had difficulty-calibrated their tasks on four models, and only then did the full runs begin, with individual task rollouts plus grading sometimes taking close to 24 hours. Megalaa switched to polyphasic sleep for the week and set up the infrastructure so that Claude would wake him when something broke.</p>
+<p>The founding complaint is that most popular benchmarks are, in their word, trash. The core distinction is between tasks that are difficult and tasks that are unfair. A coding task may have two equally valid fixes, through module A or module B, yet the verifier written for it accepts only one, so a model that solves the problem correctly is marked wrong. Making a task harder by making it unfair is easy, and they say most widely used benchmarks are full of exactly this defect. Data companies that audit rollout transcripts have reportedly found that a large share of one prominent terminal benchmark&#x27;s tasks are broken, and the builders&#x27; view is that everyone inside the labs already knew this; nobody had bothered to write it down.</p>
+<p>GDPx was built to be the opposite. SemiAnalysis partnered with 14 specialized data companies, each supplying tasks in its own domain, and SemiAnalysis itself ran quality assurance on everything. More providers were dropped for failing that QA than were included in the final benchmark, and the survivors went through heavy iteration, with the team&#x27;s own agents flagging false positives and partners correcting tasks in return. The domains were chosen on a thesis: the first trillion dollars of AI revenue will concentrate in the few fields that can absorb ever smarter frontier models and earn a high return on them, fields such as chip design, biology, and cybersecurity. The published set runs to eleven domains, including recursive self-improvement, quant trading, hardware design, material science, finance, legal, and alignment, the last added partly because alignment deserves measuring in any comprehensive benchmark and partly because a respected data company, Fleet, could supply it.</p>
+<p>The finance tasks show what the builders mean by quality. Instead of asking an expert to invent a representative task in a couple of hours, the finance partner rebuilt a real private equity deal, the purchase of a family-owned snack company for a little over $800 million, into an evaluation environment: roughly 4,000 files from the actual data rooms of the private equity firm, the investment bank, the accounting firm, and the seller, anonymized but otherwise as messy as the originals, replayed over the deal&#x27;s own timeline. The tasks are the real assignments analysts and associates received, some of them recoverable only from a single email adjusting a quarter&#x27;s numbers. The models failed them in exactly the ways a careless associate would be fired for. Grading is where the builders get argumentative: finance uses binary scoring, because a workbook with half its numbers wrong is worthless in a real deal, even though partial-credit components exist underneath. Rival benchmarks that show a low binary score and a near-perfect partial score are, in their reading, hiding easy or unfair tasks. In GDPx finance, the models scored essentially zero under binary grading, and even the partial scores in finance and legal sat far below what the hype around automating those professions would suggest.</p>
+<p>Elsewhere the results surprised in the other direction. A material science partner who is essentially one specialist with a doctorate watched a model solve a subtask better than a published state-of-the-art reference, and several tasks were solved for ten dollars of compute against the forty or fifty dollars they cost to run at full price. The builders argue human baselines have stopped making sense at this level: there is no meaningful human number for a chip design task that would take a whole team. On cybersecurity, the headline number is distorted by refusals. One leading model scored zero because its safety classifiers declined the tasks outright, while a model that is not even available through the public API turned out to be top tier at cyber, something Nanos says he had already figured out from his own work. The site therefore publishes two views, one across all domains and one setting aside biology, cybersecurity, and alignment, where classifiers most often intervene. The team chose the all-domain view as the headline, reasoning that an overly strict classifier is itself a real cost to users and fair to penalize.</p>
+<p>On the state of the race, their reading is that Google&#x27;s latest model has re-established it as the clear third player and the strongest of the second tier, a judgment its chief executive amplified by sharing the results, while a meaningful gap remains to the two leaders once the safety-affected domains are set aside and partial scoring is used. They also caution that the public comparison understates that gap, because the leading labs are plainly not releasing their best models and are likely generations ahead internally.</p>
+<p>The conversation turns to jobs, and the builders mostly shrug at the benchmark&#x27;s relevance to it. GDPx deliberately skips the everyday white-collar work people fear losing. What they observe instead is a rising bar: a strong model given a well specified problem is already a better software engineer than most engineers, yet good engineers are more valuable than ever, because the human contribution has moved to taste, supervision, and judgment. The squeeze lands on interns and on junior staff whose work was precisely those well specified tasks. Kan is optimistic that people will use the tools to attempt more ambitious work. Megalaa is blunter: most people, he says, want to put in their hours and go home, and whether they adapt is an open question.</p>
+<p>For what comes next, the release strategy is a deliberate trade. One task and one rollout per partner are public, so outsiders can inspect the quality for themselves, while the rest stays private so that no lab can climb the benchmark by buying training data shaped like its tasks. The builders want GDPx scores to appear on the release cards of major new models, and they plan future versions with more partners, more tasks per domain, and runs at every reasoning level as models saturate this set. The team is hiring, and they close by inviting anyone interested in evaluations to get in touch.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If the fairest tasks are built from real, private work like an actual deal room, how does a benchmark keep refreshing them at scale without exhausting the supply of partners willing to hand over their best material?</li>
+<li>Should a model that refuses cybersecurity or biology tasks on safety grounds be scored zero, as GDPx&#x27;s headline view does, or measured only on what it is permitted to attempt? The two leaderboards encode genuinely different ideas of what a frontier model is for.</li>
+<li>The builders say the leading labs are generations ahead internally. If public benchmarks can only ever measure what labs choose to release, how much can any leaderboard, however well made, actually tell outsiders about the true frontier?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English ASR caption track for the video (9,940 words, captions running from 0.3 seconds to 3,108.3 seconds of the video&#x27;s 3,112-second runtime), served by the Android 21.02.35 player client; the Android 20.10.38 and iOS clients returned the same title and track list with playability OK, and the web_embedded client returned &quot;This video is unavailable&quot;. The caption endpoint served srv3 XML for both the srv3 and json3 format requests, so the srv3 file (cap.en-orig.srv3 in the build directory) is the grounding artifact, and the verbatim extracted text is saved as transcript.txt. The title gate: the title &quot;Ep. 042 - GDPx: The Benchmark for Frontier AI | Andrew Megalaa, Jordan Nanos, Max Kan&quot; and the channel name SemiAnalysis came back identical from the oEmbed response and from the player responses of all three playable clients, so there is no conflicting variant to disclose. The ASR renders several names loosely, including Terminal-Bench as &quot;Turtle Bench&quot;, GDPval as &quot;GDP valve&quot;, the expert network Mercor as &quot;Merkore&quot;, and Anthropic as &quot;Enthropic&quot;; the published spellings are used throughout this summary. Model names such as Astra, Opus, Muse Wonder, and Gemini Carbon are given as the speakers used them in the episode.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#sair-terence-tao-math-2" data-route="article">&larr; SAIR</a>
+        <a class="to-index" href="2026-11-03.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -704,7 +751,8 @@
       "higgsfield-edwin-catmull-ai-creativity": "Pixar Co-Founder x Higgsfield: Edwin Catmull about AI and Creativity",
       "mts-luke-alvoeiro-autonomous-software-factories": "Autonomous Software Factories Arrive by 2031 | Luke Alvoeiro",
       "blackstone-eric-glyman-ramp-ai-adoption": "Ramp Co-Founder and Co-CEO Eric Glyman on AI Adoption, Jobs, and Token Spend",
-      "sair-terence-tao-math-2": "Terence Tao: Math 2.0"
+      "sair-terence-tao-math-2": "Terence Tao: Math 2.0",
+      "semianalysis-gdpx-benchmark-frontier-ai": "Ep. 042 - GDPx: The Benchmark for Frontier AI"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
