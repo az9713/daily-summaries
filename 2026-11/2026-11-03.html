@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - November 3, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Tuesday &middot; November 3, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#sourcery-fal-raises-165b-sequoia-bessemer"><span class="num">01</span><span><span class="card-title">fal Raises $1.65B Across Series E &amp; F by Sequoia &amp; Bessemer</span><span class="card-byline">Sourcery with Molly O'Shea</span></span><span class="card-dur">6:02</span><span class="listen-state" data-slug="sourcery-fal-raises-165b-sequoia-bessemer"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="sourcery-fal-raises-165b-sequoia-bessemer" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-03.html" data-route="index">&larr; November 3, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">fal Raises $1.65B Across Series E &amp; F by Sequoia &amp; Bessemer &mdash; November 3, 2026 <span class="dur">&middot; 6:02</span></p>
+        <audio controls preload="none" src="../podcasts/sourcery-fal-raises-165b-sequoia-bessemer.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/sourcery-fal-raises-165b-sequoia-bessemer.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="sourcery-fal-raises-165b-sequoia-bessemer" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="sourcery-fal-raises-165b-sequoia-bessemer"></div>
+        <div class="episode-download"><a href="../podcasts/sourcery-fal-raises-165b-sequoia-bessemer.mp3" download>Download sourcery-fal-raises-165b-sequoia-bessemer.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Sourcery with Molly O'Shea</dd></div>
+        <div><dt>Published</dt><dd>November 3, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=woVqLHMiwfk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Sourcery with Molly O'Shea &middot; fal raises $1.65B across Series E and F</p>
+        <h2>fal Raises $1.65B Across Series E &amp; F by Sequoia &amp; Bessemer</h2>
+        <div>
+<p>On Sourcery with Molly O&#x27;Shea, the episode &quot;fal Raises $1.65B Across Series E &amp; F by Sequoia &amp; Bessemer&quot; is a conversation with Burkay Gür and Gorkem Yurtseven, the co-founders of fal, recorded over dinner at Dalida in San Francisco. The occasion is fal&#x27;s combined Series E and Series F, $1.65 billion in total, with Sequoia Capital leading the E and Bessemer Venture Partners leading the F. The founders are almost sheepish about it. The rounds have come back to back, the adrenaline of announcing them has worn off, and they would rather talk about the business than the money.</p>
+<p>Their frame for that business is a claim about where AI actually works today. AI, they argue, has three product market fits: search, coding agents, and generative media, the category fal named and built itself into. What sets generative media apart is the spending pattern. A professional whose job is generating video all day can spend $10,000 to $20,000 a month on it, a level of individual spend that otherwise exists only in coding. Search is so large it gets a pass, and no other part of AI has this dynamic, which is why the growth keeps compounding.</p>
+<p>The pricing arc of the last two years shows how unusual the demand is. Video generation settled early around 30 to 40 cents for a five second clip, with Kling and MiniMax among the best models. Then Veo 2 arrived at $5 for a five second video, more than ten times the going rate, and the founders braced for rejection. Instead demand proved, in their word, essentially infinite, because the quality jump pulled in professional work: real advertising, marketing, and film production. They hosted OpenAI&#x27;s Sora as well, and watched volume surge in the three months before it was taken down, which they attribute to there not being enough compute to run everything.</p>
+<p>The mix of that demand has surprised them twice. Video went from nothing to roughly 70 percent of revenue, and they assumed image models were finished. Then image editing models arrived, made image work valuable again, and improved video too, because better edited frames give video models more to interpolate between. Revenue now splits about evenly between image and video. Costs, meanwhile, only climb: longer durations and higher resolutions raise the compute per generation steeply, and the founders see nothing like the diminishing returns people debate for language models.</p>
+<p>Fal did not start here. The company began in 2021 as a compute company for the pre-AI data world, on the thesis that what Snowflake and Databricks did for SQL, someone would do for Python, owning the compute and scaling it elastically. After ChatGPT, Stable Diffusion, and DALL·E landed, the five or six person team chose the new world over the old roadmap, but steered away from language model tokens, where a price race to the bottom was already under way and they could not afford to sell at a negative margin. Image models were the opening: a technical team could make them run much faster in the cloud. The old business had run a year without a dollar of revenue; the new one took off, and they gave the category its name, generative media, because three years ago nobody knew what the words meant.</p>
+<p>That origin explains the company&#x27;s seat in the ecosystem today. Fal is an infrastructure partner to the model labs and an API partner to the studios and applications consuming the models, so it sees supply and demand on both sides. In a compute constrained market, a lab launching a model has to plan its inference capacity ahead or fail to procure it, which makes partnering with an inference provider like fal the practical route. Fal in turn has to anticipate demand and invest in compute ahead of launches, a responsibility the founders say has fallen to them by default, because otherwise the capacity drifts to coding agents and whoever invests biggest. The field they serve is fragmented by design: text to image, image editing, video, 3D, speech in both directions, five to ten companies per modality, and roughly eight serious labs leapfrogging each other, fed by an effectively unlimited supply of video data where the hard problem is filtering out the interesting footage.</p>
+<p>Advertising is the use case they expect to dominate. User generated style ads are disposable by nature, so imperfect output is fine, and short cuts stitched together can beat a single long generation. The real prize is the loop nobody has built well yet: generate many variants, post them, read the engagement data, and automatically make more of what performs. Hollywood is arriving more slowly, and for a specific reason. Business from the studios has grown into a meaningful share of revenue over the last six months, but the founders say AI has so far had zero impact on Hollywood labor and has barely produced content worth watching there. What slowed adoption was not model quality but company lawyers, who are only now signing off.</p>
+<p>The open versus closed source argument, they think, never ends, because it is useful to both sides. A lab that falls behind can open source a model and get the whole world talking, and studios have hard technical reasons to want open weights: fine tuning, applying LoRAs and filters, changing lighting, and running unreleased characters and styles through a model. Underneath it sits trust. Unreleased creative work is the input to these models, and customers who know a model runs on fal&#x27;s GPUs trust the process far more.</p>
+<p>The organization behind all this is deliberately flat. Fal is about 150 people with at most two levels of reporting and no pure managers; leadership is built around what they call super ICs, people strong enough to do hands on work and lead at the same time. The founders met in San Francisco in 2014, both Turkish, one coming from Coinbase and the other from Amazon, and the early team was drawn almost entirely from people they had already worked with and trusted. What they screen for is agency, hunger, and humility, and they note that their engineering team now moves three to four times faster than it could before AI tooling, which is part of why the flat structure still holds. Even the company&#x27;s name is a double meaning: fal is the initials of features and labels, an old machine learning term, and the Turkish word for a fortune read from coffee grounds.</p>
+<p>They close with hot takes, and the sharpest is about margin. The consensus view when they started was that infrastructure would race to zero and the application layer would keep the margin. They say it has inverted: application layer margins are close to zero because competition and marketing costs eat everything, and the only durable margin sits in the compute path, for whoever can innovate there. Every big company, in their phrase, is becoming a compute company with a different storefront. As for what comes next, one founder wants the first timeless piece of AI content, a short film or animation people still enjoy years later, and the other has turned bullish on world models, interactive worlds you can move through, which need a GPU running constantly for every player and could become a fourth product market fit in gaming.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If durable margin really sits in the compute path rather than the application layer, what happens to the studios and app companies fal serves, and to fal itself if the big labs pull more inference in house?</li>
+<li>World models need a GPU running continuously for every player. In a market where fal already invests ahead just to cover launches, where does that always-on capacity come from?</li>
+<li>Hollywood&#x27;s slow adoption was blamed on company lawyers rather than model quality. What legal or licensing settlement would actually unlock studio use at scale, and who offers it first?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English ASR caption track for the video (11,642 words, captions running from 0.08 seconds to 3,815.9 seconds of the video&#x27;s 3,816-second runtime), served by the Android 21.02.35 player client; the Android 20.10.38 and iOS clients also returned playability OK with the same track, and the web_embedded client returned &quot;This video is unavailable&quot;. The caption endpoint served srv3 XML for both the srv3 and json3 format requests, so the srv3 file (cap.en-orig.srv3 in the build directory) is the grounding artifact, and the verbatim extracted text is saved as transcript.txt. The title gate: the title &quot;fal Raises $1.65B Across Series E &amp; F by Sequoia &amp; Bessemer&quot; and the channel name &quot;Sourcery with Molly O&#x27;Shea&quot; came back identical from the oEmbed response and from the player responses of all three playable clients, so there is no conflicting variant to disclose. The round&#x27;s structure, Sequoia Capital leading the Series E and Bessemer Venture Partners leading the Series F, and the guest titles come from the episode&#x27;s published description; the conversation itself does not discuss the round&#x27;s terms. The ASR renders the restaurant Dalida as &quot;Dalita&quot;, Kling as &quot;Cling&quot;, MiniMax as &quot;Miniax&quot;, Veo as &quot;V2&quot;, and Nano Banana as &quot;Nana banana&quot;; the published spellings are used throughout this summary, with Veo 2 confirmed by the episode description&#x27;s own topic list. Sponsor reads in the episode are not summarised.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-11-03.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated November 3, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "sourcery-fal-raises-165b-sequoia-bessemer": "fal Raises $1.65B Across Series E & F by Sequoia & Bessemer"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+</body>
+</html>
