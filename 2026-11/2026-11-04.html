@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Wednesday &middot; November 4, 2026</p>
-        <h1>7 summaries, distilled.</h1>
+        <h1>8 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -414,6 +414,7 @@
         <a class="card" href="#arena-nathan-benaich-ai-building-ai"><span class="num">05</span><span><span class="card-title">Is AI Building AI Yet? Nathan Benaich on the State of AI Report and Recursive Self-Improvement</span><span class="card-byline">Arena</span></span><span class="card-dur">5:25</span><span class="listen-state" data-slug="arena-nathan-benaich-ai-building-ai"></span></a>
         <a class="card" href="#mts-richard-ngo-ai-cannot-run-company"><span class="num">06</span><span><span class="card-title">AI Cannot Reliably Run a Company for Six Months | Richard Ngo</span><span class="card-byline">MTS</span></span><span class="card-dur">6:39</span><span class="listen-state" data-slug="mts-richard-ngo-ai-cannot-run-company"></span></a>
         <a class="card" href="#yc-francois-chaubard-researcher-to-founder"><span class="num">07</span><span><span class="card-title">How To Go From Researcher to Founder | Startup School</span><span class="card-byline">Y Combinator</span></span><span class="card-dur">5:16</span><span class="listen-state" data-slug="yc-francois-chaubard-researcher-to-founder"></span></a>
+        <a class="card" href="#samwitteveen-future-of-ides"><span class="num">08</span><span><span class="card-title">What is the Future of IDEs</span><span class="card-byline">Sam Witteveen</span></span><span class="card-dur">6:38</span><span class="listen-state" data-slug="samwitteveen-future-of-ides"></span></a>
         </div>
       </nav>
     </section>
@@ -742,6 +743,52 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#mts-richard-ngo-ai-cannot-run-company" data-route="article">&larr; MTS</a>
         <a class="to-index" href="2026-11-04.html" data-route="index">All summaries</a>
+        <a class="next" href="#samwitteveen-future-of-ides" data-route="article">Sam Witteveen &middot; What is the Future of IDEs &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="samwitteveen-future-of-ides" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-04.html" data-route="index">&larr; November 4, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">What is the Future of IDEs &mdash; November 4, 2026 <span class="dur">&middot; 6:38</span></p>
+        <audio controls preload="none" src="../podcasts/samwitteveen-future-of-ides.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/samwitteveen-future-of-ides.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="samwitteveen-future-of-ides" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="samwitteveen-future-of-ides"></div>
+        <div class="episode-download"><a href="../podcasts/samwitteveen-future-of-ides.mp3" download>Download samwitteveen-future-of-ides.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Sam Witteveen</dd></div>
+        <div><dt>Published</dt><dd>November 4, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=I5VxMzaBD6s" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Sam Witteveen &middot; What is the future of IDEs</p>
+        <h2>What is the Future of IDEs</h2>
+        <div>
+<p>On Sam Witteveen, the video &quot;What is the Future of IDEs&quot; takes on a question he says he keeps hearing, and keeps asking himself: with coding agents like Claude Code and Codex doing so much of the writing, what is an integrated development environment actually for now? His answer is that the IDE is no longer where code gets written. It is where code gets read, navigated, checked, and approved, and that shift makes it more important, not less, for anyone shipping production software.</p>
+<p>The video grew out of a conversation with JetBrains, who reached out for his take and published a blog post arguing that we still need an IDE. Witteveen is open about the arrangement: the video is sponsored by JetBrains, though he stresses it is not a push for any particular product, and he has used JetBrains tools on and off since doing Objective-C development in 2012. He told them IDEs still matter but need to change drastically, and he says they seem to agree. Air is their attempt at an IDE built for a world where agents do much of the writing.</p>
+<p>His core observation comes from his own work. Hand an agent a task and it may touch ten or fifteen files at once, and from a terminal alone you cannot really see what it did. That invisibility is fine for a quick idea sketched out on a phone, but if you call yourself a developer, he argues, you still need to know what the code is doing and whether it is right. His own model testing suite, now an extensive piece of software supporting many backends, has been touched by several different agents, each with its own ideas about how it should work, which made the modular layout of the codebase something he has to be able to inspect directly. One practice he picked up from someone at Anthropic is having agents generate HTML documentation and diagrams of how everything is laid out, with real file names he can then open and check in the IDE.</p>
+<p>The second shift is that IDEs are merging into places where agents run, not just places where code is viewed. GitHub Copilot was an early version of this, with an agent panel beside the code panels. Witteveen has since experimented with tools like Cmux for running multiple agents, and more recently Herder and T3 Code, and he notes that JetBrains Air also lets you run and orchestrate several agents from inside the IDE rather than being limited to one. What he wants from any of them is the ability to move quickly between the high-level structure of a project and the low-level detail.</p>
+<p>Historically, he points out, the IDE was about making typing faster: autocomplete, refactoring, personal snippet libraries, and then early AI autocomplete that could finish a function for you. Agents have ended that era. Typing code is not only no longer the main activity, he says, it is often the bad option. If IDEs were only about typing, they would be in trouble. What a good one actually does is help you read code, navigate it, understand it, and check it.</p>
+<p>That is where the bottleneck has moved. An agent can produce a change in a few minutes, but reviewing it can take far longer, especially for whoever is responsible for committing it to production. He cites the pattern at large organizations, including Google, and an earlier interview he did with Logan Kilpatrick: anyone can now write code and submit a pull request, but an engineer on the project has to sign off and own the result. JetBrains, after talking to a range of engineering teams, found the same pattern, and one team measured its pull request time going up, not down, as agents were rolled out. Witteveen would be more worried by the opposite: a team whose review time fell to zero would signal a trust problem solved by not looking. Having one agent review another catches things, he concedes, but it does not remove the need for a person who understands what the system is supposed to do, and who can judge whether a result was reached in a way that stays legal and does not run up huge compute or database bills.</p>
+<p>His concrete uses for an IDE today come in four parts. First, diffs: before anything an agent writes gets merged, he wants to see the file structure and what actually changed, which is close to impossible with a wall of text in a terminal. Second, navigation: when an agent changes a function, he wants to jump to its call sites, find usages, and see what implements an interface, because that is how you judge whether a change is safe, for instance whether a piece of code making many database calls does so efficiently. Third, verification: running tests and inspections inside the IDE, checking that the tests themselves test something real rather than trivially passing, and stepping through with a debugger when something looks off. Fourth, documentation, which he calls underrated: agents should write documentation as they write code, developers should review whether it says what the code should be doing and whether the agent quietly changed things nobody asked for, and that reviewed documentation then feeds back to the agents as better context.</p>
+<p>That last point cuts both ways, because the IDE&#x27;s intelligence is useful to the agent as well as the human. An agent that can only search through files with text matching is, in his phrase, working blind, spending its whole context window figuring out what is going on. An agent that can use the IDE&#x27;s semantic understanding of the codebase gets better context and produces more accurate work, and it saves money in tokens. He adds a warning about the current moment: developers are being spoiled by flat-rate plans in the hundred to five hundred dollar range with very high token allowances, and if the economics shift toward paying per API call, the cost of an agent working blind will matter a great deal more.</p>
+<p>His closing summary is blunt. The IDE is where you read the code, where you check it, and where you decide whether it ships. The writing part has gotten cheap; the verification has not. That, he says, is the direction JetBrains is heading with Air: bring the agents you already use into the IDE, so their work can be reviewed and checked in the place built for exactly that.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If review is now the bottleneck, will IDEs evolve better tools for reviewing agent output specifically, or will developers keep adapting tools designed for reading hand-written code?</li>
+<li>Witteveen argues a human must sign off on production code today; at what point, if any, does agent self-review become trustworthy enough to change that, and who carries responsibility when it fails?</li>
+<li>If token pricing moves away from generous flat-rate plans toward paying per call, how much will IDE-provided context and semantic search actually save, and will that decide which agent tools survive?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s own uploaded English (en-US) caption track, fetched with yt-dlp as an srv3 file (cap.en-US.srv3, 2,828 words, covering 0.3s to 869.6s of the 871s runtime with no gaps) and saved verbatim as transcript.txt. The video is sponsored by JetBrains, which Witteveen discloses in the video itself; the summary reports his stated views, including his points about JetBrains&#x27; Air product, as his views. The player-served title &quot;What is the Future of IDEs&quot; is used exactly as served; no competing listing title was observed.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#yc-francois-chaubard-researcher-to-founder" data-route="article">&larr; Y Combinator</a>
+        <a class="to-index" href="2026-11-04.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -759,7 +806,8 @@
       "ingoodcompany-john-ketchum-nextera-ai-nuclear": "NextEra Energy CEO: Powering AI and Nuclear's Comeback | Podcast | In Good Company",
       "arena-nathan-benaich-ai-building-ai": "Is AI Building AI Yet? Nathan Benaich on the State of AI Report and Recursive Self-Improvement",
       "mts-richard-ngo-ai-cannot-run-company": "AI Cannot Reliably Run a Company for Six Months | Richard Ngo",
-      "yc-francois-chaubard-researcher-to-founder": "How To Go From Researcher to Founder | Startup School"
+      "yc-francois-chaubard-researcher-to-founder": "How To Go From Researcher to Founder | Startup School",
+      "samwitteveen-future-of-ides": "What is the Future of IDEs"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
