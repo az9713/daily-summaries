@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Wednesday &middot; November 4, 2026</p>
-        <h1>8 summaries, distilled.</h1>
+        <h1>9 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -415,6 +415,7 @@
         <a class="card" href="#mts-richard-ngo-ai-cannot-run-company"><span class="num">06</span><span><span class="card-title">AI Cannot Reliably Run a Company for Six Months | Richard Ngo</span><span class="card-byline">MTS</span></span><span class="card-dur">6:39</span><span class="listen-state" data-slug="mts-richard-ngo-ai-cannot-run-company"></span></a>
         <a class="card" href="#yc-francois-chaubard-researcher-to-founder"><span class="num">07</span><span><span class="card-title">How To Go From Researcher to Founder | Startup School</span><span class="card-byline">Y Combinator</span></span><span class="card-dur">5:16</span><span class="listen-state" data-slug="yc-francois-chaubard-researcher-to-founder"></span></a>
         <a class="card" href="#samwitteveen-future-of-ides"><span class="num">08</span><span><span class="card-title">What is the Future of IDEs</span><span class="card-byline">Sam Witteveen</span></span><span class="card-dur">6:38</span><span class="listen-state" data-slug="samwitteveen-future-of-ides"></span></a>
+        <a class="card" href="#ycrootaccess-right-model-coding-task"><span class="num">09</span><span><span class="card-title">The Right Model for Each Coding Task</span><span class="card-byline">YC Root Access (Y Combinator)</span></span><span class="card-dur">5:46</span><span class="listen-state" data-slug="ycrootaccess-right-model-coding-task"></span></a>
         </div>
       </nav>
     </section>
@@ -789,6 +790,53 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#yc-francois-chaubard-researcher-to-founder" data-route="article">&larr; Y Combinator</a>
         <a class="to-index" href="2026-11-04.html" data-route="index">All summaries</a>
+        <a class="next" href="#ycrootaccess-right-model-coding-task" data-route="article">YC Root Access (Y Combinator) &middot; The Right Model for Each Coding Task &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="ycrootaccess-right-model-coding-task" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-04.html" data-route="index">&larr; November 4, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">The Right Model for Each Coding Task &mdash; November 4, 2026 <span class="dur">&middot; 5:46</span></p>
+        <audio controls preload="none" src="../podcasts/ycrootaccess-right-model-coding-task.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/ycrootaccess-right-model-coding-task.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="ycrootaccess-right-model-coding-task" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="ycrootaccess-right-model-coding-task"></div>
+        <div class="episode-download"><a href="../podcasts/ycrootaccess-right-model-coding-task.mp3" download>Download ycrootaccess-right-model-coding-task.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>YC Root Access (Y Combinator)</dd></div>
+        <div><dt>Published</dt><dd>November 4, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=eN92Oatzzks" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">YC Root Access (Y Combinator) &middot; Adam Cohen and Andrew Churchill on the right model for each coding task</p>
+        <h2>The Right Model for Each Coding Task</h2>
+        <div>
+<p>On YC Root Access, the video &quot;The Right Model for Each Coding Task&quot; is a fireside conversation with Adam Cohen and Andrew Churchill, the co-founders of Weave, a Y Combinator Winter 25 company that builds models to measure engineering work. Two announcements frame the talk: Weave recently raised a 13.5 million dollar Series A led by Standard Capital, and it has launched Weave Router, which sends every coding task to the model best suited to that task. Their argument is that the next round of gains in AI coding comes not from a better single model, but from picking the right model for each job instead of sending everything to the biggest one.</p>
+<p>Weave&#x27;s original product measures the work of human engineers and coding agents, and its customers range from small startups to Fortune 100 companies, including Robinhood, PostHog, Telnyx, Extra Space Storage, and Reducto. The router is a natural extension of that measurement business. You plug it into a coding agent such as Claude Code, Codex, Open Code, or Pi with one command, and it decides, prompt by prompt, whether a task should go to a frontier model or to something cheaper, including open models. It is fully open source, with a hosted version and paid Max and Boost plans, and on recent benchmarks the founders claim it reaches frontier-level performance at half the cost and twice the speed.</p>
+<p>The obvious objection is quality: a router that quietly sends work to a weaker model could fill a codebase with bugs. Their answer is that measurement is the whole company, so they can check. Their own team runs on the router, sits in the top one percent of teams on Weave&#x27;s own data, and has seen no increase in bugs or quality issues. The router also optimizes across subscriptions. If you pay for the top Anthropic and OpenAI plans, it burns through those subsidized allowances first and sprinkles in open models where they perform best, so a heavy user goes roughly twice as far on the same spend. The intuition they offer is that you do not always need a bazooka where a handgun will do: exploring a codebase to find where something is implemented does not need the smartest model alive.</p>
+<p>A big part of the savings comes from open models, which they describe as not at the frontier but not far behind it, at a cost-performance point nothing else matches. The ones they route the most traffic to are DeepSeek, Kimi, and GLM. Centering a button or implementing a routine backend endpoint is well within their reach, while something like building a machine learning system to classify a billion images still belongs on a frontier model. For hobby projects, they say, open models alone will now get you very far.</p>
+<p>Asked how this differs from OpenRouter, they say OpenRouter is really a gateway: it gives access to many models and lets you choose, with useful fallbacks, but the choosing is your job, and its auto-router is not its focus and does not work well on coding benchmarks. Weave&#x27;s router is trained specifically for coding agents, on hundreds of thousands of real coding agent sessions. Crucially, the training data includes downstream effects: the pull request that resulted, whether it merged, and what happened a month later in production. On top of that they run controlled tests, sending work down one model&#x27;s path or another&#x27;s and rewarding the router when the task succeeds. The result, they claim, is a learned map of each model&#x27;s strengths rather than a set of human guesses.</p>
+<p>The company started in the Winter 25 batch doing only the measurement half. Measuring engineering productivity used to mean counting lines of code or pull requests, metrics they dismiss as ways to make executives feel good. Weave instead has models read the code and judge the work itself. The timing was lucky: theirs was the first batch where a significant share of founders said most of their code was written by LLMs, a survey result that caused a stir online, and as Cursor took off, customers began asking what AI was doing to their productivity. Early selling was pure skepticism, overcome by connecting a prospect&#x27;s own data and showing the picture matched reality. Working with the fastest-growing startups, they say, has kept them roughly six months ahead of the wider market ever since.</p>
+<p>The questions engineering managers ask have moved through three phases: how fast are we moving, then is AI actually making us faster, and now how do we use AI more efficiently. The founders map this onto an adoption curve that runs from adoption, to a token-maxing phase of spending as much as possible, to an optimization layer where cost and quality get tuned. Most startups are still token maxing and care more about productivity than cost, while later-stage and private-equity-owned companies are deep into optimization.</p>
+<p>Their central metric for that optimization is cost per output: dollars of AI spend per unit of output, where a unit of output is roughly an hour of human engineering work. Someone spending ten thousand dollars a month is getting a bargain at a dollar per hour of work and a terrible deal at a thousand dollars per hour, and the dashboard exists to tell those two apart, surfacing outliers in both directions. The highest-leverage habit they see is parallelization, running many agents at once with guardrails that pull the human in at the right moments. Weave&#x27;s coach studies every session a team runs and returns daily pointers: restart sessions before the context window makes them expensive, push back on the agent when it is wrong, share the patterns of the top performers. Spreading those habits, through shared skills and codebase layouts agents can work in, is how a whole team gets closer to its best two people.</p>
+<p>The frontier of the conversation is the software factory, teams of agents coding autonomously, in some cases overnight. One customer, Uncountable, is comparing its factory&#x27;s output directly against its humans to decide which work can move to a lights-out setup. The hard part, the founders insist, is validation: an agent will put anything into production, so the factory is only worth what its checking is worth. Weave&#x27;s own setup is an example of the discipline involved. A custom, token-efficient CLI feeds agents the context they need. Four automated review tools run on every pull request, including Cursor Bugbot and Cubic, each still catching things the others miss. And a homegrown checks system encodes what a senior engineer on the team would call out in review, such as the over-abstraction agents love to produce, and runs those checks on every pull request, because agents, unlike engineers, never learn from being told once. Without that back pressure, they warn, every pull request can be locally logical while the whole codebase becomes globally incoherent.</p>
+<p>They close with the future. Keeping up with every model&#x27;s strengths and weaknesses is getting exhausting, so they expect the router approach to become the default, and they make a stronger claim: a router that truly knows each model&#x27;s strengths could combine them into something better than any single frontier model. Their advice to an engineer who wants to lead this shift is almost old-fashioned. Do not lose track of what you are actually doing; the best engineers still understand two levels of abstraction below and two above their work, even if the default level has moved up. In another year and a half, they predict, running an engineering team will be an exercise in token allocation, and the winners will be the people with the taste to spot the right problem and the skill to direct a swarm of agents at it.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>The quality evidence for routing rests largely on Weave&#x27;s own benchmarks and its own team&#x27;s results; will independent evaluations on other companies&#x27; codebases confirm that cheaper routed models hold quality, or does the answer depend heavily on the kind of codebase?</li>
+<li>If a router becomes the default layer between coding agents and models, who captures the value, the router, the agent, or the model providers, and will the providers&#x27; generous subscription subsidies survive a world organized around routing past them?</li>
+<li>Cost per output depends on a yardstick, the hour of engineering work, that Weave&#x27;s own models produce; how should a buyer validate that measurement before trusting the return on investment it reports?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s own English ASR caption track, served by the iOS player client after the Android player clients were bot-walled for this video; the endpoint served srv3 XML for both format requests, so cap.en-orig.srv3 is the grounding artifact of record (6,690 words, covering the full 1,716-second runtime), saved verbatim as transcript.txt. The player-served title &quot;The Right Model for Each Coding Task&quot; is identical across the iOS player response and oEmbed and is used exactly as served; a search index carried a different title, &quot;Tokens Don&#x27;t Equal Productivity&quot;, for the same video ID, which is noted here as a variant. ASR spellings were adjudicated against the video&#x27;s published description: the captions&#x27; &quot;Sander Capital&quot; is Standard Capital, and customer names are spelled as the companies spell them (Robinhood, PostHog, Telnyx, Reducto). The co-founders&#x27; names, Adam Cohen and Andrew Churchill, the Series A size, and the chapter structure come from the video&#x27;s published description.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#samwitteveen-future-of-ides" data-route="article">&larr; Sam Witteveen</a>
+        <a class="to-index" href="2026-11-04.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -807,7 +855,8 @@
       "arena-nathan-benaich-ai-building-ai": "Is AI Building AI Yet? Nathan Benaich on the State of AI Report and Recursive Self-Improvement",
       "mts-richard-ngo-ai-cannot-run-company": "AI Cannot Reliably Run a Company for Six Months | Richard Ngo",
       "yc-francois-chaubard-researcher-to-founder": "How To Go From Researcher to Founder | Startup School",
-      "samwitteveen-future-of-ides": "What is the Future of IDEs"
+      "samwitteveen-future-of-ides": "What is the Future of IDEs",
+      "ycrootaccess-right-model-coding-task": "The Right Model for Each Coding Task"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
