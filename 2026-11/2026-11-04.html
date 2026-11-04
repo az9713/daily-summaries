@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Wednesday &middot; November 4, 2026</p>
-        <h1>11 summaries, distilled.</h1>
+        <h1>12 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -418,6 +418,7 @@
         <a class="card" href="#ycrootaccess-right-model-coding-task"><span class="num">09</span><span><span class="card-title">The Right Model for Each Coding Task</span><span class="card-byline">YC Root Access (Y Combinator)</span></span><span class="card-dur">5:46</span><span class="listen-state" data-slug="ycrootaccess-right-model-coding-task"></span></a>
         <a class="card" href="#nvidia-ai-infrastructure-6g-future"><span class="num">10</span><span><span class="card-title">From AI Infrastructure to the 6G Future</span><span class="card-byline">NVIDIA</span></span><span class="card-dur">5:56</span><span class="listen-state" data-slug="nvidia-ai-infrastructure-6g-future"></span></a>
         <a class="card" href="#a16z-three-ai-agents-same-trip"><span class="num">11</span><span><span class="card-title">The New AI Agents That Shop, Plan, and Gossip</span><span class="card-byline">a16z</span></span><span class="card-dur">6:02</span><span class="listen-state" data-slug="a16z-three-ai-agents-same-trip"></span></a>
+        <a class="card" href="#berman-ai-rewrite-own-weights"><span class="num">12</span><span><span class="card-title">MIT Researchers Discover AI Can Rewrite Its Own Weights</span><span class="card-byline">Matthew Berman</span></span><span class="card-dur">5:47</span><span class="listen-state" data-slug="berman-ai-rewrite-own-weights"></span></a>
         </div>
       </nav>
     </section>
@@ -931,6 +932,55 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#nvidia-ai-infrastructure-6g-future" data-route="article">&larr; NVIDIA</a>
         <a class="to-index" href="2026-11-04.html" data-route="index">All summaries</a>
+        <a class="next" href="#berman-ai-rewrite-own-weights" data-route="article">Matthew Berman &middot; MIT Researchers Discover AI Can Rewrite Its Own Weights &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="berman-ai-rewrite-own-weights" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-04.html" data-route="index">&larr; November 4, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">MIT Researchers Discover AI Can Rewrite Its Own Weights &mdash; November 4, 2026 <span class="dur">&middot; 5:47</span></p>
+        <audio controls preload="none" src="../podcasts/berman-ai-rewrite-own-weights.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/berman-ai-rewrite-own-weights.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="berman-ai-rewrite-own-weights" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="berman-ai-rewrite-own-weights"></div>
+        <div class="episode-download"><a href="../podcasts/berman-ai-rewrite-own-weights.mp3" download>Download berman-ai-rewrite-own-weights.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Matthew Berman</dd></div>
+        <div><dt>Published</dt><dd>November 4, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=j09uV1oAuIo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Matthew Berman &middot; MIT researchers discover AI can rewrite its own weights</p>
+        <h2>MIT Researchers Discover AI Can Rewrite Its Own Weights</h2>
+        <div>
+<p>On Matthew Berman, the video &quot;MIT Researchers Discover AI Can Rewrite Its Own Weights&quot; works through a paper by Rikiya Takehi, Jayden Teoh, Alex Zhang, and Omar Khattab of MIT CSAIL, published November 2, 2026. Their finding is that frontier large language models are surprisingly good at reading and writing the weights of a neural network directly, an approach the authors call Weight-Space Programming.</p>
+<p>The background matters here. A neural network is, at bottom, millions or billions of numbers, and those numbers are its weights. Training a model means adjusting the numbers by gradient descent, essentially organized trial and error, until the outputs improve. That process produces a working model without explaining it: nobody can say why a given weight has its value or how the values combine to produce a behavior, which is why trained models are usually described as black boxes.</p>
+<p>Weight-space programming changes who touches the weights. Until now, people have pointed language models at text, code, and prompts, while a fixed optimizer handled the weights. In these experiments, a general-purpose frontier model reads a network&#x27;s raw weights as numbers, with no optimizer and no gradient descent, and it can be asked in natural language to find a hidden trait or a failure inside another model, to fix that failure, or to write a network&#x27;s weights from scratch.</p>
+<p>The first experiments test reading. The researchers trained four small networks that look identical from the outside, one each on the games Breakout, Pong, Pac-Man, and Freeway, then handed the raw weights, about 17,000 numbers as text, to the frontier model used throughout the paper, which the video calls Astra. Given no list of options to choose from, it named all four games correctly, reasoning from structure: a bottom paddle with reward targets above it meant Breakout, a vertical paddle on the left edge meant Pong, a fixed maze with independently moving entities meant Pac-Man, and a safe starting strip below lanes of moving objects meant a road-crossing game.</p>
+<p>In the second experiment, three diffusion models were trained to generate circles, squares, and triangles, and Astra identified which shape each model produces from its output weights alone. One nuance stood out to the researchers: Astra pictured every shape as an outline, without the filled interior the models actually generate. They read that mistake as evidence that the model is reading the geometry of the weights themselves rather than mentally simulating what the network would output.</p>
+<p>The third experiment removed the easiest clues. Three small models were trained to predict the next character in English, Japanese, and Python. Astra received only the intermediate layers, not the first and last layers that carry the most obvious signals, and it still identified all three languages. It also picked out the internal groupings of weights associated with each language, and when those groupings were measured directly, its descriptions matched.</p>
+<p>The fourth experiment moves from reading to repair. A network trained on a physics game kept getting its car stuck at the top of a ramp. Given the weights, a description of the scene, and one recorded episode, Astra explained the failure: the controller was sensitive to velocity, and reversing was effectively never used, so the car attacked the ramp without enough speed. Its fix, applied in a single attempt, changed 3.5 percent of the weights, and the car, now backing up first to build momentum, succeeded in all 1,024 test episodes.</p>
+<p>The fifth experiment asks whether a frontier model can write weights from nothing. Given the rules and source code for three Atari games, Breakout, Seaquest, and Asteroids, and no training data, gradients, or tools, Astra wrote networks directly as text. Its networks beat conventionally trained models that had trained for 100 million steps on all three games. Against models trained for 500 million steps, it scored twenty times as much in Breakout, came close in Asteroids, and reached 60 percent of the trained score in Seaquest.</p>
+<p>The sixth experiment tackles scale. At 1.5 million parameters, a network no longer fits in a context window, so Astra was given a sandbox with standard math libraries and a budget of test runs, called forward passes, from zero up to fifty. With no test runs at all, its written network won more than half its games against two smaller conventionally trained networks. With fifty test runs, it beat an equal-sized network trained on 20 million games. Berman dwells on the method: Astra writes the network as a small program, layer by layer, much as it would write ordinary code.</p>
+<p>The seventh experiment shows a current limit. Asked to judge, from weights alone, which of two models was the more sycophantic, Astra failed in all four attempts. It found many differences between the two models&#x27; weights but could not connect them to the behavioral difference. When the researchers loosened the test and let it inspect attention patterns instead of raw weights, it picked out the more sycophantic model in all three pairs.</p>
+<p>The eighth experiment applies editing to a small language model, the 0.8 billion parameter Qwen3, to improve its math. Astra spotted a familiar failure of small reasoning models: they fall into repetition loops, burn their whole output budget, and never produce a final answer. Editing a tiny fraction of the weights fixed the looping, and with a budget of fifty test runs the model&#x27;s score on the MATH-500 benchmark rose from just under 8 percent to just over 48 percent, while its GSM8K score went from 13.8 percent to 67.1 percent. The researchers are careful about what this shows: fixing the loop added no new math ability, it let the model finish answers it could already work out. As a check, Astra could not improve Gemma 3, a model that rarely loops.</p>
+<p>Berman closes on the implications. Editing weights directly is far faster than retraining, so a strong model could in principle repair or improve smaller models on demand, even on a phone, with no retraining pipeline at all. A model that can read weights this well is also a tool for interpreting the black box, down to individual weights, which could feed into alignment work. And the step he keeps returning to is the recursive one: a model that can understand and surgically modify another model&#x27;s weights raises the question of when it does the same to its own.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>The reading results are strongest on small, purpose-built networks. Does this ability survive at frontier scale, where the weights cannot fit in a context window and tools have to mediate every look?</li>
+<li>The clearest editing win so far is repair: removing a failure mode so existing ability shows through. Where is the line between repairing a model and genuinely improving one, and how would anyone verify that a weight edit did only what was intended?</li>
+<li>The sycophancy experiment found a behavior the weight reading could not detect. If frontier models start rewriting smaller models&#x27; weights directly, what catches a trait, intended or accidental, that the same reading methods cannot see?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s own English ASR caption track, served by the Android 21.02.35 player client; the caption endpoint returned srv3 XML for both format requests, so cap.en-orig.srv3 is the artifact of record (4,461 words, covering the full 1,608-second runtime), saved verbatim as transcript.txt. The yt-dlp route was bot-walled (&quot;sign in to confirm you&#x27;re not a bot&quot;) and was not retried. The title used here is the player-served title, identical across the Android and iOS player responses and oEmbed; the commissioning screenshot showed a listing variant, &quot;Discovery: AI can rewrite its own weights now...&quot;, and the channel listing briefly showed another title, so those are treated as listing variants. Where the caption track garbles standard names, the published spellings are used in this summary: ChatGPT, Codex, Seaquest, Asteroids, PPO, Qwen3, GSM8K, and MATH-500. The frontier test model is called Astra throughout the video, and this summary follows the video&#x27;s naming. The mid-video sponsor read for Kylon is not summarized. The paper itself is by Rikiya Takehi, Jayden Teoh, Alex Zhang, and Omar Khattab (MIT CSAIL), published November 2, 2026.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#a16z-three-ai-agents-same-trip" data-route="article">&larr; a16z</a>
+        <a class="to-index" href="2026-11-04.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -952,7 +1002,8 @@
       "samwitteveen-future-of-ides": "What is the Future of IDEs",
       "ycrootaccess-right-model-coding-task": "The Right Model for Each Coding Task",
       "nvidia-ai-infrastructure-6g-future": "From AI Infrastructure to the 6G Future",
-      "a16z-three-ai-agents-same-trip": "The New AI Agents That Shop, Plan, and Gossip"
+      "a16z-three-ai-agents-same-trip": "The New AI Agents That Shop, Plan, and Gossip",
+      "berman-ai-rewrite-own-weights": "MIT Researchers Discover AI Can Rewrite Its Own Weights"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
