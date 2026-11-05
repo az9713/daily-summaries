@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; November 5, 2026</p>
-        <h1>2 summaries, distilled.</h1>
+        <h1>3 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -409,6 +409,7 @@
         <div class="cards">
         <a class="card" href="#sequoia-trajectory-ronak-malde-continual-learning"><span class="num">01</span><span><span class="card-title">Bringing Continual Learning to Every Company: Trajectory’s Ronak Malde</span><span class="card-byline">Sequoia Capital</span></span><span class="card-dur">7:05</span><span class="listen-state" data-slug="sequoia-trajectory-ronak-malde-continual-learning"></span></a>
         <a class="card" href="#corememory-taking-on-amazon-new-kind-of-aircraft"><span class="num">02</span><span><span class="card-title">He&#x27;s Taking On Amazon With A New Kind Of Aircraft</span><span class="card-byline">Core Memory Podcast</span></span><span class="card-dur">6:13</span><span class="listen-state" data-slug="corememory-taking-on-amazon-new-kind-of-aircraft"></span></a>
+        <a class="card" href="#mts-chirag-shah-ai-agents-replace-full-stack-backends"><span class="num">03</span><span><span class="card-title">AI Agents Will Replace Full-Stack Backends | Chirag Shah</span><span class="card-byline">MTS</span></span><span class="card-dur">4:12</span><span class="listen-state" data-slug="mts-chirag-shah-ai-agents-replace-full-stack-backends"></span></a>
         </div>
       </nav>
     </section>
@@ -511,6 +512,52 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#sequoia-trajectory-ronak-malde-continual-learning" data-route="article">&larr; Sequoia Capital</a>
         <a class="to-index" href="2026-11-05.html" data-route="index">All summaries</a>
+        <a class="next" href="#mts-chirag-shah-ai-agents-replace-full-stack-backends" data-route="article">MTS &middot; AI Agents Will Replace Full-Stack Backends | Chirag Shah &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="mts-chirag-shah-ai-agents-replace-full-stack-backends" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-05.html" data-route="index">&larr; November 5, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">AI Agents Will Replace Full-Stack Backends | Chirag Shah &mdash; November 5, 2026 <span class="dur">&middot; 4:12</span></p>
+        <audio controls preload="none" src="../podcasts/mts-chirag-shah-ai-agents-replace-full-stack-backends.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/mts-chirag-shah-ai-agents-replace-full-stack-backends.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="mts-chirag-shah-ai-agents-replace-full-stack-backends" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="mts-chirag-shah-ai-agents-replace-full-stack-backends"></div>
+        <div class="episode-download"><a href="../podcasts/mts-chirag-shah-ai-agents-replace-full-stack-backends.mp3" download>Download mts-chirag-shah-ai-agents-replace-full-stack-backends.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>MTS</dd></div>
+        <div><dt>Published</dt><dd>November 5, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=DzEbNmQS8ws" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">MTS &middot; Chirag Shah on AI agents replacing full-stack backends</p>
+        <h2>AI Agents Will Replace Full-Stack Backends | Chirag Shah</h2>
+        <div>
+<p>On MTS, the episode &quot;AI Agents Will Replace Full-Stack Backends | Chirag Shah&quot; is a conversation with Chirag Shah, MongoDB&#x27;s head of AI platform, who leads the company&#x27;s AI product strategy and its recently launched Atlas Agent Engine. His claim matches the title: the full-stack applications developers have built for the last twenty years are becoming agentic applications, and the backend underneath them is being replaced by multi-agent, multi-tool systems that look completely different from a technical point of view.</p>
+<p>The conversation starts with the gap between demos and production. Shah says every enterprise customer wants to invest in agents, and the prototypes and trials are going well. The trouble starts when they ask how to take an agent into production and get meaningful usage out of it. Two problems keep surfacing: a really complex data problem, and the security and governance needed to run agents with the confidence enterprise customers require. Atlas Agent Engine, he says, was designed from those customer conversations to address exactly those two problems.</p>
+<p>That leads to the episode&#x27;s central distinction, between models and the context they work with. The models are well trained and keep getting better, Shah says, and the agent frameworks are coming together. When an agent struggles, it is usually because of the data. The most important part of that context is memory, because everything an agent does becomes a memory, almost like a human one. Memory also has to decay: if you move from one place to another, the old address has to fade, because an agent that retrieves a stale memory before acting has a high chance of producing the wrong outcome. Around memory sits the broader context, the institutional knowledge held in an enterprise&#x27;s files and in systems like SAP and Oracle.</p>
+<p>He separates memory into four kinds. Semantic memory holds facts and preferences, what the system knows about a user. Episodic memory holds events and sessions, what happened last time. Taxonomic memory holds terms and definitions. Procedural memory holds step by step skills, how many steps an action takes to perform successfully. All four are just data in a database, he notes, which is what makes matching the right memory to the right action the hard part.</p>
+<p>His answer is that the matching should not be the builder&#x27;s problem. In MongoDB&#x27;s design, the memory layer understands the prompt and the history behind it, and pulls out the right memory for that user and that session, the way it would handle a customer who placed an order six months ago and can no longer find the details. Builders should focus on great agent logic and leave the infrastructure plumbing to the platform.</p>
+<p>Atlas Agent Engine itself has two parts: an agent runtime with security and guardrails built in, and the memory and context layer. His example is auto insurance. A claim traditionally passes through a representative, a claim adjuster, an investigator, and a payoff analyst, five touch points over about seven days. With an agent working behind the scenes, asking the customer for photos and details and checking local systems for a counter complaint from the other party, the same claim can reach a high confidence outcome in a matter of hours.</p>
+<p>The counter example explains why MongoDB built the product at all. Teams building memory on their own discovered they needed vector search, embedding, and reranking over episodic and semantic memory, which MongoDB already had, including the embeddings company Voyage, acquired a couple of years ago. Customers told him, in effect, that MongoDB kept handing them Lego pieces to stitch together and maintain, when what they wanted was the castle. Building the whole thing on the Atlas platform, he says, was close to a no-brainer.</p>
+<p>Looking ahead, he wants agents that remember everything, without the builder worrying about it, and shared memory for the multi-agent systems now emerging, so agents working together can draw on each other&#x27;s memory under the right security and guardrails, rather than stealing it. Once memory works, the frontier widens to context engineering: a claim arriving from a particular New York zip code should come with the broader knowledge of that area, including two years of similar claim payoffs, surfaced for the analyst at the moment of decision. Ontologies and graphing, he says, will join vector search in that layer. The data problem, in his telling, is the most crucial problem in AI agents.</p>
+<p>The zoomed out picture is about relationships becoming memory. A customer who has been with a company for five or fifteen years, like an Amazon Prime member, has an ongoing history that an agentic system captures and uses. Zoom out further and the full-stack application itself becomes the agentic application, with memory, context, and guardrails wrapped around the framework and the model. His closing advice to builders is that they have one thing backwards: they over-index on which LLM to use. The models, frontier and open weight alike, have converged to roughly the same ballpark, and swapping later will be easy. Token cost anxiety, he says, is mostly overthinking. Getting started is ninety percent of the hard decision. The real problem to solve is the data problem. Just go build.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Shah argues the memory layer should decide what an agent retrieves, so builders never have to think about it. When an agent acts on a stale or wrongly retrieved memory in production, who carries the accountability: the builder who never saw the retrieval, or the platform that made it invisibly?</li>
+<li>If backends really do become multi-agent systems running on a vendor&#x27;s memory and context layer, how much of the stack&#x27;s value, and its lock-in, moves from the application itself to the data platform underneath it, and can a decade of accumulated agent memory be moved to a rival platform?</li>
+<li>If model choice barely matters because LLMs have converged, what differentiates one company&#x27;s agents from another&#x27;s two years from now: the quality of the memory they have accumulated, the guardrails around it, or something else entirely?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s own English automatic caption track (a.en), served by the Android 21.02.35 player client; the Android 20.10.38 and iOS 20.10.38 clients served the identical track list, and the player-served title matches YouTube&#x27;s oEmbed title character for character. The caption endpoint returned srv3 XML for the json3 request, so cap.en-orig.srv3 is the grounding artifact: 4,191 words, with captions running to 1,354 seconds of the video&#x27;s 1,363 seconds, saved verbatim as transcript.txt. A yt-dlp search listing appended &quot; | MTS&quot; to the title; the player-served title governs and is used here. The guest&#x27;s role is taken from the episode&#x27;s published description, which names him as MongoDB&#x27;s head of AI platform, and the host is Sophia Dew, named in the episode&#x27;s own on-screen captions. The episode as published opens with a short teaser clip of Shah&#x27;s full-stack argument before the studio introduction. Sponsor material (a Lovable read partway through, and the closing sponsor reads) is not summarised. ASR renderings corrected to published spellings include &quot;Shurog Shaw&quot; for Chirag Shah, &quot;gandril&quot; for guardrails, and &quot;texonomic&quot; for taxonomic.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#corememory-taking-on-amazon-new-kind-of-aircraft" data-route="article">&larr; Core Memory Podcast</a>
+        <a class="to-index" href="2026-11-05.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -523,7 +570,8 @@
     (() => {
       const TITLES = {
       "sequoia-trajectory-ronak-malde-continual-learning": "Bringing Continual Learning to Every Company: Trajectory’s Ronak Malde",
-      "corememory-taking-on-amazon-new-kind-of-aircraft": "He's Taking On Amazon With A New Kind Of Aircraft"
+      "corememory-taking-on-amazon-new-kind-of-aircraft": "He's Taking On Amazon With A New Kind Of Aircraft",
+      "mts-chirag-shah-ai-agents-replace-full-stack-backends": "AI Agents Will Replace Full-Stack Backends | Chirag Shah"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
