@@ -401,7 +401,7 @@
     <header class="masthead">
       <div>
         <p class="date">Wednesday &middot; November 4, 2026</p>
-        <h1>18 summaries, distilled.</h1>
+        <h1>19 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -425,6 +425,7 @@
         <a class="card" href="#mts-charlie-oneill-ai-research-fast-takeoff"><span class="num">16</span><span><span class="card-title">Why AI Research Won&#x27;t Hit Fast Takeoff | Charlie O&#x27;Neill</span><span class="card-byline">MTS</span></span><span class="card-dur">5:36</span><span class="listen-state" data-slug="mts-charlie-oneill-ai-research-fast-takeoff"></span></a>
         <a class="card" href="#semianalysis-midterms-2028-datacenter-buildout"><span class="num">17</span><span><span class="card-title">Ep. 043 - The Midterms and the 2028 Datacenter Buildout (Datacenters)</span><span class="card-byline">SemiAnalysis</span></span><span class="card-dur">5:54</span><span class="listen-state" data-slug="semianalysis-midterms-2028-datacenter-buildout"></span></a>
         <a class="card" href="#wsj-events-greg-brockman-wsj-tech"><span class="num">18</span><span><span class="card-title">Watch Live: OpenAI Co-Founder Greg Brockman at WSJ Tech | WSJ</span><span class="card-byline">WSJ Events</span></span><span class="card-dur">5:22</span><span class="listen-state" data-slug="wsj-events-greg-brockman-wsj-tech"></span></a>
+        <a class="card" href="#mts-rohan-anil-test-time-learning"><span class="num">19</span><span><span class="card-title">AI Models Will Learn at Test Time by Next Year | Rohan Anil</span><span class="card-byline">MTS</span></span><span class="card-dur">5:14</span><span class="listen-state" data-slug="mts-rohan-anil-test-time-learning"></span></a>
         </div>
       </nav>
     </section>
@@ -1268,6 +1269,51 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#semianalysis-midterms-2028-datacenter-buildout" data-route="article">&larr; SemiAnalysis</a>
         <a class="to-index" href="2026-11-04.html" data-route="index">All summaries</a>
+        <a class="next" href="#mts-rohan-anil-test-time-learning" data-route="article">MTS &middot; AI Models Will Learn at Test Time by Next Year | Rohan Anil &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="mts-rohan-anil-test-time-learning" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-04.html" data-route="index">&larr; November 4, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">AI Models Will Learn at Test Time by Next Year | Rohan Anil &mdash; November 4, 2026 <span class="dur">&middot; 5:14</span></p>
+        <audio controls preload="none" src="../podcasts/mts-rohan-anil-test-time-learning.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/mts-rohan-anil-test-time-learning.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="mts-rohan-anil-test-time-learning" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="mts-rohan-anil-test-time-learning"></div>
+        <div class="episode-download"><a href="../podcasts/mts-rohan-anil-test-time-learning.mp3" download>Download mts-rohan-anil-test-time-learning.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>MTS</dd></div>
+        <div><dt>Published</dt><dd>November 4, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=rVMy8MSBKZo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">MTS &middot; Rohan Anil on AI models learning at test time</p>
+        <h2>AI Models Will Learn at Test Time by Next Year | Rohan Anil</h2>
+        <div>
+<p>On MTS, the episode &quot;AI Models Will Learn at Test Time by Next Year | Rohan Anil&quot; is a conversation with Rohan Anil, co-founder of Core Automation and previously a pre-training researcher at Anthropic. His headline claim matches the title: the piece missing from today&#x27;s models is the ability to learn at test time, from their own experience as they work, and his company is designing the algorithms to do it. Asked for a date at the end of the conversation, he commits to next year.</p>
+<p>The interview starts with his departure from Anthropic, against the running joke that nobody ever leaves. Anthropic is one of the best places to do research, he says, and he loved its pre-training team. His motivation was the next frontier. Scaling models up brought agents and the world we have now, yet people are working harder than ever with AI rather than less. What is missing, in his account, is models that keep learning while they are being used, instead of waiting for a lab to teach them.</p>
+<p>Much of the conversation is about his recent essay, a hitchhiker&#x27;s guide to training on compute islands. Frontier training has seemed to demand colocation: one site with enough power and enough top end chips in one place. But large numbers of high end GPUs sit scattered across many locations, in clusters too small to train a frontier model alone. Drawing on an older line of work in local SGD and federated learning, his team showed that such islands can train together. Their experiment mixed two different Blackwell systems with different interconnects, different parallelism, different numerics, and different batch sizes, and matched or slightly beat conventional training at a frontier pre-training scale.</p>
+<p>That result, he argues, changes who gets to play. Training on ordinary home computers remains impractical at frontier scale, since memory and latency bind long before the algorithms do. But a newer lab that can gather scattered clusters quickly could reach the top tier of models, or power a vertical effort such as chip design. Core Automation itself is aimed at a different axis. Its bet is continual learning: changing the architecture and the training algorithm together, and removing bottlenecks he sees inside the transformer itself.</p>
+<p>The technical core is an old idea called butterfly mixing, which predates neural networks. Standard training keeps every GPU in lockstep, summing all gradients across all machines at every step. Under butterfly mixing, machines work asynchronously on different fragments and exchange their state within a few steps, so no two machines ever hold quite the same picture. The model, in their test a thirty-two billion parameter mixture of experts model, proved robust to the noise this introduces, and reached the same quality as synchronous training, helped by second order methods and a few other tricks. Anil notes the wheel has turned before: he began his career training neural networks asynchronously on CPUs at Google, then watched synchronous training take over and scale through GPT-3, GPT-4, Gemini, and Anthropic&#x27;s models.</p>
+<p>He is similarly matter of fact about the exotic cases. Training a frontier model in space is an algorithms problem his work speaks to, and the early proofs exist: Google&#x27;s Suncatcher project has run inference on TPUs in orbit, and Starcloud has trained a small model on a satellite. The hard part, he says, is the physics, not the math. Compute markets, meanwhile, look inefficient to him: short term spare capacity goes unsold, chips sit idle waiting for a buyer, and aggregated compute is worth more for a frontier run than the same chips scattered. With island training, he would happily take ten thousand GPUs spread across ten data centers. Without it, he would not. Labs designing their own chips, as OpenAI and Anthropic have begun to do, looks inevitable to him for the same reason, though the domain expertise involved keeps it genuinely hard.</p>
+<p>His deepest point is about timelines. Power, grid equipment, land, and politics all constrain the buildout, but he sees an algorithmic bottleneck underneath them. Models are jagged, in the term he borrows from Andrej Karpathy: able to do something brilliant one day and something dumb the next, because nothing in the architecture or the optimization lets a model learn from its own mistakes quickly. Everyone waits for the labs to rerun the pre-training and reinforcement learning cycle every few months with new environments and new data. A model that learned as a company evolves would let companies operate far more effectively, he argues. Today the best substitute is memory bolted on in the form of compacted tokens, and that is not the same thing.</p>
+<p>Continual learning also sharpens the safety questions, and he does not wave them away. A model that learns at test time raises questions about what it should learn, what it should be shown, and how much autonomy it should have. He points to the recent wave of software vulnerabilities, which he links in part to hastily generated code, as a sign of how quickly new capability creates new exposure. But the same technology could cut the other way: a model that learns on the fly could secure systems as it learns, and act as a defense rather than only a risk. The topic, he says, deserves much more study than one interview can give it.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Anil&#x27;s next year claim rests on his own team&#x27;s algorithms. What public result, a model, a benchmark, a demonstration, would count as evidence that test time learning has genuinely arrived, rather than another memory feature under a new name?</li>
+<li>If frontier training no longer needs colocation, does the strategic value of giant single site data centers fall, and who captures the value instead: the owners of scattered compute, or the owners of the training algorithms that make it usable?</li>
+<li>A model that learns continuously from what it is shown takes in whatever its environment feeds it. Who decides what such a model should learn from, and can that decision be audited afterwards?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s own English automatic caption track (a.en), served by the Android 21.02.35 player client; the Android 20.10.38 and iOS 20.10.38 clients served the identical track list, and the player-served title matches YouTube&#x27;s oEmbed title character for character. The caption endpoint returned srv3 XML for both format requests, so cap.en-orig.srv3 is the grounding artifact: 3,764 words, with captions running to 1,316 seconds of the video&#x27;s 1,325 seconds, saved verbatim as transcript.txt. The guest&#x27;s identity and affiliations are taken from the episode&#x27;s published description, which names him as a former Anthropic pre-training researcher and co-founder of Core Automation. The episode as published opens with a short teaser clip of Anil&#x27;s jaggedness argument, followed by the studio introduction and the conversation. Sponsor material (a Lovable read partway through, and the closing sponsor reads) is not summarised. ASR renderings corrected to published spellings include &quot;Rohan Anneil&quot; for Rohan Anil, &quot;Core Auto&quot;, &quot;Corado&quot;, &quot;Koroto&quot; and &quot;COD&quot; for Core Automation, &quot;Entropic&quot; for Anthropic, &quot;blackwool&quot; for Blackwell, &quot;Navia Stokes&quot; for Navier-Stokes, &quot;Karpati&quot; for Karpathy, &quot;CVS&quot; for CVEs, and &quot;wipe coded&quot; for vibe-coded.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#wsj-events-greg-brockman-wsj-tech" data-route="article">&larr; WSJ Events</a>
+        <a class="to-index" href="2026-11-04.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -1296,7 +1342,8 @@
       "diamandis-moonshots-claude-writes-90-percent-code": "Big Tech’s $3T AI Bet, Claude Writes 90% of Anthropic’s Code, AIs Editing AI Brains | EP #307",
       "mts-charlie-oneill-ai-research-fast-takeoff": "Why AI Research Won't Hit Fast Takeoff | Charlie O'Neill",
       "semianalysis-midterms-2028-datacenter-buildout": "Ep. 043 - The Midterms and the 2028 Datacenter Buildout (Datacenters)",
-      "wsj-events-greg-brockman-wsj-tech": "Watch Live: OpenAI Co-Founder Greg Brockman at WSJ Tech | WSJ"
+      "wsj-events-greg-brockman-wsj-tech": "Watch Live: OpenAI Co-Founder Greg Brockman at WSJ Tech | WSJ",
+      "mts-rohan-anil-test-time-learning": "AI Models Will Learn at Test Time by Next Year | Rohan Anil"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
