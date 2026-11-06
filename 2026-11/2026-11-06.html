@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - November 6, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+</head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Friday &middot; November 6, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#wsj-events-dina-powell-mccormick-wsj-tech"><span class="num">01</span><span><span class="card-title">Watch Live: Meta President Dina Powell McCormick at WSJ Tech | WSJ</span><span class="card-byline">WSJ Events</span></span><span class="card-dur">8:26</span><span class="listen-state" data-slug="wsj-events-dina-powell-mccormick-wsj-tech"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="wsj-events-dina-powell-mccormick-wsj-tech" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-06.html" data-route="index">&larr; November 6, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Watch Live: Meta President Dina Powell McCormick at WSJ Tech | WSJ &mdash; November 6, 2026 <span class="dur">&middot; 8:26</span></p>
+        <audio controls preload="none" src="../podcasts/wsj-events-dina-powell-mccormick-wsj-tech.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/wsj-events-dina-powell-mccormick-wsj-tech.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="wsj-events-dina-powell-mccormick-wsj-tech" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="wsj-events-dina-powell-mccormick-wsj-tech"></div>
+        <div class="episode-download"><a href="../podcasts/wsj-events-dina-powell-mccormick-wsj-tech.mp3" download>Download wsj-events-dina-powell-mccormick-wsj-tech.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>WSJ Events</dd></div>
+        <div><dt>Published</dt><dd>November 6, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=P_KTZpMqrwk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">WSJ Events &middot; Dina Powell McCormick at WSJ Tech Live</p>
+        <h2>Watch Live: Meta President Dina Powell McCormick at WSJ Tech | WSJ</h2>
+        <div>
+<p>On WSJ Events, the session &quot;Watch Live: Meta President Dina Powell McCormick at WSJ Tech | WSJ&quot; pairs Meta&#x27;s president with a Wall Street Journal moderator at WSJ Tech Live, on the day after an election in which data centers had become a live campaign issue. The session opens with a video Meta submitted, filmed around its project in Richland Parish, Louisiana: a catering business that grew from serving 40 people to 400 a week because Meta arrived, teachers whose pay is topped up by bonuses funded from the local tax surplus, and residents describing neighbors moving back home.</p>
+<p>The moderator&#x27;s opening question sets the stakes: were data centers on the ballot last night? Powell McCormick answers that they plainly were, in campaign ads and in candidates&#x27; platforms, and that the moderator&#x27;s count put 33 of 40 ballot measures restricting data centers on the winning side. Her framing is that the data center is simply the visible form of AI, the thing a community can point to and refuse, while the deeper question is how people feel about AI itself. Meta&#x27;s stated rule is to build only where a community judges the investment will make a difference.</p>
+<p>She describes the method behind that rule as a community compact, built from the Louisiana experience and now applied everywhere. Its elements, as she walks through them, are electricity, teachers, local labor, and bipartisanship, with local citizens treated as the decision makers who matter most.</p>
+<p>On electricity, she says Meta works with Entergy in Louisiana, pays for its own power, and is structured so that residents&#x27; costs fall rather than rise, by some two billion dollars over the life of the investment, in her telling. On teachers, the parish routes any tax surplus to teacher bonuses, an arrangement she credits a Journal story with bringing to Meta&#x27;s attention, and the company now looks for ways to invest in teachers and first responders in every host community. On labor, the commitment is to train local workers rather than import them. On politics, she points to a New Orleans expansion event held weeks earlier where Republican Governor Landry appeared alongside former mayor Mitch Landrieu and former senator Mary Landrieu, and reads it as proof that host communities can put an investment above party.</p>
+<p>The scale she describes is large. Meta has been building data centers for twenty years, she says, long before the current boom made them controversial. The company operates in 23 states, five of them with projects of one gigawatt or larger, Texas among them. She also reports that a governor who won the previous night after making data centers a big part of his platform had already asked to meet once the inauguration is past, saying his state does not want to lose the investment or the jobs.</p>
+<p>Asked whether the buildout will now stall, she concedes the likely near term: much more review, and much more attention to whether constituents actually want these projects. That, she argues, is making compute an even scarcer asset, one the market has not fully priced. Starting a brand new project in the United States is very challenging, while expanding an existing site is easier because the community has already felt benefits rather than costs. Every hyperscaler, she says, is now asking whether some building should happen outside the United States, and she notes that Singapore and Australia both saw something close to moratoriums in the past week. The future may be international, she says, and it may even be in space, but the immediate future is harder building.</p>
+<p>On regulation, her line is that AI oversight is neither a Republican nor a Democratic project. She describes meeting, with Mark Zuckerberg, the House Democratic AI commission led by Josh Gottheimer, and the recent White House superintelligence safety accords agreed with other lab leaders, naming Jensen Huang, Greg Brockman, and Sam Altman. The accords, she argues, have teeth that went underreported. Inside Meta&#x27;s superintelligence lab, more than 200 people work only on safety, reviewing how models are developed. Researchers who see a problem will be able to go straight to an independent board committee rather than through their managers. An independent auditor will oversee the process. And the standard has already bitten: Muse, Meta&#x27;s consumer AI product, was delayed by more than eight weeks while the team kept fixing bugs, because the release threshold was as safe as possible.</p>
+<p>Then the conversation turns to money. The moderator puts Meta&#x27;s future spending commitments at 825 billion dollars, and Powell McCormick demurs, saying it is not quite that much. What she describes instead is machinery: a dedicated compute division working daily with chief financial officer Susan Li on a puzzle that joins financing, power, workforce, and community support. BlackRock and Larry Fink are the capital partners on the El Paso project. Entergy supplies power in Louisiana, and NextEra Energy under John Ketchum is the other power partner she names. On labor, Meta works with Sean McGarvey of the building trades and with the IBEW electricians, against an industry backdrop she sizes at ten trillion dollars of capital, 250 gigawatts of power, and two million jobs needed over the next four years, with a shortage of about 350,000 electricians today.</p>
+<p>The market evidence she offers is reception, not price. Meta&#x27;s recent equity and debt offerings were both oversubscribed, and its European bond offering closed that day heavily oversubscribed even with 18 other bond deals in the market. The story she says investors are buying is a core business with 3.6 billion people using the products daily, 200 million small businesses among them, six consecutive quarters of double digit growth, and capital spending that is visibly improving that core business. She quotes Blackstone&#x27;s John Gray calling compute itself a financeable asset, and notes that Meta already gets daily calls from companies wanting to lease its compute, which she frames as a path to monetization whether or not its own products use all of it.</p>
+<p>Asked for a plan B if the bets fail, she reaches for the company&#x27;s track record rather than a hedge. She has been at Meta two years, counting board service, and she lists WhatsApp&#x27;s growth, Threads passing X in monthly users, and Reels, built only five years ago, as evidence that this founder builds products first and finds the monetization after, with distribution to nearly half the world&#x27;s population as the multiplier.</p>
+<p>Her account of Meta&#x27;s edge in the compute race is partly personal: she spends 80 percent of her time in Menlo Park on compute. The product evidence she cites is Muse, which she calls the number one downloaded app of the day, built on an underlying model she names as Wonder, and already at ten million users, many of them people who had never used AI before. Polling from the election, she adds, found that people who use AI view it much more favorably, which is the political version of the same point.</p>
+<p>Muse is free for now, and the monetization path she sketches runs through small business. Only 20 percent of American small businesses use any form of AI, she says, and a Ramp study found that the adopters grew market share and revenue dramatically. In focus groups those owners said they would pay. Commerce is already flowing: the average product sold through Muse goes for about 200 dollars, to the satisfaction of connector partners she names as Plaid, DoorDash, and Stripe.</p>
+<p>Her own use of the product is domestic as much as executive. Muse reads the news outlets and newsletters she follows each morning, writes her a detailed summary, and turns it into a thirty minute podcast. She uses it to arrange travel for her grown daughters. Friends who run small businesses, she says, use it like a chief operating officer. She also describes the glasses feeding the same system: at Bennett Orchards, a third generation grower named Henry walks the trees in Meta glasses, films the crop, and runs the footage through Muse to check inventory, spot problems, and see what the week&#x27;s weather will do to the harvest.</p>
+<p>On Washington, she argues the industry&#x27;s job is to work with whichever government voters elect and to keep the work bipartisan, naming administration officials Michael Kratsios and Emil Michael among those engaged on the same questions. The workforce piece of that pitch is a program called America&#x27;s Workforce Academy, which pays people to train as welders, fiber technicians, and electricians and guarantees them a job on a Meta infrastructure site. Meta deliberately left its own name off the program. She compares the moment to the country physically building the arsenal that won the Second World War, and says Zuckerberg is long on humans: the stated creed is that the future is for everyone, and that access has to be broad and fair for that to mean anything.</p>
+<p>She closes on the most misunderstood thing about Zuckerberg. When she asked him, while discussing joining the board, why Meta would win, he answered that there would not be one winner, but that Meta would be one of the winners. He has physically moved his desk into the superintelligence lab to build alongside the researchers. And when Muse&#x27;s design began with Jolly, a fuzzy creature, and the team produced a hundred alternatives, he told them to stick with their gut: the first one was really good. Her summary is founder risk taking joined to twenty years of stability, the adult in the room, as she jokes, who is not yet fifty.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If restrictive ballot measures keep passing and greenfield projects stall, does the industry&#x27;s center of gravity actually shift abroad or into expansions of existing sites, and what happens to the American claim to AI leadership if it does?</li>
+<li>The safety accords rely on the labs policing themselves, with internal safety teams, a board committee, and an independent auditor. Once Congress writes federal guardrails, does that private machinery survive, merge with public oversight, or quietly become redundant?</li>
+<li>Muse is free while Meta&#x27;s spending commitments climb toward the better part of a trillion dollars. At what point does consumer adoption have to turn into revenue for the compute bet to pay off, and is small business commerce really the path that gets there?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s English automatic caption track (en-orig), fetched with yt-dlp after every direct player route failed: the Android 21.02.35, Android 20.10.38, and iOS 20.10.38 player clients all returned LOGIN_REQUIRED, and the web_embedded client errored. The caption artifact cap.en-orig.srv3 holds 5,873 words, with captions running to 1,873 seconds of the video&#x27;s 1,890 seconds, and is saved verbatim as transcript.txt. The title used is the one served with the video&#x27;s metadata, identical in the oEmbed response and the yt-dlp metadata: &quot;Watch Live: Meta President Dina Powell McCormick at WSJ Tech | WSJ&quot;. No separate listing variant was observed. The moderator is addressed in the session only by her first name, Emma, so she is not named further here. The count of 33 of 40 restrictive ballot measures passing is the moderator&#x27;s figure, and the 825 billion dollar spending figure is the moderator&#x27;s, which Powell McCormick said was too high. Her statement that Meta&#x27;s Louisiana arrangement reduces residents&#x27; electricity costs by some two billion dollars sits amid garbled captions and is reported here as her claim. ASR renderings corrected to published spellings in prose include &quot;Richmond Parish&quot; in the opening video for Richland Parish, &quot;energy&quot; for Entergy, &quot;Mitch Landrew&quot; for Mitch Landrieu, &quot;Mary Landrew&quot; for Mary Landrieu, &quot;Josh Godheimer&quot; for Josh Gottheimer, &quot;Black Rockck&quot; and &quot;Larry Frink&quot; for BlackRock and Larry Fink, &quot;Shan McGarvey&quot; for Sean McGarvey, &quot;NAB 2 and I uh W&quot; for the building trades council and the IBEW, &quot;Menllo&quot; for Menlo Park, &quot;Marquez&quot; for &quot;Mark has&quot;, and &quot;Michael Katzios&quot; for Michael Kratsios. The transcript renders Meta&#x27;s compute division with an unclear name, so it is described rather than named.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-11-06.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated November 6, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "wsj-events-dina-powell-mccormick-wsj-tech": "Watch Live: Meta President Dina Powell McCormick at WSJ Tech | WSJ"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+</body>
+</html>
