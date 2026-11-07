@@ -1,6 +1,6 @@
 {
- "total": 693,
- "playable": 680,
+ "total": 694,
+ "playable": 681,
  "episodes": [
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
@@ -301,6 +301,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/theinformation-andrew-ambrosino-future-of-ai-coding.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#theinformation-andrew-ambrosino-future-of-ai-coding",
    "source_url": "https://www.youtube.com/watch?v=k8gofajVe-0"
+  },
+  {
+   "slug": "theinformation-race-to-build-sell-ai-agents",
+   "title": "Inside the Race to Build and Sell AI Agents",
+   "channel": "The Information",
+   "date": "2026-11-06",
+   "duration": "4:37",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/theinformation-race-to-build-sell-ai-agents.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#theinformation-race-to-build-sell-ai-agents",
+   "source_url": "https://www.youtube.com/watch?v=D4Y5Ub1pm9I"
   },
   {
    "slug": "sequoia-trajectory-ronak-malde-continual-learning",
