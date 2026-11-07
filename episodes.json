@@ -1,6 +1,6 @@
 {
- "total": 683,
- "playable": 670,
+ "total": 684,
+ "playable": 671,
  "episodes": [
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
@@ -181,6 +181,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/ycrootaccess-domu-ai-that-negotiates.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#ycrootaccess-domu-ai-that-negotiates",
    "source_url": "https://www.youtube.com/watch?v=pPeR0bMMKMM"
+  },
+  {
+   "slug": "natebjones-end-of-git-openai-cto-future-of-coding",
+   "title": "The end of git? OpenAI CTO on the future of coding.",
+   "channel": "AI News & Strategy Daily | Nate B Jones",
+   "date": "2026-11-06",
+   "duration": "6:10",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/natebjones-end-of-git-openai-cto-future-of-coding.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#natebjones-end-of-git-openai-cto-future-of-coding",
+   "source_url": "https://www.youtube.com/watch?v=S6SEgMooZpE"
   },
   {
    "slug": "sequoia-trajectory-ronak-malde-continual-learning",
