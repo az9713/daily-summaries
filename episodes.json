@@ -1,6 +1,6 @@
 {
- "total": 687,
- "playable": 674,
+ "total": 688,
+ "playable": 675,
  "episodes": [
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
@@ -229,6 +229,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-charts-of-the-week-apple-skips-capex.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#a16z-charts-of-the-week-apple-skips-capex",
    "source_url": "https://www.a16z.news/p/charts-of-the-week-apple-skips-capex"
+  },
+  {
+   "slug": "two-minute-papers-future-of-ai-absolutely-incredible",
+   "title": "The Future of AI Is Absolutely Incredible (Spencer Huang)",
+   "channel": "Two Minute Papers",
+   "date": "2026-11-06",
+   "duration": "8:02",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/two-minute-papers-future-of-ai-absolutely-incredible.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#two-minute-papers-future-of-ai-absolutely-incredible",
+   "source_url": "https://www.youtube.com/watch?v=XgC1QTs6A2U"
   },
   {
    "slug": "sequoia-trajectory-ronak-malde-continual-learning",
