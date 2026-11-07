@@ -1,6 +1,6 @@
 {
- "total": 695,
- "playable": 682,
+ "total": 696,
+ "playable": 683,
  "episodes": [
   {
    "slug": "rajshamani-mel-robbins-best-years-of-your-life",
@@ -13,6 +13,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/rajshamani-mel-robbins-best-years-of-your-life.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-07.html#rajshamani-mel-robbins-best-years-of-your-life",
    "source_url": "https://www.youtube.com/watch?v=RR2bORcvzKs"
+  },
+  {
+   "slug": "rajshamani-gita-gopinath-how-money-is-created",
+   "title": "How Money Is Created: Central Banks, Money Printing & Inflation | Gita Gopinath | FO585 Raj Shamani",
+   "channel": "Raj Shamani",
+   "date": "2026-11-07",
+   "duration": "7:50",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/rajshamani-gita-gopinath-how-money-is-created.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-07.html#rajshamani-gita-gopinath-how-money-is-created",
+   "source_url": "https://www.youtube.com/watch?v=dNIef2fGLQY"
   },
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
