@@ -1,6 +1,6 @@
 {
- "total": 702,
- "playable": 689,
+ "total": 703,
+ "playable": 690,
  "episodes": [
   {
    "slug": "rajshamani-mel-robbins-best-years-of-your-life",
@@ -97,6 +97,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/box-levie-boxworks-2026-keynote.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-07.html#box-levie-boxworks-2026-keynote",
    "source_url": "https://www.youtube.com/watch?v=inkgUwZzltI"
+  },
+  {
+   "slug": "how-i-invest-jack-selby-ai-bubble-paypal-mafia",
+   "title": "Peter Thiel's 27-Year Partner on the AI Bubble, the Venture Capital Crisis, and the PayPal Mafia",
+   "channel": "How I Invest Podcast",
+   "date": "2026-11-07",
+   "duration": "9:32",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/how-i-invest-jack-selby-ai-bubble-paypal-mafia.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-07.html#how-i-invest-jack-selby-ai-bubble-paypal-mafia",
+   "source_url": "https://www.youtube.com/watch?v=4VjI-3FcHSg"
   },
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
