@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - November 7, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+    <link rel="stylesheet" href="../player.css">
+  </head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Saturday &middot; November 7, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#rajshamani-mel-robbins-best-years-of-your-life"><span class="num">01</span><span><span class="card-title">How To Make The Next 10 Years The Best Years Of Your Life | Mel Robbins | FO584 Raj Shamani</span><span class="card-byline">Raj Shamani</span></span><span class="card-dur">8:11</span><span class="listen-state" data-slug="rajshamani-mel-robbins-best-years-of-your-life"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="rajshamani-mel-robbins-best-years-of-your-life" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-07.html" data-route="index">&larr; November 7, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">How To Make The Next 10 Years The Best Years Of Your Life | Mel Robbins | FO584 Raj Shamani &mdash; November 7, 2026 <span class="dur">&middot; 8:11</span></p>
+        <audio controls preload="none" src="../podcasts/rajshamani-mel-robbins-best-years-of-your-life.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/rajshamani-mel-robbins-best-years-of-your-life.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="rajshamani-mel-robbins-best-years-of-your-life" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="rajshamani-mel-robbins-best-years-of-your-life"></div>
+        <div class="episode-download"><a href="../podcasts/rajshamani-mel-robbins-best-years-of-your-life.mp3" download>Download rajshamani-mel-robbins-best-years-of-your-life.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Raj Shamani</dd></div>
+        <div><dt>Published</dt><dd>November 7, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=RR2bORcvzKs" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Raj Shamani &middot; Figuring Out with Mel Robbins on the next ten years</p>
+        <h2>How To Make The Next 10 Years The Best Years Of Your Life | Mel Robbins | FO584 Raj Shamani</h2>
+        <div>
+<p>On Raj Shamani, this episode of his Figuring Out podcast (episode 584) is a long conversation with Mel Robbins, the author and podcast host whose books include The Let Them Theory, written with her daughter Sawyer. Shamani opens by saying he grew up watching her videos and that her five second rule is what got him out of bed in the morning instead of spending two hours on his phone. Robbins, who is 58, describes herself as the CEO of a media company and, more than that, as a friend: the person who encourages you when life is hard and tells you to knock it off when you start beating yourself up.</p>
+<p>She frames a life as a movie, or a book you are only partway through. Where you are now is one scene, or one page, and it is not how the story ends, because you are still alive. People land in a discouraging chapter for many reasons: a death, a lost job, a breakup, trouble getting pregnant while friends are having babies, a string of launches that did not work. Her answer to all of it is a short phrase: yes, and now what? Nobody is going to ride in and rescue you, and nobody needs to, because the only person you can actually change is yourself.</p>
+<p>That limit runs through the whole conversation. You have no control over what another person thinks, does, or says, and trying to control them is not love, she says, it is control; wishing your partner were different is not loving them, it is judgment. She says she learned this at 54, after decades of marriage, and that learning to accept her husband for who he is and is not, and to focus on her own responses, gave her what feels like a second marriage inside the first one. Life is unfair, and terrible things happen to people who do not deserve them. What remains in your control is what you do next.</p>
+<p>The practical core of the episode is a whiteboard exercise. First, answer two questions: what do I really want, and why? Then ask what action actually causes that thing. Most people, she argues, fail at the first step, because what they list are shoulds: I should exercise, I should get a different job. A should is something imposed on you, not something you chose, and you will torture yourself thinking about it without ever doing it. If you cannot answer the question in the positive, answer it in the negative, and start from what you do not want.</p>
+<p>Her tool for that is the ordinary Tuesday. Your life, she says, is not a vacation; it is Tuesdays added up. Roll the clock forward to a Tuesday in 2030 and picture the same job, the same body, the same morning routine of lying in bed scrolling. If you do not want that, you have just woken up: you can see that the path you are on does not end where you want to be. Then imagine the other 2030 Tuesday in detail, the wake-up time, the work, the people, how it feels, and write it down. The imagined day becomes the map, and the actions that lead there are usually obvious: apply for the job, stop drinking, exercise, sleep, save money, be kinder.</p>
+<p>The hard part, she says, is doing it, and the failure happens in a specific place she calls the knowledge action gap. Between knowing and doing sits a five second window. When it is time to act, people do not act; they think about how they feel about acting, and if you think about what you need to do for more than five seconds, you will talk yourself out of it. Her fix is the rule Shamani credited at the top: count backwards, five, four, three, two, one, and then move. Counting backwards interrupts the autopilot before your habits and emotions take over.</p>
+<p>It follows that motivation, in her phrase, is garbage. You are never going to feel like doing the things you need to do, because the brain is wired to prefer what is easy, sitting on the couch over going for a walk. She borrows an image from Dr. K of HealthyGamer: people think they are pressing the accelerator when they are actually slamming the brake. The mind can change across a lifetime, but it does not want to, so the work is to feel the resistance, the fear, the self-doubt, and make yourself move anyway, putting the action first.</p>
+<p>She is equally blunt about the advice to fall in love with the process. You do not have to love picking up dog poop or unloading the dishwasher, and telling someone in a brutal chapter of life to love a job they hate is, she says, a privileged fantasy. What you can do is find the why underneath the hated thing: the job pays the bills, the bills take care of your family, and all work has value. Showing up well in a situation you hate, and staying grateful for what it provides, is a master level practice of gratitude rather than a failure of attitude.</p>
+<p>For someone in a genuinely terrible chapter, she starts with survival. Chronic financial stress, not being able to meet basic needs, is an acute pain, and she does not pretend otherwise. Two things act as a flotation device while you climb out: joy and gratitude. She cites Stanford psychologist Kelly McGonigal&#x27;s research that moving your body makes your muscles release what McGonigal calls hope molecules, and she treats small moments of joy, a puppy, a flower, a sunset, as things that make you want to live. The biggest blocker she sees is discouragement, the settled belief that it does not matter if you try. A small daily practice of gratitude, scanning the day for what went well, is how you build an upward spiral against it.</p>
+<p>That practice fills out into a daily operating system. Wake up and set an intention, a trick she takes from Dr. Daniel Amen: today is going to be a good day, because I am going to make something good happen. Decide the one thing that matters today and make progress on it; she cites Harvard&#x27;s progress principle, the finding that people feel purpose when they advance on something they have said is important. Move your body physically, because it shifts you mentally, spiritually, and emotionally faster than anything else. Guard your energy, because leaders bring the weather and every person influences the people around them; she pairs the law of reciprocity with the law of karma, and says the fastest way to lift yourself is to help somebody else. End the day by naming three things that went well.</p>
+<p>Asked whether you can excel at something you hate, she leans on Angela Duckworth&#x27;s research on grit: much of what looks like discipline comes from liking the thing, so yes, you can push yourself to excellence at work you dislike, but part of you will always feel the chafe unless the work serves a deeper purpose, like providing for your family, that makes you proud to do it.</p>
+<p>Then she tells her own story. At 41 she had three kids under ten, was nearly a million dollars in debt, had lost her job, and her husband&#x27;s restaurant was failing, with liens on the house. She drank too much, blamed everyone else, and lay in bed hitting snooze. Seventeen years ago, on a Tuesday in February, she started counting down and acting like the person she needed to be: someone who would get up, look for work, ask friends for help, stop drinking, and be kinder at home. Getting out took a decade, three or four jobs at a time, and strict discipline; once the family reached safety, she put fifty percent of everything that came in into savings so it could never happen again. Change, she insists, is not glamorous. It is grueling, boring, and lonely, and you will be startled at what you can accomplish in ten years if you define what you want, know why you want it, and force yourself one move at a time.</p>
+<p>Her definition of purpose is the one she says she misunderstood longest: purpose is not something you do, it is what happens in other people when you do the things that you do. She traces the idea through Oprah to Gary Zukav&#x27;s The Seat of the Soul. People will not remember your achievements, she says; they will remember whether you left them feeling better, which is why every day can be lived with purpose at a coffee shop as much as on a stage.</p>
+<p>On speaking, her rules are plain. People remember stories, not facts. Before a meeting, pick the two words you want people to say about you after you leave the room, and show up as that person. An audience takes away exactly one thing, so decide the single message you want them to repeat, make it simple enough to explain to a five year old, and return to it like a chorus in a song. When you tell a story, do not be lazy: put the listener in the scene, with the detail she learned as a trial lawyer. And never speak to everyone, because there is no everyone; speak to one person, the way a podcast is actually heard.</p>
+<p>On building a personal brand, she lists the mistakes she sees. Spending far too much time on input, consuming other people&#x27;s content, instead of output. Giving up too soon: she started posting in 2012 after hearing Gary Vaynerchuk, and she is convinced success is connected to how long you are willing to keep showing up, ten years if that is what it takes. Chasing some perfect formula for going viral instead of tripling down on being yourself, since the people who need your particular voice cannot find you if you are imitating someone else. And caring what other people think: let them misunderstand and judge, stop looking for support from family and friends who have not made the change you are making, build community instead in the comments of the creators you follow, and do not waste the world&#x27;s energy defending yourself to people determined to misunderstand you, a lesson she credits to Steven Bartlett.</p>
+<p>Her one business and tactical mistake is not hiring fast enough. Early on, do every job in the business yourself, as she has, from editing audio to taking out the trash, so you understand it. But when frustration tells you that you are doing work that is not your skill set, ask who you can give it to, and if the answer is no one, hire, because buying back your own time is what the business most needs. Underneath it is Seth Godin&#x27;s pair of questions: who is this for, and what is it for? Answer those and you have a strategy; without them you are throwing things at a wall. In a world where everyone has the same information, she argues, the real skill is focus and simplicity, and a clear intention is what lets you say no, which is hard mainly because of how other people react.</p>
+<p>The last long stretch is about marriage. She offers a phrase for it: normal marital hatred. You cannot live with someone day in and day out without them getting under your skin, families teach you to love people you sometimes hate, and loving someone is not the same as liking them in a given week. Her secret is a sentence: you are my favorite person, even when I hate you, because I never forgot who I married. The Let Them Theory gives the boundary: let people show you who they are, then decide what you will choose, since you are not stuck in any relationship, job, or group chat. Two tests help decide whether a hatred is a chapter or an ending. First, citing the Gottmans&#x27; research that about sixty-nine percent of what couples argue about never gets resolved, ask whether this person, exactly as they are, is still your favorite person. Second, ask whether you would be happy if your kids had this marriage. If the answer unsettles you, it means there is work to do, and a marriage is worth fighting for when both partners are willing to do it; if one partner will not, that is the answer. And a relationship that forces you to give up your values or a dream will curdle into resentment no matter how much you once loved the person.</p>
+<p>Shamani closes with the three questions he asks every guest. What she knows that the world does not: the best days of your life are ahead of you, a thousand percent, if you are willing to make them better. The most extraordinary thing she wants to do next is deliberately small: sit on her porch beside her husband of thirty years, dogs at her feet, and really notice a sunset. And the personal cost of becoming Mel Robbins, she says, is that the old Mel Robbins had to die. She killed her, and it was the best thing she ever did.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If the five second rule works by cutting off deliberation, where is the line between healthy decisiveness and an impulse that deserved more than five seconds of thought, and how is a person supposed to tell the difference in the moment?</li>
+<li>Robbins insists you cannot change another person, yet also says a marriage is worth fighting for when both partners do the work: what does doing the work together actually look like when neither partner can make the other change?</li>
+<li>Her brand advice is to stay unmistakably yourself for as long as ten years, while her business advice is to hand off everything that is not your gift: how does a creator tell which parts of the work are the irreducible self and which are batons to pass?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s full English automatic caption track (en-orig ASR, srv3 format), served by the Android 21.02.35 player client after the yt-dlp caption route returned a bot wall in this environment; the raw track is saved as cap.en.srv3 and the verbatim text as transcript.txt (17,517 words, with captions running to 6,179.96 seconds of the video&#x27;s 6,190 seconds, the full conversation including the closing questions). The player-served title is used character for character and matches the oEmbed title exactly; the channel is Raj Shamani, and the episode number in the title is his Figuring Out podcast&#x27;s, confirmed by his closing sign-off. Sponsor reads and subscription appeals inside the video are not summarized, and a brief clip from a different conversation that plays after the interview, before the host&#x27;s outro, is not part of this conversation and is not covered. ASR spellings were adjudicated to published spellings in prose where they differed, including &quot;HealthyGamer&quot; for Dr. K&#x27;s channel (rendered &quot;Healthy Gamer&quot; in the track) and the book title &quot;The Let Them Theory&quot;.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-11-07.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated November 7, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "rajshamani-mel-robbins-best-years-of-your-life": "How To Make The Next 10 Years The Best Years Of Your Life | Mel Robbins | FO584 Raj Shamani"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+  <script src="../player.js" defer></script>
+</body>
+</html>
