@@ -1,6 +1,6 @@
 {
- "total": 691,
- "playable": 678,
+ "total": 692,
+ "playable": 679,
  "episodes": [
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
@@ -277,6 +277,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/latent-space-reducto-adit-abraham-pdfs-still-break-ai.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#latent-space-reducto-adit-abraham-pdfs-still-break-ai",
    "source_url": "https://www.youtube.com/watch?v=KgqWyVVH4Oc"
+  },
+  {
+   "slug": "goldmansachs-david-schwimmer-capital-shifting-beyond-us-markets",
+   "title": "LSEG CEO David Schwimmer on Capital Shifting Beyond US Markets",
+   "channel": "Goldman Sachs",
+   "date": "2026-11-06",
+   "duration": "5:30",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/goldmansachs-david-schwimmer-capital-shifting-beyond-us-markets.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#goldmansachs-david-schwimmer-capital-shifting-beyond-us-markets",
+   "source_url": "https://www.youtube.com/watch?v=diHxgqt2pL0"
   },
   {
    "slug": "sequoia-trajectory-ronak-malde-continual-learning",
