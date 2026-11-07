@@ -394,14 +394,15 @@
     .episode-download { margin-top: 8px; font-size: 0.85rem; }
     .episode-download a { color: var(--signal-ink); }
 </style>
-</head>
+    <link rel="stylesheet" href="../player.css">
+  </head>
 <body>
   <main class="page">
     <section class="index-view" id="index-view">
     <header class="masthead">
       <div>
         <p class="date">Friday &middot; November 6, 2026</p>
-        <h1>11 summaries, distilled.</h1>
+        <h1>12 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -418,6 +419,7 @@
         <a class="card" href="#goldmansachs-john-waldron-gdp-growth-ai-ma-outlook"><span class="num">09</span><span><span class="card-title">John Waldron on GDP Growth, AI, and the M&amp;A Outlook</span><span class="card-byline">Goldman Sachs</span></span><span class="card-dur">5:24</span><span class="listen-state" data-slug="goldmansachs-john-waldron-gdp-growth-ai-ma-outlook"></span></a>
         <a class="card" href="#a16z-salesforce-acquisition-strategy-ai-era"><span class="num">10</span><span><span class="card-title">Inside Salesforce’s Acquisition Strategy for the AI Era</span><span class="card-byline">a16z</span></span><span class="card-dur">8:19</span><span class="listen-state" data-slug="a16z-salesforce-acquisition-strategy-ai-era"></span></a>
         <a class="card" href="#wes-roth-anthropic-just-built-it"><span class="num">11</span><span><span class="card-title">Anthropic just built it...</span><span class="card-byline">Wes Roth</span></span><span class="card-dur">6:04</span><span class="listen-state" data-slug="wes-roth-anthropic-just-built-it"></span></a>
+        <a class="card" href="#latent-space-mini-brains-organoids-fabian-theis"><span class="num">12</span><span><span class="card-title">Mini Brains, Beating Heart Organoids, and the AI That Predicts Them — Fabian Theis, Helmholtz Munich</span><span class="card-byline">Latent Space</span></span><span class="card-dur">6:31</span><span class="listen-state" data-slug="latent-space-mini-brains-organoids-fabian-theis"></span></a>
         </div>
       </nav>
     </section>
@@ -947,6 +949,54 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#a16z-salesforce-acquisition-strategy-ai-era" data-route="article">&larr; a16z</a>
         <a class="to-index" href="2026-11-06.html" data-route="index">All summaries</a>
+        <a class="next" href="#latent-space-mini-brains-organoids-fabian-theis" data-route="article">Latent Space &middot; Mini Brains, Beating Heart Organoids, and the AI That Predicts Them — Fabian Theis, Helmholtz Munich &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="latent-space-mini-brains-organoids-fabian-theis" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-06.html" data-route="index">&larr; November 6, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Mini Brains, Beating Heart Organoids, and the AI That Predicts Them — Fabian Theis, Helmholtz Munich &mdash; November 6, 2026 <span class="dur">&middot; 6:31</span></p>
+        <audio controls preload="none" src="../podcasts/latent-space-mini-brains-organoids-fabian-theis.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/latent-space-mini-brains-organoids-fabian-theis.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="latent-space-mini-brains-organoids-fabian-theis" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="latent-space-mini-brains-organoids-fabian-theis"></div>
+        <div class="episode-download"><a href="../podcasts/latent-space-mini-brains-organoids-fabian-theis.mp3" download>Download latent-space-mini-brains-organoids-fabian-theis.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Latent Space</dd></div>
+        <div><dt>Published</dt><dd>November 6, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=3nAV2s4GYbs" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Latent Space &middot; Mini brains, beating heart organoids, and Fabian Theis</p>
+        <h2>Mini Brains, Beating Heart Organoids, and the AI That Predicts Them — Fabian Theis, Helmholtz Munich</h2>
+        <div>
+<p>On Latent Space, this edition of the AI for Science series has hosts RJ Honicky and Brandon Anderson interviewing Fabian Theis, who directs the Computational Health Center at Helmholtz Munich and whose lab built Scanpy and the scverse open-source ecosystem used across computational biology. The subject is the virtual cell: a model that can predict how a living cell will behave. The conversation arrives with money moving behind the idea, including a 1.8 billion dollar initiative from Biohub together with Google, Meta, the Department of Energy, and the National Institutes of Health, aimed at collecting the multiscale data needed to make biology predictable.</p>
+<p>For Theis, a virtual cell comes down to one hard problem: given a cell and something done to it, predict what happens next. His lab began this work in 2019 with scGen, an early model that shifted perturbed cells through a learned latent space. He is frank that the early models were limited less by their mathematics than by the data and the questions, which were simplistic. What has changed is data generation. Single experiments now measure ten million transcriptomes at once. Labs run full CRISPR perturbation screens across a hundred cell lines, or batteries of a thousand drugs, where once the perturbation side of the data was a thin control-versus-disease comparison.</p>
+<p>The basic object is the transcriptome, the count of messenger RNAs in a single cell, which can be pictured as a vector of roughly 20,000 numbers. Cells cluster in that space into types, or stretch along trajectories as they differentiate. A perturbation, in his broad usage, is anything that acts on a cell: a gene knocked out by CRISPR, a signal from a neighboring cell, a hormone, the chemistry of the growth medium, the Yamanaka factors that reprogram skin cells toward an embryo-like state, or ordinary human genetic variation. A real virtual cell, he argues, has to take all of that as input, in combination, along with disease and time.</p>
+<p>That is why the title&#x27;s organoids matter. Researchers can now grow miniature multicellular systems in a dish: little brains whose neurons wire up and talk to each other, heart organoids that actually beat, colon and cancer systems that are comparatively tractable. Organoids give far richer readouts than a single cell line, and they make otherwise inaccessible tissue studiable, for instance by growing mini brains from the skin cells of patients with neurodegenerative disease. Theis&#x27;s group runs perturbation experiments on organoids and is building a cancer organoid perturbation atlas with pharmaceutical partners who pay for early access. Modeling these systems is unsettled territory: there is no agreed language for a cell&#x27;s neighborhood, and today models mostly treat an organoid as a distribution of cells, with graph-based descriptions still to come.</p>
+<p>Running through the modeling discussion is the Bitter Lesson. Theis warns that strong hand-built assumptions cost predictive power, and gives AlphaFold as the example: later versions stopped hard-coding rotational symmetry and let the model learn it from data, gaining flexibility. Biology, though, is not yet data-rich on the perturbation side, however rich it is in cells, so he expects hybrid models, part learned and part structured, to be the practical answer for now, with interpretation layered on afterward.</p>
+<p>That caution explains why the first wave of biological foundation models disappointed. On plain cell type prediction, logistic regression remains close to the state of the art, and his lab once published a paper whose title made the point bluntly: deep learning is not needed for cell type prediction. Part of the problem, he says, is the benchmarks themselves. Work by Bo Wang and collaborators showed that in some celebrated cases the metric, not the model, was at fault, and the Arc Institute&#x27;s Virtual Cell Challenge shipped with metrics that could be exploited. Once the exploitation was stripped out, the winning approach was a flow-matching model, which he takes as evidence that the nonlinear machinery does earn its keep on harder tasks. His advice to students is unfashionable and firm: build the simple baseline first, even the predict-the-mean baseline, because the data are noisy enough to fool anyone.</p>
+<p>His own lab&#x27;s recent work tries to ask harder questions. Nicheformer, a foundation model for spatial data, asks whether a cell&#x27;s expression state can predict the state of its neighbors, a fingerprint of the communication between them. scConcept learns representations by contrastive learning and shows clean scaling behavior, from 30 million cells in the paper to a model trained on 350 million cells across 16 species that the lab has now released. CellFlow then treats perturbation as a world-model problem: state plus action in, next state out, using flow matching on top of the learned representation to generate the effect of a perturbation. It has been accepted at Nature Methods. Representation learning alone, he insists, is not a virtual cell; the action-conditioned step is where the biology happens.</p>
+<p>Theis also describes the institution behind the work. Helmholtz is a federally funded research organization, and his Computational Health Center has grown to roughly 45 group leaders and 500 to 600 people, which he calls the largest academic site for health AI research in Europe. There is no undergraduate teaching, only doctoral students and postdocs, with affiliations to Munich&#x27;s two universities and a deliberate push toward translation. On startups, he says Germany now creates them at a rate comparable to the United States, with Munich the leading hotspot, but the ecosystem drops off at the scaling stage, where the large risk-taking funds are thinner and companies head to the US for big rounds. His own lever is expectation: he has told every group leader in his center to aim for at least one spin-off within three years.</p>
+<p>He is similarly unsentimental about business models. Company after company that set out to build a foundation model of biology has pivoted into developing drugs, because a drug is the asset investors understand, while a platform&#x27;s path to revenue stays murky. The positions he finds durable couple modeling to proprietary data generation, as with Noetik, or with his own organoid atlas, where the unique dataset is the moat. Widely used open tools, he notes from experience with Scanpy, do not by themselves make a business.</p>
+<p>His answer to the talent question is a training design he calls the Y model, run through the Munich School for Data Science. Every student has two advisors, one for methods and one for the application domain, and attends both labs&#x27; meetings, learning the biology deeply enough to reformulate vague experimental questions as metrics and models. Eight years in, he says, the graduates scatter across pharma, startups, and pure AI work; Nvidia hired two of his people within a single month not long ago.</p>
+<p>The closing topic is where he thinks the field goes next: closing the loop. His lab&#x27;s new system, LabCompass, is an inverse generative model. Given a forward world model of the cell and a state you want to reach, it proposes what to do to get there. Built with a Cambridge collaborator working on blood formation, it has already been through three or four real cycles of model, experiment, and revision. Theis stresses that the hard part is as much organizational as computational: persuading experimentalists to spend weeks testing a model&#x27;s chosen experiment, against their own instincts. The long-term vision is reinforcement learning with the laboratory itself inside the environment. For now, he concedes, what exists is closer to active learning, but the direction is set: from mapping cells, to predicting them, to steering the next experiment.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If benchmark metrics have repeatedly decided which virtual cell models look good, how will the field recognize a genuinely predictive model when one arrives, and who gets to write the metric it is judged by?</li>
+<li>Theis argues the durable advantage is proprietary perturbation data coupled to models, yet the largest new funding, from Biohub and its partners, is for open data. Do those two bets reinforce each other, or does the moat logic eventually win and close the data off?</li>
+<li>Lab-in-the-loop systems ask experimental scientists to spend scarce weeks on experiments a model chose over their own judgment. Will that trust problem be solved by better predictions, by training people who straddle both worlds, or only by automating the bench itself?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s full English automatic caption track (the en-orig track), fetched with yt-dlp after the player API clients were walled: the Android 21.02.35 and Android 20.10.38 player responses and the iOS player response all returned LOGIN_REQUIRED, and the web_embedded client errored. The raw caption track is saved as cap.en-orig.srv3, and its text, 11,321 words running to 3,042 seconds of the video&#x27;s 3,050 seconds and ending with the hosts&#x27; sign-off, is saved verbatim as transcript.txt. Because the player responses were walled, the title and channel were taken from yt-dlp&#x27;s metadata and YouTube&#x27;s oEmbed response, which agree character for character; the app listing that commissioned this piece showed only the truncated beginning of the title. The episode is an edition of Latent Space&#x27;s AI for Science series, hosted by RJ Honicky and Brandon Anderson. The published description corroborates the model names used here, including Scanpy, scverse, Nicheformer, scConcept, CellFlow, and LabCompass; the automatic captions garble several of them (among others, &quot;SEGAN&quot; for scGen, &quot;SE concept&quot; for scConcept, and &quot;self flow&quot; for CellFlow), and the published spellings are used in prose. One discrepancy is worth flagging: the description&#x27;s chapter list runs to 59 minutes, well past this video&#x27;s 51 minutes, apparently carried over from a longer edition; this summary follows the video itself.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#wes-roth-anthropic-just-built-it" data-route="article">&larr; Wes Roth</a>
+        <a class="to-index" href="2026-11-06.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -968,7 +1018,8 @@
       "mastersofscale-demis-hassabis-ai-dangerous": "Google DeepMind's Demis Hassabis: How AI could become dangerous (with Reid Hoffman) | Summit '26",
       "goldmansachs-john-waldron-gdp-growth-ai-ma-outlook": "John Waldron on GDP Growth, AI, and the M&A Outlook",
       "a16z-salesforce-acquisition-strategy-ai-era": "Inside Salesforce’s Acquisition Strategy for the AI Era",
-      "wes-roth-anthropic-just-built-it": "Anthropic just built it..."
+      "wes-roth-anthropic-just-built-it": "Anthropic just built it...",
+      "latent-space-mini-brains-organoids-fabian-theis": "Mini Brains, Beating Heart Organoids, and the AI That Predicts Them — Fabian Theis, Helmholtz Munich"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
@@ -1151,5 +1202,6 @@
   });
 })();
 </script>
+  <script src="../player.js" defer></script>
 </body>
 </html>
