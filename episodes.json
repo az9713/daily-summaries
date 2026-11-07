@@ -1,6 +1,6 @@
 {
- "total": 684,
- "playable": 671,
+ "total": 685,
+ "playable": 672,
  "episodes": [
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
@@ -193,6 +193,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/natebjones-end-of-git-openai-cto-future-of-coding.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#natebjones-end-of-git-openai-cto-future-of-coding",
    "source_url": "https://www.youtube.com/watch?v=S6SEgMooZpE"
+  },
+  {
+   "slug": "bloomberg-circuit-waymo-driverless-future",
+   "title": "Waymo’s Bet on a Driverless Future | The Circuit with Emily Chang",
+   "channel": "Bloomberg Originals",
+   "date": "2026-11-06",
+   "duration": "5:35",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/bloomberg-circuit-waymo-driverless-future.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#bloomberg-circuit-waymo-driverless-future",
+   "source_url": "https://www.youtube.com/watch?v=1Lebd8OzWeo"
   },
   {
    "slug": "sequoia-trajectory-ronak-malde-continual-learning",
