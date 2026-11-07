@@ -1,6 +1,6 @@
 {
- "total": 668,
- "playable": 655,
+ "total": 682,
+ "playable": 669,
  "episodes": [
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
@@ -157,6 +157,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/peterman-xavier-leroy-ocaml-almost-correct-ai-code.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#peterman-xavier-leroy-ocaml-almost-correct-ai-code",
    "source_url": "https://www.youtube.com/watch?v=WixJ0ww_cYA"
+  },
+  {
+   "slug": "intelligencesquared-mustafa-suleyman-open-source-ai",
+   "title": "Mustafa Suleyman: Will AI Make Everything Cheaper? | Intelligence Squared",
+   "channel": "Intelligence Squared",
+   "date": "2026-11-06",
+   "duration": "4:24",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/intelligencesquared-mustafa-suleyman-open-source-ai.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#intelligencesquared-mustafa-suleyman-open-source-ai",
+   "source_url": "https://www.youtube.com/watch?v=6mZ1nIVUAh4"
   },
   {
    "slug": "sequoia-trajectory-ronak-malde-continual-learning",
@@ -7105,6 +7117,162 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/unhobbling-claude.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-09/2026-09-26.html#unhobbling-claude",
    "source_url": "https://www.youtube.com/watch?v=FlHfhwQaAFM"
+  },
+  {
+   "slug": "ai-news-opus55-gpt6-sol-lipsky",
+   "title": "Big AI News: Opus 5.5 vs GPT-6 Sol, NotebookLM Updates, Muse Charm & More!",
+   "channel": "Paul J Lipsky",
+   "date": "2026-09-25",
+   "duration": "6:15",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/ai-news-opus55-gpt6-sol-lipsky.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-09/2026-09-25.html#ai-news-opus55-gpt6-sol-lipsky",
+   "source_url": "https://www.youtube.com/watch?v=Q6uuvZmb0t8"
+  },
+  {
+   "slug": "ai-news-500-chatgpt-pro-max-brock-mesarich",
+   "title": "AI News: $500 ChatGPT Plan? OpenAI Agent Leak & Opus 5.5",
+   "channel": "Brock Mesarich | AI for Non Techies",
+   "date": "2026-09-25",
+   "duration": "7:49",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/ai-news-500-chatgpt-pro-max-brock-mesarich.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-09/2026-09-25.html#ai-news-500-chatgpt-pro-max-brock-mesarich",
+   "source_url": "https://www.youtube.com/watch?v=k5Wo0-FWK3k"
+  },
+  {
+   "slug": "youtube-updates-made-on-youtube-2026-think-media",
+   "title": "BREAKING: YouTube Just Announced Huge Changes",
+   "channel": "Think Media",
+   "date": "2026-09-25",
+   "duration": "8:36",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/youtube-updates-made-on-youtube-2026-think-media.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-09/2026-09-25.html#youtube-updates-made-on-youtube-2026-think-media",
+   "source_url": "https://www.youtube.com/watch?v=rcFqyWYT1xY"
+  },
+  {
+   "slug": "zuckerberg-muse-sources-podcast",
+   "title": "Mark Zuckerberg on how Meta's Muse AI agent will make people money",
+   "channel": "Sources Podcast and Alex Heath",
+   "date": "2026-09-25",
+   "duration": "7:21",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/zuckerberg-muse-sources-podcast.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-09/2026-09-25.html#zuckerberg-muse-sources-podcast",
+   "source_url": "https://www.youtube.com/watch?v=Lx8lrn-cytc"
+  },
+  {
+   "slug": "a16z-cosign-spot-exceptional-talent",
+   "title": "How to Spot Exceptional Talent Before Everyone Else",
+   "channel": "a16z",
+   "date": "2026-09-25",
+   "duration": "6:01",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-cosign-spot-exceptional-talent.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-09/2026-09-25.html#a16z-cosign-spot-exceptional-talent",
+   "source_url": "https://www.youtube.com/watch?v=-ywZlfznTa4"
+  },
+  {
+   "slug": "a16z-knows-its-people",
+   "title": "How Silicon Valley Knows Its People",
+   "channel": "a16z News",
+   "date": "2026-09-25",
+   "duration": "7:03",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-knows-its-people.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-09/2026-09-25.html#a16z-knows-its-people",
+   "source_url": "https://www.a16z.news/p/how-silicon-valley-knows-its-people"
+  },
+  {
+   "slug": "oOpF0ZXSXuk",
+   "title": "Stanford Doctor: Get More Out of Your Next Doctor's Visit With AI",
+   "channel": "Silicon Valley Girl",
+   "date": "2026-09-25",
+   "duration": "7:29",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/stanford-doctor-chen-silicon-valley-girl.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-09/2026-09-25.html#oOpF0ZXSXuk",
+   "source_url": "https://www.youtube.com/watch?v=oOpF0ZXSXuk"
+  },
+  {
+   "slug": "shumer-what-actually-mattered",
+   "title": "What actually mattered: Sep 21–24",
+   "channel": "Matt Shumer",
+   "date": "2026-09-25",
+   "duration": "4:57",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/shumer-what-actually-mattered-sep21-24.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-09/2026-09-25.html#shumer-what-actually-mattered",
+   "source_url": "https://somethingbig.ai/what-actually-mattered-sep21-24"
+  },
+  {
+   "slug": "dwarkesh-sarah-paine-war",
+   "title": "Sarah Paine — How to win a war",
+   "channel": "Dwarkesh Patel",
+   "date": "2026-09-25",
+   "duration": "9:32",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/sarah-paine-how-to-win-a-war.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-09/2026-09-25.html#dwarkesh-sarah-paine-war",
+   "source_url": "https://www.youtube.com/watch?v=f6cjAEr08qk"
+  },
+  {
+   "slug": "lenny-katie-dill-stripe",
+   "title": "How to scale intent, quality, and artistry with AI | Katie Dill (Stripe)",
+   "channel": "Lenny's Podcast",
+   "date": "2026-09-25",
+   "duration": "8:47",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/katie-dill-stripe-lenny.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-09/2026-09-25.html#lenny-katie-dill-stripe",
+   "source_url": "https://www.youtube.com/watch?v=GLvFTMtw4Jk"
+  },
+  {
+   "slug": "ai-engineer-pr-bottleneck",
+   "title": "Fixing the PR Bottleneck — Matt Pocock, AIHero",
+   "channel": "AI Engineer",
+   "date": "2026-09-25",
+   "duration": "5:32",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/matt-pocock-pr-bottleneck.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-09/2026-09-25.html#ai-engineer-pr-bottleneck",
+   "source_url": "https://www.youtube.com/watch?v=LlgiOCmFG_w"
+  },
+  {
+   "slug": "latent-space-openrouter-stripe",
+   "title": "The $10 Trillion Token Economy — Alex Atallah, OpenRouter & Anjney Midha, AMP",
+   "channel": "Latent Space",
+   "date": "2026-09-25",
+   "duration": "9:56",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/token-economy-openrouter-stripe.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-09/2026-09-25.html#latent-space-openrouter-stripe",
+   "source_url": "https://www.youtube.com/watch?v=dCX4PE2HxMs"
+  },
+  {
+   "slug": "all-in-anthropic-ipo-risk",
+   "title": "Anthropic IPO at Risk, Meta's Muse Pop, Token Prices Fall, Open Source Gains Share, Alignment Fails",
+   "channel": "All-In Podcast",
+   "date": "2026-09-25",
+   "duration": "7:09",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/all-in-anthropic-ipo-risk.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-09/2026-09-25.html#all-in-anthropic-ipo-risk",
+   "source_url": "https://www.youtube.com/watch?v=cvP_1jmnkmM"
   },
   {
    "slug": "nvidia-cosmos-world-models-nate-jones",
