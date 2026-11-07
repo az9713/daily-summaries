@@ -1,6 +1,6 @@
 {
- "total": 697,
- "playable": 684,
+ "total": 698,
+ "playable": 685,
  "episodes": [
   {
    "slug": "rajshamani-mel-robbins-best-years-of-your-life",
@@ -37,6 +37,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/20vc-scott-wilson-washu-endowment-spacex.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-07.html#20vc-scott-wilson-washu-endowment-spacex",
    "source_url": "https://www.youtube.com/watch?v=iG0UO-KAByY"
+  },
+  {
+   "slug": "yc-amjad-masad-vibe-coding-decade-early",
+   "title": "How Amjad Masad Saw Vibe Coding A Decade Early",
+   "channel": "Y Combinator",
+   "date": "2026-11-07",
+   "duration": "5:41",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/yc-amjad-masad-vibe-coding-decade-early.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-07.html#yc-amjad-masad-vibe-coding-decade-early",
+   "source_url": "https://www.youtube.com/watch?v=Q78dJ0vkWe8"
   },
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
