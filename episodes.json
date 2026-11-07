@@ -1,6 +1,6 @@
 {
- "total": 692,
- "playable": 679,
+ "total": 693,
+ "playable": 680,
  "episodes": [
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
@@ -289,6 +289,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/goldmansachs-david-schwimmer-capital-shifting-beyond-us-markets.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#goldmansachs-david-schwimmer-capital-shifting-beyond-us-markets",
    "source_url": "https://www.youtube.com/watch?v=diHxgqt2pL0"
+  },
+  {
+   "slug": "theinformation-andrew-ambrosino-future-of-ai-coding",
+   "title": "OpenAI’s Andrew Ambrosino on the Future of AI Coding",
+   "channel": "The Information",
+   "date": "2026-11-06",
+   "duration": "4:20",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/theinformation-andrew-ambrosino-future-of-ai-coding.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#theinformation-andrew-ambrosino-future-of-ai-coding",
+   "source_url": "https://www.youtube.com/watch?v=k8gofajVe-0"
   },
   {
    "slug": "sequoia-trajectory-ronak-malde-continual-learning",
