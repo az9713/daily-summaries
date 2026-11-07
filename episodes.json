@@ -1,6 +1,6 @@
 {
- "total": 698,
- "playable": 685,
+ "total": 699,
+ "playable": 686,
  "episodes": [
   {
    "slug": "rajshamani-mel-robbins-best-years-of-your-life",
@@ -49,6 +49,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/yc-amjad-masad-vibe-coding-decade-early.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-07.html#yc-amjad-masad-vibe-coding-decade-early",
    "source_url": "https://www.youtube.com/watch?v=Q78dJ0vkWe8"
+  },
+  {
+   "slug": "berman-metr-anthropic-recursive-self-improvement",
+   "title": "The most important report in AI right now",
+   "channel": "Matthew Berman",
+   "date": "2026-11-07",
+   "duration": "5:19",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/berman-metr-anthropic-recursive-self-improvement.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-07.html#berman-metr-anthropic-recursive-self-improvement",
+   "source_url": "https://www.youtube.com/watch?v=lVbQqjAJpkE"
   },
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
