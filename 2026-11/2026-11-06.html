@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Friday &middot; November 6, 2026</p>
-        <h1>19 summaries, distilled.</h1>
+        <h1>20 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -427,6 +427,7 @@
         <a class="card" href="#bloomberg-circuit-waymo-driverless-future"><span class="num">17</span><span><span class="card-title">Waymo’s Bet on a Driverless Future | The Circuit with Emily Chang</span><span class="card-byline">Bloomberg Originals</span></span><span class="card-dur">5:35</span><span class="listen-state" data-slug="bloomberg-circuit-waymo-driverless-future"></span></a>
         <a class="card" href="#a16z-defense-in-depth-rebuilt-for-machine-speed"><span class="num">18</span><span><span class="card-title">Defense in Depth, Rebuilt for Machine Speed</span><span class="card-byline">a16z &middot; Asaf Ezra and Steph Zhang</span></span><span class="card-dur">11:42</span><span class="listen-state" data-slug="a16z-defense-in-depth-rebuilt-for-machine-speed"></span></a>
         <a class="card" href="#a16z-charts-of-the-week-apple-skips-capex"><span class="num">19</span><span><span class="card-title">Charts of the Week: Apple Skips Capex, and the Crowd Goes Wild (Sort Of)</span><span class="card-byline">a16z &middot; Moses Sternstein</span></span><span class="card-dur">4:54</span><span class="listen-state" data-slug="a16z-charts-of-the-week-apple-skips-capex"></span></a>
+        <a class="card" href="#two-minute-papers-future-of-ai-absolutely-incredible"><span class="num">20</span><span><span class="card-title">The Future of AI Is Absolutely Incredible (Spencer Huang)</span><span class="card-byline">Two Minute Papers</span></span><span class="card-dur">8:02</span><span class="listen-state" data-slug="two-minute-papers-future-of-ai-absolutely-incredible"></span></a>
         </div>
       </nav>
     </section>
@@ -1339,6 +1340,57 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#a16z-defense-in-depth-rebuilt-for-machine-speed" data-route="article">&larr; a16z</a>
         <a class="to-index" href="2026-11-06.html" data-route="index">All summaries</a>
+        <a class="next" href="#two-minute-papers-future-of-ai-absolutely-incredible" data-route="article">Two Minute Papers &middot; The Future of AI Is Absolutely Incredible (Spencer Huang) &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="two-minute-papers-future-of-ai-absolutely-incredible" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-06.html" data-route="index">&larr; November 6, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">The Future of AI Is Absolutely Incredible (Spencer Huang) &mdash; November 6, 2026 <span class="dur">&middot; 8:02</span></p>
+        <audio controls preload="none" src="../podcasts/two-minute-papers-future-of-ai-absolutely-incredible.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/two-minute-papers-future-of-ai-absolutely-incredible.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="two-minute-papers-future-of-ai-absolutely-incredible" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="two-minute-papers-future-of-ai-absolutely-incredible"></div>
+        <div class="episode-download"><a href="../podcasts/two-minute-papers-future-of-ai-absolutely-incredible.mp3" download>Download two-minute-papers-future-of-ai-absolutely-incredible.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Two Minute Papers</dd></div>
+        <div><dt>Published</dt><dd>November 6, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=XgC1QTs6A2U" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Two Minute Papers on the future of AI with Spencer Huang</p>
+        <h2>The Future of AI Is Absolutely Incredible (Spencer Huang)</h2>
+        <div>
+<p>On Two Minute Papers, the episode &quot;The Future of AI Is Absolutely Incredible (Spencer Huang)&quot; is a long conversation between host Károly Zsolnai-Fehér and Spencer Huang, who works on NVIDIA&#x27;s robotics platform. It is the rare interview that covers the whole stack of physical AI at once: the physics solvers, the training data, the simulators, the small models that keep a robot upright, and the question of what robots could do if training ran a million times faster.</p>
+<p>It opens with product news. NVIDIA has updated Isaac Lab with the Newton physics framework, published blueprints for training robot policies on DGX Station workstations, and built a reference humanoid platform around the Agile One robot. That platform ships with Wuji dexterous hands, Jetson Thor integration, and the GR00T software stack ready out of the box, because getting a new robot&#x27;s hands and software working can otherwise eat weeks or months. The theme Huang returns to all hour is simple: the less friction, the better, because the goal is to get more work done.</p>
+<p>Why is physical AI so much harder than language models? Language models inherited a gift: humans have spent centuries writing down, photographing, and recording the world, so the training data already existed. Physical AI has no equivalent archive. Nobody has recorded how the world pushes back when a robot acts on it, and that pushback, the bidirectional coupling between a hand and the object it squeezes, is exactly the part that matters. A robot policy needs physics solvers that can emulate reality and data that captures real dynamics, and both are scarce.</p>
+<p>Collecting that data is painful. The starting point is teleoperation, a human driving the robot so its actions can be recorded, but teleoperation has no force feedback. Huang compares it to working with numb hands, while also having to imagine what the robot sees from off to the side. Simple assembly becomes a huge undertaking. Newer routes help: egocentric video of human hands at work, and pose and object-interaction data extracted from footage of people. But real data stays limited and expensive, while simulated data is plentiful and uneven in quality. Training on the two together, co-training, is still something of an art.</p>
+<p>Zsolnai-Fehér asks for the ideal data diet, and the answer is a hybrid. Neural simulators, the world models, are trained on observed footage rather than grounded physics, so they hallucinate physics: pick up one orange, drop it, and it multiplies into four. What they offer is diversity and variety. Conventional simulators never hallucinate, but building their environments by hand is tedious, and frontier coding models have only recently begun to shrink that bottleneck.</p>
+<p>The combined recipe works like this. Train the policy inside conventional physics across a wide envelope of physical properties, so it learns how tables in general behave rather than one exact table. Then pass the plain simulation renders through a world model that randomizes materials, lighting, and deformations, and feed those richer observations back into the policy. World models are also being taught to output touch, force feedback, and acoustics, not just pixels. And the loop runs both ways: grounded physics data from conventional simulators and the real world trains neural simulators such as Cosmos to simulate more faithfully, one family of dynamics at a time. Ethernet cables are not shirt threads, shirt threads are not spaghetti, and spaghetti is not rope.</p>
+<p>The conversation then turns to intelligence density. A robotics result called Sonic squeezes whole-body control into 42 million parameters, small enough to be a rounding error by modern standards, and it is open weights. Uploaded into a robot, it walks, crawls, and dances, and it works across different body shapes. The trick is scope: Sonic solves one subset of the problem, whole-body control, rather than everything. Whole-body control matters because useful tasks are full-body tasks. To lift a heavy box properly you articulate your legs, back, and arms together. Early systems split the body in two and could not walk and carry a coffee at the same time. Sonic is the fast, reactive layer, system zero, and it pairs with a vision-language-action model such as GR00T, the system one and two layers that reason over longer horizons.</p>
+<p>Cosmos, NVIDIA&#x27;s world model, is now being used in three ways. It generates data and performs domain randomization. It serves as the simulator itself, an environment in which a trained policy can be evaluated. And it is becoming the backbone of world action models, where the world model is the policy. For evaluation, Isaac Lab Arena decomposes a task like grabbing a bottle into subtasks, scores each one, and runs a sensitivity analysis over factors like collisions and lighting to find exactly where a policy starts to fail. That enables failure-based learning: fail, analyze why, retrain, the way humans improve.</p>
+<p>This matters because simulation lies. Huang&#x27;s phrase is that you are doomed to succeed in simulation: anything can be tuned to work there, with no guarantee it transfers. Simulation is in fact used more for evaluation than for core training, because conventional simulators cover only a subset of dynamics well, mostly rigid bodies. The sim-to-real gap is not a single step but the whole loop, from how data is collected, through generation and training, to deployment and re-evaluation. Teleoperated data has one quiet advantage: it is already mapped to the exact robot that will be deployed. Human data must be retargeted onto a different skeleton, with joints in different places. Huang&#x27;s hope for the next phase is to train one skill across many robot bodies at once, instead of many skills on one body, and that requires knowing how much a given simulator can be trusted.</p>
+<p>Robots, it turns out, get injured like athletes. Zsolnai-Fehér recalls DeepMind&#x27;s soccer robots wearing out their knees from kicking, a problem eased by training policies to go easier on the joint. Huang adds that adaptation can be emergent. One company&#x27;s robot dog, its knee locked, learned on its own to walk on three legs and hobble on the fourth. At a partner site, a humanoid seemed to walk oddly, and inspection found a slightly broken ankle that the policy had already silently adapted to.</p>
+<p>Then the two dream. Huang frames reinforcement learning as lived experience: a human gets one second of experience per second, but a robot policy training faster than real time can accumulate the equivalent of a century of practice in seconds. A million-fold speedup applied to small systems matters as much as to large ones. It would let robots learn on the device, in the field, continually, instead of shipping data to the cloud for batch training, and eventually let a robot simulate inside its own head before acting, the way an athlete visualizes a performance before the event.</p>
+<p>Some of this is already visible at NVIDIA headquarters, where a bipedal robot really does hand out popcorn in the lab, a delivery job that used to defeat wheeled robots at the stairs. Huang says problem horizons have compressed: work that looked ten years away now looks three to five years out. The bottlenecks are whether the hardware can enact what the policies learn, and whether there is enough compute to train them.</p>
+<p>What remains easy for humans and hard for machines is the familiar paradox: in-hand manipulation, assembling Lego, micro-assembly with a screwdriver. These tasks are simple to describe and brutal to execute. They demand data or simulation that captures the behavior, a policy with tool skills and sub-millimeter control, and hardware with the precision to match. High-precision automation has existed for decades, but general dexterity is only now arriving.</p>
+<p>Finally, Zsolnai-Fehér asks whether AI will ever be good enough that nobody reaches for the frontier model. Huang splits the question. A strong baseline model will cover most everyday problems, his analogy is the master&#x27;s degree that serves most people well. But frontier intelligence, the PhD, will always be pursued, because humans keep inventing new work at the edge of what automation makes possible. For physical AI, the field is still just reaching the baseline.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Huang argues simulation is most trustworthy as an evaluation tool, yet the field is moving toward evaluating policies inside neural simulators that can themselves hallucinate physics. Who grades the grader, and what would a shared, quantitative measure of a simulator&#x27;s trustworthiness look like?</li>
+<li>His stated hope is to train one skill across many robot bodies at once rather than many skills on one body. Which breaks first in that plan: retargeting human data onto new skeletons, physics fidelity across morphologies, or the economics of collecting data for each new embodiment?</li>
+<li>If a large speedup makes on-robot continual learning practical, a deployed fleet&#x27;s policies will quietly diverge as each unit learns from its own experience and injuries. How would anyone keep quality control, safety review, and reproducibility over a fleet that no longer shares one policy?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s full English automatic caption track (en-orig), fetched with yt-dlp as the srv3 file cap.en-orig.srv3 and saved verbatim as transcript.txt: 9,605 words, with captions spanning the full 2,779-second video. The title and channel are as served by YouTube&#x27;s player metadata: &quot;The Future of AI Is Absolutely Incredible (Spencer Huang)&quot; on Two Minute Papers; no separate listing variant was observed. The published description&#x27;s chapter list was used only to confirm the episode&#x27;s structure. ASR renderings corrected to published spellings in prose include the captions&#x27; &quot;Groot&quot; for NVIDIA&#x27;s GR00T, &quot;Carly&quot; for host Károly Zsolnai-Fehér, &quot;Tellop&quot; and &quot;Telop&quot; for teleoperation, and &quot;group&quot; for GR00T in one passage; the partner reference platform&#x27;s name is rendered only indistinctly in the captions (&quot;Agile One&quot;) and is described accordingly. The video&#x27;s closing minute is the channel&#x27;s sponsor read for Lambda, part of the published video, and the popcorn robot exchange near the end is a callback to the same exchange excerpted at the video&#x27;s start.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#a16z-charts-of-the-week-apple-skips-capex" data-route="article">&larr; a16z</a>
+        <a class="to-index" href="2026-11-06.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -1368,7 +1420,8 @@
       "natebjones-end-of-git-openai-cto-future-of-coding": "The end of git? OpenAI CTO on the future of coding.",
       "bloomberg-circuit-waymo-driverless-future": "Waymo’s Bet on a Driverless Future | The Circuit with Emily Chang",
       "a16z-defense-in-depth-rebuilt-for-machine-speed": "Defense in Depth, Rebuilt for Machine Speed",
-      "a16z-charts-of-the-week-apple-skips-capex": "Charts of the Week: Apple Skips Capex, and the Crowd Goes Wild (Sort Of)"
+      "a16z-charts-of-the-week-apple-skips-capex": "Charts of the Week: Apple Skips Capex, and the Crowd Goes Wild (Sort Of)",
+      "two-minute-papers-future-of-ai-absolutely-incredible": "The Future of AI Is Absolutely Incredible (Spencer Huang)"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
