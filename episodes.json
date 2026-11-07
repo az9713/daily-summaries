@@ -1,6 +1,6 @@
 {
- "total": 686,
- "playable": 673,
+ "total": 687,
+ "playable": 674,
  "episodes": [
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
@@ -217,6 +217,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-defense-in-depth-rebuilt-for-machine-speed.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#a16z-defense-in-depth-rebuilt-for-machine-speed",
    "source_url": "https://www.a16z.news/p/defense-in-depth-rebuilt-for-machine"
+  },
+  {
+   "slug": "a16z-charts-of-the-week-apple-skips-capex",
+   "title": "Charts of the Week: Apple Skips Capex, and the Crowd Goes Wild (Sort Of)",
+   "channel": "a16z (Moses Sternstein)",
+   "date": "2026-11-06",
+   "duration": "4:54",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-charts-of-the-week-apple-skips-capex.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#a16z-charts-of-the-week-apple-skips-capex",
+   "source_url": "https://www.a16z.news/p/charts-of-the-week-apple-skips-capex"
   },
   {
    "slug": "sequoia-trajectory-ronak-malde-continual-learning",
