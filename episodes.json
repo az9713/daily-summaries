@@ -1,6 +1,6 @@
 {
- "total": 688,
- "playable": 675,
+ "total": 689,
+ "playable": 676,
  "episodes": [
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
@@ -241,6 +241,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/two-minute-papers-future-of-ai-absolutely-incredible.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#two-minute-papers-future-of-ai-absolutely-incredible",
    "source_url": "https://www.youtube.com/watch?v=XgC1QTs6A2U"
+  },
+  {
+   "slug": "yc-bringing-supersonic-flight-to-the-people",
+   "title": "Bringing Supersonic Flight To The People",
+   "channel": "Y Combinator",
+   "date": "2026-11-06",
+   "duration": "7:55",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/yc-bringing-supersonic-flight-to-the-people.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#yc-bringing-supersonic-flight-to-the-people",
+   "source_url": "https://www.youtube.com/watch?v=NYGf--dBeHA"
   },
   {
    "slug": "sequoia-trajectory-ronak-malde-continual-learning",
