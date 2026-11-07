@@ -1,6 +1,6 @@
 {
- "total": 696,
- "playable": 683,
+ "total": 697,
+ "playable": 684,
  "episodes": [
   {
    "slug": "rajshamani-mel-robbins-best-years-of-your-life",
@@ -25,6 +25,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/rajshamani-gita-gopinath-how-money-is-created.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-07.html#rajshamani-gita-gopinath-how-money-is-created",
    "source_url": "https://www.youtube.com/watch?v=dNIef2fGLQY"
+  },
+  {
+   "slug": "20vc-scott-wilson-washu-endowment-spacex",
+   "title": "Inside WashU's Endowment Fund | SpaceX Made Up 20% of Out AUM | Scott Wilson",
+   "channel": "20VC with Harry Stebbings",
+   "date": "2026-11-07",
+   "duration": "4:53",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/20vc-scott-wilson-washu-endowment-spacex.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-07.html#20vc-scott-wilson-washu-endowment-spacex",
+   "source_url": "https://www.youtube.com/watch?v=iG0UO-KAByY"
   },
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
