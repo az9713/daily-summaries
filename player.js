@@ -1,5 +1,7 @@
 /* Daily Summaries shared player (2026-11-06, locked spec from the
-   frontend design chat, default A).
+   frontend design chat, default A; hero labels revised 2026-11-07 to the
+   compact-top form: no "Play:" prefix, counts on line 1, truncated
+   "Resumes <title> · <time> left" on line 2).
    One audio element for the whole archive. Playback starts on the root
    index or on any day page; the queue auto-advances with zero presses.
    State lives in localStorage only: pl:progress (per episode: position,
@@ -376,16 +378,15 @@
     heroBtn.disabled = false;
     var secs = heroRemainingSeconds(s1, true) + heroRemainingSeconds(s2, false);
     if (s1.length && s2.length) {
-      heroBtn.textContent = 'Play: ' + s1.length + ' to finish + ' + s2.length +
-        ' new, ' + fmtLeft(secs) + ' left';
-      heroNote.textContent = 'Resumes ' + bySlug[s1[0]].title + ' at ' +
-        fmt(progress[s1[0]].pos) + ', then newest unplayed';
+      heroBtn.textContent = s1.length + ' to finish + ' + s2.length + ' new';
+      heroNote.textContent = 'Resumes ' + bySlug[s1[0]].title + ' · ' +
+        fmtLeft(secs) + ' left';
     } else if (s1.length) {
-      heroBtn.textContent = 'Play: ' + s1.length + ' to finish, ' + fmtLeft(secs) + ' left';
-      heroNote.textContent = 'Resumes ' + bySlug[s1[0]].title + ' at ' +
-        fmt(progress[s1[0]].pos);
+      heroBtn.textContent = s1.length + ' to finish';
+      heroNote.textContent = 'Resumes ' + bySlug[s1[0]].title + ' · ' +
+        fmtLeft(secs) + ' left';
     } else {
-      heroBtn.textContent = 'Play: ' + s2.length + ' new, ' + fmtLeft(secs);
+      heroBtn.textContent = s2.length + ' new, ' + fmtLeft(secs);
       heroNote.textContent = 'Newest unplayed episodes, back to back.';
     }
   }
