@@ -1,6 +1,6 @@
 {
- "total": 701,
- "playable": 688,
+ "total": 702,
+ "playable": 689,
  "episodes": [
   {
    "slug": "rajshamani-mel-robbins-best-years-of-your-life",
@@ -85,6 +85,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/oxford-farmelo-end-in-sight-theoretical-physics.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-07.html#oxford-farmelo-end-in-sight-theoretical-physics",
    "source_url": "https://www.youtube.com/watch?v=RIx-qHdnM7g"
+  },
+  {
+   "slug": "box-levie-boxworks-2026-keynote",
+   "title": "BoxWorks 2026 Keynote: The keys to a successful AI transformation",
+   "channel": "Box",
+   "date": "2026-11-07",
+   "duration": "10:59",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/box-levie-boxworks-2026-keynote.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-07.html#box-levie-boxworks-2026-keynote",
+   "source_url": "https://www.youtube.com/watch?v=inkgUwZzltI"
   },
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
