@@ -1,6 +1,6 @@
 {
- "total": 700,
- "playable": 687,
+ "total": 701,
+ "playable": 688,
  "episodes": [
   {
    "slug": "rajshamani-mel-robbins-best-years-of-your-life",
@@ -73,6 +73,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/allin-midterm-bloodbath-ai-selloff-data-center-freeze.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-07.html#allin-midterm-bloodbath-ai-selloff-data-center-freeze",
    "source_url": "https://www.youtube.com/watch?v=2v8b062QzTI"
+  },
+  {
+   "slug": "oxford-farmelo-end-in-sight-theoretical-physics",
+   "title": "Is the End in Sight for Theoretical Physics? - Graham Farmelo",
+   "channel": "Oxford Mathematics",
+   "date": "2026-11-07",
+   "duration": "7:16",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/oxford-farmelo-end-in-sight-theoretical-physics.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-07.html#oxford-farmelo-end-in-sight-theoretical-physics",
+   "source_url": "https://www.youtube.com/watch?v=RIx-qHdnM7g"
   },
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
