@@ -1,6 +1,6 @@
 {
- "total": 699,
- "playable": 686,
+ "total": 700,
+ "playable": 687,
  "episodes": [
   {
    "slug": "rajshamani-mel-robbins-best-years-of-your-life",
@@ -61,6 +61,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/berman-metr-anthropic-recursive-self-improvement.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-07.html#berman-metr-anthropic-recursive-self-improvement",
    "source_url": "https://www.youtube.com/watch?v=lVbQqjAJpkE"
+  },
+  {
+   "slug": "allin-midterm-bloodbath-ai-selloff-data-center-freeze",
+   "title": "Midterm Blood Bath, $4T AI Sell Off, Data Center Freeze, What’s Next for Trump",
+   "channel": "All-In Podcast",
+   "date": "2026-11-07",
+   "duration": "11:17",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/allin-midterm-bloodbath-ai-selloff-data-center-freeze.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-07.html#allin-midterm-bloodbath-ai-selloff-data-center-freeze",
+   "source_url": "https://www.youtube.com/watch?v=2v8b062QzTI"
   },
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
