@@ -1,6 +1,6 @@
 {
- "total": 690,
- "playable": 677,
+ "total": 691,
+ "playable": 678,
  "episodes": [
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
@@ -265,6 +265,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/semafor-mixed-signals-parag-agrawal-new-internet-ai-agents.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#semafor-mixed-signals-parag-agrawal-new-internet-ai-agents",
    "source_url": "https://www.youtube.com/watch?v=2ZD6nZ_IHGY"
+  },
+  {
+   "slug": "latent-space-reducto-adit-abraham-pdfs-still-break-ai",
+   "title": "Cooking with Reducto’s CEO: Why PDFs Still Break AI — Adit Abraham",
+   "channel": "Latent Space",
+   "date": "2026-11-06",
+   "duration": "6:26",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/latent-space-reducto-adit-abraham-pdfs-still-break-ai.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#latent-space-reducto-adit-abraham-pdfs-still-break-ai",
+   "source_url": "https://www.youtube.com/watch?v=KgqWyVVH4Oc"
   },
   {
    "slug": "sequoia-trajectory-ronak-malde-continual-learning",
