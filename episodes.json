@@ -1,6 +1,6 @@
 {
- "total": 685,
- "playable": 672,
+ "total": 686,
+ "playable": 673,
  "episodes": [
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
@@ -205,6 +205,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/bloomberg-circuit-waymo-driverless-future.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#bloomberg-circuit-waymo-driverless-future",
    "source_url": "https://www.youtube.com/watch?v=1Lebd8OzWeo"
+  },
+  {
+   "slug": "a16z-defense-in-depth-rebuilt-for-machine-speed",
+   "title": "Defense in Depth, Rebuilt for Machine Speed",
+   "channel": "a16z (Asaf Ezra and Steph Zhang)",
+   "date": "2026-11-06",
+   "duration": "11:42",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-defense-in-depth-rebuilt-for-machine-speed.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#a16z-defense-in-depth-rebuilt-for-machine-speed",
+   "source_url": "https://www.a16z.news/p/defense-in-depth-rebuilt-for-machine"
   },
   {
    "slug": "sequoia-trajectory-ronak-malde-continual-learning",
