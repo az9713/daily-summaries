@@ -1,6 +1,6 @@
 {
- "total": 667,
- "playable": 654,
+ "total": 668,
+ "playable": 655,
  "episodes": [
   {
    "slug": "wsj-events-dina-powell-mccormick-wsj-tech",
@@ -145,6 +145,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/latent-space-mini-brains-organoids-fabian-theis.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#latent-space-mini-brains-organoids-fabian-theis",
    "source_url": "https://www.youtube.com/watch?v=3nAV2s4GYbs"
+  },
+  {
+   "slug": "peterman-xavier-leroy-ocaml-almost-correct-ai-code",
+   "title": "Creator of OCaml: The Danger of Almost-Correct AI Code | Xavier Leroy",
+   "channel": "The Peterman Pod",
+   "date": "2026-11-06",
+   "duration": "4:25",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/peterman-xavier-leroy-ocaml-almost-correct-ai-code.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-06.html#peterman-xavier-leroy-ocaml-almost-correct-ai-code",
+   "source_url": "https://www.youtube.com/watch?v=WixJ0ww_cYA"
   },
   {
    "slug": "sequoia-trajectory-ronak-malde-continual-learning",
