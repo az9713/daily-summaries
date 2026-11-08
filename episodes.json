@@ -1,6 +1,6 @@
 {
- "total": 708,
- "playable": 695,
+ "total": 709,
+ "playable": 696,
  "episodes": [
   {
    "slug": "lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become",
@@ -61,6 +61,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/yc-paper-club-ai-biology.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-08.html#yc-paper-club-ai-biology",
    "source_url": "https://www.youtube.com/watch?v=-XL2gClQ2gg"
+  },
+  {
+   "slug": "peteryang-ashley-alexander-family-cancer",
+   "title": "OpenAI VP: How AI Changed My Family’s Fight Against Cancer | Ashley Alexander",
+   "channel": "Peter Yang",
+   "date": "2026-11-08",
+   "duration": "7:00",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/peteryang-ashley-alexander-family-cancer.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-08.html#peteryang-ashley-alexander-family-cancer",
+   "source_url": "https://www.youtube.com/watch?v=pR7NCYKsA3o"
   },
   {
    "slug": "rajshamani-mel-robbins-best-years-of-your-life",
