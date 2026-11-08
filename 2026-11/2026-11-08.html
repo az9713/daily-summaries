@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - November 8, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+    <link rel="stylesheet" href="../player.css">
+  </head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Sunday &middot; November 8, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become"><span class="num">01</span><span><span class="card-title">Benedict Evans on Why Nobody Knows How Big AI Will Become | Masters by Lightspeed</span><span class="card-byline">Lightspeed India and Southeast Asia</span></span><span class="card-dur">11:27</span><span class="listen-state" data-slug="lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-08.html" data-route="index">&larr; November 8, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Benedict Evans on Why Nobody Knows How Big AI Will Become | Masters by Lightspeed &mdash; November 8, 2026 <span class="dur">&middot; 11:27</span></p>
+        <audio controls preload="none" src="../podcasts/lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become"></div>
+        <div class="episode-download"><a href="../podcasts/lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become.mp3" download>Download lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Lightspeed India and Southeast Asia</dd></div>
+        <div><dt>Published</dt><dd>November 8, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=6Edzj3sTuD4" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Lightspeed India and Southeast Asia &middot; Benedict Evans on how big AI will become</p>
+        <h2>Benedict Evans on Why Nobody Knows How Big AI Will Become | Masters by Lightspeed</h2>
+        <div>
+<p>On Lightspeed India and Southeast Asia, the first episode of Masters by Lightspeed, &quot;Benedict Evans on Why Nobody Knows How Big AI Will Become&quot;, is a conversation between Hemant Mohapatra, a partner at Lightspeed, and Benedict Evans, the independent analyst who has spent twenty five years studying how technology platforms shift, from the PC to the internet to mobile. The question running through it is what those earlier shifts can tell us about AI. Evans&#x27;s answer, in short, is that they can tell us what the early phase feels like, and almost nothing about how it ends.</p>
+<p>Every platform shift, he says, passes through a period where the technology does not quite work but visibly will. The Homebrew hobbyists went from the Apple 1 circuit board to millions of Apple 2s while ordinary users still crawled under desks to reboot frozen PCs and lost work to corrupted floppy disks. The early web ran on narrowband connections and browsers that could not do obvious things. His own attempt to browse the web through a WAP transcoding system, a Palm Pilot and an infrared link to a Nokia phone ran at perhaps twenty kilobits a second, and getting one page to load felt like the future arriving. AI today, he argues, sits in that same phase: agents that clean up an inbox by deleting it, elaborate prompting rituals, and token bill shock, which he compares to the mobile data bill shock of around 2010, when flat rate plans met usage twenty times higher than expected and carriers had to scramble. Most of what normal people will need has not been built yet, and nobody knows what the market structure will be.</p>
+<p>What we do know, he says, is that the eventual winners are invisible at this stage. While the browser wars raged, Mark Zuckerberg was in junior high, Larry Page and Sergey Brin were graduate students, and Jeff Bezos was a man in a baggy sweater saying &quot;I sell books&quot;. Everyone in 1998 knew people would shop online. Nobody had any conception of Facebook. People complain that Evans the analyst will not make a call, and his reply is that the call is that there are twenty possibilities, and the outcome will be one nobody is currently thinking about.</p>
+<p>The adoption numbers make the same point from the other side. ChatGPT has some nine hundred million weekly users, but most of them use it every few days or less, and for that majority the models are interchangeable. Swap ChatGPT for Gemini and a casual user would not notice any difference, the way people in street interviews could not tell last year&#x27;s iPhone from the new one. The valley habit of living inside the tools, laptops held half open so an agent keeps running, is the modern equivalent of sitting on bulletin boards with a 9.6k modem in 1994: thrilling, real, and not how everyone else lives.</p>
+<p>That interchangeability is why Evans expects the model layer to commoditize. The models leapfrog each other across a jagged frontier, good at different things in different ways, and nothing yet gives one of them a durable lead. There is no equivalent of Google being two years ahead of Bing and always two years ahead, and no network effect holding a leader in place. Ask what would make one model sustainably and defensibly twenty five percent better than all the others, he says, and there is no answer. Models, in that respect, are like wheat or oil: you cannot tell one supplier&#x27;s from another&#x27;s. Mohapatra adds that commoditization may be necessary for value to move up the stack, with a few large players staking out territory and charging rent, and pricing following the path of cloud storage, where launches became price drops.</p>
+<p>The deepest difference from every earlier shift, Evans argues, is that this time nobody knows the science. In 1995 you knew what a PC cost, how many existed, and what it would cost to pass a home with fiber, so you knew mass adoption could not happen next year. With AI, we do not know the physical limits: not how much better the models will get, nor how much cheaper. A paper next week might deliver today&#x27;s results for a tenth of the compute, or a new use case might demand ten times more. The only certainty is that the current configuration, the pricing and the multiples, cannot be stable. Some problems have a terminal point, like dictation, which can simply work and then get cheaper forever. Others, like image recognition or cancer detection, are fractal and keep expanding. And &quot;best&quot; itself is undefined: it might mean far cleverer than a human, or half as clever and vastly faster.</p>
+<p>He is equally blunt about the product. A chatbot, he says, is a terrible product and a terrible interface, and it would be a bad interface even if a superhuman intelligence sat behind it, indeed even if an actual person did. Booking a family holiday through a conversation, with a human agent throwing options onto a screen in reaction to your words, would be worse than a booking site whose interface embodies thirty years of thought about how people choose. Graphical interfaces exist for good reasons: they are scaffolding that helps you work out what you actually want, which is hard even with a brilliant intern. You cannot one shot a description of the task.</p>
+<p>Mohapatra asks why a single model company would not simply absorb the whole stack, pointing to SpaceX building both the railroad to space and Starlink, and to Jio building fiber and consumer apps in India. Evans pushes back: platform owners always feel the pressure to move up the stack, and mobile operators and Microsoft both tried to provide everything. They succeed only when they can turn the new thing into what they already are. His test for Google was always whether it could turn an activity into a commodity SKU it could warehouse alongside all the others, almost literally an internet paperclip maximizer; when a business needed a custom supply chain, custom purchasing and physical stores, Google would not do it, grocery being the exception that proves the scale rule. Companies that step outside their nature fail at it, as Apple has with services and Google has with delightful interfaces. That, he says, is what the disruption literature was always about.</p>
+<p>The same logic defuses the so called SaaS apocalypse and the idea that consultancies are finished. Writing the software, Evans says, was never the hard part: no venture capitalist in a pitch ever thought &quot;but couldn&#x27;t somebody else write all of this code?&quot; The hard part is noticing that a problem exists at all, convincing an industry it has the problem, working out the right solution, and then the whole go to market grind of adoption, budgets and changed habits, in categories where ten predecessors may already have failed. Consulting has the same structure. Claude cannot really make the slides: it makes slides that look like Bain, BCG or McKinsey slides to someone who does not know what those are. The consultants themselves use Claude to make slides precisely because they know what the slides should look like. And the deck is not the product anyway. You hire Bain to work out that the problem is this and not that, and to ask the questions nobody inside the company can ask.</p>
+<p>From there the conversation turns to jobs, and to his distinction between tasks and jobs. Occasionally a whole job is a button: the elevator attendant drove a lever driven car to your floor, a serious and dangerous job, and automation first reduced it to pressing a button and then removed the person entirely. Accounting is the counterexample. Accountants in the 1950s spent their days adding numbers, and the industry then spent a century automating accounting through punch cards, mainframes, databases and ERP, yet the number of accountants rose in a straight line the whole time. Partly that is the Jevons paradox: cheaper work can mean more of it. But mostly, he argues, the tasks migrated while the job and the function endured, and the census categories that seem to show tidy substitutions are misleading: a career can run from stock clerk to office machine operator to, in effect, Oracle operator, a title no census ever counted. He is scathing about confident forecasts from machine learning researchers, noting that Geoffrey Hinton&#x27;s advice a decade ago to stop training radiologists was completely wrong, and that expertise in models confers no authority on economics. The hopeful sign he and Mohapatra note is younger workers concluding that AI lets them do a senior designer&#x27;s or senior coder&#x27;s job now, and ramping up fast.</p>
+<p>Asked what the new things will be, Evans warns against forcing the old thing to fit the new tool. More code is not the endpoint; the endpoint is something only possible with the new thing. His consumer ladder runs from identifying a coat in a photograph, which machine learning could do before large language models, through being given twenty comparable coats at different prices and talked through the choice, to a system that studies your Instagram and proposes a coat to freshen your look. The enterprise version climbs from finding a piece of data mentioned on a call, to listening to six months of recorded calls and extracting the main customer concerns, to the top of the stack question: synthesize telemetry, Salesforce data, calls, pricing and billing, and suggest how to reprice to reduce churn. Whether a model sits at the bottom of the stack as a feature inside Zoom or Salesforce, or at the top asking questions that could not be asked before, is the open design question, and the probabilistic nature of the tool is the point rather than a defect. He compares the skeptics fixed on error rates to someone looking at an Apple 2 and objecting that no bank could use a machine without mainframe uptime. The recorded music industry&#x27;s revenue curve makes his closing point: it fell by half when tracks no longer cost fifteen dollars each, then recovered to about three quarters of its peak when fifteen dollars a month bought all the music in the world. Streaming was not a cheaper CD. It was a different proposition.</p>
+<p>Two or three years out, Evans hopes for real product market fit beyond software development, more consumer breakouts, and more abstractions built on top of the chatbot. The constraint he names is marginal cost: Instagram could reach fifty million users with no revenue, but tokens cost money, so AI products cannot grow free first and monetize later, and advertising only works once token prices fall far enough. He also expects the actual uses to keep surprising outsiders: Martin Sorrell argues AI&#x27;s importance to advertising is in back office paperwork, billing and media planning rather than creative, and consultants are finding huge demand for AI run primary research, surveying twenty thousand customers quickly.</p>
+<p>On the bubble question he refuses a date. Market timing is impossible, he says, citing the fund manager Tony Dye, who called the market overvalued from 1994 and was right only eventually, and Keynes&#x27;s line that the market can stay irrational longer than you can stay solvent. The comparison with 1995 to 1997 is a way of saying it is early and unclear, nothing more precise. Transformative shifts do tend to produce bubbles: electricity fed the boom before 1929, and smartphones arguably had theirs in advance, in the 3G bubble that coincided with the dot com one. The euphoric psychology is visible now, in the feeling he ventriloquizes: this is amazing, stop asking questions, let go, can&#x27;t you feel the AGI. That feeling also accompanied PCs, the internet and mobile, and the internet did turn out to be kind of a big deal. The honest problem is that the bull case cannot be analyzed either way: nobody has a theory of why these models work, or of what human intelligence is, so percentages for doom or transcendence are vibes, his word, dressed as forecasts.</p>
+<p>The end state, then, is a range wide enough to be almost useless, and he says so. Somewhere between three and ten companies might end up spending between two hundred billion and two trillion dollars a year. Those are large numbers but not impossible ones: oil and gas spends roughly a trillion dollars a year on capital expenditure, global telecoms about three hundred billion, mobile about two hundred billion, and what matters is whether a reasonable return can be attached. At one pole sit hundreds of models, many open, running on premises and on devices at no marginal cost to developers. At the other sit a few giant central systems carrying everything. Evans&#x27;s own inclination is toward the former. His core claim is only that, unlike PCs, the internet and mobile, where the basic parameters of the possible were known, this time nobody knows how big AI will become.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If the model layer commoditizes the way Evans expects, where does durable value actually settle: with the few model platforms charging rent, with whoever owns distribution, or with the unglamorous problem finding and go to market work he says was always the hard part?</li>
+<li>Evans argues marginal cost is what blocks the free growth consumer playbook that built Instagram. If token prices fall far enough for advertising supported AI, does the consumer breakout follow, or does the chatbot interface itself remain the binding constraint?</li>
+<li>He says the range of end states, from a few central systems spending trillions to hundreds of cheap open models, cannot be narrowed because the underlying science is not understood. What evidence, in the next two or three years, would actually narrow it?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s full creator provided English caption track, fetched from the Android 21.02.35 player client on the first route tried; the caption request asked for json3 and was served srv3 XML, saved as cap.en.srv3, and the verbatim text is saved as transcript.txt (8,949 words, captions spanning 0 to 2,609 seconds of the 2,616 second video). The player also offers an automatic caption track (9,450 words by the same extraction), which was not used. The commission arrived as a screenshot with no URL, showing the title cut off at &quot;Benedict Evans on Why Nobody Knows Hov&quot;, the channel handle @lightspeedindia, 1.9K views and a posted date of 3 days ago; the video ID (6Edzj3sTuD4) was pinned as the newest upload on the Lightspeed India channel matching that title and view count, and confirmed against the player response, which serves the full title used above and names the channel as Lightspeed India and Southeast Asia. The video description identifies the show as Masters by Lightspeed, the host as Hemant Mohapatra, a partner at Lightspeed, and this as the show&#x27;s first episode. The captions spell the word GUI phonetically as &quot;gooey&quot; throughout and render Claude once as &quot;claw&quot;; the standard spellings are used in the prose.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-11-08.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated November 8, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become": "Benedict Evans on Why Nobody Knows How Big AI Will Become | Masters by Lightspeed"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+  <script src="../player.js" defer></script>
+</body>
+</html>
