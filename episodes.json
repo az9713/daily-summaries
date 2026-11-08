@@ -1,6 +1,6 @@
 {
- "total": 704,
- "playable": 691,
+ "total": 705,
+ "playable": 692,
  "episodes": [
   {
    "slug": "lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become",
@@ -13,6 +13,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-08.html#lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become",
    "source_url": "https://www.youtube.com/watch?v=6Edzj3sTuD4"
+  },
+  {
+   "slug": "davidsenra-nikesh-arora-palo-alto-networks",
+   "title": "How to Win Deals & Grow a $250B Business | Nikesh Arora, Palo Alto Networks",
+   "channel": "David Senra",
+   "date": "2026-11-08",
+   "duration": "10:08",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/davidsenra-nikesh-arora-palo-alto-networks.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-08.html#davidsenra-nikesh-arora-palo-alto-networks",
+   "source_url": "https://www.youtube.com/watch?v=BKz2Dy-mKEM"
   },
   {
    "slug": "rajshamani-mel-robbins-best-years-of-your-life",
