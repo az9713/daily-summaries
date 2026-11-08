@@ -1,6 +1,6 @@
 {
- "total": 711,
- "playable": 698,
+ "total": 712,
+ "playable": 699,
  "episodes": [
   {
    "slug": "lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become",
@@ -97,6 +97,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/bigthink-paul-davies-origin-mysteries.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-08.html#bigthink-paul-davies-origin-mysteries",
    "source_url": "https://www.youtube.com/watch?v=d_-MgMk5eB8"
+  },
+  {
+   "slug": "latent-space-mihail-eric-ai-native-engineering",
+   "title": "[One Million AI Engineer Special] How Stanford Teaches AI-Native Engineering — Mihail Eric, Monaco",
+   "channel": "Latent Space",
+   "date": "2026-11-08",
+   "duration": "6:49",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/latent-space-mihail-eric-ai-native-engineering.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-08.html#latent-space-mihail-eric-ai-native-engineering",
+   "source_url": "https://www.youtube.com/watch?v=dpY7YzZo4kE"
   },
   {
    "slug": "rajshamani-mel-robbins-best-years-of-your-life",
