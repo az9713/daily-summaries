@@ -1,6 +1,6 @@
 {
- "total": 706,
- "playable": 693,
+ "total": 707,
+ "playable": 694,
  "episodes": [
   {
    "slug": "lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become",
@@ -37,6 +37,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/bloomberg-leaders-sunil-mittal-india-telecom.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-08.html#bloomberg-leaders-sunil-mittal-india-telecom",
    "source_url": "https://www.youtube.com/watch?v=hkaM_Imzq8E"
+  },
+  {
+   "slug": "lennys-podcast-tulsee-doshi-frontier-models",
+   "title": "Why Google wants to win the frontier conversation | Tulsee Doshi (Head of Product for Gemini)",
+   "channel": "Lenny's Podcast",
+   "date": "2026-11-08",
+   "duration": "6:37",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/lennys-podcast-tulsee-doshi-frontier-models.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-08.html#lennys-podcast-tulsee-doshi-frontier-models",
+   "source_url": "https://www.youtube.com/watch?v=qGf2Yvan4Wg"
   },
   {
    "slug": "rajshamani-mel-robbins-best-years-of-your-life",
