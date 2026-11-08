@@ -1,6 +1,6 @@
 {
- "total": 709,
- "playable": 696,
+ "total": 710,
+ "playable": 697,
  "episodes": [
   {
    "slug": "lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become",
@@ -73,6 +73,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/peteryang-ashley-alexander-family-cancer.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-08.html#peteryang-ashley-alexander-family-cancer",
    "source_url": "https://www.youtube.com/watch?v=pR7NCYKsA3o"
+  },
+  {
+   "slug": "natebjones-voters-ai-data-centers-backyard",
+   "title": "You Use AI Every Week. Voters Just Said Not In My Backyard.",
+   "channel": "AI News & Strategy Daily | Nate B Jones",
+   "date": "2026-11-08",
+   "duration": "8:47",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/natebjones-voters-ai-data-centers-backyard.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-08.html#natebjones-voters-ai-data-centers-backyard",
+   "source_url": "https://www.youtube.com/watch?v=illf65HD_t4"
   },
   {
    "slug": "rajshamani-mel-robbins-best-years-of-your-life",
