@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Monday &middot; November 9, 2026</p>
-        <h1>3 summaries, distilled.</h1>
+        <h1>4 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -411,6 +411,7 @@
         <a class="card" href="#restisscience-evolution-mind-control"><span class="num">01</span><span><span class="card-title">Why Does Evolution Keep Inventing Mind Control?</span><span class="card-byline">The Rest Is Science</span></span><span class="card-dur">9:39</span><span class="listen-state" data-slug="restisscience-evolution-mind-control"></span></a>
         <a class="card" href="#kleiner-perkins-rivian-hardware-physical-ai"><span class="num">02</span><span><span class="card-title">The New Rules of Building Hardware in the Age of Physical AI | Insights from Rivian’s Leaders</span><span class="card-byline">Kleiner Perkins</span></span><span class="card-dur">6:51</span><span class="listen-state" data-slug="kleiner-perkins-rivian-hardware-physical-ai"></span></a>
         <a class="card" href="#sperling-memory-in-physical-ai"><span class="num">03</span><span><span class="card-title">Memory In Physical AI</span><span class="card-byline">Semiconductor Engineering</span></span><span class="card-dur">4:57</span><span class="listen-state" data-slug="sperling-memory-in-physical-ai"></span></a>
+        <a class="card" href="#samwitteveen-nvidia-secret-2-bit-model"><span class="num">04</span><span><span class="card-title">NVIDIA&#x27;s Secret 2 Bit Model</span><span class="card-byline">Sam Witteveen</span></span><span class="card-dur">6:35</span><span class="listen-state" data-slug="samwitteveen-nvidia-secret-2-bit-model"></span></a>
         </div>
       </nav>
     </section>
@@ -554,6 +555,55 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#kleiner-perkins-rivian-hardware-physical-ai" data-route="article">&larr; Kleiner Perkins</a>
         <a class="to-index" href="2026-11-09.html" data-route="index">All summaries</a>
+        <a class="next" href="#samwitteveen-nvidia-secret-2-bit-model" data-route="article">Sam Witteveen &middot; NVIDIA&#x27;s Secret 2 Bit Model &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="samwitteveen-nvidia-secret-2-bit-model" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-09.html" data-route="index">&larr; November 9, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">NVIDIA&#x27;s Secret 2 Bit Model &mdash; November 9, 2026 <span class="dur">&middot; 6:35</span></p>
+        <audio controls preload="none" src="../podcasts/samwitteveen-nvidia-secret-2-bit-model.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/samwitteveen-nvidia-secret-2-bit-model.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="samwitteveen-nvidia-secret-2-bit-model" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="samwitteveen-nvidia-secret-2-bit-model"></div>
+        <div class="episode-download"><a href="../podcasts/samwitteveen-nvidia-secret-2-bit-model.mp3" download>Download samwitteveen-nvidia-secret-2-bit-model.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Sam Witteveen</dd></div>
+        <div><dt>Published</dt><dd>November 9, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=WJpeW9lCSUM" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Sam Witteveen &middot; NVIDIA secret 2-bit model and the 4-bit rule</p>
+        <h2>NVIDIA&#x27;s Secret 2 Bit Model</h2>
+        <div>
+<p>On Sam Witteveen, &quot;NVIDIA&#x27;s Secret 2 Bit Model&quot; looks at the model Microsoft teased at its local AI launch: a supposedly secret 2-bit model built to run on the coming RTX Spark laptops, which carry just 24 gigabytes of memory. NVIDIA has now shipped it. The model is Nemotron 3.5 Bolt 74B-A9B, a mixture of experts design with 74 billion parameters in total and about 9 billion active per token, built on NVIDIA&#x27;s hybrid Mamba and Transformer architecture. It takes images and video, offers up to 256K of context, and stores all of its experts at 2 bits, so the whole thing fits in 24 gigabytes. NVIDIA claims it beats 4-bit models with a similar memory footprint.</p>
+<p>Witteveen&#x27;s argument is that the recipe matters more than the model. If you understand how NVIDIA got from the Nemotron 3.5 Super, a 120 billion parameter model whose full precision file runs to 148 gigabytes, down to a file of roughly 20 gigabytes, you have a map of nearly every technique now used to shrink large models: pruning, distillation, post-training, and quantization, all planned together rather than bolted on at the end.</p>
+<p>He starts with the usual approach. Most downloadable models are quantized after training: the model is trained at 16 bits, then someone rounds every weight down to fewer bits, usually with calibration data to soften the damage. At 8 bits that rounding is basically free, and at 4 bits it is close to free, which is why 4-bit became the local default. Below 4 bits, post-training quantization falls apart. The sharp deterioration sits between 3 bits and 2 bits: at 2 bits and under, the network&#x27;s representations change so much that the model effectively has to relearn, and simply rounding it gives it no chance to adapt.</p>
+<p>The research NVIDIA leans on is ParetoQ, a paper from Meta. Its key finding is that when a model is trained properly at low precision, a 2 or 3-bit model can beat a post-training quantized 4-bit model at the same memory budget: a bigger model with fewer bits per weight wins. Witteveen admits he is still suspicious of the claim, mostly because it is not something third parties can easily do. It really needs to come from whoever trained the model, and Bolt is the test of whether it works.</p>
+<p>There are honest caveats. The 2-bit figure applies to the experts. The Mamba layers sit at 4 bits in NVIDIA&#x27;s NVFP4 format, and the embeddings and output layer are at 8 bits, so this is a mixed precision model rather than 2 bits everywhere, something NVIDIA is upfront about. Speed is the other caveat. On an RTX Spark, NVIDIA&#x27;s own table puts Bolt at around 84 tokens per second, behind the recent Qwen and Gemma models. Witteveen&#x27;s summary: this is a smarter model per gigabyte, not a faster one.</p>
+<p>The case for going to 2 bits anyway has three parts. First, speed at the scale local users actually run: with one request at a time, generation is limited by how fast weights stream through memory, not by compute, so fewer bytes per weight means more tokens per second. Second, headroom: an agent model shares the machine with its KV cache, perhaps an embedding model and a speech model, plus a browser and an IDE, so a model that leaves memory free makes the whole setup work better. Third, it is a design choice: at a fixed memory budget you can ship a mid-sized model at 4 bits or a much larger one at 2 bits, and NVIDIA is betting on the larger one.</p>
+<p>The build itself has three stages. Stage one is pruning. Starting from the 120 billion parameter Super, NVIDIA ran a technique called Star Elastic, which Witteveen describes as an architecture search with a memory budget: a smaller router learns, layer by layer, how many experts to keep and how wide each expert block should be. The number of experts active per token was cut from 22 down to 9. The budget was set in advance: the model had to fit under 24 gigabytes at batch size one with a 128K context window, and the pruning already assumed the experts would end at 2 bits, while the Mamba state stayed at 16 bits. The pruned model was then improved by distilling from its parent over about 120 billion tokens, mostly at an 8K context for speed, with the final chunks at the full 128K so the long context ability came back.</p>
+<p>Stage two is ordinary post-training, still at full 16-bit precision. The vision encoder, which had been separated during pruning, is reattached. The model goes through supervised fine-tuning, checkpoint merges, and several rounds of reinforcement learning aimed at agent tasks. Only then comes stage three, the quantization, and this is where NVIDIA departs from simple rounding. It uses quantization-aware training, where low-bit rounding is simulated on every forward pass during training while a full precision copy of the weights is kept for the updates, so the model learns to live on the quantization grid. NVIDIA&#x27;s twist is QAD, quantization-aware distillation: the quantized model is the student, and it learns from the unquantized version of itself. That, Witteveen notes, lets NVIDIA rerun the pipeline with quantization switched on and distill at the end, without needing all of the original training data again.</p>
+<p>Bolt is part of a wider pattern. Google has shipped quantization-aware trained checkpoints for the Gemma family, and in the smallest Gemma 4 models the token generation layers are pushed down to 2 bits while the core reasoning layers stay at higher precision, bringing the smallest model in at under a gigabyte. OpenAI used similar ideas on its GPT-OSS models, which is one reason the 120 billion parameter version fits on a single 80 gigabyte GPU, and Moonshot has done related work on Kimi. His reading: the big labs now plan for quantization during training instead of leaving it to the community afterwards, because good low-bit versions are what make models popular on consumer hardware.</p>
+<p>The quality cost, by NVIDIA&#x27;s numbers, is real but modest next to the size change. On PinchBench the score moves from about 90 for the full model to about 88 for Bolt, and on GPQA Diamond from about 89 to about 86, while the file shrinks from 148 gigabytes to about 22. He also flags two neighbouring techniques. Cerebras has a method called REAP for pruning whole experts out of a mixture of experts model, with the finding that cutting experts beats merging them, because merging breaks the router&#x27;s ability to choose; which experts survive depends heavily on the calibration data, so a model pruned on code stays good at code and may quietly get worse at everything else. And Microsoft&#x27;s BitNet trains models from the first step with weights of just minus one, zero, or one, a true 1.58-bit model, but current GPUs lack proper hardware support for it. His conclusion is that NVIDIA&#x27;s path, train big then prune, distill, and train down to low bits, is the realistic one for now.</p>
+<p>His own tests, run on a ZGX Fury workstation built around a GB300, underline who Bolt is for. There it generates at about 220 tokens per second, while the full Super model on the same machine runs at roughly 500 to 600, with far faster prefill. On the pelican on a bicycle SVG test, both models produce mediocre drawings, which he attributes to neither being reinforced for that kind of task. On agentic tool calling, Bolt scores ten out of ten on the basic suite. On the harder pro suite it occasionally misses the prompt injection resistance test, scoring seven of eight, but the full size Super fails the same test in the same way, so the weakness is inherited rather than caused by the low bit rate. Concurrency is where Bolt clearly is not designed to compete: with four simultaneous users its aggregate output is about 130 tokens per second and individual users can drop below 40, while the Super serves sixteen users at well over 150 tokens per second each. His takeaway is that anyone with a big GPU should simply run the bigger model. Bolt makes sense on the hardware it was designed for: Spark class machines with 24 gigabytes, where nothing bigger fits.</p>
+<p>He closes on the distinction the whole video is built around. A 2-bit label on a model card says almost nothing by itself. What matters is how the model got there: rounded after the fact, or pruned and trained to that precision along the way. Bolt is his example of the second kind, and he expects many more models to be built this way, hoping aloud that the 200 and 300 billion parameter class gets the same treatment so that far larger models can run on hardware people already own.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>The recipe depends on the original lab&#x27;s training pipeline: QAD needs the unquantized model and the lab&#x27;s post-training mix. Can independent quantizers ever close that gap, or does low-bit quality become a durable advantage for the labs that trained the model?</li>
+<li>Bolt is optimized for a single user at batch size one, and its concurrency numbers are weak. As local agents lean harder on parallel tool calls and sub-agents, does the single-stream design point still fit how these models will actually be used?</li>
+<li>BitNet style models trained at 1.58 bits from scratch are waiting on hardware support, while Bolt reaches 2 bits with training tricks on today&#x27;s GPUs. Which arrives first at scale: native low-bit hardware, or recipes like this one getting good enough that the hardware question stops mattering?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full English ASR caption track for the video (4,203 words), fetched through the Android player client (21.02.35, Pixel 8 profile) after the yt-dlp webpage route was refused with a sign-in bot check; the caption endpoint returned srv3 XML for the json3 request, and that file is kept in the build directory as captions.en.srv3, with the caption text saved as transcript.txt. The video ID (WJpeW9lCSUM) was pinned from the Sam Witteveen channel&#x27;s uploads list, where it is the newest upload and the only title match; the player-served title is &quot;NVIDIA&#x27;s Secret 2 Bit Model&quot;, matching the title in the commissioning screenshot. A yt-dlp flat listing briefly rendered the title with the word &quot;Recipe&quot; in place of &quot;Model&quot;; the player response serves &quot;Model&quot;, and that is the title used here. Caption spelling was adjudicated against published usage throughout: the captions render Nemotron as &quot;Neotron&quot; and &quot;Neutron&quot;, ParetoQ as &quot;Parto Q&quot;, the Mamba layers as &quot;member layers&quot;, BF16 as &quot;Bflat 16&quot;, Cerebras as &quot;Cerebus&quot;, Kimi as &quot;Kimmy&quot;, Qwen as &quot;Quen&quot;, and GGUF as &quot;GDUF&quot;; the published spellings are used in this summary. Figures quoted are the ones given in the video and in NVIDIA&#x27;s model materials as cited there.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#sperling-memory-in-physical-ai" data-route="article">&larr; Semiconductor Engineering</a>
+        <a class="to-index" href="2026-11-09.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -567,7 +617,8 @@
       const TITLES = {
       "restisscience-evolution-mind-control": "Why Does Evolution Keep Inventing Mind Control?",
       "kleiner-perkins-rivian-hardware-physical-ai": "The New Rules of Building Hardware in the Age of Physical AI | Insights from Rivian’s Leaders",
-      "sperling-memory-in-physical-ai": "Memory In Physical AI"
+      "sperling-memory-in-physical-ai": "Memory In Physical AI",
+      "samwitteveen-nvidia-secret-2-bit-model": "NVIDIA's Secret 2 Bit Model"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
