@@ -1,6 +1,6 @@
 {
- "total": 716,
- "playable": 703,
+ "total": 717,
+ "playable": 704,
  "episodes": [
   {
    "slug": "restisscience-evolution-mind-control",
@@ -37,6 +37,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/sperling-memory-in-physical-ai.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-09.html#sperling-memory-in-physical-ai",
    "source_url": "https://www.youtube.com/watch?v=68oMarzN2xI"
+  },
+  {
+   "slug": "samwitteveen-nvidia-secret-2-bit-model",
+   "title": "NVIDIA's Secret 2 Bit Model",
+   "channel": "Sam Witteveen",
+   "date": "2026-11-09",
+   "duration": "6:35",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/samwitteveen-nvidia-secret-2-bit-model.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-09.html#samwitteveen-nvidia-secret-2-bit-model",
+   "source_url": "https://www.youtube.com/watch?v=WJpeW9lCSUM"
   },
   {
    "slug": "lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become",
