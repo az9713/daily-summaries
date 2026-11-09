@@ -1,6 +1,6 @@
 {
- "total": 714,
- "playable": 701,
+ "total": 715,
+ "playable": 702,
  "episodes": [
   {
    "slug": "restisscience-evolution-mind-control",
@@ -13,6 +13,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/restisscience-evolution-mind-control.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-09.html#restisscience-evolution-mind-control",
    "source_url": "https://www.youtube.com/watch?v=h6OQYb2jxRQ"
+  },
+  {
+   "slug": "kleiner-perkins-rivian-hardware-physical-ai",
+   "title": "The New Rules of Building Hardware in the Age of Physical AI | Insights from Rivian’s Leaders",
+   "channel": "Kleiner Perkins",
+   "date": "2026-11-09",
+   "duration": "6:51",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/kleiner-perkins-rivian-hardware-physical-ai.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-09.html#kleiner-perkins-rivian-hardware-physical-ai",
+   "source_url": "https://www.youtube.com/watch?v=H8Ux_-d4354"
   },
   {
    "slug": "lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become",
