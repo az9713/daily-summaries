@@ -1,7 +1,19 @@
 {
- "total": 713,
- "playable": 700,
+ "total": 714,
+ "playable": 701,
  "episodes": [
+  {
+   "slug": "restisscience-evolution-mind-control",
+   "title": "Why Does Evolution Keep Inventing Mind Control?",
+   "channel": "The Rest Is Science",
+   "date": "2026-11-09",
+   "duration": "9:39",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/restisscience-evolution-mind-control.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-09.html#restisscience-evolution-mind-control",
+   "source_url": "https://www.youtube.com/watch?v=h6OQYb2jxRQ"
+  },
   {
    "slug": "lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become",
    "title": "Benedict Evans on Why Nobody Knows How Big AI Will Become | Masters by Lightspeed",
