@@ -1,6 +1,6 @@
 {
- "total": 720,
- "playable": 707,
+ "total": 721,
+ "playable": 708,
  "episodes": [
   {
    "slug": "restisscience-evolution-mind-control",
@@ -85,6 +85,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/luba-cameron-mccord-nominal-rocket-testing.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-09.html#luba-cameron-mccord-nominal-rocket-testing",
    "source_url": "https://www.youtube.com/watch?v=SZ75GL5D0NQ"
+  },
+  {
+   "slug": "20vc-mistral-arthur-mensch-openai-anthropic",
+   "title": "Mistral CEO: Why OpenAI & Anthropic Will Come for Your Business | Are Chinese Models Truly Safe?",
+   "channel": "20VC with Harry Stebbings",
+   "date": "2026-11-09",
+   "duration": "8:08",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/20vc-mistral-arthur-mensch-openai-anthropic.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-09.html#20vc-mistral-arthur-mensch-openai-anthropic",
+   "source_url": "https://www.youtube.com/watch?v=KotQbLX8pOw"
   },
   {
    "slug": "lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become",
