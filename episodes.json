@@ -1,6 +1,6 @@
 {
- "total": 718,
- "playable": 705,
+ "total": 719,
+ "playable": 706,
  "episodes": [
   {
    "slug": "restisscience-evolution-mind-control",
@@ -61,6 +61,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/peterman-venki-ramakrishnan-ai-drug-discovery.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-09.html#peterman-venki-ramakrishnan-ai-drug-discovery",
    "source_url": "https://www.youtube.com/watch?v=-1q0zA21AkY"
+  },
+  {
+   "slug": "mts-parv-mahajan-anthropic-rsi-warning-line",
+   "title": "Did Anthropic Cross Its RSI Warning Line? | Parv Mahajan",
+   "channel": "MTS",
+   "date": "2026-11-09",
+   "duration": "6:22",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-parv-mahajan-anthropic-rsi-warning-line.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-09.html#mts-parv-mahajan-anthropic-rsi-warning-line",
+   "source_url": "https://www.youtube.com/watch?v=aZU99RoTRw8"
   },
   {
    "slug": "lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become",
