@@ -1,6 +1,6 @@
 {
- "total": 719,
- "playable": 706,
+ "total": 720,
+ "playable": 707,
  "episodes": [
   {
    "slug": "restisscience-evolution-mind-control",
@@ -73,6 +73,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-parv-mahajan-anthropic-rsi-warning-line.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-09.html#mts-parv-mahajan-anthropic-rsi-warning-line",
    "source_url": "https://www.youtube.com/watch?v=aZU99RoTRw8"
+  },
+  {
+   "slug": "luba-cameron-mccord-nominal-rocket-testing",
+   "title": "The Man Building America's Rocket Testing Software (Cameron McCord — Nominal)",
+   "channel": "Luba Yudasina",
+   "date": "2026-11-09",
+   "duration": "9:26",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/luba-cameron-mccord-nominal-rocket-testing.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-09.html#luba-cameron-mccord-nominal-rocket-testing",
+   "source_url": "https://www.youtube.com/watch?v=SZ75GL5D0NQ"
   },
   {
    "slug": "lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become",
