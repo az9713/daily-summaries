@@ -1,6 +1,6 @@
 {
- "total": 722,
- "playable": 709,
+ "total": 723,
+ "playable": 710,
  "episodes": [
   {
    "slug": "restisscience-evolution-mind-control",
@@ -109,6 +109,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/sourcery-planet-labs-factory-tour.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-09.html#sourcery-planet-labs-factory-tour",
    "source_url": "https://www.youtube.com/watch?v=NjebKeJ8Ws8"
+  },
+  {
+   "slug": "how-i-ai-william-imoh-mural-codex",
+   "title": "1,000 days of Duolingo didn't work. So he built his own app with Codex.",
+   "channel": "How I AI",
+   "date": "2026-11-09",
+   "duration": "8:03",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/how-i-ai-william-imoh-mural-codex.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-09.html#how-i-ai-william-imoh-mural-codex",
+   "source_url": "https://www.youtube.com/watch?v=zBROTIiHusc"
   },
   {
    "slug": "lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become",
