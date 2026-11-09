@@ -1,6 +1,6 @@
 {
- "total": 712,
- "playable": 699,
+ "total": 713,
+ "playable": 700,
  "episodes": [
   {
    "slug": "lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become",
@@ -109,6 +109,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/latent-space-mihail-eric-ai-native-engineering.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-08.html#latent-space-mihail-eric-ai-native-engineering",
    "source_url": "https://www.youtube.com/watch?v=dpY7YzZo4kE"
+  },
+  {
+   "slug": "mckinsey-driving-agentic-transformation",
+   "title": "Driving Agentic Transformation: How AI Is Rewriting the Playbook on Large-Scale Change",
+   "channel": "McKinsey & Company",
+   "date": "2026-11-08",
+   "duration": "4:43",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mckinsey-driving-agentic-transformation.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-08.html#mckinsey-driving-agentic-transformation",
+   "source_url": "https://www.youtube.com/watch?v=XZcbnO2m9UE"
   },
   {
    "slug": "rajshamani-mel-robbins-best-years-of-your-life",
