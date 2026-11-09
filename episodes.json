@@ -1,6 +1,6 @@
 {
- "total": 723,
- "playable": 710,
+ "total": 724,
+ "playable": 711,
  "episodes": [
   {
    "slug": "restisscience-evolution-mind-control",
@@ -121,6 +121,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/how-i-ai-william-imoh-mural-codex.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-09.html#how-i-ai-william-imoh-mural-codex",
    "source_url": "https://www.youtube.com/watch?v=zBROTIiHusc"
+  },
+  {
+   "slug": "latent-space-handshake-ai-data-deep-dive",
+   "title": "What Frontier Labs Buy: A Data Deep Dive with Handshake AI — Garrett Lord & Team",
+   "channel": "Latent Space",
+   "date": "2026-11-09",
+   "duration": "10:47",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/latent-space-handshake-ai-data-deep-dive.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-09.html#latent-space-handshake-ai-data-deep-dive",
+   "source_url": "https://www.youtube.com/watch?v=v5IJwVnTxzg"
   },
   {
    "slug": "lightspeed-benedict-evans-nobody-knows-how-big-ai-will-become",
