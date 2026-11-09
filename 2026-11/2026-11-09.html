@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Monday &middot; November 9, 2026</p>
-        <h1>2 summaries, distilled.</h1>
+        <h1>3 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -410,6 +410,7 @@
         <div class="cards">
         <a class="card" href="#restisscience-evolution-mind-control"><span class="num">01</span><span><span class="card-title">Why Does Evolution Keep Inventing Mind Control?</span><span class="card-byline">The Rest Is Science</span></span><span class="card-dur">9:39</span><span class="listen-state" data-slug="restisscience-evolution-mind-control"></span></a>
         <a class="card" href="#kleiner-perkins-rivian-hardware-physical-ai"><span class="num">02</span><span><span class="card-title">The New Rules of Building Hardware in the Age of Physical AI | Insights from Rivian’s Leaders</span><span class="card-byline">Kleiner Perkins</span></span><span class="card-dur">6:51</span><span class="listen-state" data-slug="kleiner-perkins-rivian-hardware-physical-ai"></span></a>
+        <a class="card" href="#sperling-memory-in-physical-ai"><span class="num">03</span><span><span class="card-title">Memory In Physical AI</span><span class="card-byline">Semiconductor Engineering</span></span><span class="card-dur">4:57</span><span class="listen-state" data-slug="sperling-memory-in-physical-ai"></span></a>
         </div>
       </nav>
     </section>
@@ -506,6 +507,53 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#restisscience-evolution-mind-control" data-route="article">&larr; The Rest Is Science</a>
         <a class="to-index" href="2026-11-09.html" data-route="index">All summaries</a>
+        <a class="next" href="#sperling-memory-in-physical-ai" data-route="article">Semiconductor Engineering &middot; Memory In Physical AI &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="sperling-memory-in-physical-ai" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-09.html" data-route="index">&larr; November 9, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Memory In Physical AI &mdash; November 9, 2026 <span class="dur">&middot; 4:57</span></p>
+        <audio controls preload="none" src="../podcasts/sperling-memory-in-physical-ai.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/sperling-memory-in-physical-ai.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="sperling-memory-in-physical-ai" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="sperling-memory-in-physical-ai"></div>
+        <div class="episode-download"><a href="../podcasts/sperling-memory-in-physical-ai.mp3" download>Download sperling-memory-in-physical-ai.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Semiconductor Engineering</dd></div>
+        <div><dt>Published</dt><dd>November 9, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=68oMarzN2xI" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Semiconductor Engineering &middot; Frank Ferro on memory for physical AI</p>
+        <h2>Memory In Physical AI</h2>
+        <div>
+<p>On Semiconductor Engineering, &quot;Memory In Physical AI&quot; is a whiteboard conversation with Frank Ferro, group director for product management at Cadence. The channel&#x27;s editor in chief sits down with Ferro at Cadence to work through a simple problem: humanoid robots, autonomous vehicles, and drones can only run as long as their batteries last, and a humanoid&#x27;s usefulness today may last only a few hours per charge. No single component fixes that, so the discussion stays on the basics: efficient processing, denser and faster memory, and better data movement between processors and memory.</p>
+<p>The starting contrast is with the data center. There, Ferro says, resources were plentiful and cost was not as critical. A physical AI system is constrained on every axis at once: power, processing, how much memory can be fitted, and cost, which he calls a very big factor.</p>
+<p>His first drawing shows the cloud side of the story. A CPU is ringed with LPDDR memory and its controllers, delivered on SOCAMM compression modules that the industry has begun using in place of conventional DIMM memory. LPDDR wins on two fronts: it is faster than regular DDR, and it draws less power, because it was designed for mobile devices. Each slim compression module carries about four DDR devices, so the modules stack up alongside the processor, and designers squeeze them in by keeping the memory beachfront at the edges of the die as small as possible, even on what Ferro calls radical size dies.</p>
+<p>Mobile memory has had to grow up for this role. Moving from LPDDR5 to LPDDR6, the standard adds the RAS features, the reliability and security functions data centers demand, which is making LPDDR a much better fit there. The pressure runs the other way as well: models are trained in the data center, and then they have to be pushed out to the edge of the network or into physical devices with a much smaller footprint and tighter constraints.</p>
+<p>The second drawing shows what survives that move. The die is far smaller, because the cost of the silicon now matters, and where the cloud CPU might carry stacks of memory on every side, the physical AI chip might fit only three memory controllers per side, maybe a fourth. Yet the chip is still running large language models. Inference models are smaller than training models, but they keep getting large and unwieldy, and the system has to react in real time: a car has to know that what it sees is a road sign and not a person.</p>
+<p>So the real question is how the memory is partitioned. Ferro breaks the contents into pieces. Model weights are a very large amount of static memory. The KV cache stores previous state so the system does not have to recalculate everything, but it grows with batch size and can be big. Activations, where the matrix multiplies happen, grow with the batch too. Optimizer states remember history and can run to twice the size of the static weights, or bigger. In the cloud, this work can be split between a CPU and a GPU. In physical AI, all of it blends into a single SoC, and where each piece sits in the memory hierarchy becomes extremely critical.</p>
+<p>The working method is prioritization. Some data has to be very fast, other data can be fetched when needed, and Ferro sorts memory into hot, warm, and cold tiers, a scheme he likens to the basis of prefetch. How those tiers are partitioned inside a physical system, he says, will look very different from the cloud, and it depends on the problem: a car, a robot, and a factory system will each partition differently.</p>
+<p>The KV cache earns its keep by cutting both computation and memory traffic. If the system remembers its last token and its previous state, it only has to fetch the new information and reuse the rest, which saves processing and, because less data is fetched, power as well.</p>
+<p>Ferro points to two further levers, which he flags as topics for a follow-up conversation. One is processing less data in the first place, pruning it down. The other is doing the processing next to memory or in memory itself: running activations and matrix multiplies inside the DRAM avoids moving data in and out, which he says saves an enormous amount of power and processing. That approach is being explored for LPDDR and even HBM, and he frames it as another way through the memory wall, since the speed of an AI model&#x27;s response is governed less by processor power than by memory bandwidth.</p>
+<p>The physical layer may be the hardest part. LPDDR5X runs at about 10 gigabits per second, LPDDR6 will reach about 14, and hyperscaler customers want to go faster still. Getting the signals from 20 or 30 memory PHYs out of the cheapest possible package, at those speeds, without crosstalk, takes careful work on materials, packaging, signal integrity, and power integrity, and Cadence works with customers on where each memory should sit. Capacity is moving too: LPDDR6&#x27;s second generation features allow more memory to be attached. Ferro closes by reducing the whole problem to two moves: reduce the amount of data that needs processing, and speed up how fast the processing gets done.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If the KV cache and optimizer states keep growing with model size, what actually caps the capability of a battery-powered robot: the memory that fits on its SoC, or the energy budget for moving data through it?</li>
+<li>Ferro treats processing inside DRAM as the next phase. What has to change in the LPDDR and HBM standards, and in who designs what, before in-memory computing ships in physical AI products rather than research demos?</li>
+<li>As LPDDR absorbs data center reliability features and gains capacity, where does HBM still justify its cost at the edge, and where does it price itself out of physical AI entirely?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the full original-language English ASR caption track for the video (2,169 words), fetched as json3 with yt-dlp through the visionOS player route after both Android player clients (21.02.35 and 20.10.38) and the iOS client (20.10.38) returned a sign-in wall for this video and the web_embedded client returned it unavailable; the caption JSON is kept in the build directory and the caption text is saved as transcript.txt. The video ID was pinned from the Sperling Media Group channel&#x27;s uploads list, where this is the newest upload and the only title match, and the player-served title is &quot;Memory In Physical AI&quot;. The player serves the channel name as Semiconductor Engineering; the screenshot Simon sent showed the channel&#x27;s handle, @SperlingMediaGroup. The video&#x27;s own description identifies the speaker as Frank Ferro, group director for product management at Cadence. Caption spelling was adjudicated against published usage in several places: the captions render KV cache as &quot;KB cache&quot; and &quot;Heavy cache&quot; (the whiteboard in the video itself writes KV cache), SOCAMM as &quot;SOCAM&quot; and &quot;CAMs&quot;, the memory PHYs as &quot;physical files&quot;, and the RAS features as &quot;res features&quot;; the published spellings are used here. The captions also garble the host&#x27;s spoken self-introduction, while Ferro closes by thanking &quot;Ed&quot;; the host is the channel&#x27;s editor in chief, Ed Sperling, and that is the name used in this summary.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#kleiner-perkins-rivian-hardware-physical-ai" data-route="article">&larr; Kleiner Perkins</a>
+        <a class="to-index" href="2026-11-09.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -518,7 +566,8 @@
     (() => {
       const TITLES = {
       "restisscience-evolution-mind-control": "Why Does Evolution Keep Inventing Mind Control?",
-      "kleiner-perkins-rivian-hardware-physical-ai": "The New Rules of Building Hardware in the Age of Physical AI | Insights from Rivian’s Leaders"
+      "kleiner-perkins-rivian-hardware-physical-ai": "The New Rules of Building Hardware in the Age of Physical AI | Insights from Rivian’s Leaders",
+      "sperling-memory-in-physical-ai": "Memory In Physical AI"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
