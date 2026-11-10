@@ -1,6 +1,6 @@
 {
- "total": 726,
- "playable": 713,
+ "total": 727,
+ "playable": 714,
  "episodes": [
   {
    "slug": "builders-alex-karp-ai-middle-class",
@@ -25,6 +25,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/sourcery-mercor-brendan-foody-20b.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#sourcery-mercor-brendan-foody-20b",
    "source_url": "https://www.youtube.com/watch?v=xzA6lYBzmzQ"
+  },
+  {
+   "slug": "blackstone-ari-emanuel-future-of-entertainment",
+   "title": "Ari Emanuel on the Future of Entertainment in the Age of AI",
+   "channel": "Blackstone",
+   "date": "2026-11-10",
+   "duration": "6:27",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/blackstone-ari-emanuel-future-of-entertainment.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#blackstone-ari-emanuel-future-of-entertainment",
+   "source_url": "https://www.youtube.com/watch?v=irolSAR1HrI"
   },
   {
    "slug": "restisscience-evolution-mind-control",
