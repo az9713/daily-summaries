@@ -1,6 +1,6 @@
 {
- "total": 730,
- "playable": 717,
+ "total": 731,
+ "playable": 718,
  "episodes": [
   {
    "slug": "builders-alex-karp-ai-middle-class",
@@ -73,6 +73,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/siliconvalleygirl-max-jaderberg-next-opportunity-ai.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#siliconvalleygirl-max-jaderberg-next-opportunity-ai",
    "source_url": "https://www.youtube.com/watch?v=yIFhTVMOH98"
+  },
+  {
+   "slug": "theo-nobody-competing-with-anthropic",
+   "title": "Nobody Is Competing With Anthropic",
+   "channel": "Theo - t3.gg",
+   "date": "2026-11-10",
+   "duration": "6:18",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/theo-nobody-competing-with-anthropic.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#theo-nobody-competing-with-anthropic",
+   "source_url": "https://www.youtube.com/watch?v=yh5IAUow4Hc"
   },
   {
    "slug": "restisscience-evolution-mind-control",
