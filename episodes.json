@@ -1,6 +1,6 @@
 {
- "total": 727,
- "playable": 714,
+ "total": 728,
+ "playable": 715,
  "episodes": [
   {
    "slug": "builders-alex-karp-ai-middle-class",
@@ -37,6 +37,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/blackstone-ari-emanuel-future-of-entertainment.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#blackstone-ari-emanuel-future-of-entertainment",
    "source_url": "https://www.youtube.com/watch?v=irolSAR1HrI"
+  },
+  {
+   "slug": "cheekypint-nik-storonsky-uncompromising-banking-ceo",
+   "title": "Nik Storonsky: The most uncompromising banking CEO",
+   "channel": "Cheeky Pint",
+   "date": "2026-11-10",
+   "duration": "5:59",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/cheekypint-nik-storonsky-uncompromising-banking-ceo.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#cheekypint-nik-storonsky-uncompromising-banking-ceo",
+   "source_url": "https://www.youtube.com/watch?v=-NARhJ7jAj4"
   },
   {
    "slug": "restisscience-evolution-mind-control",
