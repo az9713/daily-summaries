@@ -1,7 +1,19 @@
 {
- "total": 724,
- "playable": 711,
+ "total": 725,
+ "playable": 712,
  "episodes": [
+  {
+   "slug": "builders-alex-karp-ai-middle-class",
+   "title": "Alex Karp on Why AI Will Hurt the Middle Class: You Can’t Have Billionaires Becoming 100x Wealthier",
+   "channel": "The Builders with Walter Isaacson",
+   "date": "2026-11-10",
+   "duration": "5:15",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/builders-alex-karp-ai-middle-class.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#builders-alex-karp-ai-middle-class",
+   "source_url": "https://www.youtube.com/watch?v=m4mV4IClDlM"
+  },
   {
    "slug": "restisscience-evolution-mind-control",
    "title": "Why Does Evolution Keep Inventing Mind Control?",
