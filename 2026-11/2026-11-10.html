@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Tuesday &middot; November 10, 2026</p>
-        <h1>4 summaries, distilled.</h1>
+        <h1>5 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -412,6 +412,7 @@
         <a class="card" href="#sourcery-mercor-brendan-foody-20b"><span class="num">02</span><span><span class="card-title">Mercor Raises $750M at $20B Valuation | CEO Brendan Foody</span><span class="card-byline">Sourcery with Molly O'Shea</span></span><span class="card-dur">8:39</span><span class="listen-state" data-slug="sourcery-mercor-brendan-foody-20b"></span></a>
         <a class="card" href="#blackstone-ari-emanuel-future-of-entertainment"><span class="num">03</span><span><span class="card-title">Ari Emanuel on the Future of Entertainment in the Age of AI</span><span class="card-byline">Blackstone</span></span><span class="card-dur">6:27</span><span class="listen-state" data-slug="blackstone-ari-emanuel-future-of-entertainment"></span></a>
         <a class="card" href="#cheekypint-nik-storonsky-uncompromising-banking-ceo"><span class="num">04</span><span><span class="card-title">Nik Storonsky: The most uncompromising banking CEO</span><span class="card-byline">Cheeky Pint</span></span><span class="card-dur">5:59</span><span class="listen-state" data-slug="cheekypint-nik-storonsky-uncompromising-banking-ceo"></span></a>
+        <a class="card" href="#pragmatic-engineer-sean-allen-software-correctness"><span class="num">05</span><span><span class="card-title">Software correctness and programming languages with Sean Allen</span><span class="card-byline">The Pragmatic Engineer</span></span><span class="card-dur">9:11</span><span class="listen-state" data-slug="pragmatic-engineer-sean-allen-software-correctness"></span></a>
         </div>
       </nav>
     </section>
@@ -603,6 +604,53 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#blackstone-ari-emanuel-future-of-entertainment" data-route="article">&larr; Blackstone</a>
         <a class="to-index" href="2026-11-10.html" data-route="index">All summaries</a>
+        <a class="next" href="#pragmatic-engineer-sean-allen-software-correctness" data-route="article">The Pragmatic Engineer &middot; Software correctness and programming languages with Sean Allen &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="pragmatic-engineer-sean-allen-software-correctness" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-10.html" data-route="index">&larr; November 10, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Software correctness and programming languages with Sean Allen &mdash; November 10, 2026 <span class="dur">&middot; 9:11</span></p>
+        <audio controls preload="none" src="../podcasts/pragmatic-engineer-sean-allen-software-correctness.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/pragmatic-engineer-sean-allen-software-correctness.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="pragmatic-engineer-sean-allen-software-correctness" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="pragmatic-engineer-sean-allen-software-correctness"></div>
+        <div class="episode-download"><a href="../podcasts/pragmatic-engineer-sean-allen-software-correctness.mp3" download>Download pragmatic-engineer-sean-allen-software-correctness.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>The Pragmatic Engineer</dd></div>
+        <div><dt>Published</dt><dd>November 10, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=OrXKvOjR-vI" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">The Pragmatic Engineer &middot; Sean Allen on software correctness and programming languages</p>
+        <h2>Software correctness and programming languages with Sean Allen</h2>
+        <div>
+<p>On The Pragmatic Engineer, &quot;Software correctness and programming languages with Sean Allen&quot; is Gergely Orosz&#x27;s conversation with Sean Allen, a Distinguished Engineer at Antithesis, recorded around a bug bash in Copenhagen. The episode is framed as a discussion about the challenges of developing with AI that tries not to mention AI at all, on the theory that the fundamentals matter as much as ever. Allen works on Antithesis&#x27;s red team, using the product exactly as customers do, with only the tools customers have, and teaching what he has learned about being sure software works.</p>
+<p>His path into the field was accidental. Music was his first love, and he got into tech by fixing computers at Scholastic and teaching himself Perl. As a teenager he had been put off by a machine language book for the Commodore 64 his grandmother bought him, and as a young programmer he was mentored on a BeOS mailing list by the head of Metrowerks&#x27; compiler group and, though he did not know it at the time, by the science fiction author Neal Stephenson. Both men, fittingly, had their first professional software jobs at companies called SenseNet, his in New York and Orosz&#x27;s in Budapest.</p>
+<p>The language tour starts with OCaml and the ML family. Allen explains that ML languages are built around strong type systems: sum types, pattern matching, and exhaustive matching, so that when you add a sixth case to a type that had five, the compiler points at every place in the codebase that fails to handle it. Finance firms like Jane Street love OCaml for this, he says, though almost nobody uses the object-oriented features that give the language the O in its name. Rust, he notes, inherited much of this from ML, which is why its compiler catches so much.</p>
+<p>He contrasts that with his own early choice between C and Ada. Ada, built for defense and other mission-critical work, was so strict he could barely get programs to compile, while C happily compiled code that then segfaulted. Only later did he understand that Ada had been refusing exactly the memory-unsafe things he was trying to do. He spent years building personal rules for writing concurrent C safely, and eventually concluded he would rather have a compiler enforce those rules, because humans invariably slip. He is similarly warm about F#, Don Syme&#x27;s OCaml descendant on Microsoft&#x27;s .NET platform, praising how seamlessly it fits its runtime and how many of its ideas have since flowed into C#, with sum types and exhaustive matching the notable holdouts.</p>
+<p>Pony, the open-source language Allen helps maintain, is where these threads meet. His college friend Sylvan Clebsch built its actor-based runtime at Morgan Stanley, then earned a PhD at Imperial College London to design a language on top of it. Allen&#x27;s startup Wallaroo adopted Pony for high-speed data processing for banks, where the JVM&#x27;s stop-the-world garbage collection made latency guarantees impossible. Pony aims to make illegal states unrepresentable: its type system enforces the concurrency rules Allen once kept in his head, and each actor manages its own heap, so memory is freed in small interleaved steps instead of world-stopping pauses. Garbage collection, he argues, is not inherently slow; the confusion is between the mechanism of freeing memory and one particular stop-the-world design, and sophisticated manual allocators are already halfway to being collectors.</p>
+<p>Correctness itself, for Allen, means a program does what you expect it to do, framed as invariants it upholds, and it does not wake anyone up at 2 a.m. This is why he insists Antithesis is a correctness and verification company rather than a testing company, and why he wrote that no one cares about testing: tests are a means to an end, a late-stage check for things you had no better way to guarantee. The better move is to push guarantees into construction, encoding states and their allowed transitions in a type system so whole classes of bugs cannot be expressed. He loves test-driven development as a way to design APIs, but tells how, in pairing exercises, he would defeat example-based tests by hardcoding the expected answers, until the only way to beat him was to randomize the inputs, which is to say, to arrive at property-based testing.</p>
+<p>The missing piece in most testing strategies, he argues, is the workload: not just the operations a test performs, but the shape of the inputs driving the system. Uniformly random operations on a key-value store amount to a drunken walk that never strays far from where it started, so it never reaches the states where resharding or disk pressure cause trouble. His favorite counterexample is the bank test for database isolation: ten accounts holding ten thousand dollars in total, money moved between them in transactions, and a checker that must only ever see ten thousand. It is a trivially simple workload, yet under fault injection of the kind Kyle Kingsbury&#x27;s Jepsen work made famous, and that Antithesis performs, serious bugs fall out of real databases.</p>
+<p>That leads to his claim that quality is not a gate. The gate picture, quality as something you protect by catching bad code at the door, is comforting but false: every tool leaks, production always contains data your generators never produced, and everyone, admitted or not, tests in production. In an ideal world a specification in a language like TLA+ would be model-checked into a correct implementation, and below that ideal sit static checking, type systems, and actor models that limit what code can do. What remains is testing and verification for whatever those cannot enforce. Teams that move fast and stay reliable, he says, think about quality from the first day, asking how they will know the system works before they build it, rather than bolting on a staging environment at the end. Even for a system like Google Search, where the single right answer is subjective, correctness decomposes into invariants: a query returns results, results belong to the query that asked, and one user&#x27;s data never surfaces in another&#x27;s account.</p>
+<p>On supply chain security, Allen is bleak. Nearly every language lets a downloaded dependency do anything the host program can do, a trust model inherited from Perl&#x27;s CPAN era. Cooldown periods, vendoring, and forking are all naive defenses, and sandboxing leaks. The principled answer he points to is object capabilities, the research line from Mark Miller&#x27;s language E, where code can only act on capabilities it has been handed, built into Pony but absent from every popular language, and undermined by foreign function interfaces even where it exists. Worse, speculative execution means side-channel attacks void nearly every other guarantee: the confidential computing systems he worked on at Microsoft Research all carried the caveat &quot;modulo side-channel attacks,&quot; and the industry, having seen early kernel patches cost enormous performance, chose speed and whack-a-mole over giving up speculation. He admits he exploits branch prediction in his own open-source code.</p>
+<p>He closes with two reframings. Technical debt, he still maintains a decade on, only hurts if you have to pay it back: debt can be sidestepped by new technology, as when a distributed database dissolved his team&#x27;s MySQL sharding ceiling, or never paid at all when a product dies, so the real goal is malleable software that can adapt or be thrown away. And going slow to go fast is literal for him: writing the planning document, agreeing on what words mean, since the distributed systems community once spent weeks arguing about exactly-once delivery when the two sides meant processing and arrival, deciding how a thing will be tested before building it, and resting, because a tired brain produces the bugs that eat the time you saved.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Allen wants correctness pushed into construction through type systems and actor models. For the majority of teams committed to mainstream languages like TypeScript, Go, or Java, how much of that program can they realistically adopt without switching languages?</li>
+<li>If object capabilities are the principled fix for supply chain security but no popular language has them, is there any credible migration path for existing package ecosystems, or does the industry simply accept the risk?</li>
+<li>He says everyone tests in production because no tool can guarantee correctness. What should teams building regulated or safety-critical systems, where production is not an acceptable test bed, do with that claim?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full YouTube auto-generated English caption track for this video (16,701 words covering the entire 85-minute conversation), fetched through the Android player client (version 21.02.35); the endpoint returned srv3 XML, saved in this build as the grounding artifact. The screenshot that commissioned this piece showed the title truncated as &quot;Software correctness and programming lan...&quot;; the player-served title above is the full one. Captions are machine-generated and garble several names, so prose follows published spellings: Sylvan Clebsch (captioned &quot;Silvin&quot;), SenseNet (&quot;Senset&quot;), Jepsen (&quot;Jeepson&quot;), Don Syme (&quot;Don Sim&quot;), Neal Stephenson (&quot;Neil Stevenson&quot;), Antithesis, OCaml, F#, Ada, and TLA+. Sean Allen&#x27;s site, per the video description, is seantallen.com.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#cheekypint-nik-storonsky-uncompromising-banking-ceo" data-route="article">&larr; Cheeky Pint</a>
+        <a class="to-index" href="2026-11-10.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -617,7 +665,8 @@
       "builders-alex-karp-ai-middle-class": "Alex Karp on Why AI Will Hurt the Middle Class: You Can’t Have Billionaires Becoming 100x Wealthier",
       "sourcery-mercor-brendan-foody-20b": "Mercor Raises $750M at $20B Valuation | CEO Brendan Foody",
       "blackstone-ari-emanuel-future-of-entertainment": "Ari Emanuel on the Future of Entertainment in the Age of AI",
-      "cheekypint-nik-storonsky-uncompromising-banking-ceo": "Nik Storonsky: The most uncompromising banking CEO"
+      "cheekypint-nik-storonsky-uncompromising-banking-ceo": "Nik Storonsky: The most uncompromising banking CEO",
+      "pragmatic-engineer-sean-allen-software-correctness": "Software correctness and programming languages with Sean Allen"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
