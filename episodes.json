@@ -1,6 +1,6 @@
 {
- "total": 728,
- "playable": 715,
+ "total": 729,
+ "playable": 716,
  "episodes": [
   {
    "slug": "builders-alex-karp-ai-middle-class",
@@ -49,6 +49,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/cheekypint-nik-storonsky-uncompromising-banking-ceo.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#cheekypint-nik-storonsky-uncompromising-banking-ceo",
    "source_url": "https://www.youtube.com/watch?v=-NARhJ7jAj4"
+  },
+  {
+   "slug": "pragmatic-engineer-sean-allen-software-correctness",
+   "title": "Software correctness and programming languages with Sean Allen",
+   "channel": "The Pragmatic Engineer",
+   "date": "2026-11-10",
+   "duration": "9:11",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/pragmatic-engineer-sean-allen-software-correctness.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#pragmatic-engineer-sean-allen-software-correctness",
+   "source_url": "https://www.youtube.com/watch?v=OrXKvOjR-vI"
   },
   {
    "slug": "restisscience-evolution-mind-control",
