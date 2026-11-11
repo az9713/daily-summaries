@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Tuesday &middot; November 10, 2026</p>
-        <h1>14 summaries, distilled.</h1>
+        <h1>15 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -422,6 +422,7 @@
         <a class="card" href="#openai-devday-build-whats-next-chatgpt-platform-plugins"><span class="num">12</span><span><span class="card-title">Build What’s Next on the ChatGPT Platform with Plugins | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">6:35</span><span class="listen-state" data-slug="openai-devday-build-whats-next-chatgpt-platform-plugins"></span></a>
         <a class="card" href="#openai-devday-gpt-live-image-generation"><span class="num">13</span><span><span class="card-title">Building with GPT-Live and Image Generation | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">5:24</span><span class="listen-state" data-slug="openai-devday-gpt-live-image-generation"></span></a>
         <a class="card" href="#openai-codex-security"><span class="num">14</span><span><span class="card-title">Codex Security: From Vulnerability to Verified Fix | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">6:56</span><span class="listen-state" data-slug="openai-codex-security"></span></a>
+        <a class="card" href="#openai-harness-as-a-service-agents-api"><span class="num">15</span><span><span class="card-title">Harness-as-a-Service: Building with the Agents API | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">5:41</span><span class="listen-state" data-slug="openai-harness-as-a-service-agents-api"></span></a>
         </div>
       </nav>
     </section>
@@ -1086,6 +1087,51 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#openai-devday-gpt-live-image-generation" data-route="article">&larr; OpenAI</a>
         <a class="to-index" href="2026-11-10.html" data-route="index">All summaries</a>
+        <a class="next" href="#openai-harness-as-a-service-agents-api" data-route="article">OpenAI &middot; Harness-as-a-Service: Building with the Agents API | DevDay 2026 &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="openai-harness-as-a-service-agents-api" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-10.html" data-route="index">&larr; November 10, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Harness-as-a-Service: Building with the Agents API | DevDay 2026 &mdash; November 10, 2026 <span class="dur">&middot; 5:41</span></p>
+        <audio controls preload="none" src="../podcasts/openai-harness-as-a-service-agents-api.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/openai-harness-as-a-service-agents-api.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="openai-harness-as-a-service-agents-api" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="openai-harness-as-a-service-agents-api"></div>
+        <div class="episode-download"><a href="../podcasts/openai-harness-as-a-service-agents-api.mp3" download>Download openai-harness-as-a-service-agents-api.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>OpenAI</dd></div>
+        <div><dt>Published</dt><dd>November 10, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=b7l_Dhe1h8M" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">OpenAI &middot; Charlie Walsh and Steve on harness-as-a-service and building with the Agents API</p>
+        <h2>Harness-as-a-Service: Building with the Agents API | DevDay 2026</h2>
+        <div>
+<p>On OpenAI, &quot;Harness-as-a-Service: Building with the Agents API&quot; is a DevDay 2026 session presented by Charlie Walsh of the developer experience team and Steve, an engineer on the API team. They trace how OpenAI moved from putting an API endpoint on top of an inference stack to running an entire agent harness as a managed service, and they walk through the three hard problems that required: separating the harness from the machine where its commands actually run, showing people what an agent is doing while it works, and keeping a session alive for hours or days across deploys and dying servers. The talk closes with a live airline rebooking demo and a look at early customers.</p>
+<p>The backstory starts with the Assistants API, where OpenAI first explored hosted workflows with tools like File Search and Code Interpreter. Back in 2023, GPT-4 Turbo could use those tools for workflows that lasted a few seconds. The newest models, the Astra line and GPT-6.1 Sol, can use dozens of tools effectively for hours or days on end, so the foundation had to change. The Responses API, launched in 2025, let developers send many types of content to the model, text, images, and reasoning among them, and get many types back, and it became the base on which agentic products like Codex and ChatGPT work were built. The presenters describe the stack as layers of a cake, or a Maslow hierarchy of inference: the Responses API at the base, Codex above it giving the agent hands to do work, and the Agents API at the top, letting products reach their potential without the trouble of operating the harness at scale.</p>
+<p>OpenAI did not expect to build this layer itself. In 2025 it shipped the Agents SDK, a local harness for developers who wanted total control, and assumed teams would build the rest of the infrastructure themselves. Instead, Steve kept meeting teams who knew exactly what product they wanted and where an agent would help, but who then asked OpenAI how to build it: which tools to use, whether the agent should run inside or outside the sandbox, how to manage secrets. The direct question underneath was simpler. How could they get OpenAI to run it for them? That distinction is the core idea of the Agents API, a managed service built on the Codex harness. You define the tools, the data, and the instructions, and you choose the environment the agent works in. OpenAI runs the harness and the services around it, and keeps improving it as models get better, so developers do not have to reproduce every improvement on their own.</p>
+<p>The first hard problem is that the Codex harness was built on a local assumption: it runs on your computer, reads the file system, changes a file, and sees the result. A hosted service has to upend that. The harness in the cloud must communicate with an arbitrary environment, whether a sandbox the developer already operates or one OpenAI spins up, routing each command to the computer connected to that session and getting the result back quickly, while keeping every session&#x27;s commands and results separate. A command that used to be local now crosses that connection every time. The session also announced a headline feature here: computer use over the API, bringing Astra&#x27;s ability to operate a graphical interface into OpenAI-hosted environments.</p>
+<p>The second problem is visibility. Once an agent can use a computer or a sandbox, the people building a product around it have to show users something while it works, and an agent&#x27;s path cannot be predicted in advance, since it depends on the prompt and on tool results. An agent might open a different set of files, try another approach, or hand part of the job to another agent. OpenAI first assumed raw tool calls and model responses would be enough for developers to build that experience. They were not. One internal team, whose sessions involved several rounds of back and forth between a user and the agent, wanted to visualize the work grouped by turns, and the original API design did not expose that. Rather than make the team rebuild part of the harness it had come to OpenAI to avoid, OpenAI made turn information available through the API, and the presenters note there are dozens of design decisions like this one, each deciding how much of the work a developer can truly hand off.</p>
+<p>The third problem is durability. The longer an agent works, the more history it accumulates, until the history can exceed the model&#x27;s context window while the task is still going. Compaction is the harness&#x27;s answer, carrying useful information forward so the agent can continue across context windows instead of leaving every developer to manage that history alone. But context is only one constraint. Agents can work for hours, users may want to steer a session mid-flight, and meanwhile OpenAI needs to deploy new code and recycle servers. So the service has to find your session among all its servers, route requests to it, and, if Codex crashes or a server is replaced, resume the thread exactly where it left off, because the agent may have spent an hour investigating or taken actions nobody wants repeated. Steve gives a concrete edge case: the agent asks the environment to edit a file, the connection drops, and no result comes back. Not knowing whether the edit happened is its own problem, since replaying the command could produce a bad outcome too. Doing this reliably means every system the session touches, inference, storage, and the tool services, has to hold up at three nines or better.</p>
+<p>The demo makes the pitch tangible. A flight, AL204 from San Francisco to Chicago, has been canceled, and an airline dashboard shows the hardest rebooking cases: one traveler who must arrive at one exact airport, and a booking of four passengers, including children, who all need to travel together. Charlie shows the code behind it. A session, the fundamental building block of the API, takes less than a dozen lines of JavaScript to create, here pointed at an OpenAI-hosted sandbox with network access broadly disabled and events streamed back so the interface updates live. The agent is given a flight rebooking skill spelling out the precise steps, shared through capability directories that can also carry plugins and MCP servers. Its flight inventory tool is advisory by design: it can place a hold, but a human stays in the loop to confirm. The instructions tell the agent to delegate seating and arrival checks to two subagents and wait for both, with multi-agent mode capped at two concurrent subagents, a knob Charlie notes trades parallelism against token usage. For the first traveler, Erin, who needs O&#x27;Hare and a tomorrow morning departure, the agent searched, delegated, held seats, and returned a recommendation with its reasoning, still awaiting approval. For the family, the workspace shows its work: it ruled out one flight with only a single seat left and another with four seats that could not be guaranteed together, then delivered the three artifacts it was asked for, a proposal file, a comparison of the options it weighed, and a Python script that checks its logic against the stated constraints. A single canceled flight can leave dozens of such cases at once, and the API lets them run in parallel while a human keeps the final call.</p>
+<p>Early customers point in several directions. Notion&#x27;s external agents let teams assign work from Notion and have it done asynchronously, now with OpenAI agents brought into that workflow. Rakuten is using the API for long-running tasks that users can leave and later return to with more direction and feedback. Bain is building synthetic audiences, virtual focus groups of simulated customers grounded in real research, with human experts still checking the results. For teams that want to stay inside AWS, the same core is offered as Bedrock managed agents powered by OpenAI, customized and integrated with the Amazon team. Charlie&#x27;s closing question reframes the whole session: what work would you take on with dramatically more people or time, and what becomes possible when you can dispatch a hundred, a thousand, or ten thousand agents at a problem, investigating every microservice for security holes, attempting software megaprojects, or exploring hundreds of approaches to a research question at once.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>How much visibility and control will developers need before they trust a hosted harness with actions that cannot be undone, and does turn-level transparency go far enough?</li>
+<li>When a session resumes after a crash or a deploy, who carries the risk in the ambiguous cases, where the record cannot say whether an action already happened: the developer, the platform, or the customer?</li>
+<li>If a managed harness absorbs this much of the agent stack, does differentiation move entirely to tools, data, and skills, or will the teams with the most at stake still insist on running their own harness?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full creator-provided English caption track for this video (3,482 words covering the entire 19 minute 44 second runtime, from 21 seconds in to the closing line), fetched through the Android player client (version 21.02.35); the endpoint returned the track as srv3 XML, saved in this build as the grounding artifact. The listing title supplied with the commission, &quot;Harness-as-a-Service: Building with the Agents API&quot;, is the player-served title without its final segment; the full player-served title, ending &quot;| DevDay 2026&quot;, is used here. The captions&#x27; speaker labels garble the second presenter&#x27;s surname, so he is identified as Steve, the name the session itself uses throughout. Model names follow the captions&#x27; rendering (Astra, GPT-6.1 Sol).</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#openai-codex-security" data-route="article">&larr; OpenAI</a>
+        <a class="to-index" href="2026-11-10.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -1110,7 +1156,8 @@
       "openai-what-comes-after-loops-agentic-architecture": "What Comes After Loops?: Deep Dive Into Agentic Architecture | DevDay 2026",
       "openai-devday-build-whats-next-chatgpt-platform-plugins": "Build What’s Next on the ChatGPT Platform with Plugins | DevDay 2026",
       "openai-devday-gpt-live-image-generation": "Building with GPT-Live and Image Generation | DevDay 2026",
-      "openai-codex-security": "Codex Security: From Vulnerability to Verified Fix | DevDay 2026"
+      "openai-codex-security": "Codex Security: From Vulnerability to Verified Fix | DevDay 2026",
+      "openai-harness-as-a-service-agents-api": "Harness-as-a-Service: Building with the Agents API | DevDay 2026"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
