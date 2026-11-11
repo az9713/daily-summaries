@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Tuesday &middot; November 10, 2026</p>
-        <h1>15 summaries, distilled.</h1>
+        <h1>16 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -423,6 +423,7 @@
         <a class="card" href="#openai-devday-gpt-live-image-generation"><span class="num">13</span><span><span class="card-title">Building with GPT-Live and Image Generation | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">5:24</span><span class="listen-state" data-slug="openai-devday-gpt-live-image-generation"></span></a>
         <a class="card" href="#openai-codex-security"><span class="num">14</span><span><span class="card-title">Codex Security: From Vulnerability to Verified Fix | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">6:56</span><span class="listen-state" data-slug="openai-codex-security"></span></a>
         <a class="card" href="#openai-harness-as-a-service-agents-api"><span class="num">15</span><span><span class="card-title">Harness-as-a-Service: Building with the Agents API | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">5:41</span><span class="listen-state" data-slug="openai-harness-as-a-service-agents-api"></span></a>
+        <a class="card" href="#openai-devday-coding-agents-that-dont-quit"><span class="num">16</span><span><span class="card-title">What Will You Build With Coding Agents That Don’t Quit? | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">4:41</span><span class="listen-state" data-slug="openai-devday-coding-agents-that-dont-quit"></span></a>
         </div>
       </nav>
     </section>
@@ -1132,6 +1133,56 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#openai-codex-security" data-route="article">&larr; OpenAI</a>
         <a class="to-index" href="2026-11-10.html" data-route="index">All summaries</a>
+        <a class="next" href="#openai-devday-coding-agents-that-dont-quit" data-route="article">OpenAI &middot; What Will You Build With Coding Agents That Don’t Quit? | DevDay 2026 &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="openai-devday-coding-agents-that-dont-quit" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-10.html" data-route="index">&larr; November 10, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">What Will You Build With Coding Agents That Don’t Quit? | DevDay 2026 &mdash; November 10, 2026 <span class="dur">&middot; 4:41</span></p>
+        <audio controls preload="none" src="../podcasts/openai-devday-coding-agents-that-dont-quit.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/openai-devday-coding-agents-that-dont-quit.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="openai-devday-coding-agents-that-dont-quit" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="openai-devday-coding-agents-that-dont-quit"></div>
+        <div class="episode-download"><a href="../podcasts/openai-devday-coding-agents-that-dont-quit.mp3" download>Download openai-devday-coding-agents-that-dont-quit.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>OpenAI</dd></div>
+        <div><dt>Published</dt><dd>November 10, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=U1IVZy9FhVQ" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">OpenAI &middot; Friel and Vivi on building with coding agents that do not quit</p>
+        <h2>What Will You Build With Coding Agents That Don’t Quit? | DevDay 2026</h2>
+        <div>
+<p>On OpenAI, &quot;What Will You Build With Coding Agents That Don’t Quit? | DevDay 2026&quot; is a DevDay 2026 session with two OpenAI engineers: Friel, who works on engineering acceleration, and Vivi, who works on developer experience. Their shared claim is that coding agents have crossed a line: given the right outcome, they can now keep working for days or weeks at a time.</p>
+<p>Vivi opens with her own experiments. A Formula 1 fan, she ran Codex with the Astra model on a remote machine and gave it a simple goal: build a Ferrari, plus a website where she could explore what the car is made of. She supplied a few reference photos and worked with the agent over a few days. The finished model was built from just seven pictures, and Astra surprised her by also producing, unprompted, a clay version and a wireframe version alongside the rendered car.</p>
+<p>Her second project was a fly-through of the Nürburgring. She gave Codex only the name of the track and let it find its own way. It chose not the short circuit but the long version: 21 kilometers and all 70 turns, roughly three times the size of an average Formula One track. The build took a little over two days, most of it spent waiting on Blender renders. Codex used sub-agents to research the track and check the geometry, and when the render stopped several times, for memory pressure and an overheating processor, it picked up again from the saved frames on its own.</p>
+<p>Friel then describes how his own way of briefing agents has changed. On the same stage a year earlier he had presented exec plans, a skill meant to keep Codex running on hard problems, at a time when a seven-hour run felt like an achievement. His prompts back then were long and prescriptive: code samples, named libraries, a plan he wanted to interrogate before work began. With Astra and Sol, he says, he now states the goal, the outcome he wants, the trade-offs he cares about, and how he will know the work is good, and lets the model figure out the steps.</p>
+<p>His main example is an agent he set loose on continuous integration. Keeping CI healthy across OpenAI means chasing flaky tests, tests that fail once and pass the next time, and the trickiest of them can take hours or days to debug while new ones keep arriving. Friel wanted to see whether an agent could pick that work up without being asked each time. The starting prompt was only 200 words: ground rules about the repository, instructions to figure out how to run the test suite itself, and rules for messaging colleagues and using CI resources. The agent ran for six weeks before he shut it down, and only because his colleagues had started running agents of their own on the same job.</p>
+<p>About four days in, he interrupted it with one instruction: let sub-agents do the busy work. That, he says, was the turning point. The main thread took over triggering tests, collecting failure information, organizing sub-agents, and messaging people, while sub-agents pulled down code, worked individual failures, and pushed fixes back to CI. Last year he joked he had become a manager of agents; this year, he says, he has been promoted to director.</p>
+<p>The numbers from the run are striking. Over six weeks the agent opened more than 100 pull requests a week, pushed more than 1,000 commits, and sent more than 600 Slack messages to coordinate landing its fixes. It merged more than 213 of its own fixes, and when it did not merge one, it was often because another engineer had already produced a similar change, which it prioritized ahead of its own. In a retrospective afterwards, it diplomatically reported that it had been most productive during a five-day stretch when Friel had not messaged it once.</p>
+<p>In total the agent worked for over 1,000 hours, made just under half a million tool calls, and used more than 5,800 sub-agent sessions. Over 67,000 of those calls were simply waiting for things to happen, the dead time that makes this work so draining for people. And these were not easy leftovers: they were the hardest remaining bugs, the ones humans and their agents kept skipping or retrying rather than fixing.</p>
+<p>The hardest of them was a Heisenbug, a non-deterministic error in the floating-point calculations of a GPU test. The agent reproduced it, correlated logs over weeks to pin it to one particular machine, taught itself to run the test repeatedly on that node, and then reached out to the researchers who owned the system and collaborated with them on whether the cause was an undeclared software optimization or a faulty GPU. Friel, who calls the problem well outside his own wheelhouse, says it solved it.</p>
+<p>The agent also showed judgment about shortcuts. Getting back to green can mean deleting a failing test, and sometimes that is right. When it was unsure, it would create another agent to interrogate and review the first agent&#x27;s work before asking a human to review it. Friel credits the run with giving him back hundreds of hours over the summer.</p>
+<p>Vivi closes by naming the six Codex features that make runs like this possible. First, one thread per outcome, with a goal mode that tells Codex to pursue a task relentlessly until it is done. Second, an AGENTS.md file carrying project context, do&#x27;s and off-limits areas, and, her standing tip, an instruction for Codex to keep notes on what it has done and what is left to explore, so work can resume from the log. Third, compaction, built into Codex by default, which she says lets threads run for months without the context rot that used to degrade long tasks.</p>
+<p>Fourth, remote environments: threads can run on machines connected over SSH, reachable from desktop, mobile, and web, and a new Codex Cloud experience offers a managed virtual machine whose environment is snapshotted, so a task can be picked up days or weeks later. Fifth, plugins for tools like GitHub and Linear, so the agent can see the issue or discussion behind a failure instead of working blind. Sixth, child threads, each with its own worktree, for work that can proceed in parallel, a side-thread command that forks the main thread&#x27;s context for questions, an ultra mode that gives the model deep reasoning time plus sub-agents for a single hard problem, and heartbeats and scheduled tasks for follow-ups that wait on the outside world.</p>
+<p>Then comes the bill. Working back from pricing, the six-week CI run cost about 32 dollars an hour at the earlier rates. With GPT-6 Sol the price dropped to about 16 dollars an hour, and the newer 6.1 Sol is more token efficient still. Their advice for getting started is plain: find the work that eats your time, give the model a way to check its own work and run in a loop, state the outcome and the trade-offs, set ground rules for when it should escalate, and tell it how much it may spend.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>When an agent merges hundreds of its own fixes and coordinates with researchers on its own, where should the human review line sit, and who is accountable when an autonomous fix is wrong?</li>
+<li>The session&#x27;s costs are quoted per hour of agent runtime, but what does the full bill look like once review time, CI resources, and the failures that still need people are counted?</li>
+<li>If a single thread can run productively for months, what happens to the work when its owner leaves, and who inherits a fleet of long-running agents mid-task?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full creator-uploaded caption track for this video (4,642 words, covering the talk from 0:19 to 26:54 of the 27:09 runtime), fetched through the Android player client version 21.02.35, which returned the track as srv3 XML, saved in this build as the grounding artifact. The player-served title is used for the entry; the oEmbed and listing render drops the &quot; | DevDay 2026&quot; suffix. The captions spell the first speaker&#x27;s name inconsistently (Friel in his own introduction, garbled in later cues); the summary uses Friel, the introduction spelling. Model names such as Astra, 5.6 Sol, GPT-6 Sol, and 6.1 Sol are rendered as captioned.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#openai-harness-as-a-service-agents-api" data-route="article">&larr; OpenAI</a>
+        <a class="to-index" href="2026-11-10.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -1157,7 +1208,8 @@
       "openai-devday-build-whats-next-chatgpt-platform-plugins": "Build What’s Next on the ChatGPT Platform with Plugins | DevDay 2026",
       "openai-devday-gpt-live-image-generation": "Building with GPT-Live and Image Generation | DevDay 2026",
       "openai-codex-security": "Codex Security: From Vulnerability to Verified Fix | DevDay 2026",
-      "openai-harness-as-a-service-agents-api": "Harness-as-a-Service: Building with the Agents API | DevDay 2026"
+      "openai-harness-as-a-service-agents-api": "Harness-as-a-Service: Building with the Agents API | DevDay 2026",
+      "openai-devday-coding-agents-that-dont-quit": "What Will You Build With Coding Agents That Don’t Quit? | DevDay 2026"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
