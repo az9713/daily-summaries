@@ -1,6 +1,6 @@
 {
- "total": 750,
- "playable": 737,
+ "total": 751,
+ "playable": 738,
  "episodes": [
   {
    "slug": "stripe-fireside-john-collison-sam-gerstenzang-building-companies-ai",
@@ -109,6 +109,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mtsituation-ramez-naam-recursive-self-improvement.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-11.html#mtsituation-ramez-naam-recursive-self-improvement",
    "source_url": "https://www.youtube.com/watch?v=ucPVUVQHEts"
+  },
+  {
+   "slug": "cowen-tao-proof-beauty-mathematics",
+   "title": "Terence Tao on Proof, Beauty, and the Future of Mathematics",
+   "channel": "Conversations with Tyler",
+   "date": "2026-11-11",
+   "duration": "9:55",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/cowen-tao-proof-beauty-mathematics.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-11.html#cowen-tao-proof-beauty-mathematics",
+   "source_url": "https://www.youtube.com/watch?v=XB5oudgNWO8"
   },
   {
    "slug": "builders-alex-karp-ai-middle-class",
