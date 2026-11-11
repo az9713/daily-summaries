@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Tuesday &middot; November 10, 2026</p>
-        <h1>16 summaries, distilled.</h1>
+        <h1>17 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -424,6 +424,7 @@
         <a class="card" href="#openai-codex-security"><span class="num">14</span><span><span class="card-title">Codex Security: From Vulnerability to Verified Fix | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">6:56</span><span class="listen-state" data-slug="openai-codex-security"></span></a>
         <a class="card" href="#openai-harness-as-a-service-agents-api"><span class="num">15</span><span><span class="card-title">Harness-as-a-Service: Building with the Agents API | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">5:41</span><span class="listen-state" data-slug="openai-harness-as-a-service-agents-api"></span></a>
         <a class="card" href="#openai-devday-coding-agents-that-dont-quit"><span class="num">16</span><span><span class="card-title">What Will You Build With Coding Agents That Don’t Quit? | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">4:41</span><span class="listen-state" data-slug="openai-devday-coding-agents-that-dont-quit"></span></a>
+        <a class="card" href="#openai-devday-sites-next-generation-web-apps"><span class="num">17</span><span><span class="card-title">Sites and the Next Generation of Web Apps | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">5:34</span><span class="listen-state" data-slug="openai-devday-sites-next-generation-web-apps"></span></a>
         </div>
       </nav>
     </section>
@@ -1183,6 +1184,51 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#openai-harness-as-a-service-agents-api" data-route="article">&larr; OpenAI</a>
         <a class="to-index" href="2026-11-10.html" data-route="index">All summaries</a>
+        <a class="next" href="#openai-devday-sites-next-generation-web-apps" data-route="article">OpenAI &middot; Sites and the Next Generation of Web Apps | DevDay 2026 &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="openai-devday-sites-next-generation-web-apps" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-10.html" data-route="index">&larr; November 10, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Sites and the Next Generation of Web Apps | DevDay 2026 &mdash; November 10, 2026 <span class="dur">&middot; 5:34</span></p>
+        <audio controls preload="none" src="../podcasts/openai-devday-sites-next-generation-web-apps.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/openai-devday-sites-next-generation-web-apps.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="openai-devday-sites-next-generation-web-apps" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="openai-devday-sites-next-generation-web-apps"></div>
+        <div class="episode-download"><a href="../podcasts/openai-devday-sites-next-generation-web-apps.mp3" download>Download openai-devday-sites-next-generation-web-apps.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>OpenAI</dd></div>
+        <div><dt>Published</dt><dd>November 10, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=QRm7VNMnurA" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">OpenAI &middot; Katia and John Abrams on Sites and the next generation of web apps</p>
+        <h2>Sites and the Next Generation of Web Apps | DevDay 2026</h2>
+        <div>
+<p>On OpenAI, &quot;Sites and the Next Generation of Web Apps | DevDay 2026&quot; is a DevDay session with Katia, from the Developer Experience team, and John, the lead engineer for Sites. Their argument is that Sites, which OpenAI launched earlier this year as a hosting service, is really a platform for building full-stack web apps that stay fresh on their own, personalize themselves for each visitor, and expose tools that visitors&#x27; own agents can use.</p>
+<p>John opens with the origin story. He joined OpenAI to build internal web apps for researchers, found deploying them inside OpenAI&#x27;s infrastructure frustrating, and prototyped a way to deploy full-stack apps directly from Codex. The prototype spread from engineers to non-engineers across the company, a team formed around it, and a few months later Sites shipped. It now hosts 8 million sites, and more than 70 percent of OpenAI employees make their own. The common uses are jamming on ideas with others, replacing slide decks with interactive presentations, replacing spreadsheets with dedicated interfaces, and building internal tools tailored to each team.</p>
+<p>The first demo turns data into an app. Katia takes the team&#x27;s spreadsheet tracking DevDay launches and asks Codex to turn it into a launch radar app, published as a site, with milestones and items needing attention on the first screen, filters by product area, list, board, and calendar views, and links out to each launch&#x27;s documents. She then asks Codex to keep the site up to date every morning using the launch briefs linked from the sheet, and Codex builds the app live while John explains the machinery.</p>
+<p>That machinery is plugins plus scheduled tasks. Plugins bundle connectors and skills so ChatGPT and Codex can reach data in third-party services: tasks in Linear, messages in Slack, pull request comments in GitHub. A scheduled task can refresh a site hourly, daily, or weekly, and because every site ships with a SQLite database, the task updates the database directly and the site changes instantly, with no redeploy. Launching today, scheduled tasks can be linked to a specific site, and Codex will suggest scheduling when it looks relevant.</p>
+<p>The second half is about who visits. Sites are private by default, with access checked through Sign in with ChatGPT before a visitor ever reaches the page, though a site can also be made public with a landing page for anonymous users. Starting today, teammates who sign in to a private site can bring their own plugins with them, so the same site shows each visitor their own data, fetched through their own connectors at page load. Katia wires the Linear connector into the launch radar with read and write access: she sees her assigned tickets next to the launches, John sees his, and he edits a ticket&#x27;s status and saves it back to Linear from inside the site, with no API keys or integration code involved. Sharing supports named editors, and anyone in the workspace with editor access can push updates to the hosted site.</p>
+<p>Editing itself gets a new surface. Annotation extensibility, new today in the ChatGPT in-app browser, lets developers embed custom annotations in a site&#x27;s HTML that signal to Codex how the site can be edited: custom controls, suggested prompts, and options baked into components. John clicks a suggested prompt built into the demo site, then uses annotation mode to enlarge a status bar through an option the component itself offered, previews the change, and has Codex commit it. The point is that a shared site can teach its editors what is safe to change, which matters most for design systems and component libraries.</p>
+<p>The closing demo aims at the public web. A gift box studio built with Sites uses the OpenAI image API, with the key held in environment variables the way any full-stack app would. To fill the box, Katia does not click through the catalog; her agent does, through WebMCP, a browser standard that lets an app expose tools an agent can call directly instead of clicking through the interface. The agent searches her Slack conversations to learn what John likes, queries the catalog through the site&#x27;s tools, and updates the page with recommendations, which she trims to a budget before checking out. The agent can also draft a personal message from what ChatGPT remembers of earlier conversations. John notes that Sites adds WebMCP support automatically where it is relevant, so builders do not have to do extra work to make an app agent friendly.</p>
+<p>The closing pitch pulls the threads together: sites that update themselves on a schedule, carry auth and a database, read each visitor&#x27;s own data through plugins, and are optimized for both people and the agents they bring with them.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If a site refreshes itself from source documents every morning, who notices when the source data is wrong, and what does the correction workflow look like once nobody is redeploying by hand?</li>
+<li>When a visitor&#x27;s agent acts on a site through WebMCP using that visitor&#x27;s own data and connectors, where does accountability sit for a bad action: with the site, the agent, or the visitor?</li>
+<li>Custom annotations make a site easier for colleagues to edit safely, but how much of that guidance survives once sites are public and the editors are strangers rather than teammates?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full creator-uploaded English caption track for this video (3,183 words covering the entire 20 minute 48 second runtime), fetched through the Android player client (version 21.02.35), which returned the track as srv3 XML, saved in this build as the grounding artifact. The player-served title used here carries the suffix &quot;| DevDay 2026&quot;; the oEmbed listing title omits it. The caption track is machine-punctuated and inconsistent in places, so prose follows the speakers&#x27; own introductions and published spellings: the track renders ChatGPT once as &quot;HGPT&quot; and WebMCP once as &quot;UI MCP,&quot; and spells the first speaker&#x27;s name both &quot;Katia&quot; (her own introduction) and &quot;Katja.&quot;</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#openai-devday-coding-agents-that-dont-quit" data-route="article">&larr; OpenAI</a>
+        <a class="to-index" href="2026-11-10.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -1209,7 +1255,8 @@
       "openai-devday-gpt-live-image-generation": "Building with GPT-Live and Image Generation | DevDay 2026",
       "openai-codex-security": "Codex Security: From Vulnerability to Verified Fix | DevDay 2026",
       "openai-harness-as-a-service-agents-api": "Harness-as-a-Service: Building with the Agents API | DevDay 2026",
-      "openai-devday-coding-agents-that-dont-quit": "What Will You Build With Coding Agents That Don’t Quit? | DevDay 2026"
+      "openai-devday-coding-agents-that-dont-quit": "What Will You Build With Coding Agents That Don’t Quit? | DevDay 2026",
+      "openai-devday-sites-next-generation-web-apps": "Sites and the Next Generation of Web Apps | DevDay 2026"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
