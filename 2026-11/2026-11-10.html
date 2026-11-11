@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Tuesday &middot; November 10, 2026</p>
-        <h1>13 summaries, distilled.</h1>
+        <h1>14 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -421,6 +421,7 @@
         <a class="card" href="#openai-what-comes-after-loops-agentic-architecture"><span class="num">11</span><span><span class="card-title">What Comes After Loops?: Deep Dive Into Agentic Architecture | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">7:16</span><span class="listen-state" data-slug="openai-what-comes-after-loops-agentic-architecture"></span></a>
         <a class="card" href="#openai-devday-build-whats-next-chatgpt-platform-plugins"><span class="num">12</span><span><span class="card-title">Build What’s Next on the ChatGPT Platform with Plugins | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">6:35</span><span class="listen-state" data-slug="openai-devday-build-whats-next-chatgpt-platform-plugins"></span></a>
         <a class="card" href="#openai-devday-gpt-live-image-generation"><span class="num">13</span><span><span class="card-title">Building with GPT-Live and Image Generation | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">5:24</span><span class="listen-state" data-slug="openai-devday-gpt-live-image-generation"></span></a>
+        <a class="card" href="#openai-codex-security"><span class="num">14</span><span><span class="card-title">Codex Security: From Vulnerability to Verified Fix | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">6:56</span><span class="listen-state" data-slug="openai-codex-security"></span></a>
         </div>
       </nav>
     </section>
@@ -1043,6 +1044,48 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#openai-devday-build-whats-next-chatgpt-platform-plugins" data-route="article">&larr; OpenAI</a>
         <a class="to-index" href="2026-11-10.html" data-route="index">All summaries</a>
+        <a class="next" href="#openai-codex-security" data-route="article">OpenAI &middot; Codex Security: From Vulnerability to Verified Fix | DevDay 2026 &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="openai-codex-security" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-10.html" data-route="index">&larr; November 10, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Codex Security: From Vulnerability to Verified Fix | DevDay 2026 &mdash; November 10, 2026 <span class="dur">&middot; 6:56</span></p>
+        <audio controls preload="none" src="../podcasts/openai-codex-security.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/openai-codex-security.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="openai-codex-security" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="openai-codex-security"></div>
+        <div class="episode-download"><a href="../podcasts/openai-codex-security.mp3" download>Download openai-codex-security.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>OpenAI</dd></div>
+        <div><dt>Published</dt><dd>November 10, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=gUQN7juxvVI" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">OpenAI &middot; Ian and Kyle on Codex Security, from vulnerability to verified fix</p>
+        <h2>Codex Security: From Vulnerability to Verified Fix | DevDay 2026</h2>
+        <div>
+<p>On OpenAI, “Codex Security: From Vulnerability to Verified Fix | DevDay 2026” is a DevDay session from two members of OpenAI&#x27;s cyber product engineering team, Ian and Kyle, about the security tooling OpenAI built for its own code and is now giving to everyone else. Ian frames the moment first: the cost of hacking is falling toward zero, and the latest frontier models can already find thousands of latent vulnerabilities in software people depend on every day. Because frontier models are currently ahead of open-weight models in cyber capability, he argues, defenders have a limited window to find and fix weaknesses before the same abilities reach attackers. The session is about using that lead while it lasts.</p>
+<p>OpenAI&#x27;s own answer was a security sprint a couple of months ago, in which a quarter of its product engineers focused solely on hardening internal systems. Out of that sprint came what the team calls its defense factory: a continuous loop that scans the code, finds and validates vulnerabilities, assigns owners, and verifies fixes. Ian says deduplication and validation across thousands of findings kept the work focused on issues that could lead to real exploits, with a false positive rate of 0.81 percent, and that Codex-generated fixes were rolled back less than 1 percent of the time. Everything the team learned in that sprint was then packaged into Codex Security.</p>
+<p>Kyle walks through the five steps of the workflow, each one a bottleneck from the sprint. The first is context. Pointing an agent at a whole repository and asking it to find every vulnerability did not work, so OpenAI fanned the work out across many focused scans and gave each agent three layers of context: a custom scan instruction saying what to investigate and what is out of scope, a reusable knowledge base holding things like architecture documents and firewall configuration that never appear in source code, and security markdown files committed inside each component, where product owners define their own threat models and guidelines. A deep scan then runs many agents in parallel, investigating and validating, and keeps making passes until it finds nothing new or hits its configured limit. At OpenAI&#x27;s scale that meant hundreds of agents running across many hosts at once.</p>
+<p>The second half of the pipeline is about turning raw findings into fixes a team can trust. In OpenAI&#x27;s sprint, 36 percent of all findings turned out to be duplicates of the same underlying issue, so the CLI ships a deduplication workflow to collapse them before anyone is handed 32 tickets for one vulnerability. Findings are then classified against a security rubric (OpenAI defined critical as flaws that could give external actors access they should not have) and assigned to owners, which Kyle calls the most surprisingly difficult part of the whole sprint until the ownership knowledge was written down. Patching is treated as a dial rather than a switch: teams start with a human prompting Codex on an assigned ticket, and as confidence grows the tool auto-generates patches, opens pull requests, and runs a verify fix command that acts as an adversarial check on the patch itself. Because the pieces are open primitives, each organization can wire them into its own review, QA, and CI process rather than adopting OpenAI&#x27;s whole pipeline.</p>
+<p>Ian closes with where this is heading. On PatchBench, a third-party evaluation of patch quality, the newer Astra model at medium reasoning substantially outperformed 5.6 Sol at extra-high reasoning, at less than half the cost per case, while OpenAI&#x27;s own human engineers benchmark around 50 percent. The internal workload curve, he says, started as a huge spike and a deep backlog, then settled into a steady state where far fewer vulnerabilities are found, and found much faster, with new issues caught before they merge. To keep that curve down, scans have to run continuously, which is the pitch for Codex Security Cloud: connect your GitHub repositories and the hosted system runs the same loop for you, scanning on every commit, showing an organization-wide view of findings, and optionally auto-generating a patch that opens a pull request. The cloud runs on OpenAI&#x27;s Daybreak class of models, built specifically for security work, with the rebuilt version powered by the Daybreak Blue model by default and no access requests to go through. The Codex Security CLI itself is fully open source under Apache 2.0 and installable from NPM, and the team says Codex Security Cloud will be in the plugin marketplace before the end of the week.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>How long does the defender&#x27;s window actually stay open, and what happens to this workflow&#x27;s advantage once open-weight models reach the same cyber capability?</li>
+<li>The 0.81 percent false positive rate and sub-1-percent rollback rate come from OpenAI&#x27;s own codebase and its own engineers standing behind the patches; do those numbers hold for smaller teams with messier code and thinner review capacity?</li>
+<li>As models keep getting better at both finding and fixing vulnerabilities, where does the bottleneck move next: validation, ownership, or the human review that still has to approve every fix?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full creator-uploaded English caption track for this video (3,089 words covering the entire 21 minute 10 second recording, last cue at 20:57), fetched through the Android player client (version 21.02.35), which returned the track as srv3 XML, saved in this build as the grounding artifact; the auto-generated track was fetched as a cross-check and agrees at 3,187 words. The commission arrived as a bare URL; the oEmbed title dropped the suffix, while the player serves the full title used here, “Codex Security: From Vulnerability to Verified Fix | DevDay 2026,” and that full player-served title governs. The speakers give only their first names, Ian and Kyle, in the video and its description, so no surnames are used. One number needs care: Ian cites 0.81 percent as the false positive rate and, separately, a rollback rate under 1 percent for generated fixes; Kyle later refers to 0.81 percent while discussing rollbacks, and this summary follows Ian&#x27;s original attribution.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#openai-devday-gpt-live-image-generation" data-route="article">&larr; OpenAI</a>
+        <a class="to-index" href="2026-11-10.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -1066,7 +1109,8 @@
       "lex-fridman-russia-ukraine-war-future-of-warfare": "Russia-Ukraine War: Putin, Zelenskyy, Drones and the Future of Warfare | Lex Fridman Podcast #504",
       "openai-what-comes-after-loops-agentic-architecture": "What Comes After Loops?: Deep Dive Into Agentic Architecture | DevDay 2026",
       "openai-devday-build-whats-next-chatgpt-platform-plugins": "Build What’s Next on the ChatGPT Platform with Plugins | DevDay 2026",
-      "openai-devday-gpt-live-image-generation": "Building with GPT-Live and Image Generation | DevDay 2026"
+      "openai-devday-gpt-live-image-generation": "Building with GPT-Live and Image Generation | DevDay 2026",
+      "openai-codex-security": "Codex Security: From Vulnerability to Verified Fix | DevDay 2026"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
