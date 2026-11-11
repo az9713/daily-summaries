@@ -1,6 +1,6 @@
 {
- "total": 749,
- "playable": 736,
+ "total": 750,
+ "playable": 737,
  "episodes": [
   {
    "slug": "stripe-fireside-john-collison-sam-gerstenzang-building-companies-ai",
@@ -97,6 +97,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-dharmesh-shah-hubspot-saaspocalypse.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-11.html#a16z-dharmesh-shah-hubspot-saaspocalypse",
    "source_url": "https://www.youtube.com/watch?v=s4lXP9IuHjk"
+  },
+  {
+   "slug": "mtsituation-ramez-naam-recursive-self-improvement",
+   "title": "Why Recursive Self-Improvement Hits a Wall | Ramez Naam",
+   "channel": "MTS",
+   "date": "2026-11-11",
+   "duration": "7:33",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mtsituation-ramez-naam-recursive-self-improvement.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-11.html#mtsituation-ramez-naam-recursive-self-improvement",
+   "source_url": "https://www.youtube.com/watch?v=ucPVUVQHEts"
   },
   {
    "slug": "builders-alex-karp-ai-middle-class",
