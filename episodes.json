@@ -1,6 +1,6 @@
 {
- "total": 736,
- "playable": 723,
+ "total": 737,
+ "playable": 724,
  "episodes": [
   {
    "slug": "builders-alex-karp-ai-middle-class",
@@ -145,6 +145,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/openai-devday-build-whats-next-chatgpt-platform-plugins.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#openai-devday-build-whats-next-chatgpt-platform-plugins",
    "source_url": "https://www.youtube.com/watch?v=pIW_8VyvCuQ"
+  },
+  {
+   "slug": "openai-devday-gpt-live-image-generation",
+   "title": "Building with GPT-Live and Image Generation | DevDay 2026",
+   "channel": "OpenAI",
+   "date": "2026-11-10",
+   "duration": "5:24",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/openai-devday-gpt-live-image-generation.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#openai-devday-gpt-live-image-generation",
+   "source_url": "https://www.youtube.com/watch?v=jDxKzlGLCas"
   },
   {
    "slug": "restisscience-evolution-mind-control",
