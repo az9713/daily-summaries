@@ -1,6 +1,6 @@
 {
- "total": 739,
- "playable": 726,
+ "total": 740,
+ "playable": 727,
  "episodes": [
   {
    "slug": "builders-alex-karp-ai-middle-class",
@@ -181,6 +181,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/openai-harness-as-a-service-agents-api.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#openai-harness-as-a-service-agents-api",
    "source_url": "https://www.youtube.com/watch?v=b7l_Dhe1h8M"
+  },
+  {
+   "slug": "openai-devday-coding-agents-that-dont-quit",
+   "title": "What Will You Build With Coding Agents That Don’t Quit? | DevDay 2026",
+   "channel": "OpenAI",
+   "date": "2026-11-10",
+   "duration": "4:41",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/openai-devday-coding-agents-that-dont-quit.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#openai-devday-coding-agents-that-dont-quit",
+   "source_url": "https://www.youtube.com/watch?v=U1IVZy9FhVQ"
   },
   {
    "slug": "restisscience-evolution-mind-control",
