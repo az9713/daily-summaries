@@ -1,6 +1,6 @@
 {
- "total": 747,
- "playable": 734,
+ "total": 748,
+ "playable": 735,
  "episodes": [
   {
    "slug": "stripe-fireside-john-collison-sam-gerstenzang-building-companies-ai",
@@ -73,6 +73,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/davidsenra-vlad-tenev-robinhood-gamestop.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-11.html#davidsenra-vlad-tenev-robinhood-gamestop",
    "source_url": "https://www.youtube.com/watch?v=cU9uOHRWDmE"
+  },
+  {
+   "slug": "peterman-joakim-recht-promo-committees-uber",
+   "title": "Uber Distinguished Eng: When Promo Committees Are Unfair | Joakim Recht",
+   "channel": "Ryan Peterman",
+   "date": "2026-11-11",
+   "duration": "2:44",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/peterman-joakim-recht-promo-committees-uber.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-11.html#peterman-joakim-recht-promo-committees-uber",
+   "source_url": "https://www.youtube.com/watch?v=wAhGyWvfBqw"
   },
   {
    "slug": "builders-alex-karp-ai-middle-class",
