@@ -1,6 +1,6 @@
 {
- "total": 740,
- "playable": 727,
+ "total": 741,
+ "playable": 728,
  "episodes": [
   {
    "slug": "builders-alex-karp-ai-middle-class",
@@ -193,6 +193,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/openai-devday-coding-agents-that-dont-quit.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#openai-devday-coding-agents-that-dont-quit",
    "source_url": "https://www.youtube.com/watch?v=U1IVZy9FhVQ"
+  },
+  {
+   "slug": "openai-devday-sites-next-generation-web-apps",
+   "title": "Sites and the Next Generation of Web Apps | DevDay 2026",
+   "channel": "OpenAI",
+   "date": "2026-11-10",
+   "duration": "5:34",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/openai-devday-sites-next-generation-web-apps.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#openai-devday-sites-next-generation-web-apps",
+   "source_url": "https://www.youtube.com/watch?v=QRm7VNMnurA"
   },
   {
    "slug": "restisscience-evolution-mind-control",
