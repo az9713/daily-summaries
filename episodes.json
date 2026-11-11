@@ -1,6 +1,6 @@
 {
- "total": 734,
- "playable": 721,
+ "total": 735,
+ "playable": 722,
  "episodes": [
   {
    "slug": "builders-alex-karp-ai-middle-class",
@@ -121,6 +121,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/lex-fridman-russia-ukraine-war-future-of-warfare.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#lex-fridman-russia-ukraine-war-future-of-warfare",
    "source_url": "https://www.youtube.com/watch?v=2hJkprFnzhY"
+  },
+  {
+   "slug": "openai-what-comes-after-loops-agentic-architecture",
+   "title": "What Comes After Loops?: Deep Dive Into Agentic Architecture | DevDay 2026",
+   "channel": "OpenAI",
+   "date": "2026-11-10",
+   "duration": "7:16",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/openai-what-comes-after-loops-agentic-architecture.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#openai-what-comes-after-loops-agentic-architecture",
+   "source_url": "https://www.youtube.com/watch?v=nAubbmlhPfI"
   },
   {
    "slug": "restisscience-evolution-mind-control",
