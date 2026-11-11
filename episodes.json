@@ -1,6 +1,6 @@
 {
- "total": 746,
- "playable": 733,
+ "total": 747,
+ "playable": 734,
  "episodes": [
   {
    "slug": "stripe-fireside-john-collison-sam-gerstenzang-building-companies-ai",
@@ -61,6 +61,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-mike-volpi-ai-infrastructure-outlast-hype-cycle.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-11.html#a16z-mike-volpi-ai-infrastructure-outlast-hype-cycle",
    "source_url": "https://www.youtube.com/watch?v=LI3lxzHfRrU"
+  },
+  {
+   "slug": "davidsenra-vlad-tenev-robinhood-gamestop",
+   "title": "Building Robinhood, Surviving GameStop & A $500 Million Phone Call | Vlad Tenev",
+   "channel": "David Senra",
+   "date": "2026-11-11",
+   "duration": "6:34",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/davidsenra-vlad-tenev-robinhood-gamestop.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-11.html#davidsenra-vlad-tenev-robinhood-gamestop",
+   "source_url": "https://www.youtube.com/watch?v=cU9uOHRWDmE"
   },
   {
    "slug": "builders-alex-karp-ai-middle-class",
