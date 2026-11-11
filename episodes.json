@@ -1,6 +1,6 @@
 {
- "total": 743,
- "playable": 730,
+ "total": 744,
+ "playable": 731,
  "episodes": [
   {
    "slug": "stripe-fireside-john-collison-sam-gerstenzang-building-companies-ai",
@@ -25,6 +25,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/knowledge-project-jon-mcneill-impossible-speed-elon-musk.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-11.html#knowledge-project-jon-mcneill-impossible-speed-elon-musk",
    "source_url": "https://www.youtube.com/watch?v=pRXMqm5bMFk"
+  },
+  {
+   "slug": "francis-crick-superbugs-question-of-science",
+   "title": "Can we beat the superbugs? - A Question of Science with Brian Cox",
+   "channel": "The Francis Crick Institute",
+   "date": "2026-11-11",
+   "duration": "8:00",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/francis-crick-superbugs-question-of-science.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-11.html#francis-crick-superbugs-question-of-science",
+   "source_url": "https://www.youtube.com/watch?v=BLPY3t0wtIE"
   },
   {
    "slug": "builders-alex-karp-ai-middle-class",
