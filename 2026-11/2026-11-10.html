@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Tuesday &middot; November 10, 2026</p>
-        <h1>10 summaries, distilled.</h1>
+        <h1>11 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -418,6 +418,7 @@
         <a class="card" href="#allin-rick-smith-axon-freedom-vs-safety"><span class="num">08</span><span><span class="card-title">Freedom vs. Safety: Axon CEO Rick Smith on the Future of Policing</span><span class="card-byline">All-In Podcast</span></span><span class="card-dur">10:04</span><span class="listen-state" data-slug="allin-rick-smith-axon-freedom-vs-safety"></span></a>
         <a class="card" href="#yahoo-finance-openai-surprise-quarter-ai-race"><span class="num">09</span><span><span class="card-title">What OpenAI’s Surprise Quarter Means for the AI Race | Deirdre Bosa Live</span><span class="card-byline">Yahoo Finance</span></span><span class="card-dur">7:20</span><span class="listen-state" data-slug="yahoo-finance-openai-surprise-quarter-ai-race"></span></a>
         <a class="card" href="#lex-fridman-russia-ukraine-war-future-of-warfare"><span class="num">10</span><span><span class="card-title">Russia-Ukraine War: Putin, Zelenskyy, Drones and the Future of Warfare | Lex Fridman Podcast #504</span><span class="card-byline">Lex Fridman</span></span><span class="card-dur">13:15</span><span class="listen-state" data-slug="lex-fridman-russia-ukraine-war-future-of-warfare"></span></a>
+        <a class="card" href="#openai-what-comes-after-loops-agentic-architecture"><span class="num">11</span><span><span class="card-title">What Comes After Loops?: Deep Dive Into Agentic Architecture | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">7:16</span><span class="listen-state" data-slug="openai-what-comes-after-loops-agentic-architecture"></span></a>
         </div>
       </nav>
     </section>
@@ -901,6 +902,52 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#yahoo-finance-openai-surprise-quarter-ai-race" data-route="article">&larr; Yahoo Finance</a>
         <a class="to-index" href="2026-11-10.html" data-route="index">All summaries</a>
+        <a class="next" href="#openai-what-comes-after-loops-agentic-architecture" data-route="article">OpenAI &middot; What Comes After Loops?: Deep Dive Into Agentic Architecture | DevDay 2026 &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="openai-what-comes-after-loops-agentic-architecture" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-10.html" data-route="index">&larr; November 10, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">What Comes After Loops?: Deep Dive Into Agentic Architecture | DevDay 2026 &mdash; November 10, 2026 <span class="dur">&middot; 7:16</span></p>
+        <audio controls preload="none" src="../podcasts/openai-what-comes-after-loops-agentic-architecture.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/openai-what-comes-after-loops-agentic-architecture.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="openai-what-comes-after-loops-agentic-architecture" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="openai-what-comes-after-loops-agentic-architecture"></div>
+        <div class="episode-download"><a href="../podcasts/openai-what-comes-after-loops-agentic-architecture.mp3" download>Download openai-what-comes-after-loops-agentic-architecture.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>OpenAI</dd></div>
+        <div><dt>Published</dt><dd>November 10, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=nAubbmlhPfI" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">OpenAI &middot; Raj and Eric on what comes after loops in agentic architecture</p>
+        <h2>What Comes After Loops?: Deep Dive Into Agentic Architecture | DevDay 2026</h2>
+        <div>
+<p>On OpenAI, &quot;What Comes After Loops?: Deep Dive Into Agentic Architecture&quot; is a DevDay 2026 session in which Raj, of the Applied AI engineering team, and Eric, of the developer experience team, trace how OpenAI&#x27;s agents grew from a single loop into systems that coordinate thousands of agents at once. They open with a joke that carries the talk&#x27;s real theme: when they named the session, they laughed that everything in it would be outdated by the time they finished preparing it, because how agents are built keeps changing as the models improve.</p>
+<p>Raj starts at the launch of ChatGPT, when his first experiment was asking it to write FizzBuzz, the standard junior developer interview exercise. The code worked, which amazed him, but he was still the loop: he copied the code into his editor, ran it himself, and carried the result back. The shift came when the AI could act. In the o3 launch video, the model analyzed an image by zooming in, reasoning over details, inspecting what it found, and planning its next step. Reasoning plus tool use, repeated, is what they call the agentic loop.</p>
+<p>Codex, OpenAI&#x27;s general agent, pushed the idea further by giving the model a computer. Raj explains that Codex was built around a model and a harness designed together: the harness manages the instructions, the tools, the execution environment, and the context the model carries from step to step, and the model is trained to work inside that harness, so each side shapes the other. The harness itself, which is open source, is deliberately minimal and opinionated, built on general tools like the shell and the file system, on the theory that if a person can do a task on a computer, the model should be able to figure it out too. At the center sits the Responses API, which runs the loop, passes tool definitions to the model, executes its tool calls in a sandbox, and decides whether another turn happens.</p>
+<p>Long tasks broke the single context window, so OpenAI trained compaction into both the harness and the model. As the window fills, the harness asks the Responses API to condense the conversation history into a state the work can continue from, and because the model itself understands what it means to be compacted, it knows what to keep and how to resume. That unlocked long horizon work across many context windows. The next problem was persistence: earlier models made good progress and then simply ended their turns early. Developers responded with outer loops, from Peter Steinberger cueing the model with repeated continue instructions to Geoffrey Huntley&#x27;s Ralph loop, a bash loop that restarts the agent against a prompt file with a fresh context each run.</p>
+<p>OpenAI brought that pattern into Codex as /goal, shipped with GPT-5.5. The objective is saved outside the conversation, where compaction cannot touch it, the harness tracks its status, and the agent keeps working across turns until the job is done or it reports a genuine blocker. Then, with GPT-5.6, persistence was trained into the model itself, so it checks its own work and keeps going without the nudges. Raj cites Shopify chief executive Tobi Lütke calling it the first model that no longer needed /goal, and Wharton professor Ethan Mollick, who gave Codex access to his computer and had it play Slay the Spire 2 for about five hours straight.</p>
+<p>Eric then takes over on working with more than one agent, and his first advice is restraint: start with a single agent given a clear task and a way to check its work, and add agents only when the work gives a reason. With GPT-6, the models were trained to coordinate from the start, and under Ultra, Codex can copy itself and divide large projects among the copies, but every added agent can multiply token use without making the work faster or better. Some work divides obviously, like assigning one subagent to each of five pull requests, and some just needs a nudge, like asking for a couple of subagents to split an investigation into a tricky race condition.</p>
+<p>His more structured patterns come next. Effort scaling routes work by difficulty: his Coordinate skill has a mid-tier model handle most tasks, escalate hard problems to a stronger model, and hand simple busywork to cheaper ones, which reduces the anxiety of picking the right model for each job even if it does not always cost less. For a weekend project porting an old game of his into Blender, he used what he calls the pair: two agents, one getting capture technology working in the old engine and one unpacking the scene in Blender, with the communication boundaries spelled out explicitly because each side&#x27;s findings had to shape the other&#x27;s work. Above the subagent level, Codex can also manage whole chat threads in the ChatGPT app, starting and steering separate conversations, which suits long projects whose work streams, like art, design, programming, and playtesting on a game, can each be led by a specialized thread reporting to a producer. His warning is what he calls the middle management tax: every extra rule about how agents must collaborate can stall them as they seek approval through hierarchies nobody intended.</p>
+<p>Eric closes with a small habit that made a large difference: asking the agent to keep a compact work log holding the overall goal, the work in progress, and how the latest steering relates to both, so that after several compactions it does not drift from the original brief. He also cautions that best practices have a shelf life, and that nobody should get attached to their current workflow.</p>
+<p>Raj returns for scale. Working on the Navier-Stokes problem, a Millennium Prize problem, OpenAI&#x27;s internal model and Codex ran 10,000 agents together, exchanging 2.7 million messages and producing about 130 billion output tokens, and found a solution. The pattern, which he calls agent teams, initializes several teams with different versions of the problem and different encouraged approaches, lets them communicate within and across teams so findings are shared and duplicated effort avoided, and spawns or redirects teams as the work deepens, while the goal itself never changes. When an unforced Euler result emerged, every team was diverted onto it. The same internal setup, he says, has since resolved more than 100 longstanding problems across mathematics. His closing challenge to the audience is to take a problem they have been putting off, or one earlier models could not finish, and just build.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>As persistence and coordination move into the model itself, which parts of today&#x27;s harness design and loop engineering remain necessary engineering, and which quietly become dead weight?</li>
+<li>When 10,000 agents produce a claimed solution to a problem like Navier-Stokes, what does verification look like, and who checks the work at that scale?</li>
+<li>For ordinary teams, where is the practical line between multi-agent structures that genuinely help and the middle management tax, given that every added agent raises the token bill?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full creator-uploaded caption track for this video (4,430 words covering the entire 24 minute 1 second runtime), fetched through the Android player client (version 21.02.35); the endpoint returned the track as srv3 XML, saved in this build as the grounding artifact. The player-served title used here carries a &quot;| DevDay 2026&quot; suffix that the listing title omits. The two caption tracks disagree on the spelling of Raj&#x27;s surname, so the speakers are named as they introduce themselves, by first name and team. Published spellings are used in prose where the captions garble names: Mollick for the captions&#x27; &quot;Mullica,&quot; Lütke for &quot;Luque,&quot; and Steinberger and Huntley as captioned.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#lex-fridman-russia-ukraine-war-future-of-warfare" data-route="article">&larr; Lex Fridman</a>
+        <a class="to-index" href="2026-11-10.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -921,7 +968,8 @@
       "theo-nobody-competing-with-anthropic": "Nobody Is Competing With Anthropic",
       "allin-rick-smith-axon-freedom-vs-safety": "Freedom vs. Safety: Axon CEO Rick Smith on the Future of Policing",
       "yahoo-finance-openai-surprise-quarter-ai-race": "What OpenAI’s Surprise Quarter Means for the AI Race | Deirdre Bosa Live",
-      "lex-fridman-russia-ukraine-war-future-of-warfare": "Russia-Ukraine War: Putin, Zelenskyy, Drones and the Future of Warfare | Lex Fridman Podcast #504"
+      "lex-fridman-russia-ukraine-war-future-of-warfare": "Russia-Ukraine War: Putin, Zelenskyy, Drones and the Future of Warfare | Lex Fridman Podcast #504",
+      "openai-what-comes-after-loops-agentic-architecture": "What Comes After Loops?: Deep Dive Into Agentic Architecture | DevDay 2026"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
