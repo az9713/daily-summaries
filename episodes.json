@@ -1,6 +1,6 @@
 {
- "total": 733,
- "playable": 720,
+ "total": 734,
+ "playable": 721,
  "episodes": [
   {
    "slug": "builders-alex-karp-ai-middle-class",
@@ -109,6 +109,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/yahoo-finance-openai-surprise-quarter-ai-race.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#yahoo-finance-openai-surprise-quarter-ai-race",
    "source_url": "https://www.youtube.com/watch?v=21wqIqiZb0U"
+  },
+  {
+   "slug": "lex-fridman-russia-ukraine-war-future-of-warfare",
+   "title": "Russia-Ukraine War: Putin, Zelenskyy, Drones and the Future of Warfare | Lex Fridman Podcast #504",
+   "channel": "Lex Fridman",
+   "date": "2026-11-10",
+   "duration": "13:15",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/lex-fridman-russia-ukraine-war-future-of-warfare.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#lex-fridman-russia-ukraine-war-future-of-warfare",
+   "source_url": "https://www.youtube.com/watch?v=2hJkprFnzhY"
   },
   {
    "slug": "restisscience-evolution-mind-control",
