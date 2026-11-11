@@ -1,6 +1,6 @@
 {
- "total": 732,
- "playable": 719,
+ "total": 733,
+ "playable": 720,
  "episodes": [
   {
    "slug": "builders-alex-karp-ai-middle-class",
@@ -97,6 +97,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/allin-rick-smith-axon-freedom-vs-safety.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#allin-rick-smith-axon-freedom-vs-safety",
    "source_url": "https://www.youtube.com/watch?v=8h-gfrVYyAU"
+  },
+  {
+   "slug": "yahoo-finance-openai-surprise-quarter-ai-race",
+   "title": "What OpenAI’s Surprise Quarter Means for the AI Race | Deirdre Bosa Live",
+   "channel": "Yahoo Finance",
+   "date": "2026-11-10",
+   "duration": "7:20",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/yahoo-finance-openai-surprise-quarter-ai-race.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#yahoo-finance-openai-surprise-quarter-ai-race",
+   "source_url": "https://www.youtube.com/watch?v=21wqIqiZb0U"
   },
   {
    "slug": "restisscience-evolution-mind-control",
