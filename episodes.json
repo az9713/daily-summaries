@@ -1,6 +1,6 @@
 {
- "total": 745,
- "playable": 732,
+ "total": 746,
+ "playable": 733,
  "episodes": [
   {
    "slug": "stripe-fireside-john-collison-sam-gerstenzang-building-companies-ai",
@@ -49,6 +49,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/ycrootaccess-model-ml-ai-operating-system-finance.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-11.html#ycrootaccess-model-ml-ai-operating-system-finance",
    "source_url": "https://www.youtube.com/watch?v=zIlVzGJZZ5E"
+  },
+  {
+   "slug": "a16z-mike-volpi-ai-infrastructure-outlast-hype-cycle",
+   "title": "Mike Volpi on Why AI Infrastructure Will Outlast the Hype Cycle",
+   "channel": "a16z",
+   "date": "2026-11-11",
+   "duration": "7:58",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-mike-volpi-ai-infrastructure-outlast-hype-cycle.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-11.html#a16z-mike-volpi-ai-infrastructure-outlast-hype-cycle",
+   "source_url": "https://www.youtube.com/watch?v=LI3lxzHfRrU"
   },
   {
    "slug": "builders-alex-karp-ai-middle-class",
