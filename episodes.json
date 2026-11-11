@@ -1,6 +1,6 @@
 {
- "total": 735,
- "playable": 722,
+ "total": 736,
+ "playable": 723,
  "episodes": [
   {
    "slug": "builders-alex-karp-ai-middle-class",
@@ -133,6 +133,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/openai-what-comes-after-loops-agentic-architecture.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#openai-what-comes-after-loops-agentic-architecture",
    "source_url": "https://www.youtube.com/watch?v=nAubbmlhPfI"
+  },
+  {
+   "slug": "openai-devday-build-whats-next-chatgpt-platform-plugins",
+   "title": "Build What’s Next on the ChatGPT Platform with Plugins | DevDay 2026",
+   "channel": "OpenAI",
+   "date": "2026-11-10",
+   "duration": "6:35",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/openai-devday-build-whats-next-chatgpt-platform-plugins.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#openai-devday-build-whats-next-chatgpt-platform-plugins",
+   "source_url": "https://www.youtube.com/watch?v=pIW_8VyvCuQ"
   },
   {
    "slug": "restisscience-evolution-mind-control",
