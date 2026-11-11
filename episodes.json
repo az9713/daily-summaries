@@ -1,6 +1,6 @@
 {
- "total": 731,
- "playable": 718,
+ "total": 732,
+ "playable": 719,
  "episodes": [
   {
    "slug": "builders-alex-karp-ai-middle-class",
@@ -85,6 +85,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/theo-nobody-competing-with-anthropic.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#theo-nobody-competing-with-anthropic",
    "source_url": "https://www.youtube.com/watch?v=yh5IAUow4Hc"
+  },
+  {
+   "slug": "allin-rick-smith-axon-freedom-vs-safety",
+   "title": "Freedom vs. Safety: Axon CEO Rick Smith on the Future of Policing",
+   "channel": "All-In Podcast",
+   "date": "2026-11-10",
+   "duration": "10:04",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/allin-rick-smith-axon-freedom-vs-safety.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#allin-rick-smith-axon-freedom-vs-safety",
+   "source_url": "https://www.youtube.com/watch?v=8h-gfrVYyAU"
   },
   {
    "slug": "restisscience-evolution-mind-control",
