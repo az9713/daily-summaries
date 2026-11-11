@@ -1,6 +1,6 @@
 {
- "total": 737,
- "playable": 724,
+ "total": 738,
+ "playable": 725,
  "episodes": [
   {
    "slug": "builders-alex-karp-ai-middle-class",
@@ -157,6 +157,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/openai-devday-gpt-live-image-generation.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#openai-devday-gpt-live-image-generation",
    "source_url": "https://www.youtube.com/watch?v=jDxKzlGLCas"
+  },
+  {
+   "slug": "openai-codex-security",
+   "title": "Codex Security: From Vulnerability to Verified Fix | DevDay 2026",
+   "channel": "OpenAI",
+   "date": "2026-11-10",
+   "duration": "6:56",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/openai-codex-security.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-10.html#openai-codex-security",
+   "source_url": "https://www.youtube.com/watch?v=gUQN7juxvVI"
   },
   {
    "slug": "restisscience-evolution-mind-control",
