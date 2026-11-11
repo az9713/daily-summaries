@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Tuesday &middot; November 10, 2026</p>
-        <h1>11 summaries, distilled.</h1>
+        <h1>12 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -419,6 +419,7 @@
         <a class="card" href="#yahoo-finance-openai-surprise-quarter-ai-race"><span class="num">09</span><span><span class="card-title">What OpenAI’s Surprise Quarter Means for the AI Race | Deirdre Bosa Live</span><span class="card-byline">Yahoo Finance</span></span><span class="card-dur">7:20</span><span class="listen-state" data-slug="yahoo-finance-openai-surprise-quarter-ai-race"></span></a>
         <a class="card" href="#lex-fridman-russia-ukraine-war-future-of-warfare"><span class="num">10</span><span><span class="card-title">Russia-Ukraine War: Putin, Zelenskyy, Drones and the Future of Warfare | Lex Fridman Podcast #504</span><span class="card-byline">Lex Fridman</span></span><span class="card-dur">13:15</span><span class="listen-state" data-slug="lex-fridman-russia-ukraine-war-future-of-warfare"></span></a>
         <a class="card" href="#openai-what-comes-after-loops-agentic-architecture"><span class="num">11</span><span><span class="card-title">What Comes After Loops?: Deep Dive Into Agentic Architecture | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">7:16</span><span class="listen-state" data-slug="openai-what-comes-after-loops-agentic-architecture"></span></a>
+        <a class="card" href="#openai-devday-build-whats-next-chatgpt-platform-plugins"><span class="num">12</span><span><span class="card-title">Build What’s Next on the ChatGPT Platform with Plugins | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">6:35</span><span class="listen-state" data-slug="openai-devday-build-whats-next-chatgpt-platform-plugins"></span></a>
         </div>
       </nav>
     </section>
@@ -948,6 +949,54 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#lex-fridman-russia-ukraine-war-future-of-warfare" data-route="article">&larr; Lex Fridman</a>
         <a class="to-index" href="2026-11-10.html" data-route="index">All summaries</a>
+        <a class="next" href="#openai-devday-build-whats-next-chatgpt-platform-plugins" data-route="article">OpenAI &middot; Build What’s Next on the ChatGPT Platform with Plugins | DevDay 2026 &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="openai-devday-build-whats-next-chatgpt-platform-plugins" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-10.html" data-route="index">&larr; November 10, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Build What’s Next on the ChatGPT Platform with Plugins | DevDay 2026 &mdash; November 10, 2026 <span class="dur">&middot; 6:35</span></p>
+        <audio controls preload="none" src="../podcasts/openai-devday-build-whats-next-chatgpt-platform-plugins.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/openai-devday-build-whats-next-chatgpt-platform-plugins.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="openai-devday-build-whats-next-chatgpt-platform-plugins" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="openai-devday-build-whats-next-chatgpt-platform-plugins"></div>
+        <div class="episode-download"><a href="../podcasts/openai-devday-build-whats-next-chatgpt-platform-plugins.mp3" download>Download openai-devday-build-whats-next-chatgpt-platform-plugins.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>OpenAI</dd></div>
+        <div><dt>Published</dt><dd>November 10, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=pIW_8VyvCuQ" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">OpenAI &middot; Corey and Max Neuber on building what is next on the ChatGPT platform with plugins</p>
+        <h2>Build What’s Next on the ChatGPT Platform with Plugins | DevDay 2026</h2>
+        <div>
+<p>On OpenAI, “Build What’s Next on the ChatGPT Platform with Plugins | DevDay 2026” is a DevDay 2026 session led by Corey of the Developer Experience team, with Max Neuber, who leads engineering for the plugins developer platform, taking the technical second half. The premise is simple: people come to ChatGPT to solve problems, and solving them often means working across a number of external systems. Plugins are the bridge. Corey says the builders who shipped the first plugins asked for three things, better reliability, a better submissions process, and better ways for people to discover what they built, and the session is organized around three announcements that answer them: discovery, the experience, and building and shipping.</p>
+<p>Discovery comes first. ChatGPT can now suggest a plugin in the middle of a conversation, at the moment someone is working on the very task the plugin was built for. Corey gives the example of someone who already has a website and asks what could turn it into a full stack web app: ChatGPT can suggest Supabase and Vercel, and the person can install one and keep working without leaving the thread. Plugins can also be found in the directory, which now holds 4,000 of them. The suggestions are shaped by three signals: conversion, meaning how often people who find a plugin go on to use it after installing; active usage, meaning how many people use it daily and weekly; and retention, meaning how many keep coming back.</p>
+<p>The demand behind this is agent work. Corey says installations have risen sharply over the last six months, more conversations are using plugins, and agent threads have grown more complex, pulling context from more systems and taking action across them. A single task can involve several tool calls, and he points to steep growth in MCP, the protocol agents use to reach those tools, saying OpenAI is doubling down on it. Plugins were made a priority first in Codex and now across all of ChatGPT.</p>
+<p>The second announcement is plugin extensions, which let a plugin bring its own interface into ChatGPT itself. A plugin can now live in the sidebar as a permanent home, open in a side panel beside the conversation, add targeted actions in the composer through at mentions and search, and register to open files in an interactive viewer. The interface and the conversation share context in both directions: if a user selects an element in the side panel, the model knows which element they are looking at. Corey stresses that extensions run on the same platform OpenAI&#x27;s own teams build on, which is how the company built its internal health, finance, Codex security, code review, and meetings experiences.</p>
+<p>He demonstrates the meetings plugin from the sidebar. It can take notes directly, transcribing on the spot with permission, and after a meeting a background agent produces an enriched summary that pulls in context from other systems rather than only transcribing what was said. Recommended action items from a meeting can be clicked to start a new thread. The second demonstration is Rosalind Workbench, a life sciences plugin whose molecular structure reviewer puts a 3D model of a DNA molecule in the side panel: a researcher can click a specific part of the molecule, change selections and structure, and the conversation sees that context, so a follow-up message can be about the exact region under inspection.</p>
+<p>Partners get a tour as well. Magic Path, an AI design platform, builds a voice-requested vinyl record store landing page live in its sidebar canvas, with the plugin called directly from the voice conversation and elements editable afterward. Atlassian brings Jira and Confluence into the composer, where a page or issue can be searched, selected, and attached as context. Canva turns an idea into a pitch deck inside ChatGPT, and Shopify starts from store analytics and walks a merchant through creating a product bundle with generated images, all the way to checkout.</p>
+<p>Running the other direction is Sign in with ChatGPT, which lets developers add ChatGPT identity to a web app and to a plugin. Corey says Supabase, an early adopter, has seen three times the weekly installations of its plugin since implementing it. The same integration lets eligible users bring their ChatGPT token entitlements into a developer&#x27;s product, so their AI usage there is funded by their ChatGPT subscription instead of being charged again by the developer&#x27;s platform.</p>
+<p>For building and shipping, the session points developers at Codex and at the OpenAI developers plugin, which Corey shows with extensions of its own, including a DevDay tab the team shipped the day before so attendees could build and share their own schedules. On hosting, he notes that Sites, OpenAI&#x27;s way to launch full stack web apps, can also host MCP servers, so a web app can double as a plugin&#x27;s backend, and the built-in App Plugin Creator can package and deploy a fully hosted MCP server. His getting-started advice is to pick one thing users should experience inside ChatGPT, describe it to App Plugin Creator, try a first version, and keep iterating.</p>
+<p>Max Neuber then explains what extensions are under the hood: they are built on MCP and MCP Apps, so existing tools and widgets carry over. Adding an entry points configuration to the MCP tool that opens a widget gives the plugin its sidebar home, one more configuration opens it in the side panel, and a file entry point declares which file types it can open in the viewer. Composer search works through a read-only MCP tool marked for mention search, which takes a query string and returns matching objects. Plugins can also ship a custom onboarding skill, packaged with the plugin and referenced in the plugin .json, that runs after installation to guide setup and save choices through the plugin&#x27;s own tools, and those choices can later be changed through settings that ChatGPT renders in its own settings screen from a schema the plugin provides through a read tool and an update tool.</p>
+<p>Neuber also announces that ChatGPT is the first major MCP client to ship support for the upcoming MCP events specification, which lets an MCP server tell ChatGPT when something happens and start an automation in response. Supporting it takes three pieces: the server implements an events list method that declares which events it can send, ChatGPT calls an events subscribe method that provides a callback URL and a signing secret, and when a matching event occurs the server sends a signed webhook to that URL and ChatGPT kicks off the automation, even if the user has stepped away.</p>
+<p>The last piece is submissions, which Neuber calls everybody&#x27;s favorite topic and admits has been painful, with submission volume up by almost an order of magnitude since the start of the year and queue times growing with it. The team rebuilt the system from scratch. The submission form is gone: everything OpenAI needs now lives in the plugin .json file, which Codex can generate from the codebase. Automated review checks now begin running on upload, so developers get specific feedback about what needs fixing immediately instead of waiting on a human review. And when a developer deploys changes to their MCP server, those changes go live without submitting a new version of the plugin. Corey closes by turning the session into a workshop, sending the audience to their laptops to build a first plugin or add extensions to an existing one with OpenAI staff circulating to help.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Discovery now leans on conversion, active usage, and retention signals. How does a brand new plugin with no usage history earn its first in-conversation suggestions, and could these signals end up entrenching the plugins that are already popular?</li>
+<li>Extensions place third-party interfaces in the sidebar, the side panel, the composer, and the file viewer, all sharing live context with the model. Where does a plugin&#x27;s interface end and ChatGPT begin, and who answers when the two disagree about what the user is looking at or has selected?</li>
+<li>Sign in with ChatGPT lets users spend their subscription&#x27;s token entitlements inside third-party products, and MCP events let a plugin start an automation while the user is away. What consent, pricing, and abuse controls govern plugins that can both draw on a user&#x27;s plan and act on their behalf between sessions?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full creator-provided English caption track for this video (4,992 words covering the entire 27 minute 44 second runtime), fetched through the Android player client (version 21.02.35); the endpoint returned the track as srv3 XML, which is saved in this build as the grounding artifact. The player-served title used here carries the “| DevDay 2026” suffix that the oEmbed render of the title omits. Where the captions garble a term, prose follows the naming used consistently through the session, so the events specification is written as the MCP events spec, and the plugin manifest is written as the plugin .json, as the speakers name them.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#openai-what-comes-after-loops-agentic-architecture" data-route="article">&larr; OpenAI</a>
+        <a class="to-index" href="2026-11-10.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -969,7 +1018,8 @@
       "allin-rick-smith-axon-freedom-vs-safety": "Freedom vs. Safety: Axon CEO Rick Smith on the Future of Policing",
       "yahoo-finance-openai-surprise-quarter-ai-race": "What OpenAI’s Surprise Quarter Means for the AI Race | Deirdre Bosa Live",
       "lex-fridman-russia-ukraine-war-future-of-warfare": "Russia-Ukraine War: Putin, Zelenskyy, Drones and the Future of Warfare | Lex Fridman Podcast #504",
-      "openai-what-comes-after-loops-agentic-architecture": "What Comes After Loops?: Deep Dive Into Agentic Architecture | DevDay 2026"
+      "openai-what-comes-after-loops-agentic-architecture": "What Comes After Loops?: Deep Dive Into Agentic Architecture | DevDay 2026",
+      "openai-devday-build-whats-next-chatgpt-platform-plugins": "Build What’s Next on the ChatGPT Platform with Plugins | DevDay 2026"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
