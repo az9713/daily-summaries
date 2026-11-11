@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Tuesday &middot; November 10, 2026</p>
-        <h1>12 summaries, distilled.</h1>
+        <h1>13 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -420,6 +420,7 @@
         <a class="card" href="#lex-fridman-russia-ukraine-war-future-of-warfare"><span class="num">10</span><span><span class="card-title">Russia-Ukraine War: Putin, Zelenskyy, Drones and the Future of Warfare | Lex Fridman Podcast #504</span><span class="card-byline">Lex Fridman</span></span><span class="card-dur">13:15</span><span class="listen-state" data-slug="lex-fridman-russia-ukraine-war-future-of-warfare"></span></a>
         <a class="card" href="#openai-what-comes-after-loops-agentic-architecture"><span class="num">11</span><span><span class="card-title">What Comes After Loops?: Deep Dive Into Agentic Architecture | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">7:16</span><span class="listen-state" data-slug="openai-what-comes-after-loops-agentic-architecture"></span></a>
         <a class="card" href="#openai-devday-build-whats-next-chatgpt-platform-plugins"><span class="num">12</span><span><span class="card-title">Build What’s Next on the ChatGPT Platform with Plugins | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">6:35</span><span class="listen-state" data-slug="openai-devday-build-whats-next-chatgpt-platform-plugins"></span></a>
+        <a class="card" href="#openai-devday-gpt-live-image-generation"><span class="num">13</span><span><span class="card-title">Building with GPT-Live and Image Generation | DevDay 2026</span><span class="card-byline">OpenAI</span></span><span class="card-dur">5:24</span><span class="listen-state" data-slug="openai-devday-gpt-live-image-generation"></span></a>
         </div>
       </nav>
     </section>
@@ -997,6 +998,51 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#openai-what-comes-after-loops-agentic-architecture" data-route="article">&larr; OpenAI</a>
         <a class="to-index" href="2026-11-10.html" data-route="index">All summaries</a>
+        <a class="next" href="#openai-devday-gpt-live-image-generation" data-route="article">OpenAI &middot; Building with GPT-Live and Image Generation | DevDay 2026 &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="openai-devday-gpt-live-image-generation" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-10.html" data-route="index">&larr; November 10, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Building with GPT-Live and Image Generation | DevDay 2026 &mdash; November 10, 2026 <span class="dur">&middot; 5:24</span></p>
+        <audio controls preload="none" src="../podcasts/openai-devday-gpt-live-image-generation.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/openai-devday-gpt-live-image-generation.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="openai-devday-gpt-live-image-generation" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="openai-devday-gpt-live-image-generation"></div>
+        <div class="episode-download"><a href="../podcasts/openai-devday-gpt-live-image-generation.mp3" download>Download openai-devday-gpt-live-image-generation.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>OpenAI</dd></div>
+        <div><dt>Published</dt><dd>November 10, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=jDxKzlGLCas" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">OpenAI &middot; Alex and Erika on building with GPT-Live and image generation</p>
+        <h2>Building with GPT-Live and Image Generation | DevDay 2026</h2>
+        <div>
+<p>On OpenAI, “Building with GPT-Live and Image Generation | DevDay 2026” is a live DevDay session on building voice applications with GPT Live 1, presented by Alex, an engineer working on GPT Live, and Erika, who works with startups building voice applications. Their co-host is Marin, who is not a third presenter but a GPT Live session itself, and the whole session is run by voice: the presenters are not tethered to the demo laptop, and Marin brings up every diagram and demo on request. The talk walks through three ideas a builder needs, model personality, delegation, and the turnless architecture, with a live demo for each.</p>
+<p>The foundation is that GPT Live is a full duplex voice model. Unlike voice models architected around user and assistant turns, it streams audio in and out constantly, so it can listen and speak at the same time. The model handles turn-taking itself, with no separate voice activity detector deciding that someone has finished speaking, and the presenters argue builders can throw away the heuristics they currently use to detect the end of a turn. The first demo makes the point socially: Marin brings in Colin, a second GPT Live session with its own voice, instructions, and a deliberately grumpy British personality, and the four of them play a round of Fortunately, Unfortunately, laughing, talking over each other, and jumping in mid-sentence the way people do.</p>
+<p>Personality, the session argues, is a promptable surface rather than a fixed trait. Tone, accent, backchanneling, laughter, how eager or patient the model is when interrupted, and even whether it speaks at all are all set in the prompt, and the presenters urge builders to decide deliberately what experience they want: warm and engaging, or hanging back until spoken to, or only speaking when certain subjects come up. A second session like Colin also has a practical use beyond entertainment. Builders can spin up simulated users with different personalities, voices, and goals drawn from their production scenarios and watch how their application handles the conversation, and the team says that is exactly how this DevDay demo itself was evaluated.</p>
+<p>The second demo, a drawing guessing game, introduces delegation, the split between the voice front end and a backend that does real work. Marin keeps the game conversation flowing while a backend model with code execution, named in the session as Astra 6, does the drawing and checks guesses in the background. The application has three parts, the UI that shows the drawing, the voice interface that keeps talking, and the backend, and the split lets the builders control what each part knows: the voice interface gets the answer and hints so it can respond to guesses instantly, while the backend records state without ever blocking the conversation. When a task is too complex for the voice model, GPT Live kicks off a delegation, a new running thread handled by a more powerful model or agent harness, and the result comes back to be spoken aloud.</p>
+<p>Information flows back from the backend to the voice model over three distinct streams, and choosing among them is a product decision. Silent context updates feed the model&#x27;s thinking stream so it already knows the state of background work when a user asks about it. Speakable content goes to the commentary stream for things the model should say out loud, like announcing a leaderboard. The instructions stream steers behavior itself, carrying guardrails or new system instructions mid-session. The presenters are candid that cadence is easy to get wrong: when the team dogfooded voice in Codex internally, the first complaint was updates that were too verbose and too frequent, since nobody kicking off a twenty minute task wants a narration of every tool call, yet the voice model still needs enough current context to answer when asked.</p>
+<p>The API offers two ways to wire delegation up. Client delegation, the mode used in the demo, sends delegation events with an ID and a timestamp to the builder&#x27;s own application, which runs the work in whatever model, harness, and business logic it already has and sends results back; it even fits existing cascaded voice stacks of speech-to-text, a text agent, and text-to-speech, with GPT Live slotting in as the voice interface, and the presenters note this is how Codex Voice is built. Responses delegation is the managed alternative: the builder picks a model on OpenAI&#x27;s Responses API, configures its instructions and tools, and OpenAI runs the delegations, which feel like familiar function calling with structured outputs, and can include hosted tools such as web search and image generation that OpenAI runs for you. Either way, the pitch is that a team keeps its existing stack, models, harness, and evals, and simply adds a voice front end, which makes migration far more approachable.</p>
+<p>The final demo shows off the turnless architecture under hostile conditions. With loud royalty-free music playing, raised on request to fifty percent volume and restyled mid-conversation into a crackly 1888 wax cylinder recording, the presenters keep talking, change their minds, and issue commands, and Marin keeps delegating and responding, unphased by the noise. A model built on voice activity detection or silence would fall over in that room, they argue, because GPT Live never waits for silence: it continuously decides whether to speak, keep listening, or invoke a tool. The broader point is about where voice gets used, speakerphones in airports, cars full of people talking, manufacturing floors, places where users cannot find a quiet room, and about what voice unlocks in an interface: controls flatten, because a user who knows what they want but not where the setting lives can simply ask, and people will talk for minutes in a way they would never type, giving the application far richer context.</p>
+<p>The session closes by folding the image half of its title into the same pattern. Asked to finish with pictures, Marin uses OpenAI&#x27;s newest image model to generate twelve images of the DevDay critters traveling the world, produced through the same delegation loop as everything else in the hour. One session has run throughout, playing games, making images, absorbing background audio, and hosting a second voice as a guest, and the presenters leave builders with two starting points: point Codex at the OpenAI Developer plugin, and build from the new GPT Live Starter app.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>The three backend streams make update cadence a product decision, but the session offers war stories rather than rules. What conventions will emerge for how much silent context, speakable content, and instruction steering a backend should push before a voice agent feels either out of the loop or unbearably chatty?</li>
+<li>If tone, backchanneling, interruption patience, and even silence are all promptable, how do builders evaluate personality rigorously, and will simulated second sessions with scripted user personalities become the standard eval harness for voice apps?</li>
+<li>The migration pitch assumes teams keep their existing agent harness and add GPT Live as a front end. What happens to dedicated voice activity detection and cascaded speech pipelines as turnless models spread, and where do latency and cost settle when every conversation can also be running backend delegations?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full creator-uploaded English caption track for this video (3,333 words covering the whole 22 minute 37 second runtime), fetched through the Android player client (version 21.02.35), which returned the track as srv3 XML, saved in this build as the grounding artifact; the auto-generated track was also fetched as a cross-check and agrees on content. The commissioning link&#x27;s listing title read “Building with GPT-Live and Image Generation”; the player-served title used here adds the “| DevDay 2026” suffix. Speaker spellings follow the creator caption track, which renders Erika where the auto-generated track renders Erica. The backend model in the drawing demo is named Astra 6 in the session&#x27;s own words.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#openai-devday-build-whats-next-chatgpt-platform-plugins" data-route="article">&larr; OpenAI</a>
+        <a class="to-index" href="2026-11-10.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -1019,7 +1065,8 @@
       "yahoo-finance-openai-surprise-quarter-ai-race": "What OpenAI’s Surprise Quarter Means for the AI Race | Deirdre Bosa Live",
       "lex-fridman-russia-ukraine-war-future-of-warfare": "Russia-Ukraine War: Putin, Zelenskyy, Drones and the Future of Warfare | Lex Fridman Podcast #504",
       "openai-what-comes-after-loops-agentic-architecture": "What Comes After Loops?: Deep Dive Into Agentic Architecture | DevDay 2026",
-      "openai-devday-build-whats-next-chatgpt-platform-plugins": "Build What’s Next on the ChatGPT Platform with Plugins | DevDay 2026"
+      "openai-devday-build-whats-next-chatgpt-platform-plugins": "Build What’s Next on the ChatGPT Platform with Plugins | DevDay 2026",
+      "openai-devday-gpt-live-image-generation": "Building with GPT-Live and Image Generation | DevDay 2026"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
