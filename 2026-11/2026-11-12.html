@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; November 12, 2026</p>
-        <h1>18 summaries, distilled.</h1>
+        <h1>19 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -426,6 +426,7 @@
         <a class="card" href="#a16z-ai-halo-classic-games-back-to-life"><span class="num">16</span><span><span class="card-title">How AI Could Bring Halo and Other Classic Games Back to Life</span><span class="card-byline">a16z</span></span><span class="card-dur">8:43</span><span class="listen-state" data-slug="a16z-ai-halo-classic-games-back-to-life"></span></a>
         <a class="card" href="#thisweekinai-alex-finn-anthropic-best-model-grok-best-harness"><span class="num">17</span><span><span class="card-title">Alex Finn: Anthropic has the best model, Grok has the best harness | TWiAI 39</span><span class="card-byline">This Week in AI</span></span><span class="card-dur">7:10</span><span class="listen-state" data-slug="thisweekinai-alex-finn-anthropic-best-model-grok-best-harness"></span></a>
         <a class="card" href="#a16z-super-intelligence-era-critical-infrastructure"><span class="num">18</span><span><span class="card-title">Super Intelligence-Era Critical Infrastructure Cyber Defense Plan</span><span class="card-byline">a16z News &middot; Anne Neuberger</span></span><span class="card-dur">6:18</span><span class="listen-state" data-slug="a16z-super-intelligence-era-critical-infrastructure"></span></a>
+        <a class="card" href="#matthewberman-anthropic-researcher-train-llms"><span class="num">19</span><span><span class="card-title">Anthropic Researcher explains how to train LLMs</span><span class="card-byline">Matthew Berman</span></span><span class="card-dur">5:34</span><span class="listen-state" data-slug="matthewberman-anthropic-researcher-train-llms"></span></a>
         </div>
       </nav>
     </section>
@@ -1288,6 +1289,54 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#thisweekinai-alex-finn-anthropic-best-model-grok-best-harness" data-route="article">&larr; This Week in AI</a>
         <a class="to-index" href="2026-11-12.html" data-route="index">All summaries</a>
+        <a class="next" href="#matthewberman-anthropic-researcher-train-llms" data-route="article">Matthew Berman &middot; Anthropic Researcher explains how to train LLMs &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="matthewberman-anthropic-researcher-train-llms" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-12.html" data-route="index">&larr; November 12, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Anthropic Researcher explains how to train LLMs &mdash; November 12, 2026 <span class="dur">&middot; 5:34</span></p>
+        <audio controls preload="none" src="../podcasts/matthewberman-anthropic-researcher-train-llms.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/matthewberman-anthropic-researcher-train-llms.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="matthewberman-anthropic-researcher-train-llms" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="matthewberman-anthropic-researcher-train-llms"></div>
+        <div class="episode-download"><a href="../podcasts/matthewberman-anthropic-researcher-train-llms.mp3" download>Download matthewberman-anthropic-researcher-train-llms.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Matthew Berman</dd></div>
+        <div><dt>Published</dt><dd>November 12, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Sjdvu4nHfDk" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Matthew Berman &middot; Jeremy Berman of Anthropic on how LLMs are trained</p>
+        <h2>Anthropic Researcher explains how to train LLMs</h2>
+        <div>
+<p>On Matthew Berman, &quot;Anthropic Researcher explains how to train LLMs&quot; is a members-only conversation in which the host sits down with Jeremy Berman, a researcher at Anthropic. The two are not related, as the host points out up front. Jeremy is self-taught, and he lays out how modern language models are built in seven parts, starting with what a neural network is and ending with whether models can discover genuinely new things.</p>
+<p>He starts with a deliberately small example: predicting the price of a New York apartment from its location, its square footage, and its number of bathrooms. A neural network, he explains, is a machine for building the function that maps inputs like those to an answer. You could write such a function by hand for three inputs, but not for thousands of inputs and millions of examples, so the point is to have the computer build the function itself.</p>
+<p>The building blocks are numbers he calls knobs. Each input is multiplied by a knob, the results are added together, and that output can feed a whole new set of knobs, giving functions inside functions inside functions. Turning the knobs changes the output, and training means turning them so the model&#x27;s predictions land close to reality. The gap between a prediction and the real answer is called the loss, and the goal is to minimize it.</p>
+<p>Doing that by hand would be hopeless, so the field relies on software such as PyTorch that tracks every calculation each knob takes part in. The software can then say, for each knob, how much the loss would move if that knob were nudged up or down, and training nudges every knob slightly in the direction that reduces the loss. The size of the nudge is the learning rate, and the whole procedure is backpropagation. A finished model, he stresses, is nothing more exotic than a file of numbers, the parameters, plus a relatively small program that describes how those numbers are wired together.</p>
+<p>A language model applies the same machinery to text. The inputs are tokens, pieces of words, and instead of outputting one number, the model assigns a probability to every word that could come next. Training compares those probabilities with what actually came next in the text. If the model gave the true next word only a ten percent chance, the knobs are adjusted to make that word a little more likely next time, which by definition makes everything else a little less likely.</p>
+<p>Jeremy demonstrates with a small open base model running free in a browser notebook. The base model is pure autocomplete. It continues whatever it is given in the style of its training data, code and Chinese text in this case, and it cheerfully invents things the host never said. A base model, he notes, has never been trained to be helpful or truthful. It only knows what tends to follow what.</p>
+<p>Post-training turns that autocomplete engine into an assistant. Researchers found they could prefill the model with a conversation format, a user turn followed by an assistant turn, and the model would complete the pattern as an assistant. So they built large sets of example conversations, on the order of a hundred thousand, including a special stop token that ends the reply. Trained on those, the model takes on the assistant role, learns when to stop, and becomes the kind of chatbot people actually talk to.</p>
+<p>The next problem was that these assistants answered without thinking. Given a multi-step arithmetic problem, the model in his demo confidently blurts out an answer that is off by a factor of ten. Researchers found that getting the model to work through a problem step by step improves its answers, and OpenAI&#x27;s o1 was the first public model built around that kind of thinking. But the internet mostly contains the outcomes of thinking, finished articles and finished code, not the thinking itself, so imitation alone only goes so far.</p>
+<p>Reinforcement learning closes that gap by letting the model learn from its own attempts. In the method DeepSeek described for its R1 model, the model answers the same problem a hundred times, each attempt is scored, and each score is compared against the group&#x27;s average. Tokens in better-than-average answers become more likely, tokens in worse ones less likely. Because the model is learning from text it generated itself, the updates are gentler on what it already knows, and in domains where answers can be checked, such as mathematics and code, the model can steadily climb.</p>
+<p>That, he explains, is also why pre-training and post-training remain separate phases. Once a model has been given an assistant&#x27;s personality, feeding it raw outside data makes it adopt that data&#x27;s style and erode the assistant behavior. Merging the phases is an active research direction, but for now the order matters: first absorb the world&#x27;s text, then shape the assistant, then let it practice.</p>
+<p>He closes on discovery. A common criticism is that a model trained on what humanity already knows cannot produce anything new. Jeremy disagrees, pointing to models now cracking previously unsolved mathematics problems, and he defines reasoning as the process of making unlikely true things more likely, the same way Einstein&#x27;s thinking slowly made general relativity deducible. His money, he says, is on models making real discoveries. And his own path in, following obsessions down rabbit holes without a doctorate, is his evidence that the field is still open to anyone willing to do the work.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If training on outside data degrades an assistant once it has a persona, can the pre-training and post-training phases ever be safely merged, or is the split a permanent feature of how these systems are built?</li>
+<li>Reinforcement learning works where answers can be verified, as in mathematics and code. How far can that regime extend into domains where quality is a matter of judgment rather than a checkable answer?</li>
+<li>Jeremy Berman argues that reasoning lets models escape their training distribution and discover new things. What evidence would settle whether an apparent discovery is genuinely new knowledge rather than a recombination of the training data?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full transcript of this video (10,430 words, caption cues from 0:00 to 56:18 of the 56 minute 20 second recording), taken from the video&#x27;s auto-generated English caption track (en, srv3) served by the Android 21.02.35 player client; the Android 20.10.38 and iOS player clients returned the same track, and the srv3 file is saved in this build as the grounding artifact. The player-served title, &quot;Anthropic Researcher explains how to train LLMs&quot;, and the player-served author, &quot;Matthew Berman&quot;, agree exactly with the listing and oEmbed title and author, so there is no title variant to disclose. The caption track is automatic speech recognition and garbles some names and terms: it renders Qwen as &quot;Quen&quot;, the GRPO algorithm in forms such as &quot;gpo&quot;, and the guest&#x27;s remark that the material is &quot;self-teachable&quot; as &quot;selfeachable&quot;. Published spellings are used in the summary and episode throughout. The host states in his introduction that the video is for channel members only; it had 2,881 views when resolved.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#a16z-super-intelligence-era-critical-infrastructure" data-route="article">&larr; a16z News</a>
+        <a class="to-index" href="2026-11-12.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -1316,7 +1365,8 @@
       "bigthink-matthew-nurse-we-keep-being-wrong": "We keep thinking we’ve found the limit. We keep being wrong. | Matthew Nurse",
       "a16z-ai-halo-classic-games-back-to-life": "How AI Could Bring Halo and Other Classic Games Back to Life",
       "thisweekinai-alex-finn-anthropic-best-model-grok-best-harness": "Alex Finn: Anthropic has the best model, Grok has the best harness | TWiAI 39",
-      "a16z-super-intelligence-era-critical-infrastructure": "Super Intelligence-Era Critical Infrastructure Cyber Defense Plan"
+      "a16z-super-intelligence-era-critical-infrastructure": "Super Intelligence-Era Critical Infrastructure Cyber Defense Plan",
+      "matthewberman-anthropic-researcher-train-llms": "Anthropic Researcher explains how to train LLMs"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
