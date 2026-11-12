@@ -1,6 +1,6 @@
 {
- "total": 770,
- "playable": 757,
+ "total": 771,
+ "playable": 758,
  "episodes": [
   {
    "slug": "toe-dan-freed-quantum-field-theory",
@@ -205,6 +205,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/thisweekinai-alex-finn-anthropic-best-model-grok-best-harness.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#thisweekinai-alex-finn-anthropic-best-model-grok-best-harness",
    "source_url": "https://www.youtube.com/watch?v=7nXXuEzmM_I"
+  },
+  {
+   "slug": "a16z-super-intelligence-era-critical-infrastructure",
+   "title": "Super Intelligence-Era Critical Infrastructure Cyber Defense Plan",
+   "channel": "a16z News (Anne Neuberger)",
+   "date": "2026-11-12",
+   "duration": "6:18",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-super-intelligence-era-critical-infrastructure.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#a16z-super-intelligence-era-critical-infrastructure",
+   "source_url": "https://www.a16z.news/p/super-intelligence-era-critical-infrastructure"
   },
   {
    "slug": "stripe-fireside-john-collison-sam-gerstenzang-building-companies-ai",
