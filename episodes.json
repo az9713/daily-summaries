@@ -1,6 +1,6 @@
 {
- "total": 771,
- "playable": 758,
+ "total": 772,
+ "playable": 759,
  "episodes": [
   {
    "slug": "toe-dan-freed-quantum-field-theory",
@@ -217,6 +217,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-super-intelligence-era-critical-infrastructure.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#a16z-super-intelligence-era-critical-infrastructure",
    "source_url": "https://www.a16z.news/p/super-intelligence-era-critical-infrastructure"
+  },
+  {
+   "slug": "matthewberman-anthropic-researcher-train-llms",
+   "title": "Anthropic Researcher explains how to train LLMs",
+   "channel": "Matthew Berman",
+   "date": "2026-11-12",
+   "duration": "5:34",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/matthewberman-anthropic-researcher-train-llms.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#matthewberman-anthropic-researcher-train-llms",
+   "source_url": "https://www.youtube.com/watch?v=Sjdvu4nHfDk"
   },
   {
    "slug": "stripe-fireside-john-collison-sam-gerstenzang-building-companies-ai",
