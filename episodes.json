@@ -1,6 +1,6 @@
 {
- "total": 760,
- "playable": 747,
+ "total": 761,
+ "playable": 748,
  "episodes": [
   {
    "slug": "toe-dan-freed-quantum-field-theory",
@@ -85,6 +85,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/lowlevel-1000-vulnerabilities-linux-kernel.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#lowlevel-1000-vulnerabilities-linux-kernel",
    "source_url": "https://www.youtube.com/watch?v=Z3xvjzlDWd8"
+  },
+  {
+   "slug": "claude-building-claude-api-frontier",
+   "title": "Building the Claude API for the Frontier",
+   "channel": "Claude",
+   "date": "2026-11-12",
+   "duration": "6:17",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/claude-building-claude-api-frontier.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#claude-building-claude-api-frontier",
+   "source_url": "https://www.youtube.com/watch?v=p2xvJAbF-i4"
   },
   {
    "slug": "stripe-fireside-john-collison-sam-gerstenzang-building-companies-ai",
