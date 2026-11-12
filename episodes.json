@@ -1,6 +1,6 @@
 {
- "total": 757,
- "playable": 744,
+ "total": 758,
+ "playable": 745,
  "episodes": [
   {
    "slug": "toe-dan-freed-quantum-field-theory",
@@ -49,6 +49,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/rajshamani-joe-hudson-psychology-of-billionaires.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#rajshamani-joe-hudson-psychology-of-billionaires",
    "source_url": "https://www.youtube.com/watch?v=g9zGQdrAlMw"
+  },
+  {
+   "slug": "mckinsey-brilliant-moves-coffee-coca-cola-henrique-braun",
+   "title": "Brilliant Moves: Coffee with The Coca-Cola Company CEO Henrique Braun",
+   "channel": "McKinsey & Company",
+   "date": "2026-11-12",
+   "duration": "4:52",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mckinsey-brilliant-moves-coffee-coca-cola-henrique-braun.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#mckinsey-brilliant-moves-coffee-coca-cola-henrique-braun",
+   "source_url": "https://www.youtube.com/watch?v=i11Fql92knA"
   },
   {
    "slug": "stripe-fireside-john-collison-sam-gerstenzang-building-companies-ai",
