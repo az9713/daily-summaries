@@ -1,6 +1,6 @@
 {
- "total": 769,
- "playable": 756,
+ "total": 770,
+ "playable": 757,
  "episodes": [
   {
    "slug": "toe-dan-freed-quantum-field-theory",
@@ -193,6 +193,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-ai-halo-classic-games-back-to-life.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#a16z-ai-halo-classic-games-back-to-life",
    "source_url": "https://www.youtube.com/watch?v=HDRy6XmE2RQ"
+  },
+  {
+   "slug": "thisweekinai-alex-finn-anthropic-best-model-grok-best-harness",
+   "title": "Alex Finn: Anthropic has the best model, Grok has the best harness | TWiAI 39",
+   "channel": "This Week in AI",
+   "date": "2026-11-12",
+   "duration": "7:10",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/thisweekinai-alex-finn-anthropic-best-model-grok-best-harness.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#thisweekinai-alex-finn-anthropic-best-model-grok-best-harness",
+   "source_url": "https://www.youtube.com/watch?v=7nXXuEzmM_I"
   },
   {
    "slug": "stripe-fireside-john-collison-sam-gerstenzang-building-companies-ai",
