@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; November 12, 2026</p>
-        <h1>6 summaries, distilled.</h1>
+        <h1>7 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -414,6 +414,7 @@
         <a class="card" href="#rajshamani-joe-hudson-psychology-of-billionaires"><span class="num">04</span><span><span class="card-title">Psychology Of Billionaires, Extreme Ambition &amp; Secrets Of Success | Joe Hudson | FO586 Raj Shamani</span><span class="card-byline">Raj Shamani</span></span><span class="card-dur">8:39</span><span class="listen-state" data-slug="rajshamani-joe-hudson-psychology-of-billionaires"></span></a>
         <a class="card" href="#mckinsey-brilliant-moves-coffee-coca-cola-henrique-braun"><span class="num">05</span><span><span class="card-title">Brilliant Moves: Coffee with The Coca-Cola Company CEO Henrique Braun</span><span class="card-byline">McKinsey &amp; Company</span></span><span class="card-dur">4:52</span><span class="listen-state" data-slug="mckinsey-brilliant-moves-coffee-coca-cola-henrique-braun"></span></a>
         <a class="card" href="#mtsituation-ben-buchanan-china-zero-frontier-ai-domestic-chips"><span class="num">06</span><span><span class="card-title">China Has Zero Frontier AI on Domestic Chips | Ben Buchanan</span><span class="card-byline">MTS</span></span><span class="card-dur">8:32</span><span class="listen-state" data-slug="mtsituation-ben-buchanan-china-zero-frontier-ai-domestic-chips"></span></a>
+        <a class="card" href="#lowlevel-1000-vulnerabilities-linux-kernel"><span class="num">07</span><span><span class="card-title">they found 1000 vulnerabilities in the linux kernel..</span><span class="card-byline">Low Level</span></span><span class="card-dur">5:07</span><span class="listen-state" data-slug="lowlevel-1000-vulnerabilities-linux-kernel"></span></a>
         </div>
       </nav>
     </section>
@@ -702,6 +703,51 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#mckinsey-brilliant-moves-coffee-coca-cola-henrique-braun" data-route="article">&larr; McKinsey &amp; Company</a>
         <a class="to-index" href="2026-11-12.html" data-route="index">All summaries</a>
+        <a class="next" href="#lowlevel-1000-vulnerabilities-linux-kernel" data-route="article">Low Level &middot; they found 1000 vulnerabilities in the linux kernel.. &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="lowlevel-1000-vulnerabilities-linux-kernel" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-12.html" data-route="index">&larr; November 12, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">they found 1000 vulnerabilities in the linux kernel.. &mdash; November 12, 2026 <span class="dur">&middot; 5:07</span></p>
+        <audio controls preload="none" src="../podcasts/lowlevel-1000-vulnerabilities-linux-kernel.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/lowlevel-1000-vulnerabilities-linux-kernel.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="lowlevel-1000-vulnerabilities-linux-kernel" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="lowlevel-1000-vulnerabilities-linux-kernel"></div>
+        <div class="episode-download"><a href="../podcasts/lowlevel-1000-vulnerabilities-linux-kernel.mp3" download>Download lowlevel-1000-vulnerabilities-linux-kernel.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Low Level</dd></div>
+        <div><dt>Published</dt><dd>November 12, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Z3xvjzlDWd8" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Low Level &middot; 1,000 vulnerabilities found in the Linux kernel</p>
+        <h2>they found 1000 vulnerabilities in the linux kernel..</h2>
+        <div>
+<p>On Low Level, “they found 1000 vulnerabilities in the linux kernel..” is a walkthrough of an OpenAI disclosure that he thinks matters twice over. OpenAI says it found and fixed roughly a thousand local privilege escalations in the Linux kernel, at a total cost of about 1.2 million dollars. Divided across the 948 working exploits they confirmed, that is roughly 1,200 dollars per bug by his arithmetic. The write-up interests him first because OpenAI is unusually transparent about the harness it used to do the research, and second because of the question it raises: if AI can find bugs this fast, does software simply start trending more secure?</p>
+<p>His own conversion on that question came from a blog post by Sean Heelan in May of last year. Heelan took a CVE that already existed and asked whether the model of the day, o3, could reproduce it. The model found the old bug, and then found a brand new one in the kernel&#x27;s SMB implementation besides. But Heelan&#x27;s caveat frames the whole video: a model is constrained by its context window, at the time fewer than 10,000 lines of code it can be aware of at once, while the Linux kernel runs to millions of lines. Bridging that gap is what a research harness is for.</p>
+<p>He pauses to explain what a local privilege escalation is. The simple kind is a misconfiguration, like a backup script that root&#x27;s cron job runs daily while the file itself is world-writable, so any user can rewrite it and become root. That is not what OpenAI found. The serious kind lives in the kernel itself. Programs run in user mode, restricted by the hardware, and must ask the kernel, through a system call, to touch files, networks, and devices. If a kernel function copies user-supplied memory with a size computed from user input, an integer overflow can make it allocate a small buffer and copy a large one, and exploiting that means running code in kernel mode itself. Those are the bugs at issue here.</p>
+<p>OpenAI&#x27;s answer to the context problem is a pipeline of agents. Scout agents survey the entire codebase at a high level, all 40 million lines, looking for suspicious patterns and structures, the ring buffers and page cache code reminiscent of the Dirty Frag vulnerabilities, without doing deep analysis. The spots they flag become audit targets, handed to analyst agents that do real vulnerability research on a small slice at a time, on the order of 10,000 lines or fewer. A triage agent then turns each alert into a proof of concept and runs it in a virtual machine to see whether it actually pops a shell, and survivors become reports, patches, and upstream fixes.</p>
+<p>He is clear-eyed about one advantage OpenAI has: smart researchers, yes, but also access to its best models without the guardrails that outside defenders often have to ask permission to lift. Its chart, he notes, shows the newest frontier model equipped with skills performing almost 20 percent better than the previous model without them.</p>
+<p>The funnel he reads off the article runs from about 2,300 candidates, of which 1,200 were privilege escalation candidates and 313 were information leaks, down to 948 working privilege escalation exploits and 219 working leak proofs of concept. All of it sits under an OpenAI initiative called Patch the Planet, run with Trail of Bits, which asks the blunt question in its name: with this much code in the world and models this capable, could we simply patch all the bugs?</p>
+<p>His closing argument is that the race may have quietly flipped. Humans, and now models, keep writing new bugs, but for manually memory-managed languages like C he argues the models probably already write safer code than humans do. The recent Citrix NetScaler flaw, an authentication bug where a user-supplied length fed a memory copy and produced a buffer overflow, is a pattern he says he cannot get a model to produce naturally. Where models still fail is across boundaries: two huge subsystems whose shared contract quietly changes meaning, the failure mode behind a recent SSH bug.</p>
+<p>That raises his last question, whether the push to rewrite everything in memory-safe languages like Rust still pays. Rust code can still carry logic bugs, and a rewrite can change behavior that other systems have come to depend on, in which case the buggy behavior is, in practice, the correct one. If agents can both write safer new code and strip the memory bugs out of the old code in place, the rewrite case weakens. His verdict is a shrug he seems happy with: he does not know where software goes from here, but there are a thousand fewer privilege escalations in the Linux kernel, and that is, as he puts it, pretty freaking sweet.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>The pipeline he describes depends on frontier models used without the guardrails outside defenders face. If that access gap persists, does AI vulnerability research end up concentrating offensive and defensive power in the labs themselves?</li>
+<li>Patch the Planet bets that models can find and fix existing bugs faster than humans and other models write new ones. Does that bet still hold as the volume of AI-written code, with its own contract and logic bugs, keeps growing?</li>
+<li>If agents can remove memory-safety bugs from legacy C in place, does the case for rewriting in Rust collapse, or do the cross-subsystem contract failures he describes become the class that neither approach can reach?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full transcript of this video (3,150 words covering the entire 14 minute 19 second recording, cues from 0:00 to 14:16), taken from the video&#x27;s English auto-generated caption track (en, srv3) fetched through the iOS player client after the Android 21.02.35 and Android 20.10.38 player clients both returned bot-wall (login required) responses; the srv3 file is saved in this build as the grounding artifact. This card was commissioned from a screenshot that showed the title truncated as “they found 1000 vulnerabilities in the linux k…”, so the full player-served title is used here. The player-served author is “Low Level”. The video was about 22 minutes old when it was commissioned, with about 4.6 thousand views in the screenshot and 5,206 when resolved. Names follow published spellings where the auto captions garble them (“Sean Healing” and “Sean Heen” for Sean Heelan). Model version numbers are described rather than quoted because the captions garble them. The video&#x27;s long sponsored segment for Code Rabbit near the start is advertising and is not summarized.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#mtsituation-ben-buchanan-china-zero-frontier-ai-domestic-chips" data-route="article">&larr; MTS</a>
+        <a class="to-index" href="2026-11-12.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -718,7 +764,8 @@
       "no-priors-max-jaderberg-isomorphic-labs-drug-discovery": "Powering AI-Driven Drug Discovery with President of Isomorphic Labs Max Jaderberg",
       "rajshamani-joe-hudson-psychology-of-billionaires": "Psychology Of Billionaires, Extreme Ambition & Secrets Of Success | Joe Hudson | FO586 Raj Shamani",
       "mckinsey-brilliant-moves-coffee-coca-cola-henrique-braun": "Brilliant Moves: Coffee with The Coca-Cola Company CEO Henrique Braun",
-      "mtsituation-ben-buchanan-china-zero-frontier-ai-domestic-chips": "China Has Zero Frontier AI on Domestic Chips | Ben Buchanan"
+      "mtsituation-ben-buchanan-china-zero-frontier-ai-domestic-chips": "China Has Zero Frontier AI on Domestic Chips | Ben Buchanan",
+      "lowlevel-1000-vulnerabilities-linux-kernel": "they found 1000 vulnerabilities in the linux kernel.."
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
