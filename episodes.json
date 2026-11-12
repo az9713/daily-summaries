@@ -1,6 +1,6 @@
 {
- "total": 762,
- "playable": 749,
+ "total": 763,
+ "playable": 750,
  "episodes": [
   {
    "slug": "toe-dan-freed-quantum-field-theory",
@@ -109,6 +109,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/ycrootaccess-spaceium-refueling-spacecraft.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#ycrootaccess-spaceium-refueling-spacecraft",
    "source_url": "https://www.youtube.com/watch?v=WkbEMw9EQYs"
+  },
+  {
+   "slug": "mckinsey-strategy-value-turbulent-times",
+   "title": "Strategy and value in turbulent times | McKinsey Live",
+   "channel": "McKinsey & Company",
+   "date": "2026-11-12",
+   "duration": "6:34",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mckinsey-strategy-value-turbulent-times.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#mckinsey-strategy-value-turbulent-times",
+   "source_url": "https://www.youtube.com/watch?v=rlYDV9Ueaf0"
   },
   {
    "slug": "stripe-fireside-john-collison-sam-gerstenzang-building-companies-ai",
