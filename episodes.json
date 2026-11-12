@@ -1,6 +1,6 @@
 {
- "total": 764,
- "playable": 751,
+ "total": 765,
+ "playable": 752,
  "episodes": [
   {
    "slug": "toe-dan-freed-quantum-field-theory",
@@ -133,6 +133,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/fortune-verizon-ceo-elon-musk.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#fortune-verizon-ceo-elon-musk",
    "source_url": "https://www.youtube.com/watch?v=sL2-F0UhuRU"
+  },
+  {
+   "slug": "oaktreecapital-howard-marks-layman-thinks-about-ai",
+   "title": "A Layman Thinks About AI",
+   "channel": "Oaktree",
+   "date": "2026-11-12",
+   "duration": "7:03",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/oaktreecapital-howard-marks-layman-thinks-about-ai.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#oaktreecapital-howard-marks-layman-thinks-about-ai",
+   "source_url": "https://www.youtube.com/watch?v=q0j9P61eOe4"
   },
   {
    "slug": "stripe-fireside-john-collison-sam-gerstenzang-building-companies-ai",
