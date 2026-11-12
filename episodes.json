@@ -1,7 +1,19 @@
 {
- "total": 753,
- "playable": 740,
+ "total": 754,
+ "playable": 741,
  "episodes": [
+  {
+   "slug": "toe-dan-freed-quantum-field-theory",
+   "title": "What Is Quantum Field Theory, Really?",
+   "channel": "Theories of Everything with Curt Jaimungal",
+   "date": "2026-11-12",
+   "duration": "9:29",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/toe-dan-freed-quantum-field-theory.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#toe-dan-freed-quantum-field-theory",
+   "source_url": "https://www.youtube.com/watch?v=3jntzMm_SBs"
+  },
   {
    "slug": "stripe-fireside-john-collison-sam-gerstenzang-building-companies-ai",
    "title": "Fireside | John Collison and Sam Gerstenzang on building companies with AI",
