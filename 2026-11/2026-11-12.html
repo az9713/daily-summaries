@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; November 12, 2026</p>
-        <h1>7 summaries, distilled.</h1>
+        <h1>8 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -415,6 +415,7 @@
         <a class="card" href="#mckinsey-brilliant-moves-coffee-coca-cola-henrique-braun"><span class="num">05</span><span><span class="card-title">Brilliant Moves: Coffee with The Coca-Cola Company CEO Henrique Braun</span><span class="card-byline">McKinsey &amp; Company</span></span><span class="card-dur">4:52</span><span class="listen-state" data-slug="mckinsey-brilliant-moves-coffee-coca-cola-henrique-braun"></span></a>
         <a class="card" href="#mtsituation-ben-buchanan-china-zero-frontier-ai-domestic-chips"><span class="num">06</span><span><span class="card-title">China Has Zero Frontier AI on Domestic Chips | Ben Buchanan</span><span class="card-byline">MTS</span></span><span class="card-dur">8:32</span><span class="listen-state" data-slug="mtsituation-ben-buchanan-china-zero-frontier-ai-domestic-chips"></span></a>
         <a class="card" href="#lowlevel-1000-vulnerabilities-linux-kernel"><span class="num">07</span><span><span class="card-title">they found 1000 vulnerabilities in the linux kernel..</span><span class="card-byline">Low Level</span></span><span class="card-dur">5:07</span><span class="listen-state" data-slug="lowlevel-1000-vulnerabilities-linux-kernel"></span></a>
+        <a class="card" href="#claude-building-claude-api-frontier"><span class="num">08</span><span><span class="card-title">Building the Claude API for the Frontier</span><span class="card-byline">Claude</span></span><span class="card-dur">6:17</span><span class="listen-state" data-slug="claude-building-claude-api-frontier"></span></a>
         </div>
       </nav>
     </section>
@@ -748,6 +749,56 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#mtsituation-ben-buchanan-china-zero-frontier-ai-domestic-chips" data-route="article">&larr; MTS</a>
         <a class="to-index" href="2026-11-12.html" data-route="index">All summaries</a>
+        <a class="next" href="#claude-building-claude-api-frontier" data-route="article">Claude &middot; Building the Claude API for the Frontier &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="claude-building-claude-api-frontier" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-12.html" data-route="index">&larr; November 12, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Building the Claude API for the Frontier &mdash; November 12, 2026 <span class="dur">&middot; 6:17</span></p>
+        <audio controls preload="none" src="../podcasts/claude-building-claude-api-frontier.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/claude-building-claude-api-frontier.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="claude-building-claude-api-frontier" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="claude-building-claude-api-frontier"></div>
+        <div class="episode-download"><a href="../podcasts/claude-building-claude-api-frontier.mp3" download>Download claude-building-claude-api-frontier.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Claude</dd></div>
+        <div><dt>Published</dt><dd>November 12, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=p2xvJAbF-i4" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Claude &middot; Building the Claude API for the Frontier</p>
+        <h2>Building the Claude API for the Frontier</h2>
+        <div>
+<p>On Claude, “Building the Claude API for the Frontier” is a conversation between Jake Dejno, a member of technical staff on the Claude Platform team, and Lucca Siaudzionis, a member of technical staff on Platform Intelligence, about the work that happens behind each model launch. The launches put the spotlight on the model, they say, but just as much effort goes into making sure the API evolves with it: adding new controls, retiring outdated ones, and helping developers rethink how they build with every release.</p>
+<p>The center of that work is the Messages API, which they describe as the cornerstone of the platform. Its structure is the familiar one of user turns, assistant turns, and tool calls in the middle, and from that bare-bones shape a developer can build almost anything. What distinguishes it, in their telling, is how much has been built into the API itself: tools and knobs, such as the effort setting, that can change Claude&#x27;s behavior more dramatically than any amount of outside prompting could. The same model at high effort and low effort, they say, can feel like two different models.</p>
+<p>Those defaults are deliberately opinionated. The platform team sits in the same room as research, shares the same meetings and Slack conversations, and forms a strong view of what makes Claude shine. That view is baked into the API, so a basic request copied from the documentation already carries what they consider the best out-of-the-box experience. The knobs are then there for developers who want to go further than the defaults.</p>
+<p>The flow of ideas runs in both directions. Sometimes research notices a capability emerging, as when the team first saw Claude getting better at using computers, and that observation eventually becomes a feature, in that case the computer use tools in the API. Sometimes it starts with customers: the platform team hears what developers are asking for, and those requests become asks for research to train into future models. A good chunk of the job, they say, is keeping that trick going in both directions.</p>
+<p>Two of their favorite features sound small and loom large in practice: changing effort, and changing the system prompt, in the middle of a conversation. Both were always possible in principle, but doing either one broke prompt caching, and for many users that was a deal breaker. An agentic flow running at high effort might reach a step the developer knows is easy, yet dropping to low effort would break the cache and defeat the cost savings the flow was built on. Making those changes without breaking the cache is, to them, a clean example of what an API-level knob can unlock.</p>
+<p>Getting from an idea to a launch runs on evaluations at every step. Anthropic runs a large battery of its own evals, and the team recommends that every customer adopting a new knob run their own as well. The reasoning is that the API is generic by design, built to serve everyone, while each customer building on top of it has a use case and a personalization that applies to them alone.</p>
+<p>Model versioning works differently from traditional API versioning, and they spend a while on why. The model string is effectively a version, intertwined with the API version, prompt stability, and a bucket of switches, and because each new model brings such a jump in intelligence, users have been willing to make adjustments that traditional versioning made painful. The hard part is deprecation. Adding capabilities is easy, since nobody complains. Retiring one is delicate, as the move from regular extended thinking to adaptive thinking showed: adaptive thinking evaluated better and was the way they wanted thinking to work going forward, so they rolled it out, but kept the old style available as a toggle for a while, alongside beta headers and other mechanisms for rolling back. Eventually a harder deprecation has to come, because at some point models stop being trained for the old way, and leaving a control in the API that no longer does what it promises would be worse for developers than removing it.</p>
+<p>Their advice to developers follows from that churn: periodically re-evaluate the whole setup around your product, harness included, every time the models change. Teams got good at building harnesses that squeeze capability out of a model, but when a model becomes far smarter than its predecessor, the harness itself can become the limitation, and parts of it may no longer need to be there.</p>
+<p>Cost gets its own stretch of the conversation, and a refrain runs through it: a lot of roads lead to prompt caching. It is the largest lever they have for controlling cost, and the first recommendation given to any customer who has not optimized it yet. In an agentic flow, each new request is close to an append of the one before, so the blocks that already ran can be cached and reused. The sales teams&#x27; opening question to customers is how far they have gotten their caching rates, with rates up to about ninety percent as the dream numbers, because a high cache rate translates directly into lower cost.</p>
+<p>They also push developers to think in cost per task rather than cost per token. A token price ignores what they call intelligence per token: how quickly the chosen model actually achieves the outcome. A higher-intelligence model can use wildly fewer tokens than a cheaper one to reach the same result, and the clearest tell is when the stronger, pricier model solves a test the cheaper one simply could not. The inverse holds too, as models in every class get more capable, a smaller model may newly be able to handle a workflow that once required the flagship, and they would like to build more product around helping users notice both directions.</p>
+<p>The last major theme is safety, and the balance between getting a powerful model to the people doing good with it and keeping it from bad actors. Every model in the API runs with a set of classifiers aimed at preventing misuse. The clearest expression of the balance is the split between Mythos and Fable. They are the same intelligence and the same model weights; what differs is how much a user can do with the model. Mythos access runs through a verification process, aimed at vetted users doing work like scientific research and defensive cybersecurity, while Fable is available to anyone who does not go through that process, bounded by the classifiers. The other side of the safety coin is distillation: if a frontier model is distilled into a copy that circulates without safeguards, that copy would still be strong, and they call that an incredibly dangerous position for the world. That concern is behind a recently shipped batch of changes they describe as thinking protections, documented openly as measures to prevent distillation.</p>
+<p>Balancing those safeguards against the developer experience is, again, an evals problem. They describe running an absurd amount of evals, with perhaps ten internal variations experimented on for every feature that ships, and a great many people looking at a great many numbers before a single decision lands. A recurring and welcome problem is eval saturation: a benchmark stops being meaningful because every model can solve it, and the evals have to be made harder. The same discipline governs features that have not shipped at all. The team keeps a set of features built but unlaunched because their performance was not yet at the level they want, and each new model launch triggers a fresh round of evals to see whether any of them now clear the bar. Intelligence, they say, is the thing that matters most; everything else sits next to it.</p>
+<p>The conversation closes on agents. Much of the API is designed for agentic flows, from the built-in client-side tools, such as the bash and text editor tools drawn from their own eval work, to the toggles over thinking and effort that can decide whether an agent can do a task at all. Claude Managed Agents, their managed offering, is itself built on top of the Messages API, and first-party apps like Claude Code run on the same surface. Because the managed agents team builds in-house on the same cornerstone, the lessons they learn about what agents need flow back into the Messages API, where every developer building agents gets them too.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If the model string is effectively the version, how much stability can developers reasonably expect from the platform, and how much migration and re-evaluation work becomes a permanent cost of staying at the frontier?</li>
+<li>The Mythos and Fable split holds the same model weights behind different safeguards, gated by verification and classifiers. How durable is that line as distillation techniques improve and copies without safeguards become easier to make?</li>
+<li>If each smarter model can make parts of a developer&#x27;s harness obsolete, who bears the cost of continually re-evaluating and stripping out scaffolding, and how does a team know which parts are now holding the model back rather than helping it?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full transcript of this video (4,481 words, caption cues from 0:00 to 18:24 of the 18 minute 29 second recording), taken from the video&#x27;s English original-language auto-generated caption track (en-orig, json3) fetched with yt-dlp; the video has no manual subtitles. The commissioning screenshot showed a LIVE badge on the channel avatar, but the upload itself is a finished video, not a livestream or premiere: it was posted about 44 minutes before the screenshot, with 658 views there and 678 when resolved. Speaker names, roles, and chapter topics are from the video&#x27;s description, which also notes that Claude Managed Agents and changing effort mid-conversation are in beta and that Mythos access is through the Cyber Verification Program. The auto captions frequently garble “Claude” as “Cloud” (and once render “the API” as “the PI”); published spellings are used throughout and the garbling is disclosed here. The video&#x27;s opening seconds replay a line about prompt caching that returns later in the conversation, which is the video&#x27;s own cold open rather than a caption artifact.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#lowlevel-1000-vulnerabilities-linux-kernel" data-route="article">&larr; Low Level</a>
+        <a class="to-index" href="2026-11-12.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -765,7 +816,8 @@
       "rajshamani-joe-hudson-psychology-of-billionaires": "Psychology Of Billionaires, Extreme Ambition & Secrets Of Success | Joe Hudson | FO586 Raj Shamani",
       "mckinsey-brilliant-moves-coffee-coca-cola-henrique-braun": "Brilliant Moves: Coffee with The Coca-Cola Company CEO Henrique Braun",
       "mtsituation-ben-buchanan-china-zero-frontier-ai-domestic-chips": "China Has Zero Frontier AI on Domestic Chips | Ben Buchanan",
-      "lowlevel-1000-vulnerabilities-linux-kernel": "they found 1000 vulnerabilities in the linux kernel.."
+      "lowlevel-1000-vulnerabilities-linux-kernel": "they found 1000 vulnerabilities in the linux kernel..",
+      "claude-building-claude-api-frontier": "Building the Claude API for the Frontier"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
