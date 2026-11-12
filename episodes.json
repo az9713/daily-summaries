@@ -1,6 +1,6 @@
 {
- "total": 755,
- "playable": 742,
+ "total": 756,
+ "playable": 743,
  "episodes": [
   {
    "slug": "toe-dan-freed-quantum-field-theory",
@@ -25,6 +25,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/arkinvest-fully-reusable-rockets-stoke-space-devon-papandrew.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#arkinvest-fully-reusable-rockets-stoke-space-devon-papandrew",
    "source_url": "https://www.youtube.com/watch?v=8LPlyogOa_4"
+  },
+  {
+   "slug": "no-priors-max-jaderberg-isomorphic-labs-drug-discovery",
+   "title": "Powering AI-Driven Drug Discovery with President of Isomorphic Labs Max Jaderberg",
+   "channel": "No Priors: AI, Machine Learning, Tech, & Startups",
+   "date": "2026-11-12",
+   "duration": "6:15",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/no-priors-max-jaderberg-isomorphic-labs-drug-discovery.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#no-priors-max-jaderberg-isomorphic-labs-drug-discovery",
+   "source_url": "https://www.youtube.com/watch?v=IiKf3BgBezE"
   },
   {
    "slug": "stripe-fireside-john-collison-sam-gerstenzang-building-companies-ai",
