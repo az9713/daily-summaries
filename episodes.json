@@ -1,6 +1,6 @@
 {
- "total": 765,
- "playable": 752,
+ "total": 766,
+ "playable": 753,
  "episodes": [
   {
    "slug": "toe-dan-freed-quantum-field-theory",
@@ -145,6 +145,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/oaktreecapital-howard-marks-layman-thinks-about-ai.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#oaktreecapital-howard-marks-layman-thinks-about-ai",
    "source_url": "https://www.youtube.com/watch?v=q0j9P61eOe4"
+  },
+  {
+   "slug": "podlonggame-dwarkesh-patel-ai-overthrow-government",
+   "title": "“AI Could Overthrow the Government”: Dwarkesh Patel on What’s Coming",
+   "channel": "The Long Game Podcast",
+   "date": "2026-11-12",
+   "duration": "7:04",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/podlonggame-dwarkesh-patel-ai-overthrow-government.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#podlonggame-dwarkesh-patel-ai-overthrow-government",
+   "source_url": "https://www.youtube.com/watch?v=Sq32DUozdSc"
   },
   {
    "slug": "stripe-fireside-john-collison-sam-gerstenzang-building-companies-ai",
