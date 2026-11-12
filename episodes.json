@@ -1,6 +1,6 @@
 {
- "total": 754,
- "playable": 741,
+ "total": 755,
+ "playable": 742,
  "episodes": [
   {
    "slug": "toe-dan-freed-quantum-field-theory",
@@ -13,6 +13,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/toe-dan-freed-quantum-field-theory.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#toe-dan-freed-quantum-field-theory",
    "source_url": "https://www.youtube.com/watch?v=3jntzMm_SBs"
+  },
+  {
+   "slug": "arkinvest-fully-reusable-rockets-stoke-space-devon-papandrew",
+   "title": "Fully Reusable Rockets With Stoke Space's Devon Papandrew",
+   "channel": "ARK Invest",
+   "date": "2026-11-12",
+   "duration": "6:42",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/arkinvest-fully-reusable-rockets-stoke-space-devon-papandrew.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#arkinvest-fully-reusable-rockets-stoke-space-devon-papandrew",
+   "source_url": "https://www.youtube.com/watch?v=8LPlyogOa_4"
   },
   {
    "slug": "stripe-fireside-john-collison-sam-gerstenzang-building-companies-ai",
