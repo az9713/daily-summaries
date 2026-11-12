@@ -1,6 +1,6 @@
 {
- "total": 759,
- "playable": 746,
+ "total": 760,
+ "playable": 747,
  "episodes": [
   {
    "slug": "toe-dan-freed-quantum-field-theory",
@@ -73,6 +73,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mtsituation-ben-buchanan-china-zero-frontier-ai-domestic-chips.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#mtsituation-ben-buchanan-china-zero-frontier-ai-domestic-chips",
    "source_url": "https://www.youtube.com/watch?v=q-bb-FS4N08"
+  },
+  {
+   "slug": "lowlevel-1000-vulnerabilities-linux-kernel",
+   "title": "they found 1000 vulnerabilities in the linux kernel..",
+   "channel": "Low Level",
+   "date": "2026-11-12",
+   "duration": "5:07",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/lowlevel-1000-vulnerabilities-linux-kernel.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#lowlevel-1000-vulnerabilities-linux-kernel",
+   "source_url": "https://www.youtube.com/watch?v=Z3xvjzlDWd8"
   },
   {
    "slug": "stripe-fireside-john-collison-sam-gerstenzang-building-companies-ai",
