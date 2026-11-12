@@ -1,6 +1,6 @@
 {
- "total": 766,
- "playable": 753,
+ "total": 767,
+ "playable": 754,
  "episodes": [
   {
    "slug": "toe-dan-freed-quantum-field-theory",
@@ -157,6 +157,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/podlonggame-dwarkesh-patel-ai-overthrow-government.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#podlonggame-dwarkesh-patel-ai-overthrow-government",
    "source_url": "https://www.youtube.com/watch?v=Sq32DUozdSc"
+  },
+  {
+   "slug": "utcompsci-unique-games-conjecture-proved",
+   "title": "The Unique Games Conjecture – Proved (!!?) | Dana Moshkovitz, UT Computer Science",
+   "channel": "UT Austin Computer Science",
+   "date": "2026-11-12",
+   "duration": "7:46",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/utcompsci-unique-games-conjecture-proved.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-12.html#utcompsci-unique-games-conjecture-proved",
+   "source_url": "https://www.youtube.com/watch?v=de-CszI9YXc"
   },
   {
    "slug": "stripe-fireside-john-collison-sam-gerstenzang-building-companies-ai",
