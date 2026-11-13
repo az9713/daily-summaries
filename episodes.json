@@ -1,6 +1,6 @@
 {
- "total": 774,
- "playable": 761,
+ "total": 775,
+ "playable": 762,
  "episodes": [
   {
    "slug": "mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai",
@@ -13,6 +13,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai",
    "source_url": "https://www.youtube.com/watch?v=Omhnrlftlak"
+  },
+  {
+   "slug": "sourcery-christian-garrett-return-of-conglomerates",
+   "title": "SpaceX, Palantir, Anduril & Onodrim | The Return of Conglomerates",
+   "channel": "Sourcery with Molly O'Shea",
+   "date": "2026-11-13",
+   "duration": "7:02",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/sourcery-christian-garrett-return-of-conglomerates.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#sourcery-christian-garrett-return-of-conglomerates",
+   "source_url": "https://www.youtube.com/watch?v=4J7tjyVCrqA"
   },
   {
    "slug": "toe-dan-freed-quantum-field-theory",
