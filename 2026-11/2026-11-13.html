@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Friday &middot; November 13, 2026</p>
-        <h1>4 summaries, distilled.</h1>
+        <h1>5 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -412,6 +412,7 @@
         <a class="card" href="#sourcery-christian-garrett-return-of-conglomerates"><span class="num">02</span><span><span class="card-title">SpaceX, Palantir, Anduril &amp; Onodrim | The Return of Conglomerates</span><span class="card-byline">Sourcery with Molly O'Shea</span></span><span class="card-dur">7:02</span><span class="listen-state" data-slug="sourcery-christian-garrett-return-of-conglomerates"></span></a>
         <a class="card" href="#bigthink-adam-frank-what-makes-life-different"><span class="num">03</span><span><span class="card-title">What makes life different from everything else in the universe | Adam Frank: Full Interview</span><span class="card-byline">Big Think</span></span><span class="card-dur">11:58</span><span class="listen-state" data-slug="bigthink-adam-frank-what-makes-life-different"></span></a>
         <a class="card" href="#a16z-big-pharma-can-rival-big-software"><span class="num">04</span><span><span class="card-title">Big Pharma Can Rival Big Software</span><span class="card-byline">a16z News &middot; Caroline, Justin Kahl, Alex Immerman, and 3 others</span></span><span class="card-dur">11:41</span><span class="listen-state" data-slug="a16z-big-pharma-can-rival-big-software"></span></a>
+        <a class="card" href="#codebear-why-microsoft-365-was-down-19-hours"><span class="num">05</span><span><span class="card-title">Why Microsoft 365 Was Down for 19 Hours?</span><span class="card-byline">Code Bear</span></span><span class="card-dur">7:11</span><span class="listen-state" data-slug="codebear-why-microsoft-365-was-down-19-hours"></span></a>
         </div>
       </nav>
     </section>
@@ -620,6 +621,54 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#bigthink-adam-frank-what-makes-life-different" data-route="article">&larr; Big Think</a>
         <a class="to-index" href="2026-11-13.html" data-route="index">All summaries</a>
+        <a class="next" href="#codebear-why-microsoft-365-was-down-19-hours" data-route="article">Code Bear &middot; Why Microsoft 365 Was Down for 19 Hours? &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="codebear-why-microsoft-365-was-down-19-hours" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-13.html" data-route="index">&larr; November 13, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Why Microsoft 365 Was Down for 19 Hours? &mdash; November 13, 2026 <span class="dur">&middot; 7:11</span></p>
+        <audio controls preload="none" src="../podcasts/codebear-why-microsoft-365-was-down-19-hours.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/codebear-why-microsoft-365-was-down-19-hours.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="codebear-why-microsoft-365-was-down-19-hours" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="codebear-why-microsoft-365-was-down-19-hours"></div>
+        <div class="episode-download"><a href="../podcasts/codebear-why-microsoft-365-was-down-19-hours.mp3" download>Download codebear-why-microsoft-365-was-down-19-hours.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Code Bear</dd></div>
+        <div><dt>Published</dt><dd>November 13, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=z-xfI5fyEGA" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Code Bear &middot; Why Microsoft 365 was down for 19 hours</p>
+        <h2>Why Microsoft 365 Was Down for 19 Hours?</h2>
+        <div>
+<p>On Code Bear, “Why Microsoft 365 Was Down for 19 Hours?” walks through a daylong Microsoft 365 outage that, at the time of recording, had lasted 19 hours and was still not fully over. Outlook mailboxes would not open, Teams calendars failed, and Copilot could not read work email. A hospital network in Toronto called a code gray, its alert for an infrastructure failure. A jail in Colorado stopped taking bail payments online, and in Japan, CNN reported, government staff had gone back to printing documents.</p>
+<p>The video&#x27;s central claim is that the load did not come from extra traffic. Microsoft&#x27;s servers were failing Microsoft&#x27;s own automated health checks, the tests that decide whether a server is fit to work. The explainer uses a restaurant analogy: a health check is like a host who asks each waiter every few seconds whether they are okay, and stops sending them tables if they do not answer. Microsoft&#x27;s Azure documentation describes the same design: when a server fails its health probe, the load balancer stops sending it new connections, and two misses in a row are enough.</p>
+<p>That design carries a cascade risk. When one server is pulled, every remaining server gets more work. If they slow down under the extra load, they fail their checks too, and the fleet shrinks further. Google&#x27;s engineering book on running large systems warns about exactly this failure mode, noting that health checking itself can make a service unhealthy.</p>
+<p>The timeline, in Eastern time on Thursday, shows the explanation evolving. The email problem began at 11:17 in the morning, and Microsoft&#x27;s first public post came at 12:54, later seen more than 17 million times. Downdetector logged reports from 74 countries and territories within about an hour, peaking at 19,650 reports a minute across five Microsoft services, against a normal level under 15. Outlook reports alone ran at more than 2,000 times their usual volume.</p>
+<p>At 2:12 in the afternoon Microsoft paused all deployments, and at 2:31 it posted the key line: the load was not driven by an increase in traffic, but by a number of servers being unexpectedly unavailable. Twelve minutes later the admin center gave the reason. The servers were failing automated health checks, and that was making them unavailable.</p>
+<p>Recovery kept failing in instructive ways. At 4:00 Microsoft validated an alternative health check method and some servers came back, which looked like the fix but was not. At 5:09 it conceded that its actions had not provided the anticipated relief, because a core process on the servers was becoming overwhelmed. At 7:06 came worse news: servers brought back could become unresponsive again once they received traffic.</p>
+<p>The suspected trigger also shifted. At 8:06 Microsoft said a process that sets up secure connections was getting overwhelmed, and it began reverting a recent network configuration change that correlated with the start of impact, after saying earlier in the day first that the problem might be related to a recent change and then that no recent change correlated. At 10:13 the changes were still not taking effect as expected, and executive Charles Lamanna said there was no indication of a cyberattack.</p>
+<p>Meanwhile the effects spread: Via Rail warned passengers they might not get trip emails, Indigo&#x27;s email support went down, city staff in Austin could not send or receive email, and the Philippine courts said their system was hit too. Just before midnight Microsoft described a surge in outbound calls from its routing services to its backend servers. Around 2:00 in the morning the update read “Marginal success,” and 29 minutes later a patch to an authentication and routing component started to help. Microsoft also extended the email timeout to 48 hours so stuck messages would not be lost.</p>
+<p>The video then puts the outage in a pattern. Six weeks earlier, on September 29, Azure&#x27;s AI services in Sweden were down for about six hours: a traffic surge started it, but Microsoft&#x27;s own report says the long outage was primarily caused by how the backend decided whether instances were healthy, and it was fixed by reconfiguring the health check. In October 2025 Amazon&#x27;s US-East region was down for more than 14 hours after health checks failed against healthy load balancers, and engineers fixed it by turning off the automatic health check failovers. Facebook&#x27;s 2021 disappearance and CrowdStrike&#x27;s 2024 bad update, which reached 8.5 million Windows devices through a bug in the validator meant to catch it, complete the set: four companies, four different bugs, and in each report a check or safety system was part of the chain.</p>
+<p>Engineers have a rule for the moment every server fails at once: fail open. Amazon&#x27;s DNS documentation puts it in one line, “If no record is healthy, all records are healthy,” and its engineering library warns that automation which removes servers that could still have done useful work does more harm than good. Azure Front Door works that way, but Azure Load Balancer stops sending new traffic when every server fails. Which kind sits in front of Exchange Online, Microsoft has not said.</p>
+<p>As of the recording, Microsoft had not published a root cause, though it promised a full report. Microsoft 365 has more than 450 million paid seats, Microsoft&#x27;s stock was down about 2.5 percent before markets opened on Friday according to CNBC, and one consultant&#x27;s estimate put the cost to businesses in the billions, which the video flags as an estimate rather than a measurement. Recovery was complete in parts of Asia-Pacific and moving to other regions. The internet, the video closes, had already renamed the service Microsoft 364.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Microsoft has promised a full root cause report. Will it confirm that health checks started the cascade, or will the network configuration change it reverted that evening turn out to be the primary fault, with the health checks only amplifying it?</li>
+<li>Which failure philosophy sits in front of Exchange Online: fail open like Azure Front Door, or stop all new traffic like Azure Load Balancer? Will Microsoft say, and will this outage push it to change the design?</li>
+<li>The same failure shape has now hit Microsoft, Amazon, Facebook, and CrowdStrike. Is there any realistic way to test a safety system at full scale before it becomes the outage, or is this a cost the whole industry has quietly accepted?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full transcript of this video (1,240 words covering the entire 7 minute 21 second recording, cues from 0:00 to 7:16), taken from the video&#x27;s English automatic caption track (ASR, srv3) served by the Android 21.02.35 player client, which returned playability OK, as did the Android 20.10.38 and iOS clients; a json3 request returned the same srv3 XML, so the srv3 file is saved in this build as the grounding artifact. The player-served title is used exactly as served; it matches the oEmbed title, so there is no listing variant to disclose. Simon&#x27;s link carried a 4 second seek position; the full video was built. Names and terms follow published spellings where the auto captions garble them (“Down detector” for Downdetector, “CIS admin” for the sysadmin community, “Lammana” for Lamanna). Clock times quoted from Microsoft&#x27;s status posts are Eastern time, as the video presents them.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#a16z-big-pharma-can-rival-big-software" data-route="article">&larr; a16z News</a>
+        <a class="to-index" href="2026-11-13.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -634,7 +683,8 @@
       "mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai": "Closed Frontier Labs Are Pulling Ahead of Open AI | Melvin Johnson",
       "sourcery-christian-garrett-return-of-conglomerates": "SpaceX, Palantir, Anduril & Onodrim | The Return of Conglomerates",
       "bigthink-adam-frank-what-makes-life-different": "What makes life different from everything else in the universe | Adam Frank: Full Interview",
-      "a16z-big-pharma-can-rival-big-software": "Big Pharma Can Rival Big Software"
+      "a16z-big-pharma-can-rival-big-software": "Big Pharma Can Rival Big Software",
+      "codebear-why-microsoft-365-was-down-19-hours": "Why Microsoft 365 Was Down for 19 Hours?"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
