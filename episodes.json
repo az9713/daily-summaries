@@ -1,6 +1,6 @@
 {
- "total": 775,
- "playable": 762,
+ "total": 776,
+ "playable": 763,
  "episodes": [
   {
    "slug": "mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai",
@@ -25,6 +25,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/sourcery-christian-garrett-return-of-conglomerates.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#sourcery-christian-garrett-return-of-conglomerates",
    "source_url": "https://www.youtube.com/watch?v=4J7tjyVCrqA"
+  },
+  {
+   "slug": "bigthink-adam-frank-what-makes-life-different",
+   "title": "What makes life different from everything else in the universe | Adam Frank: Full Interview",
+   "channel": "Big Think",
+   "date": "2026-11-13",
+   "duration": "11:58",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/bigthink-adam-frank-what-makes-life-different.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#bigthink-adam-frank-what-makes-life-different",
+   "source_url": "https://www.youtube.com/watch?v=nXsSG6tnx_Y"
   },
   {
    "slug": "toe-dan-freed-quantum-field-theory",
