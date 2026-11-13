@@ -1,6 +1,6 @@
 {
- "total": 777,
- "playable": 764,
+ "total": 778,
+ "playable": 765,
  "episodes": [
   {
    "slug": "mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai",
@@ -49,6 +49,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-big-pharma-can-rival-big-software.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#a16z-big-pharma-can-rival-big-software",
    "source_url": "https://www.a16z.news/p/big-pharma-can-rival-big-software"
+  },
+  {
+   "slug": "codebear-why-microsoft-365-was-down-19-hours",
+   "title": "Why Microsoft 365 Was Down for 19 Hours?",
+   "channel": "Code Bear",
+   "date": "2026-11-13",
+   "duration": "7:11",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/codebear-why-microsoft-365-was-down-19-hours.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#codebear-why-microsoft-365-was-down-19-hours",
+   "source_url": "https://www.youtube.com/watch?v=z-xfI5fyEGA"
   },
   {
    "slug": "toe-dan-freed-quantum-field-theory",
