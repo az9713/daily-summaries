@@ -1,7 +1,19 @@
 {
- "total": 773,
- "playable": 760,
+ "total": 774,
+ "playable": 761,
  "episodes": [
+  {
+   "slug": "mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai",
+   "title": "Closed Frontier Labs Are Pulling Ahead of Open AI | Melvin Johnson",
+   "channel": "MTS",
+   "date": "2026-11-13",
+   "duration": "4:10",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai",
+   "source_url": "https://www.youtube.com/watch?v=Omhnrlftlak"
+  },
   {
    "slug": "toe-dan-freed-quantum-field-theory",
    "title": "What Is Quantum Field Theory, Really?",
