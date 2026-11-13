@@ -1,6 +1,6 @@
 {
- "total": 778,
- "playable": 765,
+ "total": 779,
+ "playable": 766,
  "episodes": [
   {
    "slug": "mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai",
@@ -61,6 +61,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/codebear-why-microsoft-365-was-down-19-hours.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#codebear-why-microsoft-365-was-down-19-hours",
    "source_url": "https://www.youtube.com/watch?v=z-xfI5fyEGA"
+  },
+  {
+   "slug": "a16z-cyberattacks-months-to-minutes-ami-luttwak",
+   "title": "Cyberattacks Used to Take Months. AI Can Do It in Minutes.",
+   "channel": "a16z",
+   "date": "2026-11-13",
+   "duration": "6:17",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-cyberattacks-months-to-minutes-ami-luttwak.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#a16z-cyberattacks-months-to-minutes-ami-luttwak",
+   "source_url": "https://www.youtube.com/watch?v=PbD9pVXxsYM"
   },
   {
    "slug": "toe-dan-freed-quantum-field-theory",
