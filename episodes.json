@@ -1,6 +1,6 @@
 {
- "total": 787,
- "playable": 774,
+ "total": 788,
+ "playable": 775,
  "episodes": [
   {
    "slug": "mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai",
@@ -169,6 +169,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/baroncapital-elon-musk-ron-baron-terafab-starship.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#baroncapital-elon-musk-ron-baron-terafab-starship",
    "source_url": "https://www.youtube.com/watch?v=ir-DFO_5yPw"
+  },
+  {
+   "slug": "reidhoffman-chief-economist-jobs-ai-will-actually-create",
+   "title": "OpenAI’s chief economist on the jobs AI will actually create",
+   "channel": "Reid Hoffman",
+   "date": "2026-11-13",
+   "duration": "10:04",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/reidhoffman-chief-economist-jobs-ai-will-actually-create.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#reidhoffman-chief-economist-jobs-ai-will-actually-create",
+   "source_url": "https://www.youtube.com/watch?v=ZBGh-Mw7UV0"
   },
   {
    "slug": "toe-dan-freed-quantum-field-theory",
