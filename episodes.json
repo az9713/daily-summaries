@@ -1,6 +1,6 @@
 {
- "total": 794,
- "playable": 781,
+ "total": 795,
+ "playable": 782,
  "episodes": [
   {
    "slug": "ycombinator-grok-bot-build-ai-teammates",
@@ -73,6 +73,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mtsituation-will-depue-claude-found-new-dwarf-planets-nasa.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-14.html#mtsituation-will-depue-claude-found-new-dwarf-planets-nasa",
    "source_url": "https://www.youtube.com/watch?v=yNlP5tI6vHc"
+  },
+  {
+   "slug": "mastersofscale-walmart-ceo-john-furner-move-like-startup",
+   "title": "The world’s biggest retailer wants to move like a start-up (Walmart CEO John Furner) | Summit '26",
+   "channel": "Masters of Scale",
+   "date": "2026-11-14",
+   "duration": "7:01",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mastersofscale-walmart-ceo-john-furner-move-like-startup.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-14.html#mastersofscale-walmart-ceo-john-furner-move-like-startup",
+   "source_url": "https://www.youtube.com/watch?v=x9362rVgvvk"
   },
   {
    "slug": "mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai",
