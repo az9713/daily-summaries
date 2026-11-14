@@ -1,6 +1,6 @@
 {
- "total": 781,
- "playable": 768,
+ "total": 782,
+ "playable": 769,
  "episodes": [
   {
    "slug": "mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai",
@@ -97,6 +97,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/ycrootaccess-intelligence-is-the-taste-test-for-ai.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#ycrootaccess-intelligence-is-the-taste-test-for-ai",
    "source_url": "https://www.youtube.com/watch?v=EWmqL-63tyM"
+  },
+  {
+   "slug": "peterman-sergey-levine-best-data-robotics",
+   "title": "Sergey Levine (Top Robotics Researcher): The Best Data For Robotics",
+   "channel": "Ryan Peterman",
+   "date": "2026-11-13",
+   "duration": "5:33",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/peterman-sergey-levine-best-data-robotics.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#peterman-sergey-levine-best-data-robotics",
+   "source_url": "https://www.youtube.com/watch?v=EaMKsDquHN0"
   },
   {
    "slug": "toe-dan-freed-quantum-field-theory",
