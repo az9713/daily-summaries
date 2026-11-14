@@ -1,6 +1,6 @@
 {
- "total": 790,
- "playable": 777,
+ "total": 791,
+ "playable": 778,
  "episodes": [
   {
    "slug": "ycombinator-grok-bot-build-ai-teammates",
@@ -25,6 +25,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/willphillips-inside-dragonfly-capital-4b-vc.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-14.html#willphillips-inside-dragonfly-capital-4b-vc",
    "source_url": "https://www.youtube.com/watch?v=8j9YZlSMjw4"
+  },
+  {
+   "slug": "20vc-7b-startup-ai-chips-challenge-nvidia-fractile",
+   "title": "The $7B Startup Building AI Chips to Challenge Nvidia | Fractile Founder & CEO, Walter Goodwin",
+   "channel": "20VC with Harry Stebbings",
+   "date": "2026-11-14",
+   "duration": "8:14",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/20vc-7b-startup-ai-chips-challenge-nvidia-fractile.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-14.html#20vc-7b-startup-ai-chips-challenge-nvidia-fractile",
+   "source_url": "https://www.youtube.com/watch?v=UZ8eYaAf08M"
   },
   {
    "slug": "mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai",
