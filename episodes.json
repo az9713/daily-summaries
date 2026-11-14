@@ -1,6 +1,6 @@
 {
- "total": 784,
- "playable": 771,
+ "total": 785,
+ "playable": 772,
  "episodes": [
   {
    "slug": "mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai",
@@ -133,6 +133,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/yahoofinance-dario-amodei-jamie-dimon-anthropic-ipo.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#yahoofinance-dario-amodei-jamie-dimon-anthropic-ipo",
    "source_url": "https://www.youtube.com/watch?v=A1fleXHlpPE"
+  },
+  {
+   "slug": "samuel-alexander-anthropic-speedrunning-fermat-last-theorem",
+   "title": "Anthropic is speedrunning Fermat's Last Theorem verifications now",
+   "channel": "Dr. Samuel Allen Alexander",
+   "date": "2026-11-13",
+   "duration": "6:11",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/samuel-alexander-anthropic-speedrunning-fermat-last-theorem.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#samuel-alexander-anthropic-speedrunning-fermat-last-theorem",
+   "source_url": "https://www.youtube.com/watch?v=icDkDQiOSX0"
   },
   {
    "slug": "toe-dan-freed-quantum-field-theory",
