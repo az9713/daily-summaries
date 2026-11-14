@@ -1,6 +1,6 @@
 {
- "total": 785,
- "playable": 772,
+ "total": 786,
+ "playable": 773,
  "episodes": [
   {
    "slug": "mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai",
@@ -145,6 +145,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/samuel-alexander-anthropic-speedrunning-fermat-last-theorem.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#samuel-alexander-anthropic-speedrunning-fermat-last-theorem",
    "source_url": "https://www.youtube.com/watch?v=icDkDQiOSX0"
+  },
+  {
+   "slug": "dwarkesh-recursive-self-improvement-has-started",
+   "title": "Recursive self-improvement has started",
+   "channel": "Dwarkesh Patel",
+   "date": "2026-11-13",
+   "duration": "12:33",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/dwarkesh-recursive-self-improvement-has-started.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#dwarkesh-recursive-self-improvement-has-started",
+   "source_url": "https://www.youtube.com/watch?v=1NHPDzpfR6Y"
   },
   {
    "slug": "toe-dan-freed-quantum-field-theory",
