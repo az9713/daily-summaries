@@ -1,6 +1,6 @@
 {
- "total": 783,
- "playable": 770,
+ "total": 784,
+ "playable": 771,
  "episodes": [
   {
    "slug": "mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai",
@@ -121,6 +121,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mckinsey-andrew-lacy-prenuvo-full-body-mri.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#mckinsey-andrew-lacy-prenuvo-full-body-mri",
    "source_url": "https://www.youtube.com/watch?v=R3AQx1CBEa4"
+  },
+  {
+   "slug": "yahoofinance-dario-amodei-jamie-dimon-anthropic-ipo",
+   "title": "Anthropic CEO sits down with JPMorgan’s Jamie Dimon ahead of the IPO",
+   "channel": "Yahoo Finance",
+   "date": "2026-11-13",
+   "duration": "6:32",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/yahoofinance-dario-amodei-jamie-dimon-anthropic-ipo.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#yahoofinance-dario-amodei-jamie-dimon-anthropic-ipo",
+   "source_url": "https://www.youtube.com/watch?v=A1fleXHlpPE"
   },
   {
    "slug": "toe-dan-freed-quantum-field-theory",
