@@ -1,6 +1,6 @@
 {
- "total": 786,
- "playable": 773,
+ "total": 787,
+ "playable": 774,
  "episodes": [
   {
    "slug": "mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai",
@@ -157,6 +157,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/dwarkesh-recursive-self-improvement-has-started.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#dwarkesh-recursive-self-improvement-has-started",
    "source_url": "https://www.youtube.com/watch?v=1NHPDzpfR6Y"
+  },
+  {
+   "slug": "baroncapital-elon-musk-ron-baron-terafab-starship",
+   "title": "Elon Musk & Ron Baron: Terafab, Starship & Data Centers in Space | Baron Investment Conference 2026",
+   "channel": "Baron Capital",
+   "date": "2026-11-13",
+   "duration": "10:02",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/baroncapital-elon-musk-ron-baron-terafab-starship.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-13.html#baroncapital-elon-musk-ron-baron-terafab-starship",
+   "source_url": "https://www.youtube.com/watch?v=ir-DFO_5yPw"
   },
   {
    "slug": "toe-dan-freed-quantum-field-theory",
