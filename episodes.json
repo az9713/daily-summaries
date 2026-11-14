@@ -1,7 +1,19 @@
 {
- "total": 788,
- "playable": 775,
+ "total": 789,
+ "playable": 776,
  "episodes": [
+  {
+   "slug": "ycombinator-grok-bot-build-ai-teammates",
+   "title": "Grok Bot: What Changes When You Can Build AI Teammates",
+   "channel": "Y Combinator",
+   "date": "2026-11-14",
+   "duration": "7:09",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/ycombinator-grok-bot-build-ai-teammates.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-14.html#ycombinator-grok-bot-build-ai-teammates",
+   "source_url": "https://www.youtube.com/watch?v=JpJUHOe8bDo"
+  },
   {
    "slug": "mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai",
    "title": "Closed Frontier Labs Are Pulling Ahead of Open AI | Melvin Johnson",
