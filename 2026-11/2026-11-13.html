@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Friday &middot; November 13, 2026</p>
-        <h1>11 summaries, distilled.</h1>
+        <h1>12 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -419,6 +419,7 @@
         <a class="card" href="#peterman-sergey-levine-best-data-robotics"><span class="num">09</span><span><span class="card-title">Sergey Levine (Top Robotics Researcher): The Best Data For Robotics</span><span class="card-byline">Ryan Peterman</span></span><span class="card-dur">5:33</span><span class="listen-state" data-slug="peterman-sergey-levine-best-data-robotics"></span></a>
         <a class="card" href="#mckinsey-andrew-lacy-prenuvo-full-body-mri"><span class="num">10</span><span><span class="card-title">Can Full-Body MRIs Change Healthcare? | Prenuvo CEO</span><span class="card-byline">McKinsey & Company</span></span><span class="card-dur">7:28</span><span class="listen-state" data-slug="mckinsey-andrew-lacy-prenuvo-full-body-mri"></span></a>
         <a class="card" href="#yahoofinance-dario-amodei-jamie-dimon-anthropic-ipo"><span class="num">11</span><span><span class="card-title">Anthropic CEO sits down with JPMorgan’s Jamie Dimon ahead of the IPO</span><span class="card-byline">Yahoo Finance</span></span><span class="card-dur">6:32</span><span class="listen-state" data-slug="yahoofinance-dario-amodei-jamie-dimon-anthropic-ipo"></span></a>
+        <a class="card" href="#samuel-alexander-anthropic-speedrunning-fermat-last-theorem"><span class="num">12</span><span><span class="card-title">Anthropic is speedrunning Fermat&#x27;s Last Theorem verifications now</span><span class="card-byline">Dr. Samuel Allen Alexander</span></span><span class="card-dur">6:11</span><span class="listen-state" data-slug="samuel-alexander-anthropic-speedrunning-fermat-last-theorem"></span></a>
         </div>
       </nav>
     </section>
@@ -961,6 +962,55 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#mckinsey-andrew-lacy-prenuvo-full-body-mri" data-route="article">&larr; McKinsey & Company</a>
         <a class="to-index" href="2026-11-13.html" data-route="index">All summaries</a>
+        <a class="next" href="#samuel-alexander-anthropic-speedrunning-fermat-last-theorem" data-route="article">Dr. Samuel Allen Alexander &middot; Anthropic is speedrunning Fermat&#x27;s Last Theorem verifications now &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="samuel-alexander-anthropic-speedrunning-fermat-last-theorem" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-13.html" data-route="index">&larr; November 13, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Anthropic is speedrunning Fermat&#x27;s Last Theorem verifications now &mdash; November 13, 2026 <span class="dur">&middot; 6:11</span></p>
+        <audio controls preload="none" src="../podcasts/samuel-alexander-anthropic-speedrunning-fermat-last-theorem.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/samuel-alexander-anthropic-speedrunning-fermat-last-theorem.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="samuel-alexander-anthropic-speedrunning-fermat-last-theorem" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="samuel-alexander-anthropic-speedrunning-fermat-last-theorem"></div>
+        <div class="episode-download"><a href="../podcasts/samuel-alexander-anthropic-speedrunning-fermat-last-theorem.mp3" download>Download samuel-alexander-anthropic-speedrunning-fermat-last-theorem.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Dr. Samuel Allen Alexander</dd></div>
+        <div><dt>Published</dt><dd>November 13, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=icDkDQiOSX0" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Dr. Samuel Allen Alexander &middot; Anthropic speedrunning Fermat's Last Theorem verifications</p>
+        <h2>Anthropic is speedrunning Fermat&#x27;s Last Theorem verifications now</h2>
+        <div>
+<p>On Dr. Samuel Allen Alexander, “Anthropic is speedrunning Fermat&#x27;s Last Theorem verifications now” is a read-through of Anthropic&#x27;s blog post Safely Scaling Multi-Agent Teams with Claude Fable 5.2, by Samuel Allen Alexander, a mathematician and philosopher. In September, Anthropic published the first end-to-end formalization of Fermat&#x27;s Last Theorem in the Lean proof language. Now a team of a thousand agents running an early version of Claude Fable 5.2 has reproduced that proof with no special platform and no researcher steering, and Alexander works through the post section by section, arguing with it as he goes.</p>
+<p>Fermat&#x27;s Last Theorem says that no positive integers a, b, and c satisfy a to the n plus b to the n equals c to the n for any n greater than 2. It went unproven for more than 350 years, until Andrew Wiles published his 129-page proof in 1995. Formalizing a proof, rewriting it so a computer can check every step, has been a long-standing goal in mathematics ever since.</p>
+<p>The September formalization took a researcher and dozens of agents 11 days and roughly 6 billion output tokens, and produced some 13 million lines of Lean code. The agents coordinated through Prove2Me, a platform that links each statement to be proved to the smaller statements it splits into, so no one lost track of the project state.</p>
+<p>The new run was what Anthropic calls a toy experiment. The thousand agents got a list of 60 statements to prove, the final theorem plus 59 intermediate milestones, along with a one-sentence sketch of the classical route, the definitions those statements use, and 47 already proved lemmas from the September work. There was no Prove2Me and no researcher directing them, only general tools: a shell and file editing in a private sandbox, the Lean toolchain with its mathematics library, a personal git branch with merge requests into the main branch, and one shared database for the whole team.</p>
+<p>The result: the team finished in 28.7 hours, used a third as many output tokens as the September run, and wrote a proof one-seventh the length of the original. Alexander says the length is the real headline. The hours mean little, since faster hardware would cut them anyway, but a proof shrinking to a seventh of its size is a different kind of progress. Keep dividing by seven, he jokes, and the proof would eventually fit in the margin of Fermat&#x27;s notebook, the margin where Fermat famously claimed his own proof would not fit.</p>
+<p>He does raise one fairness question early. If the team was handed 47 proved lemmas from the earlier formalization, how much of the theorem did those lemmas quietly carry? If they were substantial, the comparison with September is apples to oranges. He hopes the post will clarify what those lemmas were, and notes the question as he reads on.</p>
+<p>The sandboxes had no network access at all, and Alexander stresses why that matters: the September formalization is published, so a connected agent could simply download the finished proof instead of proving anything. Each agent&#x27;s only link out was a pipe to a gateway that relayed its requests to the Claude API, the shared repository, and the database. Around that sat three layers of monitoring. A prompted classifier checked every shell command and file edit before it ran, looking for escape attempts or tampering, and an offline monitor later reviewed the team&#x27;s actions. A block on the lead agent would have stopped the whole team; a block on a helper removed just that helper. Across more than a million tool calls in this run, none met the bar to be blocked. Anthropic also describes red-team sabotage exercises in which monitors that could see the agents&#x27; chain of thought and their messages to each other caught every sabotage attempt, and Alexander counts those watching agents as part of the hierarchy too.</p>
+<p>Coordination is where the run got interesting. The only structure the team was given was one lead agent and 999 helpers. In its first ten minutes the lead set up five tables in the shared database: one for its orders to the team, one assigning who works on what, an open notes board, a subtasks list that any agent could add to and claim from, and a log of finished work. It then dealt the 60 statements out to crews of about 16 or 17 helpers each, and made one helper in each crew a captain, responsible for posting a plan and splitting the crew&#x27;s work into claimable tasks.</p>
+<p>The helpers&#x27; first job was to judge how hard their statements were. About 27 minutes in, three statements were already proved, and the lead set aside the 47 statements most helpers had judged infeasible within the run&#x27;s budget, concentrating nearly everyone on the remaining 10. Crews swelled from about 17 helpers to between 46 and 139. All 10 statements were proved within roughly 70 minutes, far faster than the team&#x27;s own pessimistic verdicts had assumed. The lead then wrote that there was no reason to idle, and moved helpers onto the harder statements it had first discarded. The helpers, meanwhile, took more and more initiative: by the third hour the lead was telling free helpers not to wait for it, and by hour 5.6 some 73 helpers had written 756 tasks between them, only 16 of them captains.</p>
+<p>One statement dwarfed the rest. Langlands&#x27; Tunnel, a classical result that Wiles&#x27;s proof relies on, had been judged the hardest piece: its captain estimated it might take 0.7 to 1 million lines of Lean, with under a 1 percent chance of finishing in time, so the lead saved it for last. Around hour 18, with nearly everything else done, the lead moved about 750 helpers onto it and wrote, honestly, that the odds were low. The team organized the statement as a tree: a plan split it into 10 areas, and any helper who found a piece too big could split it into smaller tasks beneath it. The tree grew to 2,418 tasks, up to 10 levels deep, and the statement took about nine times as many tasks and more than twice as much new code as any other. Langlands&#x27; Tunnel was proved at hour 28.4, and the final theorem followed at hour 28.7, kernel checked on the main branch. In the old days, as the lead&#x27;s closing message put it, we used to say QED.</p>
+<p>Alexander, who did his PhD on hierarchies of AIs, is delighted by how much structure the supposedly flat team invented for itself: crews, captains, and a ten-level task tree were none of them in the prompt. He is less impressed by the post&#x27;s charts and animations, which he calls blinking lights, presentation gloss meant to dazzle managers, though he rates one visualization of the agents swarming between statements 99 out of 100 and asks only for a slider to scrub it. He also suspects the heavy emphasis on safety is partly marketing, while granting that the sandbox had to be airtight for the result to mean anything at all.</p>
+<p>Anthropic&#x27;s own conclusions are modest. Domain platforms like Prove2Me may still make agents faster, human direction still helps, and agents misjudge difficulty and give up too early: this team initially wrote off 47 of its 60 statements and then proved most of them. Alexander takes that last point and runs with it. If agents need encouragement at the moments they would otherwise quit, he jokes, the human job of the future may be cheerleader. He closes by wondering whether speedrunning teams will come for other monuments of mathematics next, the classification of finite simple groups or the Navier-Stokes problem, and signs off clearly pleased to be watching it happen.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>The team was handed 47 proved lemmas from the September formalization, and the post does not say how hard those lemmas were. How much of the 28.7-hour result is the thousand-agent scaling, and how much is scaffolding inherited from the earlier run?</li>
+<li>Anthropic&#x27;s safety case rests on monitors that read the agents&#x27; reasoning and messages and caught every sabotage attempt in testing. Fermat&#x27;s Last Theorem has a kernel that can certify the final answer. Does the same monitoring hold up on long tasks where no checker exists to confirm the output is right?</li>
+<li>Alexander argues the shrinking proof, one-seventh the length, matters more than the shrinking clock. If agent teams keep compressing formal proofs run over run, what happens to the human work of understanding them?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full transcript of this video (6,179 words covering the entire 34 minute 18 second recording, caption cues from 0.7 to 2057 seconds), taken from the video&#x27;s English automatic caption track (ASR, srv3) served by the Android 21.02.35 player client, which returned playability OK; the Android 20.10.38 and iOS clients returned the same track. A json3 request returned the same srv3 XML, so the srv3 file is saved in this build as the grounding artifact. The player-served title is used exactly as served; it matches the oEmbed title and the channel listing title, so there is no variant to disclose. The video is a read-through, so the experiment&#x27;s numbers, the 28.7 hours, the 60 statements, the 2,418 tasks, are Anthropic&#x27;s figures as Alexander reads them from the company&#x27;s blog post, and his judgments about them are his own. Names and terms follow published spellings where the auto captions garble them: the captions render Fermat as “Form” and “FMA,” Wiles as “Wilds,” Langlands&#x27; Tunnel as “Langland&#x27;s tunnel,” the Prove2Me platform as “proved to me,” and PostgreSQL as “postgrade.”</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#yahoofinance-dario-amodei-jamie-dimon-anthropic-ipo" data-route="article">&larr; Yahoo Finance</a>
+        <a class="to-index" href="2026-11-13.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -982,7 +1032,8 @@
       "ycrootaccess-intelligence-is-the-taste-test-for-ai": "Intelligence is The Taste Test for AI",
       "peterman-sergey-levine-best-data-robotics": "Sergey Levine (Top Robotics Researcher): The Best Data For Robotics",
       "mckinsey-andrew-lacy-prenuvo-full-body-mri": "Can Full-Body MRIs Change Healthcare? | Prenuvo CEO",
-      "yahoofinance-dario-amodei-jamie-dimon-anthropic-ipo": "Anthropic CEO sits down with JPMorgan’s Jamie Dimon ahead of the IPO"
+      "yahoofinance-dario-amodei-jamie-dimon-anthropic-ipo": "Anthropic CEO sits down with JPMorgan’s Jamie Dimon ahead of the IPO",
+      "samuel-alexander-anthropic-speedrunning-fermat-last-theorem": "Anthropic is speedrunning Fermat's Last Theorem verifications now"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
