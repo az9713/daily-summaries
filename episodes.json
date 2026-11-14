@@ -1,6 +1,6 @@
 {
- "total": 791,
- "playable": 778,
+ "total": 792,
+ "playable": 779,
  "episodes": [
   {
    "slug": "ycombinator-grok-bot-build-ai-teammates",
@@ -37,6 +37,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/20vc-7b-startup-ai-chips-challenge-nvidia-fractile.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-14.html#20vc-7b-startup-ai-chips-challenge-nvidia-fractile",
    "source_url": "https://www.youtube.com/watch?v=UZ8eYaAf08M"
+  },
+  {
+   "slug": "mtsituation-buck-shlegeris-securing-model-weights-wont-stop-china",
+   "title": "Securing Model Weights Won’t Stop China | Buck Shlegeris",
+   "channel": "MTS",
+   "date": "2026-11-14",
+   "duration": "6:58",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mtsituation-buck-shlegeris-securing-model-weights-wont-stop-china.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-14.html#mtsituation-buck-shlegeris-securing-model-weights-wont-stop-china",
+   "source_url": "https://www.youtube.com/watch?v=L_vJUZUPXn8"
   },
   {
    "slug": "mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai",
