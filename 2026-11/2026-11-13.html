@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Friday &middot; November 13, 2026</p>
-        <h1>8 summaries, distilled.</h1>
+        <h1>9 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -416,6 +416,7 @@
         <a class="card" href="#a16z-cyberattacks-months-to-minutes-ami-luttwak"><span class="num">06</span><span><span class="card-title">Cyberattacks Used to Take Months. AI Can Do It in Minutes.</span><span class="card-byline">a16z</span></span><span class="card-dur">6:17</span><span class="listen-state" data-slug="a16z-cyberattacks-months-to-minutes-ami-luttwak"></span></a>
         <a class="card" href="#ifml-scott-aaronson-are-we-cooked"><span class="num">07</span><span><span class="card-title">Scott Aaronson: Are We Cooked?</span><span class="card-byline">IFML</span></span><span class="card-dur">6:55</span><span class="listen-state" data-slug="ifml-scott-aaronson-are-we-cooked"></span></a>
         <a class="card" href="#ycrootaccess-intelligence-is-the-taste-test-for-ai"><span class="num">08</span><span><span class="card-title">Intelligence is The Taste Test for AI</span><span class="card-byline">YC Root Access</span></span><span class="card-dur">5:35</span><span class="listen-state" data-slug="ycrootaccess-intelligence-is-the-taste-test-for-ai"></span></a>
+        <a class="card" href="#peterman-sergey-levine-best-data-robotics"><span class="num">09</span><span><span class="card-title">Sergey Levine (Top Robotics Researcher): The Best Data For Robotics</span><span class="card-byline">Ryan Peterman</span></span><span class="card-dur">5:33</span><span class="listen-state" data-slug="peterman-sergey-levine-best-data-robotics"></span></a>
         </div>
       </nav>
     </section>
@@ -817,6 +818,51 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#ifml-scott-aaronson-are-we-cooked" data-route="article">&larr; IFML</a>
         <a class="to-index" href="2026-11-13.html" data-route="index">All summaries</a>
+        <a class="next" href="#peterman-sergey-levine-best-data-robotics" data-route="article">Ryan Peterman &middot; Sergey Levine (Top Robotics Researcher): The Best Data For Robotics &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="peterman-sergey-levine-best-data-robotics" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-13.html" data-route="index">&larr; November 13, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Sergey Levine (Top Robotics Researcher): The Best Data For Robotics &mdash; November 13, 2026 <span class="dur">&middot; 5:33</span></p>
+        <audio controls preload="none" src="../podcasts/peterman-sergey-levine-best-data-robotics.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/peterman-sergey-levine-best-data-robotics.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="peterman-sergey-levine-best-data-robotics" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="peterman-sergey-levine-best-data-robotics"></div>
+        <div class="episode-download"><a href="../podcasts/peterman-sergey-levine-best-data-robotics.mp3" download>Download peterman-sergey-levine-best-data-robotics.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Ryan Peterman</dd></div>
+        <div><dt>Published</dt><dd>November 13, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=EaMKsDquHN0" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Ryan Peterman &middot; Sergey Levine on the best data for robotics</p>
+        <h2>Sergey Levine (Top Robotics Researcher): The Best Data For Robotics</h2>
+        <div>
+<p>On Ryan Peterman, “Sergey Levine (Top Robotics Researcher): The Best Data For Robotics” is a short segment in which host Ryan Peterman asks Sergey Levine, the robotics researcher and co-founder of Physical Intelligence, a question the robotics community argues about constantly: of all the data you could train a robot on, simulated data, physical interactive data, video of humans, and more, what is the best, what is the worst, and what are the trade-offs?</p>
+<p>Levine&#x27;s answer is that the ranking matters less than the foundation underneath. A model can internalize many different data sources, he argues, if it can ground them in a thorough physical understanding of the world. People do this constantly. A flight simulator teaches you to fly because you arrive with world knowledge: you know the simulator stands for a real airplane, so the practice transfers. Even a cartoony Atari game makes sense because you connect the symbols on the screen to things you have experienced, and you fill in the blanks the simulation leaves.</p>
+<p>The same happens when you watch someone else act. Watching a person cook, you do not track every muscle movement. You file the action away at a higher level of abstraction, something like “add salt,” because you have put salt on things yourself. Once that embodied foundation exists, Levine says, other sources of knowledge can connect up to it.</p>
+<p>That leads him to invert the recipe the field is tempted to copy from language models. With LLMs, internet data came first, so it is tempting to start a robot model on YouTube videos and layer robot data on top. Levine thinks the order should be reversed: train a robotic foundation model on lots of real embodied robot data first, and it will then absorb other sources, such as human video, far better.</p>
+<p>He points to evidence from work by his colleague Suraj Nair with a Georgia Tech collaborator, who added human video data on top of a foundation model already trained on robot data and then compared how the model represented human and robot experience internally. With a small model and little robot data, the two kinds of experience stayed fully separated in the model&#x27;s features. But as the amount of robot data from many different robots grew, the features grouped by what task was being done rather than by whether a human or a robot was doing it, until at full robot data the embedding plots lined up almost entirely by task identity. Levine stresses the striking part: the base model was never trained on human data at all, yet once human data was added, it represented that data in the same task-based way.</p>
+<p>Peterman then asks whether the foundation has to include data from the exact motors and joints of the robot you will deploy. Levine says that, so far, yes, you generally need some data from the deployment robot to get good performance. The measure of generalization is not zero-shot transfer to a brand new robot; it is how little experience from the new robot you can get away with, and how much skill transfers from other robots. What surprised him is how little special machinery this takes. His team skipped the elaborate morphology-aware designs he once planned, such as factorizing the model around six-degree-of-freedom arms and gripper heads. The model simply outputs one large vector of numbers, zero-pads it when a robot has fewer degrees of freedom than the vector, trains on all the robots at once, and produces the right actions from what it sees through the camera.</p>
+<p>The last part of the segment is about how skills move between robots, and Levine&#x27;s answer is that the model needs an intermediate step of thinking, done in the right modality. Thinking in text transfers high-level behavioral structure well: a plan like cleaning the kitchen and opening the drawer before putting the silverware away is largely indifferent to which body executes it. Lower-level skills can transfer too, if the thinking happens in images. In one experiment, the model imagined an image of the next milestone in a task, and with that a UR5 robot folded a t-shirt even though the team had no t-shirt folding data on the UR5 at all. Working out the exact joint angles directly would have been hard, because the UR5 moves differently from the robots in the training data. Picturing what the folded state should look like was easy, and once the image existed, the correct actions could be backed out from it. Levine compares it to a math problem where finding the right intermediate step makes the answer obvious.</p>
+<p>He closes by generalizing the trick: the imagined milestone can be an edited image or a predicted video, and the real requirement is that the model imagine what progress on the task would look like. People plan the same two ways, semantically for some things and spatially for others. Rock climbing, he notes, is planned spatially: you do not think in coordinates, you imagine your arm reaching for the next hold. The segment ends mid-example, as the clip itself cuts off there.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Levine&#x27;s ordering claim rests on representation evidence from one line of experiments. Will other labs, with different models and robot data mixes, reproduce the effect of features grouping by task rather than by embodiment?</li>
+<li>If real embodied data must come first, how much of it is enough before video and simulation data start paying off, and does that threshold change as models and datasets scale?</li>
+<li>Text and images are the two thinking modalities Levine demonstrates. Could thinking in other modalities, such as force or touch, unlock transfers that neither words nor pictures can carry, and can a model learn to choose the right modality for each task on its own?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full transcript of this video (1,816 words covering the entire 8 minute 25 second recording, cues from 0:00 to 8:24), taken from the video&#x27;s English automatic caption track (ASR, srv3) served by the Android 21.02.35 player client, which returned playability OK, as did the Android 20.10.38 and iOS clients; a json3 request returned the same srv3 XML, so the srv3 file is saved in this build as the grounding artifact. The player-served title is used exactly as served; it matches the oEmbed title, so there is no listing variant to disclose. This video is a segment the channel cut from a longer conversation (the full conversation is linked in the video&#x27;s description), and the clip ends mid-sentence during the closing rock climbing example; the summary covers the video as published and does not extend it. Levine&#x27;s role at Physical Intelligence is stated in the video&#x27;s description. Names and terms follow published spellings where the auto captions garble them (“Suraj Ner” for Suraj Nair, “TC embedding” for a t-SNE embedding); the Georgia Tech collaborator is named “Simar” in the captions.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#ycrootaccess-intelligence-is-the-taste-test-for-ai" data-route="article">&larr; YC Root Access</a>
+        <a class="to-index" href="2026-11-13.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -835,7 +881,8 @@
       "codebear-why-microsoft-365-was-down-19-hours": "Why Microsoft 365 Was Down for 19 Hours?",
       "a16z-cyberattacks-months-to-minutes-ami-luttwak": "Cyberattacks Used to Take Months. AI Can Do It in Minutes.",
       "ifml-scott-aaronson-are-we-cooked": "Scott Aaronson: Are We Cooked?",
-      "ycrootaccess-intelligence-is-the-taste-test-for-ai": "Intelligence is The Taste Test for AI"
+      "ycrootaccess-intelligence-is-the-taste-test-for-ai": "Intelligence is The Taste Test for AI",
+      "peterman-sergey-levine-best-data-robotics": "Sergey Levine (Top Robotics Researcher): The Best Data For Robotics"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
