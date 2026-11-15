@@ -1,6 +1,6 @@
 {
- "total": 803,
- "playable": 790,
+ "total": 804,
+ "playable": 791,
  "episodes": [
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
@@ -49,6 +49,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/davidsenra-michael-rubin-sports-empire.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-15.html#davidsenra-michael-rubin-sports-empire",
    "source_url": "https://www.youtube.com/watch?v=bkEXqYGa3oo"
+  },
+  {
+   "slug": "mtsituation-eli-lifland-brendan-halstead-ai-research-acceleration",
+   "title": "Why AI Research Acceleration Just Doubled | Eli Lifland & Brendan Halstead",
+   "channel": "MTS",
+   "date": "2026-11-15",
+   "duration": "5:03",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mtsituation-eli-lifland-brendan-halstead-ai-research-acceleration.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-15.html#mtsituation-eli-lifland-brendan-halstead-ai-research-acceleration",
+   "source_url": "https://www.youtube.com/watch?v=wRDKBO4WIeA"
   },
   {
    "slug": "ycombinator-grok-bot-build-ai-teammates",
