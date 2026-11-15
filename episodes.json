@@ -1,7 +1,19 @@
 {
- "total": 799,
- "playable": 786,
+ "total": 800,
+ "playable": 787,
  "episodes": [
+  {
+   "slug": "turingapp-even-ai-cant-beat-this-man-programming",
+   "title": "Even AI Can't Beat This Man at Programming",
+   "channel": "Turing and Turing Now - Science & Tech News",
+   "date": "2026-11-15",
+   "duration": "4:31",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/turingapp-even-ai-cant-beat-this-man-programming.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-15.html#turingapp-even-ai-cant-beat-this-man-programming",
+   "source_url": "https://www.youtube.com/watch?v=fj-FoLO_dKQ"
+  },
   {
    "slug": "ycombinator-grok-bot-build-ai-teammates",
    "title": "Grok Bot: What Changes When You Can Build AI Teammates",
