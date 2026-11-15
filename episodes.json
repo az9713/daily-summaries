@@ -1,6 +1,6 @@
 {
- "total": 802,
- "playable": 789,
+ "total": 803,
+ "playable": 790,
  "episodes": [
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
@@ -37,6 +37,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/restisscience-secrets-michael-keeps-from-himself.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-15.html#restisscience-secrets-michael-keeps-from-himself",
    "source_url": "https://www.youtube.com/watch?v=rNM9ToViH-Q"
+  },
+  {
+   "slug": "davidsenra-michael-rubin-sports-empire",
+   "title": "Surviving Chaos, Fighting to Win & Building a $14 Billion-a-Year Sports Empire | Michael Rubin",
+   "channel": "David Senra",
+   "date": "2026-11-15",
+   "duration": "9:44",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/davidsenra-michael-rubin-sports-empire.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-15.html#davidsenra-michael-rubin-sports-empire",
+   "source_url": "https://www.youtube.com/watch?v=bkEXqYGa3oo"
   },
   {
    "slug": "ycombinator-grok-bot-build-ai-teammates",
