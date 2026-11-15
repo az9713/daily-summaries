@@ -1,6 +1,6 @@
 {
- "total": 798,
- "playable": 785,
+ "total": 799,
+ "playable": 786,
  "episodes": [
   {
    "slug": "ycombinator-grok-bot-build-ai-teammates",
@@ -121,6 +121,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/yahoofinance-karan-kunjur-k2-space-right-bet.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-14.html#yahoofinance-karan-kunjur-k2-space-right-bet",
    "source_url": "https://www.youtube.com/watch?v=mUD4pEB90S4"
+  },
+  {
+   "slug": "mckinsey-ai-advancing-judgment-keeping-up",
+   "title": "AI Is Advancing. Is Our Judgment Keeping Up?",
+   "channel": "McKinsey & Company",
+   "date": "2026-11-14",
+   "duration": "6:20",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mckinsey-ai-advancing-judgment-keeping-up.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-14.html#mckinsey-ai-advancing-judgment-keeping-up",
+   "source_url": "https://www.youtube.com/watch?v=x0yS3gtBpsI"
   },
   {
    "slug": "mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai",
