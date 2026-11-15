@@ -1,6 +1,6 @@
 {
- "total": 808,
- "playable": 795,
+ "total": 809,
+ "playable": 796,
  "episodes": [
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
@@ -109,6 +109,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/natebjones-your-company-could-use-5x-more-ai.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-15.html#natebjones-your-company-could-use-5x-more-ai",
    "source_url": "https://www.youtube.com/watch?v=JlHqTyW8rtA"
+  },
+  {
+   "slug": "samuel-alexander-kevin-buzzard-lean-verified-explainer",
+   "title": "Kevin Buzzard wrote a GREAT explainer of what \"The proof is LEAN-verified\" actually means",
+   "channel": "Dr. Samuel Allen Alexander",
+   "date": "2026-11-15",
+   "duration": "6:02",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/samuel-alexander-kevin-buzzard-lean-verified-explainer.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-15.html#samuel-alexander-kevin-buzzard-lean-verified-explainer",
+   "source_url": "https://www.youtube.com/watch?v=cAjw7g54WWg"
   },
   {
    "slug": "ycombinator-grok-bot-build-ai-teammates",
