@@ -1,6 +1,6 @@
 {
- "total": 804,
- "playable": 791,
+ "total": 805,
+ "playable": 792,
  "episodes": [
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
@@ -61,6 +61,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mtsituation-eli-lifland-brendan-halstead-ai-research-acceleration.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-15.html#mtsituation-eli-lifland-brendan-halstead-ai-research-acceleration",
    "source_url": "https://www.youtube.com/watch?v=wRDKBO4WIeA"
+  },
+  {
+   "slug": "mtsituation-nathan-calvin-anthropic-hides-ai-rd-speedup",
+   "title": "Why Anthropic Hides Its AI R&D Speedup | Nathan Calvin",
+   "channel": "MTS",
+   "date": "2026-11-15",
+   "duration": "7:04",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mtsituation-nathan-calvin-anthropic-hides-ai-rd-speedup.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-15.html#mtsituation-nathan-calvin-anthropic-hides-ai-rd-speedup",
+   "source_url": "https://www.youtube.com/watch?v=mI3OCRNSLI0"
   },
   {
    "slug": "ycombinator-grok-bot-build-ai-teammates",
