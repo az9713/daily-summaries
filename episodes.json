@@ -1,6 +1,6 @@
 {
- "total": 801,
- "playable": 788,
+ "total": 802,
+ "playable": 789,
  "episodes": [
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
@@ -25,6 +25,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/every-dan-shipper-future-human-work-automation.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-15.html#every-dan-shipper-future-human-work-automation",
    "source_url": "https://www.youtube.com/watch?v=WstNofgQF5Q"
+  },
+  {
+   "slug": "restisscience-secrets-michael-keeps-from-himself",
+   "title": "The Secrets Michael Keeps From Himself",
+   "channel": "The Rest Is Science",
+   "date": "2026-11-15",
+   "duration": "5:25",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/restisscience-secrets-michael-keeps-from-himself.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-15.html#restisscience-secrets-michael-keeps-from-himself",
+   "source_url": "https://www.youtube.com/watch?v=rNM9ToViH-Q"
   },
   {
    "slug": "ycombinator-grok-bot-build-ai-teammates",
