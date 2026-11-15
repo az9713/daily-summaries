@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - November 15, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+    <link rel="stylesheet" href="../player.css">
+  </head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Sunday &middot; November 15, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#turingapp-even-ai-cant-beat-this-man-programming"><span class="num">01</span><span><span class="card-title">Even AI Can&#x27;t Beat This Man at Programming</span><span class="card-byline">Turing and Turing Now - Science & Tech News</span></span><span class="card-dur">4:31</span><span class="listen-state" data-slug="turingapp-even-ai-cant-beat-this-man-programming"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="turingapp-even-ai-cant-beat-this-man-programming" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-15.html" data-route="index">&larr; November 15, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Even AI Can&#x27;t Beat This Man at Programming &mdash; November 15, 2026 <span class="dur">&middot; 4:31</span></p>
+        <audio controls preload="none" src="../podcasts/turingapp-even-ai-cant-beat-this-man-programming.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/turingapp-even-ai-cant-beat-this-man-programming.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="turingapp-even-ai-cant-beat-this-man-programming" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="turingapp-even-ai-cant-beat-this-man-programming"></div>
+        <div class="episode-download"><a href="../podcasts/turingapp-even-ai-cant-beat-this-man-programming.mp3" download>Download turingapp-even-ai-cant-beat-this-man-programming.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Turing and Turing Now - Science & Tech News</dd></div>
+        <div><dt>Published</dt><dd>November 15, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=fj-FoLO_dKQ" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Turing and Turing Now - Science & Tech News &middot; Gennady Korotkevich, the competitive programmer AI cannot beat</p>
+        <h2>Even AI Can&#x27;t Beat This Man at Programming</h2>
+        <div>
+<p>On Turing, “Even AI Can&#x27;t Beat This Man at Programming” tells the story of Gennady Korotkevich, the Belarusian competitive programmer known online as “tourist,” whose dominance of his sport grew so complete that its biggest platform had to invent a new rank and name it after him. The AI angle in the title only arrives near the end. Most of the video is the record itself, and the record is the argument.</p>
+<p>Competitive programming is a sport in which contestants solve hard programming and mathematics problems as fast as possible. Its biggest platform, Codeforces, rates players with a system similar to chess. A rating of 3,000 is considered extraordinary: millions of programmers exist, fewer than 100 have ever reached it, and those who do earn the rank of Legendary Grandmaster. On August 30, 2024, Korotkevich became the first person to break 4,000, reaching 4,009. Codeforces created a new rank above Legendary Grandmaster for scores over 4,000 and called it “Tourist,” with a badge that reverses the usual colors, a red first letter and the rest in black.</p>
+<p>Korotkevich was born on September 25, 1994, in Gomel, in southeastern Belarus. His parents, Vladimir and Lyudmila Korotkevich, worked as programmers in the mathematics department at Francysk Skaryna Gomel State University. He started coding at about six, after watching his parents at their computers and asking how the text on the screen controlled the machine. By eight he had outgrown what they could teach him, and they turned to their colleague Mikhail Dolinsky, who had started the regional school of informatics. Dolinsky gave him a small computing book, heard nothing for two months, and then was shown a notebook full of code: the boy had spent the summer finishing every assignment. In second grade he entered a national programming contest meant for much older students and placed in the top 50. At about nine, needing a username, he saw the word “tourist” on his skis and took it.</p>
+<p>The International Olympiad in Informatics, the top contest for high school students, normally crowns eighteen-year-olds. Korotkevich made the Belarusian team in 2006 at only 11, breaking the age record by a wide margin, and finished 26th in the world with a silver medal. He was disappointed, having expected gold. He won his first gold in 2007 at 12, another in 2008, and finished first overall in 2009, 2010, and 2011. At the 2011 event in Thailand he solved every problem for a perfect score. He closed his school career in 2012 with one more gold and a second-place finish, for six golds and one silver in all. No one else has matched that record. Asked about the secret of his success, he said: “I try various strategies, and one of them is the right one,” and “I am no genius. I am simply good at it.” He also kept his practice to no more than three to four hours a day and made time for football and table tennis.</p>
+<p>In the fall of 2012 he moved to St. Petersburg to study at ITMO University, where coach Andrey Stankevich had built a program that treated competitive programming with the seriousness of professional sport. The collegiate contest, the ICPC, is a team event: three students share one computer for five hours and work through about a dozen problems, so communication and planning matter as much as coding speed. In 2013 his team, with Mikhail Kever and Niyaz Nigmatullin, beat schools including Shanghai Jiao Tong University and the University of Tokyo to win the world championship. In 2015, in Marrakesh, he won again with Artem Vasilyev and Borys Minaiev, and that ITMO team solved all 13 problems.</p>
+<p>The open division has no age limits, and its tournaments are run by major tech firms under very different rules. Google Code Jam rewards algorithmic optimization, Meta Hacker Cup tests work with huge datasets, and Topcoder splits into 90-minute Algorithm sprints and multi-day Marathon matches. In 2014 Korotkevich completed a Grand Slam, winning Code Jam, Hacker Cup, Yandex Algorithm, the Russian Code Cup, and the Topcoder Open Algorithm championship in a single year. He won Code Jam eight times, including an unbroken streak from 2014 to 2020, a sixth place in 2021, and the final edition in 2022. His Hacker Cup titles came in 2014, 2015, 2019, 2020, 2023, and 2025, and he also won the Topcoder Open Marathon matches in 2018 and 2019. His longtime rival was Petr Mitrichev; later challengers included Andrew He of the United States and Kevin Sun of Canada.</p>
+<p>The Codeforces ladder helps explain why 4,000 stood untouched for so long. Ratings are relative: your score moves according to how you perform against the field, so near the top, where everyone already knows the standard algorithms, gaining even a few points means finishing near the top every time, and a single mistake can wipe out months of effort. Since Korotkevich crossed the line, only one person has followed him. In January 2025, the Chinese prodigy Lingyu “jiangly” Jiang also passed 4,000, reaching 4,039.</p>
+<p>His method, as competitors describe it, is subtraction. Reading a problem, he ignores the decorative story, the farmers dividing fields or the spaceships crossing asteroid fields, and goes straight to the core mathematics. Like a chess grandmaster, he draws on a large mental library of patterns and recognizes in moments what a beginner might need an hour to see. Andrew He has studied footage of him competing: Korotkevich works entirely in a terminal, using the text-based Far Manager, a sparse C++ template, and rapid keystrokes, with no elaborate interface or heavy debugging tools. At the 2014 Meta Hacker Cup finals, Mark Gordon finished coding well ahead of him, only for Korotkevich to submit in the closing minutes, glance at the updated scoreboard, and flash Gordon a small smirk. Two of Gordon&#x27;s submissions turned out to have bugs, and he did not even finish second. Egor Suvorov, who has competed alongside Korotkevich, credits his calm under time pressure, which lets him debug faster and find simpler, shorter solutions.</p>
+<p>Offstage he is unassuming. Winning matters to him, he has said, because contest results are completely objective: a program either runs correctly inside the time limit or it fails, with no committee deciding. He travels simply, often with one backpack, collected fridge magnets from host cities for himself and his mother, and for years chose long train rides between St. Petersburg and Gomel over flying. In 2017 he confirmed that he had turned down highly lucrative recruitment offers from both Google and Yandex, living comfortably on prize money of $10,000 to $20,000 per win and keeping his independence. Alongside the sport he finished a master&#x27;s degree and began a PhD under Alexey Sergushichev in bioinformatics, co-authoring a highly cited 2019 paper on FGSEA, a fast method for gene set enrichment analysis.</p>
+<p>That is where the title&#x27;s AI thread finally enters. In 2023 he briefly joined Ramp, a financial technology company, as a software engineer, using fine-tuned large language models to automate tasks such as organizing receipt data with optical character recognition. In December 2024 he joined Cognition AI in San Francisco. Cognition&#x27;s founders, Scott Wu, Steven Hao, and Walden Yan, are all IOI gold medalists, and the company built Devin, an autonomous AI software engineer meant to plan, write, run, debug, and deploy whole projects. Korotkevich was hired to provide the best possible human benchmark: he studies how AI models reason, improves their debugging methods, and trains the networks to handle tough problems the way he does. The video names the irony plainly. The man who spent two decades marking the upper limits of human cognition is now building the machinery designed to make human coding obsolete. It has not cost him his edge. In 2025, while working on Devin&#x27;s intelligence, he took a break, returned to competition, and won the Meta Hacker Cup again. Just like that.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Lingyu Jiang has already followed Korotkevich past 4,000, reaching 4,039 in January 2025. Does the “Tourist” rank stay a one-person honor, or does it quietly become a tier, and what happens to its meaning if a third and fourth programmer cross the line?</li>
+<li>Korotkevich now spends his working days at Cognition training AI systems to reason and debug the way he does. Can a model actually absorb the pattern recognition and calm decomposition that made him dominant, or does his edge rest on intuition that does not transfer into training data?</li>
+<li>He protected his independence for two decades, turning down Google and Yandex to live on prize money. As the sport&#x27;s top champions move into AI labs, does competitive programming keep producing singular figures like him, or does the talent pipeline now end at a job offer?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full transcript of this video (2,491 words, caption cues running from 1.0 to 1,087.7 seconds of the 1,106 second, 18 minute 26 second recording; the closing seconds carry no narration), taken from the video&#x27;s creator-provided English caption track through the Android player client, app version 20.10.38. The Android 21.02.35 client returned a sign-in wall for this video; the iOS 20.10.4 client served the identical title and track list. The caption endpoint served srv3 XML for both the json3 and srv3 requests, so the grounding artifact is captions.en.srv3; the video&#x27;s automatic (ASR) English track was also fetched and matches in substance (2,496 words). The player-served title above is used exactly as served, confirmed identically by the Android 20.10.38 and iOS 20.10.4 clients; no variant was found. The player serves the channel&#x27;s author name simply as “Turing”; the channel&#x27;s full name is “Turing and Turing Now - Science &amp; Tech News” (handle @TuringApp), and its description promotes the Turing app. The video&#x27;s chapters are “The Programmer Who Broke Codeforces,” “ITMO University and ICPC World Championships,” “Dominating Google Code Jam and Meta Hacker Cup,” and “Inside Tourist&#x27;s Mind.” One framing caution: the title promises an AI contest, but the narration is a career biography, and AI enters only in the final section, through Korotkevich&#x27;s work at Ramp and Cognition AI. The summary follows the video&#x27;s actual contents rather than its title.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-11-15.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated November 15, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "turingapp-even-ai-cant-beat-this-man-programming": "Even AI Can't Beat This Man at Programming"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+  <script src="../player.js" defer></script>
+</body>
+</html>
