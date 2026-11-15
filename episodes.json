@@ -1,6 +1,6 @@
 {
- "total": 806,
- "playable": 793,
+ "total": 807,
+ "playable": 794,
  "episodes": [
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
@@ -85,6 +85,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/lennyspodcast-mona-sarantakos-metas-muse-launch.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-15.html#lennyspodcast-mona-sarantakos-metas-muse-launch",
    "source_url": "https://www.youtube.com/watch?v=WY0cdD4gNoQ"
+  },
+  {
+   "slug": "worldsciencefestival-ai-closes-in-riemann-hypothesis",
+   "title": "AI Closes In on the Riemann Hypothesis | World Science Festival",
+   "channel": "World Science Festival",
+   "date": "2026-11-15",
+   "duration": "9:53",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/worldsciencefestival-ai-closes-in-riemann-hypothesis.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-15.html#worldsciencefestival-ai-closes-in-riemann-hypothesis",
+   "source_url": "https://www.youtube.com/watch?v=ljFZfYZLHj8"
   },
   {
    "slug": "ycombinator-grok-bot-build-ai-teammates",
