@@ -1,6 +1,6 @@
 {
- "total": 807,
- "playable": 794,
+ "total": 808,
+ "playable": 795,
  "episodes": [
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
@@ -97,6 +97,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/worldsciencefestival-ai-closes-in-riemann-hypothesis.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-15.html#worldsciencefestival-ai-closes-in-riemann-hypothesis",
    "source_url": "https://www.youtube.com/watch?v=ljFZfYZLHj8"
+  },
+  {
+   "slug": "natebjones-your-company-could-use-5x-more-ai",
+   "title": "Why Your Company Doesn't Need the Most Expensive AI Model",
+   "channel": "AI News & Strategy Daily | Nate B Jones",
+   "date": "2026-11-15",
+   "duration": "6:16",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/natebjones-your-company-could-use-5x-more-ai.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-15.html#natebjones-your-company-could-use-5x-more-ai",
+   "source_url": "https://www.youtube.com/watch?v=JlHqTyW8rtA"
   },
   {
    "slug": "ycombinator-grok-bot-build-ai-teammates",
