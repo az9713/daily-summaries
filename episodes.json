@@ -1,6 +1,6 @@
 {
- "total": 796,
- "playable": 783,
+ "total": 797,
+ "playable": 784,
  "episodes": [
   {
    "slug": "ycombinator-grok-bot-build-ai-teammates",
@@ -97,6 +97,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mtsituation-ivan-burazin-vibe-coding-dead-market.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-14.html#mtsituation-ivan-burazin-vibe-coding-dead-market",
    "source_url": "https://www.youtube.com/watch?v=ltDLbXBodRs"
+  },
+  {
+   "slug": "yahoofinance-tim-franta-launching-satellites-fighter-jet",
+   "title": "Why Launching Satellites From a Fighter Jet Makes Sense",
+   "channel": "Yahoo Finance",
+   "date": "2026-11-14",
+   "duration": "4:40",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/yahoofinance-tim-franta-launching-satellites-fighter-jet.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-14.html#yahoofinance-tim-franta-launching-satellites-fighter-jet",
+   "source_url": "https://www.youtube.com/watch?v=YW7LIEi1IBE"
   },
   {
    "slug": "mts-melvin-johnson-closed-frontier-labs-pulling-ahead-open-ai",
