@@ -1,6 +1,6 @@
 {
- "total": 805,
- "playable": 792,
+ "total": 806,
+ "playable": 793,
  "episodes": [
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
@@ -73,6 +73,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mtsituation-nathan-calvin-anthropic-hides-ai-rd-speedup.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-15.html#mtsituation-nathan-calvin-anthropic-hides-ai-rd-speedup",
    "source_url": "https://www.youtube.com/watch?v=mI3OCRNSLI0"
+  },
+  {
+   "slug": "lennyspodcast-mona-sarantakos-metas-muse-launch",
+   "title": "Meta’s Muse: How we launched the most successful consumer product this year | Mona Sarantakos",
+   "channel": "Lenny's Podcast",
+   "date": "2026-11-15",
+   "duration": "10:08",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/lennyspodcast-mona-sarantakos-metas-muse-launch.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-15.html#lennyspodcast-mona-sarantakos-metas-muse-launch",
+   "source_url": "https://www.youtube.com/watch?v=WY0cdD4gNoQ"
   },
   {
    "slug": "ycombinator-grok-bot-build-ai-teammates",
