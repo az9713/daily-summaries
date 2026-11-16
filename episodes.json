@@ -1,6 +1,6 @@
 {
- "total": 824,
- "playable": 811,
+ "total": 825,
+ "playable": 812,
  "episodes": [
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
@@ -181,6 +181,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/royalsociety-hastad-40-years-complexity-theory.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#royalsociety-hastad-40-years-complexity-theory",
    "source_url": "https://www.youtube.com/watch?v=OURBus5puno"
+  },
+  {
+   "slug": "matthewberman-box-ceo-ai-agents-software-features",
+   "title": "Box CEO Explains How AI Is Changing Software",
+   "channel": "Matthew Berman",
+   "date": "2026-11-16",
+   "duration": "6:13",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/matthewberman-box-ceo-ai-agents-software-features.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#matthewberman-box-ceo-ai-agents-software-features",
+   "source_url": "https://www.youtube.com/watch?v=kMdHCyAnNHA"
   },
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
