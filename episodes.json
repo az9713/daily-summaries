@@ -1,6 +1,6 @@
 {
- "total": 825,
- "playable": 812,
+ "total": 826,
+ "playable": 813,
  "episodes": [
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
@@ -193,6 +193,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/matthewberman-box-ceo-ai-agents-software-features.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#matthewberman-box-ceo-ai-agents-software-features",
    "source_url": "https://www.youtube.com/watch?v=kMdHCyAnNHA"
+  },
+  {
+   "slug": "palantir-shipos-supplier-spotlight-connected-production",
+   "title": "ShipOS Supplier Spotlight | Connected Production Planning at Penn Machine Works and US Drop Forge",
+   "channel": "Palantir",
+   "date": "2026-11-16",
+   "duration": "5:56",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/palantir-shipos-supplier-spotlight-connected-production.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#palantir-shipos-supplier-spotlight-connected-production",
+   "source_url": "https://www.youtube.com/watch?v=EVEkddAXZjk"
   },
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
