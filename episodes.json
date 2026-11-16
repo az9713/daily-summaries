@@ -1,6 +1,6 @@
 {
- "total": 823,
- "playable": 810,
+ "total": 824,
+ "playable": 811,
  "episodes": [
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
@@ -169,6 +169,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/nyt-daily-finally-vaccine-for-cancer.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#nyt-daily-finally-vaccine-for-cancer",
    "source_url": "https://www.youtube.com/watch?v=OOD0tRQpIac"
+  },
+  {
+   "slug": "royalsociety-hastad-40-years-complexity-theory",
+   "title": "Highlights from 40 years of complexity theory | The Royal Society",
+   "channel": "The Royal Society",
+   "date": "2026-11-16",
+   "duration": "6:45",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/royalsociety-hastad-40-years-complexity-theory.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#royalsociety-hastad-40-years-complexity-theory",
+   "source_url": "https://www.youtube.com/watch?v=OURBus5puno"
   },
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
