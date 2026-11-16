@@ -1,6 +1,6 @@
 {
- "total": 821,
- "playable": 808,
+ "total": 822,
+ "playable": 809,
  "episodes": [
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
@@ -145,6 +145,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/kai-cost-run-1tb-ai-model-home.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#kai-cost-run-1tb-ai-model-home",
    "source_url": "https://www.youtube.com/watch?v=qm6yPw_T8DQ"
+  },
+  {
+   "slug": "bigtechnology-atlassian-ceo-humans-work-ai-agents",
+   "title": "Atlassian CEO: How Humans Will Work Alongside AI Agents — With Mike Cannon-Brookes",
+   "channel": "Alex Kantrowitz",
+   "date": "2026-11-16",
+   "duration": "7:11",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/bigtechnology-atlassian-ceo-humans-work-ai-agents.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#bigtechnology-atlassian-ceo-humans-work-ai-agents",
+   "source_url": "https://www.youtube.com/watch?v=YArzCW6uQaU"
   },
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
