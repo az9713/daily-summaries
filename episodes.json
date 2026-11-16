@@ -1,6 +1,6 @@
 {
- "total": 822,
- "playable": 809,
+ "total": 823,
+ "playable": 810,
  "episodes": [
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
@@ -157,6 +157,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/bigtechnology-atlassian-ceo-humans-work-ai-agents.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#bigtechnology-atlassian-ceo-humans-work-ai-agents",
    "source_url": "https://www.youtube.com/watch?v=YArzCW6uQaU"
+  },
+  {
+   "slug": "nyt-daily-finally-vaccine-for-cancer",
+   "title": "Finally, a Vaccine for Cancer",
+   "channel": "New York Times Podcasts",
+   "date": "2026-11-16",
+   "duration": "4:58",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/nyt-daily-finally-vaccine-for-cancer.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#nyt-daily-finally-vaccine-for-cancer",
+   "source_url": "https://www.youtube.com/watch?v=OOD0tRQpIac"
   },
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
