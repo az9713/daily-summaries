@@ -1,7 +1,19 @@
 {
- "total": 809,
- "playable": 796,
+ "total": 810,
+ "playable": 797,
  "episodes": [
+  {
+   "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
+   "title": "Jacob Tsimerman on AI can supercharge mathematics - what is the end state? | The Curve 2026",
+   "channel": "Golden Gate Institute for AI",
+   "date": "2026-11-16",
+   "duration": "3:49",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/goldengate-jacob-tsimerman-ai-supercharge-mathematics.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#goldengate-jacob-tsimerman-ai-supercharge-mathematics",
+   "source_url": "https://www.youtube.com/watch?v=kbzIVh405r8"
+  },
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
    "title": "Even AI Can't Beat This Man at Programming",
