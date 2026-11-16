@@ -1,6 +1,6 @@
 {
- "total": 813,
- "playable": 800,
+ "total": 814,
+ "playable": 801,
  "episodes": [
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
@@ -49,6 +49,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mtsituation-reed-albergotti-nvidia-chip-moat-shrinking.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#mtsituation-reed-albergotti-nvidia-chip-moat-shrinking",
    "source_url": "https://www.youtube.com/watch?v=4MU3spHBlZ8"
+  },
+  {
+   "slug": "behindthebalancesheet-benedict-evans-will-anthropic-flop",
+   "title": "Will Anthropic Flop? Benedict Evans analyses its prospects",
+   "channel": "Behind the Balance Sheet",
+   "date": "2026-11-16",
+   "duration": "11:50",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/behindthebalancesheet-benedict-evans-will-anthropic-flop.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#behindthebalancesheet-benedict-evans-will-anthropic-flop",
+   "source_url": "https://www.youtube.com/watch?v=t5BfWone6dc"
   },
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
