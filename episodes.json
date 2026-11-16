@@ -1,6 +1,6 @@
 {
- "total": 815,
- "playable": 802,
+ "total": 816,
+ "playable": 803,
  "episodes": [
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
@@ -73,6 +73,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/pragmaticengineer-satya-nadella-software-engineering-cheap-code.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#pragmaticengineer-satya-nadella-software-engineering-cheap-code",
    "source_url": "https://www.youtube.com/watch?v=0NE89Nzfk20"
+  },
+  {
+   "slug": "howiai-fight-token-fraud-ai-founder",
+   "title": "How I fight token fraud as an AI founder",
+   "channel": "How I AI",
+   "date": "2026-11-16",
+   "duration": "6:09",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/howiai-fight-token-fraud-ai-founder.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#howiai-fight-token-fraud-ai-founder",
+   "source_url": "https://www.youtube.com/watch?v=ZDpP7JXPlhc"
   },
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
