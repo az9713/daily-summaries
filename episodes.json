@@ -1,6 +1,6 @@
 {
- "total": 828,
- "playable": 815,
+ "total": 829,
+ "playable": 816,
  "episodes": [
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
@@ -229,6 +229,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/every-giving-everyone-ai-tools-isnt-enough.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#every-giving-everyone-ai-tools-isnt-enough",
    "source_url": "https://www.youtube.com/watch?v=7rNz3bheY6k"
+  },
+  {
+   "slug": "latentspace-andreas-blattmann-dustin-podell-flux-3",
+   "title": "Why FLUX 3 Trains on Images, Video and Sound — Andreas Blattmann & Dustin Podell, Black Forest Labs",
+   "channel": "Latent Space",
+   "date": "2026-11-16",
+   "duration": "10:40",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/latentspace-andreas-blattmann-dustin-podell-flux-3.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#latentspace-andreas-blattmann-dustin-podell-flux-3",
+   "source_url": "https://www.youtube.com/watch?v=8cGfJOU3AlQ"
   },
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
