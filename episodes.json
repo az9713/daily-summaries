@@ -1,6 +1,6 @@
 {
- "total": 819,
- "playable": 806,
+ "total": 820,
+ "playable": 807,
  "episodes": [
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
@@ -121,6 +121,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/20vc-diogo-almeida-jev-us-open-models-cost-intelligence.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#20vc-diogo-almeida-jev-us-open-models-cost-intelligence",
    "source_url": "https://www.youtube.com/watch?v=BE2JqjsN4aY"
+  },
+  {
+   "slug": "ryanpeterman-steve-furber-most-popular-processor",
+   "title": "How Two First-Timers Created the World’s Most Popular Processor | Steve Furber",
+   "channel": "Ryan Peterman",
+   "date": "2026-11-16",
+   "duration": "6:59",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/ryanpeterman-steve-furber-most-popular-processor.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#ryanpeterman-steve-furber-most-popular-processor",
+   "source_url": "https://www.youtube.com/watch?v=3K9L0dRRzOs"
   },
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
