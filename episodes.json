@@ -1,6 +1,6 @@
 {
- "total": 820,
- "playable": 807,
+ "total": 821,
+ "playable": 808,
  "episodes": [
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
@@ -133,6 +133,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/ryanpeterman-steve-furber-most-popular-processor.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#ryanpeterman-steve-furber-most-popular-processor",
    "source_url": "https://www.youtube.com/watch?v=3K9L0dRRzOs"
+  },
+  {
+   "slug": "kai-cost-run-1tb-ai-model-home",
+   "title": "What It Really Costs to Run a 1TB AI Model at Home",
+   "channel": "Kai Explains",
+   "date": "2026-11-16",
+   "duration": "6:18",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/kai-cost-run-1tb-ai-model-home.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#kai-cost-run-1tb-ai-model-home",
+   "source_url": "https://www.youtube.com/watch?v=qm6yPw_T8DQ"
   },
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
