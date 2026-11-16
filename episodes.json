@@ -1,6 +1,6 @@
 {
- "total": 818,
- "playable": 805,
+ "total": 819,
+ "playable": 806,
  "episodes": [
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
@@ -109,6 +109,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-economics-artificial-intelligence-cowen-imas.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#a16z-economics-artificial-intelligence-cowen-imas",
    "source_url": "https://www.youtube.com/watch?v=g_67TmQ8lGY"
+  },
+  {
+   "slug": "20vc-diogo-almeida-jev-us-open-models-cost-intelligence",
+   "title": "Jev Creator on Will US Open Models Catch Chinese | The Cost of Intelligence & Tokens | Diogo Almeida",
+   "channel": "20VC with Harry Stebbings",
+   "date": "2026-11-16",
+   "duration": "10:14",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/20vc-diogo-almeida-jev-us-open-models-cost-intelligence.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#20vc-diogo-almeida-jev-us-open-models-cost-intelligence",
+   "source_url": "https://www.youtube.com/watch?v=BE2JqjsN4aY"
   },
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
