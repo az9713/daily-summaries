@@ -1,6 +1,6 @@
 {
- "total": 816,
- "playable": 803,
+ "total": 817,
+ "playable": 804,
  "episodes": [
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
@@ -85,6 +85,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/howiai-fight-token-fraud-ai-founder.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#howiai-fight-token-fraud-ai-founder",
    "source_url": "https://www.youtube.com/watch?v=ZDpP7JXPlhc"
+  },
+  {
+   "slug": "samuel-alexander-dartmouth-suspends-math-phd-enrollments",
+   "title": "Dartmouth suspends mathematics PhD student enrollments...",
+   "channel": "Dr. Samuel Allen Alexander",
+   "date": "2026-11-16",
+   "duration": "5:29",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/samuel-alexander-dartmouth-suspends-math-phd-enrollments.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#samuel-alexander-dartmouth-suspends-math-phd-enrollments",
+   "source_url": "https://www.youtube.com/watch?v=ouTN9AYfddo"
   },
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
