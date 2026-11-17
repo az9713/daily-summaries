@@ -1,6 +1,6 @@
 {
- "total": 847,
- "playable": 834,
+ "total": 848,
+ "playable": 835,
  "episodes": [
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
@@ -181,6 +181,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-james-sinka-berk-ozer-reactorfield-sophia-dew.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#mts-james-sinka-berk-ozer-reactorfield-sophia-dew",
    "source_url": "https://www.youtube.com/watch?v=Vp-0PZHvrVQ"
+  },
+  {
+   "slug": "aiengineer-simon-willison-2026-in-llms",
+   "title": "2026 in LLMs — Simon Willison, Datasette",
+   "channel": "AI Engineer",
+   "date": "2026-11-17",
+   "duration": "7:09",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/aiengineer-simon-willison-2026-in-llms.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#aiengineer-simon-willison-2026-in-llms",
+   "source_url": "https://www.youtube.com/watch?v=9RKrSF9d2SE"
   },
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
