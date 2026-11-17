@@ -1,6 +1,6 @@
 {
- "total": 844,
- "playable": 831,
+ "total": 845,
+ "playable": 832,
  "episodes": [
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
@@ -145,6 +145,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/samwitteveen-pubgs-creator-built-tiny-llm-raon-1-nano.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#samwitteveen-pubgs-creator-built-tiny-llm-raon-1-nano",
    "source_url": "https://www.youtube.com/watch?v=IRZqAdKcNTE"
+  },
+  {
+   "slug": "joelonsdale-private-equity-genius-billion-dollar-firm",
+   "title": "Private Equity Genius: Lessons That Built a Billion-Dollar Firm",
+   "channel": "Joe Lonsdale",
+   "date": "2026-11-17",
+   "duration": "5:24",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/joelonsdale-private-equity-genius-billion-dollar-firm.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#joelonsdale-private-equity-genius-billion-dollar-firm",
+   "source_url": "https://www.youtube.com/watch?v=s1LWe8KZzYM"
   },
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
