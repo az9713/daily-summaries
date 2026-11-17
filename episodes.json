@@ -1,6 +1,6 @@
 {
- "total": 830,
- "playable": 817,
+ "total": 831,
+ "playable": 818,
  "episodes": [
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
@@ -253,6 +253,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-dream-of-1990s-alive-again-cybersecurity.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#a16z-dream-of-1990s-alive-again-cybersecurity",
    "source_url": "https://www.a16z.news/p/the-dream-of-the-1990s-is-alive-again"
+  },
+  {
+   "slug": "dwarkesh-we-could-be-12-months-away-ai-overthrow-government",
+   "title": "We could be 12 months away from AIs that can overthrow the government",
+   "channel": "Dwarkesh Patel",
+   "date": "2026-11-16",
+   "duration": "10:20",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/dwarkesh-we-could-be-12-months-away-ai-overthrow-government.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-16.html#dwarkesh-we-could-be-12-months-away-ai-overthrow-government",
+   "source_url": "https://www.youtube.com/watch?v=SyHM5hNPAEo"
   },
   {
    "slug": "turingapp-even-ai-cant-beat-this-man-programming",
