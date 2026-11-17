@@ -1,6 +1,6 @@
 {
- "total": 836,
- "playable": 823,
+ "total": 837,
+ "playable": 824,
  "episodes": [
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
@@ -49,6 +49,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/generalist-baseten-ceo-inference-final-market.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#generalist-baseten-ceo-inference-final-market",
    "source_url": "https://www.youtube.com/watch?v=-ftHjVzRPho"
+  },
+  {
+   "slug": "mtsituation-xero-ceo-claude-xero-killer",
+   "title": "Claude Could Only Go So Far Building a Xero Killer | Xero CEO",
+   "channel": "MTS",
+   "date": "2026-11-17",
+   "duration": "5:05",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mtsituation-xero-ceo-claude-xero-killer.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#mtsituation-xero-ceo-claude-xero-killer",
+   "source_url": "https://www.youtube.com/watch?v=laTrJDPTrsY"
   },
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
