@@ -1,6 +1,6 @@
 {
- "total": 843,
- "playable": 830,
+ "total": 844,
+ "playable": 831,
  "episodes": [
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
@@ -133,6 +133,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/ycrootaccess-building-ai-platform-enterprise-software-implementations.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#ycrootaccess-building-ai-platform-enterprise-software-implementations",
    "source_url": "https://www.youtube.com/watch?v=FmvRhxq2oHE"
+  },
+  {
+   "slug": "samwitteveen-pubgs-creator-built-tiny-llm-raon-1-nano",
+   "title": "RAON-1 Nano: Can a Tiny LLM Power Game NPCs?",
+   "channel": "Sam Witteveen",
+   "date": "2026-11-17",
+   "duration": "7:01",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/samwitteveen-pubgs-creator-built-tiny-llm-raon-1-nano.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#samwitteveen-pubgs-creator-built-tiny-llm-raon-1-nano",
+   "source_url": "https://www.youtube.com/watch?v=IRZqAdKcNTE"
   },
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
