@@ -1,6 +1,6 @@
 {
- "total": 846,
- "playable": 833,
+ "total": 847,
+ "playable": 834,
  "episodes": [
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
@@ -169,6 +169,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/drmnews-sam-altman-top-tech-ceos-semafor-silicon-valley-world.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#drmnews-sam-altman-top-tech-ceos-semafor-silicon-valley-world",
    "source_url": "https://www.youtube.com/watch?v=m4ghQcBGyJY"
+  },
+  {
+   "slug": "mts-james-sinka-berk-ozer-reactorfield-sophia-dew",
+   "title": "James Sinka & Berk Ozer Reactorfield w  Sophia Dew",
+   "channel": "MTS",
+   "date": "2026-11-17",
+   "duration": "7:01",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-james-sinka-berk-ozer-reactorfield-sophia-dew.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#mts-james-sinka-berk-ozer-reactorfield-sophia-dew",
+   "source_url": "https://www.youtube.com/watch?v=Vp-0PZHvrVQ"
   },
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
