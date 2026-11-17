@@ -1,6 +1,6 @@
 {
- "total": 838,
- "playable": 825,
+ "total": 839,
+ "playable": 826,
  "episodes": [
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
@@ -73,6 +73,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/semafor-openevidence-trialspark-ceos-silicon-valley-world.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#semafor-openevidence-trialspark-ceos-silicon-valley-world",
    "source_url": "https://www.youtube.com/watch?v=ViiC2gEy5Jo"
+  },
+  {
+   "slug": "semafor-nikesh-arora-palo-alto-networks-silicon-valley-world",
+   "title": "Palo Alto Networks Chairman & CEO Nikesh Arora at Silicon Valley & The World | Semafor",
+   "channel": "Semafor",
+   "date": "2026-11-17",
+   "duration": "5:55",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/semafor-nikesh-arora-palo-alto-networks-silicon-valley-world.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#semafor-nikesh-arora-palo-alto-networks-silicon-valley-world",
+   "source_url": "https://www.youtube.com/watch?v=jtydvglSvjA"
   },
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
