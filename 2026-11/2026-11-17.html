@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Tuesday &middot; November 17, 2026</p>
-        <h1>9 summaries, distilled.</h1>
+        <h1>10 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -417,6 +417,7 @@
         <a class="card" href="#semafor-nikesh-arora-palo-alto-networks-silicon-valley-world"><span class="num">07</span><span><span class="card-title">Palo Alto Networks Chairman &amp; CEO Nikesh Arora at Silicon Valley &amp; The World | Semafor</span><span class="card-byline">Semafor</span></span><span class="card-dur">5:55</span><span class="listen-state" data-slug="semafor-nikesh-arora-palo-alto-networks-silicon-valley-world"></span></a>
         <a class="card" href="#arena-ai-agents-push-cs-research-forward"><span class="num">08</span><span><span class="card-title">Can AI agents push CS research forward?</span><span class="card-byline">Arena</span></span><span class="card-dur">5:22</span><span class="listen-state" data-slug="arena-ai-agents-push-cs-research-forward"></span></a>
         <a class="card" href="#sourcery-dylan-patel-semianalysis"><span class="num">09</span><span><span class="card-title">Dylan Patel, SemiAnalysis</span><span class="card-byline">Sourcery with Molly O'Shea</span></span><span class="card-dur">6:36</span><span class="listen-state" data-slug="sourcery-dylan-patel-semianalysis"></span></a>
+        <a class="card" href="#semidoped-google-two-new-tpus-8i-max-8tx"><span class="num">10</span><span><span class="card-title">Google Built Two New TPUs Without New Silicon: The 8i Max and 8TX</span><span class="card-byline">Semi Doped</span></span><span class="card-dur">6:23</span><span class="listen-state" data-slug="semidoped-google-two-new-tpus-8i-max-8tx"></span></a>
         </div>
       </nav>
     </section>
@@ -842,6 +843,48 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#arena-ai-agents-push-cs-research-forward" data-route="article">&larr; Arena</a>
         <a class="to-index" href="2026-11-17.html" data-route="index">All summaries</a>
+        <a class="next" href="#semidoped-google-two-new-tpus-8i-max-8tx" data-route="article">Semi Doped &middot; Google Built Two New TPUs Without New Silicon: The 8i Max and 8TX &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="semidoped-google-two-new-tpus-8i-max-8tx" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-17.html" data-route="index">&larr; November 17, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Google Built Two New TPUs Without New Silicon: The 8i Max and 8TX &mdash; November 17, 2026 <span class="dur">&middot; 6:23</span></p>
+        <audio controls preload="none" src="../podcasts/semidoped-google-two-new-tpus-8i-max-8tx.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/semidoped-google-two-new-tpus-8i-max-8tx.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="semidoped-google-two-new-tpus-8i-max-8tx" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="semidoped-google-two-new-tpus-8i-max-8tx"></div>
+        <div class="episode-download"><a href="../podcasts/semidoped-google-two-new-tpus-8i-max-8tx.mp3" download>Download semidoped-google-two-new-tpus-8i-max-8tx.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Semi Doped</dd></div>
+        <div><dt>Published</dt><dd>November 17, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Cq-JY_JiMfs" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Semi Doped &middot; Google&#x27;s 8i Max and 8TX TPUs, new systems on existing silicon</p>
+        <h2>Google Built Two New TPUs Without New Silicon: The 8i Max and 8TX</h2>
+        <div>
+<p>On Semi Doped, the episode &quot;Google Built Two New TPUs Without New Silicon: The 8i Max and 8TX&quot; is a conversation between the show&#x27;s two hosts, Austin Lyons of Chipstrat and Vik Sekar of Vik&#x27;s Newsletter and the research firm Semiexponent. Google quietly announced two more systems in its eighth generation TPU family, the 8i Max and the 8TX, and the surprise is that neither contains a new chip. Both are new systems built around the v8 silicon Google already announced earlier this year. Sponsor reads for Crusoe and Meter appear in the episode and are not summarised here.</p>
+<p>The baseline matters, because the new systems only make sense against it. Earlier this year Google split the generation in two for the first time: the 8T for training and the 8i for inference. The training chip carries more compute, 216 gigabytes of HBM and comparatively little on-chip SRAM, and it links its scale-up network in a 3D Torus, a Rubik&#x27;s cube style topology whose regular neighbour-to-neighbour traffic suits training. The inference chip is the bigger die of the two, with 288 gigabytes of HBM, higher memory bandwidth and 384 megabytes of SRAM, nearly three times the training chip&#x27;s, because inference decode is a memory bound problem: every token has to reread the model and its stored context. It networks over Boardfly, a topology that cuts the number of hops between chips, which suits mixture of experts models where any chip may need to talk to any other. Both systems use Google&#x27;s Arm based Axion CPU as the head node.</p>
+<p>The 8i Max changes nothing about the silicon at all. Google took two 8i dies and joined them in a single advanced package, so HBM capacity and SRAM roughly double, to about 768 megabytes of SRAM, and a server node that held four chips now holds eight. Packaged together, the pair behaves like one much larger logical chip, which matters because the 8i die is already at the reticle limit and cannot simply be drawn bigger. Sekar tells a cautionary story from his own career about a company that mirrored a chip for a two-die package before proving the first die worked, and doubled its mask costs on every respin, as a way of explaining why Google would only do this after the base chip was proven. The real prize, both hosts argue, is rack density: the more compute sits within copper reach inside one rack, the less power and latency is burned moving data between racks, and the more capacity can be added inside data centers that already exist. All that nearby memory suits long context, agentic workloads, holding far more of a model and its KV cache close to the compute. They compare the move to Nvidia putting two Rubin dies in a package, and speculate, in Sekar&#x27;s words as a total guess, that the pattern follows phone naming: this year&#x27;s Max becomes next year&#x27;s base model, so a future 9i may look like today&#x27;s 8i Max and a 9i Max could try four dies. Arm, keen not to be written out of the story, proactively messaged commentators to confirm the 8i Max still uses the Axion head node.</p>
+<p>The 8TX is a stranger remix. It takes the 8T training silicon, throws out the Axion head node in favour of a fifth generation AMD EPYC CPU, and networks it with Boardfly, the inference topology, rather than the training chip&#x27;s 3D Torus. Its stated jobs are confidential inference and private fine-tuning, and the security comes from the CPU, not the TPU: AMD&#x27;s Secure Encrypted Virtualization keeps each virtual machine encrypted and isolated even from the hypervisor running it, so data moving between the CPU, memory and accelerator stays locked to whoever holds the key. The hosts&#x27; explanation for why this exists now is commercial. While TPUs served only Google, every tenant was Google. Now Google is selling TPU capacity to outside clouds and neoclouds, with Oracle&#x27;s OCI named as a first external buyer planning to stand TPUs up in its own infrastructure, and multi-tenant hardware is exactly where one customer&#x27;s data must never leak into another&#x27;s. AMD got the socket, they argue, because SEV is mature and flight tested: Arm has a confidential computing architecture of its own but less history, Intel&#x27;s TDX carries some security concerns, and buying off the shelf was faster than waiting for an Axion with the feature. Despite the training silicon and the T in its name, which prompts the hosts to joke it should be called the 8S, the 8TX is inference first, with fine-tuning of modest models, the kind that fits inside a rack, as the secondary use.</p>
+<p>Around the chips sits a software push aimed at those same external customers. Google Kubernetes Engine can slice TPU pods dynamically, carving a few chips out of a pod or stitching small pods into a super slice over optical circuit switches. TPU Sync, an open source layer the hosts describe as Google&#x27;s answer to Nvidia&#x27;s Dynamo, manages the whole memory hierarchy of HBM, DRAM, SSD and network storage so that KV cache and other hot data sit in the right tier instead of being recomputed. Google&#x27;s blog post, as Sekar reads it, claims KV cache transfer overhead falls by about 90 percent, time to first token improves by anywhere from 10 to 90 percent depending on configuration, and inter-token latency drops as well, helped by a host to host streaming path between separate prefill and decode racks. Lyons ties this to the oldest lesson in accelerators: AMD only stopped hearing complaints about its ROCm software once it simply worked, and a merchant chip lives or dies on its software. Google&#x27;s edge, they close, may be dogfooding: the Gemini and DeepMind teams run on the same stack Google now wants to sell, so the feedback loop between model builders and chip builders is internal. It leaves Google straddling several roles at once, cloud provider, model lab and now something like a merchant silicon vendor, competing, as Lyons puts it, with everyone at once.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If the dual-die Max layout is mainly a packaging step, does it become the baseline for the ninth generation, and can substrate and warpage problems be solved well enough to put four dies in a package?</li>
+<li>AMD won the 8TX head node because its confidential computing is mature today. Is that a durable advantage, or does a future Axion with equivalent features take the socket back, and what would that mean for the external TPU business built on the AMD version?</li>
+<li>TPU Sync&#x27;s headline numbers come from Google&#x27;s own blog post. Will independent results on outside clouds such as OCI show the same gains, and is the software layer enough to make TPUs feel as easy to adopt as CUDA made Nvidia&#x27;s GPUs?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> This summary is grounded in the video&#x27;s own English automatic caption track, served by the Android 21.02.35 player client; the Android 20.10.38 and iOS 20.10.4 player responses served the identical title and author and the same English ASR track. The timedtext request for json3 returned srv3 XML, so captions.en.srv3 is the grounding artifact (365,613 bytes), parsed and saved verbatim as transcript.txt: 9,851 words, with cues running from 0.3 to 3,208.9 seconds of the video&#x27;s 3,214 seconds (53:34). The player-served title is identical to the listing title, so there is no variant to disclose. The published description corroborates the 8i Max SRAM figure of about 768 megabytes, the 8TX configuration of 8T silicon with an AMD EPYC host and Boardfly, and TPU Sync&#x27;s claimed 90 percent cut in KV cache transfer overhead. ASR renderings corrected to published spellings in prose include &quot;Vic Shaker&quot; for Vik Sekar, &quot;Austin Lines&quot; for Austin Lyons, &quot;SRAMM&quot; for SRAM, &quot;HPM&quot; for HBM, &quot;3D Taurus&quot; for 3D Torus, &quot;boardflight&quot; for Boardfly, &quot;Reuben&quot; for Rubin, &quot;Epic&quot; for EPYC, &quot;Rockum&quot; for ROCm, &quot;Tranium&quot; for Trainium, and &quot;semi-dub&quot; for Semi Doped.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#sourcery-dylan-patel-semianalysis" data-route="article">&larr; Sourcery with Molly O'Shea</a>
+        <a class="to-index" href="2026-11-17.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -861,7 +904,8 @@
       "semafor-openevidence-trialspark-ceos-silicon-valley-world": "OpenEvidence CEO Daniel Nadler & TrialSpark CEO Benjamine Liu at Silicon Valley & The World",
       "semafor-nikesh-arora-palo-alto-networks-silicon-valley-world": "Palo Alto Networks Chairman & CEO Nikesh Arora at Silicon Valley & The World | Semafor",
       "arena-ai-agents-push-cs-research-forward": "Can AI agents push CS research forward?",
-      "sourcery-dylan-patel-semianalysis": "Dylan Patel, SemiAnalysis"
+      "sourcery-dylan-patel-semianalysis": "Dylan Patel, SemiAnalysis",
+      "semidoped-google-two-new-tpus-8i-max-8tx": "Google Built Two New TPUs Without New Silicon: The 8i Max and 8TX"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
