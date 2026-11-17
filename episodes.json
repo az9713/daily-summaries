@@ -1,6 +1,6 @@
 {
- "total": 837,
- "playable": 824,
+ "total": 838,
+ "playable": 825,
  "episodes": [
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
@@ -61,6 +61,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mtsituation-xero-ceo-claude-xero-killer.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#mtsituation-xero-ceo-claude-xero-killer",
    "source_url": "https://www.youtube.com/watch?v=laTrJDPTrsY"
+  },
+  {
+   "slug": "semafor-openevidence-trialspark-ceos-silicon-valley-world",
+   "title": "OpenEvidence CEO Daniel Nadler & TrialSpark CEO Benjamine Liu at Silicon Valley & The World",
+   "channel": "Semafor",
+   "date": "2026-11-17",
+   "duration": "5:45",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/semafor-openevidence-trialspark-ceos-silicon-valley-world.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#semafor-openevidence-trialspark-ceos-silicon-valley-world",
+   "source_url": "https://www.youtube.com/watch?v=ViiC2gEy5Jo"
   },
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
