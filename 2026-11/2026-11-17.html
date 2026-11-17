@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - November 17, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+    <link rel="stylesheet" href="../player.css">
+  </head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Tuesday &middot; November 17, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice"><span class="num">01</span><span><span class="card-title">Palmer Luckey: Why Autonomous Weapons Are the Moral Choice, AI Killing Machines &amp; the Future of War</span><span class="card-byline">The Builders with Walter Isaacson</span></span><span class="card-dur">8:13</span><span class="listen-state" data-slug="kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-17.html" data-route="index">&larr; November 17, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Palmer Luckey: Why Autonomous Weapons Are the Moral Choice, AI Killing Machines &amp; the Future of War &mdash; November 17, 2026 <span class="dur">&middot; 8:13</span></p>
+        <audio controls preload="none" src="../podcasts/kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice"></div>
+        <div class="episode-download"><a href="../podcasts/kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice.mp3" download>Download kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>The Builders with Walter Isaacson</dd></div>
+        <div><dt>Published</dt><dd>November 17, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=Wj00YlDuWXc" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">The Builders with Walter Isaacson &middot; Palmer Luckey on autonomous weapons</p>
+        <h2>Palmer Luckey: Why Autonomous Weapons Are the Moral Choice, AI Killing Machines &amp; the Future of War</h2>
+        <div>
+<p>On The Builders with Walter Isaacson, “Palmer Luckey: Why Autonomous Weapons Are the Moral Choice, AI Killing Machines &amp; the Future of War” is a conversation with Palmer Luckey, who founded the virtual reality company Oculus as a teenager and now runs the defense technology company Anduril. Isaacson frames the stakes at the outset: whether autonomous weapons can make war more precise and protect lives, or will only make killing easier and more distant, and who is responsible when an AI system identifies a target. Luckey&#x27;s answers range from his homeschooled childhood to a direct moral defense of weapons that choose their own targets.</p>
+<p>Luckey was homeschooled by his mother, and he credits that with everything that followed. At fourteen and fifteen he was taking high school and college credits at the same time, and the freedom to manage his own time taught him that efficient learning bought hours for the work he actually cared about, which was virtual reality. He is blunt that Oculus would not exist had he gone to a conventional school. His closest collaborators came from Mod Retro, the online community for electronics hobbyists that he started: most of Oculus&#x27;s early hardware engineers were its moderators and administrators, and his first employee, Chris Dykstra, was recruited with a phone call telling him to drop his pizza job and college plans and come build headsets.</p>
+<p>Science fiction set the direction. Luckey loved Jules Verne, whose Twenty Thousand Leagues Under the Sea spends pages on the battery technology of the Nautilus, because Verne used story as a delivery vehicle for ideas about future technology. Virtual reality was the idea that grabbed him: a machine that could trick the nervous system into believing it was somewhere it was not. He considers himself lucky to have been born at the moment when that fiction became buildable, and he doubts the same passion would have produced anything twenty years earlier.</p>
+<p>He is sharply critical of where interface design has gone since. The iPhone, in his telling, taught the whole industry to build tools that can be learned in a minute and mastered in ten, with nothing beyond that ceiling for the person willing to spend thousands of hours becoming truly proficient. He wants a return to tools that demand months or years of training and repay it with superhuman capability, and he concedes that Oculus itself followed the iPhone model, with a low barrier to entry and a low skill ceiling, because that is what sells.</p>
+<p>Why sell to Facebook? Because Facebook needed virtual reality to succeed in a way Google and Microsoft did not. It had no operating system or hardware platform of its own, and it promised a billion dollars a year of research and development for a decade. In the event, he says, Meta spent roughly 70 billion dollars, while Google shut down its own VR program twice. On the recent layoffs of about ten percent of Reality Labs, he notes the remaining team is still ten times larger than the next competitor&#x27;s, and that the cuts fell heavily on first-party game development. He thinks ending competition with the game developers Meta needs to attract will strengthen the platform in the long run.</p>
+<p>The firing gets a candid retelling. He was twenty-four, and he was fired after contributing nine or ten thousand dollars to a political action committee supporting Donald Trump. He says he probably should have fought harder, but a lawsuit would have required proving damages, which in practice means spending years presenting yourself as ruined: becoming, in his words, a professional victim, and handing the people who fired you power over your life. He chose to start a new company and prove he was not a one-hit wonder instead. Asked whether he could run two companies the way Elon Musk does, he says Musk is a singular individual and he does not believe he could.</p>
+<p>Anduril began as an investment idea. Luckey and his friends believed the United States was falling behind in defense technology: the big defense contractors&#x27; incentives did not reward building what future wars would require, and the big technology companies were refusing defense work, which he calls historically unprecedented. He set out to fund defense startups, and through Trae Stephens at Founders Fund he learned that the firm had met with some two thousand companies and backed none, because none looked capable of becoming a next-generation prime contractor. After the firing, Luckey proposed that they start the company themselves. The model is a product company rather than a contractor: Anduril decides what to build, builds it with its own money, decides when it is done, and then sells it, and he says billions went into products before the government paid anything, including an aircraft five years in development before its first government dollar. The stated ambition is to save taxpayers hundreds of billions of dollars a year by making tens of billions.</p>
+<p>The wins are starting to arrive. In the Air Force&#x27;s Collaborative Combat Aircraft program, Anduril&#x27;s Fury, which the Air Force designates FQ-44, beat Northrop, Boeing, and Lockheed for the first increment, and Luckey expects major program wins on a regular cadence from here. Underneath the hardware sits Lattice, the software platform that ties together more than twenty-five products, from missiles and submarines to fighter jets and sensor towers, so that every sensor is an eye for every other system. A dollar spent improving Lattice improves everything that runs on it, and he says as many people work on Lattice as on all the hardware products combined.</p>
+<p>The company takes its name from the sword in The Lord of the Rings, and Luckey insists it is not a morally or politically neutral company: it builds for nations that safeguard freedom of expression and self-governance. At the same time, he argues that decisions about which countries may buy weapons belong to the United States government, not to him. A world where weapons executives hold de facto control over foreign policy, where a Lockheed Martin chief executive could matter more than the president, is one he explicitly rejects. Accountability, in his view, has to run through elected officials.</p>
+<p>Then comes the core argument. Life and death decisions, Luckey says, are too important not to bring the most powerful technology available to bear on them, and the technology should be judged by measurable outcomes: the lowest collateral damage, the lowest loss of civilian life, the highest precision. His test case is a landmine that can tell a tank from a school bus. People who would ban such a weapon because a machine made the decision are, in his framing, choosing the dumb mine that cannot tell the difference. Where autonomous systems make mistakes, his answer is to regulate the quality of the algorithms and hold people accountable for misuse, not to prohibit the category. He criticizes United Nations efforts to ban lethal autonomous weapons on exactly this ground: the practical effect is to commit everyone to weapons that cannot discriminate between combatants and civilians, or between the right building and the wrong one.</p>
+<p>He treats the current human-in-the-loop doctrine as a product of today&#x27;s technology rather than a timeless principle. Autonomy so far has been too coarse to trust, he grants, but autonomy also removes failure modes: a weapon that needs no radio link cannot have its video feed hacked, as happened to Predator drones, and cannot have its kill decision hijacked. The United States has fired anti-radiation missiles that hunt a radio frequency on their own since Vietnam. Autonomous weapons, he argues, are thousands of years old: landmines that select targets by weight or magnetic signature, and before them pit traps built to let foot soldiers pass while dropping the horses behind them. What does not change across that history is that a person remains accountable for the use of force.</p>
+<p>On the future of war, he argues the direction is already set. Precision weapons have cut war deaths so sharply that the bombing campaigns of the Second World War would now be considered war crimes, and he estimates we are already about ninety percent of the way toward wars in which most casualties are machines rather than people. Deterrence is the real goal, with a built-in frustration: the more successful Anduril and companies like it are, the less credit they will get, because a war with China that never happens will be mistaken for the natural state of things rather than recognized as a carefully tended garden. If the war comes anyway, deterrence has already failed.</p>
+<p>His one candidate for restricting AI is not weapons but biology. He is, by his own description, no fan of censorship, yet he says the area that frightens him is AI applied to biological and chemical weapons, because it lowers the expertise barrier so far. He describes labs where an AI issues work instructions and technicians simply execute them, raising the prospect of a bioweapon assembled by people who do not know what they are building. He would accept removing or tampering with certain kinds of data outside authorized institutions, even at a real cost to open pharmaceutical research, and he argues that responsibility should concentrate on things that can self-replicate in the real world.</p>
+<p>He closes with two futures he wants to build. The first is radical abundance through vertical integration of power generation, manufacturing, processing, and recycling, which he thinks could do to cars and consumer electronics what mechanization did to textiles, and could put the price of a car near a thousand dollars within our lifetime. The second is settling the oceans: materials science, he argues, now makes it possible to build structures at sea that persist for thousands of years with little maintenance, reviving the seasteading idea he has long believed in. It is a fitting end for a reader of Verne. The best way to predict the future, Luckey says, is to build it, though he admits science fiction authors usually imagined it first, and better.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Luckey argues that accountability can stay with people even when a machine makes the kill decision, as it does for a landmine or a pit trap. When an autonomous system misidentifies a target at machine speed and at scale, who in the chain, the designer, the commander, or the state that approved the system, actually answers for it, and through what process?</li>
+<li>His moral case rests on autonomous weapons measurably producing less collateral damage than the alternatives they replace. Who should run that measurement, against which baseline, and what evidence would he accept as proof that a given system fails the test?</li>
+<li>He wants decisions about who may buy weapons left to elected governments rather than executives, yet Anduril&#x27;s model is to build products first and let governments choose from what exists. Where does product strategy end and foreign policy begin in that arrangement?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full transcript of this video (8,689 words, caption cues from 0.3 to 2,665.5 seconds of the 2,668 second recording), taken from the video&#x27;s English automatic caption track served by the Android 21.02.35 player client, which returned playability OK; the Android 20.10.38 and iOS 20.10.4 player clients returned LOGIN_REQUIRED in this session. A json3 request to the caption endpoint returned srv3 XML, so the srv3 file is saved in this build as the grounding artifact, parsed to transcript.txt. The player-served title was identical on the serving client to the listing title, so there is no title variant to disclose. The automatic captions garble several names, rendering Luckey as Lucky, Anduril in several distorted forms, Lattice as Lattis, Trae Stephens as Trey Stevens, and Palantir as Palunteer; the published spellings are used in this summary and disclosed here. Figures and claims, including the roughly 2 billion dollar Oculus acquisition price, the roughly 70 billion dollars Luckey says Meta spent, the two thousand companies he says Founders Fund reviewed, the FQ-44 designation, and his estimate that war is already ninety percent of the way to mostly machine casualties, are reported as the speakers stated them and have not been independently verified here.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-11-17.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated November 17, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice": "Palmer Luckey: Why Autonomous Weapons Are the Moral Choice, AI Killing Machines & the Future of War"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+  <script src="../player.js" defer></script>
+</body>
+</html>
