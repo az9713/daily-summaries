@@ -1,7 +1,19 @@
 {
- "total": 832,
- "playable": 819,
+ "total": 833,
+ "playable": 820,
  "episodes": [
+  {
+   "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
+   "title": "Palmer Luckey: Why Autonomous Weapons Are the Moral Choice, AI Killing Machines & the Future of War",
+   "channel": "The Builders with Walter Isaacson",
+   "date": "2026-11-17",
+   "duration": "8:13",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
+   "source_url": "https://www.youtube.com/watch?v=Wj00YlDuWXc"
+  },
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
    "title": "Jacob Tsimerman on AI can supercharge mathematics - what is the end state? | The Curve 2026",
