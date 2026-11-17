@@ -1,6 +1,6 @@
 {
- "total": 840,
- "playable": 827,
+ "total": 841,
+ "playable": 828,
  "episodes": [
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
@@ -97,6 +97,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/arena-ai-agents-push-cs-research-forward.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#arena-ai-agents-push-cs-research-forward",
    "source_url": "https://www.youtube.com/watch?v=gzxPMJ4_3nQ"
+  },
+  {
+   "slug": "sourcery-dylan-patel-semianalysis",
+   "title": "Dylan Patel, SemiAnalysis",
+   "channel": "Sourcery with Molly O'Shea",
+   "date": "2026-11-17",
+   "duration": "6:36",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/sourcery-dylan-patel-semianalysis.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#sourcery-dylan-patel-semianalysis",
+   "source_url": "https://www.youtube.com/watch?v=cBArIbI6gVA"
   },
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
