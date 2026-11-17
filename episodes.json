@@ -1,6 +1,6 @@
 {
- "total": 834,
- "playable": 821,
+ "total": 835,
+ "playable": 822,
  "episodes": [
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
@@ -25,6 +25,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/kleinerperkins-chris-degnan-building-next-sales-organization.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#kleinerperkins-chris-degnan-building-next-sales-organization",
    "source_url": "https://www.youtube.com/watch?v=yDRie6lswEM"
+  },
+  {
+   "slug": "wsj-mastercard-ceo-ai-agents-16t-cyber-threat",
+   "title": "Mastercard CEO on AI Agents and the $16T Cyber Threat | WSJ Leadership Institute",
+   "channel": "WSJ Podcasts",
+   "date": "2026-11-17",
+   "duration": "6:14",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/wsj-mastercard-ceo-ai-agents-16t-cyber-threat.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#wsj-mastercard-ceo-ai-agents-16t-cyber-threat",
+   "source_url": "https://www.youtube.com/watch?v=tx2mIKJ6YVs"
   },
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
