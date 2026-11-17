@@ -1,6 +1,6 @@
 {
- "total": 845,
- "playable": 832,
+ "total": 846,
+ "playable": 833,
  "episodes": [
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
@@ -157,6 +157,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/joelonsdale-private-equity-genius-billion-dollar-firm.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#joelonsdale-private-equity-genius-billion-dollar-firm",
    "source_url": "https://www.youtube.com/watch?v=s1LWe8KZzYM"
+  },
+  {
+   "slug": "drmnews-sam-altman-top-tech-ceos-semafor-silicon-valley-world",
+   "title": "LIVE: Sam Altman Joins Top Tech CEOs at Semafor's Silicon Valley & The World Conference | AI1N",
+   "channel": "DRM News",
+   "date": "2026-11-17",
+   "duration": "6:31",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/drmnews-sam-altman-top-tech-ceos-semafor-silicon-valley-world.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#drmnews-sam-altman-top-tech-ceos-semafor-silicon-valley-world",
+   "source_url": "https://www.youtube.com/watch?v=m4ghQcBGyJY"
   },
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
