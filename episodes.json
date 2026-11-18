@@ -1,6 +1,6 @@
 {
- "total": 860,
- "playable": 847,
+ "total": 861,
+ "playable": 848,
  "episodes": [
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
@@ -49,6 +49,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/peterman-dwayne-reeves-meta-senior-staff-career-learnings.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#peterman-dwayne-reeves-meta-senior-staff-career-learnings",
    "source_url": "https://www.youtube.com/watch?v=P9-kg-6C-hY"
+  },
+  {
+   "slug": "natebjones-robot-brain-might-already-exist-coding-agent",
+   "title": "The Robot Brain Might Already Exist. It's A Coding Agent.",
+   "channel": "AI News & Strategy Daily | Nate B Jones",
+   "date": "2026-11-18",
+   "duration": "3:53",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/natebjones-robot-brain-might-already-exist-coding-agent.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#natebjones-robot-brain-might-already-exist-coding-agent",
+   "source_url": "https://www.youtube.com/watch?v=VkvoUCgHP6Q"
   },
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
