@@ -1,6 +1,6 @@
 {
- "total": 861,
- "playable": 848,
+ "total": 862,
+ "playable": 849,
  "episodes": [
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
@@ -61,6 +61,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/natebjones-robot-brain-might-already-exist-coding-agent.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#natebjones-robot-brain-might-already-exist-coding-agent",
    "source_url": "https://www.youtube.com/watch?v=VkvoUCgHP6Q"
+  },
+  {
+   "slug": "aiengineer-walden-yan-cognition-40x-merged-prs",
+   "title": "40x More Merged PRs With 2.7x the Engineers — Walden Yan, Cognition",
+   "channel": "AI Engineer",
+   "date": "2026-11-18",
+   "duration": "3:58",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/aiengineer-walden-yan-cognition-40x-merged-prs.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#aiengineer-walden-yan-cognition-40x-merged-prs",
+   "source_url": "https://www.youtube.com/watch?v=U92J5mCDLMc"
   },
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
