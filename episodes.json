@@ -1,6 +1,6 @@
 {
- "total": 869,
- "playable": 856,
+ "total": 870,
+ "playable": 857,
  "episodes": [
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
@@ -157,6 +157,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/turingapp-grad-student-solves-60-year-old-hardest-math-problem.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#turingapp-grad-student-solves-60-year-old-hardest-math-problem",
    "source_url": "https://www.youtube.com/watch?v=wEKsBJWy-fc"
+  },
+  {
+   "slug": "latentspace-anthropic-know-before-you-ipo-tanay-jaipuria",
+   "title": "⚡️Anthropic: Know Before You IPO — Tanay Jaipuria, Wing VC",
+   "channel": "Latent Space",
+   "date": "2026-11-18",
+   "duration": "8:28",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/latentspace-anthropic-know-before-you-ipo-tanay-jaipuria.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#latentspace-anthropic-know-before-you-ipo-tanay-jaipuria",
+   "source_url": "https://www.youtube.com/watch?v=wX8nDtGIfYA"
   },
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
