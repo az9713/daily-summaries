@@ -1,6 +1,6 @@
 {
- "total": 852,
- "playable": 839,
+ "total": 853,
+ "playable": 840,
  "episodes": [
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
@@ -241,6 +241,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/iconnections-david-solomon-goldman-fewer-better-engineers.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#iconnections-david-solomon-goldman-fewer-better-engineers",
    "source_url": "https://www.youtube.com/watch?v=_SFAGMYj1JE"
+  },
+  {
+   "slug": "mts-walden-yan-one-founder-game-studio-20-ai-bots",
+   "title": "One Founder Now Runs a Game Studio With 20 AI Bots | Walden Yan",
+   "channel": "MTS",
+   "date": "2026-11-17",
+   "duration": "7:43",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-walden-yan-one-founder-game-studio-20-ai-bots.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#mts-walden-yan-one-founder-game-studio-20-ai-bots",
+   "source_url": "https://www.youtube.com/watch?v=fFS4bs2Q9_c"
   },
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
