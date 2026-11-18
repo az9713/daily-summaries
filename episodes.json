@@ -1,6 +1,6 @@
 {
- "total": 865,
- "playable": 852,
+ "total": 866,
+ "playable": 853,
  "episodes": [
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
@@ -109,6 +109,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/higgsfield-robert-valley-zima-blue-ignoring-ai.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#higgsfield-robert-valley-zima-blue-ignoring-ai",
    "source_url": "https://www.youtube.com/watch?v=wkzPdB1yuWk"
+  },
+  {
+   "slug": "theo-did-they-catch-up",
+   "title": "Astra 6.2 Is Unusable",
+   "channel": "Theo - t3.gg",
+   "date": "2026-11-18",
+   "duration": "7:21",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/theo-did-they-catch-up.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#theo-did-they-catch-up",
+   "source_url": "https://www.youtube.com/watch?v=9KvI-zg4mfo"
   },
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
