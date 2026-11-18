@@ -1,6 +1,6 @@
 {
- "total": 850,
- "playable": 837,
+ "total": 851,
+ "playable": 838,
  "episodes": [
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
@@ -217,6 +217,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/siliconvalleygirl-head-of-instagram-top-1-percent-work-with-ai.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#siliconvalleygirl-head-of-instagram-top-1-percent-work-with-ai",
    "source_url": "https://www.youtube.com/watch?v=CN8c1edTCew"
+  },
+  {
+   "slug": "a16z-boring-company-future-underground",
+   "title": "The Boring Company & the Future Underground",
+   "channel": "a16z News",
+   "date": "2026-11-17",
+   "duration": "13:13",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-boring-company-future-underground.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#a16z-boring-company-future-underground",
+   "source_url": "https://www.a16z.news/p/the-boring-company-and-the-future"
   },
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
