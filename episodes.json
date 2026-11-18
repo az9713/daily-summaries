@@ -1,6 +1,6 @@
 {
- "total": 864,
- "playable": 851,
+ "total": 865,
+ "playable": 852,
  "episodes": [
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
@@ -97,6 +97,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-what-it-takes-ai-that-actually-knows-you.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#a16z-what-it-takes-ai-that-actually-knows-you",
    "source_url": "https://www.youtube.com/watch?v=kBJe4H_WobA"
+  },
+  {
+   "slug": "higgsfield-robert-valley-zima-blue-ignoring-ai",
+   "title": "Zima Blue Director Robert Valley: “Ignoring AI Won’t Make It Go Away”",
+   "channel": "Higgsfield AI",
+   "date": "2026-11-18",
+   "duration": "10:25",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/higgsfield-robert-valley-zima-blue-ignoring-ai.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#higgsfield-robert-valley-zima-blue-ignoring-ai",
+   "source_url": "https://www.youtube.com/watch?v=wkzPdB1yuWk"
   },
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
