@@ -1,6 +1,6 @@
 {
- "total": 868,
- "playable": 855,
+ "total": 869,
+ "playable": 856,
  "episodes": [
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
@@ -145,6 +145,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/pragmaticengineer-harjot-gill-software-factories-code-reviews.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#pragmaticengineer-harjot-gill-software-factories-code-reviews",
    "source_url": "https://www.youtube.com/watch?v=4Cjb7691GJ8"
+  },
+  {
+   "slug": "turingapp-grad-student-solves-60-year-old-hardest-math-problem",
+   "title": "Grad Student Solves 60-Year-Old Hardest Simple Math Problem",
+   "channel": "Turing and Turing Now - Science & Tech News",
+   "date": "2026-11-18",
+   "duration": "5:51",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/turingapp-grad-student-solves-60-year-old-hardest-math-problem.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#turingapp-grad-student-solves-60-year-old-hardest-math-problem",
+   "source_url": "https://www.youtube.com/watch?v=wEKsBJWy-fc"
   },
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
