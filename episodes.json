@@ -1,6 +1,6 @@
 {
- "total": 849,
- "playable": 836,
+ "total": 850,
+ "playable": 837,
  "episodes": [
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
@@ -205,6 +205,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-openai-cofounder-research-chief-explain-self-improving-ai.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#a16z-openai-cofounder-research-chief-explain-self-improving-ai",
    "source_url": "https://www.youtube.com/watch?v=h_aA1-R70E8"
+  },
+  {
+   "slug": "siliconvalleygirl-head-of-instagram-top-1-percent-work-with-ai",
+   "title": "Head of Instagram Reveals How the Top 1% Actually Work With AI",
+   "channel": "Silicon Valley Girl",
+   "date": "2026-11-17",
+   "duration": "8:29",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/siliconvalleygirl-head-of-instagram-top-1-percent-work-with-ai.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#siliconvalleygirl-head-of-instagram-top-1-percent-work-with-ai",
+   "source_url": "https://www.youtube.com/watch?v=CN8c1edTCew"
   },
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
