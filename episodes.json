@@ -1,6 +1,6 @@
 {
- "total": 853,
- "playable": 840,
+ "total": 854,
+ "playable": 841,
  "episodes": [
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
@@ -253,6 +253,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-walden-yan-one-founder-game-studio-20-ai-bots.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#mts-walden-yan-one-founder-game-studio-20-ai-bots",
    "source_url": "https://www.youtube.com/watch?v=fFS4bs2Q9_c"
+  },
+  {
+   "slug": "allin-databricks-ceo-agi-already-here",
+   "title": "Databricks CEO: AGI Is Already Here, Why Companies Are Behind, and the Superintelligence Debate",
+   "channel": "All-In Podcast",
+   "date": "2026-11-17",
+   "duration": "10:21",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/allin-databricks-ceo-agi-already-here.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#allin-databricks-ceo-agi-already-here",
+   "source_url": "https://www.youtube.com/watch?v=1bR0gtecoHU"
   },
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
