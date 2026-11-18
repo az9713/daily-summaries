@@ -1,6 +1,6 @@
 {
- "total": 859,
- "playable": 846,
+ "total": 860,
+ "playable": 847,
  "episodes": [
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
@@ -37,6 +37,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/senra-brian-armstrong-coinbase-golden-age-of-building.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#senra-brian-armstrong-coinbase-golden-age-of-building",
    "source_url": "https://www.youtube.com/watch?v=NuoEkfIkKX4"
+  },
+  {
+   "slug": "peterman-dwayne-reeves-meta-senior-staff-career-learnings",
+   "title": "Meta Senior Staff Eng (IC7): His Top Two Career Learnings | Dwayne Reeves",
+   "channel": "Ryan Peterman",
+   "date": "2026-11-18",
+   "duration": "2:52",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/peterman-dwayne-reeves-meta-senior-staff-career-learnings.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#peterman-dwayne-reeves-meta-senior-staff-career-learnings",
+   "source_url": "https://www.youtube.com/watch?v=P9-kg-6C-hY"
   },
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
