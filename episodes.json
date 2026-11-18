@@ -1,7 +1,19 @@
 {
- "total": 856,
- "playable": 843,
+ "total": 857,
+ "playable": 844,
  "episodes": [
+  {
+   "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
+   "title": "The Rise of Open Source AI with Baseten's Charlie O'Neill",
+   "channel": "Cat Tang",
+   "date": "2026-11-18",
+   "duration": "7:54",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/substrate-rise-of-open-source-ai-baseten-charlie-oneill.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#substrate-rise-of-open-source-ai-baseten-charlie-oneill",
+   "source_url": "https://www.youtube.com/watch?v=B-mX7R6dB_0"
+  },
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
    "title": "Palmer Luckey: Why Autonomous Weapons Are the Moral Choice, AI Killing Machines & the Future of War",
