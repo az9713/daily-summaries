@@ -1,6 +1,6 @@
 {
- "total": 867,
- "playable": 854,
+ "total": 868,
+ "playable": 855,
  "episodes": [
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
@@ -133,6 +133,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/every-notion-founder-ivan-zhao-one-thing-ai-missing.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#every-notion-founder-ivan-zhao-one-thing-ai-missing",
    "source_url": "https://www.youtube.com/watch?v=PGWvMrF4XIA"
+  },
+  {
+   "slug": "pragmaticengineer-harjot-gill-software-factories-code-reviews",
+   "title": "Software factories and code reviews with Harjot Gill",
+   "channel": "The Pragmatic Engineer",
+   "date": "2026-11-18",
+   "duration": "10:54",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/pragmaticengineer-harjot-gill-software-factories-code-reviews.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#pragmaticengineer-harjot-gill-software-factories-code-reviews",
+   "source_url": "https://www.youtube.com/watch?v=4Cjb7691GJ8"
   },
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
