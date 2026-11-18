@@ -1,6 +1,6 @@
 {
- "total": 866,
- "playable": 853,
+ "total": 867,
+ "playable": 854,
  "episodes": [
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
@@ -121,6 +121,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/theo-did-they-catch-up.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#theo-did-they-catch-up",
    "source_url": "https://www.youtube.com/watch?v=9KvI-zg4mfo"
+  },
+  {
+   "slug": "every-notion-founder-ivan-zhao-one-thing-ai-missing",
+   "title": "Notion’s Founder on the One Thing Your AI Is Missing",
+   "channel": "Every",
+   "date": "2026-11-18",
+   "duration": "8:42",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/every-notion-founder-ivan-zhao-one-thing-ai-missing.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#every-notion-founder-ivan-zhao-one-thing-ai-missing",
+   "source_url": "https://www.youtube.com/watch?v=PGWvMrF4XIA"
   },
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
