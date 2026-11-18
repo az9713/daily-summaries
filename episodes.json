@@ -1,6 +1,6 @@
 {
- "total": 854,
- "playable": 841,
+ "total": 855,
+ "playable": 842,
  "episodes": [
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
@@ -265,6 +265,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/allin-databricks-ceo-agi-already-here.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#allin-databricks-ceo-agi-already-here",
    "source_url": "https://www.youtube.com/watch?v=1bR0gtecoHU"
+  },
+  {
+   "slug": "londoninstitute-life-after-mathocalypse-ai-maths-pioneer",
+   "title": "Life after mathocalypse—an AI-maths pioneer on what’s left now for human mathematicians to do",
+   "channel": "London Institute for Mathematical Sciences",
+   "date": "2026-11-17",
+   "duration": "7:36",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/londoninstitute-life-after-mathocalypse-ai-maths-pioneer.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-17.html#londoninstitute-life-after-mathocalypse-ai-maths-pioneer",
+   "source_url": "https://www.youtube.com/watch?v=iRVvPQ3TPAQ"
   },
   {
    "slug": "goldengate-jacob-tsimerman-ai-supercharge-mathematics",
