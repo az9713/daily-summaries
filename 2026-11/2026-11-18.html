@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - November 18, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+    <link rel="stylesheet" href="../player.css">
+  </head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Wednesday &middot; November 18, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#substrate-rise-of-open-source-ai-baseten-charlie-oneill"><span class="num">01</span><span><span class="card-title">The Rise of Open Source AI with Baseten&#x27;s Charlie O&#x27;Neill</span><span class="card-byline">Cat Tang</span></span><span class="card-dur">7:54</span><span class="listen-state" data-slug="substrate-rise-of-open-source-ai-baseten-charlie-oneill"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="substrate-rise-of-open-source-ai-baseten-charlie-oneill" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-18.html" data-route="index">&larr; November 18, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">The Rise of Open Source AI with Baseten&#x27;s Charlie O&#x27;Neill &mdash; November 18, 2026 <span class="dur">&middot; 7:54</span></p>
+        <audio controls preload="none" src="../podcasts/substrate-rise-of-open-source-ai-baseten-charlie-oneill.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/substrate-rise-of-open-source-ai-baseten-charlie-oneill.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="substrate-rise-of-open-source-ai-baseten-charlie-oneill" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="substrate-rise-of-open-source-ai-baseten-charlie-oneill"></div>
+        <div class="episode-download"><a href="../podcasts/substrate-rise-of-open-source-ai-baseten-charlie-oneill.mp3" download>Download substrate-rise-of-open-source-ai-baseten-charlie-oneill.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Cat Tang</dd></div>
+        <div><dt>Published</dt><dd>November 18, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=B-mX7R6dB_0" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Cat Tang &middot; Charlie O'Neill on open source AI and Baseten's Base Labs</p>
+        <h2>The Rise of Open Source AI with Baseten&#x27;s Charlie O&#x27;Neill</h2>
+        <div>
+<p>On Cat Tang, “The Rise of Open Source AI with Baseten&#x27;s Charlie O&#x27;Neill” is a conversation with Charlie O&#x27;Neill, who runs Base Labs, a Baseten lab focused on open source intelligence. Earlier this year O&#x27;Neill published a blog post he calls the Michael Scott Paper Company of AI, arguing that open source models should be judged against an absolute threshold of intelligence rather than against their distance from the closed frontier. That argument, and the research Base Labs has done since on post-training, continual learning, and distillation, structures the whole conversation.</p>
+<p>The threshold idea is simple. For any economically valuable task there is a level of intelligence a model has to reach before it can do the task at all, and past that level the returns to still more intelligence diminish quickly. Closed models will almost always reach a new threshold first, which is why startups reaching for product market fit start on frontier closed models. But open models reach the same threshold eventually, and once they do, there are many reasons to switch. On OpenRouter, the host notes, open models have gone from roughly 20 percent of token volume and 10 percent of revenue a year ago to roughly 70 percent of volume and 30 percent of revenue now.</p>
+<p>O&#x27;Neill does not think open source will ever fully catch the closed frontier, and he thinks that is a good thing. A lag of six to nine months gives society a window to prepare. He points to the cyber debate that followed the announcement of Mythos and Project Glasswing: frontier closed labs first let top enterprise customers use the model to harden their own defenses, and by the time open models such as GLM-5.3 reached a comparable level of cyber capability, there had been time to get ready, and no massive breaches have followed so far. He would not want the lead to shrink to zero, but he would not want it to balloon to two to five years either, because then the problem becomes centralization of intelligence and power.</p>
+<p>On cost, the host pushes back that closed models have also become much cheaper, with OpenAI in particular competing hard for token volume. O&#x27;Neill agrees that closed labs offering models along the whole Pareto frontier is healthy, and notes that some open models, such as Kimi K3 at a rumored 2.8 trillion parameters, may now be among the largest models in the world. But he argues open source keeps a structural edge in customization. A closed model is a one size fits all product. An open model can be post-trained for one workload, quantized for exactly that workload, and run on exactly the right hardware configuration, and that fitting is where much of Baseten&#x27;s demand comes from.</p>
+<p>The usual objection is that post-training itself costs money and effort. O&#x27;Neill answers that for any company that has reached product market fit, training costs are a rounding error next to inference costs, which grow across the whole life of a model. The real friction is not cost but building good RL environments to climb on. His framing, held since he started Parsed two years ago, is that an RL environment is not a one-off artifact thrown away when a better base model arrives. It is a compounding corpus, refined and curated over time like a pre-training corpus, and the sooner a company starts building one, the better.</p>
+<p>That logic applies to a 50,000 person company as much as to a Series A startup, he says, though AI native firms are moving first because they have less inertia. Out of the box, the best models are vanilla ice cream, an average of every behavior aggregated across their training. The host raises the fear that partnering with a lab hands the lab your data and your moat. O&#x27;Neill calls that overblown: the labs&#x27; terms are fairly honest about data use, labs mostly learn what their models do badly from public feedback, and any future exchange of cheap inference for data will be explicit. He points to OpenAI announcing, at DevDay the day before, a partnership with Baseten to run open source models on OpenAI credits for enterprises, including inside Codex, as a sign that the labs will focus on frontier workloads while a large share of the world&#x27;s tasks runs elsewhere. Privacy and per customer containment, he adds, will keep pushing specific workloads to open models run by the customer.</p>
+<p>Beyond cost and intelligence sit the guardrails. Every model carries decisions about ethics, morality, and censorship baked in through its training data and its reinforcement learning, whoever trained it. For high stakes work in fields such as law and medicine, those boundaries are subjective, and O&#x27;Neill argues you want fine grained control over them yourself, which is another reason to consider serving an open model.</p>
+<p>On compute, the host observes that OpenAI and Anthropic together will end the year at around 10 gigawatts, a little under 20 percent of roughly 56 gigawatts of United States data center capacity, and are slotted to take around half of all incremental capacity over the next couple of years. O&#x27;Neill replies that the labs got there by hitting real revenue first, which let them make aggressive long term compute commitments. Inference providers and neoclouds have now hit the scale to make the same bets, supply is still growing, including from China, and firms that do not train models can earn more per gigawatt because they carry no training or research costs. With suppliers such as NVIDIA also invested in spreading compute beyond two buyers, he expects the labs&#x27; relative share to settle lower than the current trajectory suggests, though he concedes the whole dynamic leans on investors continuing to fund the labs at a Pascal&#x27;s wager scale.</p>
+<p>The longest stretch of the conversation concerns continual learning. O&#x27;Neill questions whether intelligence really requires it, citing Dwarkesh&#x27;s image of the trumpet playing intern, a stream of brilliant newcomers who must write everything down for the next one. With compaction and memory files now good, many tasks may need nothing more. Where something better is needed, he sees two broad routes. One is updating the weights, the holy grail, which runs into catastrophic forgetting. The other is stretching effective context, for instance by neurally compressing the KV cache into something between the very lossy memory of weights and the perfectly lossless memory of a context window, a direction he connects to the linear attention work at labs such as DeepSeek and Moonshot. His own team&#x27;s research is sobering: in an iterative regime, supervised fine-tuning and distillation degrade a model&#x27;s general capabilities, reinforcement learning is minimally destructive but struggles to teach genuinely new information, because a fact the model never samples never gets learned, and nobody has yet demonstrated knowledge and capability acquisition together without loss. The big labs manage it only because at their scale the noise washes out.</p>
+<p>Asked where a new company should aim, O&#x27;Neill says the most valuable thing in the world will be neither a training recipe nor compute, but data, and specifically RL environments, which are what is being scaled now. The valuable context still lives in people&#x27;s heads, and the winning move is to get it out into a signal a model can climb on, the way Cursor did almost by accident. Base Labs, announced a few weeks ago, is his bet on that view: the team is opening up the RL environments it has spent years building inside companies, environments that would cost millions of dollars each from a vendor, so that open model trainers, evaluators, and alignment researchers can use them. The hardest part, he says, is calibration, keeping an environment&#x27;s difficulty tuned to the jagged frontier so models get neither zero reward nor a saturated score, and designing tasks that can be generated backwards from known ground truth, as in search feedback and statistical data generation. He also insists benchmarks and RL environments are the same thing: a benchmark with separation between models, no saturation, and no reward hacking is an RL environment for free.</p>
+<p>The closing topic is Base Labs&#x27; research on distillation. Distillation, he says, is best understood as a shortcut: a way to warm start a model on traces from stronger models so that reinforcement learning has a non-zero signal to work with, cheaper than building a full curriculum of easier environments. In their experiments, though, models trained with distillation first and RL second ended with a lower ceiling than models trained with RL alone, given enough compute. One candidate explanation is that distillation, being a form of supervised fine-tuning, craters the model&#x27;s entropy and leaves it exploring too little during RL. The science is young, he stresses, and whether the effect holds for frontier scale agentic tasks is the next thing his team wants to test, with Chinese labs currently holding roughly a tenth of American compute capacity and that balance likely to shift over the next couple of years.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>O&#x27;Neill calls a six to nine month lag between the closed frontier and open models a healthy equilibrium for safety. Who, if anyone, is responsible for keeping the lag in that band as capabilities grow, and what happens if it collapses on its own?</li>
+<li>If benchmarks and RL environments are truly the same thing, what keeps a widely used public environment from being trained against until it stops measuring or teaching anything useful, and who maintains its calibration over time?</li>
+<li>His research suggests distillation lowers a model&#x27;s ceiling while making reinforcement learning cheaper to start. How should labs with limited compute weigh a lower ceiling against a faster start, and does the answer change as the compute gap between Chinese and American labs narrows?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full transcript of this video (11,527 words, caption cues running from 0.1 to 3,303.4 seconds of the 3,304 second, 55 minute 4 second recording), taken from the video&#x27;s English caption track. The Android 21.02.35 player client served the video openly, and the Android 20.10.38 and iOS 20.10.4 clients returned the identical player-served title and author. The timedtext endpoint returned srv3 XML for both the json3 and srv3 requests; the srv3 file, captions.en.srv3, was persisted to the build directory, parsed locally to transcript.txt, and read back from disk before writing. The player-served title is “The Rise of Open Source AI with Baseten&#x27;s Charlie O&#x27;Neill” and the player-served author is “Cat Tang”; the channel&#x27;s listing title is longer, “The Rise of Open Source AI with Baseten&#x27;s Co-Head of Model Training Charlie O&#x27;Neill”, and the video appears on the Substrate channel (@substratemag). The listing title&#x27;s description of O&#x27;Neill as Baseten&#x27;s co-head of model training is used in the entry metadata; in the recording itself he is introduced as running Base Labs. The host is Cat Tang; she does not name herself in the recording. A small number of names in the captions are rendered uncertainly, including the statistical benchmark rendered as “GeneBench Pro” and a frontier model in the host&#x27;s benchmark question rendered as “Astra”; these are reported as rendered or described rather than corrected.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-11-18.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated November 18, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "substrate-rise-of-open-source-ai-baseten-charlie-oneill": "The Rise of Open Source AI with Baseten's Charlie O'Neill"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+  <script src="../player.js" defer></script>
+</body>
+</html>
