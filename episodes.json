@@ -1,6 +1,6 @@
 {
- "total": 880,
- "playable": 867,
+ "total": 881,
+ "playable": 868,
  "episodes": [
   {
    "slug": "sourcery-gavin-baker-nvidia-spacex-ai-stocks",
@@ -37,6 +37,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/sourcery-tomorrowx-armstrong-baker-feldman-more.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#sourcery-tomorrowx-armstrong-baker-feldman-more",
    "source_url": "https://www.youtube.com/watch?v=cTFNOTt-jGs"
+  },
+  {
+   "slug": "20vc-will-jensen-return-nvidia-kalshi-mercor-fractile",
+   "title": "Will Jensen Return to NVIDIA | Kalshi, Mercor, Fractile: Mega-Rounds Continue",
+   "channel": "20VC",
+   "date": "2026-11-19",
+   "duration": "8:42",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/20vc-will-jensen-return-nvidia-kalshi-mercor-fractile.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#20vc-will-jensen-return-nvidia-kalshi-mercor-fractile",
+   "source_url": "https://www.youtube.com/watch?v=RZ4BBkSZ3io"
   },
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
