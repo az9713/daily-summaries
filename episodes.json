@@ -1,6 +1,6 @@
 {
- "total": 873,
- "playable": 860,
+ "total": 874,
+ "playable": 861,
  "episodes": [
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
@@ -205,6 +205,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/tbpn-travis-kalanick-if-i-were-jensen.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#tbpn-travis-kalanick-if-i-were-jensen",
    "source_url": "https://www.youtube.com/watch?v=R8loy37E_lg"
+  },
+  {
+   "slug": "twist-nvidia-ousts-jensen-ai-comes-for-nerds-walmart-bubble",
+   "title": "NVIDIA Ousts Jensen, AI Comes for Nerds & Walmart Is A Bubble?!",
+   "channel": "This Week in Startups",
+   "date": "2026-11-18",
+   "duration": "7:53",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/twist-nvidia-ousts-jensen-ai-comes-for-nerds-walmart-bubble.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#twist-nvidia-ousts-jensen-ai-comes-for-nerds-walmart-bubble",
+   "source_url": "https://www.youtube.com/watch?v=czmmj-6t9Ss"
   },
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
