@@ -1,6 +1,6 @@
 {
- "total": 886,
- "playable": 873,
+ "total": 887,
+ "playable": 874,
  "episodes": [
   {
    "slug": "sourcery-gavin-baker-nvidia-spacex-ai-stocks",
@@ -109,6 +109,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-nick-bostrom-superintelligence-end-aging.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#a16z-nick-bostrom-superintelligence-end-aging",
    "source_url": "https://www.youtube.com/watch?v=gDW9An30_c0"
+  },
+  {
+   "slug": "hbr-jack-dorsey-building-company-around-intelligence",
+   "title": "Block’s Jack Dorsey on Building a Company Around Intelligence",
+   "channel": "Harvard Business Review",
+   "date": "2026-11-19",
+   "duration": "6:55",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/hbr-jack-dorsey-building-company-around-intelligence.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#hbr-jack-dorsey-building-company-around-intelligence",
+   "source_url": "https://www.youtube.com/watch?v=H2qTWKS8cm0"
   },
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
