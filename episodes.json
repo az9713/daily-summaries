@@ -1,6 +1,6 @@
 {
- "total": 872,
- "playable": 859,
+ "total": 873,
+ "playable": 860,
  "episodes": [
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
@@ -193,6 +193,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/iconnections-bret-johnsen-spacex-ai-compute-in-space.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#iconnections-bret-johnsen-spacex-ai-compute-in-space",
    "source_url": "https://www.youtube.com/watch?v=UTueSKjzdto"
+  },
+  {
+   "slug": "tbpn-travis-kalanick-if-i-were-jensen",
+   "title": "“If I Were Jensen, Here’s What I’d Do” — Travis Kalanick",
+   "channel": "TBPN",
+   "date": "2026-11-18",
+   "duration": "4:36",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/tbpn-travis-kalanick-if-i-were-jensen.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#tbpn-travis-kalanick-if-i-were-jensen",
+   "source_url": "https://www.youtube.com/watch?v=R8loy37E_lg"
   },
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
