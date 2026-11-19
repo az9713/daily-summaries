@@ -1,6 +1,6 @@
 {
- "total": 878,
- "playable": 865,
+ "total": 879,
+ "playable": 866,
  "episodes": [
   {
    "slug": "sourcery-gavin-baker-nvidia-spacex-ai-stocks",
@@ -13,6 +13,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/sourcery-gavin-baker-nvidia-spacex-ai-stocks.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#sourcery-gavin-baker-nvidia-spacex-ai-stocks",
    "source_url": "https://www.youtube.com/watch?v=drpASO63CJc"
+  },
+  {
+   "slug": "no-priors-bob-mcgrew-superintelligence-physical-world",
+   "title": "Superintelligence Needs the Physical World with CEO and Co-Founder of Arda Bob McGrew",
+   "channel": "No Priors: AI, Machine Learning, Tech, & Startups",
+   "date": "2026-11-19",
+   "duration": "7:10",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/no-priors-bob-mcgrew-superintelligence-physical-world.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#no-priors-bob-mcgrew-superintelligence-physical-world",
+   "source_url": "https://www.youtube.com/watch?v=_wLzJINt9iQ"
   },
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
