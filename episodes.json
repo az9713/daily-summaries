@@ -1,6 +1,6 @@
 {
- "total": 883,
- "playable": 870,
+ "total": 884,
+ "playable": 871,
  "episodes": [
   {
    "slug": "sourcery-gavin-baker-nvidia-spacex-ai-stocks",
@@ -73,6 +73,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/bigtechnology-aaron-levie-anthropic-ipo-will-succeed.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#bigtechnology-aaron-levie-anthropic-ipo-will-succeed",
    "source_url": "https://www.youtube.com/watch?v=2n24npKhP6g"
+  },
+  {
+   "slug": "yahoofinance-kevin-warsh-andreessen-raimondo-full",
+   "title": "Kevin Warsh interviews Marc Andreessen and Gina Raimondo [FULL] | Yahoo Finance",
+   "channel": "Yahoo Finance",
+   "date": "2026-11-19",
+   "duration": "7:29",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/yahoofinance-kevin-warsh-andreessen-raimondo-full.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#yahoofinance-kevin-warsh-andreessen-raimondo-full",
+   "source_url": "https://www.youtube.com/watch?v=7WWndQdjG90"
   },
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
