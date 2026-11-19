@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - November 19, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+    <link rel="stylesheet" href="../player.css">
+  </head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Thursday &middot; November 19, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#sourcery-gavin-baker-nvidia-spacex-ai-stocks"><span class="num">01</span><span><span class="card-title">Gavin Baker: Why Nvidia Needs Jensen Huang Back as CEO</span><span class="card-byline">Sourcery with Molly O'Shea</span></span><span class="card-dur">4:57</span><span class="listen-state" data-slug="sourcery-gavin-baker-nvidia-spacex-ai-stocks"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="sourcery-gavin-baker-nvidia-spacex-ai-stocks" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-19.html" data-route="index">&larr; November 19, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Gavin Baker: Why Nvidia Needs Jensen Huang Back as CEO &mdash; November 19, 2026 <span class="dur">&middot; 4:57</span></p>
+        <audio controls preload="none" src="../podcasts/sourcery-gavin-baker-nvidia-spacex-ai-stocks.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/sourcery-gavin-baker-nvidia-spacex-ai-stocks.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="sourcery-gavin-baker-nvidia-spacex-ai-stocks" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="sourcery-gavin-baker-nvidia-spacex-ai-stocks"></div>
+        <div class="episode-download"><a href="../podcasts/sourcery-gavin-baker-nvidia-spacex-ai-stocks.mp3" download>Download sourcery-gavin-baker-nvidia-spacex-ai-stocks.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Sourcery with Molly O'Shea</dd></div>
+        <div><dt>Published</dt><dd>November 19, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=drpASO63CJc" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Sourcery with Molly O'Shea &middot; Gavin Baker on Nvidia, SpaceX and AI stocks</p>
+        <h2>Gavin Baker: Why Nvidia Needs Jensen Huang Back as CEO</h2>
+        <div>
+<p>On Sourcery with Molly O&#x27;Shea, &quot;Gavin Baker: Why Nvidia Needs Jensen Huang Back as CEO&quot; is a conversation recorded on a TomorrowX Summit stage, where Molly O&#x27;Shea interviews Gavin Baker, the managing partner and chief investment officer of Atreides Management. Baker has spent the day on stage talking with Michael Dell, Cerebras chief executive Andrew Feldman, Fireworks AI chief executive Lin Qiao, and people from SpaceX, and the theme he takes from all of it is simple: demand for AI is still really strong.</p>
+<p>The signals he cites are concrete. Astera&#x27;s chief executive told him business has accelerated since the company reported earnings two weeks ago. SpaceX&#x27;s demand for compute is still very strong, and the tone from Cerebras on the state of AI demand was encouraging. Stocks, he says, are trading as if there is an imminent problem with demand, and he does not think that is what anyone at the summit is actually seeing.</p>
+<p>His central argument is that the market is doing a simple but flawed calculation. It adds up something like two trillion dollars of AI capital spending and sets it against less than two hundred billion dollars of visible AI revenue, counting roughly eighty billion from Anthropic, around forty billion from OpenAI, and a generous allowance for Grok, Muse, Gemini, and everything else. Baker thinks the calculation misses most of the picture.</p>
+<p>The biggest omission, in his telling, is the open source ecosystem. Fireworks AI, an Atreides portfolio company, customizes and specializes open source models for its customers, and its top customer has grown thirteenfold in the first nine or ten months of this year. Because margins on open source tokens are lower, that demand drags more compute with it, and Fireworks is only one of many companies doing this.</p>
+<p>The second omission is the enterprise. Michael Dell told the summit that Dell sells enterprises what it calls an AI factory. In the first two years of offering them, 2024 and 2025, Dell sold 3,200. In the last nine months it has sold 3,300 more. That is over 6,000 discrete enterprises buying GPU servers and running open source AI on them, getting a return, and showing up nowhere in the market&#x27;s arithmetic.</p>
+<p>Baker has been investing in semiconductors since the year 2000 and has been through many cycles, and he says it feels like a discontinuity between really strong fundamentals on the ground and what stocks are discounting. He quotes Warren Buffett: the market is in a voting machine phase, but ultimately it is a weighing machine. If the AI buildout resembles the railroad buildout and runs for decades, and if companies like Nvidia grow only five or ten percent a year from here, the stocks are cheap. The market is fixated on second derivatives, on the moment the growth rate peaks, and he is not sure that moment means what traders think it means.</p>
+<p>The conversation then turns to Nvidia and Jensen Huang. Baker says he and Brad Gerstner sent a letter to Nvidia&#x27;s board asking it to take a very slow, measured, deliberate approach. Colette Kress, Nvidia&#x27;s chief financial officer, is superb, the business is strong, and there is no need to rush to hire another chief executive. As the facts about Huang emerge, the letter suggested, the board should consider bringing him back as chief executive if that is appropriate.</p>
+<p>His reason is scarcity. In twenty seven years of investing, Baker says, he has met one Jensen and one Elon. He reaches for Rick Pitino&#x27;s line on arriving to coach the Celtics, that Larry Bird is not walking through that door, and notes that after Michael Jordan left, the Bulls never won another championship. You do not lightly let someone like this walk away, and nothing stops Huang, once he has testified to Congress and Nvidia&#x27;s independent investigation has run its course, from going to run a competitor.</p>
+<p>Baker has known Huang since 2000 and defends his patriotism directly. The only thing he has ever heard Huang say about China, he says, is the absolute importance of America beating China, and the only thing about Chinese hardware is the importance of making sure American AI hardware dominates, so that no alternative Chinese ecosystem develops that could be handed to adversaries like Iran, North Korea, and Russia. Huang came to America from Taiwan at nine years old and was sent to a reform school, the most expensive school his parents could afford, where he worked as a janitor and stayed through summers because his parents could not afford to bring him home. Baker says he does not know a single chief executive more patriotic about America, and does not believe Huang would ever knowingly endanger national security.</p>
+<p>The policy implication worries him most. Huang&#x27;s approach was to keep somewhat less powerful Nvidia GPUs available in China, first, best, and most at home, which slowed Huawei down, because hardware only improves with use. Now every Chinese AI lab will use Huawei hardware, and it might get better very fast. Well intentioned patriots in Washington, he argues, may be taking grave risks with American national security by forcing exactly the rival ecosystem they wanted to prevent.</p>
+<p>Asked about the unintended consequences of dethroning Huang, Baker puts open source first. He does not want a world dominated by one, two, or three frontier AIs, because these systems are imbued with value systems, and America&#x27;s diversity of values should be reflected in its AI. He has an eight month old daughter, and he describes wanting to work with Fireworks to fine tune an American open source AI on the books, movies, and shows that shaped him and his wife Becky: Star Wars, Star Trek, Dune, Lord of the Rings, Shakespeare, Homer, and the Greek philosophers. Huang, he says, was the biggest proponent of American open source, and the industry needs a voice like his until he finds his place again.</p>
+<p>The relationships are the other irreplaceable asset. Baker says Huang&#x27;s ties across the Asian supply chain are unparalleled: he has never had a contract with TSMC, Morris Chang reportedly once asked him to run TSMC, and he can fly to Taiwan, speak the dialect, shake hands, and walk out with more volume at lower prices than anyone else. In Taiwan, he says, buildings and highways have been lit up with signs saying &quot;Bring Jensen back.&quot; If the national security innuendo around Huang turns out to be only innuendo, Baker hopes the board brings him back, because that is what the Nvidia employees, shareholders, and partners who have reached out to him seem to want.</p>
+<p>The mood lifts with SpaceX, which had a big weekend: the Starship 15 launch and the tower catch of the booster. Baker retells Walter Isaacson&#x27;s story of Elon Musk telling his engineers they would catch the rocket with the tower arms he called Mechazilla, and the engineers thinking it impossible. SpaceX, he says, is America&#x27;s most important national defense contractor, because controlling space is the ultimate high ground, and SpaceX accounts for about eighty five percent of the mass sent to orbit.</p>
+<p>Rapid reusability is what unlocks the rest. Baker says the first orbital compute satellites go up in 2027, something Starship was needed for, along with Starlink direct to cell. Skeptics online raise cooling and other objections to orbital compute, but he says SpaceX&#x27;s engineers regard those problems as solved: the company operates eleven thousand satellites today, and a Starlink V3 satellite already consumes perhaps ten to fifteen percent of the power of an orbital compute satellite and has to be cooled. What actually stresses the engineers is Starship and reusability, which is why catching the upper stage is such a big step. He also credits Starlink with transforming schools and remote communities across the global south, and says Musk has done more for the climate than all climate activists combined.</p>
+<p>His last subject is Grok, which he calls by far the most valuable AI tool to him: he now spends more time in it than on X, which he thought would never happen. Working from third party data, he estimates SpaceX&#x27;s first party AI business is getting close to ten billion dollars of very high margin revenue, growing very fast.</p>
+<p>Asked for his hottest take, Baker offers several: that Grok is the most useful AI tool, that SpaceX will make orbital compute, Starlink direct to cell, and asteroid mining real, a prediction he enjoys partly because it upsets gold bugs, and that Jensen Huang is a singular chief executive who deserves the benefit of the doubt. This is America, he says, people are innocent until proven guilty, and America loves nothing more than a comeback. The interview closes on lighter ground: his new profile picture is a Halloween photo of him dressed as a Jedi with Becky wearing Yoda ears, and his daughter already has a pink lightsaber waiting for her.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Baker and Gerstner&#x27;s letter asks Nvidia&#x27;s board to slow down, but if the board waits and Huang is cleared, what would it take for a board that let him go to reverse itself, and what happens to Nvidia if he instead takes his supply chain relationships and open source advocacy to a competitor?</li>
+<li>Baker&#x27;s case against the market&#x27;s capex math rests on demand that does not appear in reported revenue, in open source serving and enterprise AI factories. What evidence, over the next few quarters of guides and earnings, would settle whether that hidden demand is really large enough to carry the buildout?</li>
+<li>If forcing China onto Huawei hardware makes that ecosystem improve faster, how should American policy weigh that risk against the risk Huang&#x27;s approach carried, and who in Washington is positioned to make that call well?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full transcript of this video (3,576 words, caption cues running from 0.0 to 1,341.1 seconds of the 1,345 second, 22 minute 25 second recording). The Android 21.02.35 player client served the video&#x27;s English automatic caption track with playability OK; a json3 request returned srv3 XML byte identical to the srv3 response, so captions.en.srv3 is the grounding artifact, parsed to transcript.txt and read back in full from disk. The title used here is the player-served title, confirmed identical across the Android 21.02.35, Android 20.10.38, and iOS 20.10.4 player clients. The channel&#x27;s listing title, &quot;Gavin Baker on Nvidia, SpaceX, AI Stocks &amp; the Next $10B Business&quot;, differs from the player-served title and is disclosed here as a variant. The player-served author, &quot;Sourcery with Molly O&#x27;Shea&quot;, is also the channel string used here, following the archive&#x27;s convention. The speakers are identified in the recording&#x27;s opening exchange itself, where O&#x27;Shea welcomes Baker by name and he thanks her as Molly; Baker&#x27;s role at Atreides Management is as given in the video&#x27;s description, and the transcript has him call Fireworks AI an Atreides portfolio company. The automatic captions render several names phonetically, including Sourcery as &quot;Sorcery&quot;, TomorrowX as &quot;Tomorrowex&quot;, Grok as &quot;Grockbot&quot;, Brad Gerstner as &quot;Brad Gersner&quot;, Rick Pitino as &quot;Rick Patino&quot;, and Fireworks chief executive Lin Qiao as &quot;Lynn&quot;; published spellings are used in the prose. Nvidia&#x27;s chief financial officer is named only as Colette in the captions and is identified here as Colette Kress. The captions garble the name of Astera Labs&#x27; chief executive, so he is described by role rather than named.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-11-19.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated November 19, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "sourcery-gavin-baker-nvidia-spacex-ai-stocks": "Gavin Baker: Why Nvidia Needs Jensen Huang Back as CEO"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+  <script src="../player.js" defer></script>
+</body>
+</html>
