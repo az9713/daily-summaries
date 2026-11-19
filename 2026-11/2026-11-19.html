@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Thursday &middot; November 19, 2026</p>
-        <h1>11 summaries, distilled.</h1>
+        <h1>12 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -419,6 +419,7 @@
         <a class="card" href="#a16z-nick-bostrom-superintelligence-end-aging"><span class="num">09</span><span><span class="card-title">Why Nick Bostrom Thinks Superintelligence Could End Aging</span><span class="card-byline">a16z</span></span><span class="card-dur">6:21</span><span class="listen-state" data-slug="a16z-nick-bostrom-superintelligence-end-aging"></span></a>
         <a class="card" href="#hbr-jack-dorsey-building-company-around-intelligence"><span class="num">10</span><span><span class="card-title">Block’s Jack Dorsey on Building a Company Around Intelligence</span><span class="card-byline">Harvard Business Review</span></span><span class="card-dur">6:55</span><span class="listen-state" data-slug="hbr-jack-dorsey-building-company-around-intelligence"></span></a>
         <a class="card" href="#berman-most-controversial-ai-model-drop-2026"><span class="num">11</span><span><span class="card-title">What&#x27;s going on with GPT-6.2?</span><span class="card-byline">Matthew Berman</span></span><span class="card-dur">5:21</span><span class="listen-state" data-slug="berman-most-controversial-ai-model-drop-2026"></span></a>
+        <a class="card" href="#cerebras-why-build-ai-chip-size-of-wafer"><span class="num">12</span><span><span class="card-title">What Would the Ideal LLM Inference Chip Look Like?</span><span class="card-byline">Cerebras</span></span><span class="card-dur">5:45</span><span class="listen-state" data-slug="cerebras-why-build-ai-chip-size-of-wafer"></span></a>
         </div>
       </nav>
     </section>
@@ -982,6 +983,53 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#hbr-jack-dorsey-building-company-around-intelligence" data-route="article">&larr; Harvard Business Review</a>
         <a class="to-index" href="2026-11-19.html" data-route="index">All summaries</a>
+        <a class="next" href="#cerebras-why-build-ai-chip-size-of-wafer" data-route="article">Cerebras &middot; What Would the Ideal LLM Inference Chip Look Like? &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="cerebras-why-build-ai-chip-size-of-wafer" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-19.html" data-route="index">&larr; November 19, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">What Would the Ideal LLM Inference Chip Look Like? &mdash; November 19, 2026 <span class="dur">&middot; 5:45</span></p>
+        <audio controls preload="none" src="../podcasts/cerebras-why-build-ai-chip-size-of-wafer.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/cerebras-why-build-ai-chip-size-of-wafer.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="cerebras-why-build-ai-chip-size-of-wafer" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="cerebras-why-build-ai-chip-size-of-wafer"></div>
+        <div class="episode-download"><a href="../podcasts/cerebras-why-build-ai-chip-size-of-wafer.mp3" download>Download cerebras-why-build-ai-chip-size-of-wafer.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Cerebras</dd></div>
+        <div><dt>Published</dt><dd>November 19, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=1LGwx7jzOK4" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Cerebras &middot; Alycia Cary builds chip design up from first principles to the wafer-scale engine</p>
+        <h2>What Would the Ideal LLM Inference Chip Look Like?</h2>
+        <div>
+<p>On Cerebras, &quot;What Would the Ideal LLM Inference Chip Look Like?&quot; is a Hardware Deep Dive in which Alycia Cary of Cerebras DevX builds AI chip architecture up from first principles, then uses those principles to explain why Cerebras built a processor the size of an entire wafer. The video is an argument in the form of a lesson: by the time the wafer appears, the physics has already made the case for it.</p>
+<p>She starts with what any communication system needs. Three things: connectivity, a physical medium to transmit information; compute, a way to modify it; and memory, a way to remember what was said before. In semiconductors, connectivity means sending signals through copper wires. The signal travels at around 50 to 70 percent of the speed of light, and the energy cost rises with distance, because a wire that is twice as long has twice the capacitance. Moving information further is slower and more expensive. That single fact drives everything that follows.</p>
+<p>Compute comes from transistors, tiny switches chained into logic gates. Computing has become so energy efficient that a single multiplication now costs less than a trillionth of the energy needed to lift an apple one meter. Memory is where the hard tradeoff sits. SRAM is built from transistors on the same silicon as the compute, so it is incredibly fast to reach, but it competes for space. DRAM stores charge in tiny capacitors on separate dies, so it is much denser and cheaper per bit, but reaching it means traveling further through longer wires, and access can take 50 to 100 times as long as the fastest on-chip SRAM. If memory cannot feed the compute fast enough, the compute waits.</p>
+<p>CPUs, the general purpose chips that ran computing for decades, put a few powerful cores next to small tiers of on-chip cache, with a vast store of DRAM off chip. Cary compares the chip to a small island nation relying on supplies from a mainland: it works well until it has to call on the mainland too often, and then memory bandwidth becomes the limit. Much of a CPU&#x27;s silicon is not compute at all, but the machinery of flexibility, branch predictors and out-of-order execution units that let it run almost any program.</p>
+<p>GPUs broke the bottleneck for one kind of work by going wide. Rendering a game means updating millions of pixels at once, and the GPU&#x27;s breakthrough was parallelism: one memory store shared by dozens of cores, and around 16,000 cores per chip running the same computation on thousands of data points simultaneously. Machine learning researchers adopted GPUs for training neural networks from 2012, and over the next decade models grew by five orders of magnitude, from millions of parameters to over a trillion.</p>
+<p>The catch is that training and inference are different workloads. In training, weights fetched from memory are reused across large batches of tokens, so the cost of moving them is spread over a lot of computation. Inference generates one token at a time, and every new token requires the whole model to run again. For a single response, the weights are read from memory again and again to perform a relatively small amount of computation at each step. Cary puts the scale plainly: a large open model with roughly 100 billion active parameters, at 4 bits per parameter, holds about 50 gigabytes of weights, the equivalent of ten HD movies read for every token, or 10,000 movies for one 1,000 token response. In about 75 exchanges with a chatbot, you have moved the data equivalent of every movie ever made.</p>
+<p>Google saw this coming around 2013 and built the TPU, stripping out the graphics hardware and concentrating on one operation, matrix multiplication, through a systolic array: a grid of multiply and add cells where weights are loaded once and activations pulse through like blood through a heart. TPUs beat GPUs on throughput and energy for training and large batch inference. But they hit the same wall when serving one user at a time, because the on-chip memory is too small to hold the weights, so generation keeps pulling from off-chip memory. The bottleneck is no longer compute. It is memory bandwidth.</p>
+<p>That sets up the wafer. Chips are diced from 300 millimeter wafers because fabrication always produces defects, and small dies are less likely to contain one, so yield stays high. Keeping a wafer whole would give a chip enormous on-chip memory right beside its compute, but it demands new cooling and power systems, and a single defect could ruin the whole device. Companies tried wafer-scale systems from the 1970s onward and all of them failed. Cerebras announced a working one in 2019: a first generation chip 56 times the size of a GPU, with 450 times more on-chip memory and 6,000 times more memory bandwidth.</p>
+<p>The yield problem was solved by designing for defects rather than against them. The wafer carries hundreds of thousands of small cores, each with its own compute and local memory, joined by a self-healing fabric that routes around defective cores, with spare cores and redundant connections making the whole thing extremely defect tolerant. Almost the full wafer becomes usable, with nearly a million cores and 44 gigabytes of memory distributed on chip. Weights are loaded into that memory once and never move again. Each layer of the model is mapped to a physical region of the wafer, in sequence, so activations flow from layer to layer along the same path the computation follows. If a model is too large for one wafer, only the activations cross between wafers, and activations are orders of magnitude smaller than the weights. The current WSE-3 delivers 21 petabytes per second of memory bandwidth, around 7,000 times that of an H100 GPU, and the payoff is much faster token generation.</p>
+<p>She closes by folding every architecture back into the opening question. CPUs, GPUs, TPUs, and wafer-scale engines are different answers to the same problem: how to communicate information from one place to another. Her suggested answer is to try not to. The most efficient communication system known is the human brain, with a hundred trillion connections, running on the energy equivalent of an electric razor, because it keeps memory, compute, and connectivity all in the same place.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If the inference bottleneck is data movement, how far does keeping weights on chip scale as frontier models grow past what even several wafers can hold?</li>
+<li>Does the wafer-scale advantage hold when serving shifts toward very large batches, where GPUs and TPUs already reuse each weight fetch across many users?</li>
+<li>What would have to change in cooling, power delivery, and fabrication for wafer-scale chips to be built by more than one company?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full English ASR caption track served by the Android 21.02.35 player client (2,933 words, cues 0.0 to 1000.4 seconds of the 1,014 second recording). The timedtext endpoint returned srv3 XML for both the json3 and srv3 requests, byte identical at 95,113 bytes, so captions.en.srv3 is the persisted grounding artifact, parsed locally to transcript.txt and read back in full from disk before writing. The player served title was identical on the Android 21.02.35, Android 20.10.38, and iOS 20.10.4 clients: What Would the Ideal LLM Inference Chip Look Like? This channel retitles its uploads, and two other titles were observed for the same video: the search listing showed &quot;How to Build a Faster Chip for LLM Inference,&quot; and Simon&#x27;s commission screenshot, an @Cerebras post, showed &quot;Why Build an AI Chip the Size of a Wafer?&quot; Identity was confirmed against the screenshot before building: the caption track contains its caption line verbatim at 12.4 seconds, &quot;First, you need a physical medium to transmit information. Some way to connect point A to point B,&quot; and the official description matches, promising to show why Cerebras built a processor the size of a wafer. The description names Alycia Cary of Cerebras DevX as the presenter, and the byline names her. The ASR track renders the fabric&#x27;s routing as &quot;roots&quot; in one passage and renders one large open model&#x27;s name as &quot;Chinchilla 3&quot;; the prose follows the sense of the talk and leaves that model unnamed.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#berman-most-controversial-ai-model-drop-2026" data-route="article">&larr; Matthew Berman</a>
+        <a class="to-index" href="2026-11-19.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -1003,7 +1051,8 @@
       "iconnections-elon-musk-future-glad-to-be-alive": "Elon Musk on Why the Future Should Make You Glad to Be Alive | TomorrowX Summit",
       "a16z-nick-bostrom-superintelligence-end-aging": "Why Nick Bostrom Thinks Superintelligence Could End Aging",
       "hbr-jack-dorsey-building-company-around-intelligence": "Block’s Jack Dorsey on Building a Company Around Intelligence",
-      "berman-most-controversial-ai-model-drop-2026": "What's going on with GPT-6.2?"
+      "berman-most-controversial-ai-model-drop-2026": "What's going on with GPT-6.2?",
+      "cerebras-why-build-ai-chip-size-of-wafer": "What Would the Ideal LLM Inference Chip Look Like?"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
