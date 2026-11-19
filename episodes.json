@@ -1,6 +1,6 @@
 {
- "total": 882,
- "playable": 869,
+ "total": 883,
+ "playable": 870,
  "episodes": [
   {
    "slug": "sourcery-gavin-baker-nvidia-spacex-ai-stocks",
@@ -61,6 +61,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/yc-jacob-coxon-robin-hanson-should-we-regulate-ai.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#yc-jacob-coxon-robin-hanson-should-we-regulate-ai",
    "source_url": "https://www.youtube.com/watch?v=lwfewYL7X0o"
+  },
+  {
+   "slug": "bigtechnology-aaron-levie-anthropic-ipo-will-succeed",
+   "title": "Why The Anthropic IPO Will Succeed — With Aaron Levie",
+   "channel": "Alex Kantrowitz",
+   "date": "2026-11-19",
+   "duration": "5:39",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/bigtechnology-aaron-levie-anthropic-ipo-will-succeed.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#bigtechnology-aaron-levie-anthropic-ipo-will-succeed",
+   "source_url": "https://www.youtube.com/watch?v=2n24npKhP6g"
   },
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
