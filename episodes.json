@@ -1,6 +1,6 @@
 {
- "total": 879,
- "playable": 866,
+ "total": 880,
+ "playable": 867,
  "episodes": [
   {
    "slug": "sourcery-gavin-baker-nvidia-spacex-ai-stocks",
@@ -25,6 +25,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/no-priors-bob-mcgrew-superintelligence-physical-world.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#no-priors-bob-mcgrew-superintelligence-physical-world",
    "source_url": "https://www.youtube.com/watch?v=_wLzJINt9iQ"
+  },
+  {
+   "slug": "sourcery-tomorrowx-armstrong-baker-feldman-more",
+   "title": "TomorrowX: Brian Armstrong, Gavin Baker, Andrew Feldman & More",
+   "channel": "Sourcery with Molly O'Shea",
+   "date": "2026-11-19",
+   "duration": "12:02",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/sourcery-tomorrowx-armstrong-baker-feldman-more.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#sourcery-tomorrowx-armstrong-baker-feldman-more",
+   "source_url": "https://www.youtube.com/watch?v=cTFNOTt-jGs"
   },
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
