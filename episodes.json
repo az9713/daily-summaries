@@ -1,6 +1,6 @@
 {
- "total": 889,
- "playable": 876,
+ "total": 890,
+ "playable": 877,
  "episodes": [
   {
    "slug": "sourcery-gavin-baker-nvidia-spacex-ai-stocks",
@@ -145,6 +145,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/cerebras-why-build-ai-chip-size-of-wafer.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#cerebras-why-build-ai-chip-size-of-wafer",
    "source_url": "https://www.youtube.com/watch?v=1LGwx7jzOK4"
+  },
+  {
+   "slug": "aiengineer-thariq-shihipar-sweet-side-bitter-lesson",
+   "title": "The Sweet Side of the Bitter Lesson — Thariq Shihipar, Independent",
+   "channel": "AI Engineer",
+   "date": "2026-11-19",
+   "duration": "6:43",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/aiengineer-thariq-shihipar-sweet-side-bitter-lesson.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#aiengineer-thariq-shihipar-sweet-side-bitter-lesson",
+   "source_url": "https://www.youtube.com/watch?v=xRJMiaUoD_8"
   },
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
