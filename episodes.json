@@ -1,6 +1,6 @@
 {
- "total": 888,
- "playable": 875,
+ "total": 889,
+ "playable": 876,
  "episodes": [
   {
    "slug": "sourcery-gavin-baker-nvidia-spacex-ai-stocks",
@@ -133,6 +133,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/berman-most-controversial-ai-model-drop-2026.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#berman-most-controversial-ai-model-drop-2026",
    "source_url": "https://www.youtube.com/watch?v=nEYuoqqMgyg"
+  },
+  {
+   "slug": "cerebras-why-build-ai-chip-size-of-wafer",
+   "title": "What Would the Ideal LLM Inference Chip Look Like?",
+   "channel": "Cerebras",
+   "date": "2026-11-19",
+   "duration": "5:45",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/cerebras-why-build-ai-chip-size-of-wafer.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#cerebras-why-build-ai-chip-size-of-wafer",
+   "source_url": "https://www.youtube.com/watch?v=1LGwx7jzOK4"
   },
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
