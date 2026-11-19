@@ -1,6 +1,6 @@
 {
- "total": 891,
- "playable": 878,
+ "total": 892,
+ "playable": 879,
  "episodes": [
   {
    "slug": "sourcery-gavin-baker-nvidia-spacex-ai-stocks",
@@ -169,6 +169,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/latentspace-scaling-linear-gtm-cristina-cordova.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#latentspace-scaling-linear-gtm-cristina-cordova",
    "source_url": "https://www.youtube.com/watch?v=x0VSm6IjcDQ"
+  },
+  {
+   "slug": "googledeepmind-gemini-path-to-agi-koray-kavukcuoglu",
+   "title": "Gemini and the path to AGI with Koray Kavukcuoglu",
+   "channel": "Google DeepMind",
+   "date": "2026-11-19",
+   "duration": "7:29",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/googledeepmind-gemini-path-to-agi-koray-kavukcuoglu.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#googledeepmind-gemini-path-to-agi-koray-kavukcuoglu",
+   "source_url": "https://www.youtube.com/watch?v=FORdPIWOH5k"
   },
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
