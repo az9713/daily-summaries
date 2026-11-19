@@ -1,6 +1,6 @@
 {
- "total": 871,
- "playable": 858,
+ "total": 872,
+ "playable": 859,
  "episodes": [
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
@@ -181,6 +181,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-if-ai-can-do-the-math-what-do-mathematicians-do.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#a16z-if-ai-can-do-the-math-what-do-mathematicians-do",
    "source_url": "https://www.youtube.com/watch?v=KPIY2W4mphI"
+  },
+  {
+   "slug": "iconnections-bret-johnsen-spacex-ai-compute-in-space",
+   "title": "SpaceX CFO Bret Johnsen: Starship and the Holy Grail of Rocketry | TomorrowX Summit",
+   "channel": "iConnections",
+   "date": "2026-11-18",
+   "duration": "6:24",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/iconnections-bret-johnsen-spacex-ai-compute-in-space.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#iconnections-bret-johnsen-spacex-ai-compute-in-space",
+   "source_url": "https://www.youtube.com/watch?v=UTueSKjzdto"
   },
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
