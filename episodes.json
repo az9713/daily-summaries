@@ -1,7 +1,19 @@
 {
- "total": 877,
- "playable": 864,
+ "total": 878,
+ "playable": 865,
  "episodes": [
+  {
+   "slug": "sourcery-gavin-baker-nvidia-spacex-ai-stocks",
+   "title": "Gavin Baker: Why Nvidia Needs Jensen Huang Back as CEO",
+   "channel": "Sourcery with Molly O'Shea",
+   "date": "2026-11-19",
+   "duration": "4:57",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/sourcery-gavin-baker-nvidia-spacex-ai-stocks.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#sourcery-gavin-baker-nvidia-spacex-ai-stocks",
+   "source_url": "https://www.youtube.com/watch?v=drpASO63CJc"
+  },
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
    "title": "The Rise of Open Source AI with Baseten's Charlie O'Neill",
