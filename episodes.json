@@ -1,6 +1,6 @@
 {
- "total": 870,
- "playable": 857,
+ "total": 871,
+ "playable": 858,
  "episodes": [
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
@@ -169,6 +169,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/latentspace-anthropic-know-before-you-ipo-tanay-jaipuria.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#latentspace-anthropic-know-before-you-ipo-tanay-jaipuria",
    "source_url": "https://www.youtube.com/watch?v=wX8nDtGIfYA"
+  },
+  {
+   "slug": "a16z-if-ai-can-do-the-math-what-do-mathematicians-do",
+   "title": "If AI Can Do the Math, What Do the Mathematicians Do? (ft. a16z Researchers)",
+   "channel": "a16z",
+   "date": "2026-11-18",
+   "duration": "10:39",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-if-ai-can-do-the-math-what-do-mathematicians-do.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#a16z-if-ai-can-do-the-math-what-do-mathematicians-do",
+   "source_url": "https://www.youtube.com/watch?v=KPIY2W4mphI"
   },
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
