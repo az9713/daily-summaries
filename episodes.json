@@ -1,6 +1,6 @@
 {
- "total": 875,
- "playable": 862,
+ "total": 876,
+ "playable": 863,
  "episodes": [
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
@@ -229,6 +229,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/iconnections-travis-kalanick-tomorrowx-summit.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#iconnections-travis-kalanick-tomorrowx-summit",
    "source_url": "https://www.youtube.com/watch?v=paMsNoG_hi8"
+  },
+  {
+   "slug": "keating-eth-zurich-mathematician-ai-phd-problems-weekend",
+   "title": "ETH Zurich Mathematician: AI Can Do Every Basic PhD Problem in a Weekend",
+   "channel": "Dr Brian Keating",
+   "date": "2026-11-18",
+   "duration": "6:35",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/keating-eth-zurich-mathematician-ai-phd-problems-weekend.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-18.html#keating-eth-zurich-mathematician-ai-phd-problems-weekend",
+   "source_url": "https://www.youtube.com/watch?v=foP57FiPRVA"
   },
   {
    "slug": "kaleidoscope-palmer-luckey-autonomous-weapons-moral-choice",
