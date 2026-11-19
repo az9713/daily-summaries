@@ -1,6 +1,6 @@
 {
- "total": 885,
- "playable": 872,
+ "total": 886,
+ "playable": 873,
  "episodes": [
   {
    "slug": "sourcery-gavin-baker-nvidia-spacex-ai-stocks",
@@ -97,6 +97,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/iconnections-elon-musk-future-glad-to-be-alive.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#iconnections-elon-musk-future-glad-to-be-alive",
    "source_url": "https://www.youtube.com/watch?v=DY8clym2-jQ"
+  },
+  {
+   "slug": "a16z-nick-bostrom-superintelligence-end-aging",
+   "title": "Why Nick Bostrom Thinks Superintelligence Could End Aging",
+   "channel": "a16z",
+   "date": "2026-11-19",
+   "duration": "6:21",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-nick-bostrom-superintelligence-end-aging.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#a16z-nick-bostrom-superintelligence-end-aging",
+   "source_url": "https://www.youtube.com/watch?v=gDW9An30_c0"
   },
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
