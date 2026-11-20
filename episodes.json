@@ -1,6 +1,6 @@
 {
- "total": 894,
- "playable": 881,
+ "total": 895,
+ "playable": 882,
  "episodes": [
   {
    "slug": "sourcery-apoorv-agrawal-anthropic-2-trillion-ipo",
@@ -13,6 +13,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/sourcery-apoorv-agrawal-anthropic-2-trillion-ipo.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-20.html#sourcery-apoorv-agrawal-anthropic-2-trillion-ipo",
    "source_url": "https://www.youtube.com/watch?v=0kFwIg3Q__4"
+  },
+  {
+   "slug": "natebjones-anthropic-1000-agents-8-days-explained-again",
+   "title": "Anthropic Ran 1,000 AI Agents For 8 Days. Yours Still Needs The Same Thing Explained Again.",
+   "channel": "AI News & Strategy Daily | Nate B Jones",
+   "date": "2026-11-20",
+   "duration": "6:15",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/natebjones-anthropic-1000-agents-8-days-explained-again.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-20.html#natebjones-anthropic-1000-agents-8-days-explained-again",
+   "source_url": "https://www.youtube.com/watch?v=v5I0nOoqAV4"
   },
   {
    "slug": "sourcery-gavin-baker-nvidia-spacex-ai-stocks",
