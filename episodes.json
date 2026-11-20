@@ -1,6 +1,6 @@
 {
- "total": 892,
- "playable": 879,
+ "total": 893,
+ "playable": 880,
  "episodes": [
   {
    "slug": "sourcery-gavin-baker-nvidia-spacex-ai-stocks",
@@ -181,6 +181,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/googledeepmind-gemini-path-to-agi-koray-kavukcuoglu.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#googledeepmind-gemini-path-to-agi-koray-kavukcuoglu",
    "source_url": "https://www.youtube.com/watch?v=FORdPIWOH5k"
+  },
+  {
+   "slug": "iconnections-andrew-feldman-inside-largest-chip-ever-built",
+   "title": "Cerebras CEO Andrew Feldman: Inside the Largest Chip Ever Built | TomorrowX Summit",
+   "channel": "iConnections",
+   "date": "2026-11-19",
+   "duration": "7:20",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/iconnections-andrew-feldman-inside-largest-chip-ever-built.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-19.html#iconnections-andrew-feldman-inside-largest-chip-ever-built",
+   "source_url": "https://www.youtube.com/watch?v=AzJE-JfSVDQ"
   },
   {
    "slug": "substrate-rise-of-open-source-ai-baseten-charlie-oneill",
