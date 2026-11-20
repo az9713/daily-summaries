@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - November 20, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+    <link rel="stylesheet" href="../player.css">
+  </head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Friday &middot; November 20, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#sourcery-apoorv-agrawal-anthropic-2-trillion-ipo"><span class="num">01</span><span><span class="card-title">Anthropic Hits $2 Trillion in Historic IPO | Altimeter&#x27;s Four Seasons of AI</span><span class="card-byline">Sourcery with Molly O'Shea</span></span><span class="card-dur">7:38</span><span class="listen-state" data-slug="sourcery-apoorv-agrawal-anthropic-2-trillion-ipo"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="sourcery-apoorv-agrawal-anthropic-2-trillion-ipo" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-20.html" data-route="index">&larr; November 20, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Anthropic Hits $2 Trillion in Historic IPO | Altimeter&#x27;s Four Seasons of AI &mdash; November 20, 2026 <span class="dur">&middot; 7:38</span></p>
+        <audio controls preload="none" src="../podcasts/sourcery-apoorv-agrawal-anthropic-2-trillion-ipo.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/sourcery-apoorv-agrawal-anthropic-2-trillion-ipo.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="sourcery-apoorv-agrawal-anthropic-2-trillion-ipo" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="sourcery-apoorv-agrawal-anthropic-2-trillion-ipo"></div>
+        <div class="episode-download"><a href="../podcasts/sourcery-apoorv-agrawal-anthropic-2-trillion-ipo.mp3" download>Download sourcery-apoorv-agrawal-anthropic-2-trillion-ipo.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Sourcery with Molly O'Shea</dd></div>
+        <div><dt>Published</dt><dd>November 20, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=0kFwIg3Q__4" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Sourcery with Molly O'Shea &middot; Apoorv Agrawal on Anthropic's $2 trillion IPO and the AI economy</p>
+        <h2>Anthropic Hits $2 Trillion in Historic IPO | Altimeter&#x27;s Four Seasons of AI</h2>
+        <div>
+<p>On Sourcery with Molly O&#x27;Shea, Apoorv Agrawal, the AI partner at Altimeter, returns to walk through Anthropic&#x27;s public listing and the state of the AI economy, in a session titled Anthropic Hits $2 Trillion in Historic IPO | Altimeter&#x27;s Four Seasons of AI. The conversation was recorded on the eve of the debut, and Agrawal frames it with the three questions he asks of the whole market: how big is this thing, where is all the money going, and what is it being used for.</p>
+<p>Start with scale. Big tech capital spending on AI is running at about 860 billion dollars this year, more than tripled in two years and now rivaling United States defense spending. Measured against gross domestic product, the buildout is already past the railroad, oil and gas, telecom and shale booms of the last century. Yet the shape of the AI economy is inverted next to the cloud economy it follows. Salesforce, Adobe and ServiceNow together produce roughly 600 billion dollars of revenue supported by about 300 billion of infrastructure spending and 80 billion a year of semiconductors. The AI economy has models and applications producing only about 140 to 150 billion of revenue on top of a far larger semiconductor base. Agrawal reads that as the classic supercycle pattern from mobile: value lands first in chips, then in infrastructure, and finally in software and applications. The overall AI economy has grown about sixfold in two to three years, while the applications and models layer has grown roughly a hundredfold.</p>
+<p>The use case has already shifted once. The chatbot era, dominated by knowledge retrieval and trip planning, gave way around the turn of the year to an agentic era of long running agents and agent swarms, aimed mostly at coding and automation across sales, marketing, support and investment teams. A third phase is forming, he thinks, around proactive agents, very long running agents, and larger models performing surgery on smaller ones. Underneath the shift sits what he calls a tale of two cities. OpenAI&#x27;s own data shows its top tenth of customers growing usage seventeenfold while the median customer doubled, and Cursor&#x27;s data shows its top tenth of users consuming two thirds of all tokens. The gap between frontier firms and everyone else is the opportunity: adoption is still in its first inning, and Fortune 500 customers spending more than 100,000 dollars a year on Anthropic say it is less than a tenth of a percent of their total expenses.</p>
+<p>Then the S-1. Agrawal&#x27;s framework for the year is four seasons: Anthropic, OpenAI, SpaceX and Google, with open source as the evergreen fifth. Anthropic&#x27;s filing, he says, has been a total treat. The company has grown tenfold in each of the last three years, did about 17 billion dollars of revenue in the third quarter, and counts some 12,000 customers paying more than 100,000 dollars a year and about 1,900 paying more than a million, with net revenue retention of 900 percent. It is, he argues, the fastest scale up in history, achieved with no customer concentration to speak of.</p>
+<p>His favorite part is the efficiency. Anthropic burned less than 10 billion dollars of cash to reach a revenue run rate of roughly 70 billion. The compute cost of serving a dollar of revenue has fallen from 88 cents to 15 cents, which is how the company holds margins around 85 percent, and it now monetizes its scarce compute at roughly 60 dollars a watt, up from about 16. The S-1 describes a company orchestrating heterogeneous compute across TPUs, Trainiums and Nvidia GPUs to squeeze out that efficiency. On price, the rumored range of 1.5 to 2 trillion dollars works out to 11 to 14 times forward revenue, against his estimate of 140 to 150 billion dollars of revenue next year. That is not a heroic multiple, he says, and he expects a very successful IPO from what he calls the private Mag 7.</p>
+<p>Where the money goes is mostly data centers: more than half into the IT equipment, the chips and memory, and the rest into getting the buildings themselves running. The United States should end the year with about 35 to 40 gigawatts of compute capacity online, and forecasts call for another 40 to 50 gigawatts next year, but Agrawal expects permitting and regulation to cut that, perhaps by 10 to 15 gigawatts. A shortfall would entrench the hyperscalers, who hold the largest pools of capacity and sit at the bottleneck where compute is bought and sold, while a startup seventeenth in line for capacity faces something existential.</p>
+<p>Of the two frontier labs, he sees Anthropic far out in the lead and OpenAI running neck and neck behind it. OpenAI has shown resilience and fragility at once: ChatGPT is past 1.2 billion users, the company went into code red at the end of last year, and its Astra models and Codex product drove a third quarter that ended September at about a 50 billion dollar revenue run rate, ahead of its own year end guidance. SpaceX, meanwhile, has quietly become an AI infrastructure company: about 60 billion dollars of revenue run rate, half of it from its AI unit, a third from Starlink and the rest from launch. SpaceX rents compute at spot prices around 50 dollars a watt, roughly double long term lease rates, and still finds buyers, because Anthropic monetizes compute at 50 to 100 dollars a watt. SpaceX can recoup its capital spending in under a year where a typical neocloud needs two to three, and it is guiding from about 3 gigawatts of compute this year to roughly 13 next year, with revenue targets of 100 billion of run rate by the end of this year and half a trillion or more by the end of next.</p>
+<p>Google is his other tale of two cities. Search produces about 250 billion dollars of revenue run rate growing at 12 percent, while the cloud business is half that size at about 120 billion but growing at 103 percent a year, eight times faster. The cloud business carries the TPU franchise with it: Anthropic is a TPU customer, and Anthropic has a commitment with Broadcom to lease TPUs as well.</p>
+<p>Open source, the evergreen season, should settle at roughly 20 to 30 percent of all AI spending by his mental model, and the place the cash register rings is the inference layer: Baseten, Fireworks, Modal and their peers. The best open model today is about where the closed frontier was six months ago, which is good enough for the AI native companies, Cursor, Decagon and Harvey among them, that want to own their intelligence rather than rent it. Some 35 companies run 99 percent of all inference, he notes, the five big labs plus about 30 AI native startups. OpenAI has even partnered with Baseten so large customers can burn down their OpenAI credits on open source models, a sign, to Agrawal, of a lab rising to become a platform. Baseten itself is moving up the stack with routing, sandboxes and platform tools, one of several roads that end with companies looking like hyperscalers.</p>
+<p>Asked who wins, he answers that every layer wins: chips, data centers, clouds and models. The real question is relative scale. So far it has been a game of emperors, won by the biggest balance sheets, but he is hopeful for the application layer as compute gets cheaper. The growth benchmarks have been rewritten in the process: tenfold growth at single digit billions of revenue, as Cursor and Baseten have done, tripling at double digit billions, as OpenAI has, and doubling at triple digit billions, as Google&#x27;s cloud is doing. The old software standard of triple, triple, double, double is no longer best in class. When he evaluates startups himself, though, he starts with the founding team, calling talent the leading indicator and the numbers a lagging one, and pointing to founders like Bob McGrew of Arda as the pattern he backs.</p>
+<p>The biggest emerging market he sees is cybersecurity. Software engineering is still the largest AI workload and the quant firms spend heavily, but cyber is a cat and mouse game in which offensive actors now hold a toolkit that can check every door and window for the one unlocked entry: one research team recently found a Chrome vulnerability that could hand an attacker control of a computer from a single clicked link. Defense will have to match fire with fire, he argues, and because the edge from frontier models is so high, the frontier labs themselves, wrapped in harnesses built by specialists, are likely to serve much of that demand with continuous testing rather than an annual audit.</p>
+<p>He closes where he started. Asked what he is most looking forward to, he says he cannot speak for the next 12 months but he can for the next 12 days: the Anthropic IPO. It is the best business he has had the good fortune to study, he says, an anthropologist of the markets, owning the pun when O&#x27;Shea catches it. At the contemplated pricing he expects a phenomenal success in the short term and the long term, with the caveat that the waters can always turn choppy.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Will Anthropic&#x27;s debut at 11 to 14 times forward revenue hold up in public markets, and does it reprice the rest of the private giants the way Agrawal expects?</li>
+<li>If United States capacity additions fall 10 to 15 gigawatts short next year, do the hyperscalers gain more from the bottleneck than they lose from their own slowed buildouts, and which smaller clouds and startups get squeezed out?</li>
+<li>Will open source really settle at 20 to 30 percent of AI spending with the inference layer capturing the margin, or will the frontier labs absorb that layer as they grow from labs into platforms?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full English ASR caption track served by the Android 21.02.35 player client (9,408 words, cues 0.1 to 3,090.4 seconds of the 3,094 second recording). The timedtext endpoint returned srv3 XML for both the json3 and srv3 requests, byte identical at 350,757 bytes, so captions.en.srv3 is the persisted grounding artifact, parsed locally to transcript.txt and read back in full from disk before writing. Identity check: the official description names Apoorv Agrawal, AI partner at Altimeter, sitting down with host Molly O&#x27;Shea to break down Anthropic&#x27;s financials and its 1.5 to 2 trillion dollar IPO valuation, and the track matches it throughout, opening with Agrawal&#x27;s four seasons framing and O&#x27;Shea welcoming him back to the show. The player served title, identical on the Android 21.02.35, Android 20.10.38 and iOS 20.10.4 clients, is the one used here: Anthropic Hits $2 Trillion in Historic IPO | Altimeter&#x27;s Four Seasons of AI. It matches Simon&#x27;s screenshot title exactly. One listing variant is disclosed: the search listing for this upload carries a different title, &quot;Anthropic&#x27;s $2T IPO: Altimeter&#x27;s Apoorv Agrawal on OpenAI, SpaceX &amp; Google&quot;. The episode was recorded just ahead of the listing: Agrawal says the Anthropic IPO is what he most looks forward to in the next 12 days, while the show&#x27;s own description frames the debut as briefly surpassing a 2 trillion dollar valuation. ASR garbles several names, including Anthropic as &quot;Enthropic&quot;, Altimeter as &quot;Ultimator&quot;, Sourcery as &quot;Sorcery&quot;, Baseten as &quot;Bay 10&quot;, Trainium as &quot;traniums&quot; and ChatGPT as &quot;Transity&quot;; published spellings are used in the prose.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-11-20.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated November 20, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "sourcery-apoorv-agrawal-anthropic-2-trillion-ipo": "Anthropic Hits $2 Trillion in Historic IPO | Altimeter's Four Seasons of AI"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+  <script src="../player.js" defer></script>
+</body>
+</html>
