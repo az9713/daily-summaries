@@ -1,6 +1,6 @@
 {
- "total": 895,
- "playable": 882,
+ "total": 896,
+ "playable": 883,
  "episodes": [
   {
    "slug": "sourcery-apoorv-agrawal-anthropic-2-trillion-ipo",
@@ -25,6 +25,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/natebjones-anthropic-1000-agents-8-days-explained-again.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-20.html#natebjones-anthropic-1000-agents-8-days-explained-again",
    "source_url": "https://www.youtube.com/watch?v=v5I0nOoqAV4"
+  },
+  {
+   "slug": "a16z-charts-of-the-week-there-is-no-gen-z",
+   "title": "Charts of the Week: There is No Gen Z",
+   "channel": "a16z News",
+   "date": "2026-11-20",
+   "duration": "5:45",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-charts-of-the-week-there-is-no-gen-z.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-20.html#a16z-charts-of-the-week-there-is-no-gen-z",
+   "source_url": "https://www.a16z.news/p/charts-of-the-week-there-is-no-gen"
   },
   {
    "slug": "sourcery-gavin-baker-nvidia-spacex-ai-stocks",
