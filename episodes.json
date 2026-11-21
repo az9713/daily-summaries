@@ -1,7 +1,19 @@
 {
- "total": 900,
- "playable": 887,
+ "total": 901,
+ "playable": 888,
  "episodes": [
+  {
+   "slug": "mts-marius-hobbhahn-ai-takeover-2027",
+   "title": "AI Takeover Could Happen by 2027 | Marius Hobbhahn",
+   "channel": "MTS",
+   "date": "2026-11-21",
+   "duration": "3:45",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-marius-hobbhahn-ai-takeover-2027.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-21.html#mts-marius-hobbhahn-ai-takeover-2027",
+   "source_url": "https://www.youtube.com/watch?v=Wl6m8N3xOIo"
+  },
   {
    "slug": "sourcery-apoorv-agrawal-anthropic-2-trillion-ipo",
    "title": "Anthropic Hits $2 Trillion in Historic IPO | Altimeter's Four Seasons of AI",
