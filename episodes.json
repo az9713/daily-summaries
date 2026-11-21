@@ -1,6 +1,6 @@
 {
- "total": 902,
- "playable": 889,
+ "total": 903,
+ "playable": 890,
  "episodes": [
   {
    "slug": "mts-marius-hobbhahn-ai-takeover-2027",
@@ -25,6 +25,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-joshua-achiam-math-physics-mysteries.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-21.html#mts-joshua-achiam-math-physics-mysteries",
    "source_url": "https://www.youtube.com/watch?v=wVrEL9M7Kr4"
+  },
+  {
+   "slug": "newsthink-how-group-interns-became-billionaires",
+   "title": "How a Group of Interns Became Billionaires",
+   "channel": "Newsthink",
+   "date": "2026-11-21",
+   "duration": "6:00",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/newsthink-how-group-interns-became-billionaires.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-21.html#newsthink-how-group-interns-became-billionaires",
+   "source_url": "https://www.youtube.com/watch?v=mIq16gw7kQ4"
   },
   {
    "slug": "sourcery-apoorv-agrawal-anthropic-2-trillion-ipo",
