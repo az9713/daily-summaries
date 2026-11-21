@@ -1,6 +1,6 @@
 {
- "total": 898,
- "playable": 885,
+ "total": 899,
+ "playable": 886,
  "episodes": [
   {
    "slug": "sourcery-apoorv-agrawal-anthropic-2-trillion-ipo",
@@ -61,6 +61,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/samuel-alexander-riemann-hypothesis-solved-lean-grh.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-20.html#samuel-alexander-riemann-hypothesis-solved-lean-grh",
    "source_url": "https://www.youtube.com/watch?v=_FrHwi9ZVtg"
+  },
+  {
+   "slug": "joelonsdale-ai-genius-predicts-exact-month-superintelligence-arrives",
+   "title": "AI Genius Predicts the Exact Month Superintelligence Arrives",
+   "channel": "Joe Lonsdale",
+   "date": "2026-11-20",
+   "duration": "3:48",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/joelonsdale-ai-genius-predicts-exact-month-superintelligence-arrives.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-20.html#joelonsdale-ai-genius-predicts-exact-month-superintelligence-arrives",
+   "source_url": "https://www.youtube.com/watch?v=rOXnBQrxGqs"
   },
   {
    "slug": "sourcery-gavin-baker-nvidia-spacex-ai-stocks",
