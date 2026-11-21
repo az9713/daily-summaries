@@ -1,6 +1,6 @@
 {
- "total": 901,
- "playable": 888,
+ "total": 902,
+ "playable": 889,
  "episodes": [
   {
    "slug": "mts-marius-hobbhahn-ai-takeover-2027",
@@ -13,6 +13,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-marius-hobbhahn-ai-takeover-2027.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-21.html#mts-marius-hobbhahn-ai-takeover-2027",
    "source_url": "https://www.youtube.com/watch?v=Wl6m8N3xOIo"
+  },
+  {
+   "slug": "mts-joshua-achiam-math-physics-mysteries",
+   "title": "All Math and Physics Mysteries Will Fall Soon | Joshua Achiam",
+   "channel": "MTS",
+   "date": "2026-11-21",
+   "duration": "4:54",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-joshua-achiam-math-physics-mysteries.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-21.html#mts-joshua-achiam-math-physics-mysteries",
+   "source_url": "https://www.youtube.com/watch?v=wVrEL9M7Kr4"
   },
   {
    "slug": "sourcery-apoorv-agrawal-anthropic-2-trillion-ipo",
