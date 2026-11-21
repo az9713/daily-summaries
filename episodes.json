@@ -1,6 +1,6 @@
 {
- "total": 899,
- "playable": 886,
+ "total": 900,
+ "playable": 887,
  "episodes": [
   {
    "slug": "sourcery-apoorv-agrawal-anthropic-2-trillion-ipo",
@@ -73,6 +73,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/joelonsdale-ai-genius-predicts-exact-month-superintelligence-arrives.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-20.html#joelonsdale-ai-genius-predicts-exact-month-superintelligence-arrives",
    "source_url": "https://www.youtube.com/watch?v=rOXnBQrxGqs"
+  },
+  {
+   "slug": "allin-anthropic-goes-public-nvidia-crisis",
+   "title": "Anthropic Goes Public, Nvidia in Crisis, Markets Tank, Open Source Crackdown?",
+   "channel": "All-In Podcast",
+   "date": "2026-11-20",
+   "duration": "7:50",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/allin-anthropic-goes-public-nvidia-crisis.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-20.html#allin-anthropic-goes-public-nvidia-crisis",
+   "source_url": "https://www.youtube.com/watch?v=G5w7EyF-aFQ"
   },
   {
    "slug": "sourcery-gavin-baker-nvidia-spacex-ai-stocks",
