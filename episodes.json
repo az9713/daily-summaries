@@ -1,7 +1,19 @@
 {
- "total": 907,
- "playable": 894,
+ "total": 908,
+ "playable": 895,
  "episodes": [
+  {
+   "slug": "peter-yang-charles-lamanna-ai-writes-code",
+   "title": "What Should Engineers Do When AI Writes All the Code | Charles Lamanna (EVP Microsoft)",
+   "channel": "Peter Yang",
+   "date": "2026-11-22",
+   "duration": "6:58",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/peter-yang-charles-lamanna-ai-writes-code.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-22.html#peter-yang-charles-lamanna-ai-writes-code",
+   "source_url": "https://www.youtube.com/watch?v=Ka2c-DGJvWc"
+  },
   {
    "slug": "mts-marius-hobbhahn-ai-takeover-2027",
    "title": "AI Takeover Could Happen by 2027 | Marius Hobbhahn",
