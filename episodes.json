@@ -1,6 +1,6 @@
 {
- "total": 904,
- "playable": 891,
+ "total": 905,
+ "playable": 892,
  "episodes": [
   {
    "slug": "mts-marius-hobbhahn-ai-takeover-2027",
@@ -49,6 +49,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/20vc-kush-bavaria-neo-clouds-state-of-compute-ornn.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-21.html#20vc-kush-bavaria-neo-clouds-state-of-compute-ornn",
    "source_url": "https://www.youtube.com/watch?v=3ZkDiDrxDeY"
+  },
+  {
+   "slug": "iconnections-scott-wu-survival-mode-to-creative-mode",
+   "title": "Scott Wu: From Survival Mode to Creative Mode | TomorrowX Summit",
+   "channel": "iConnections",
+   "date": "2026-11-21",
+   "duration": "6:08",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/iconnections-scott-wu-survival-mode-to-creative-mode.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-21.html#iconnections-scott-wu-survival-mode-to-creative-mode",
+   "source_url": "https://www.youtube.com/watch?v=_VKPpXgi-k0"
   },
   {
    "slug": "sourcery-apoorv-agrawal-anthropic-2-trillion-ipo",
