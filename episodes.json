@@ -1,6 +1,6 @@
 {
- "total": 909,
- "playable": 896,
+ "total": 910,
+ "playable": 897,
  "episodes": [
   {
    "slug": "peter-yang-charles-lamanna-ai-writes-code",
@@ -25,6 +25,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/lennys-podcast-sherif-mansour-junior-ai-talent.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-22.html#lennys-podcast-sherif-mansour-junior-ai-talent",
    "source_url": "https://www.youtube.com/watch?v=hRtmV1mCBSE"
+  },
+  {
+   "slug": "david-senra-tobi-lutke-founders-irreplaceable-shopify",
+   "title": "Why Founders Like Jensen Huang Are Irreplaceable | Tobi Lütke, Shopify",
+   "channel": "David Senra",
+   "date": "2026-11-22",
+   "duration": "7:59",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/david-senra-tobi-lutke-founders-irreplaceable-shopify.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-22.html#david-senra-tobi-lutke-founders-irreplaceable-shopify",
+   "source_url": "https://www.youtube.com/watch?v=w0oOxs0WKNk"
   },
   {
    "slug": "mts-marius-hobbhahn-ai-takeover-2027",
