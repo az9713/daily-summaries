@@ -1,6 +1,6 @@
 {
- "total": 906,
- "playable": 893,
+ "total": 907,
+ "playable": 894,
  "episodes": [
   {
    "slug": "mts-marius-hobbhahn-ai-takeover-2027",
@@ -73,6 +73,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/iconnections-lisa-su-nvidia-china-american-ai-stack.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-21.html#iconnections-lisa-su-nvidia-china-american-ai-stack",
    "source_url": "https://www.youtube.com/watch?v=MtFNcfB4JEU"
+  },
+  {
+   "slug": "iconnections-aravind-srinivas-ai-american-dream-tomorrowx",
+   "title": "Aravind Srinivas: AI and the American Dream | TomorrowX Summit",
+   "channel": "iConnections",
+   "date": "2026-11-21",
+   "duration": "7:56",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/iconnections-aravind-srinivas-ai-american-dream-tomorrowx.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-21.html#iconnections-aravind-srinivas-ai-american-dream-tomorrowx",
+   "source_url": "https://www.youtube.com/watch?v=9LLpcxC_-tw"
   },
   {
    "slug": "sourcery-apoorv-agrawal-anthropic-2-trillion-ipo",
