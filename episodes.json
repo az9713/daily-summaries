@@ -1,6 +1,6 @@
 {
- "total": 905,
- "playable": 892,
+ "total": 906,
+ "playable": 893,
  "episodes": [
   {
    "slug": "mts-marius-hobbhahn-ai-takeover-2027",
@@ -61,6 +61,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/iconnections-scott-wu-survival-mode-to-creative-mode.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-21.html#iconnections-scott-wu-survival-mode-to-creative-mode",
    "source_url": "https://www.youtube.com/watch?v=_VKPpXgi-k0"
+  },
+  {
+   "slug": "iconnections-lisa-su-nvidia-china-american-ai-stack",
+   "title": "Lisa Su on Nvidia, China and the American AI Stack | TomorrowX Summit",
+   "channel": "iConnections",
+   "date": "2026-11-21",
+   "duration": "5:19",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/iconnections-lisa-su-nvidia-china-american-ai-stack.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-21.html#iconnections-lisa-su-nvidia-china-american-ai-stack",
+   "source_url": "https://www.youtube.com/watch?v=MtFNcfB4JEU"
   },
   {
    "slug": "sourcery-apoorv-agrawal-anthropic-2-trillion-ipo",
