@@ -1,6 +1,6 @@
 {
- "total": 908,
- "playable": 895,
+ "total": 909,
+ "playable": 896,
  "episodes": [
   {
    "slug": "peter-yang-charles-lamanna-ai-writes-code",
@@ -13,6 +13,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/peter-yang-charles-lamanna-ai-writes-code.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-22.html#peter-yang-charles-lamanna-ai-writes-code",
    "source_url": "https://www.youtube.com/watch?v=Ka2c-DGJvWc"
+  },
+  {
+   "slug": "lennys-podcast-sherif-mansour-junior-ai-talent",
+   "title": "The new rules of product management in the AI era | Sherif Mansour (Head of AI, Atlassian)",
+   "channel": "Lenny's Podcast",
+   "date": "2026-11-22",
+   "duration": "7:39",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/lennys-podcast-sherif-mansour-junior-ai-talent.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-22.html#lennys-podcast-sherif-mansour-junior-ai-talent",
+   "source_url": "https://www.youtube.com/watch?v=hRtmV1mCBSE"
   },
   {
    "slug": "mts-marius-hobbhahn-ai-takeover-2027",
