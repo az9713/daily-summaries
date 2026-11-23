@@ -1,6 +1,6 @@
 {
- "total": 921,
- "playable": 908,
+ "total": 922,
+ "playable": 909,
  "episodes": [
   {
    "slug": "wesroth-openai-perplexity-intelligence",
@@ -97,6 +97,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/ryan-peterman-alan-kay-steve-jobs-xerox-parc.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#ryan-peterman-alan-kay-steve-jobs-xerox-parc",
    "source_url": "https://www.youtube.com/watch?v=GR9i8o4FwGw"
+  },
+  {
+   "slug": "greg-isenberg-robots-new-apps",
+   "title": "$1.1B founder: robots are the new apps",
+   "channel": "Greg Isenberg",
+   "date": "2026-11-23",
+   "duration": "6:48",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/greg-isenberg-robots-new-apps.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#greg-isenberg-robots-new-apps",
+   "source_url": "https://www.youtube.com/watch?v=TXzJ4pGW59o"
   },
   {
    "slug": "peter-yang-charles-lamanna-ai-writes-code",
