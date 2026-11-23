@@ -1,6 +1,6 @@
 {
- "total": 912,
- "playable": 899,
+ "total": 913,
+ "playable": 900,
  "episodes": [
   {
    "slug": "peter-yang-charles-lamanna-ai-writes-code",
@@ -61,6 +61,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-ajay-agarwal-humanoid-robots-wrong-form-factor.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-22.html#mts-ajay-agarwal-humanoid-robots-wrong-form-factor",
    "source_url": "https://www.youtube.com/watch?v=RmCo_l4SFgQ"
+  },
+  {
+   "slug": "natebjones-microsoft-faa-nsa-outages-one-week",
+   "title": "Microsoft, The FAA And Even The NSA Had Outages In One Week. What Is Happening?",
+   "channel": "AI News & Strategy Daily | Nate B Jones",
+   "date": "2026-11-22",
+   "duration": "5:15",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/natebjones-microsoft-faa-nsa-outages-one-week.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-22.html#natebjones-microsoft-faa-nsa-outages-one-week",
+   "source_url": "https://www.youtube.com/watch?v=fFeyE4nINqs"
   },
   {
    "slug": "mts-marius-hobbhahn-ai-takeover-2027",
