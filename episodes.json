@@ -1,6 +1,6 @@
 {
- "total": 915,
- "playable": 902,
+ "total": 916,
+ "playable": 903,
  "episodes": [
   {
    "slug": "wesroth-openai-perplexity-intelligence",
@@ -25,6 +25,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/nyt-altman-brockman-next-next-thing.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#nyt-altman-brockman-next-next-thing",
    "source_url": "https://www.youtube.com/watch?v=3HwMSP0nUEA"
+  },
+  {
+   "slug": "sourcery-ray-dalio-biggest-risks-markets-2027",
+   "title": "I Finally Interview Ray Dalio",
+   "channel": "Sourcery with Molly O'Shea",
+   "date": "2026-11-23",
+   "duration": "7:22",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/sourcery-ray-dalio-biggest-risks-markets-2027.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#sourcery-ray-dalio-biggest-risks-markets-2027",
+   "source_url": "https://www.youtube.com/watch?v=X5FuYnLtB6k"
   },
   {
    "slug": "peter-yang-charles-lamanna-ai-writes-code",
