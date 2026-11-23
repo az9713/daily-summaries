@@ -1,6 +1,6 @@
 {
- "total": 918,
- "playable": 905,
+ "total": 919,
+ "playable": 906,
  "episodes": [
   {
    "slug": "wesroth-openai-perplexity-intelligence",
@@ -61,6 +61,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-alberto-taiuti-ai-generate-movies-live-living-room.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#mts-alberto-taiuti-ai-generate-movies-live-living-room",
    "source_url": "https://www.youtube.com/watch?v=iDZqdw0W1uM"
+  },
+  {
+   "slug": "a16z-why-openai-acquired-biotech-startup",
+   "title": "Why OpenAI Acquired a Biotech Startup",
+   "channel": "a16z",
+   "date": "2026-11-23",
+   "duration": "7:03",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/a16z-why-openai-acquired-biotech-startup.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#a16z-why-openai-acquired-biotech-startup",
+   "source_url": "https://www.youtube.com/watch?v=RwYz8XhZiu0"
   },
   {
    "slug": "peter-yang-charles-lamanna-ai-writes-code",
