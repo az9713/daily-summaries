@@ -1,6 +1,6 @@
 {
- "total": 916,
- "playable": 903,
+ "total": 917,
+ "playable": 904,
  "episodes": [
   {
    "slug": "wesroth-openai-perplexity-intelligence",
@@ -37,6 +37,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/sourcery-ray-dalio-biggest-risks-markets-2027.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#sourcery-ray-dalio-biggest-risks-markets-2027",
    "source_url": "https://www.youtube.com/watch?v=X5FuYnLtB6k"
+  },
+  {
+   "slug": "20vc-anjney-midha-us-sold-chips-china",
+   "title": "\"Fire the Bankers\": Most VCs Won't Survive AI | Why the Inference Layer is Uninvestable | Anj Midha",
+   "channel": "20VC with Harry Stebbings",
+   "date": "2026-11-23",
+   "duration": "11:20",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/20vc-anjney-midha-us-sold-chips-china.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#20vc-anjney-midha-us-sold-chips-china",
+   "source_url": "https://www.youtube.com/watch?v=mg4yo5HUMuQ"
   },
   {
    "slug": "peter-yang-charles-lamanna-ai-writes-code",
