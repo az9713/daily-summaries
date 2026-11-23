@@ -1,7 +1,19 @@
 {
- "total": 913,
- "playable": 900,
+ "total": 914,
+ "playable": 901,
  "episodes": [
+  {
+   "slug": "wesroth-openai-perplexity-intelligence",
+   "title": "OpenAI's SHOCKING new warning...",
+   "channel": "Wes Roth",
+   "date": "2026-11-23",
+   "duration": "5:46",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/wesroth-openai-perplexity-intelligence.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#wesroth-openai-perplexity-intelligence",
+   "source_url": "https://www.youtube.com/watch?v=f5_c0O_chy4"
+  },
   {
    "slug": "peter-yang-charles-lamanna-ai-writes-code",
    "title": "What Should Engineers Do When AI Writes All the Code | Charles Lamanna (EVP Microsoft)",
