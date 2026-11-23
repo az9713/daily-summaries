@@ -1,6 +1,6 @@
 {
- "total": 922,
- "playable": 909,
+ "total": 923,
+ "playable": 910,
  "episodes": [
   {
    "slug": "wesroth-openai-perplexity-intelligence",
@@ -109,6 +109,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/greg-isenberg-robots-new-apps.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#greg-isenberg-robots-new-apps",
    "source_url": "https://www.youtube.com/watch?v=TXzJ4pGW59o"
+  },
+  {
+   "slug": "harvard-terence-tao-six-math-essentials",
+   "title": "Terence Tao, Six Math Essentials",
+   "channel": "Harvard Science Book Talks and Research Lectures",
+   "date": "2026-11-23",
+   "duration": "7:19",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/harvard-terence-tao-six-math-essentials.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#harvard-terence-tao-six-math-essentials",
+   "source_url": "https://www.youtube.com/watch?v=pOQ7IO4_Vxg"
   },
   {
    "slug": "peter-yang-charles-lamanna-ai-writes-code",
