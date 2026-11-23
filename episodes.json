@@ -1,6 +1,6 @@
 {
- "total": 914,
- "playable": 901,
+ "total": 915,
+ "playable": 902,
  "episodes": [
   {
    "slug": "wesroth-openai-perplexity-intelligence",
@@ -13,6 +13,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/wesroth-openai-perplexity-intelligence.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#wesroth-openai-perplexity-intelligence",
    "source_url": "https://www.youtube.com/watch?v=f5_c0O_chy4"
+  },
+  {
+   "slug": "nyt-altman-brockman-next-next-thing",
+   "title": "Sam Altman and Greg Brockman  on the Next Next Thing",
+   "channel": "New York Times Podcasts",
+   "date": "2026-11-23",
+   "duration": "5:32",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/nyt-altman-brockman-next-next-thing.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#nyt-altman-brockman-next-next-thing",
+   "source_url": "https://www.youtube.com/watch?v=3HwMSP0nUEA"
   },
   {
    "slug": "peter-yang-charles-lamanna-ai-writes-code",
