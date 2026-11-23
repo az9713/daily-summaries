@@ -1,6 +1,6 @@
 {
- "total": 920,
- "playable": 907,
+ "total": 921,
+ "playable": 908,
  "episodes": [
   {
    "slug": "wesroth-openai-perplexity-intelligence",
@@ -85,6 +85,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-chad-wahlquist-modular-compute-data-centers.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#mts-chad-wahlquist-modular-compute-data-centers",
    "source_url": "https://www.youtube.com/watch?v=MAngqVza390"
+  },
+  {
+   "slug": "ryan-peterman-alan-kay-steve-jobs-xerox-parc",
+   "title": "Alan Kay: Steve Jobs, Xerox PARC, Marijuana",
+   "channel": "Ryan Peterman",
+   "date": "2026-11-23",
+   "duration": "7:03",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/ryan-peterman-alan-kay-steve-jobs-xerox-parc.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#ryan-peterman-alan-kay-steve-jobs-xerox-parc",
+   "source_url": "https://www.youtube.com/watch?v=GR9i8o4FwGw"
   },
   {
    "slug": "peter-yang-charles-lamanna-ai-writes-code",
