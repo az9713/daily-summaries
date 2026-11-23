@@ -1,6 +1,6 @@
 {
- "total": 917,
- "playable": 904,
+ "total": 918,
+ "playable": 905,
  "episodes": [
   {
    "slug": "wesroth-openai-perplexity-intelligence",
@@ -49,6 +49,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/20vc-anjney-midha-us-sold-chips-china.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#20vc-anjney-midha-us-sold-chips-china",
    "source_url": "https://www.youtube.com/watch?v=mg4yo5HUMuQ"
+  },
+  {
+   "slug": "mts-alberto-taiuti-ai-generate-movies-live-living-room",
+   "title": "AI Will Soon Generate New Movies Live in Your Living Room",
+   "channel": "MTS",
+   "date": "2026-11-23",
+   "duration": "3:30",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-alberto-taiuti-ai-generate-movies-live-living-room.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#mts-alberto-taiuti-ai-generate-movies-live-living-room",
+   "source_url": "https://www.youtube.com/watch?v=iDZqdw0W1uM"
   },
   {
    "slug": "peter-yang-charles-lamanna-ai-writes-code",
