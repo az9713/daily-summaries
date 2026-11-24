@@ -1,6 +1,6 @@
 {
- "total": 923,
- "playable": 910,
+ "total": 924,
+ "playable": 911,
  "episodes": [
   {
    "slug": "wesroth-openai-perplexity-intelligence",
@@ -121,6 +121,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/harvard-terence-tao-six-math-essentials.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#harvard-terence-tao-six-math-essentials",
    "source_url": "https://www.youtube.com/watch?v=pOQ7IO4_Vxg"
+  },
+  {
+   "slug": "matthew-berman-anthropic-solved-mathematics",
+   "title": "Anthropic JUST Solved Mathematics… Now what?",
+   "channel": "Matthew Berman",
+   "date": "2026-11-23",
+   "duration": "7:04",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/matthew-berman-anthropic-solved-mathematics.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#matthew-berman-anthropic-solved-mathematics",
+   "source_url": "https://www.youtube.com/watch?v=MkeKXJzJo98"
   },
   {
    "slug": "peter-yang-charles-lamanna-ai-writes-code",
