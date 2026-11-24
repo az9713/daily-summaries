@@ -1,6 +1,6 @@
 {
- "total": 934,
- "playable": 921,
+ "total": 935,
+ "playable": 922,
  "episodes": [
   {
    "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
@@ -109,6 +109,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/siliconvalleygirl-robinhood-ceo-invest-ai-agents-2027.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#siliconvalleygirl-robinhood-ceo-invest-ai-agents-2027",
    "source_url": "https://www.youtube.com/watch?v=drrMoBocXZ0"
+  },
+  {
+   "slug": "dwarkesh-strongest-objections-to-rsi",
+   "title": "Responding to objections to recursive self-improvement",
+   "channel": "Dwarkesh Patel",
+   "date": "2026-11-24",
+   "duration": "8:44",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/dwarkesh-strongest-objections-to-rsi.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#dwarkesh-strongest-objections-to-rsi",
+   "source_url": "https://www.youtube.com/watch?v=Em6tbhj9o6A"
   },
   {
    "slug": "wesroth-openai-perplexity-intelligence",
