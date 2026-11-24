@@ -1,6 +1,6 @@
 {
- "total": 931,
- "playable": 918,
+ "total": 932,
+ "playable": 919,
  "episodes": [
   {
    "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
@@ -73,6 +73,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/vidak-rajovic-kevin-buzzard-lean-fermat.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#vidak-rajovic-kevin-buzzard-lean-fermat",
    "source_url": "https://www.youtube.com/watch?v=SvO2PYUhGmA"
+  },
+  {
+   "slug": "yc-boom-supersonic-jet-engine-from-scratch",
+   "title": "How To Build A Jet Engine From Scratch",
+   "channel": "Y Combinator",
+   "date": "2026-11-24",
+   "duration": "4:27",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/yc-boom-supersonic-jet-engine-from-scratch.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#yc-boom-supersonic-jet-engine-from-scratch",
+   "source_url": "https://www.youtube.com/watch?v=-ieJwYq4j-o"
   },
   {
    "slug": "wesroth-openai-perplexity-intelligence",
