@@ -1,6 +1,6 @@
 {
- "total": 924,
- "playable": 911,
+ "total": 925,
+ "playable": 912,
  "episodes": [
   {
    "slug": "wesroth-openai-perplexity-intelligence",
@@ -133,6 +133,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/matthew-berman-anthropic-solved-mathematics.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#matthew-berman-anthropic-solved-mathematics",
    "source_url": "https://www.youtube.com/watch?v=MkeKXJzJo98"
+  },
+  {
+   "slug": "attention-span-yann-lecun-jepa-papers",
+   "title": "Yann LeCun's JEPA Just Hit the Limit of Offline AI (Here's What Comes Next)",
+   "channel": "Turing Post TV",
+   "date": "2026-11-23",
+   "duration": "10:46",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/attention-span-yann-lecun-jepa-papers.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-23.html#attention-span-yann-lecun-jepa-papers",
+   "source_url": "https://www.youtube.com/watch?v=oaIgPi4OLcU"
   },
   {
    "slug": "peter-yang-charles-lamanna-ai-writes-code",
