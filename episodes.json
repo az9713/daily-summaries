@@ -1,6 +1,6 @@
 {
- "total": 932,
- "playable": 919,
+ "total": 933,
+ "playable": 920,
  "episodes": [
   {
    "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
@@ -85,6 +85,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/yc-boom-supersonic-jet-engine-from-scratch.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#yc-boom-supersonic-jet-engine-from-scratch",
    "source_url": "https://www.youtube.com/watch?v=-ieJwYq4j-o"
+  },
+  {
+   "slug": "london-institute-mathematicians-new-intelligence-ai-maths",
+   "title": "What do recent AI breakthroughs reveal about how humans think about maths?",
+   "channel": "London Institute for Mathematical Sciences",
+   "date": "2026-11-24",
+   "duration": "6:45",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/london-institute-mathematicians-new-intelligence-ai-maths.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#london-institute-mathematicians-new-intelligence-ai-maths",
+   "source_url": "https://www.youtube.com/watch?v=ZR6QqiURHFY"
   },
   {
    "slug": "wesroth-openai-perplexity-intelligence",
