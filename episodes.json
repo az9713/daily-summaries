@@ -1,6 +1,6 @@
 {
- "total": 933,
- "playable": 920,
+ "total": 934,
+ "playable": 921,
  "episodes": [
   {
    "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
@@ -97,6 +97,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/london-institute-mathematicians-new-intelligence-ai-maths.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#london-institute-mathematicians-new-intelligence-ai-maths",
    "source_url": "https://www.youtube.com/watch?v=ZR6QqiURHFY"
+  },
+  {
+   "slug": "siliconvalleygirl-robinhood-ceo-invest-ai-agents-2027",
+   "title": "Robinhood CEO: How to Build Wealth in the AI Era (Before It's Too Late)",
+   "channel": "Silicon Valley Girl",
+   "date": "2026-11-24",
+   "duration": "6:24",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/siliconvalleygirl-robinhood-ceo-invest-ai-agents-2027.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#siliconvalleygirl-robinhood-ceo-invest-ai-agents-2027",
+   "source_url": "https://www.youtube.com/watch?v=drrMoBocXZ0"
   },
   {
    "slug": "wesroth-openai-perplexity-intelligence",
