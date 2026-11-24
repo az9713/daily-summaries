@@ -1,6 +1,6 @@
 {
- "total": 928,
- "playable": 915,
+ "total": 929,
+ "playable": 916,
  "episodes": [
   {
    "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
@@ -37,6 +37,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/allin-george-kurtz-crowdstrike-ai-cyberattack-wave.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#allin-george-kurtz-crowdstrike-ai-cyberattack-wave",
    "source_url": "https://www.youtube.com/watch?v=o6KIjtkRdOI"
+  },
+  {
+   "slug": "sequoia-noam-brown-game-theory",
+   "title": "OpenAI’s Noam Brown: Why Game Theory Didn’t Lead to General Intelligence (Live at No Limit Finals)",
+   "channel": "Sequoia Capital",
+   "date": "2026-11-24",
+   "duration": "5:36",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/sequoia-noam-brown-game-theory.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#sequoia-noam-brown-game-theory",
+   "source_url": "https://www.youtube.com/watch?v=tRaFbDFBl_A"
   },
   {
    "slug": "wesroth-openai-perplexity-intelligence",
