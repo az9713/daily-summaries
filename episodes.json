@@ -1,6 +1,6 @@
 {
- "total": 930,
- "playable": 917,
+ "total": 931,
+ "playable": 918,
  "episodes": [
   {
    "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
@@ -61,6 +61,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/iltb-dark-age-cybersecurity.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#iltb-dark-age-cybersecurity",
    "source_url": "https://www.youtube.com/watch?v=efoZj_7oVJs"
+  },
+  {
+   "slug": "vidak-rajovic-kevin-buzzard-lean-fermat",
+   "title": "Kevin Buzzard on AI, Lean and What Makes a Beautiful Proof of Fermat’s Last Theorem",
+   "channel": "Vidak Rajovic",
+   "date": "2026-11-24",
+   "duration": "5:05",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/vidak-rajovic-kevin-buzzard-lean-fermat.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#vidak-rajovic-kevin-buzzard-lean-fermat",
+   "source_url": "https://www.youtube.com/watch?v=SvO2PYUhGmA"
   },
   {
    "slug": "wesroth-openai-perplexity-intelligence",
