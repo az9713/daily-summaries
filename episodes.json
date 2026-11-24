@@ -1,6 +1,6 @@
 {
- "total": 929,
- "playable": 916,
+ "total": 930,
+ "playable": 917,
  "episodes": [
   {
    "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
@@ -49,6 +49,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/sequoia-noam-brown-game-theory.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#sequoia-noam-brown-game-theory",
    "source_url": "https://www.youtube.com/watch?v=tRaFbDFBl_A"
+  },
+  {
+   "slug": "iltb-dark-age-cybersecurity",
+   "title": "This Is the Dark Age for Cybersecurity",
+   "channel": "Invest Like The Best",
+   "date": "2026-11-24",
+   "duration": "9:33",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/iltb-dark-age-cybersecurity.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#iltb-dark-age-cybersecurity",
+   "source_url": "https://www.youtube.com/watch?v=efoZj_7oVJs"
   },
   {
    "slug": "wesroth-openai-perplexity-intelligence",
