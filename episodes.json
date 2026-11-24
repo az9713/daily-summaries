@@ -1,7 +1,19 @@
 {
- "total": 925,
- "playable": 912,
+ "total": 926,
+ "playable": 913,
  "episodes": [
+  {
+   "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
+   "title": "AI Cyberattacks Have Jumped 5x in the Last Year | Wiz",
+   "channel": "MTS",
+   "date": "2026-11-24",
+   "duration": "3:40",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
+   "source_url": "https://www.youtube.com/watch?v=Bv5ZTghjx0E"
+  },
   {
    "slug": "wesroth-openai-perplexity-intelligence",
    "title": "OpenAI's SHOCKING new warning...",
