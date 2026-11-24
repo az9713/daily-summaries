@@ -1,6 +1,6 @@
 {
- "total": 927,
- "playable": 914,
+ "total": 928,
+ "playable": 915,
  "episodes": [
   {
    "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
@@ -25,6 +25,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/semafor-jeff-bezos-ai-for-atoms-compound-interest.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#semafor-jeff-bezos-ai-for-atoms-compound-interest",
    "source_url": "https://www.youtube.com/watch?v=1Z3ro4ocj-Y"
+  },
+  {
+   "slug": "allin-george-kurtz-crowdstrike-ai-cyberattack-wave",
+   "title": "CrowdStrike CEO: AI Cyberattack Wave, Hyperspeed Hacks, & The Patching Problem",
+   "channel": "All-In Podcast",
+   "date": "2026-11-24",
+   "duration": "5:04",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/allin-george-kurtz-crowdstrike-ai-cyberattack-wave.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#allin-george-kurtz-crowdstrike-ai-cyberattack-wave",
+   "source_url": "https://www.youtube.com/watch?v=o6KIjtkRdOI"
   },
   {
    "slug": "wesroth-openai-perplexity-intelligence",
