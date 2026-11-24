@@ -1,6 +1,6 @@
 {
- "total": 926,
- "playable": 913,
+ "total": 927,
+ "playable": 914,
  "episodes": [
   {
    "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
@@ -13,6 +13,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
    "source_url": "https://www.youtube.com/watch?v=Bv5ZTghjx0E"
+  },
+  {
+   "slug": "semafor-jeff-bezos-ai-for-atoms-compound-interest",
+   "title": "Jeff Bezos On ‘AI For Atoms,’ Dealing With Democrats, & Picking The Next Bond | Compound Interest",
+   "channel": "Semafor",
+   "date": "2026-11-24",
+   "duration": "4:39",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/semafor-jeff-bezos-ai-for-atoms-compound-interest.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#semafor-jeff-bezos-ai-for-atoms-compound-interest",
+   "source_url": "https://www.youtube.com/watch?v=1Z3ro4ocj-Y"
   },
   {
    "slug": "wesroth-openai-perplexity-intelligence",
