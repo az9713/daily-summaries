@@ -1,6 +1,6 @@
 {
- "total": 939,
- "playable": 926,
+ "total": 940,
+ "playable": 927,
  "episodes": [
   {
    "slug": "nate-b-jones-ai-boom-laptop-phone-prices",
@@ -25,6 +25,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/david-senra-jacob-hirshman-erebor-bank.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-25.html#david-senra-jacob-hirshman-erebor-bank",
    "source_url": "https://www.youtube.com/watch?v=O_dAi5KlVO0"
+  },
+  {
+   "slug": "ryan-peterman-evan-king-ex-meta-staff-eng",
+   "title": "Ex-Meta Staff Eng By 25: What You Don't Learn In Big Tech | Evan King",
+   "channel": "Ryan Peterman",
+   "date": "2026-11-25",
+   "duration": "4:51",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/ryan-peterman-evan-king-ex-meta-staff-eng.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-25.html#ryan-peterman-evan-king-ex-meta-staff-eng",
+   "source_url": "https://www.youtube.com/watch?v=TXZXwlXKkwY"
   },
   {
    "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
