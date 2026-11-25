@@ -1,6 +1,6 @@
 {
- "total": 938,
- "playable": 925,
+ "total": 939,
+ "playable": 926,
  "episodes": [
   {
    "slug": "nate-b-jones-ai-boom-laptop-phone-prices",
@@ -13,6 +13,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/nate-b-jones-ai-boom-laptop-phone-prices.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-25.html#nate-b-jones-ai-boom-laptop-phone-prices",
    "source_url": "https://natesnewsletter.substack.com/p/ai-boom-memory-shortage"
+  },
+  {
+   "slug": "david-senra-jacob-hirshman-erebor-bank",
+   "title": "A Deep Dive Into Palmer Luckey's Bank | Jacob Hirshman, Erebor",
+   "channel": "David Senra",
+   "date": "2026-11-25",
+   "duration": "8:16",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/david-senra-jacob-hirshman-erebor-bank.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-25.html#david-senra-jacob-hirshman-erebor-bank",
+   "source_url": "https://www.youtube.com/watch?v=O_dAi5KlVO0"
   },
   {
    "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
