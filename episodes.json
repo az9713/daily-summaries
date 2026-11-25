@@ -1,6 +1,6 @@
 {
- "total": 947,
- "playable": 934,
+ "total": 948,
+ "playable": 935,
  "episodes": [
   {
    "slug": "nate-b-jones-ai-boom-laptop-phone-prices",
@@ -121,6 +121,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/aiengineer-lance-martin-1000-claude-agents-fermat.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-25.html#aiengineer-lance-martin-1000-claude-agents-fermat",
    "source_url": "https://www.youtube.com/watch?v=wrfbI5eyLAI"
+  },
+  {
+   "slug": "commonwealthclub-ben-buchanan-superintelligence-superpowers",
+   "title": "Ben Buchanan: Superintelligence, Superpowers, and the Fate of the World",
+   "channel": "Commonwealth Club World Affairs of California",
+   "date": "2026-11-25",
+   "duration": "8:44",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/commonwealthclub-ben-buchanan-superintelligence-superpowers.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-25.html#commonwealthclub-ben-buchanan-superintelligence-superpowers",
+   "source_url": "https://www.youtube.com/watch?v=XVk-5I4LWAY"
   },
   {
    "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
