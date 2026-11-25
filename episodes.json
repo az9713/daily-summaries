@@ -1,6 +1,6 @@
 {
- "total": 935,
- "playable": 922,
+ "total": 936,
+ "playable": 923,
  "episodes": [
   {
    "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
@@ -121,6 +121,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/dwarkesh-strongest-objections-to-rsi.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#dwarkesh-strongest-objections-to-rsi",
    "source_url": "https://www.youtube.com/watch?v=Em6tbhj9o6A"
+  },
+  {
+   "slug": "harvard-cmsa-ken-ono-mathematics-age-of-ai",
+   "title": "Ken Ono | Mathematics in the Age of AI: Discovery, Verification and the Future of Proof",
+   "channel": "Harvard CMSA",
+   "date": "2026-11-24",
+   "duration": "7:27",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/harvard-cmsa-ken-ono-mathematics-age-of-ai.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#harvard-cmsa-ken-ono-mathematics-age-of-ai",
+   "source_url": "https://www.youtube.com/watch?v=I8RqoOT2R0c"
   },
   {
    "slug": "wesroth-openai-perplexity-intelligence",
