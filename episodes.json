@@ -1,6 +1,6 @@
 {
- "total": 944,
- "playable": 931,
+ "total": 945,
+ "playable": 932,
  "episodes": [
   {
    "slug": "nate-b-jones-ai-boom-laptop-phone-prices",
@@ -85,6 +85,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/twist-30-pilots-zero-customers-vcs-passing.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-25.html#twist-30-pilots-zero-customers-vcs-passing",
    "source_url": "https://www.youtube.com/watch?v=ZGpRX5lfFB0"
+  },
+  {
+   "slug": "turingapp-meet-juan-maldacena-legend-amongst-legends",
+   "title": "Meet Juan Maldacena, Legend Amongst Legends",
+   "channel": "Turing and Turing Now - Science & Tech News",
+   "date": "2026-11-25",
+   "duration": "3:56",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/turingapp-meet-juan-maldacena-legend-amongst-legends.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-25.html#turingapp-meet-juan-maldacena-legend-amongst-legends",
+   "source_url": "https://www.youtube.com/watch?v=nsppYD_t-Mo"
   },
   {
    "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
