@@ -1,6 +1,6 @@
 {
- "total": 942,
- "playable": 929,
+ "total": 943,
+ "playable": 930,
  "episodes": [
   {
    "slug": "nate-b-jones-ai-boom-laptop-phone-prices",
@@ -61,6 +61,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/pragmaticengineer-katelyn-lesse-anthropic-builds-software-2026.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-25.html#pragmaticengineer-katelyn-lesse-anthropic-builds-software-2026",
    "source_url": "https://www.youtube.com/watch?v=9oNvKMd7xJo"
+  },
+  {
+   "slug": "keating-true-cost-artificial-intelligence-age",
+   "title": "Top Computer Scientist: The True Cost of the Artificial Intelligence Age",
+   "channel": "Dr Brian Keating",
+   "date": "2026-11-25",
+   "duration": "6:47",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/keating-true-cost-artificial-intelligence-age.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-25.html#keating-true-cost-artificial-intelligence-age",
+   "source_url": "https://www.youtube.com/watch?v=8lwltYUzZ_M"
   },
   {
    "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
