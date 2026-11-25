@@ -1,6 +1,6 @@
 {
- "total": 936,
- "playable": 923,
+ "total": 937,
+ "playable": 924,
  "episodes": [
   {
    "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
@@ -133,6 +133,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/harvard-cmsa-ken-ono-mathematics-age-of-ai.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#harvard-cmsa-ken-ono-mathematics-age-of-ai",
    "source_url": "https://www.youtube.com/watch?v=I8RqoOT2R0c"
+  },
+  {
+   "slug": "semianalysis-tape-out-naveen-rao-unconventional-ai",
+   "title": "Building a chip to beat biology | Naveen Rao - Unconventional AI  [Tape Out - Ep.001]",
+   "channel": "SemiAnalysis",
+   "date": "2026-11-24",
+   "duration": "8:05",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/semianalysis-tape-out-naveen-rao-unconventional-ai.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-24.html#semianalysis-tape-out-naveen-rao-unconventional-ai",
+   "source_url": "https://www.youtube.com/watch?v=FBtUWwlaBoY"
   },
   {
    "slug": "wesroth-openai-perplexity-intelligence",
