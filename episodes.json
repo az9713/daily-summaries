@@ -1,6 +1,6 @@
 {
- "total": 948,
- "playable": 935,
+ "total": 949,
+ "playable": 936,
  "episodes": [
   {
    "slug": "nate-b-jones-ai-boom-laptop-phone-prices",
@@ -133,6 +133,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/commonwealthclub-ben-buchanan-superintelligence-superpowers.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-25.html#commonwealthclub-ben-buchanan-superintelligence-superpowers",
    "source_url": "https://www.youtube.com/watch?v=XVk-5I4LWAY"
+  },
+  {
+   "slug": "iconnections-sanjay-mehrotra-why-ai-needs-memory",
+   "title": "Why AI Needs Memory: Micron's Sanjay Mehrotra and Scott DeBoer | TomorrowX Summit",
+   "channel": "iConnections",
+   "date": "2026-11-25",
+   "duration": "4:18",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/iconnections-sanjay-mehrotra-why-ai-needs-memory.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-25.html#iconnections-sanjay-mehrotra-why-ai-needs-memory",
+   "source_url": "https://www.youtube.com/watch?v=-f_cCCYMwYw"
   },
   {
    "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
