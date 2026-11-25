@@ -1,6 +1,6 @@
 {
- "total": 941,
- "playable": 928,
+ "total": 942,
+ "playable": 929,
  "episodes": [
   {
    "slug": "nate-b-jones-ai-boom-laptop-phone-prices",
@@ -49,6 +49,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-tomasz-tunguz-anthropic-margins-squeezed.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-25.html#mts-tomasz-tunguz-anthropic-margins-squeezed",
    "source_url": "https://www.youtube.com/watch?v=ofPqO5CF4TU"
+  },
+  {
+   "slug": "pragmaticengineer-katelyn-lesse-anthropic-builds-software-2026",
+   "title": "How Anthropic builds software in 2026 with Katelyn Lesse",
+   "channel": "The Pragmatic Engineer",
+   "date": "2026-11-25",
+   "duration": "7:07",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/pragmaticengineer-katelyn-lesse-anthropic-builds-software-2026.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-25.html#pragmaticengineer-katelyn-lesse-anthropic-builds-software-2026",
+   "source_url": "https://www.youtube.com/watch?v=9oNvKMd7xJo"
   },
   {
    "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
