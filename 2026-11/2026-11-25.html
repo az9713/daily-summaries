@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - November 25, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+    <link rel="stylesheet" href="../player.css">
+  </head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Wednesday &middot; November 25, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#nate-b-jones-ai-boom-laptop-phone-prices"><span class="num">01</span><span><span class="card-title">Why the AI Boom Is Raising Laptop and Phone Prices</span><span class="card-byline">Nate's Substack (Nate B. Jones)</span></span><span class="card-dur">6:58</span><span class="listen-state" data-slug="nate-b-jones-ai-boom-laptop-phone-prices"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="nate-b-jones-ai-boom-laptop-phone-prices" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-25.html" data-route="index">&larr; November 25, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Why the AI Boom Is Raising Laptop and Phone Prices &mdash; November 25, 2026 <span class="dur">&middot; 6:58</span></p>
+        <audio controls preload="none" src="../podcasts/nate-b-jones-ai-boom-laptop-phone-prices.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/nate-b-jones-ai-boom-laptop-phone-prices.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="nate-b-jones-ai-boom-laptop-phone-prices" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="nate-b-jones-ai-boom-laptop-phone-prices"></div>
+        <div class="episode-download"><a href="../podcasts/nate-b-jones-ai-boom-laptop-phone-prices.mp3" download>Download nate-b-jones-ai-boom-laptop-phone-prices.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Nate's Substack (Nate B. Jones)</dd></div>
+        <div><dt>Author</dt><dd>Nate B. Jones</dd></div>
+        <div><dt>Published</dt><dd>November 25, 2026</dd></div>
+        <a class="watch" href="https://natesnewsletter.substack.com/p/ai-boom-memory-shortage" target="_blank" rel="noopener noreferrer">Read the piece</a>
+      </dl>
+      <article>
+        <p class="topic">Nate's Substack &middot; Nate B. Jones on the memory shortage behind rising phone and laptop prices</p>
+        <h2>Why the AI Boom Is Raising Laptop and Phone Prices</h2>
+        <div>
+<p>In Nate&#x27;s Substack, Nate B. Jones&#x27;s &quot;Why the AI Boom Is Raising Laptop and Phone Prices&quot; argues that the AI buildout now reaches people who never use AI at all, through the price of the phones and laptops they buy. A year ago, memory accounted for about 20 percent of the parts cost of a low-end smartphone. Now it accounts for 54 percent, according to Counterpoint Research, more than half the component budget going to RAM and storage before the manufacturer pays for the screen, cameras, processor, or battery. Worldwide average smartphone retail prices have risen 20 percent this year, by the same report.</p>
+<p>Jones frames the result as a financial vise. Phone makers and laptop makers compete with data centers for constrained supplies of memory, so physical inputs keep getting more expensive. At the same time, the companies building those data centers face a second pressure: the market price of the intelligence they sell keeps falling, as competition pushes down what customers will pay for a given level of AI capability. Understanding who can survive that squeeze matters, he writes, when you are buying a computer, choosing an AI tool, or deciding where to work.</p>
+<p>The first section explains how agents pulled ordinary memory into the boom. When an agent fixes a bug, the model reasons about the problem, and then the agent opens files, runs code, reads the result, launches a test, and tries again, perhaps opening a browser to inspect the page it changed. Each step needs somewhere to execute, somewhere to hold the working state, and memory for the programs doing the work. Multiplied by agents running across thousands of companies, sometimes for hours, the hardware story becomes much bigger than the GPU answering a prompt.</p>
+<p>AI has always needed ordinary servers alongside specialized chips, but agents make those servers more central to the workload. Counterpoint&#x27;s latest memory analysis identifies agentic AI as a major source of demand for conventional memory, including DDR and LPDDR, the broad families also used in personal computers and phones. Servers and laptops do not need identical modules to compete, because their manufacturers draw on overlapping production capacity. When cloud companies secure more of that capacity, consumer-device makers have less room to negotiate. And supply cannot respond quickly: expanding memory production takes years, and power has its own delays. Berkeley Lab found that, in regions with available data, new generation projects reaching operation in 2025 had spent a median of more than five years getting from a grid-connection request to operation. As Jones puts it, you cannot software-patch a memory fab into existence.</p>
+<p>The second section turns to the squeeze on the AI providers themselves. Epoch AI estimates that the cost of achieving a given level of AI performance has fallen roughly thirteenfold per year since 2023, across the benchmarks it studied. That measures the cheapest way to reach a particular capability level, and Jones is careful to note it does not mean a subscription bill falls thirteenfold. Against that decline, a standard 16-gigabit DDR5 chip&#x27;s contract price rose about 5.5-fold from October 2025 to September 2026, according to TrendForce figures reproduced by TeamGroup. A provider selling what was recently impressive capability faces cheaper competition, because better models keep arriving and work that once required a frontier model becomes possible on something smaller and faster.</p>
+<p>Efficiency can make the calculation work, since better chips and software can cut the cost of a task even while memory prices climb, and growing usage can compensate for lower prices. The danger comes when those improvements fail to keep pace with falling selling prices, new investment, and existing financial commitments. The demand itself is not in doubt. OpenRouter, which routes requests to AI models, reported weekly token usage growing from 0.5 trillion in January 2025 to 128.4 trillion in September 2026, roughly 250-fold in twenty months. Anthropic reports that its third-quarter revenue grew more than twelvefold from a year earlier, and Jones treats paying customers as a much stronger demand signal than excitement about a demo. Strong demand gives companies a reason to build, but it does not settle whether the financing works.</p>
+<p>That financing is the third strand of the vise. A Federal Reserve governor describes a buildout increasingly funded by debt, alongside growing long-term leases and other commitments, so companies are making promises to pay that extend well beyond the next model release. Meanwhile the equipment ages: a Brookings conference paper discusses GPUs becoming economically obsolete within three to six years, even though the buildings and power infrastructure remain useful much longer. Jones compares it to underwriting a long-term loan whose repayment depends on equipment earning attractive returns for years, when you have to judge how quickly that equipment loses earning power and what replacing it will cost. If lenders become more selective, exposed builders may struggle to finance their next expansion or refinance old debt. Providers could respond with tighter usage limits, different subscription tiers, or a harder push for profitable customers. Those are possible responses to financial pressure, he stresses, not a forecast that every AI price will rise. The pressure can still reach your workplace through a tool your team depends on, a vendor that changes its terms, or an employer that suddenly wants every AI expense justified.</p>
+<p>The advice section starts with hardware. If your current machine does the job, a discretionary upgrade can wait. If you need a replacement for work, buy for the workload and the years you expect to keep it, because saving on RAM that you cannot later upgrade can become an expensive compromise. Budget devices reveal memory-cost pressure first, since there is so little room to absorb it: manufacturers can raise prices, cut features, or stop selling a model. Jones advises watching what happens to the RAM and storage you get at a given price, and what it costs to move up a tier, because a familiar sticker price can hide a worse deal. Compare refurbished and previous-generation machines with the memory you actually need against new base models, checking battery condition, warranty, and remaining software support. The useful comparison is the cost of a machine that will serve you well for several years, and older inventory is not automatically a bargain.</p>
+<p>For AI tools, his counsel is to use today&#x27;s inexpensive access while keeping your options open. Test routine work on cheaper, faster models, and reserve the frontier model for tasks where its additional reasoning produces a result you can actually distinguish; the right split comes from your work, not a universal percentage. Keep the instructions, source files, and evaluation examples you would need to move an important workflow, and try a second provider before an outage or price change makes the decision for you. Cheap cloud access can be useful even while local hardware is expensive, but neither today&#x27;s price nor today&#x27;s usage allowance is a permanent promise.</p>
+<p>When choosing a vendor or considering an employer, Jones suggests three questions. Can this business work at today&#x27;s compute costs, or does its plan require another dramatic cost decline, continued discounts, or fresh financing before it can cover its bills? What happens if its compute bill rises 30 percent, used as a stress test rather than a prediction: can it improve efficiency, absorb the cost, or charge customers more without losing them? And what would customers still pay for if model access became interchangeable, which points to valuable work the company completes, integrations customers depend on, and results that justify the price?</p>
+<p>Those questions lead to the closing skill he calls AI cost literacy: learning what a completed task actually costs once you include model calls, failed attempts, software, and the human time spent checking the output. His test is to take one recurring workflow, run a representative set of tasks through your current setup and a cheaper alternative, and compare acceptable results, total expense, and review time, recording where the cheaper approach fails and where paying for a stronger model saves enough rework to justify it. When someone then asks whether the AI budget is worth keeping, you can show which work gets done, what it costs, and how to keep doing it if a provider changes the deal, a much stronger position than an impressive demo with no idea what it costs to run.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If memory stays above half the parts cost of a budget phone, do manufacturers keep raising retail prices, quietly cut the RAM and storage offered at familiar prices, or abandon the low end first?</li>
+<li>As lenders weigh buildout debt against GPUs that lose earning power within three to six years, what evidence about provider revenue and usage would keep financing open for the next round of expansion?</li>
+<li>If providers respond to the squeeze with tighter usage limits or new subscription tiers, how soon will employers demand cost-per-task accounting for AI tools, and which teams will be ready with the numbers?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary and episode grounded in the full text of the Nate&#x27;s Substack article &quot;Why the AI Boom Is Raising Laptop and Phone Prices&quot; by Nate B. Jones, supplied in full by the reader as a text export and saved verbatim to transcript.txt in the build directory (2,240 words, including the export&#x27;s surrounding page material); no part of the summary draws on anything outside that supplied text. Canonical URL: https://natesnewsletter.substack.com/p/ai-boom-memory-shortage. The article&#x27;s subtitle is &quot;You don&#x27;t have to use AI to pay for its expansion. Here&#x27;s how to protect your hardware budget, your workflows, and your career.&quot; The export&#x27;s header shows the piece also carries a 15:45 audio version; the written text is the grounding source here. Figures are reported as the article attributes them: Counterpoint Research for the memory share of a low-end smartphone&#x27;s parts cost (about 20 percent a year ago, 54 percent now) and the 20 percent rise in worldwide average smartphone retail prices this year; Epoch AI for the roughly thirteenfold yearly fall in the cost of a given level of AI performance since 2023; TrendForce figures reproduced by TeamGroup for the roughly 5.5-fold rise in a standard 16-gigabit DDR5 chip&#x27;s contract price from October 2025 to September 2026; Berkeley Lab for the median of more than five years from grid-connection request to operation for generation projects reaching operation in 2025; OpenRouter for weekly token usage growing from 0.5 trillion in January 2025 to 128.4 trillion in September 2026; and a Brookings conference paper for GPUs becoming economically obsolete within three to six years.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-11-25.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated November 25, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "nate-b-jones-ai-boom-laptop-phone-prices": "Why the AI Boom Is Raising Laptop and Phone Prices"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+  <script src="../player.js" defer></script>
+</body>
+</html>
