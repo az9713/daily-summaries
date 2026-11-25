@@ -1,6 +1,6 @@
 {
- "total": 946,
- "playable": 933,
+ "total": 947,
+ "playable": 934,
  "episodes": [
   {
    "slug": "nate-b-jones-ai-boom-laptop-phone-prices",
@@ -109,6 +109,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/anastasiintech-elon-musk-broke-every-data-center-rule.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-25.html#anastasiintech-elon-musk-broke-every-data-center-rule",
    "source_url": "https://www.youtube.com/watch?v=5UYzv09kq2E"
+  },
+  {
+   "slug": "aiengineer-lance-martin-1000-claude-agents-fermat",
+   "title": "1,000 Claude Agents Formalized Fermat's Last Theorem — Lance Martin, Anthropic",
+   "channel": "AI Engineer",
+   "date": "2026-11-25",
+   "duration": "3:41",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/aiengineer-lance-martin-1000-claude-agents-fermat.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-25.html#aiengineer-lance-martin-1000-claude-agents-fermat",
+   "source_url": "https://www.youtube.com/watch?v=wrfbI5eyLAI"
   },
   {
    "slug": "mts-gal-nagli-alon-schindel-ai-cyberattacks-wiz",
