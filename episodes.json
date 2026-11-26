@@ -1,6 +1,6 @@
 {
- "total": 953,
- "playable": 940,
+ "total": 954,
+ "playable": 941,
  "episodes": [
   {
    "slug": "mts-generative-brain-models-ucsf",
@@ -37,6 +37,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/sourcery-elad-gil-sell-ai-company-window.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-26.html#sourcery-elad-gil-sell-ai-company-window",
    "source_url": "https://www.youtube.com/watch?v=pvcKnPGCvSg"
+  },
+  {
+   "slug": "aiengineer-jason-liu-execution-is-free",
+   "title": "Execution Is Free. How Ambitious Are You? — Jason Liu, OpenAI",
+   "channel": "AI Engineer",
+   "date": "2026-11-26",
+   "duration": "4:58",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/aiengineer-jason-liu-execution-is-free.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-26.html#aiengineer-jason-liu-execution-is-free",
+   "source_url": "https://www.youtube.com/watch?v=bFcob2p6u3A"
   },
   {
    "slug": "nate-b-jones-ai-boom-laptop-phone-prices",
