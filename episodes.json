@@ -1,7 +1,19 @@
 {
- "total": 950,
- "playable": 937,
+ "total": 951,
+ "playable": 938,
  "episodes": [
+  {
+   "slug": "mts-generative-brain-models-ucsf",
+   "title": "Generative Brain Models Will Arrive in 12 Months | UCSF",
+   "channel": "MTS",
+   "date": "2026-11-26",
+   "duration": "4:21",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-generative-brain-models-ucsf.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-26.html#mts-generative-brain-models-ucsf",
+   "source_url": "https://www.youtube.com/watch?v=131U-mttc0Y"
+  },
   {
    "slug": "nate-b-jones-ai-boom-laptop-phone-prices",
    "title": "Why the AI Boom Is Raising Laptop and Phone Prices",
