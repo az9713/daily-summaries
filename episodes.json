@@ -1,6 +1,6 @@
 {
- "total": 956,
- "playable": 943,
+ "total": 957,
+ "playable": 944,
  "episodes": [
   {
    "slug": "mts-generative-brain-models-ucsf",
@@ -73,6 +73,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/latentspace-jeff-barg-clay-gtm-agents.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-26.html#latentspace-jeff-barg-clay-gtm-agents",
    "source_url": "https://www.youtube.com/watch?v=qjPcaZf_plo"
+  },
+  {
+   "slug": "mts-nathan-labenz-ai-rd-18-months",
+   "title": "AI Will Accelerate AI R&D Within 18 Months | Nathan Labenz",
+   "channel": "MTS",
+   "date": "2026-11-26",
+   "duration": "4:24",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-nathan-labenz-ai-rd-18-months.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-26.html#mts-nathan-labenz-ai-rd-18-months",
+   "source_url": "https://www.youtube.com/watch?v=pqD0K9bjhBs"
   },
   {
    "slug": "nate-b-jones-ai-boom-laptop-phone-prices",
