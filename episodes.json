@@ -1,6 +1,6 @@
 {
- "total": 955,
- "playable": 942,
+ "total": 956,
+ "playable": 943,
  "episodes": [
   {
    "slug": "mts-generative-brain-models-ucsf",
@@ -61,6 +61,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/allin-live-poker-besties-hellmuth-keating-koon.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-26.html#allin-live-poker-besties-hellmuth-keating-koon",
    "source_url": "https://www.youtube.com/watch?v=APTd0tHbtuU"
+  },
+  {
+   "slug": "latentspace-jeff-barg-clay-gtm-agents",
+   "title": "How Clay Builds GTM Agents — Jeff Barg, Head of AI",
+   "channel": "Latent Space",
+   "date": "2026-11-26",
+   "duration": "8:45",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/latentspace-jeff-barg-clay-gtm-agents.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-26.html#latentspace-jeff-barg-clay-gtm-agents",
+   "source_url": "https://www.youtube.com/watch?v=qjPcaZf_plo"
   },
   {
    "slug": "nate-b-jones-ai-boom-laptop-phone-prices",
