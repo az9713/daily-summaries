@@ -1,6 +1,6 @@
 {
- "total": 954,
- "playable": 941,
+ "total": 955,
+ "playable": 942,
  "episodes": [
   {
    "slug": "mts-generative-brain-models-ucsf",
@@ -49,6 +49,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/aiengineer-jason-liu-execution-is-free.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-26.html#aiengineer-jason-liu-execution-is-free",
    "source_url": "https://www.youtube.com/watch?v=bFcob2p6u3A"
+  },
+  {
+   "slug": "allin-live-poker-besties-hellmuth-keating-koon",
+   "title": "Live Poker!: The Besties Take On Phil Hellmuth, Alan Keating & Jason Koon",
+   "channel": "All-In Podcast",
+   "date": "2026-11-26",
+   "duration": "9:55",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/allin-live-poker-besties-hellmuth-keating-koon.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-26.html#allin-live-poker-besties-hellmuth-keating-koon",
+   "source_url": "https://www.youtube.com/watch?v=APTd0tHbtuU"
   },
   {
    "slug": "nate-b-jones-ai-boom-laptop-phone-prices",
