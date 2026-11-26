@@ -1,6 +1,6 @@
 {
- "total": 952,
- "playable": 939,
+ "total": 953,
+ "playable": 940,
  "episodes": [
   {
    "slug": "mts-generative-brain-models-ucsf",
@@ -25,6 +25,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/forbes-mach-5-aviation-hermeus.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-26.html#forbes-mach-5-aviation-hermeus",
    "source_url": "https://www.youtube.com/watch?v=xSopmrpc0mI"
+  },
+  {
+   "slug": "sourcery-elad-gil-sell-ai-company-window",
+   "title": "Elad Gil on Why Most AI Startups Should Consider Selling Now",
+   "channel": "Sourcery with Molly O'Shea",
+   "date": "2026-11-26",
+   "duration": "8:28",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/sourcery-elad-gil-sell-ai-company-window.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-26.html#sourcery-elad-gil-sell-ai-company-window",
+   "source_url": "https://www.youtube.com/watch?v=pvcKnPGCvSg"
   },
   {
    "slug": "nate-b-jones-ai-boom-laptop-phone-prices",
