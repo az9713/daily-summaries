@@ -402,7 +402,7 @@
     <header class="masthead">
       <div>
         <p class="date">Friday &middot; November 27, 2026</p>
-        <h1>3 summaries, distilled.</h1>
+        <h1>4 summaries, distilled.</h1>
       </div>
       <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
     </header>
@@ -411,6 +411,7 @@
         <a class="card" href="#bigthink-brian-greene-limits-of-human-mind"><span class="num">01</span><span><span class="card-title">Physics is approaching the limits of the human mind | Brian Greene: Full Interview</span><span class="card-byline">Big Think</span></span><span class="card-dur">12:58</span><span class="listen-state" data-slug="bigthink-brian-greene-limits-of-human-mind"></span></a>
         <a class="card" href="#natebjones-ai-faster-at-job-you-never-wanted"><span class="num">02</span><span><span class="card-title">Is AI Just Making You Faster At A Job You Never Wanted? 4 Steps To Find A Better Use For It.</span><span class="card-byline">AI News &amp; Strategy Daily | Nate B Jones</span></span><span class="card-dur">5:00</span><span class="listen-state" data-slug="natebjones-ai-faster-at-job-you-never-wanted"></span></a>
         <a class="card" href="#mts-scott-kominers-riemann-hypothesis-centaur"><span class="num">03</span><span><span class="card-title">The Riemann Hypothesis Was Solved by a Human-AI Centaur | Scott Kominers</span><span class="card-byline">MTS</span></span><span class="card-dur">5:49</span><span class="listen-state" data-slug="mts-scott-kominers-riemann-hypothesis-centaur"></span></a>
+        <a class="card" href="#aiengineer-michelle-chen-cloudflare-neolab"><span class="num">04</span><span><span class="card-title">Why Cloudflare Became a Neolab — Michelle Chen, Cloudflare</span><span class="card-byline">AI Engineer</span></span><span class="card-dur">4:22</span><span class="listen-state" data-slug="aiengineer-michelle-chen-cloudflare-neolab"></span></a>
         </div>
       </nav>
     </section>
@@ -555,6 +556,52 @@
       <nav class="article-nav" aria-label="More summaries">
         <a class="prev" href="#natebjones-ai-faster-at-job-you-never-wanted" data-route="article">&larr; AI News &amp; Strategy Daily | Nate B Jones</a>
         <a class="to-index" href="2026-11-27.html" data-route="index">All summaries</a>
+        <a class="next" href="#aiengineer-michelle-chen-cloudflare-neolab" data-route="article">AI Engineer &middot; Why Cloudflare Became a Neolab — Michelle Chen, Cloudflare &rarr;</a>
+      </nav>
+    </section>
+    <section class="article-view" id="aiengineer-michelle-chen-cloudflare-neolab" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-27.html" data-route="index">&larr; November 27, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Why Cloudflare Became a Neolab — Michelle Chen, Cloudflare &mdash; November 27, 2026 <span class="dur">&middot; 4:22</span></p>
+        <audio controls preload="none" src="../podcasts/aiengineer-michelle-chen-cloudflare-neolab.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/aiengineer-michelle-chen-cloudflare-neolab.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="aiengineer-michelle-chen-cloudflare-neolab" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="aiengineer-michelle-chen-cloudflare-neolab"></div>
+        <div class="episode-download"><a href="../podcasts/aiengineer-michelle-chen-cloudflare-neolab.mp3" download>Download aiengineer-michelle-chen-cloudflare-neolab.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>AI Engineer</dd></div>
+        <div><dt>Published</dt><dd>November 27, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=cYcYfM9Mvwo" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">AI Engineer &middot; Michelle Chen on how Cloudflare became a neolab</p>
+        <h2>Why Cloudflare Became a Neolab — Michelle Chen, Cloudflare</h2>
+        <div>
+<p>On AI Engineer, &quot;Why Cloudflare Became a Neolab — Michelle Chen, Cloudflare&quot; is a Code Summit talk by Michelle Chen, a group product manager at Cloudflare who works on products including Workers AI, AI Search, and AI Gateway. She frames the talk with a line from Kierkegaard, that life can only be understood backwards but must be lived forwards, and uses it to trace how a sixteen-year-old content delivery company ended up training its own AI models.</p>
+<p>Looking backwards, Chen starts with the network itself. Cloudflare began in 2010 as a CDN, and instead of centralizing compute in a couple of big regions the way traditional hyperscalers do, it built data centers all around the world, as close to users as possible. Once those machines existed, the company asked what else people could build on them. Workers arrived in 2017 as serverless functions that start in milliseconds and vanish when the code finishes, followed by the more stateful Durable Objects and, in 2025, containers for workloads that need something closer to a virtual machine.</p>
+<p>Storage came next, with KV, the R2 object store, and the D1 database, so developers could build full, stateful applications entirely on Cloudflare. Then 2023 changed the picture. As ChatGPT took off, Cloudflare launched Workers AI and added GPUs across its network, again at the edge rather than in central regions. The bet behind it was that models would get smaller over time, which would make network latency the thing that mattered most.</p>
+<p>The opposite happened. Models grew from the seven-billion-parameter scale that once counted as frontier to trillion-parameter systems, and latency mattered less and less. Chen is candid that the original hypothesis was wrong, and Cloudflare pivoted: in March 2026 it began serving Kimi, followed by GLM and DeepSeek, offering the giant models through a simple API call. With infrastructure, compute, storage, and large models in place, the company settled into an agent cloud story, with agents deployed, powered, and fed with data on Cloudflare. But, as Chen tells it, the story never felt quite right. One piece was still missing.</p>
+<p>The missing piece arrived in September 2026, when a model called Jev introduced what Chen calls system one models. Where a large language model generates tokens autoregressively and can take minutes to reason through a decision, a system one model takes a single forward pass over its inputs and produces an output a program can act on. The two kinds of model are meant to work in tandem, with the small, fast models taking routine work off the large ones. Suddenly Cloudflare&#x27;s original Workers AI hypothesis looked right after all, just early: small, fast models make network latency matter again.</p>
+<p>There was one problem. Jev was closed source, so Cloudflare could not host it. The company built its own version instead. Experiments began on September 18, three days after Jev launched, and after a week of deliberation the team committed on a Friday evening, trained the model over a single weekend, and launched it the following week. The model, called Clef, gives agents a way to make decisions programmatically, without waiting on minutes of language-model reasoning and without waking a human whose sleep schedule would otherwise gate a round-the-clock agent.</p>
+<p>Three weeks later came Cleric, a second new model type that Cloudflare calls an extraction model. Cleric takes unstructured input, an email, a message, a web page, even an image, and returns clean, typed values that software can use directly. In all, Cloudflare shipped four models in three weeks. Chen&#x27;s point is that becoming a neolab removed a dependency: when a capability the platform needs is closed, unavailable, or risky to rely on, Cloudflare can now build it.</p>
+<p>To show what this looks like in practice, Chen demos a coding agent triaging a failed CI build. The conventional setup sends the agent&#x27;s forty available tools back and forth to a large model across repeated calls, dragging the same context along each time. In the system one version, Clef Flash first prunes the tool list from forty down to ten, Cleric extracts the pull request number and then pulls the exact error out of hundreds of lines of logs, and the large model is called once, at the end, to act. In her measured run away from conference Wi-Fi, the workflow finished in 9.2 seconds against 17.2 for the model-only version, cost 72 percent less, and used about 94 percent fewer large-model tokens, one call instead of five.</p>
+<p>Other builders are already using the pair for routing decisions, spam and phishing calls, and extraction from web pages and support tickets, and a fuller Cleric launch is on the way. Chen closes by returning to the forward-looking half of her opening frame: the industry changes too fast for any company to simply defend its first hypothesis, so the real skill is reacting well when the wind shifts. She leaves the room with a Tolstoy line about the present being the only time anyone has power, and a question: what are you going to build today?</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>If system one models take over routine decisions and extraction, how much of a typical agent workload is actually left for large reasoning models, and does that change what the big labs should optimize for?</li>
+<li>Cloudflare trained Clef in a single weekend out of necessity. Can a model built that quickly hold up in production decision-making, and how would anyone verify that it does?</li>
+<li>Chen presents building in-house models as protection against closed-source and regulatory risk. At what point does that insurance become a distraction from the platform business it is meant to protect?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Summary grounded on the video&#x27;s own English ASR caption track, fetched through the Android 20.10.38 player client (the json3 and srv3 requests both returned srv3 XML, so the srv3 file is the grounding artifact). The player-served title, confirmed on both the Android 20.10.38 and iOS 20.10.4 clients, is identical to the channel listing title, so no variant needed disclosing. ASR quirks in the caption track were corrected to published spellings in prose: the track renders the phrase &quot;east wind&quot; once as &quot;East Wing wind,&quot; and renders several product and model names approximately; names and figures in the summary follow the talk as captioned and the published product names.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <a class="prev" href="#mts-scott-kominers-riemann-hypothesis-centaur" data-route="article">&larr; MTS</a>
+        <a class="to-index" href="2026-11-27.html" data-route="index">All summaries</a>
         <span class="spacer"></span>
       </nav>
     </section>
@@ -568,7 +615,8 @@
       const TITLES = {
       "bigthink-brian-greene-limits-of-human-mind": "Physics is approaching the limits of the human mind | Brian Greene: Full Interview",
       "natebjones-ai-faster-at-job-you-never-wanted": "Is AI Just Making You Faster At A Job You Never Wanted? 4 Steps To Find A Better Use For It.",
-      "mts-scott-kominers-riemann-hypothesis-centaur": "The Riemann Hypothesis Was Solved by a Human-AI Centaur | Scott Kominers"
+      "mts-scott-kominers-riemann-hypothesis-centaur": "The Riemann Hypothesis Was Solved by a Human-AI Centaur | Scott Kominers",
+      "aiengineer-michelle-chen-cloudflare-neolab": "Why Cloudflare Became a Neolab — Michelle Chen, Cloudflare"
     };
       const slugs = Object.keys(TITLES);
       const indexView = document.getElementById('index-view');
