@@ -1,6 +1,6 @@
 {
- "total": 964,
- "playable": 951,
+ "total": 965,
+ "playable": 952,
  "episodes": [
   {
    "slug": "bigthink-brian-greene-limits-of-human-mind",
@@ -61,6 +61,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/semidoped-nor-flash-memory-attackers-holy-grail.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-27.html#semidoped-nor-flash-memory-attackers-holy-grail",
    "source_url": "https://www.youtube.com/watch?v=tpCEw6acuIE"
+  },
+  {
+   "slug": "dwarkesh-erdil-kokotajlo-pause-ai-debate",
+   "title": "AI researchers debate whether we need to pause AI now",
+   "channel": "Dwarkesh Patel",
+   "date": "2026-11-27",
+   "duration": "10:20",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/dwarkesh-erdil-kokotajlo-pause-ai-debate.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-27.html#dwarkesh-erdil-kokotajlo-pause-ai-debate",
+   "source_url": "https://www.youtube.com/watch?v=TbKkN1cesTo"
   },
   {
    "slug": "mts-generative-brain-models-ucsf",
