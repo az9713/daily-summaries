@@ -1,6 +1,6 @@
 {
- "total": 960,
- "playable": 947,
+ "total": 961,
+ "playable": 948,
  "episodes": [
   {
    "slug": "bigthink-brian-greene-limits-of-human-mind",
@@ -13,6 +13,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/bigthink-brian-greene-limits-of-human-mind.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-27.html#bigthink-brian-greene-limits-of-human-mind",
    "source_url": "https://www.youtube.com/watch?v=uoj1ezJRUvA"
+  },
+  {
+   "slug": "natebjones-ai-faster-at-job-you-never-wanted",
+   "title": "Is AI Just Making You Faster At A Job You Never Wanted? 4 Steps To Find A Better Use For It.",
+   "channel": "AI News & Strategy Daily | Nate B Jones",
+   "date": "2026-11-27",
+   "duration": "5:00",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/natebjones-ai-faster-at-job-you-never-wanted.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-27.html#natebjones-ai-faster-at-job-you-never-wanted",
+   "source_url": "https://www.youtube.com/watch?v=sVz7k4rlXU8"
   },
   {
    "slug": "mts-generative-brain-models-ucsf",
