@@ -1,6 +1,6 @@
 {
- "total": 961,
- "playable": 948,
+ "total": 962,
+ "playable": 949,
  "episodes": [
   {
    "slug": "bigthink-brian-greene-limits-of-human-mind",
@@ -25,6 +25,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/natebjones-ai-faster-at-job-you-never-wanted.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-27.html#natebjones-ai-faster-at-job-you-never-wanted",
    "source_url": "https://www.youtube.com/watch?v=sVz7k4rlXU8"
+  },
+  {
+   "slug": "mts-scott-kominers-riemann-hypothesis-centaur",
+   "title": "The Riemann Hypothesis Was Solved by a Human-AI Centaur | Scott Kominers",
+   "channel": "MTS",
+   "date": "2026-11-27",
+   "duration": "5:49",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-scott-kominers-riemann-hypothesis-centaur.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-27.html#mts-scott-kominers-riemann-hypothesis-centaur",
+   "source_url": "https://www.youtube.com/watch?v=FDhgaG-pBXs"
   },
   {
    "slug": "mts-generative-brain-models-ucsf",
