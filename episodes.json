@@ -1,6 +1,6 @@
 {
- "total": 965,
- "playable": 952,
+ "total": 966,
+ "playable": 953,
  "episodes": [
   {
    "slug": "bigthink-brian-greene-limits-of-human-mind",
@@ -73,6 +73,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/dwarkesh-erdil-kokotajlo-pause-ai-debate.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-27.html#dwarkesh-erdil-kokotajlo-pause-ai-debate",
    "source_url": "https://www.youtube.com/watch?v=TbKkN1cesTo"
+  },
+  {
+   "slug": "stanford-online-andrew-ng-building-ai-agents",
+   "title": "Andrew Ng on Building AI Agents | Stanford CS329Z Fireside Chat with Andrew Ng & Diyi Yang",
+   "channel": "Stanford Online",
+   "date": "2026-11-27",
+   "duration": "8:58",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/stanford-online-andrew-ng-building-ai-agents.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-27.html#stanford-online-andrew-ng-building-ai-agents",
+   "source_url": "https://www.youtube.com/watch?v=aDHf1r6ZZRA"
   },
   {
    "slug": "mts-generative-brain-models-ucsf",
