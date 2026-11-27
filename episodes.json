@@ -1,6 +1,6 @@
 {
- "total": 962,
- "playable": 949,
+ "total": 963,
+ "playable": 950,
  "episodes": [
   {
    "slug": "bigthink-brian-greene-limits-of-human-mind",
@@ -37,6 +37,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/mts-scott-kominers-riemann-hypothesis-centaur.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-27.html#mts-scott-kominers-riemann-hypothesis-centaur",
    "source_url": "https://www.youtube.com/watch?v=FDhgaG-pBXs"
+  },
+  {
+   "slug": "aiengineer-michelle-chen-cloudflare-neolab",
+   "title": "Why Cloudflare Became a Neolab — Michelle Chen, Cloudflare",
+   "channel": "AI Engineer",
+   "date": "2026-11-27",
+   "duration": "4:22",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/aiengineer-michelle-chen-cloudflare-neolab.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-27.html#aiengineer-michelle-chen-cloudflare-neolab",
+   "source_url": "https://www.youtube.com/watch?v=cYcYfM9Mvwo"
   },
   {
    "slug": "mts-generative-brain-models-ucsf",
