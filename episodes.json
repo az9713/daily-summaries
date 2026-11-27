@@ -1,6 +1,6 @@
 {
- "total": 958,
- "playable": 945,
+ "total": 959,
+ "playable": 946,
  "episodes": [
   {
    "slug": "mts-generative-brain-models-ucsf",
@@ -97,6 +97,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/jonhernandez-tyler-cowen-no-plan-b.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-26.html#jonhernandez-tyler-cowen-no-plan-b",
    "source_url": "https://www.youtube.com/watch?v=luMcHzixR9U"
+  },
+  {
+   "slug": "norgesbank-ruchir-sharma-betting-on-america",
+   "title": "Ruchir Sharma: Why the World Is Betting on America | Podcast | In Good Company",
+   "channel": "Norges Bank Investment Management",
+   "date": "2026-11-26",
+   "duration": "5:46",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/norgesbank-ruchir-sharma-betting-on-america.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-26.html#norgesbank-ruchir-sharma-betting-on-america",
+   "source_url": "https://www.youtube.com/watch?v=k8XXlLFrpeg"
   },
   {
    "slug": "nate-b-jones-ai-boom-laptop-phone-prices",
