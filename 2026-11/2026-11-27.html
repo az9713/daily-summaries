@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="../favicon-color.svg" type="image/svg+xml" />
+  <title>Summaries - November 27, 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f1eb;
+      --ink: #171b19;
+      --muted: #5d645f;
+      --line: #c8c9c3;
+      --line-strong: #8d938e;
+      --signal: #c74a2b;
+      --signal-ink: #8c2d17;
+      --tab-bg: #e5e3dc;
+      --tab-active: #171b19;
+      --tab-active-ink: #f7f5ee;
+      --note-bg: #e9e5da;
+      --focus: #0c6d72;
+      --max: 1040px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #111513;
+        --ink: #edf0eb;
+        --muted: #aeb6af;
+        --line: #343b37;
+        --line-strong: #707a73;
+        --signal: #f07855;
+        --signal-ink: #ff9a7d;
+        --tab-bg: #202622;
+        --tab-active: #edf0eb;
+        --tab-active-ink: #121614;
+        --note-bg: #1d231f;
+        --focus: #62c5c8;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+      padding: 46px 0 30px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .date {
+      margin: 0 0 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 5.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .edition {
+      margin: 0 0 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .tabs-wrap {
+      position: static;
+      padding: 14px 0;
+      background: color-mix(in srgb, var(--paper) 94%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .tab {
+      appearance: none;
+      min-width: 0;
+      min-height: 48px;
+      padding: 9px 12px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--tab-bg);
+      color: var(--ink);
+      font: 500 0.74rem/1.25 "IBM Plex Mono", monospace;
+      cursor: pointer;
+      text-align: left;
+      transition: background 150ms ease, color 150ms ease;
+    }
+
+    .tab .num {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--signal-ink);
+      font-size: 0.67rem;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--tab-active);
+      color: var(--tab-active-ink);
+    }
+
+    .tab[aria-selected="true"] .num { color: var(--signal); }
+
+    .panel {
+      display: none;
+      grid-template-columns: minmax(0, 195px) minmax(0, 1fr);
+      gap: clamp(28px, 7vw, 84px);
+      padding: clamp(42px, 7vw, 78px) 0 72px;
+    }
+
+    .panel.active { display: grid; }
+
+    .meta {
+      align-self: start;
+      position: sticky;
+      top: 92px;
+      padding-top: 5px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .meta dt {
+      margin: 20px 0 2px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .meta dt:first-child { margin-top: 0; }
+    .meta dd { margin: 0; }
+
+    .watch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid currentColor;
+      color: var(--signal-ink);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .watch::after { content: "↗"; font-size: 0.95rem; }
+    .watch + .watch { margin-left: 18px; }
+
+    article { min-width: 0; }
+
+    .topic {
+      margin: 0 0 12px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--signal-ink);
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin: 0 0 30px;
+      font-size: clamp(2rem, 5vw, 3.85rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+      text-wrap: balance;
+    }
+
+    .dek {
+      margin: 0 0 34px;
+      padding: 0 0 30px;
+      border-bottom: 1px solid var(--line-strong);
+      font-size: clamp(1.19rem, 2.4vw, 1.46rem);
+      line-height: 1.46;
+      color: var(--ink);
+    }
+
+    .body-copy p {
+      max-width: 740px;
+      margin: 0 0 1.25em;
+      font-size: clamp(1.03rem, 1.65vw, 1.19rem);
+      line-height: 1.72;
+      hyphens: auto;
+    }
+
+    .body-copy p:first-child::first-letter {
+      float: left;
+      margin: 0.04em 0.09em 0 0;
+      color: var(--signal);
+      font-size: 4.05em;
+      line-height: 0.76;
+      font-weight: 600;
+    }
+
+    .source-note {
+      max-width: 740px;
+      margin: 30px 0 0;
+      padding: 18px 20px;
+      border-top: 2px solid var(--signal);
+      background: var(--note-bg);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-strong);
+      color: var(--muted);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 30px, var(--max)); padding-top: 28px; }
+      .masthead { grid-template-columns: 1fr; gap: 18px; padding-bottom: 22px; }
+      .edition { text-align: left; }
+      .tabs-wrap { margin-inline: -15px; padding: 10px 15px; }
+      .tabs { grid-template-columns: 1fr 1fr; }
+      .tab { min-height: 54px; font-size: 0.7rem; }
+      .panel, .panel.active { grid-template-columns: 1fr; gap: 34px; padding-top: 38px; }
+      .meta { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 18px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+      .meta div { min-width: 0; }
+      .meta dt, .meta dt:first-child { margin: 0 0 2px; }
+      .watch { grid-column: 1 / -1; width: max-content; margin-top: 3px; }
+      h2 { margin-bottom: 22px; }
+      .dek { margin-bottom: 26px; }
+      footer { flex-direction: column; }
+    }
+
+
+    .podcasts {
+      margin: 0 0 26px;
+      padding: 30px 0 34px;
+      border-top: 1px solid var(--line-strong);
+    }
+    .podcasts h3 {
+      margin: 0 0 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--signal-ink);
+    }
+    .podcasts p.lede {
+      margin: 0 0 22px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .episode { margin: 0 0 22px; }
+    .episode:last-of-type { margin-bottom: 18px; }
+    .episode-title {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      font-weight: 600;
+    }
+    .episode-title .dur {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    audio { width: 100%; max-width: 560px; display: block; }
+    .podcast-credit {
+      margin: 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .tab { transition: none; }
+    }
+  
+    /* ---- index / article two-view (redesign 2026-09-22) ---- */
+    .index-view[hidden], .article-view[hidden] { display: none; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 0; padding: 0; }
+    .card { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: var(--tab-bg); border-radius: 10px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+    .card:hover { border-color: var(--line-strong); }
+    .card .num { font-family: "IBM Plex Mono", monospace; color: var(--signal); font-size: .85em; flex: none; padding-top: 2px; }
+    .card-title { font-weight: 600; display: block; line-height: 1.35; }
+    .card-byline { display: block; font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-top: 5px; }
+.card-dur { font-family: "IBM Plex Mono", monospace; font-size: .76em; color: var(--muted); margin-left: auto; flex: none; padding-top: 2px; white-space: nowrap; }
+    .article-bar { padding: 2px 0 20px; font-family: "IBM Plex Mono", monospace; font-size: .88em; }
+    .article-bar a.back { text-decoration: none; color: var(--signal-ink); font-weight: 500; }
+    .article-bar a.back:hover { text-decoration: underline; }
+    .player-top { margin: 8px 0 0; }
+    .player-top .episode-title { font-family: "IBM Plex Mono", monospace; font-size: .86em; margin: 0 0 8px; }
+    /* byline strip: kills the old sticky tab-sidebar .meta (desktop rule) */
+    .article-view .meta { position: static; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; margin: 16px 0 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .78em; line-height: 1.6; color: var(--muted); }
+    .article-view .meta > div { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+    .article-view .meta dt, .article-view .meta dt:first-child { margin: 0; color: var(--muted); font-weight: 500; }
+    .article-view .meta dd { margin: 0; color: var(--ink); }
+    .article-view .meta .watch { margin: 0; }
+    .article-nav { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin: 36px 0 12px; padding-top: 18px; border-top: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: .86em; }
+    .article-nav a { text-decoration: none; }
+    .article-nav a:hover { text-decoration: underline; }
+    .article-nav .prev { text-align: left; }
+    .article-nav .next { text-align: right; }
+    .article-nav .to-index { color: var(--muted); flex: none; }
+    .article-nav .spacer { flex: 1; }
+    
+    .rating {
+      display: flex; align-items: center; gap: 8px; margin-top: 8px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .rating .rate-btn {
+      font: inherit; font-size: 1.1rem; line-height: 1;
+      background: transparent; color: inherit;
+      border: 1px solid var(--line-strong); border-radius: 999px;
+      padding: 6px 14px; cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+    }
+    .rating .rate-btn:hover, .rating .rate-btn:focus-visible { border-color: var(--signal); }
+    .rating .rate-btn.selected {
+      background: var(--signal); border-color: var(--signal); color: #fff;
+    }
+    .rating .rating-label { font-size: 0.85rem; letter-spacing: 0.01em; }
+
+    .card { flex-wrap: wrap; }
+    .listen-state:empty { display: none; }
+    .card .listen-state { flex: 0 0 100%; min-width: 0; }
+    .listen-state-article { margin-top: 8px; }
+    .listen-bar { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .listen-bar > i { display: block; height: 100%; background: var(--signal); }
+    .listen-meta { display: flex; align-items: center; gap: 8px; margin-top: 5px; font-size: 0.8rem; color: var(--muted); }
+    .listen-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 600; line-height: 1.2;
+      padding: 3px 10px; border-radius: 999px; border: 1px solid transparent;
+      cursor: pointer; user-select: none;
+    }
+    .listen-badge.is-done { background: #1e7f34; border-color: #1e7f34; color: #fff; }
+    .listen-badge.is-off { background: transparent; color: var(--muted); border-color: var(--line-strong); font-weight: 500; }
+
+    .episode-download { margin-top: 8px; font-size: 0.85rem; }
+    .episode-download a { color: var(--signal-ink); }
+</style>
+    <link rel="stylesheet" href="../player.css">
+  </head>
+<body>
+  <main class="page">
+    <section class="index-view" id="index-view">
+    <header class="masthead">
+      <div>
+        <p class="date">Friday &middot; November 27, 2026</p>
+        <h1>1 summary, distilled.</h1>
+      </div>
+      <p class="edition">Created by Muse<br />Summaries &middot; remotely from a phone</p>
+    </header>
+      <nav aria-label="Summaries">
+        <div class="cards">
+        <a class="card" href="#bigthink-brian-greene-limits-of-human-mind"><span class="num">01</span><span><span class="card-title">Physics is approaching the limits of the human mind | Brian Greene: Full Interview</span><span class="card-byline">Big Think</span></span><span class="card-dur">12:58</span><span class="listen-state" data-slug="bigthink-brian-greene-limits-of-human-mind"></span></a>
+        </div>
+      </nav>
+    </section>
+
+                        <section class="article-view" id="bigthink-brian-greene-limits-of-human-mind" hidden>
+      <div class="article-bar"><a class="back" href="2026-11-27.html" data-route="index">&larr; November 27, 2026</a></div>
+      <div class="episode player-top">
+        <p class="episode-title">Physics is approaching the limits of the human mind | Brian Greene: Full Interview &mdash; November 27, 2026 <span class="dur">&middot; 12:58</span></p>
+        <audio controls preload="none" src="../podcasts/bigthink-brian-greene-limits-of-human-mind.mp3">
+          Your browser does not support the audio element.
+          <a href="../podcasts/bigthink-brian-greene-limits-of-human-mind.mp3">Download the episode</a>.
+        </audio>
+        <div class="rating" data-slug="bigthink-brian-greene-limits-of-human-mind" role="group" aria-label="Rate this episode"><span class="rating-label">Rate this episode</span><button type="button" class="rate-btn rate-up" data-value="up" aria-label="Rate this episode up" aria-pressed="false">&#128077;</button><button type="button" class="rate-btn rate-down" data-value="down" aria-label="Rate this episode down" aria-pressed="false">&#128078;</button></div>
+        <div class="listen-state listen-state-article" data-slug="bigthink-brian-greene-limits-of-human-mind"></div>
+        <div class="episode-download"><a href="../podcasts/bigthink-brian-greene-limits-of-human-mind.mp3" download>Download bigthink-brian-greene-limits-of-human-mind.mp3</a></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Channel</dt><dd>Big Think</dd></div>
+        <div><dt>Published</dt><dd>November 27, 2026</dd></div>
+        <a class="watch" href="https://www.youtube.com/watch?v=uoj1ezJRUvA" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+      </dl>
+      <article>
+        <p class="topic">Big Think &middot; Brian Greene on black holes, string theory, and the limits of the human mind</p>
+        <h2>Physics is approaching the limits of the human mind | Brian Greene: Full Interview</h2>
+        <div>
+<p>On Big Think, &quot;Physics is approaching the limits of the human mind | Brian Greene: Full Interview&quot; is a two hour solo talk by Brian Greene, the Columbia University physicist and co-founder of the World Science Festival, whose books include The Elegant Universe and Until the End of Time. Speaking alone to the camera, he works through five subjects in turn: the mysteries of black holes, whether string theory is dead, the possibility of extra dimensions of space, free will and consciousness, and whether the laws of physics are invented or discovered. Running underneath all five is the question in the title, whether human minds are nearing the edge of what they can understand about the universe.</p>
+<p>He opens with black holes, and with a correction. The popular image of a black hole as a monster that reaches out and pulls in everything around it is wrong, he says: a black hole and a planet of the same mass exert exactly the same gravitational pull at the same distance. What makes a black hole different is that its mass is concentrated in a far smaller region, so you can get much closer to its center, and past the boundary called the event horizon nothing, not even light, can escape. The idea was already hiding in Einstein&#x27;s equations in 1915. Karl Schwarzschild, serving at the Russian front in the First World War, solved those equations before Einstein himself had, and his solution showed that a star crushed small enough would warp space so deeply that anything falling in could never climb back out. Einstein did not believe it, and wrote papers in the 1930s and 1940s arguing that black holes could never exist in the real world. Direct observation has since settled the matter: they are part of our universe.</p>
+<p>The first deep mystery he takes up is entropy, the measure of disorder that the second law of thermodynamics says always increases. In the 1970s John Wheeler posed a puzzle to his graduate student Jacob Bekenstein: if you throw a hot cup of tea, full of disorder, into a black hole, the disorder seems to vanish from the universe forever, and the second law appears broken. Bekenstein&#x27;s answer was that the entropy is not gone. It stays in the black hole, whose event horizon grows slightly larger as it absorbs the tea, and he showed that a black hole&#x27;s entropy is nothing but the surface area of that horizon, in the right units. That had a strange consequence: anything with entropy must have a temperature, and anything with a temperature glows, so Bekenstein was in effect claiming that black holes glow, a claim he himself hedged on.</p>
+<p>Stephen Hawking took the claim seriously, initially hoping to prove Bekenstein wrong. Instead, after bringing quantum physics into conversation with general relativity, he showed that black holes really do radiate. The picture Greene gives is of particle pairs appearing in the restless quantum fluctuations just outside the horizon: the black hole can tear a pair apart, one partner falling in while the other escapes to space, so energy slowly leaks away. A black hole with the mass of our sun would take some 10 to the 67th power years to evaporate this way, but given long enough it shrinks to nothing.</p>
+<p>That evaporation creates what Greene calls a real problem. Hawking radiation, on Hawking&#x27;s own account, carries no information: gather all of it after the black hole is gone and you could never reconstruct what fell in. Yet the laws of physics insist that information is never destroyed, that knowing the present should in principle let you retrodict the past. One proposed rescue is holography, the idea that as an object crosses the horizon its information is smeared out on the surface, the way a hologram stores a three dimensional image on a thin sheet. If so, the outgoing radiation can carry that information away, and someone who collected every particle the black hole ever emitted could in principle extract even the complete works of Shakespeare from it. Greene is candid that no observation we can imagine will test this directly, because the timescales are trillions of trillions of years, but he argues the question matters anyway: black holes are the heaviest sledgehammer physicists can swing at their own laws, and whether the laws survive the pounding decides whether our understanding is on the right track.</p>
+<p>The second chapter asks whether string theory is dead, and Greene begins by refusing the role of its promoter. He is sometimes held up as the poster boy for the theory, he says, but what he cares about is marching toward truth, and if string theory failed he would drop it in an instant. Its claim on his loyalty is that it resolves a genuine scandal: general relativity, which describes the big things, and quantum mechanics, which describes the small things, are mutually incompatible, and putting their equations together yields infinity as the answer to almost any question. String theory posits that the fundamental ingredients of the world are not pointlike dots but tiny vibrating filaments, open or closed, whose different vibrations are the different particles. Study the quantum mechanics of such a string and, remarkably, general relativity falls out of the mathematics: the theory contains a quantum description of gravity, which is exactly what is needed to understand the center of a black hole or the moment of the big bang. The strings themselves would live at the Planck scale, about 10 to the minus 33 centimeters. Magnify a single atom to the size of the observable universe, Greene says, and a string under the same magnification would be roughly the size of an average tree.</p>
+<p>The experimental column, he admits, is empty where it matters most. As a graduate student in the 1980s he hoped that by now string theory would have made predictions that experiment could confirm or refute. Many pinned their hopes on supersymmetry, the idea that every known particle has a heavier partner: a selectron for the electron, squarks for the quarks. The Large Hadron Collider has found none of them. That is disappointing, Greene says, but it does not rule the theory out, because the mathematics nowhere predicts how massive the partner particles must be; they may simply be heavier than the collider can create. He would be thrilled, he insists, if the theory were ruled out, since that too would be a step toward truth.</p>
+<p>The column of successes, though, is long. Beyond uniting gravity and quantum mechanics in one coherent formalism, string theory let Andrew Strominger and Cumrun Vafa count the microscopic arrangements behind a black hole&#x27;s entropy and land exactly on the value Bekenstein and Hawking had conjectured. The unified picture also turns out to contain, in broad brush strokes, the ingredients particle physicists had won over decades, gauge symmetry, the Higgs mechanism, anomaly cancellation, the generation structure of particles, none of which had to be there. And in pure mathematics, mirror symmetry, an idea Greene named in a 1989 paper with Ronen Plesser, uses string theory to trade a hard question about one shape for an answerable question about a completely different looking shape, giving mathematicians a tool for problems that had stumped them. Holography, born in black hole physics and developed inside string theory by Juan Maldacena and others, is now offering insight into what space itself may be made of.</p>
+<p>So why do critics call the theory dead? Greene says the charge always reduces to one point, that string theory has yet to make a definitive testable prediction confirmed by experiment, and he concedes he has said the same himself in his books and interviews. His difference with the critics is over the standard of judgment. He does not judge an idea only by confirmed predictions: he also weighs whether it advances understanding of deep questions, and on that score string theory has delivered for forty or fifty years. That the field&#x27;s best minds, Edward Witten, Leonard Susskind, Steven Shenker, Tom Banks and many others, remain captivated by its richness after all that time is itself, he suggests, evidence of how deep the structure runs.</p>
+<p>The third chapter turns to extra dimensions. String theory&#x27;s mathematics does not merely allow them; it requires six, or depending on the formulation seven, dimensions beyond the three of everyday experience. The oldest explanation for why we do not see them is that dimensions come in two flavors, large ones like ours and ones curled up so small they escape detection. Greene&#x27;s image is a garden hose seen from far away: it looks like a one dimensional line, but up close its surface has a second, circular dimension wrapped around it. The curled up dimensions would be everywhere, attached to every point of the familiar three, just far too tiny for even our best instruments. A second possibility is that we live on a three dimensional slice, a brane, and that light and nearly all particles are trapped on our slice while other slices sit unseen nearby; only the graviton, the particle of gravity, might travel off it. The idea has a long pedigree: in the early 1900s Kaluza and Klein found that one extra dimension seemed to unify Einstein&#x27;s gravity with Maxwell&#x27;s electromagnetism, though the details failed against observation, and Einstein himself explored it. String theory revived the idea by requiring the dimensions rather than positing them, and Greene&#x27;s own thesis worked out how one such set of dimensions might curl up.</p>
+<p>Greene also draws out two of the stranger consequences his own work has touched. If our universe is a brane moving through an extra circular dimension, a signal sent off the brane and around that dimension could, thanks to relativity, reach a distant alien civilization before a light signal sent directly, and a reply could come back in virtually no time, making a real time conversation across the galaxy conceivable, under two very large ifs. And where Einstein&#x27;s theory forbids the fabric of space from ripping, Greene and his colleagues found that in string theory space can tear and repair itself, its basic shape changing in a topology changing process, with the strings wrapping around the rip and protecting the rest of the universe from catastrophe, all perfectly smooth from the standpoint of physics. He also pauses on why Einstein never found string theory: Einstein was no great fan of quantum mechanics and wanted to move past it rather than marry it to gravity, and in any case new ideas tend to come from young people unburdened by an earlier age&#x27;s intuitions.</p>
+<p>The fourth chapter takes up free will and consciousness, which Greene treats as one question. If consciousness is nothing but the laws of physics emerging through neurological processes, then the feeling of choosing is not an independent force in the world. When he lifts his arm, he says, fond of thinking he chose to, the motion is nothing but electrical signals and contracting muscle fibers, particles obeying physical law at every step, and none of us has the power to intercede in that lawful unfolding. Beneath that sits the hard problem of consciousness: the particles in our heads, electrons, quarks, protons, neutrons, are not believed to have any inner world at all, so how can a large aggregate of them light up with thoughts, sensations and emotions? One proposal, from the philosopher David Chalmers, bites the bullet and suggests that particles may carry a tiny proto-consciousness of their own, which melds together in large aggregates into full experience. Greene&#x27;s own guess is more conservative: consciousness is likely an emergent byproduct of a certain kind of information processing, the way temperature emerges from the average motion of particles, and on that view an artificial system that processed information the way the brain does could in principle have an inner world too. Full disclosure, he adds: he does not think any current AI system is conscious, but he allows the possibility over ten years or a thousand.</p>
+<p>If consciousness is physical, he argues, free will is an illusion, and quantum mechanics offers no escape hatch. Quantum randomness loosens determinism, but we have no power to choose which of the possible outcomes occurs; a coin flip that decides tomorrow is not something your will controls. Greene still lives as if he had free will, and calls it a useful fiction, but he draws practical consequences from letting it go. Regret softens: when something goes wrong he tells himself it is unfortunate that his particles chose left instead of right, since he could not have done otherwise. Credit softens the same way when an equation finally yields. And responsibility survives, properly understood: a person whose particles were part of the causal chain that produced a bad outcome is responsible in that sense, and society should still respond, but to shape future behavior rather than to exact retribution, the way a robot vacuum updates its navigation after bumping the sofa, without anyone supposing the vacuum has free will. He allows that his whole picture could be wrong, that consciousness might be a fundamental field our brains tap into, but he sees no evidence for that, and he prefers to stick with what can be tested, mathematized and confirmed.</p>
+<p>The final chapter asks whether the laws of physics are invented or discovered, and Greene, who as a young physicist assumed physicists were tapping into deep truths of reality, has changed his mind: we invent the laws, and mathematics with them, as a language for summarizing the patterns reality shows us. There is no Platonic realm of perfect triangles somewhere out there, he argues; the universe does have reliable regularities, and the laws we write are our best articulation of them. Those laws have curious qualities. They do not care what we want, they seem to operate universally without exception, and they make no distinction between past and future, treating time symmetrically even though human experience is anything but. The arrow of time, on the best current answer, comes not from the laws but from the universe&#x27;s initial condition: it began in a highly ordered state and has been running down ever since, entropy rising, which is why eggs splatter and never unsplatter. History counsels humility about our current laws: Newton&#x27;s laws were superb for the everyday world and failed at the very small and the very big, and Greene considers it incredibly unlikely that the cutting edge laws of the twenty first century are the final ones. By the twenty fourth or twenty fifth century, he expects, physicists will not be relying on today&#x27;s understanding.</p>
+<p>Mathematics itself, he argues, bears our fingerprints. Counting plausibly began with tallying members of a group on the African savannah, and base ten arithmetic reflects the ten fingers we happen to have. His deeper view is that mathematics grows out of the human propensity for metaphor: symbols like x, y and z are marks on paper that stand for points in the world, and the whole discipline is a systematic metaphorical system we invented, which makes its success at describing the moon&#x27;s orbit and a baseball&#x27;s flight all the more remarkable, and all the more a pale approximation, perhaps, of whatever the true deep understanding would be. Could AI become the tool that goes beyond the limits of an embodied being? Possibly, he says, but today&#x27;s systems are themselves embodied in a sense, trained on the corpus of human information; only if they shed that reliance might they launch somewhere humans never could, an outcome he calls possible, exciting and frightening.</p>
+<p>That brings the talk back to its title. Greene thinks it quite possible that human intelligence has hard limits, the way his own intelligent dog, which can open doors with lever handles, will in all likelihood never understand general relativity. We may work on some problems for five years, a hundred years, a thousand years, and make no progress, and that would simply be a limitation of our biological makeup. Some mysteries already push us into strange places: the quantum measurement problem, in which a particle can be here and there in the mathematics yet is only ever found here or there when measured, led Hugh Everett III in 1957 to take the equations at face value and conclude that both outcomes happen, in different universes, an idea that sounds wild in English but is, Greene says, the most straightforward reading of the mathematics. Other mysteries may have no deeper answer at all: nobody knows why the fundamental particles have the particular masses they do, and perhaps that is just how it is. He closes by resisting the phrase theory of everything. Such a theory would unify the fundamental particles and forces in a single master equation, but it would not explain how the human brain works or what you will have for dinner next Tuesday; the macroscopic world must be described in its own languages, neuroscience for the mind, everyday terms for a baseball in flight. And if we ever meet aliens, their understanding may be radically different from ours, shaped by a different evolutionary history and different senses, so different that no meeting of the minds may be possible. We are, he concludes, a remarkable pattern of particles, sculpted by evolution, made of the same stuff as the planets and the stars, and he finds that connection humbling and gratifying rather than diminishing.</p>
+<h3 class="open-q">Open questions</h3>
+<ol>
+<li>Greene argues that holography could in principle preserve information through a black hole&#x27;s evaporation, yet concedes no imaginable observation could test it on any human timescale. If a claim is in principle checkable but in practice sealed off for trillions of years, what distinguishes it from a claim that is not checkable at all?</li>
+<li>He judges string theory by its successes in unifying ideas and generating mathematics, not only by confirmed predictions, while also insisting he would drop it the moment it failed. What would failure actually look like for a framework whose defenders can always say its particles are too heavy to see and its development is unfinished?</li>
+<li>Greene holds both that free will is an illusion produced by particles obeying physical law and that people should still be held responsible, with punishment aimed at shaping behavior. Does that forward looking account of responsibility quietly smuggle back the agency his physics argument denies, or is it genuinely consistent?</li>
+</ol>
+<p class="source-note"><strong>Source note.</strong> Grounded in the full transcript of the video as shown in the watch page&#x27;s own transcript panel (912 timestamped segments, 0:00 to 2:00:01, including the panel&#x27;s chapter headings), pulled through a live browser and saved verbatim as the grounding artifact. Every other route was closed: all YouTube player clients returned LOGIN_REQUIRED or were unplayable, yt-dlp was bot-walled, the identical episode on Big Think&#x27;s podcast feed is a paid episode, and Big Think&#x27;s own episode page for the interview states that no transcript is available. The title used is the live watch page title, which agrees character for character with the oEmbed title and the title in the mobile web client&#x27;s video details; no full player client served a title, so there is no player-served title for this video and no conflicting variant was seen. The panel text is machine generated and garbles many names: it renders Greene as &quot;Green&quot;, Schwarzschild in several forms including &quot;Schwarzdale&quot; and &quot;Schwarz shield&quot;, Bekenstein in several forms, Hawking once as &quot;Stephven Hawking&quot; and Hawking radiation once as &quot;honking radiation&quot;, Maldacena as &quot;Maldena&quot;, Witten as &quot;Whitten&quot;, Susskind as &quot;Suskin&quot;, Chalmers as &quot;Chalmer&#x27;s&quot;, Schrödinger in two garbled forms, Higgs as &quot;Higs&quot;, Kaluza and Klein in several garbled forms, Strominger as &quot;Stroinger&quot;, Cumrun Vafa as &quot;Kuman Vafa&quot;, and Ronen Plesser as &quot;Ronan Pleser&quot;; published spellings are used in the prose above. The video opens with a short Big Think membership appeal and closes with an appeal for its print magazine; those appeals are not interview content and are not summarized above. This card is dated by the November 27, 2026 commission.</p>
+<p class="credit">Built by Muse: <a href="https://muse.ai">muse.ai</a></p>
+        </div>
+      </article>
+      <nav class="article-nav" aria-label="More summaries">
+        <span class="spacer"></span>
+        <a class="to-index" href="2026-11-27.html" data-route="index">All summaries</a>
+        <span class="spacer"></span>
+      </nav>
+    </section>
+    <footer>
+      <span>Summaries dated November 27, 2026</span>
+      <span>Built by <a href="https://muse.ai" target="_blank" rel="noopener noreferrer">Muse</a> &middot; created remotely from a human&rsquo;s phone</span>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const TITLES = {
+      "bigthink-brian-greene-limits-of-human-mind": "Physics is approaching the limits of the human mind | Brian Greene: Full Interview"
+    };
+      const slugs = Object.keys(TITLES);
+      const indexView = document.getElementById('index-view');
+      const articles = Array.from(document.querySelectorAll('.article-view'));
+      const baseTitle = document.title;
+
+      function route(slug, push) {
+        const target = slug && slugs.includes(slug) ? slug : null;
+        indexView.hidden = !!target;
+        articles.forEach((a) => { a.hidden = a.id !== target; });
+        document.title = target ? TITLES[target] + ' - Summaries' : baseTitle;
+        if (push) {
+          history.pushState({ slug: target }, '', target ? '#' + target : location.pathname);
+        }
+        window.scrollTo(0, 0);
+      }
+
+      document.addEventListener('click', (event) => {
+        const a = event.target.closest('a');
+        if (!a) return;
+        if (a.dataset.route === 'index') {
+          event.preventDefault();
+          route(null, true);
+          return;
+        }
+        const href = a.getAttribute('href') || '';
+        if (href.startsWith('#') && slugs.includes(href.slice(1))) {
+          event.preventDefault();
+          route(href.slice(1), true);
+        }
+      });
+
+      window.addEventListener('popstate', () => route(location.hash.slice(1), false));
+      route(location.hash.slice(1), false);
+    })();
+  </script>
+
+
+<script>
+(function () {
+  function paint(box, val) {
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      var on = b.getAttribute('data-value') === val;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.rating').forEach(function (box) {
+    var key = 'rating:' + box.getAttribute('data-slug');
+    var val = null;
+    try { val = window.localStorage.getItem(key); } catch (e) {}
+    paint(box, val);
+    box.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-value');
+        var next = (val === v) ? null : v;
+        val = next;
+        try {
+          if (next) window.localStorage.setItem(key, next);
+          else window.localStorage.removeItem(key);
+        } catch (e) {}
+        paint(box, val);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var KEY = 'listen:';
+  function load(slug) {
+    try {
+      var raw = window.localStorage.getItem(KEY + slug);
+      if (!raw) return { p: 0, d: 0, done: false, off: false };
+      var o = JSON.parse(raw);
+      return { p: +o.p || 0, d: +o.d || 0, done: !!o.done, off: !!o.off };
+    } catch (e) { return { p: 0, d: 0, done: false, off: false }; }
+  }
+  function save(slug, st) {
+    try { window.localStorage.setItem(KEY + slug, JSON.stringify(st)); } catch (e) {}
+  }
+  function pct(st) {
+    if (!st.d) return 0;
+    return Math.min(100, Math.floor((st.p / st.d) * 100));
+  }
+  function isDone(st) { if (st.off) return false; return st.done || (st.d > 0 && st.p / st.d >= 0.9); }
+
+  var lastRender = {};
+  function render(slug) {
+    var st = load(slug);
+    var done = isDone(st);
+    var started = st.p > 0 || done;
+    var sig = slug + '|' + done + '|' + (done ? 100 : pct(st)) + '|' + started;
+    if (lastRender[slug] === sig) return;
+    lastRender[slug] = sig;
+    document.querySelectorAll('.listen-state[data-slug="' + slug + '"]').forEach(function (box) {
+      var inCard = !box.classList.contains('listen-state-article');
+      if (done) {
+        box.innerHTML = '<span class="listen-badge is-done" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as not listened">\u2713 Listened</span>';
+      } else if (st.p > 0) {
+        box.innerHTML = '<div class="listen-bar" aria-hidden="true"><i style="width:' + pct(st) + '%"></i></div>' +
+          '<div class="listen-meta"><span>Heard ' + pct(st) + '%</span>' +
+          '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span></div>';
+      } else if (!inCard) {
+        box.innerHTML = '<span class="listen-badge is-off" data-listen-toggle role="button" tabindex="0" aria-label="Mark this episode as listened">Mark as listened</span>';
+      } else {
+        box.innerHTML = '';
+      }
+      box.querySelectorAll('[data-listen-toggle]').forEach(function (el) {
+        el.addEventListener('click', function (ev) {
+          ev.preventDefault(); ev.stopPropagation();
+          toggle(slug);
+        });
+        el.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); ev.stopPropagation();
+            toggle(slug);
+          }
+        });
+      });
+    });
+  }
+  function toggle(slug) {
+    var st = load(slug);
+    if (isDone(st)) { st.done = false; st.off = true; }
+    else { st.done = true; st.off = false; }
+    if (st.done && st.d > 0 && st.p < st.d) { /* keep furthest position; badge shows on its own */ }
+    save(slug, st);
+    delete lastRender[slug];
+    render(slug);
+  }
+
+  var slugs = [];
+  document.querySelectorAll('audio[src^="https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/"]').forEach(function (audio) {
+    var slug = audio.getAttribute('src').split('/').pop().replace(/\.mp3$/, '');
+    slugs.push(slug);
+    var resumed = false;
+    audio.addEventListener('loadedmetadata', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) {
+        if (Math.abs((st.d || 0) - audio.duration) > 0.6) { st.d = audio.duration; save(slug, st); }
+      }
+      if (!resumed && st.p > 1 && !isDone(st) && st.d > 0 && st.p < st.d - 5) {
+        try { audio.currentTime = st.p; } catch (e) {}
+      }
+      resumed = true;
+      render(slug);
+    });
+    var lastWrite = 0;
+    audio.addEventListener('timeupdate', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      var now = Date.now();
+      if (now - lastWrite > 2000) { save(slug, st); lastWrite = now; }
+      render(slug);
+    });
+    function flush() {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) st.d = audio.duration;
+      if (audio.currentTime > st.p) st.p = audio.currentTime;
+      if (st.d > 0 && st.p / st.d >= 0.9) { st.done = true; st.off = false; }
+      save(slug, st);
+      render(slug);
+    }
+    audio.addEventListener('pause', flush);
+    audio.addEventListener('ended', function () {
+      var st = load(slug);
+      if (audio.duration && isFinite(audio.duration)) { st.d = audio.duration; st.p = audio.duration; }
+      st.done = true; st.off = false;
+      save(slug, st);
+      render(slug);
+    });
+  });
+  slugs.forEach(render);
+  document.querySelectorAll('.listen-state[data-slug]').forEach(function (box) {
+    render(box.getAttribute('data-slug'));
+  });
+})();
+</script>
+  <script src="../player.js" defer></script>
+</body>
+</html>
