@@ -1,6 +1,6 @@
 {
- "total": 967,
- "playable": 954,
+ "total": 968,
+ "playable": 955,
  "episodes": [
   {
    "slug": "bigthink-brian-greene-limits-of-human-mind",
@@ -97,6 +97,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/moneymacro-china-next-japan.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-27.html#moneymacro-china-next-japan",
    "source_url": "https://www.youtube.com/watch?v=VMRX0lGeSTQ"
+  },
+  {
+   "slug": "stanfordengineering-future-of-vaccines",
+   "title": "Best of: The future of vaccines",
+   "channel": "Stanford Engineering",
+   "date": "2026-11-27",
+   "duration": "5:08",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/stanfordengineering-future-of-vaccines.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-27.html#stanfordengineering-future-of-vaccines",
+   "source_url": "https://www.youtube.com/watch?v=hn15zLwoTLo"
   },
   {
    "slug": "mts-generative-brain-models-ucsf",
