@@ -1,6 +1,6 @@
 {
- "total": 968,
- "playable": 955,
+ "total": 969,
+ "playable": 956,
  "episodes": [
   {
    "slug": "bigthink-brian-greene-limits-of-human-mind",
@@ -109,6 +109,18 @@
    "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/stanfordengineering-future-of-vaccines.mp3",
    "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-27.html#stanfordengineering-future-of-vaccines",
    "source_url": "https://www.youtube.com/watch?v=hn15zLwoTLo"
+  },
+  {
+   "slug": "worldsciencefestival-ai-summits-mount-everest-of-math",
+   "title": "AI Summits The Mount Everest Of Math | World Science Festival",
+   "channel": "World Science Festival",
+   "date": "2026-11-27",
+   "duration": "6:20",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/worldsciencefestival-ai-summits-mount-everest-of-math.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-27.html#worldsciencefestival-ai-summits-mount-everest-of-math",
+   "source_url": "https://www.youtube.com/watch?v=VHsi0G2g4GY"
   },
   {
    "slug": "mts-generative-brain-models-ucsf",
