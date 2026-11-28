@@ -1,7 +1,19 @@
 {
- "total": 969,
- "playable": 956,
+ "total": 970,
+ "playable": 957,
  "episodes": [
+  {
+   "slug": "willphillips-24h-inside-ai-research-lab-world-models",
+   "title": "24h Inside a $5.3B AI Research Lab Building World Models for the Robotics Industry",
+   "channel": "Will Phillips",
+   "date": "2026-11-28",
+   "duration": "5:36",
+   "duration_s": null,
+   "hasAudio": true,
+   "audio_url": "https://pub-1840f0208a47452d84fb4970a9a11850.r2.dev/willphillips-24h-inside-ai-research-lab-world-models.mp3",
+   "summary_url": "https://az9713.github.io/daily-summaries/2026-11/2026-11-28.html#willphillips-24h-inside-ai-research-lab-world-models",
+   "source_url": "https://www.youtube.com/watch?v=X9ey-uRWmu8"
+  },
   {
    "slug": "bigthink-brian-greene-limits-of-human-mind",
    "title": "Physics is approaching the limits of the human mind | Brian Greene: Full Interview",
